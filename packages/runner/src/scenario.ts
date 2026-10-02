@@ -30,6 +30,7 @@ import {
 import type { PublicStateEvidence } from "./navigation.ts";
 import { collectNetwork, partitionNetwork } from "./network.ts";
 import { readServerEvidence } from "./server-evidence.ts";
+import { attachChildTargets, emulateProfile } from "./targets.ts";
 
 function expectedChoice(scenario: ScenarioConfig) {
   if (scenario.action === "accept") {
@@ -284,15 +285,11 @@ export function runSample(options: {
         url.searchParams.set("scripts", String(scenario.workload.scriptCount));
         url.searchParams.set("token", sampleId);
         const network = await collectNetwork(page, url.href);
-        await network.session.send("Emulation.setCPUThrottlingRate", {
-          rate: profile.cpuSlowdown,
-        });
-        await network.session.send("Network.emulateNetworkConditions", {
-          downloadThroughput: profile.network.downloadBytesPerSecond,
-          latency: profile.network.latencyMs,
-          offline: false,
-          uploadThroughput: profile.network.uploadBytesPerSecond,
-        });
+        const unthrottledTargets = await emulateProfile(
+          network.session,
+          await attachChildTargets(network.session),
+          profile
+        );
         const documentEvidence = await captureDocuments(
           network.session,
           "__cookiebenchCapture"
@@ -1024,6 +1021,7 @@ export function runSample(options: {
             deviceEmulation: {
               hasTouch: profile.hasTouch ?? false,
               isMobile: profile.isMobile,
+              unthrottledTargets,
               userAgent: await page.evaluate(() => navigator.userAgent),
             },
             documentEvidence,

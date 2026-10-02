@@ -34,6 +34,7 @@ import { captureDocuments, installNavigationCapture } from "./navigation.ts";
 import { collectNetwork } from "./network.ts";
 import { seededOrder } from "./order.ts";
 import { hashCollectorSource } from "./provenance.ts";
+import { attachChildTargets, emulateProfile } from "./targets.ts";
 
 const require = createRequire(import.meta.url);
 const METHODS = {
@@ -184,15 +185,11 @@ const auditSample = Effect.fn("instrumentation.auditSample")(
       page.on("pageerror", (error) => errors.push(error.message));
       const session = await context.newCDPSession(page);
       await session.send("Network.enable");
-      await session.send("Emulation.setCPUThrottlingRate", {
-        rate: config.profile.cpuSlowdown,
-      });
-      await session.send("Network.emulateNetworkConditions", {
-        downloadThroughput: config.profile.network.downloadBytesPerSecond,
-        latency: config.profile.network.latencyMs,
-        offline: false,
-        uploadThroughput: config.profile.network.uploadBytesPerSecond,
-      });
+      await emulateProfile(
+        session,
+        await attachChildTargets(session),
+        config.profile
+      );
       await session.send("Performance.enable", { timeDomain: "threadTicks" });
       const url = new URL(fixture.url);
       url.searchParams.set("scripts", String(scenario.workload.scriptCount));
