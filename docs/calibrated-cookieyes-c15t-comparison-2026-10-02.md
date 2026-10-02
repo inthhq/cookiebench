@@ -1,3 +1,5 @@
+Raw run artifacts are not stored in this repository. The `artifacts/` paths below name files from the original runs and cannot be checked from this checkout.
+
 CookieYes added less LCP delay. c15t's banner appeared 105 ms earlier.
 
 Chrome mid-tier calibration selected **2.83×** slowdown. Validation passed before and after measurement. Mobile network settings remained 1.6 Mbps and 150 ms latency.
@@ -23,4 +25,4 @@ Missing initial transfer bytes left 20 c15t attempts and one CookieYes Reject in
 
 Historically, fixed-4× added LCP was 428/196 ms and banner visibility 1,475/1,570 ms for c15t/CookieYes. Results are similar; changed calibration and collector identities prevent cross-run ranking or CPU-only attribution.
 
-[Structured results](../artifacts/calibrated-cookieyes-c15t-2026-10-02/reports/independent-summary.json), [final audit](../artifacts/calibrated-cookieyes-c15t-2026-10-02/reports/final-review.json), [raw evidence](../artifacts/calibrated-cookieyes-c15t-2026-10-02/). Frozen source, build, configuration and browser checks passed.
+Structured results (`artifacts/calibrated-cookieyes-c15t-2026-10-02/reports/independent-summary.json`), final audit (`artifacts/calibrated-cookieyes-c15t-2026-10-02/reports/final-review.json`), raw evidence (`artifacts/calibrated-cookieyes-c15t-2026-10-02/`). Frozen source, build, configuration and browser checks passed.

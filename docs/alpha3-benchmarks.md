@@ -1,5 +1,7 @@
 # c15t alpha.3 benchmark results
 
+Raw run artifacts are not stored in this repository. The `artifacts/` paths below name files from the original runs and cannot be checked from this checkout.
+
 Report snapshot generated at 2026-09-29T14:15:50.602Z.
 
 Completed plan entries: 32/32. Completed repeated-load cohorts: 16/16. Completed flow cohorts: 16/16. The retained envelopes contain 1292 measured top-level attempts: 1082 passed, 15 failed and 195 incomplete. All 32 planned entries have completed.
@@ -22,7 +24,7 @@ The artifact-local headless configuration adds a no-CMP control copied from the 
 
 Absolute summaries use passed attempts with observed values. Paired differences are the median of candidate-minus-baseline values within matched pairs. A 95% percentile-bootstrap interval uses 2,000 resamples and requires at least 30 successful pairs. A numerical interval does not override failed attempts, missing metrics or other eligibility failures. Missing measurements are not zero.
 
-[Machine-readable summaries](../artifacts/c15t-alpha3-benchmarks-2026-09-29/report-summary.json) preserve metric statuses, missing reasons, all failure records, sample IDs and envelope hashes. [Batch evidence](../artifacts/c15t-alpha3-benchmarks-2026-09-29/) retains commands and immutable attempts.
+Machine-readable summaries (`artifacts/c15t-alpha3-benchmarks-2026-09-29/report-summary.json`) preserve metric statuses, missing reasons, all failure records, sample IDs and envelope hashes. Batch evidence (`artifacts/c15t-alpha3-benchmarks-2026-09-29/`) retains commands and immutable attempts.
 
 ## Fresh-load LCP
 
@@ -354,8 +356,8 @@ The September 27 corrected cohorts used a pinned alpha.2 source build. The earli
 
 ## Evidence review and storage
 
-The [independent reconciliation](../artifacts/c15t-alpha3-benchmarks-2026-09-29/independent-final-review.json) passed with no mismatches across 32 envelopes, 1,292 samples, 44,660 measurements, 320 command logs, 96 paired comparisons and 73 bootstrap intervals. It also checked 10,928 network aggregates, 3,924 bounded paint observations, 384 action endpoints and 90 retained nested followup probes.
+The independent reconciliation (`artifacts/c15t-alpha3-benchmarks-2026-09-29/independent-final-review.json`) passed with no mismatches across 32 envelopes, 1,292 samples, 44,660 measurements, 320 command logs, 96 paired comparisons and 73 bootstrap intervals. It also checked 10,928 network aggregates, 3,924 bounded paint observations, 384 action endpoints and 90 retained nested followup probes.
 
-The [postflight check](../artifacts/c15t-alpha3-benchmarks-2026-09-29/postflight-2026-09-29T12-08-41.345Z.json) confirmed the frozen inputs and collector remained unchanged.
+The postflight check (`artifacts/c15t-alpha3-benchmarks-2026-09-29/postflight-2026-09-29T12-08-41.345Z.json`) confirmed the frozen inputs and collector remained unchanged.
 
-The [database verification](../artifacts/c15t-alpha3-benchmarks-2026-09-29/database-review-001/verification.json) confirms append-only ingestion of 32 new runs, 1,292 samples, 44,660 measurements and 182 capability checks. All 32 identical ingestion retries added nothing. The 97 preexisting runs and all prior rows across 12 checked tables remained unchanged. Stored sample statuses remain 1,082 passed, 15 failed and 195 incomplete.
+The database verification (`artifacts/c15t-alpha3-benchmarks-2026-09-29/database-review-001/verification.json`) confirms append-only ingestion of 32 new runs, 1,292 samples, 44,660 measurements and 182 capability checks. All 32 identical ingestion retries added nothing. The 97 preexisting runs and all prior rows across 12 checked tables remained unchanged. Stored sample statuses remain 1,082 passed, 15 failed and 195 incomplete.

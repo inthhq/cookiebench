@@ -1,10 +1,12 @@
 # V3 one-attempt action evidence
 
+Raw run artifacts are not stored in this repository. The `artifacts/` paths below name files from the original runs and cannot be checked from this checkout.
+
 Historical evidence: [the browser measurement audit](audit-vitals-actions.md) confirmed that stale animation-frame timestamps can understate these action durations or make them unavailable. Event attribution can also miss a reportable keyup or click. Preserve these rows for diagnosis; use fresh runs of the corrected collector for performance claims. Original pass labels below describe the old scenario checks.
 
 Each row retains one candidate attempt, with a separate nested browser attempt for the page followup. Values are milliseconds, without baseline subtraction or percentile claims. Effective consent and dismissal are primary-attempt durations from the actual input timestamp. The followup Event Timing value and page-handler delay belong to the nested attempt, not the primary one. The handler delay is the recorded page callback timestamp minus its captured page-input timestamp; it is not a paint metric.
 
-`unavailable` stays missing. Event Timing values below 16 ms may be censored; missing values must not become zero. All measured zeroes are retained. Failed rows may still contain observed durations, which do not make the overall scenario successful. Raw sample IDs, reasons, measurement methods, and failures are in the [selected machine-readable summary](../artifacts/v3-2026-09-27-body-correction/report-final/summary.json).
+`unavailable` stays missing. Event Timing values below 16 ms may be censored; missing values must not become zero. All measured zeroes are retained. Failed rows may still contain observed durations, which do not make the overall scenario successful. Raw sample IDs, reasons, measurement methods, and failures are in the selected machine-readable summary (`artifacts/v3-2026-09-27-body-correction/report-final/summary.json`).
 
 | Fixture | Scenario | Probe offset | Status | Primary next paint | Effective | Dismissed | Followup next paint | Page handler delay |
 | --- | --- | --: | --- | --: | --: | --: | --: | --: |

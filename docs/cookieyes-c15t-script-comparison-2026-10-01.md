@@ -1,5 +1,7 @@
 # CookieYes and c15t script comparison
 
+Raw run artifacts are not stored in this repository. The `artifacts/` paths below name files from the original runs and cannot be checked from this checkout.
+
 Results were mixed. c15t had lower desktop LCP and earlier banners. CookieYes had lower emulated-mobile LCP.
 
 Compared self-hosted `@c15t/browser@3.0.0-alpha.3` with a 150 ms backend delay against CookieYes's public CDN, ID `f66d6dffd4f9c8178517db8d4aeddcaa`.
@@ -20,4 +22,4 @@ Each fixture/profile has 30 loads; baseline LCP was 84/2860 ms desktop/mobile. A
 
 The article ran locally. CookieYes used a blocking head script and callback gating; c15t used a body script. Mobile emulation and host CPU contention limit timing conclusions. CookieYes granular save and withdrawal remain unverified.
 
-[Structured evidence](../artifacts/comparison-cookieyes-c15t-2026-10-01/reports/independent-summary.json) retains identities, failures, censored timing denominators and eligibility. CookieYes encoded JavaScript size was unavailable.
+Structured evidence (`artifacts/comparison-cookieyes-c15t-2026-10-01/reports/independent-summary.json`) retains identities, failures, censored timing denominators and eligibility. CookieYes encoded JavaScript size was unavailable.

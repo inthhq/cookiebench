@@ -1,5 +1,7 @@
 # Fixture realism audit
 
+Raw run artifacts are not stored in this repository. The `artifacts/` paths below name files from the original runs and cannot be checked from this checkout.
+
 The September 27 desktop results measure a small local article under a fast desktop profile. They can describe that fixture's behavior, but zero LCP difference does not establish zero loading cost. This audit reviews the fixture sources and frozen consumer `27d9072a1a2dc6bc1310b7c94173f736c3545a1d865af0ed5a36a95f6ff27554`. It does not change existing run envelopes or upstream c15t archives.
 
 ## Findings in the historical minimal fixtures
@@ -74,8 +76,8 @@ The new desktop/mobile validation uses a declared five-second navigation-to-obse
 
 ## Startup verification
 
-[Initial production startup evidence](../artifacts/v3-measurement-audit/startup-final/index.json) records ten browser visits across five built fixtures and their baselines. Every baseline omitted the bootstrap. Each candidate included exactly one at the declared source position, reached public readiness with no explicit choice and no optional grants, and loaded the shared page module/catalog once. All ten visits rendered the 1200-pixel image, initialized the reading list, and produced no page error. The selected LCP element was `IMG#primary-content` in every visit, including OneTrust. These visits used manually assembled proxy commands, which missed a defect in the package start scripts. The measurement matrix exposed that defect; the consolidated audit records its correction and verification through the actual configured commands.
+Initial production startup evidence (`artifacts/v3-measurement-audit/startup-final/index.json`) records ten browser visits across five built fixtures and their baselines. Every baseline omitted the bootstrap. Each candidate included exactly one at the declared source position, reached public readiness with no explicit choice and no optional grants, and loaded the shared page module/catalog once. All ten visits rendered the 1200-pixel image, initialized the reading list, and produced no page error. The selected LCP element was `IMG#primary-content` in every visit, including OneTrust. These visits used manually assembled proxy commands, which missed a defect in the package start scripts. The measurement matrix exposed that defect; the consolidated audit records its correction and verification through the actual configured commands.
 
-The evidence includes raw HTTP documents, response headers, screenshots, and server logs. Candidate responses omitted the original Content-Length and ETag after transformation. Both documents used identity HTML. [Checked assertions](../artifacts/v3-measurement-audit/startup-final/checks.json) record these outcomes. The earlier startup probe remains alongside the final one and documents the intermediate version with a redundant client import that the final fixture removes.
+The evidence includes raw HTTP documents, response headers, screenshots, and server logs. Candidate responses omitted the original Content-Length and ETag after transformation. Both documents used identity HTML. Checked assertions (`artifacts/v3-measurement-audit/startup-final/checks.json`) record these outcomes. The earlier startup probe remains alongside the final one and documents the intermediate version with a redundant client import that the final fixture removes.
 
 Focused fixture tests cover PNG identity and dimensions, compressed response parity, idempotent page installation, and stream injection at every split position, including non-BMP text. Broader consent flows and timed measurements belong to the separate [validation plan](measurement-validation-plan.md).

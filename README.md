@@ -8,6 +8,8 @@ The [measurement correctness audit](docs/measurement-audit.md) documents collect
 
 Read the [60-second report](docs/cmp-comparison-2026-09-30.md) for key c15t results, or the [full comparison](docs/cmp-comparison-2026-09-30-details.md) for every framework, competitor and failure. The [earlier alpha.3 report](docs/alpha3-benchmarks.md) remains separate historical evidence.
 
+Raw run artifacts are not stored in this repository. `artifacts/` is gitignored, and no run envelopes, logs or summaries are committed. Reports cite those files by their `artifacts/` path, so the cited evidence cannot be checked from this checkout. To check a result, rerun its configuration.
+
 ## Local setup
 
 Use Node 24 and the pnpm version pinned in `package.json`.
