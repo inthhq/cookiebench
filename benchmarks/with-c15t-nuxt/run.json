@@ -20,7 +20,7 @@
         "withdraw": "[data-testid=\"consent-widget-footer-reject-button\"], [data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "771f7b03650f35cf4924d3e89925368a93dc35005de4cc5b74690fa3a2b5370e",
+      "configurationHash": "a92a15bb848a8a2d2a2986647ebc4a492c68322c8403f9aa647802b3722878a3",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -74,7 +74,7 @@
         "withdraw": "[data-testid=\"consent-widget-footer-reject-button\"], [data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "ff4c9c301479cf7745230c01b86c5b3bc68022a794b33711717963a268a03e95",
+      "configurationHash": "c7c9c94fafc9fce5833892dd05a20b3c5b8fc9f911cdd4d66a3480389bd2383a",
       "deployment": {
         "assets": "local",
         "backend": "controlled-local"
