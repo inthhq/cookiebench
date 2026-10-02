@@ -235,6 +235,7 @@ export const METRIC_UNITS: Readonly<Record<string, MetricUnit>> = {
   "initial.requests": "count",
   "initial.third-party-requests": "count",
   "initial.transfer": "bytes",
+  "observation.callback-time": "ms",
   "observation.callbacks": "count",
   "observation.frame-interval": "ms",
   "page.cls": "score",

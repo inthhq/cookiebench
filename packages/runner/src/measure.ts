@@ -342,6 +342,12 @@ export function measurementsFor(
     data.observerCallbacks,
     "bounded animation-frame callback count"
   );
+  add(
+    "observation.callback-time",
+    "ms",
+    data.observerTimeMs,
+    "summed performance.now duration of observer animation-frame and DOM mutation callbacks; includes style and layout they force; collector cost diagnostic"
+  );
   const requirements: Record<string, string> = {
     "action.followup-input-to-next-paint": "event",
     "action.input-to-next-paint": "event",

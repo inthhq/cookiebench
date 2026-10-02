@@ -78,6 +78,8 @@ export interface BrowserObservations {
   deadlineAt?: number;
   frameIntervals: number[];
   observerCallbacks: number;
+  /** Summed wall time inside the observer's own frame and mutation callbacks. */
+  observerTimeMs?: number;
 }
 export interface ObserverConfig {
   banner: string;
@@ -146,27 +148,97 @@ export function installObserver(config: ObserverConfig) {
     inputs: [],
     longTasks: [],
     observerCallbacks: 0,
+    observerTimeMs: 0,
     stateHistory: [],
     supported: [...PerformanceObserver.supportedEntryTypes],
     vitals: {},
   };
-  const query = (selector: string): Element | null => {
-    const search = (root: Document | ShadowRoot): Element | null => {
-      const direct = root.querySelector(selector);
-      if (direct) {
-        return direct;
+  // Selector results stay valid until a DOM mutation, so idle frames repeat no query.
+  // Observed selectors must depend on structure and attributes, not interaction state.
+  let dirty = true;
+  const watchOptions = { attributes: true, childList: true, subtree: true };
+  const domWatch =
+    typeof MutationObserver === "function"
+      ? new MutationObserver(() => {
+          const started = performance.now();
+          // One record is enough to invalidate; reconnect at the next query.
+          dirty = true;
+          domWatch?.disconnect();
+          observations.observerTimeMs =
+            (observations.observerTimeMs ?? 0) + performance.now() - started;
+        })
+      : undefined;
+  // Open shadow roots are registered by attachShadow and by whole-document walks at
+  // install and readiness changes, which cover parser-created declarative roots.
+  const shadowRoots = new Set<ShadowRoot>();
+  const register = (root: ShadowRoot) => {
+    shadowRoots.add(root);
+    domWatch?.observe(root, watchOptions);
+    dirty = true;
+  };
+  const discover = (root: Document | ShadowRoot) => {
+    for (const element of root.querySelectorAll("*")) {
+      if (element.shadowRoot && !shadowRoots.has(element.shadowRoot)) {
+        register(element.shadowRoot);
+        discover(element.shadowRoot);
       }
-      for (const element of root.querySelectorAll("*")) {
-        if (element.shadowRoot) {
-          const found = search(element.shadowRoot);
-          if (found) {
-            return found;
-          }
+    }
+  };
+  const discoverDocument = () => {
+    const started = performance.now();
+    discover(document);
+    observations.observerTimeMs =
+      (observations.observerTimeMs ?? 0) + performance.now() - started;
+  };
+  discoverDocument();
+  document.addEventListener("readystatechange", discoverDocument);
+  if (typeof Element === "function") {
+    const { attachShadow: nativeAttachShadow } = Element.prototype;
+    // A shadow root attached to a connected host produces no light-DOM mutation record.
+    // oxlint-disable-next-line no-extend-native -- Transparent wrapper; closed roots stay untraversed.
+    Element.prototype.attachShadow = function attachShadow(
+      this: Element,
+      init: ShadowRootInit
+    ) {
+      const root = nativeAttachShadow.call(this, init);
+      if (this.shadowRoot === root) {
+        register(root);
+      }
+      return root;
+    };
+  }
+  const cached = new Map<string, Element | null>();
+  const cachedAll = new Map<string, Element[]>();
+  const refresh = () => {
+    if (!dirty) {
+      return;
+    }
+    cached.clear();
+    cachedAll.clear();
+    dirty = !domWatch;
+    domWatch?.observe(document, watchOptions);
+    for (const root of shadowRoots) {
+      domWatch?.observe(root, watchOptions);
+    }
+  };
+  const roots = (): (Document | ShadowRoot)[] => [
+    document,
+    ...[...shadowRoots].filter((root) => root.host.isConnected),
+  ];
+  const query = (selector: string): Element | null => {
+    refresh();
+    let found = cached.get(selector);
+    if (found === undefined) {
+      found = null;
+      for (const root of roots()) {
+        found = root.querySelector(selector);
+        if (found) {
+          break;
         }
       }
-      return null;
-    };
-    return search(document);
+      cached.set(selector, found);
+    }
+    return found;
   };
   const visible = (element: Element | null, ignoreOpacity = false): boolean => {
     if (!element || !element.isConnected) {
@@ -201,16 +273,14 @@ export function installObserver(config: ObserverConfig) {
     );
   };
   const queryAll = (selector: string): Element[] => {
-    const elements: Element[] = [];
-    const visit = (root: Document | ShadowRoot) => {
-      elements.push(...root.querySelectorAll(selector));
-      for (const element of root.querySelectorAll("*")) {
-        if (element.shadowRoot) {
-          visit(element.shadowRoot);
-        }
-      }
-    };
-    visit(document);
+    refresh();
+    let elements = cachedAll.get(selector);
+    if (!elements) {
+      elements = roots().flatMap((root) => [
+        ...root.querySelectorAll(selector),
+      ]);
+      cachedAll.set(selector, elements);
+    }
     return elements;
   };
   const blocking = (element: Element | null): boolean =>
@@ -644,17 +714,25 @@ export function installObserver(config: ObserverConfig) {
       observations.frameIntervals.push(frameAt - lastFrame);
     }
     lastFrame = frameAt;
-    const declaredReady =
-      config.readinessSource === "public-state"
+    if (
+      observations.readyAt === undefined &&
+      (config.readinessSource === "public-state"
         ? (window as unknown as Record<string, FixtureState | undefined>)[
             config.stateGlobal
           ]?.ready === true
-        : Boolean(config.ready && query(config.ready));
-    if (observations.readyAt === undefined && declaredReady) {
+        : Boolean(config.ready && query(config.ready)))
+    ) {
       observations.readyAt = at;
       observations.readinessSource = config.readinessSource ?? "selector";
     }
-    const banner = query(config.banner);
+    // Banner layout is read only until it appears and while a timed dismissal is pending.
+    const awaitingDismissal =
+      observations.input !== undefined &&
+      observations.dismissedAt === undefined;
+    const banner =
+      observations.visibleAt === undefined || awaitingDismissal
+        ? query(config.banner)
+        : null;
     if (banner && visible(banner)) {
       if (observations.visibleAt === undefined) {
         observations.visibleAt = at;
@@ -671,8 +749,7 @@ export function installObserver(config: ObserverConfig) {
           (innerWidth * innerHeight);
       }
     } else if (
-      observations.input &&
-      observations.dismissedAt === undefined &&
+      awaitingDismissal &&
       !(config.overlay && queryAll(config.overlay).some(blocking)) &&
       !(
         ["save", "withdraw"].includes(armedAction ?? "") &&
@@ -768,6 +845,8 @@ export function installObserver(config: ObserverConfig) {
         observations.remotePersistedAt = state.remotePersistedAt;
       }
     }
+    observations.observerTimeMs =
+      (observations.observerTimeMs ?? 0) + performance.now() - at;
     if (performance.now() <= config.maxDurationMs) {
       requestAnimationFrame(tick);
     } else {

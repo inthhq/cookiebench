@@ -233,3 +233,41 @@ test("a paint presented before cutoff but queued after it still counts", async (
   expect(data.lcpAttribution?.id).toBe("late");
   expect(data.vitals.LCP?.value).toBeLessThanOrEqual(deadline);
 });
+
+test("cached selector queries still see a banner in a shadow root attached later", async ({
+  page,
+}) => {
+  await page.setContent('<div id="host"></div><main>Article</main>');
+  await page.evaluate(installObserver, {
+    banner: "#banner",
+    categories: [],
+    maxDurationMs: 30_000,
+    stateGlobal: "__cookiebench",
+  });
+  // Let idle frames cache the missing banner before the host gains a shadow root.
+  await page.evaluate(
+    () =>
+      new Promise((resolve) => {
+        requestAnimationFrame(() => requestAnimationFrame(resolve));
+      })
+  );
+  expect(
+    await page.evaluate(() => window.__bench.observations.visibleAt)
+  ).toBeUndefined();
+  await page.evaluate(() => {
+    const root = document
+      .querySelector("#host")
+      ?.attachShadow({ mode: "open" });
+    setTimeout(() => {
+      const banner = document.createElement("div");
+      banner.id = "banner";
+      banner.textContent = "Consent";
+      root?.append(banner);
+    }, 50);
+  });
+  await page.waitForFunction(
+    () => window.__bench.observations.visibleAt !== undefined,
+    undefined,
+    { timeout: 2000 }
+  );
+});

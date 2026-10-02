@@ -8,9 +8,17 @@ import { interactionDuration, longTaskBlocking } from "../src/measure.ts";
 afterEach(() => vi.unstubAllGlobals());
 
 function observerHarness(
-  options: { supported?: string[]; deadline?: number } = {}
+  options: {
+    supported?: string[];
+    deadline?: number;
+    mutationObserver?: boolean;
+    banner?: boolean;
+  } = {}
 ) {
   let now = 80;
+  let mutate: (() => void) | undefined;
+  const queries = { count: 0 };
+  const styleReads = { count: 0 };
   let frame: FrameRequestCallback | undefined;
   const listeners = new Map<string, EventListener>();
   const queues = new Map<string, PerformanceEntry[]>();
@@ -40,7 +48,22 @@ function observerHarness(
   vi.stubGlobal("ShadowRoot", class {});
   vi.stubGlobal("innerWidth", 100);
   vi.stubGlobal("innerHeight", 100);
-  vi.stubGlobal("getComputedStyle", () => ({ opacity: "1" }));
+  vi.stubGlobal("getComputedStyle", () => {
+    styleReads.count += 1;
+    return { opacity: "1" };
+  });
+  if (options.mutationObserver) {
+    vi.stubGlobal(
+      "MutationObserver",
+      class {
+        constructor(callback: () => void) {
+          mutate = callback;
+        }
+        observe() {}
+        disconnect() {}
+      }
+    );
+  }
   vi.stubGlobal("performance", { now: () => now });
   vi.stubGlobal("requestAnimationFrame", (callback: FrameRequestCallback) => {
     frame = callback;
@@ -48,8 +71,13 @@ function observerHarness(
   vi.stubGlobal("document", {
     addEventListener: (name: string, listener: EventListener) =>
       listeners.set(name, listener),
-    querySelector: (selector: string) =>
-      selector === "#accept" ? control : null,
+    querySelector: (selector: string) => {
+      queries.count += 1;
+      return selector === "#accept" ||
+        (options.banner && selector === "#banner")
+        ? control
+        : null;
+    },
     querySelectorAll: () => [],
   });
   vi.stubGlobal(
@@ -75,6 +103,7 @@ function observerHarness(
     categories: ["analytics"],
     fixedDeadlineMs: options.deadline,
     maxDurationMs: 1000,
+    ready: "#ready",
     stateGlobal: "__cookiebench",
   });
   window.__bench.arm("#accept", "accept");
@@ -89,6 +118,8 @@ function observerHarness(
         type,
       } as unknown as Event);
     },
+    mutate: () => mutate?.(),
+    queries,
     queue: (type: string, entries: Record<string, unknown>[]) =>
       queues
         .get(type)
@@ -102,6 +133,7 @@ function observerHarness(
       now = at;
       return window.__bench.stop();
     },
+    styleReads,
     tick: (at: number, observedAt: number) => {
       now = observedAt;
       frame?.(at);
@@ -120,6 +152,23 @@ test("post-input milestones use observation time, never the older frame timestam
   harness.tick(90, 110);
   expect(window.__bench.observations.effectiveAt).toBe(110);
   expect(window.__bench.observations.dismissedAt).toBe(110);
+});
+
+test("idle frames reuse selector results and skip banner layout until it matters", () => {
+  const harness = observerHarness({ banner: true, mutationObserver: true });
+  harness.tick(90, 90);
+  expect(window.__bench.observations.visibleAt).toBe(90);
+  const { count: queriesAfterFirstFrame } = harness.queries;
+  harness.styleReads.count = 0;
+  for (let frame = 1; frame <= 5; frame += 1) {
+    harness.tick(90 + frame * 16, 90 + frame * 16);
+  }
+  // The unmatched ready selector is not queried again, and the shown banner is not re-measured.
+  expect(harness.queries.count).toBe(queriesAfterFirstFrame);
+  expect(harness.styleReads.count).toBe(0);
+  harness.mutate();
+  harness.tick(200, 200);
+  expect(harness.queries.count).toBeGreaterThan(queriesAfterFirstFrame);
 });
 
 test("related keyup identifies a reportable interaction when keydown was censored", () => {

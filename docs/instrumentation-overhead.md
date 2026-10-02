@@ -30,6 +30,8 @@ The manifest records execution order, seed, collector source hash, lockfile hash
 
 Use paired differences and their uncertainty alongside the observed-window metric. Differences are full collector minus minimal observation. The minimal arm still has measurement overhead, so this experiment estimates the additional cost of the full collector over that shared minimum. It does not measure an unobserved browser.
 
+Ordinary benchmark samples also report `observation.callback-time`, the summed wall time of the observer's own frame and mutation callbacks, in baseline and CMP arms alike. Its paired difference shows the residual collector cost asymmetry that this baseline-only audit cannot measure.
+
 There is no universal acceptable percentage or subtraction factor. Raw benchmark metrics remain unchanged regardless of this result. Repeat on representative framework baselines and hardware before extending the finding. A reference-page observation cannot establish collector cost on every DOM size or action workflow.
 
 The functional regression ran two measured pairs and one excluded warmup pair. It verified shared URLs, raw warmup retention, available native/CDP metrics, and full-arm observer callbacks absent from the minimal arm. That small concurrent-development check is not an overhead estimate. Run the 30-pair commands only after sources settle and other browser/build workloads stop.
