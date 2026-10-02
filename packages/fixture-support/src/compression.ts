@@ -108,3 +108,18 @@ export function representationTag(
 export function upstreamValidators(header: string | undefined) {
   return header?.replaceAll(/~(?:br|gzip)"/gu, '"');
 }
+
+const opaque = (tag: string) => tag.trim().replace(/^W\//u, "");
+
+/** If-None-Match uses weak comparison, so W/ prefixes are ignored on both sides. */
+export function matchesIfNoneMatch(
+  header: string | undefined,
+  etag: string
+): boolean {
+  if (!header) {
+    return false;
+  }
+  return header
+    .split(",")
+    .some((tag) => tag.trim() === "*" || opaque(tag) === opaque(etag));
+}

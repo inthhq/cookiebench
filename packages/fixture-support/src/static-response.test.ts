@@ -51,7 +51,12 @@ describe("production static HTTP responses", () => {
     });
     await rm(directory, { force: true, recursive: true });
   });
-  const get = (pathname: string, acceptEncoding: string, method = "GET") =>
+  const get = (
+    pathname: string,
+    acceptEncoding: string,
+    method = "GET",
+    headers: Record<string, string> = {}
+  ) =>
     new Promise<{
       status: number | undefined;
       headers: IncomingHttpHeaders;
@@ -59,7 +64,7 @@ describe("production static HTTP responses", () => {
     }>((resolve, reject) => {
       const req = request(
         {
-          headers: { "Accept-Encoding": acceptEncoding },
+          headers: { "Accept-Encoding": acceptEncoding, ...headers },
           hostname: "127.0.0.1",
           method,
           path: pathname,
@@ -103,6 +108,28 @@ describe("production static HTTP responses", () => {
       }
     }
   );
+  it("revalidates each encoded representation with its own strong ETag", async () => {
+    const br = await get("/app.js", "br");
+    const gzip = await get("/app.js", "gzip");
+    expect(br.headers.etag).toMatch(/^"[a-f0-9]{64}~br"$/u);
+    expect(gzip.headers.etag).toMatch(/^"[a-f0-9]{64}~gzip"$/u);
+    const tag = String(br.headers.etag);
+    const notModified = await get("/app.js", "br", "GET", {
+      "If-None-Match": tag,
+    });
+    expect(notModified.status).toBe(304);
+    expect(notModified.body.length).toBe(0);
+    expect(notModified.headers.etag).toBe(tag);
+    expect(notModified.headers["cache-control"]).toBe(
+      "public, max-age=0, must-revalidate"
+    );
+    // A Brotli validator does not match the gzip bytes.
+    const otherEncoding = await get("/app.js", "gzip", "GET", {
+      "If-None-Match": tag,
+    });
+    expect(otherEncoding.status).toBe(200);
+    expect(otherEncoding.body).toEqual(gzip.body);
+  });
   it("returns HEAD headers matching GET without a body", async () => {
     const head = await get("/", "br", "HEAD");
     const actual = await get("/", "br");

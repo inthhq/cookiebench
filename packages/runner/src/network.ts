@@ -38,6 +38,8 @@ export interface NetworkRequest {
   // CORS preflight. Chromium reports its exchange with zero encodedDataLength,
   // so transfer totals omit preflight header bytes.
   preflight?: boolean;
+  // The network exchange was a 304; the body came from the HTTP cache.
+  revalidated?: boolean;
   // Response headers were observed, possibly without a responseReceived event.
   responseStarted?: boolean;
   // Bytes are zero because no response began before failure or the cutoff.
@@ -285,6 +287,20 @@ export async function collectNetwork(page: Page, pageUrl: string) {
   const bodySessions = new Map<string, ProtocolSession>();
   const contentLengths = new Map<string, number>();
   const completed = new Set<string>();
+  const started = new Set<string>();
+  const revalidated = new Set<string>();
+  const pendingRaw = new Map<string, number[]>();
+  // responseReceivedExtraInfo has no timestamp, so snapshots apply it from these sets.
+  const rawResponse = (row: NetworkRequest, statusCode: number) => {
+    row.responseStarted = true;
+    started.add(row.id);
+    if (statusCode === 304) {
+      // A revalidated response reports the cached 200 with the 304's
+      // transfer; its Content-Length describes cached, not received, bytes.
+      row.revalidated = true;
+      revalidated.add(row.id);
+    }
+  };
   const revisions: NetworkRevision[] = [];
   const record = (row: NetworkRequest, monotonicSeconds: number) => {
     revisions.push({
@@ -350,13 +366,23 @@ export async function collectNetwork(page: Page, pageUrl: string) {
       requestIds.set(row.id, event.requestId);
       active.set(event.requestId, row);
       requests.push(row);
+      const raw = pendingRaw.get(event.requestId)?.shift();
+      if (raw !== undefined) {
+        rawResponse(row, raw);
+      }
       record(row, event.timestamp);
     });
     source.on("Network.responseReceivedExtraInfo", (event) => {
-      // Raw headers arrive even when CORS or ORB later hides the response.
+      // Raw headers arrive even when CORS or ORB later hides the response, and
+      // can arrive before requestWillBeSent, so unmatched ones wait for a row.
       const row = active.get(event.requestId);
-      if (row) {
-        row.responseStarted = true;
+      if (row && !started.has(row.id)) {
+        rawResponse(row, event.statusCode);
+      } else {
+        pendingRaw.set(event.requestId, [
+          ...(pendingRaw.get(event.requestId) ?? []),
+          event.statusCode,
+        ]);
       }
     });
     source.on("Network.responseReceived", (event) => {
@@ -444,31 +470,39 @@ export async function collectNetwork(page: Page, pageUrl: string) {
       }
     }
   });
+  /** Settle a frozen row's byte fields; true when its body was never read. */
+  const settleRow = (row: NetworkRequest): boolean => {
+    // Headers seen after the cutoff can only withhold, never add, bytes.
+    row.responseStarted ||= started.has(row.id) || undefined;
+    row.revalidated ||= revalidated.has(row.id) || undefined;
+    settleWithoutResponse(row);
+    if (!row.finished || row.failed) {
+      return false;
+    }
+    let undelivered = false;
+    if (hasNoBody(row)) {
+      row.encodedBodyBytes = 0;
+      row.decodedBodyBytes = 0;
+    } else if (!row.fromCache && !row.revalidated && completed.has(row.id)) {
+      undelivered = settleBodySizes(row, contentLengths.get(row.id));
+    }
+    const problems = byteInconsistencies(row);
+    if (problems.length) {
+      row.byteInconsistencies = problems;
+    }
+    return undelivered;
+  };
   const snapshot = async (deadlineEpochMs?: number) => {
     const frozen =
       deadlineEpochMs === undefined
         ? requests.map((request) => ({ ...request }))
         : networkAtDeadline(revisions, deadlineEpochMs);
     for (const row of frozen) {
-      settleWithoutResponse(row);
-      if (!row.finished || row.failed) {
+      const undelivered = settleRow(row);
+      if (!row.finished || row.failed || !hasDigestibleBody(row)) {
         continue;
       }
-      let undelivered = false;
       const bodyless = hasNoBody(row);
-      if (bodyless) {
-        row.encodedBodyBytes = 0;
-        row.decodedBodyBytes = 0;
-      } else if (!row.fromCache && completed.has(row.id)) {
-        undelivered = settleBodySizes(row, contentLengths.get(row.id));
-      }
-      const problems = byteInconsistencies(row);
-      if (problems.length) {
-        row.byteInconsistencies = problems;
-      }
-      if (!hasDigestibleBody(row)) {
-        continue;
-      }
       if (undelivered) {
         // getResponseBody returns an empty body here, which is not the response.
         row.bodyDigestUnavailable =

@@ -61,6 +61,19 @@ test.beforeAll(async () => {
       response.end(bytes);
       return;
     }
+    if (request.url === "/revalidate.json") {
+      response.setHeader("Cache-Control", "max-age=0, must-revalidate");
+      response.setHeader("ETag", '"revalidate-v1"');
+      if (request.headers["if-none-match"] === '"revalidate-v1"') {
+        response.statusCode = 304;
+        response.end();
+        return;
+      }
+      response.setHeader("Content-Type", "application/json");
+      response.setHeader("Content-Length", body.length);
+      response.end(body);
+      return;
+    }
     if (request.url === "/redirect-to-gzip") {
       response.statusCode = 302;
       response.setHeader("Location", "/gzip.json");
@@ -104,6 +117,24 @@ test.beforeAll(async () => {
       response.end(
         'onconnect = event => { fetch("/shared-worker-body.json").then(r => r.text()).then(() => event.ports[0].postMessage("fetched")); };'
       );
+      return;
+    }
+    if (request.url === "/script-page") {
+      response.setHeader("Content-Type", "text/html");
+      response.end('<!doctype html><script src="/etag-script.js"></script>');
+      return;
+    }
+    if (request.url === "/etag-script.js") {
+      response.setHeader("Cache-Control", "max-age=0, must-revalidate");
+      response.setHeader("ETag", '"script-v1"');
+      if (request.headers["if-none-match"] === '"script-v1"') {
+        response.statusCode = 304;
+        response.end();
+        return;
+      }
+      response.setHeader("Content-Type", "text/javascript");
+      response.setHeader("Content-Length", latin1Body.length);
+      response.end(latin1Body);
       return;
     }
     if (request.url === "/shared-worker-body.json") {
@@ -511,4 +542,52 @@ test("prefetched bodies no renderer read keep exact or explicitly unknown decode
     expect(row?.decodedBodySha256).toBeUndefined();
     expect(row?.byteInconsistencies).toBeUndefined();
   }
+});
+
+test("a 304 revalidation keeps its small transfer without a received-body claim", async ({
+  page,
+}) => {
+  const network = await collectNetwork(page, origin);
+  await page.goto(origin);
+  await page.evaluate(async (base) => {
+    for (let visit = 0; visit < 2; visit += 1) {
+      // oxlint-disable-next-line no-await-in-loop -- The second fetch must revalidate the first.
+      const response = await fetch(`${base}/revalidate.json`);
+      // oxlint-disable-next-line no-await-in-loop -- Consume each body before revalidating.
+      await response.text();
+    }
+  }, remote);
+
+  // A deadline snapshot reads frozen revisions, which timestampless
+  // responseReceivedExtraInfo events do not create.
+  const snapshot = await network.snapshot(Date.now());
+  const rows = snapshot.filter(
+    (row) => row.url.endsWith("/revalidate.json") && row.method === "GET"
+  );
+  expect(rows).toHaveLength(2);
+  const [fetched, revalidated] = rows;
+  expect(fetched).toMatchObject({ encodedBodyBytes: body.length });
+  expect(revalidated).toMatchObject({
+    decodedBodyBytes: body.length,
+    revalidated: true,
+  });
+  // Chromium reports the cached 200 with the 304 exchange's header bytes.
+  expect(revalidated?.transferBytes).toBeGreaterThan(0);
+  expect(revalidated?.transferBytes).toBeLessThan(body.length);
+  expect(revalidated?.encodedBodyBytes).toBeUndefined();
+  expect(revalidated?.byteInconsistencies).toBeUndefined();
+});
+
+test("raw 304 headers that precede requestWillBeSent still mark revalidation", async ({
+  page,
+}) => {
+  // Prime the HTTP cache, then load the same script in a new page.
+  await page.goto(`${origin}/script-page`);
+  const next = await page.context().newPage();
+  const network = await collectNetwork(next, origin);
+  await next.goto(`${origin}/script-page`);
+  const rows = await network.snapshot(Date.now());
+  const script = rows.find((row) => row.url.endsWith("/etag-script.js"));
+  expect(script).toMatchObject({ revalidated: true, status: 200 });
+  expect(script?.byteInconsistencies).toBeUndefined();
 });

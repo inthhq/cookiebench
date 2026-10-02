@@ -81,7 +81,8 @@ function servePageAsset(
 ) {
   const pageAsset = pageAssetResponse(
     url.pathname,
-    incoming.headers["accept-encoding"]
+    incoming.headers["accept-encoding"],
+    incoming.headers["if-none-match"]
   );
   if (pageAsset) {
     outgoing.writeHead(pageAsset.status, pageAsset.headers);

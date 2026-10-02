@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
 
-import { negotiateEncoding } from "./compression.ts";
+import {
+  matchesIfNoneMatch,
+  negotiateEncoding,
+  representationTag,
+  upstreamValidators,
+} from "./compression.ts";
 
 describe("HTTP compression negotiation", () => {
   it.each([
@@ -23,5 +28,21 @@ describe("HTTP compression negotiation", () => {
   it("does not encode compressed image formats", () => {
     expect(negotiateEncoding("br, gzip", false)).toBe("identity");
     expect(negotiateEncoding("identity;q=0, br", false)).toBeUndefined();
+  });
+});
+
+describe("representation validators", () => {
+  it("names each encoding and reverses the suffix for the upstream", () => {
+    expect(representationTag('"abc"', "br")).toBe('"abc~br"');
+    expect(representationTag('W/"abc"', "gzip")).toBe('W/"abc~gzip"');
+    expect(representationTag('"abc"', "identity")).toBe('"abc"');
+    expect(upstreamValidators('"abc~br", W/"def~gzip"')).toBe('"abc", W/"def"');
+  });
+  it("compares If-None-Match weakly", () => {
+    expect(matchesIfNoneMatch('W/"abc~br"', '"abc~br"')).toBe(true);
+    expect(matchesIfNoneMatch('"x", "abc~br"', '"abc~br"')).toBe(true);
+    expect(matchesIfNoneMatch("*", '"abc"')).toBe(true);
+    expect(matchesIfNoneMatch('"abc~gzip"', '"abc~br"')).toBe(false);
+    expect(matchesIfNoneMatch(undefined, '"abc"')).toBe(false);
   });
 });

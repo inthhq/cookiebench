@@ -73,3 +73,19 @@ describe("shared article workload", () => {
     expect(pageAssetResponse("/page-assets/manifest.json")).toBeUndefined();
   });
 });
+
+describe("shared asset revalidation", () => {
+  it("answers its weak validator with 304 for any encoding", () => {
+    const first = pageAssetResponse("/page-assets/reading-list.js", "br");
+    const etag = String(first?.headers.ETag);
+    expect(etag).toMatch(/^W\/"[a-f0-9]{64}"$/u);
+    const again = pageAssetResponse(
+      "/page-assets/reading-list.js",
+      "gzip",
+      etag
+    );
+    expect(again?.status).toBe(304);
+    expect(again?.body).toHaveLength(0);
+    expect(again?.headers["Content-Length"]).toBeUndefined();
+  });
+});

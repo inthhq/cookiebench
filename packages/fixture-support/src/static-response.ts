@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { readFile, stat } from "node:fs/promises";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import path from "node:path";
@@ -5,7 +6,9 @@ import path from "node:path";
 import {
   compressedRepresentations,
   compressibleType,
+  matchesIfNoneMatch,
   negotiateEncoding,
+  representationTag,
 } from "./compression.ts";
 
 const mime: Record<string, string> = {
@@ -25,7 +28,10 @@ export function createStaticResponder(directory: string) {
     string,
     {
       stamp: string;
-      bodies: Promise<ReturnType<typeof compressedRepresentations>>;
+      bodies: Promise<{
+        representations: ReturnType<typeof compressedRepresentations>;
+        etag: string;
+      }>;
     }
   >();
   return async (
@@ -87,21 +93,35 @@ export function createStaticResponder(directory: string) {
         cached = {
           bodies: (async () => {
             const body = await readFile(file);
-            return compressible
-              ? compressedRepresentations(body)
-              : { br: body, gzip: body, identity: body };
+            return {
+              etag: `"${createHash("sha256").update(body).digest("hex")}"`,
+              representations: compressible
+                ? compressedRepresentations(body)
+                : { br: body, gzip: body, identity: body },
+            };
           })(),
           stamp,
         };
         cache.set(file, cached);
       }
-      const bodies = await cached.bodies;
-      const body = bodies[encoding];
-      outgoing.writeHead(200, {
+      const { etag: identityTag, representations } = await cached.bodies;
+      const body = representations[encoding];
+      // A strong validator per selected representation, as the proxy uses.
+      const etag = representationTag(identityTag, encoding) ?? identityTag;
+      const validators = {
         "Cache-Control": "public, max-age=0, must-revalidate",
+        ETag: etag,
+        Vary: "Accept-Encoding",
+      };
+      if (matchesIfNoneMatch(incoming.headers["if-none-match"], etag)) {
+        outgoing.writeHead(304, validators);
+        outgoing.end();
+        return;
+      }
+      outgoing.writeHead(200, {
+        ...validators,
         "Content-Length": body.length,
         "Content-Type": mime[extension] ?? "application/octet-stream",
-        Vary: "Accept-Encoding",
         ...(encoding === "identity" ? {} : { "Content-Encoding": encoding }),
       });
       outgoing.end(incoming.method === "HEAD" ? undefined : body);

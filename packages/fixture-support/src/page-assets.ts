@@ -4,6 +4,7 @@ import { readFileSync } from "node:fs";
 import {
   compressedRepresentations,
   compressibleType,
+  matchesIfNoneMatch,
   negotiateEncoding,
 } from "./compression.ts";
 
@@ -29,7 +30,11 @@ const assets = new Map(
 );
 
 /** The same asset bytes and HTTP policy serve every framework and its baseline. */
-export function pageAssetResponse(pathname: string, acceptEncoding = "") {
+export function pageAssetResponse(
+  pathname: string,
+  acceptEncoding = "",
+  ifNoneMatch?: string
+) {
   if (!pathname.startsWith("/page-assets/")) {
     return;
   }
@@ -49,12 +54,24 @@ export function pageAssetResponse(pathname: string, acceptEncoding = "") {
       status: 406,
     };
   }
+  const etag = `W/${asset.etag}`;
+  if (matchesIfNoneMatch(ifNoneMatch, etag)) {
+    return {
+      body: Buffer.alloc(0),
+      headers: {
+        "Cache-Control": "public, max-age=3600",
+        ETag: etag,
+        Vary: "Accept-Encoding",
+      } as Record<string, string | number>,
+      status: 304,
+    };
+  }
   const body = asset[encoding];
   const headers: Record<string, string | number> = {
     "Cache-Control": "public, max-age=3600",
     "Content-Length": body.length,
     "Content-Type": asset.type,
-    ETag: `W/${asset.etag}`,
+    ETag: etag,
     Vary: "Accept-Encoding",
   };
   if (encoding !== "identity") {
