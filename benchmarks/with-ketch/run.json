@@ -23,7 +23,7 @@
       },
       "artifactPolicy": "immutable-release",
       "baseline": true,
-      "configurationHash": "5a7e89bcde0a7d6d1de8d59a7eb860f4c32f22eb0691e5efa5755eb0bb6c0816",
+      "configurationHash": "19b9a187d8c115097f66e41d62c149fba7883ed1a95295ef2800e0f1653dcb23",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -36,7 +36,7 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "fixture-source-only",
-        "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
+        "lockfileHash": "c5826a3b1a6c92ca84efd4e133f059c36770e80f3fd2da90b7721ccb2dc87a0a",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
       "revision": "3.2.0-article-v1-next-client-effect",
@@ -80,7 +80,7 @@
       },
       "artifactPolicy": "mutable-network",
       "baseline": false,
-      "configurationHash": "1d52d4464fcb956a893123b8f45b6856b3f8c586b4cc57cc3556dc27b2c7770d",
+      "configurationHash": "2fc5592a24e27526c4633064e18cd9cd4a419487622335379dabb9118a7f4c1d",
       "deployment": {
         "assets": "mixed",
         "backend": "remote-service"
@@ -93,7 +93,7 @@
       "product": "ketch",
       "provenance": {
         "artifactIntegrity": "sha256-5cba221e280e14de6e556d340c3a2cb3320484afd6e7b1cb755acb66207e45c5",
-        "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
+        "lockfileHash": "c5826a3b1a6c92ca84efd4e133f059c36770e80f3fd2da90b7721ccb2dc87a0a",
         "sourceUrl": "https://global.ketchcdn.com/web/v3/config/switchbitcorp/switchbit/boot.js"
       },
       "revision": "3.2.0-article-v1-next-client-effect",

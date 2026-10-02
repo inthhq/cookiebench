@@ -19,7 +19,7 @@
       },
       "artifactPolicy": "immutable-release",
       "baseline": true,
-      "configurationHash": "1f2f0b8f1281567bca1a5b28a189da13519f9a2b338aa8d83fe416d703d31257",
+      "configurationHash": "cdf792e9da58d9b267d19f9968a1b9d9845a4604013bfe5326bd89c9a566299d",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -32,7 +32,7 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "fixture-source-only",
-        "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
+        "lockfileHash": "c5826a3b1a6c92ca84efd4e133f059c36770e80f3fd2da90b7721ccb2dc87a0a",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
       "revision": "3.2.1-article-v1-next-client-effect",
@@ -72,7 +72,7 @@
       },
       "artifactPolicy": "mutable-network",
       "baseline": false,
-      "configurationHash": "5b2b7aa8ac28124ee99d0db99604dc7d662c94ac24ce0027e056c2238d14c8cc",
+      "configurationHash": "8cdc075d12d45a142a7696f0c2db2d2160efda8cfda05c174bbbc2a52b9f7155",
       "deployment": {
         "assets": "mixed",
         "backend": "remote-service"
@@ -85,7 +85,7 @@
       "product": "usercentrics",
       "provenance": {
         "artifactIntegrity": "sha256-5e623d7e48e52c797830315066b5cfae5f46e334c3833809c2ccb417744646f1",
-        "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
+        "lockfileHash": "c5826a3b1a6c92ca84efd4e133f059c36770e80f3fd2da90b7721ccb2dc87a0a",
         "sourceUrl": "https://web.cmp.usercentrics.eu/ui/loader.js"
       },
       "revision": "3.2.1-article-v1-next-client-effect",

@@ -667,8 +667,8 @@ importers:
   packages/fixture-support:
     dependencies:
       '@c15t/schema':
-        specifier: 3.0.0-alpha.1
-        version: 3.0.0-alpha.1(typescript@6.0.3)
+        specifier: 3.0.0-alpha.2
+        version: 3.0.0-alpha.2(typescript@6.0.3)
       '@cookiebench/schema':
         specifier: workspace:*
         version: link:../schema
@@ -1005,9 +1005,6 @@ packages:
         optional: true
       react-dom:
         optional: true
-
-  '@c15t/schema@3.0.0-alpha.1':
-    resolution: {integrity: sha512-a7eMSBz9xkvzYdJ6y8kA7Tla8xG7YnG7ncFRk8RP89rbmVQyr9sCi1SX4MAIKTDUxw09GZFEdyNs6M2LQHyQZQ==}
 
   '@c15t/schema@3.0.0-alpha.2':
     resolution: {integrity: sha512-5gHXsijpWg96ddhQsDUEukRU2czSfEzueaHZctJzr4KIK9t262pphQAm5XSgO8amRYojKAi7ni3CSP9b9G+e1w==}
@@ -7054,14 +7051,6 @@ snapshots:
       - immer
       - typescript
       - use-sync-external-store
-
-  '@c15t/schema@3.0.0-alpha.1(typescript@6.0.3)':
-    dependencies:
-      '@c15t/translations': 3.0.0-alpha.2
-      base-x: 5.0.1
-      valibot: 1.4.2(typescript@6.0.3)
-    transitivePeerDependencies:
-      - typescript
 
   '@c15t/schema@3.0.0-alpha.2(typescript@6.0.3)':
     dependencies:

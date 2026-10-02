@@ -20,7 +20,7 @@
       },
       "artifactPolicy": "immutable-release",
       "baseline": true,
-      "configurationHash": "28bbfe3c31158b83f064d276081673069dace8acec8c208a614ec18b5814ffdf",
+      "configurationHash": "aa066a02acb85df870c64e5c9d3b6dd627c4d70c7d1ead0583d872e854a470bc",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -33,7 +33,7 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "fixture-source-only",
-        "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
+        "lockfileHash": "c5826a3b1a6c92ca84efd4e133f059c36770e80f3fd2da90b7721ccb2dc87a0a",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
       "revision": "3.2.0-article-v1-head-start-async-sdk",
@@ -74,7 +74,7 @@
       },
       "artifactPolicy": "mutable-network",
       "baseline": false,
-      "configurationHash": "b1449ba439e98fcd6ef7a96745db3a1a3e98fc659e92aa01b2fd6114acb97841",
+      "configurationHash": "59c839d09aba834c4269aa75e738d1b156a88f353d5b38f7a124f0d33b0cd0ea",
       "deployment": {
         "assets": "mixed",
         "backend": "remote-service"
@@ -87,7 +87,7 @@
       "product": "onetrust",
       "provenance": {
         "artifactIntegrity": "sha256-3258940d51f736d6d58b6b98af4617a0450545f16e307c3e72d308c7ff6b3d8e",
-        "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
+        "lockfileHash": "c5826a3b1a6c92ca84efd4e133f059c36770e80f3fd2da90b7721ccb2dc87a0a",
         "sourceUrl": "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
       },
       "revision": "3.2.0-article-v1-head-start-async-sdk",

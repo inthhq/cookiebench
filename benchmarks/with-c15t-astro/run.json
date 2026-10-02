@@ -20,7 +20,7 @@
         "withdraw": "[data-testid=\"consent-widget-footer-reject-button\"], [data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "6bb85824480ca9611e6b1d1baa6601166975fef6f56f3be65b995f83c4cf71b6",
+      "configurationHash": "664fd73852c7a39b02ff93cd65265dc6089486c83e7a6e851cede4fe6aae9c55",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -33,7 +33,7 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "sha512-TnFwLnAXty5MXKPDGuKXqK4AMBXG+FH6RUdK7Oyc3gyfNoFIthT+4eRbzOK43bdRlLaZuxgciDSjgtggZ3OtGQ==",
-        "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
+        "lockfileHash": "c5826a3b1a6c92ca84efd4e133f059c36770e80f3fd2da90b7721ccb2dc87a0a",
         "sourceUrl": "https://registry.npmjs.org/astro/-/astro-5.18.2.tgz"
       },
       "revision": "3.2.1-article-v1",
@@ -74,7 +74,7 @@
         "withdraw": "[data-testid=\"consent-widget-footer-reject-button\"], [data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "f3d9bfe24ebbebac65dcce5b90d97aba0968c0dae4c8ea2b9aa74a8cff21ac24",
+      "configurationHash": "010d7c0e05cb61d29aa5f5bf8d41cc19af47048d0cdbe2ea82960630dfcf30f0",
       "deployment": {
         "assets": "local",
         "backend": "controlled-local"
@@ -87,7 +87,7 @@
       "product": "c15t",
       "provenance": {
         "artifactIntegrity": "sha512-9aQkQxL+CTmb+bGbzzwIgSsOhsqeds9jtKIu/Dh5gO0+iSB9s+Cyl0Z+A+NeR/TlkjIaSXbGYTe+X/wdN6vBIA==",
-        "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
+        "lockfileHash": "c5826a3b1a6c92ca84efd4e133f059c36770e80f3fd2da90b7721ccb2dc87a0a",
         "sourceUrl": "https://registry.npmjs.org/@c15t/astro/-/astro-3.0.0-alpha.3.tgz"
       },
       "revision": "3.2.1-article-v1",

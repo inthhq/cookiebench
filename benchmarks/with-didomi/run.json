@@ -26,7 +26,7 @@
       },
       "artifactPolicy": "immutable-release",
       "baseline": true,
-      "configurationHash": "1a921837aeaabb7ee721855a2322b671ba02973ff2b7acdcfeb9c553de36fc8e",
+      "configurationHash": "fa400d9aefdd2c0f4391ac47551d8422e54a89ce8b0054df36a6a721802e2e74",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -39,7 +39,7 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "fixture-source-only",
-        "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
+        "lockfileHash": "c5826a3b1a6c92ca84efd4e133f059c36770e80f3fd2da90b7721ccb2dc87a0a",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
       "revision": "3.2.0-article-v1-head-start-async-sdk",
@@ -86,7 +86,7 @@
       },
       "artifactPolicy": "mutable-network",
       "baseline": false,
-      "configurationHash": "36f3c64224426d2e85e8c177ecf4129c75483d0ca53399b014b6c79c7b32b12c",
+      "configurationHash": "d064e455654a466541b1608cf38e82c509873da20685c30020af5eb20db1aff7",
       "deployment": {
         "assets": "mixed",
         "backend": "remote-service"
@@ -99,7 +99,7 @@
       "product": "didomi",
       "provenance": {
         "artifactIntegrity": "sha256-cc92b467085d5f8ba06c3ef54c5a38c4f0c7fc30421a003dde26d1bb692972f4",
-        "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
+        "lockfileHash": "c5826a3b1a6c92ca84efd4e133f059c36770e80f3fd2da90b7721ccb2dc87a0a",
         "sourceUrl": "https://sdk.privacy-center.org/7dd8ec4e-746c-455e-a610-99121b4148df/loader.js?target=127.0.0.1"
       },
       "revision": "3.2.1-article-v1-head-start-public-state-readiness",

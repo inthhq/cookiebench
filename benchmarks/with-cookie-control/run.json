@@ -17,7 +17,7 @@
       },
       "artifactPolicy": "immutable-release",
       "baseline": true,
-      "configurationHash": "6dfb164d0a94191cc5623486b22c265064589214c74e21175eba229ba1f4be30",
+      "configurationHash": "b02cae7cba8a43c9a695a6188f990a5ef32634251ca793d0253f92b7c3e99a03",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -30,7 +30,7 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "fixture-source-only",
-        "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
+        "lockfileHash": "c5826a3b1a6c92ca84efd4e133f059c36770e80f3fd2da90b7721ccb2dc87a0a",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
       "revision": "3.2.0-article-v1-body-end-async-sdk",
@@ -68,7 +68,7 @@
       },
       "artifactPolicy": "mutable-network",
       "baseline": false,
-      "configurationHash": "6b1147041f3633177817af5c50eaa51fd4ad24e7687b51da317ea30af7ae1280",
+      "configurationHash": "31dbe5c48acb8dd949788eda66313ba6acae7621692d12dbf9b29728fb22022c",
       "deployment": {
         "assets": "mixed",
         "backend": "remote-service"
@@ -81,7 +81,7 @@
       "product": "cookie-control",
       "provenance": {
         "artifactIntegrity": "sha256-b1b5932fd0694de0bd9444b66c520d3647fdb493d9c51fcc2e7dc581e95319c0",
-        "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
+        "lockfileHash": "c5826a3b1a6c92ca84efd4e133f059c36770e80f3fd2da90b7721ccb2dc87a0a",
         "sourceUrl": "https://cc.cdn.civiccomputing.com/9/cookieControl-9.10.1.min.js"
       },
       "revision": "3.2.0-article-v1-body-end-async-sdk",

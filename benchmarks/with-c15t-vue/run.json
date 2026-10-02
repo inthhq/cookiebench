@@ -20,7 +20,7 @@
         "withdraw": "[data-testid=\"consent-widget-footer-reject-button\"], [data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "0669e41c23c1de209a0c24c781ac54c68b4fd31a0999a0a5602423b909a79eb4",
+      "configurationHash": "385db32773d3d68accbc6e7ec226f666cd654d148dc9e73471cccd5b280809b5",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -33,7 +33,7 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "sha512-o5qZoksdnjIKvW1srZ3ab7pcDNYAerBjRe54D0LBLfRdCYFrSgBHVXokMas35czQc0//lmx4/tuY4ZNQ+Rf2Ng==",
-        "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
+        "lockfileHash": "c5826a3b1a6c92ca84efd4e133f059c36770e80f3fd2da90b7721ccb2dc87a0a",
         "sourceUrl": "https://registry.npmjs.org/vue/-/vue-3.5.43.tgz"
       },
       "revision": "3.2.1-article-v1",
@@ -74,7 +74,7 @@
         "withdraw": "[data-testid=\"consent-widget-footer-reject-button\"], [data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "45d8525243bae12a9494d676abd8f2b78bafa897b840c1b04427490940cb2500",
+      "configurationHash": "ff9ae186afccbd25e8e0bad544965d0700ac8cbbec624872e133b5ed7e2053c0",
       "deployment": {
         "assets": "local",
         "backend": "controlled-local"
@@ -87,7 +87,7 @@
       "product": "c15t",
       "provenance": {
         "artifactIntegrity": "sha512-mki/rod9ibD4fTLKfWt1CGXcu8z3zuJ2cvvYofmOCrB+GLFeavvk1bKitIvGytV0rBUe2RwCDdVOVObHU0NjKg==",
-        "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
+        "lockfileHash": "c5826a3b1a6c92ca84efd4e133f059c36770e80f3fd2da90b7721ccb2dc87a0a",
         "sourceUrl": "https://registry.npmjs.org/@c15t/vue/-/vue-3.0.0-alpha.3.tgz"
       },
       "revision": "3.2.1-article-v1",

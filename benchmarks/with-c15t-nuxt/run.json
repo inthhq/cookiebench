@@ -20,7 +20,7 @@
         "withdraw": "[data-testid=\"consent-widget-footer-reject-button\"], [data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "29eb8112118cf865b2b259ce20e56af258d33b3dec5f07022381855b6897a3c8",
+      "configurationHash": "aad52c1d83d6b5c2e1c9bc2d9aeb2a80164c466cfabb7420514b04a91561dfba",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -33,7 +33,7 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "sha512-tR3fcqeHlHmmkLMpIg3V7Y+1ltr302lW8djMw/iy+myfo7QSSz+BVJDuQhg5j73b9oteSyBfOKTDYTgvMtj6TA==",
-        "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
+        "lockfileHash": "c5826a3b1a6c92ca84efd4e133f059c36770e80f3fd2da90b7721ccb2dc87a0a",
         "sourceUrl": "https://registry.npmjs.org/nuxt/-/nuxt-4.5.2.tgz"
       },
       "revision": "3.2.1-article-v1",
@@ -74,7 +74,7 @@
         "withdraw": "[data-testid=\"consent-widget-footer-reject-button\"], [data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "789587832208335106a6304a09c988cbd6bf5e97615ed076597ef9f65d6bb4b1",
+      "configurationHash": "e9df9d704d63099d2bd5efc755b88253b71b0f4826796441f1facbf16555ea15",
       "deployment": {
         "assets": "local",
         "backend": "controlled-local"
@@ -87,7 +87,7 @@
       "product": "c15t",
       "provenance": {
         "artifactIntegrity": "sha512-mki/rod9ibD4fTLKfWt1CGXcu8z3zuJ2cvvYofmOCrB+GLFeavvk1bKitIvGytV0rBUe2RwCDdVOVObHU0NjKg==",
-        "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
+        "lockfileHash": "c5826a3b1a6c92ca84efd4e133f059c36770e80f3fd2da90b7721ccb2dc87a0a",
         "sourceUrl": "https://registry.npmjs.org/@c15t/vue/-/vue-3.0.0-alpha.3.tgz"
       },
       "revision": "3.2.1-article-v1",
