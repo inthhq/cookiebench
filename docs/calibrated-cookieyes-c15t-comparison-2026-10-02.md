@@ -1,4 +1,29 @@
+# Calibrated CookieYes and c15t script comparison, October 2, 2026
+
+This emulated-mobile comparison repeats the [October 1 comparison](cookieyes-c15t-script-comparison-2026-10-01.md) with a calibrated CPU slowdown. It is separate from the main September 27 and September 30 batches, which exclude CookieYes. The two arms ran under different conditions, so the results are not a product ranking. Differences mix product cost with script hosting, script placement and backend latency.
+
+| Condition | c15t | CookieYes |
+| --- | --- | --- |
+| Page | `benchmarks/with-c15t-script/index.html` | `benchmarks/with-c15t-script/cookieyes.html` |
+| Script source | Self-hosted copy of `@c15t/browser@3.0.0-alpha.3` at `/vendor/c15t.js` | Vendor CDN, `cdn-cookieyes.com` |
+| Script placement | Classic script in `<body>`, after the article | Classic script in `<head>`, parser-blocking (the vendor's standard install) |
+| Backend | Controlled local test double on the fixture server, fixed 150 ms delay per policy or save response | CookieYes remote services |
+| Site ID | Not applicable | `f66d6dffd4f9c8178517db8d4aeddcaa` |
+
+The CookieYes Next.js fixture (`benchmarks/with-cookie-yes`) uses a different site ID, `830009093fab466a1ff5d9a1`, which rejects the local hostname. The repository does not record who registered `f66d6dff…`, its registered URL or its banner settings.
+
+The run configuration used for this comparison was not committed. `benchmarks/cookieyes-script-comparison/run-mobile.json` reconstructs it from the page sources and `benchmarks/profiles/mobile.json`. A one-sample load check of the reconstructed desktop configuration on October 2, 2026 failed with `banner-missing`, because the CookieYes script reported that the site's registered URL had changed. The results below cannot currently be reproduced from this repository.
+
+```sh
+pnpm cookiebench cpu calibrate --config benchmarks/cookieyes-script-comparison/run-mobile.json --output artifacts/cpu-calibration.json
+pnpm cookiebench run --config benchmarks/cookieyes-script-comparison/run-mobile.json --cpu-calibration artifacts/cpu-calibration.json --cpu-tier mid --scenario load --iterations 30 --warmups 3 --output artifacts/cookieyes-calibrated-load.json
+```
+
+Run the `accept` and `reject` scenarios the same way with `--iterations 10 --warmups 0`.
+
 Raw run artifacts are not stored in this repository. The `artifacts/` paths below name files from the original runs and cannot be checked from this checkout.
+
+## Results
 
 CookieYes added less LCP delay. c15t's banner appeared 105 ms earlier.
 

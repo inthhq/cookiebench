@@ -19,7 +19,7 @@ Independent reconciliation found a retained 3.2.0 collector defect in 72 origina
 
 Repeated cohorts contain 2670 primary attempts, raw passed/failed/incomplete 2045/68/557, and 810 separate followup probes. Correctness-check cohorts contain 306 primary attempts, raw 163/13/130, and 183 followup probes. Warmups are excluded. Missing entries and absent probes are not passes.
 
-The main comparison is c15t Next.js and seven competitor integrations using Next.js. Other c15t frameworks appear separately as supplementary fixture measurements. Rows are in protocol order, not performance rank. CookieYes is excluded at the user's request; Usercentrics remains configuration-blocked.
+The main comparison is c15t Next.js and seven competitor integrations using Next.js. Other c15t frameworks appear separately as supplementary fixture measurements. Rows are in protocol order, not performance rank. CookieYes is excluded from this batch; Usercentrics remains configuration-blocked. Separate c15t and CookieYes script-tag comparisons are listed in the README.
 
 This batch uses a controlled local strict-opt-in backend for c15t. Competitors contact live remote vendor services. The c15t mock acknowledges consent writes without a production database; its latency does not establish hosted Inth performance. Backend and asset classifications remain explicit. No cross-topology winner or product ranking follows from these results. Manifest mode is excluded. A future managed Inth endpoint needs separate measurements with its own fixture identity and allowed benchmark hostname.
 
@@ -120,7 +120,7 @@ Followup expectations here concern recorded primary visits. A no-envelope entry 
 | ketch-mobile-actions | repeated | recorded | 30 / 30 / 0 |  |  |
 | onetrust-mobile-actions | repeated | recorded | 30 / 30 / 0 |  |  |
 | osano-mobile-actions | repeated | recorded | 30 / 30 / 0 |  |  |
-| cookieyes-excluded | repeated | excluded | 0 / 0 / 0 |  | Excluded at the user's request; no benchmark-domain configuration supplied. |
+| cookieyes-excluded | repeated | excluded | 0 / 0 / 0 |  | Excluded from this batch; no benchmark-domain configuration supplied. |
 | usercentrics-configuration-blocked | repeated | configuration-blocked | 0 / 0 / 0 |  | Existing public ruleset initializes with consent not required and no banner; no replacement strict-opt-in configuration supplied. |
 | c15t-script-desktop-checks | checks | recorded | 10 / 10 / 0 |  |  |
 | c15t-headless-desktop-checks | checks | recorded | 7 / 7 / 0 |  |  |

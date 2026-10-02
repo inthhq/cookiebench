@@ -1,6 +1,32 @@
-# CookieYes and c15t script comparison
+# CookieYes and c15t script comparison, October 1, 2026
+
+This comparison is separate from the main September 27 and September 30 batches, which exclude CookieYes. The two arms ran under different conditions, so the results are not a product ranking. Differences mix product cost with script hosting, script placement and backend latency.
+
+| Condition | c15t | CookieYes |
+| --- | --- | --- |
+| Page | `benchmarks/with-c15t-script/index.html` | `benchmarks/with-c15t-script/cookieyes.html` |
+| Script source | Self-hosted copy of `@c15t/browser@3.0.0-alpha.3` at `/vendor/c15t.js` | Vendor CDN, `cdn-cookieyes.com` |
+| Script placement | Classic script in `<body>`, after the article | Classic script in `<head>`, parser-blocking (the vendor's standard install) |
+| Backend | Controlled local test double on the fixture server, fixed 150 ms delay per policy or save response | CookieYes remote services |
+| Site ID | Not applicable | `f66d6dffd4f9c8178517db8d4aeddcaa` |
+
+Both arms share the static article page and the plain HTML baseline. c15t releases the two controlled workload scripts through its native script loader. The CookieYes page releases them from the `cookieyes_consent_update` callback, not CookieYes's automatic blocking.
+
+The CookieYes Next.js fixture (`benchmarks/with-cookie-yes`) uses a different site ID, `830009093fab466a1ff5d9a1`, which rejects the local hostname. This page uses another CookieYes site. The repository does not record who registered `f66d6dff…`, its registered URL or its banner settings.
+
+The run configuration used for this comparison was not committed. `benchmarks/cookieyes-script-comparison/run.json` (desktop) and `run-mobile.json` (emulated mobile) reconstruct it from the page sources: the unchanged baseline and c15t fixtures from `run.json`, a CookieYes fixture at `/cookieyes`, and the load, accept and reject scenarios. A one-sample load check of the reconstructed desktop configuration on October 2, 2026 failed with `banner-missing`. The CookieYes script reported that the site's registered URL had changed. The results below cannot currently be reproduced from this repository.
+
+```sh
+pnpm cookiebench run --config benchmarks/cookieyes-script-comparison/run.json --scenario load --iterations 30 --warmups 3 --output artifacts/cookieyes-desktop-load.json
+pnpm cookiebench run --config benchmarks/cookieyes-script-comparison/run.json --scenario accept --iterations 10 --warmups 0 --output artifacts/cookieyes-desktop-accept.json
+pnpm cookiebench run --config benchmarks/cookieyes-script-comparison/run.json --scenario reject --iterations 10 --warmups 0 --output artifacts/cookieyes-desktop-reject.json
+```
+
+Use `benchmarks/cookieyes-script-comparison/run-mobile.json` for the emulated-mobile cells.
 
 Raw run artifacts are not stored in this repository. The `artifacts/` paths below name files from the original runs and cannot be checked from this checkout.
+
+## Results
 
 Results were mixed. c15t had lower desktop LCP and earlier banners. CookieYes had lower emulated-mobile LCP.
 

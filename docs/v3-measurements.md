@@ -4,7 +4,7 @@ Raw run artifacts are not stored in this repository. The `artifacts/` paths belo
 
 Historical evidence: the subsequent [browser measurement audit](audit-vitals-actions.md) found timestamp, interaction-attribution, and observation-window defects in this collector. [Current analysis validity rules](../packages/analysis/src/validity.ts) withhold affected comparisons. The tables below preserve the original results and eligibility decisions; they are not a current certification of those measurements. Absolute LCP was nonzero in all 900 selected load observations. Zeroes in the load table are paired differences, and most final LCP candidates were the page heading.
 
-The September 27, 2026 local batch measures eight c15t source integrations and eight configured competitor integrations. It preserves failed and incomplete attempts, the original script/headless fixture confound, and remote identity limitations. CookieYes was excluded at the user's request. These results describe the recorded fixtures and do not establish a public product ranking or field Core Web Vitals.
+The September 27, 2026 local batch measures eight c15t source integrations and eight configured competitor integrations. It preserves failed and incomplete attempts, the original script/headless fixture confound, and remote identity limitations. CookieYes was excluded from this batch. These results describe the recorded fixtures and do not establish a public product ranking or field Core Web Vitals.
 
 The c15t source is pinned to [`9993ae57867e33e96783640413a2429b649104c7`](https://github.com/c15t/c15t/tree/9993ae57867e33e96783640413a2429b649104c7). All 14 packages were built from that commit with the pinned Bun version. Separate consumer workspaces verify the exact package bytes and dependency graph. See [source builds](source-build.md) for reproduction and [the earlier published-artifact record](v3-validation.md) for the separate npm alpha.2 checks.
 
@@ -188,7 +188,7 @@ These counts describe one attempt per declared candidate scenario. Required acti
 | OneTrust test | 9/9 | 0/1 | save-page-probe-100ms: followup:page-unresponsive |
 | Osano | 9/9 | 0/1 | save-page-probe-100ms: followup:page-unresponsive |
 | Usercentrics | 0/9 | 0/1 | load: banner-missing; accept: banner-missing, forbidden-script-execution, forbidden-server-egress, followup:banner-missing, followup:forbidden-script-execution, followup:forbidden-server-egress; reject: banner-missing, forbidden-script-execution, forbidden-server-egress, followup:banner-missing, followup:forbidden-script-execution, followup:forbidden-server-egress; save: banner-missing, forbidden-script-execution, forbidden-server-egress, followup:banner-missing, followup:forbidden-script-execution, followup:forbidden-server-egress; preferences: banner-missing, forbidden-script-execution, forbidden-server-egress; withdraw: visitor-preparation; returning-accepted: visitor-preparation; returning-rejected: visitor-preparation; reject-keyboard: banner-missing, forbidden-script-execution, forbidden-server-egress, followup:banner-missing, followup:forbidden-script-execution, followup:forbidden-server-egress; save-page-probe-100ms: banner-missing, forbidden-script-execution, forbidden-server-egress, followup:banner-missing, followup:forbidden-script-execution, followup:forbidden-server-egress |
-| cookie-yes-excluded | 0/0 | 0/0 | Excluded at user request. Existing site ID rejects localhost. |
+| cookie-yes-excluded | 0/0 | 0/0 | Excluded from this batch. Existing site ID rejects localhost. |
 
 ## Instrumentation audit
 

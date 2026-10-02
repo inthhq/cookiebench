@@ -91,7 +91,7 @@ The separate launch correction cohort (`artifacts/measurement-audit-2026-09-27-l
 
 In the other two OneTrust mobile visits, native LCP selected banner text at 3,784 and 3,756 ms while the article image painted later at 4,576 and 4,568 ms. Those raw observations illustrate why element attribution and primary-content paint remain necessary even when a visit is excluded from successful summaries.
 
-Together, the two cohorts retain 23 envelopes with 404 measured samples: 386 passed, four failed, and 14 incomplete. The 71 separate followup probes contain 63 passed, two failed, and six incomplete attempts. The original seven launch errors remain in their original index; corrected entries link to them. CookieYes remains excluded at the user's request and Usercentrics remains configuration-blocked by its public ruleset.
+Together, the two cohorts retain 23 envelopes with 404 measured samples: 386 passed, four failed, and 14 incomplete. The 71 separate followup probes contain 63 passed, two failed, and six incomplete attempts. The original seven launch errors remain in their original index; corrected entries link to them. CookieYes remains excluded from these cohorts and Usercentrics remains configuration-blocked by its public ruleset.
 
 The independent correction review (`artifacts/measurement-audit-2026-09-27-launcher-correction/independent-review-001.json`) matched all twelve additional comparisons, 520 network aggregates, seven envelope hashes, and 52 command-log hashes. Across both cohorts, 46 comparisons and ten bootstrap intervals recomputed without a mismatch. All 296 checked action endpoints obeyed their input and deadline boundaries.
 
