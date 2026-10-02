@@ -1,5 +1,11 @@
 # CookieYes and c15t script comparison, October 1, 2026
 
+## Known defects (2026-10-02)
+
+CPU throttling applied to the main frame only, not to cross-site iframes. c15t's page loads no iframes. The evidence available here does not show whether CookieYes ran work in a cross-site iframe. If it did, its emulated-mobile timings understate that work. Treat the CookieYes emulated-mobile timings as unverified until a rerun with corrected code. The recorded numbers below are unchanged.
+
+## Conditions
+
 This comparison is separate from the main September 27 and September 30 batches, which exclude CookieYes. The two arms ran under different conditions, so the results are not a product ranking. Differences mix product cost with script hosting, script placement and backend latency.
 
 | Condition | c15t | CookieYes |

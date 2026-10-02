@@ -1,5 +1,18 @@
 # V3 source and competitor measurements
 
+## Known defects (2026-10-02)
+
+Code review found defects that affect rows in this record. The recorded numbers below are unchanged. The rows listed here are withdrawn pending a rerun with corrected code.
+
+| Defect | Affected rows | Status |
+| --- | --- | --- |
+| Comparisons marked ineligible still printed an interval and a signed difference. | Every ineligible row that shows an interval, for example Enzuzo `page.lcp` and `page.cls`. Their direction is not evidence. | Withdrawn as conclusions |
+| Nuxt byte totals are inconsistent. Its transfer difference (668,946 B) exceeds its decoded-body difference (564,822 B), the same pattern found in the September 30 Nuxt rows. | c15t Nuxt paired network rows. | Withdrawn |
+
+Two other defects found in the same review do not apply here. This batch's page had no article image, so its heading LCP was not a censored image candidate. It used the desktop profile with no CPU slowdown, so main-frame-only CPU throttling had no effect.
+
+## Overview
+
 Raw run artifacts are not stored in this repository. The `artifacts/` paths below name files from the original runs and cannot be checked from this checkout.
 
 Historical evidence: the subsequent [browser measurement audit](audit-vitals-actions.md) found timestamp, interaction-attribution, and observation-window defects in this collector. [Current analysis validity rules](../packages/analysis/src/validity.ts) withhold affected comparisons. The tables below preserve the original results and eligibility decisions; they are not a current certification of those measurements. Absolute LCP was nonzero in all 900 selected load observations. Zeroes in the load table are paired differences, and most final LCP candidates were the page heading.

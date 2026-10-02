@@ -1,5 +1,11 @@
 # CMP comparison in 60 seconds
 
+## Known defects (2026-10-02)
+
+Code review found collector and fixture defects that affect rows in the [full report](cmp-comparison-2026-09-30-details.md), which lists them and withdraws the affected rows pending a rerun. They do not change the c15t Next.js figures below. Both profiles attributed LCP to the article image in all 30 visits, both LCP comparisons were eligible, the byte defects concern other fixtures, and the c15t fixture loads no cross-site iframes.
+
+## Results
+
 These fixtures are not like-for-like, so cross-CMP numbers are not a ranking.
 
 - c15t fixtures call a controlled local test backend on the same machine. The desktop profile adds 0 ms latency, so those calls return almost at once. Competitor fixtures call their vendors' remote services over the internet.

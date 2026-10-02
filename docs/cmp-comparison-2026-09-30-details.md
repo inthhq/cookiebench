@@ -1,5 +1,20 @@
 # CMP comparison, September 30, 2026
 
+## Known defects (2026-10-02)
+
+Code review found collector and fixture defects that affect rows in this report. The recorded numbers below are unchanged. The rows listed here are withdrawn pending a rerun with corrected code.
+
+| Defect | Affected rows | Status |
+| --- | --- | --- |
+| The Astro and Nuxt fixture proxies compressed HTML but served JS and CSS uncompressed. | c15t Astro and c15t Nuxt `initial.transfer` and `initial.encoded-body`, both profiles. The Astro desktop transfer difference (249,949 B) is close to its decoded-body difference (251,520 B). | Withdrawn |
+| c15t Nuxt desktop recorded `initial.transfer` of 1,324,995 B, above its `initial.decoded-body` of 1,057,200 B. Uncompressed transfer cannot exceed the decoded body by that margin. | All c15t Nuxt byte rows. | Withdrawn |
+| A load-scenario LCP could come from a smaller text candidate when the article image had not painted by the 5 s cutoff, and still enter comparisons. | onetrust mobile `page.lcp`, whose 26 eligible candidates were attributed to `DIV#onetrust-policy-text`. All other eligible load LCP rows were attributed to the article image. | Withdrawn |
+| Comparisons marked ineligible still printed an interval and a signed difference. | Every row marked `ineligible` that shows an interval, for example enzuzo, ketch, onetrust and osano desktop `page.lcp`. Their direction is not evidence. | Withdrawn as conclusions; values kept as descriptive records |
+| The byte collector did not follow redirects or cross-site iframes. | ketch, onetrust and osano byte rows are unavailable. Missing values are not zero, and no byte comparison exists for these fixtures. | Unavailable |
+| CPU throttling applied to the main frame only, not to cross-site iframes. | Emulated-mobile timing rows for any competitor that ran work in a cross-site iframe. This report does not record which competitors did, so every competitor mobile timing row is unverified. c15t fixtures load no iframes. | Unverified |
+
+## Overview
+
 Raw run artifacts are not stored in this repository. The `artifacts/` paths below name files from the original runs and cannot be checked from this checkout.
 
 Snapshot generated 2026-10-01T14:21:34.944Z. Final analysis snapshot; entry status below determines collection completeness.
