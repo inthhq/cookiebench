@@ -367,7 +367,12 @@ describe("paired comparison boundaries", () => {
     ).comparisons;
     expect(comparison).toMatchObject({
       eligible: false,
-      paired: { count: 30 },
+      paired: {
+        conclusion: "inconclusive",
+        confidenceInterval: null,
+        count: 30,
+        medianDifference: 1,
+      },
     });
     expect(comparison?.eligibilityReasons.join(" ")).toContain(
       "one-to-one pairing"
@@ -390,6 +395,47 @@ describe("paired comparison boundaries", () => {
     expect(
       compareResults(failed, envelope(true), "initial.requests").comparisons[0]
     ).toMatchObject({ eligible: false, paired: { count: 29 } });
+  });
+  it("withholds the interval and verdict when failed candidate visits leave 34 surviving pairs", () => {
+    const visits = (candidate: boolean): ResultEnvelope => {
+      const original = envelope(candidate);
+      return {
+        ...original,
+        samples: Array.from({ length: 40 }, (_, index) => {
+          const item = {
+            ...sample(candidate ? 1 : 2, index),
+            fixtureId: candidate ? "vendor" : "baseline",
+          };
+          // The six slowest CMP visits fail before recording the metric.
+          return candidate && index >= 34
+            ? {
+                ...item,
+                failures: [{ code: "page-unresponsive", message: "No LCP" }],
+                measurements: [],
+                status: "failed" as const,
+              }
+            : item;
+        }),
+        status: candidate ? "failed" : "passed",
+      };
+    };
+    const analysis = compareResults(
+      visits(false),
+      visits(true),
+      "initial.requests"
+    );
+    expect(analysis.comparisons[0]).toMatchObject({
+      baseline: { measured: 40 },
+      candidate: { measured: 34 },
+      eligible: false,
+      paired: {
+        conclusion: "inconclusive",
+        confidenceInterval: null,
+        count: 34,
+        medianDifference: -1,
+      },
+    });
+    expect(decodeAnalysis(analysis)).toEqual(analysis);
   });
   it("rejects duplicate attempt pairs rather than reusing a control", () => {
     expect(() =>

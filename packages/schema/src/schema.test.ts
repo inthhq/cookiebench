@@ -2,7 +2,9 @@ import { Schema } from "effect";
 import { describe, expect, it } from "vitest";
 
 import {
+  ANALYSIS_VERSION,
   AdapterConfig,
+  decodeAnalysis,
   decodeCapability,
   decodeMeasurement,
   decodeScenario,
@@ -167,6 +169,88 @@ describe("explicit fixture readiness", () => {
     ).toBe("public-state");
     expect(() =>
       decodeAdapter({ ...adapter, readinessSource: "banner-visible" })
+    ).toThrow();
+  });
+});
+
+describe("analysis records", () => {
+  const summary = {
+    attempts: 40,
+    failed: 0,
+    incomplete: 0,
+    max: 2,
+    mean: 2,
+    measured: 40,
+    median: 2,
+    min: 2,
+    missing: 0,
+    p75: 2,
+    passed: 40,
+  };
+  // Shape written by cookiebench-analysis-v3.2.0, including a verdict on an ineligible comparison.
+  const comparison = {
+    baseline: summary,
+    baselineFixtureId: "baseline",
+    candidate: { ...summary, failed: 6, measured: 34, missing: 6 },
+    candidateFixtureId: "vendor",
+    eligibilityReasons: ["Required metric measurements are missing."],
+    eligible: false,
+    paired: {
+      conclusion: "candidate-lower",
+      confidenceInterval: {
+        high: -1,
+        level: 0.95,
+        low: -1,
+        method: "paired-percentile-bootstrap",
+        resamples: 2000,
+      },
+      count: 34,
+      medianDifference: -1,
+      p75Difference: -1,
+    },
+    scenarioId: "load",
+    unit: "ms",
+  };
+  const historical = {
+    analysisVersion: "cookiebench-analysis-v3.2.0",
+    comparisons: [comparison],
+    metricKey: "page.lcp",
+    sourceRunIds: ["11111111-1111-4111-8111-111111111111"],
+  };
+  it("keeps historical analyses decodable as recorded", () => {
+    expect(decodeAnalysis(historical)).toEqual(historical);
+  });
+  it("rejects a current analysis that publishes a verdict for an ineligible comparison", () => {
+    const current = { ...historical, analysisVersion: ANALYSIS_VERSION };
+    expect(() => decodeAnalysis(current)).toThrow();
+    expect(() =>
+      decodeAnalysis({
+        ...current,
+        comparisons: [
+          {
+            ...comparison,
+            paired: {
+              ...comparison.paired,
+              conclusion: "inconclusive",
+              confidenceInterval: null,
+            },
+          },
+        ],
+      })
+    ).not.toThrow();
+    expect(() =>
+      decodeAnalysis({
+        ...current,
+        comparisons: [
+          { ...comparison, eligibilityReasons: [], eligible: true },
+        ],
+      })
+    ).not.toThrow();
+    expect(() =>
+      decodeAnalysis({
+        ...current,
+        comparisons: [{ ...comparison, eligibilityReasons: [] }],
+      })
     ).toThrow();
   });
 });

@@ -415,7 +415,23 @@ export const MetricSummary = Schema.Struct({
   p75: Schema.NullOr(Finite),
   passed: Count,
 });
-export const PairedSummary = Schema.Struct({
+const LcpAttributionSummary = Schema.Struct({
+  elements: Schema.Array(
+    Schema.Struct({
+      id: Schema.NullOr(Schema.String),
+      role: Schema.Literals(["content", "banner", "other", "unavailable"]),
+      samples: Count,
+      size: Schema.NullOr(NonNegative),
+      tag: Schema.NullOr(Schema.String),
+      url: Schema.NullOr(Schema.String),
+    })
+  ),
+  missing: Count,
+});
+
+/** Analyses written by this version must satisfy the current invariants below. */
+export const ANALYSIS_VERSION = "cookiebench-analysis-v3.3.0";
+const HistoricalPairedSummary = Schema.Struct({
   conclusion: Schema.Literals([
     "candidate-lower",
     "candidate-higher",
@@ -434,49 +450,81 @@ export const PairedSummary = Schema.Struct({
   medianDifference: Schema.NullOr(Finite),
   p75Difference: Schema.NullOr(Finite),
 });
-const LcpAttributionSummary = Schema.Struct({
-  elements: Schema.Array(
+export const PairedSummary = HistoricalPairedSummary;
+const ComparisonFields = {
+  baseline: MetricSummary,
+  baselineFixtureId: Text,
+  candidate: MetricSummary,
+  candidateFixtureId: Text,
+  deployment: Schema.optionalKey(
     Schema.Struct({
-      id: Schema.NullOr(Schema.String),
-      role: Schema.Literals(["content", "banner", "other", "unavailable"]),
-      samples: Count,
-      size: Schema.NullOr(NonNegative),
-      tag: Schema.NullOr(Schema.String),
-      url: Schema.NullOr(Schema.String),
+      baseline: Schema.NullOr(Deployment),
+      candidate: Schema.NullOr(Deployment),
     })
   ),
-  missing: Count,
-});
-
-export const Analysis = Schema.Struct({
-  analysisVersion: Text,
-  comparisons: Schema.Array(
+  eligibilityReasons: Schema.Array(Text),
+  eligible: Schema.Boolean,
+  lcpAttribution: Schema.optionalKey(
     Schema.Struct({
-      baseline: MetricSummary,
-      baselineFixtureId: Text,
-      candidate: MetricSummary,
-      candidateFixtureId: Text,
-      deployment: Schema.optionalKey(
-        Schema.Struct({
-          baseline: Schema.NullOr(Deployment),
-          candidate: Schema.NullOr(Deployment),
-        })
-      ),
-      eligibilityReasons: Schema.Array(Text),
-      eligible: Schema.Boolean,
-      lcpAttribution: Schema.optionalKey(
-        Schema.Struct({
-          baseline: LcpAttributionSummary,
-          candidate: LcpAttributionSummary,
-        })
-      ),
-      paired: PairedSummary,
-      scenarioId: Text,
-      unit: Schema.NullOr(MetricUnit),
+      baseline: LcpAttributionSummary,
+      candidate: LcpAttributionSummary,
     })
+  ),
+  paired: HistoricalPairedSummary,
+  scenarioId: Text,
+  unit: Schema.NullOr(MetricUnit),
+};
+
+/** Only an eligible comparison may carry an interval, and a verdict must follow from it. */
+function verdictFollowsEligibility(comparison: {
+  eligible: boolean;
+  eligibilityReasons: readonly string[];
+  paired: {
+    conclusion: string;
+    confidenceInterval: { low: number; high: number } | null;
+  };
+}): boolean {
+  const { conclusion, confidenceInterval: interval } = comparison.paired;
+  if (comparison.eligible !== (comparison.eligibilityReasons.length === 0)) {
+    return false;
+  }
+  if (!comparison.eligible) {
+    return interval === null && conclusion === "inconclusive";
+  }
+  if (conclusion === "candidate-lower") {
+    return interval !== null && interval.high < 0;
+  }
+  if (conclusion === "candidate-higher") {
+    return interval !== null && interval.low > 0;
+  }
+  return interval === null || (interval.low <= 0 && interval.high >= 0);
+}
+const CurrentAnalysis = Schema.Struct({
+  analysisVersion: Schema.Literal(ANALYSIS_VERSION),
+  comparisons: Schema.Array(
+    Schema.Struct(ComparisonFields).check(
+      Schema.makeFilter(verdictFollowsEligibility, {
+        message:
+          "A comparison is eligible exactly when it has no eligibility reasons; only eligible comparisons carry an interval, and a directional conclusion must follow from it.",
+      })
+    )
   ),
   metricKey: Text,
   sourceRunIds: Schema.Array(UUID),
 });
+/**
+ * Earlier analyses remain decodable as recorded. Before v3.3.0 an ineligible
+ * comparison could still carry an interval and a directional conclusion; that
+ * verdict is not evidence.
+ */
+const HistoricalAnalysis = Schema.Struct({
+  analysisVersion: Text.check(
+    Schema.makeFilter((version) => version !== ANALYSIS_VERSION)
+  ),
+  comparisons: Schema.Array(Schema.Struct(ComparisonFields)),
+  metricKey: Text,
+  sourceRunIds: Schema.Array(UUID),
+});
+export const Analysis = Schema.Union([CurrentAnalysis, HistoricalAnalysis]);
 export type Analysis = typeof Analysis.Type;
 export const decodeAnalysis = Schema.decodeUnknownSync(Analysis, strict);

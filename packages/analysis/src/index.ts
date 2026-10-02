@@ -1,4 +1,4 @@
-import { decodeResult } from "@cookiebench/schema";
+import { ANALYSIS_VERSION, decodeResult } from "@cookiebench/schema";
 import type {
   FixtureConfig,
   MetricUnit,
@@ -19,7 +19,7 @@ export { summarizeLcpAttribution } from "./lcp.ts";
 export type { MetricContext } from "./validity.ts";
 export { measurementValidity, metricEligibility } from "./validity.ts";
 
-export const ANALYSIS_VERSION = "cookiebench-analysis-v3.2.0";
+export { ANALYSIS_VERSION } from "@cookiebench/schema";
 
 export interface MetricSummary {
   attempts: number;
@@ -182,13 +182,13 @@ function conclusion(
   return "inconclusive";
 }
 
-export function pairedDifferences(
+/** Signed candidate-minus-baseline differences for eligible pairs within one run. */
+function pairDifferences(
   baseline: readonly Sample[],
   candidate: readonly Sample[],
   key: string,
-  seed = 1,
   contexts?: { baseline: MetricContext; candidate: MetricContext }
-): PairedSummary {
+): number[] {
   const pairs = new Map<string, Sample>();
   for (const sample of baseline) {
     if (!sample.pairId) {
@@ -227,10 +227,17 @@ export function pairedDifferences(
       differences.push(value.value - reference.value);
     }
   }
+  return differences;
+}
+
+function summarizeDifferences(
+  differences: readonly number[],
+  interval?: { seed: number }
+): PairedSummary {
   let confidenceInterval: PairedSummary["confidenceInterval"] = null;
   // Small batches do not support a stable-looking uncertainty interval.
-  if (differences.length >= 30) {
-    const drawRandom = random(seed);
+  if (interval && differences.length >= 30) {
+    const drawRandom = random(interval.seed);
     const medians = Array.from({ length: 2000 }, () => {
       const draw = Array.from({ length: differences.length }, () => {
         const value =
@@ -265,6 +272,25 @@ export function pairedDifferences(
     medianDifference: percentile(differences, 0.5),
     p75Difference: percentile(differences, 0.75),
   };
+}
+
+/**
+ * Describes paired differences. An interval and verdict are computed only when
+ * `interval` is supplied; compareResults supplies it for eligible comparisons.
+ */
+export function pairedDifferences(
+  baseline: readonly Sample[],
+  candidate: readonly Sample[],
+  key: string,
+  options: {
+    contexts?: { baseline: MetricContext; candidate: MetricContext };
+    interval?: { seed: number };
+  } = {}
+): PairedSummary {
+  return summarizeDifferences(
+    pairDifferences(baseline, candidate, key, options.contexts),
+    options.interval
+  );
 }
 
 function stable(value: unknown): string {
@@ -334,6 +360,39 @@ function deployments(
     baseline: baseline.deployment ?? null,
     candidate: candidate.deployment ?? null,
   };
+}
+
+/** Eligibility conditions that depend on the recorded cells and their pairing. */
+function coverageReasons(
+  comparableWindow: boolean,
+  cells: readonly (readonly Sample[])[],
+  summaries: readonly MetricSummary[],
+  pairs: number
+): string[] {
+  const reasons: string[] = [];
+  if (!comparableWindow) {
+    reasons.push(
+      "Paired baseline comparisons require fresh-visitor load-only scenarios with matching observation windows and blocked optional workloads."
+    );
+  }
+  if (cells.some((cell) => cell.length === 0)) {
+    reasons.push("No samples in one or both comparison cells.");
+  }
+  if (summaries.some((summary) => summary.excluded > 0)) {
+    reasons.push("One or more recorded metric values are ineligible.");
+  }
+  if (summaries.some((summary) => summary.missing > 0)) {
+    reasons.push("Required metric measurements are missing.");
+  }
+  if (summaries.some((summary) => summary.measured !== pairs)) {
+    reasons.push(
+      "Eligible metric observations do not have complete one-to-one pairing within the same run."
+    );
+  }
+  if (pairs < 30) {
+    reasons.push("Fewer than 30 eligible paired metric observations.");
+  }
+  return reasons;
 }
 
 export function compareResults(
@@ -409,11 +468,10 @@ export function compareResults(
       );
       const comparableWindow = hasComparableLoadWindow(scenario);
       // The current runner coerces baseline actions to load-only. Those windows cannot support action deltas.
-      const paired = pairedDifferences(
+      const differences = pairDifferences(
         comparableWindow ? baselineSamples : [],
         comparableWindow ? candidateSamples : [],
         metricKey,
-        candidate.manifest.seed,
         contexts
       );
       const reasons: string[] = [
@@ -431,34 +489,15 @@ export function compareResults(
         ),
         ...artifactEligibility(fixture, candidateSamples),
         ...artifactEligibility(control, baselineSamples),
+        ...coverageReasons(
+          comparableWindow,
+          [baselineSamples, candidateSamples],
+          [baselineSummary, candidateSummary],
+          differences.length
+        ),
       ];
-      if (!comparableWindow) {
-        reasons.push(
-          "Paired baseline comparisons require fresh-visitor load-only scenarios with matching observation windows and blocked optional workloads."
-        );
-      }
-      if (
-        [baselineSamples, candidateSamples].some((cell) => cell.length === 0)
-      ) {
-        reasons.push("No samples in one or both comparison cells.");
-      }
-      if (baselineSummary.excluded + candidateSummary.excluded > 0) {
-        reasons.push("One or more recorded metric values are ineligible.");
-      }
-      if (baselineSummary.missing + candidateSummary.missing > 0) {
-        reasons.push("Required metric measurements are missing.");
-      }
-      if (
-        paired.count !== baselineSummary.measured ||
-        paired.count !== candidateSummary.measured
-      ) {
-        reasons.push(
-          "Eligible metric observations do not have complete one-to-one pairing within the same run."
-        );
-      }
-      if (paired.count < 30) {
-        reasons.push("Fewer than 30 eligible paired metric observations.");
-      }
+      const eligibilityReasons = [...new Set(reasons)];
+      const eligible = eligibilityReasons.length === 0;
       comparisons.push({
         ...lcpComparison(
           metricKey,
@@ -471,9 +510,13 @@ export function compareResults(
         candidate: candidateSummary,
         candidateFixtureId: fixture.id,
         deployment: deployments(control, fixture),
-        eligibilityReasons: [...new Set(reasons)],
-        eligible: reasons.length === 0,
-        paired,
+        eligibilityReasons,
+        eligible,
+        // An ineligible comparison stays descriptive: no interval or verdict.
+        paired: summarizeDifferences(
+          differences,
+          eligible ? { seed: candidate.manifest.seed } : undefined
+        ),
         scenarioId: scenario.id,
         unit: metrics[0]?.unit ?? null,
       });

@@ -20,6 +20,7 @@ import {
 } from "@cookiebench/db";
 import type { RunConfig } from "@cookiebench/runner";
 import {
+  decodeAnalysis,
   decodeCpuCalibrationArtifact,
   decodeCpuCalibrationTier,
   decodeResult,
@@ -530,6 +531,8 @@ export async function main(
           candidate,
           values.metric ?? "page.lcp"
         );
+        // Stored analyses must satisfy the current verdict invariants.
+        decodeAnalysis(analysis);
         const persistence = values.database
           ? await saveAnalysis(
               databaseUrl(),
