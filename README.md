@@ -112,6 +112,13 @@ Adapters can set `readinessSource: "public-state"` to require `ready === true` o
 
 ## Reports and comparisons
 
+Published cross-CMP results are not like-for-like and are not a ranking:
+
+- c15t fixtures call a controlled local test backend on the same machine. The desktop profile adds 0 ms latency, so those calls return almost at once. Competitor fixtures call their vendors' remote services.
+- c15t Next.js uses its native `c15t/next` provider. Ketch and Osano, like the CookieYes and Usercentrics fixtures, load from a client effect after hydration. The fixture proxy injects Didomi, Enzuzo and OneTrust at the start of `<head>`, iubenda at the end of `<head>`, and Cookie Control before `</body>`. Each competitor fixture's `revision` in `benchmarks/with-*/run.json` names its placement.
+
+Baseline deltas describe each fixture's own setup. A difference between two CMPs mixes product cost with backend location and script placement. The [September 30 report](docs/cmp-comparison-2026-09-30-details.md) labels each row with both.
+
 ```sh
 pnpm cookiebench compare --baseline artifacts/paired-run.json --candidate artifacts/paired-run.json --metric page.lcp
 ```
@@ -128,8 +135,6 @@ The full flow configuration provides absolute action timings. Its action scenari
 Use one configuration containing the baseline and CMP fixtures so the runner interleaves their paired samples. Pass that resulting envelope as both inputs. Independently collected runs do not establish paired observations.
 
 The [serial batch helper](docs/measurement-batches.md) records full-flow checks, 30-pair load comparisons, and [instrumentation overhead](docs/instrumentation-overhead.md) with immutable checkpoints and resumable execution. It reports the normal 500 ms flow checks separately from the 100 ms diagnostic. The [September 2026 source and competitor record](docs/v3-measurements.md) reports the measured fixtures, failed attempts, and validity limits.
-
-c15t source fixtures use a controlled local hosted backend. Competitor fixtures use remote vendor services through client-loaded SDKs and public consent callbacks. Their integration and backend conditions differ. Baseline deltas describe each fixture's setup; they do not establish a product ranking.
 
 Two c15t and CookieYes script-tag comparisons sit outside the main batches: [October 1](docs/cookieyes-c15t-script-comparison-2026-10-01.md) (desktop and emulated mobile) and [October 2](docs/calibrated-cookieyes-c15t-comparison-2026-10-02.md) (emulated mobile with calibrated CPU). Their arms differ in script hosting, script placement and backend, and use a different CookieYes site ID from the Next.js fixture. Each doc lists those conditions and the reconstructed run configurations, `benchmarks/cookieyes-script-comparison/run.json` and `run-mobile.json`.
 

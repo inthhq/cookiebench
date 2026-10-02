@@ -4,6 +4,8 @@ Raw run artifacts are not stored in this repository. The `artifacts/` paths belo
 
 Snapshot generated 2026-10-01T14:21:34.944Z. Final analysis snapshot; entry status below determines collection completeness.
 
+These fixtures are not like-for-like, and no row ordering or difference between CMPs is a ranking. c15t fixtures call a controlled local test backend on the same machine; on the desktop profile it adds 0 ms latency, so its responses return almost at once. Competitor fixtures call their vendors' remote services. c15t Next.js uses its native provider, Ketch and Osano load from a client effect after hydration, and the proxy injects the other competitors into `<head>` or before `</body>`. Headline tables label each row with its backend and placement.
+
 ## Readout
 
 This report retains 3,276 recorded primary visits across the September 30 originals and October 1 corrections. The original repeated stage recorded 2,670 of 2,700 planned visits; its Nuxt mobile build failure left 30 visits unrecorded. Separate original correctness checks recorded 306 visits and instrumentation audits recorded 120. All six correction cohorts finished, adding 180 primary visits and 160 separate followup probes. Corrections preserve every original failure and do not enter original medians.
@@ -165,24 +167,34 @@ Original and correction stages remain separate. Corrections do not replace origi
 
 ## Main Next.js fixtures
 
+Rows are labelled by backend and script placement. c15t uses a controlled local backend; every competitor uses its vendor's remote services. Rows from different groups are not like-for-like.
+
+| Fixture | Backend / assets | Integration and placement |
+| --- | --- | --- |
+| c15t Next.js | controlled-local / local | Native `c15t/next` client provider |
+| cookie-control | remote-service / mixed | Proxy-injected loader before `</body>` |
+| didomi, enzuzo, onetrust | remote-service / mixed | Proxy-injected loader at the start of `<head>` |
+| iubenda | remote-service / mixed | Proxy-injected loader at the end of `<head>` |
+| ketch, osano | remote-service / mixed | Client effect after hydration |
+
 | Fixture/profile | Backend / assets | Raw candidate P/F/I | Correctness V/F/U | Baseline / candidate visits |
 | --- | --- | --- | --- | --: |
-| c15t Next.js desktop | controlled-local / local | 30/0/0 | 30/0/0 | 30 / 30 |
-| cookie-control desktop | remote-service / mixed | 30/0/0 | 30/0/0 | 30 / 30 |
-| didomi desktop | remote-service / mixed | 30/0/0 | 30/0/0 | 30 / 30 |
-| enzuzo desktop | remote-service / mixed | 30/0/0 | 30/0/0 | 30 / 30 |
-| iubenda desktop | remote-service / mixed | 30/0/0 | 30/0/0 | 30 / 30 |
-| ketch desktop | remote-service / mixed | 0/0/30 | 30/0/0 | 30 / 30 |
-| onetrust desktop | remote-service / mixed | 0/0/30 | 30/0/0 | 30 / 30 |
-| osano desktop | remote-service / mixed | 0/0/30 | 30/0/0 | 30 / 30 |
-| c15t Next.js mobile | controlled-local / local | 30/0/0 | 30/0/0 | 30 / 30 |
-| cookie-control mobile | remote-service / mixed | 30/0/0 | 30/0/0 | 30 / 30 |
-| didomi mobile | remote-service / mixed | 30/0/0 | 30/0/0 | 30 / 30 |
-| enzuzo mobile | remote-service / mixed | 30/0/0 | 30/0/0 | 30 / 30 |
-| iubenda mobile | remote-service / mixed | 30/0/0 | 30/0/0 | 30 / 30 |
-| ketch mobile | remote-service / mixed | 0/30/0 | 0/30/0 | 30 / 30 |
-| onetrust mobile | remote-service / mixed | 0/4/26 | 26/4/0 | 30 / 30 |
-| osano mobile | remote-service / mixed | 0/1/29 | 29/1/0 | 30 / 30 |
+| c15t Next.js desktop (local backend, native provider) | controlled-local / local | 30/0/0 | 30/0/0 | 30 / 30 |
+| cookie-control desktop (remote, before `</body>`) | remote-service / mixed | 30/0/0 | 30/0/0 | 30 / 30 |
+| didomi desktop (remote, start of `<head>`) | remote-service / mixed | 30/0/0 | 30/0/0 | 30 / 30 |
+| enzuzo desktop (remote, start of `<head>`) | remote-service / mixed | 30/0/0 | 30/0/0 | 30 / 30 |
+| iubenda desktop (remote, end of `<head>`) | remote-service / mixed | 30/0/0 | 30/0/0 | 30 / 30 |
+| ketch desktop (remote, client effect) | remote-service / mixed | 0/0/30 | 30/0/0 | 30 / 30 |
+| onetrust desktop (remote, start of `<head>`) | remote-service / mixed | 0/0/30 | 30/0/0 | 30 / 30 |
+| osano desktop (remote, client effect) | remote-service / mixed | 0/0/30 | 30/0/0 | 30 / 30 |
+| c15t Next.js mobile (local backend, native provider) | controlled-local / local | 30/0/0 | 30/0/0 | 30 / 30 |
+| cookie-control mobile (remote, before `</body>`) | remote-service / mixed | 30/0/0 | 30/0/0 | 30 / 30 |
+| didomi mobile (remote, start of `<head>`) | remote-service / mixed | 30/0/0 | 30/0/0 | 30 / 30 |
+| enzuzo mobile (remote, start of `<head>`) | remote-service / mixed | 30/0/0 | 30/0/0 | 30 / 30 |
+| iubenda mobile (remote, end of `<head>`) | remote-service / mixed | 30/0/0 | 30/0/0 | 30 / 30 |
+| ketch mobile (remote, client effect) | remote-service / mixed | 0/30/0 | 0/30/0 | 30 / 30 |
+| onetrust mobile (remote, start of `<head>`) | remote-service / mixed | 0/4/26 | 26/4/0 | 30 / 30 |
+| osano mobile (remote, client effect) | remote-service / mixed | 0/1/29 | 29/1/0 | 30 / 30 |
 
 ### page.lcp
 
@@ -190,22 +202,22 @@ ms. Values are median / p75; A/I/E/M. Paired delta is candidate minus control; i
 
 | Fixture/profile | Baseline | Candidate | Paired delta; 95% interval; N; eligibility |
 | --- | --- | --- | --- |
-| c15t Next.js desktop | 84 / 84; 30/30/0/0 | 84 / 88; 30/30/0/0 | 4; [-2, 4]; N=30; eligible |
-| cookie-control desktop | 96 / 96; 30/30/0/0 | 100 / 100; 30/30/0/0 | 4; [4, 4]; N=30; eligible |
-| didomi desktop | 96 / 96; 30/30/0/0 | 100 / 100; 30/30/0/0 | 4; [4, 4]; N=30; eligible |
-| enzuzo desktop | 96 / 96; 30/30/0/0 | 100 / 100; 30/30/0/0 | 4; [4, 4]; N=30; ineligible |
-| iubenda desktop | 120 / 144; 30/30/0/0 | 124 / 156; 30/30/0/0 | 8; [-2, 16]; N=30; eligible |
-| ketch desktop | 92 / 111; 30/30/0/0 | 90 / 112; 30/30/0/0 | 0; [-8, 4]; N=30; ineligible |
-| onetrust desktop | 134 / 171; 30/30/0/0 | 188 / 244; 30/30/0/0 | 32; [18, 76]; N=30; ineligible |
-| osano desktop | 88 / 122; 30/30/0/0 | 92 / 143; 30/30/0/0 | 4; [0, 6]; N=30; ineligible |
-| c15t Next.js mobile | 3,532 / 3,544; 30/30/0/0 | 3,972 / 3,975; 30/30/0/0 | 436; [428, 444]; N=30; eligible |
-| cookie-control mobile | 3,532 / 3,536; 30/30/0/0 | 4,020 / 4,035; 30/30/0/0 | 498; [480, 502]; N=30; eligible |
-| didomi mobile | 3,512 / 3,516; 30/30/0/0 | 4,792 / 4,796; 30/30/0/0 | 1,272; [1,268, 1,284]; N=30; eligible |
-| enzuzo mobile | 3,514 / 3,527; 30/30/0/0 | 4,292 / 4,307; 30/30/0/0 | 776; [774, 784]; N=30; ineligible |
-| iubenda mobile | 3,528 / 3,536; 30/30/0/0 | 4,148 / 4,152; 30/30/0/0 | 616; [608, 628]; N=30; eligible |
-| ketch mobile | 3,530 / 3,540; 30/30/0/0 | unavailable / unavailable; 30/0/30/0 | unavailable; no interval; N=0; ineligible |
-| onetrust mobile | 3,516 / 3,531; 30/30/0/0 | 3,968 / 4,011; 30/26/4/0 | 432; no interval; N=26; ineligible |
-| osano mobile | 3,524 / 3,532; 30/30/0/0 | 3,980 / 3,984; 30/29/1/0 | 452; no interval; N=29; ineligible |
+| c15t Next.js desktop (local backend, native provider) | 84 / 84; 30/30/0/0 | 84 / 88; 30/30/0/0 | 4; [-2, 4]; N=30; eligible |
+| cookie-control desktop (remote, before `</body>`) | 96 / 96; 30/30/0/0 | 100 / 100; 30/30/0/0 | 4; [4, 4]; N=30; eligible |
+| didomi desktop (remote, start of `<head>`) | 96 / 96; 30/30/0/0 | 100 / 100; 30/30/0/0 | 4; [4, 4]; N=30; eligible |
+| enzuzo desktop (remote, start of `<head>`) | 96 / 96; 30/30/0/0 | 100 / 100; 30/30/0/0 | 4; [4, 4]; N=30; ineligible |
+| iubenda desktop (remote, end of `<head>`) | 120 / 144; 30/30/0/0 | 124 / 156; 30/30/0/0 | 8; [-2, 16]; N=30; eligible |
+| ketch desktop (remote, client effect) | 92 / 111; 30/30/0/0 | 90 / 112; 30/30/0/0 | 0; [-8, 4]; N=30; ineligible |
+| onetrust desktop (remote, start of `<head>`) | 134 / 171; 30/30/0/0 | 188 / 244; 30/30/0/0 | 32; [18, 76]; N=30; ineligible |
+| osano desktop (remote, client effect) | 88 / 122; 30/30/0/0 | 92 / 143; 30/30/0/0 | 4; [0, 6]; N=30; ineligible |
+| c15t Next.js mobile (local backend, native provider) | 3,532 / 3,544; 30/30/0/0 | 3,972 / 3,975; 30/30/0/0 | 436; [428, 444]; N=30; eligible |
+| cookie-control mobile (remote, before `</body>`) | 3,532 / 3,536; 30/30/0/0 | 4,020 / 4,035; 30/30/0/0 | 498; [480, 502]; N=30; eligible |
+| didomi mobile (remote, start of `<head>`) | 3,512 / 3,516; 30/30/0/0 | 4,792 / 4,796; 30/30/0/0 | 1,272; [1,268, 1,284]; N=30; eligible |
+| enzuzo mobile (remote, start of `<head>`) | 3,514 / 3,527; 30/30/0/0 | 4,292 / 4,307; 30/30/0/0 | 776; [774, 784]; N=30; ineligible |
+| iubenda mobile (remote, end of `<head>`) | 3,528 / 3,536; 30/30/0/0 | 4,148 / 4,152; 30/30/0/0 | 616; [608, 628]; N=30; eligible |
+| ketch mobile (remote, client effect) | 3,530 / 3,540; 30/30/0/0 | unavailable / unavailable; 30/0/30/0 | unavailable; no interval; N=0; ineligible |
+| onetrust mobile (remote, start of `<head>`) | 3,516 / 3,531; 30/30/0/0 | 3,968 / 4,011; 30/26/4/0 | 432; no interval; N=26; ineligible |
+| osano mobile (remote, client effect) | 3,524 / 3,532; 30/30/0/0 | 3,980 / 3,984; 30/29/1/0 | 452; no interval; N=29; ineligible |
 
 ### page.cls
 
@@ -213,22 +225,22 @@ unitless score. Values are median / p75; A/I/E/M. Paired delta is candidate minu
 
 | Fixture/profile | Baseline | Candidate | Paired delta; 95% interval; N; eligibility |
 | --- | --- | --- | --- |
-| c15t Next.js desktop | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; eligible |
-| cookie-control desktop | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; eligible |
-| didomi desktop | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; eligible |
-| enzuzo desktop | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; ineligible |
-| iubenda desktop | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; eligible |
-| ketch desktop | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; ineligible |
-| onetrust desktop | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; ineligible |
-| osano desktop | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; ineligible |
-| c15t Next.js mobile | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; eligible |
-| cookie-control mobile | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; eligible |
-| didomi mobile | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; eligible |
-| enzuzo mobile | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; ineligible |
-| iubenda mobile | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; eligible |
-| ketch mobile | 0 / 0; 30/30/0/0 | unavailable / unavailable; 30/0/30/0 | unavailable; no interval; N=0; ineligible |
-| onetrust mobile | 0 / 0; 30/30/0/0 | 0 / 0; 30/26/4/0 | 0; no interval; N=26; ineligible |
-| osano mobile | 0 / 0; 30/30/0/0 | 0 / 0; 30/29/1/0 | 0; no interval; N=29; ineligible |
+| c15t Next.js desktop (local backend, native provider) | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; eligible |
+| cookie-control desktop (remote, before `</body>`) | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; eligible |
+| didomi desktop (remote, start of `<head>`) | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; eligible |
+| enzuzo desktop (remote, start of `<head>`) | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; ineligible |
+| iubenda desktop (remote, end of `<head>`) | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; eligible |
+| ketch desktop (remote, client effect) | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; ineligible |
+| onetrust desktop (remote, start of `<head>`) | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; ineligible |
+| osano desktop (remote, client effect) | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; ineligible |
+| c15t Next.js mobile (local backend, native provider) | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; eligible |
+| cookie-control mobile (remote, before `</body>`) | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; eligible |
+| didomi mobile (remote, start of `<head>`) | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; eligible |
+| enzuzo mobile (remote, start of `<head>`) | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; ineligible |
+| iubenda mobile (remote, end of `<head>`) | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; eligible |
+| ketch mobile (remote, client effect) | 0 / 0; 30/30/0/0 | unavailable / unavailable; 30/0/30/0 | unavailable; no interval; N=0; ineligible |
+| onetrust mobile (remote, start of `<head>`) | 0 / 0; 30/30/0/0 | 0 / 0; 30/26/4/0 | 0; no interval; N=26; ineligible |
+| osano mobile (remote, client effect) | 0 / 0; 30/30/0/0 | 0 / 0; 30/29/1/0 | 0; no interval; N=29; ineligible |
 
 ### page.primary-content-paint
 
@@ -236,22 +248,22 @@ ms. Values are median / p75; A/I/E/M. Paired delta is candidate minus control; i
 
 | Fixture/profile | Baseline | Candidate | Paired delta; 95% interval; N; eligibility |
 | --- | --- | --- | --- |
-| c15t Next.js desktop | 84 / 84; 30/30/0/0 | 84 / 88; 30/30/0/0 | 4; [-2, 4]; N=30; eligible |
-| cookie-control desktop | 96 / 96; 30/30/0/0 | 100 / 100; 30/30/0/0 | 4; [4, 4]; N=30; eligible |
-| didomi desktop | 96 / 96; 30/30/0/0 | 100 / 100; 30/30/0/0 | 4; [4, 4]; N=30; eligible |
-| enzuzo desktop | 96 / 96; 30/30/0/0 | 100 / 100; 30/30/0/0 | 4; [4, 4]; N=30; ineligible |
-| iubenda desktop | 120 / 144; 30/30/0/0 | 124 / 156; 30/30/0/0 | 8; [-2, 16]; N=30; eligible |
-| ketch desktop | 92 / 111; 30/30/0/0 | 90 / 112; 30/30/0/0 | 0; [-8, 4]; N=30; ineligible |
-| onetrust desktop | 134 / 171; 30/30/0/0 | 188 / 244; 30/30/0/0 | 32; [18, 76]; N=30; ineligible |
-| osano desktop | 88 / 122; 30/30/0/0 | 92 / 143; 30/30/0/0 | 4; [0, 6]; N=30; ineligible |
-| c15t Next.js mobile | 3,532 / 3,544; 30/30/0/0 | 3,972 / 3,975; 30/30/0/0 | 436; [428, 444]; N=30; eligible |
-| cookie-control mobile | 3,532 / 3,536; 30/30/0/0 | 4,020 / 4,035; 30/30/0/0 | 498; [480, 502]; N=30; eligible |
-| didomi mobile | 3,512 / 3,516; 30/30/0/0 | 4,792 / 4,796; 30/30/0/0 | 1,272; [1,268, 1,284]; N=30; eligible |
-| enzuzo mobile | 3,514 / 3,527; 30/30/0/0 | 4,292 / 4,307; 30/30/0/0 | 776; [774, 784]; N=30; ineligible |
-| iubenda mobile | 3,528 / 3,536; 30/30/0/0 | 4,148 / 4,152; 30/30/0/0 | 616; [608, 628]; N=30; eligible |
-| ketch mobile | 3,530 / 3,540; 30/30/0/0 | unavailable / unavailable; 23/0/23/7 | unavailable; no interval; N=0; ineligible |
-| onetrust mobile | 3,516 / 3,531; 30/30/0/0 | 4,604 / 4,620; 30/26/4/0 | 1,090; no interval; N=26; ineligible |
-| osano mobile | 3,524 / 3,532; 30/30/0/0 | 3,980 / 3,984; 30/29/1/0 | 452; no interval; N=29; ineligible |
+| c15t Next.js desktop (local backend, native provider) | 84 / 84; 30/30/0/0 | 84 / 88; 30/30/0/0 | 4; [-2, 4]; N=30; eligible |
+| cookie-control desktop (remote, before `</body>`) | 96 / 96; 30/30/0/0 | 100 / 100; 30/30/0/0 | 4; [4, 4]; N=30; eligible |
+| didomi desktop (remote, start of `<head>`) | 96 / 96; 30/30/0/0 | 100 / 100; 30/30/0/0 | 4; [4, 4]; N=30; eligible |
+| enzuzo desktop (remote, start of `<head>`) | 96 / 96; 30/30/0/0 | 100 / 100; 30/30/0/0 | 4; [4, 4]; N=30; ineligible |
+| iubenda desktop (remote, end of `<head>`) | 120 / 144; 30/30/0/0 | 124 / 156; 30/30/0/0 | 8; [-2, 16]; N=30; eligible |
+| ketch desktop (remote, client effect) | 92 / 111; 30/30/0/0 | 90 / 112; 30/30/0/0 | 0; [-8, 4]; N=30; ineligible |
+| onetrust desktop (remote, start of `<head>`) | 134 / 171; 30/30/0/0 | 188 / 244; 30/30/0/0 | 32; [18, 76]; N=30; ineligible |
+| osano desktop (remote, client effect) | 88 / 122; 30/30/0/0 | 92 / 143; 30/30/0/0 | 4; [0, 6]; N=30; ineligible |
+| c15t Next.js mobile (local backend, native provider) | 3,532 / 3,544; 30/30/0/0 | 3,972 / 3,975; 30/30/0/0 | 436; [428, 444]; N=30; eligible |
+| cookie-control mobile (remote, before `</body>`) | 3,532 / 3,536; 30/30/0/0 | 4,020 / 4,035; 30/30/0/0 | 498; [480, 502]; N=30; eligible |
+| didomi mobile (remote, start of `<head>`) | 3,512 / 3,516; 30/30/0/0 | 4,792 / 4,796; 30/30/0/0 | 1,272; [1,268, 1,284]; N=30; eligible |
+| enzuzo mobile (remote, start of `<head>`) | 3,514 / 3,527; 30/30/0/0 | 4,292 / 4,307; 30/30/0/0 | 776; [774, 784]; N=30; ineligible |
+| iubenda mobile (remote, end of `<head>`) | 3,528 / 3,536; 30/30/0/0 | 4,148 / 4,152; 30/30/0/0 | 616; [608, 628]; N=30; eligible |
+| ketch mobile (remote, client effect) | 3,530 / 3,540; 30/30/0/0 | unavailable / unavailable; 23/0/23/7 | unavailable; no interval; N=0; ineligible |
+| onetrust mobile (remote, start of `<head>`) | 3,516 / 3,531; 30/30/0/0 | 4,604 / 4,620; 30/26/4/0 | 1,090; no interval; N=26; ineligible |
+| osano mobile (remote, client effect) | 3,524 / 3,532; 30/30/0/0 | 3,980 / 3,984; 30/29/1/0 | 452; no interval; N=29; ineligible |
 
 ### banner.visible
 
@@ -259,22 +271,22 @@ ms. Values are median / p75; A/I/E/M. The no-CMP baseline has no banner.
 
 | Fixture/profile | Baseline | Candidate | Paired delta; 95% interval; N; eligibility |
 | --- | --- | --- | --- |
-| c15t Next.js desktop | not applicable | 125.15 / 125.85; 30/30/0/0 | not applicable |
-| cookie-control desktop | not applicable | 321.55 / 354.9; 30/30/0/0 | not applicable |
-| didomi desktop | not applicable | 509.95 / 648.77; 30/30/0/0 | not applicable |
-| enzuzo desktop | not applicable | 351.95 / 376.33; 30/30/0/0 | not applicable |
-| iubenda desktop | not applicable | 428.85 / 530.15; 30/30/0/0 | not applicable |
-| ketch desktop | not applicable | 1,836.65 / 2,049.3; 30/30/0/0 | not applicable |
-| onetrust desktop | not applicable | 695.65 / 773.23; 30/30/0/0 | not applicable |
-| osano desktop | not applicable | 627.2 / 702.38; 30/30/0/0 | not applicable |
-| c15t Next.js mobile | not applicable | 2,405.8 / 2,422.85; 30/30/0/0 | not applicable |
-| cookie-control mobile | not applicable | 2,540.35 / 2,581.83; 30/30/0/0 | not applicable |
-| didomi mobile | not applicable | 4,094.8 / 4,106.12; 30/30/0/0 | not applicable |
-| enzuzo mobile | not applicable | 2,741.75 / 2,766.9; 30/30/0/0 | not applicable |
-| iubenda mobile | not applicable | 2,702.9 / 2,753.28; 30/30/0/0 | not applicable |
-| ketch mobile | not applicable | unavailable / unavailable; 0/0/0/30 | not applicable |
-| onetrust mobile | not applicable | 3,947.6 / 3,989.15; 26/26/0/4 | not applicable |
-| osano mobile | not applicable | 3,209 / 3,444.7; 29/29/0/1 | not applicable |
+| c15t Next.js desktop (local backend, native provider) | not applicable | 125.15 / 125.85; 30/30/0/0 | not applicable |
+| cookie-control desktop (remote, before `</body>`) | not applicable | 321.55 / 354.9; 30/30/0/0 | not applicable |
+| didomi desktop (remote, start of `<head>`) | not applicable | 509.95 / 648.77; 30/30/0/0 | not applicable |
+| enzuzo desktop (remote, start of `<head>`) | not applicable | 351.95 / 376.33; 30/30/0/0 | not applicable |
+| iubenda desktop (remote, end of `<head>`) | not applicable | 428.85 / 530.15; 30/30/0/0 | not applicable |
+| ketch desktop (remote, client effect) | not applicable | 1,836.65 / 2,049.3; 30/30/0/0 | not applicable |
+| onetrust desktop (remote, start of `<head>`) | not applicable | 695.65 / 773.23; 30/30/0/0 | not applicable |
+| osano desktop (remote, client effect) | not applicable | 627.2 / 702.38; 30/30/0/0 | not applicable |
+| c15t Next.js mobile (local backend, native provider) | not applicable | 2,405.8 / 2,422.85; 30/30/0/0 | not applicable |
+| cookie-control mobile (remote, before `</body>`) | not applicable | 2,540.35 / 2,581.83; 30/30/0/0 | not applicable |
+| didomi mobile (remote, start of `<head>`) | not applicable | 4,094.8 / 4,106.12; 30/30/0/0 | not applicable |
+| enzuzo mobile (remote, start of `<head>`) | not applicable | 2,741.75 / 2,766.9; 30/30/0/0 | not applicable |
+| iubenda mobile (remote, end of `<head>`) | not applicable | 2,702.9 / 2,753.28; 30/30/0/0 | not applicable |
+| ketch mobile (remote, client effect) | not applicable | unavailable / unavailable; 0/0/0/30 | not applicable |
+| onetrust mobile (remote, start of `<head>`) | not applicable | 3,947.6 / 3,989.15; 26/26/0/4 | not applicable |
+| osano mobile (remote, client effect) | not applicable | 3,209 / 3,444.7; 29/29/0/1 | not applicable |
 
 ### initial.transfer
 
@@ -282,22 +294,22 @@ bytes. Values are median / p75; A/I/E/M. Paired delta is candidate minus control
 
 | Fixture/profile | Baseline | Candidate | Paired delta; 95% interval; N; eligibility |
 | --- | --- | --- | --- |
-| c15t Next.js desktop | 631,897 / 631,897; 30/30/0/0 | 729,976 / 729,976; 30/30/0/0 | 98,079; [98,079, 98,079]; N=30; eligible |
-| cookie-control desktop | 631,123 / 631,123; 30/30/0/0 | 729,562 / 729,568; 30/30/0/0 | 98,439; [98,438, 98,440.03]; N=30; eligible |
-| didomi desktop | 631,127 / 631,127; 30/30/0/0 | 883,978 / 883,982.75; 30/30/0/0 | 252,851; [252,850, 252,853]; N=30; eligible |
-| enzuzo desktop | 631,120 / 631,120; 30/30/0/0 | 785,099.5 / 785,321; 30/30/0/0 | 153,979.5; [153,925, 154,045.5]; N=30; ineligible |
-| iubenda desktop | 631,133 / 631,133; 30/30/0/0 | 752,078 / 752,086; 30/30/0/0 | 120,945; [120,945, 120,946]; N=30; eligible |
-| ketch desktop | 631,899 / 631,899; 30/30/0/0 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
-| onetrust desktop | 631,127 / 631,127; 30/30/0/0 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
-| osano desktop | 631,902 / 631,902; 30/30/0/0 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
-| c15t Next.js mobile | 631,897 / 631,897; 30/30/0/0 | 729,975 / 729,975; 30/30/0/0 | 98,078; [98,078, 98,078]; N=30; eligible |
-| cookie-control mobile | 631,140 / 631,140; 30/30/0/0 | 729,563 / 729,570; 30/30/0/0 | 98,423; [98,422, 98,430]; N=30; eligible |
-| didomi mobile | 631,123 / 631,123; 30/30/0/0 | 883,123 / 883,127.75; 30/30/0/0 | 252,000; [251,998.5, 252,004]; N=30; eligible |
-| enzuzo mobile | 631,120 / 631,120; 30/30/0/0 | 785,140.5 / 785,359.75; 30/30/0/0 | 154,019.5; [153,950, 154,202.5]; N=30; ineligible |
-| iubenda mobile | 631,130 / 631,130; 30/30/0/0 | 752,070 / 752,077.75; 30/30/0/0 | 120,940; [120,940, 120,944]; N=30; eligible |
-| ketch mobile | 631,902 / 631,902; 30/30/0/0 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
-| onetrust mobile | 631,112 / 631,112; 30/30/0/0 | unavailable / unavailable; 1/0/1/29 | unavailable; no interval; N=0; ineligible |
-| osano mobile | 631,901 / 631,901; 30/30/0/0 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| c15t Next.js desktop (local backend, native provider) | 631,897 / 631,897; 30/30/0/0 | 729,976 / 729,976; 30/30/0/0 | 98,079; [98,079, 98,079]; N=30; eligible |
+| cookie-control desktop (remote, before `</body>`) | 631,123 / 631,123; 30/30/0/0 | 729,562 / 729,568; 30/30/0/0 | 98,439; [98,438, 98,440.03]; N=30; eligible |
+| didomi desktop (remote, start of `<head>`) | 631,127 / 631,127; 30/30/0/0 | 883,978 / 883,982.75; 30/30/0/0 | 252,851; [252,850, 252,853]; N=30; eligible |
+| enzuzo desktop (remote, start of `<head>`) | 631,120 / 631,120; 30/30/0/0 | 785,099.5 / 785,321; 30/30/0/0 | 153,979.5; [153,925, 154,045.5]; N=30; ineligible |
+| iubenda desktop (remote, end of `<head>`) | 631,133 / 631,133; 30/30/0/0 | 752,078 / 752,086; 30/30/0/0 | 120,945; [120,945, 120,946]; N=30; eligible |
+| ketch desktop (remote, client effect) | 631,899 / 631,899; 30/30/0/0 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| onetrust desktop (remote, start of `<head>`) | 631,127 / 631,127; 30/30/0/0 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| osano desktop (remote, client effect) | 631,902 / 631,902; 30/30/0/0 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| c15t Next.js mobile (local backend, native provider) | 631,897 / 631,897; 30/30/0/0 | 729,975 / 729,975; 30/30/0/0 | 98,078; [98,078, 98,078]; N=30; eligible |
+| cookie-control mobile (remote, before `</body>`) | 631,140 / 631,140; 30/30/0/0 | 729,563 / 729,570; 30/30/0/0 | 98,423; [98,422, 98,430]; N=30; eligible |
+| didomi mobile (remote, start of `<head>`) | 631,123 / 631,123; 30/30/0/0 | 883,123 / 883,127.75; 30/30/0/0 | 252,000; [251,998.5, 252,004]; N=30; eligible |
+| enzuzo mobile (remote, start of `<head>`) | 631,120 / 631,120; 30/30/0/0 | 785,140.5 / 785,359.75; 30/30/0/0 | 154,019.5; [153,950, 154,202.5]; N=30; ineligible |
+| iubenda mobile (remote, end of `<head>`) | 631,130 / 631,130; 30/30/0/0 | 752,070 / 752,077.75; 30/30/0/0 | 120,940; [120,940, 120,944]; N=30; eligible |
+| ketch mobile (remote, client effect) | 631,902 / 631,902; 30/30/0/0 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| onetrust mobile (remote, start of `<head>`) | 631,112 / 631,112; 30/30/0/0 | unavailable / unavailable; 1/0/1/29 | unavailable; no interval; N=0; ineligible |
+| osano mobile (remote, client effect) | 631,901 / 631,901; 30/30/0/0 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
 
 ### initial.encoded-body
 
@@ -305,22 +317,22 @@ bytes. Values are median / p75; A/I/E/M. Paired delta is candidate minus control
 
 | Fixture/profile | Baseline | Candidate | Paired delta; 95% interval; N; eligibility |
 | --- | --- | --- | --- |
-| c15t Next.js desktop | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
-| cookie-control desktop | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
-| didomi desktop | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
-| enzuzo desktop | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
-| iubenda desktop | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
-| ketch desktop | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
-| onetrust desktop | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
-| osano desktop | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
-| c15t Next.js mobile | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
-| cookie-control mobile | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
-| didomi mobile | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
-| enzuzo mobile | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
-| iubenda mobile | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
-| ketch mobile | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
-| onetrust mobile | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
-| osano mobile | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| c15t Next.js desktop (local backend, native provider) | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| cookie-control desktop (remote, before `</body>`) | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| didomi desktop (remote, start of `<head>`) | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| enzuzo desktop (remote, start of `<head>`) | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| iubenda desktop (remote, end of `<head>`) | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| ketch desktop (remote, client effect) | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| onetrust desktop (remote, start of `<head>`) | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| osano desktop (remote, client effect) | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| c15t Next.js mobile (local backend, native provider) | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| cookie-control mobile (remote, before `</body>`) | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| didomi mobile (remote, start of `<head>`) | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| enzuzo mobile (remote, start of `<head>`) | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| iubenda mobile (remote, end of `<head>`) | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| ketch mobile (remote, client effect) | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| onetrust mobile (remote, start of `<head>`) | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| osano mobile (remote, client effect) | unavailable / unavailable; 0/0/0/30 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
 
 ### initial.decoded-body
 
@@ -328,22 +340,22 @@ bytes. Values are median / p75; A/I/E/M. Paired delta is candidate minus control
 
 | Fixture/profile | Baseline | Candidate | Paired delta; 95% interval; N; eligibility |
 | --- | --- | --- | --- |
-| c15t Next.js desktop | 977,458 / 977,458; 30/30/0/0 | 1,330,475 / 1,330,475; 30/30/0/0 | 353,017; [353,017, 353,017]; N=30; eligible |
-| cookie-control desktop | 976,537 / 976,537; 30/30/0/0 | 1,322,213 / 1,322,213; 30/30/0/0 | 345,676; [345,676, 345,676]; N=30; eligible |
-| didomi desktop | 976,537 / 976,537; 30/30/0/0 | 1,971,833 / 1,971,833; 30/30/0/0 | 995,296; [995,296, 995,296]; N=30; eligible |
-| enzuzo desktop | 976,537 / 976,537; 30/30/0/0 | 1,575,046 / 1,575,046; 30/30/0/0 | 598,509; [598,509, 598,509]; N=30; ineligible |
-| iubenda desktop | 976,537 / 976,537; 30/30/0/0 | 1,431,836 / 1,431,836; 30/30/0/0 | 455,299; [455,299, 455,299]; N=30; eligible |
-| ketch desktop | 977,238 / 977,238; 30/30/0/0 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
-| onetrust desktop | 976,530 / 976,530; 30/30/0/0 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
-| osano desktop | 977,238 / 977,238; 30/30/0/0 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
-| c15t Next.js mobile | 977,458 / 977,458; 30/30/0/0 | 1,330,475 / 1,330,475; 30/30/0/0 | 353,017; [353,017, 353,017]; N=30; eligible |
-| cookie-control mobile | 976,537 / 976,537; 30/30/0/0 | 1,322,213 / 1,322,213; 30/30/0/0 | 345,676; [345,676, 345,676]; N=30; eligible |
-| didomi mobile | 976,537 / 976,537; 30/30/0/0 | 1,972,332 / 1,972,332; 30/30/0/0 | 995,795; [995,795, 995,795]; N=30; eligible |
-| enzuzo mobile | 976,537 / 976,537; 30/30/0/0 | 1,575,449 / 1,575,449; 30/30/0/0 | 598,912; [598,912, 598,912]; N=30; ineligible |
-| iubenda mobile | 976,537 / 976,537; 30/30/0/0 | 1,431,836 / 1,431,836; 30/30/0/0 | 455,299; [455,299, 455,299]; N=30; eligible |
-| ketch mobile | 977,238 / 977,238; 30/30/0/0 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
-| onetrust mobile | 976,530 / 976,530; 30/30/0/0 | unavailable / unavailable; 1/0/1/29 | unavailable; no interval; N=0; ineligible |
-| osano mobile | 977,238 / 977,238; 30/30/0/0 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| c15t Next.js desktop (local backend, native provider) | 977,458 / 977,458; 30/30/0/0 | 1,330,475 / 1,330,475; 30/30/0/0 | 353,017; [353,017, 353,017]; N=30; eligible |
+| cookie-control desktop (remote, before `</body>`) | 976,537 / 976,537; 30/30/0/0 | 1,322,213 / 1,322,213; 30/30/0/0 | 345,676; [345,676, 345,676]; N=30; eligible |
+| didomi desktop (remote, start of `<head>`) | 976,537 / 976,537; 30/30/0/0 | 1,971,833 / 1,971,833; 30/30/0/0 | 995,296; [995,296, 995,296]; N=30; eligible |
+| enzuzo desktop (remote, start of `<head>`) | 976,537 / 976,537; 30/30/0/0 | 1,575,046 / 1,575,046; 30/30/0/0 | 598,509; [598,509, 598,509]; N=30; ineligible |
+| iubenda desktop (remote, end of `<head>`) | 976,537 / 976,537; 30/30/0/0 | 1,431,836 / 1,431,836; 30/30/0/0 | 455,299; [455,299, 455,299]; N=30; eligible |
+| ketch desktop (remote, client effect) | 977,238 / 977,238; 30/30/0/0 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| onetrust desktop (remote, start of `<head>`) | 976,530 / 976,530; 30/30/0/0 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| osano desktop (remote, client effect) | 977,238 / 977,238; 30/30/0/0 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| c15t Next.js mobile (local backend, native provider) | 977,458 / 977,458; 30/30/0/0 | 1,330,475 / 1,330,475; 30/30/0/0 | 353,017; [353,017, 353,017]; N=30; eligible |
+| cookie-control mobile (remote, before `</body>`) | 976,537 / 976,537; 30/30/0/0 | 1,322,213 / 1,322,213; 30/30/0/0 | 345,676; [345,676, 345,676]; N=30; eligible |
+| didomi mobile (remote, start of `<head>`) | 976,537 / 976,537; 30/30/0/0 | 1,972,332 / 1,972,332; 30/30/0/0 | 995,795; [995,795, 995,795]; N=30; eligible |
+| enzuzo mobile (remote, start of `<head>`) | 976,537 / 976,537; 30/30/0/0 | 1,575,449 / 1,575,449; 30/30/0/0 | 598,912; [598,912, 598,912]; N=30; ineligible |
+| iubenda mobile (remote, end of `<head>`) | 976,537 / 976,537; 30/30/0/0 | 1,431,836 / 1,431,836; 30/30/0/0 | 455,299; [455,299, 455,299]; N=30; eligible |
+| ketch mobile (remote, client effect) | 977,238 / 977,238; 30/30/0/0 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
+| onetrust mobile (remote, start of `<head>`) | 976,530 / 976,530; 30/30/0/0 | unavailable / unavailable; 1/0/1/29 | unavailable; no interval; N=0; ineligible |
+| osano mobile (remote, client effect) | 977,238 / 977,238; 30/30/0/0 | unavailable / unavailable; 0/0/0/30 | unavailable; no interval; N=0; ineligible |
 
 ### initial.long-task-blocking
 
@@ -351,22 +363,22 @@ ms. Values are median / p75; A/I/E/M. Paired delta is candidate minus control; i
 
 | Fixture/profile | Baseline | Candidate | Paired delta; 95% interval; N; eligibility |
 | --- | --- | --- | --- |
-| c15t Next.js desktop | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; eligible |
-| cookie-control desktop | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; eligible |
-| didomi desktop | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; eligible |
-| enzuzo desktop | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; ineligible |
-| iubenda desktop | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; eligible |
-| ketch desktop | 0 / 0; 30/30/0/0 | 32 / 35; 30/30/0/0 | 32; [27, 34]; N=30; ineligible |
-| onetrust desktop | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; ineligible |
-| osano desktop | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; ineligible |
-| c15t Next.js mobile | 54.5 / 65.75; 30/30/0/0 | 69 / 80.5; 30/30/0/0 | 12.5; [4, 24]; N=30; eligible |
-| cookie-control mobile | 45.5 / 52.5; 30/30/0/0 | 161 / 197; 30/30/0/0 | 122.5; [102, 136.5]; N=30; eligible |
-| didomi mobile | 22 / 28.75; 30/30/0/0 | 186.5 / 194; 30/30/0/0 | 159.5; [154, 171.5]; N=30; eligible |
-| enzuzo mobile | 24 / 37; 30/30/0/0 | 136 / 170.75; 30/30/0/0 | 108.5; [100.5, 120.5]; N=30; ineligible |
-| iubenda mobile | 46 / 55.5; 30/30/0/0 | 73 / 84; 30/30/0/0 | 20; [11, 34]; N=30; eligible |
-| ketch mobile | 47 / 56.75; 30/30/0/0 | unavailable / unavailable; 30/0/30/0 | unavailable; no interval; N=0; ineligible |
-| onetrust mobile | 38.5 / 56; 30/30/0/0 | 108.5 / 164.25; 30/26/4/0 | 70; no interval; N=26; ineligible |
-| osano mobile | 44.5 / 50; 30/30/0/0 | 165 / 195; 30/29/1/0 | 120; no interval; N=29; ineligible |
+| c15t Next.js desktop (local backend, native provider) | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; eligible |
+| cookie-control desktop (remote, before `</body>`) | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; eligible |
+| didomi desktop (remote, start of `<head>`) | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; eligible |
+| enzuzo desktop (remote, start of `<head>`) | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; ineligible |
+| iubenda desktop (remote, end of `<head>`) | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; eligible |
+| ketch desktop (remote, client effect) | 0 / 0; 30/30/0/0 | 32 / 35; 30/30/0/0 | 32; [27, 34]; N=30; ineligible |
+| onetrust desktop (remote, start of `<head>`) | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; ineligible |
+| osano desktop (remote, client effect) | 0 / 0; 30/30/0/0 | 0 / 0; 30/30/0/0 | 0; [0, 0]; N=30; ineligible |
+| c15t Next.js mobile (local backend, native provider) | 54.5 / 65.75; 30/30/0/0 | 69 / 80.5; 30/30/0/0 | 12.5; [4, 24]; N=30; eligible |
+| cookie-control mobile (remote, before `</body>`) | 45.5 / 52.5; 30/30/0/0 | 161 / 197; 30/30/0/0 | 122.5; [102, 136.5]; N=30; eligible |
+| didomi mobile (remote, start of `<head>`) | 22 / 28.75; 30/30/0/0 | 186.5 / 194; 30/30/0/0 | 159.5; [154, 171.5]; N=30; eligible |
+| enzuzo mobile (remote, start of `<head>`) | 24 / 37; 30/30/0/0 | 136 / 170.75; 30/30/0/0 | 108.5; [100.5, 120.5]; N=30; ineligible |
+| iubenda mobile (remote, end of `<head>`) | 46 / 55.5; 30/30/0/0 | 73 / 84; 30/30/0/0 | 20; [11, 34]; N=30; eligible |
+| ketch mobile (remote, client effect) | 47 / 56.75; 30/30/0/0 | unavailable / unavailable; 30/0/30/0 | unavailable; no interval; N=0; ineligible |
+| onetrust mobile (remote, start of `<head>`) | 38.5 / 56; 30/30/0/0 | 108.5 / 164.25; 30/26/4/0 | 70; no interval; N=26; ineligible |
+| osano mobile (remote, client effect) | 44.5 / 50; 30/30/0/0 | 165 / 195; 30/29/1/0 | 120; no interval; N=29; ineligible |
 
 ### LCP attribution
 
@@ -374,22 +386,22 @@ Attribution uses the same eligible samples as the LCP summary. Image paint is na
 
 | Fixture/profile | Baseline elements | Candidate elements | Eligible attribution missing B/C |
 | --- | --- | --- | --- |
-| c15t Next.js desktop | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
-| cookie-control desktop | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
-| didomi desktop | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
-| enzuzo desktop | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
-| iubenda desktop | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
-| ketch desktop | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
-| onetrust desktop | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
-| osano desktop | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
-| c15t Next.js mobile | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
-| cookie-control mobile | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
-| didomi mobile | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
-| enzuzo mobile | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
-| iubenda mobile | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
-| ketch mobile | IMG#primary-content content: 30 | unavailable | 0/0 |
-| onetrust mobile | IMG#primary-content content: 30 | DIV#onetrust-policy-text banner: 26 | 0/0 |
-| osano mobile | IMG#primary-content content: 30 | IMG#primary-content content: 29 | 0/0 |
+| c15t Next.js desktop (local backend, native provider) | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
+| cookie-control desktop (remote, before `</body>`) | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
+| didomi desktop (remote, start of `<head>`) | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
+| enzuzo desktop (remote, start of `<head>`) | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
+| iubenda desktop (remote, end of `<head>`) | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
+| ketch desktop (remote, client effect) | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
+| onetrust desktop (remote, start of `<head>`) | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
+| osano desktop (remote, client effect) | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
+| c15t Next.js mobile (local backend, native provider) | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
+| cookie-control mobile (remote, before `</body>`) | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
+| didomi mobile (remote, start of `<head>`) | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
+| enzuzo mobile (remote, start of `<head>`) | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
+| iubenda mobile (remote, end of `<head>`) | IMG#primary-content content: 30 | IMG#primary-content content: 30 | 0/0 |
+| ketch mobile (remote, client effect) | IMG#primary-content content: 30 | unavailable | 0/0 |
+| onetrust mobile (remote, start of `<head>`) | IMG#primary-content content: 30 | DIV#onetrust-policy-text banner: 26 | 0/0 |
+| osano mobile (remote, client effect) | IMG#primary-content content: 30 | IMG#primary-content content: 29 | 0/0 |
 
 ## Supplementary c15t frameworks
 
@@ -605,93 +617,93 @@ Native input-to-next-paint is the attributed trusted interaction's Event Timing 
 
 | Fixture/profile | Action | Combined P/F/I; V/F/U | Recorded primary count; P/F/I; V/F/U | Followups observed/expected; P/F/I; V/F/U |
 | --- | --- | --- | --- | --- |
-| c15t Script tag desktop | accept | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| c15t Script tag desktop | reject | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| c15t Script tag desktop | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| c15t headless desktop | accept | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| c15t headless desktop | reject | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| c15t headless desktop | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| c15t React desktop | accept | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| c15t React desktop | reject | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| c15t React desktop | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| c15t Next.js desktop | accept | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| c15t Next.js desktop | reject | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| c15t Next.js desktop | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| c15t Vue desktop | accept | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| c15t Vue desktop | reject | 9/0/1; 9/0/1 | 9/10; 9/0/0; 9/0/0 | 9/10; 9/0/0; 9/0/0 |
-| c15t Vue desktop | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| c15t Nuxt desktop | accept | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| c15t Nuxt desktop | reject | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| c15t Nuxt desktop | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| c15t Astro desktop | accept | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| c15t Astro desktop | reject | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| c15t Astro desktop | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| c15t TanStack Start desktop | accept | 1/0/9; 1/0/9 | 1/10; 1/0/0; 1/0/0 | 1/10; 1/0/0; 1/0/0 |
-| c15t TanStack Start desktop | reject | 0/0/10; 0/0/10 | 0/10; 0/0/0; 0/0/0 | 0/10; 0/0/0; 0/0/0 |
-| c15t TanStack Start desktop | save | 0/0/10; 0/0/10 | 0/10; 0/0/0; 0/0/0 | 0/10; 0/0/0; 0/0/0 |
-| cookie-control desktop | accept | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| cookie-control desktop | reject | 9/1/0; 9/1/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 9/1/0; 9/1/0 |
-| cookie-control desktop | save | 0/0/10; 0/0/10 | 10/10; 0/0/10; 0/0/10 | 10/10; 0/0/10; 0/0/10 |
-| didomi desktop | accept | 8/1/1; 8/1/1 | 10/10; 9/0/1; 9/0/1 | 10/10; 9/1/0; 9/1/0 |
-| didomi desktop | reject | 9/1/0; 9/1/0 | 10/10; 9/1/0; 9/1/0 | 10/10; 10/0/0; 10/0/0 |
-| didomi desktop | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| enzuzo desktop | accept | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| enzuzo desktop | reject | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| enzuzo desktop | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| iubenda desktop | accept | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| iubenda desktop | reject | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| iubenda desktop | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| ketch desktop | accept | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
-| ketch desktop | reject | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
-| ketch desktop | save | 0/0/10; 0/0/10 | 0/10; 0/0/0; 0/0/0 | 0/10; 0/0/0; 0/0/0 |
-| onetrust desktop | accept | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
-| onetrust desktop | reject | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
-| onetrust desktop | save | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
-| osano desktop | accept | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
-| osano desktop | reject | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
-| osano desktop | save | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
-| c15t Script tag mobile | accept | 0/0/10; 10/0/0 | 10/10; 3/0/7; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
-| c15t Script tag mobile | reject | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 1/0/9; 10/0/0 |
-| c15t Script tag mobile | save | 7/0/3; 10/0/0 | 10/10; 8/0/2; 10/0/0 | 10/10; 8/0/2; 10/0/0 |
-| c15t headless mobile | accept | 1/0/9; 10/0/0 | 10/10; 2/0/8; 10/0/0 | 10/10; 2/0/8; 10/0/0 |
-| c15t headless mobile | reject | 1/0/9; 10/0/0 | 10/10; 1/0/9; 10/0/0 | 10/10; 2/0/8; 10/0/0 |
-| c15t headless mobile | save | 7/0/3; 10/0/0 | 10/10; 7/0/3; 10/0/0 | 10/10; 8/0/2; 10/0/0 |
-| c15t React mobile | accept | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
-| c15t React mobile | reject | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
-| c15t React mobile | save | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 2/0/8; 10/0/0 |
-| c15t Next.js mobile | accept | 8/0/2; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 8/0/2; 10/0/0 |
-| c15t Next.js mobile | reject | 9/0/1; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 9/0/1; 10/0/0 |
-| c15t Next.js mobile | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| c15t Vue mobile | accept | 0/0/10; 10/0/0 | 10/10; 1/0/9; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
-| c15t Vue mobile | reject | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
-| c15t Vue mobile | save | 2/0/8; 10/0/0 | 10/10; 3/0/7; 10/0/0 | 10/10; 3/0/7; 10/0/0 |
-| c15t Astro mobile | accept | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| c15t Astro mobile | reject | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| c15t Astro mobile | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| c15t TanStack Start mobile | accept | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
-| c15t TanStack Start mobile | reject | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
-| c15t TanStack Start mobile | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| cookie-control mobile | accept | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| cookie-control mobile | reject | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| cookie-control mobile | save | 0/0/10; 0/0/10 | 10/10; 0/0/10; 0/0/10 | 10/10; 0/0/10; 0/0/10 |
-| didomi mobile | accept | 0/0/10; 0/0/10 | 10/10; 0/0/10; 0/0/10 | 10/10; 2/0/8; 2/0/8 |
-| didomi mobile | reject | 0/0/10; 0/0/10 | 10/10; 0/0/10; 0/0/10 | 10/10; 0/0/10; 0/0/10 |
-| didomi mobile | save | 0/0/10; 0/0/10 | 10/10; 0/0/10; 0/0/10 | 10/10; 0/0/10; 0/0/10 |
-| enzuzo mobile | accept | 0/0/10; 0/0/10 | 0/10; 0/0/0; 0/0/0 | 0/10; 0/0/0; 0/0/0 |
-| enzuzo mobile | reject | 0/0/10; 0/0/10 | 0/10; 0/0/0; 0/0/0 | 0/10; 0/0/0; 0/0/0 |
-| enzuzo mobile | save | 5/0/5; 5/0/5 | 10/10; 10/0/0; 10/0/0 | 10/10; 5/0/5; 5/0/5 |
-| iubenda mobile | accept | 9/0/1; 10/0/0 | 10/10; 9/0/1; 10/0/0 | 10/10; 9/0/1; 10/0/0 |
-| iubenda mobile | reject | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| iubenda mobile | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
-| ketch mobile | accept | 0/10/0; 0/10/0 | 10/10; 0/10/0; 0/10/0 | 10/10; 0/10/0; 0/10/0 |
-| ketch mobile | reject | 0/10/0; 0/10/0 | 10/10; 0/10/0; 0/10/0 | 10/10; 0/10/0; 0/10/0 |
-| ketch mobile | save | 0/10/0; 0/10/0 | 10/10; 0/10/0; 0/10/0 | 10/10; 0/10/0; 0/10/0 |
-| onetrust mobile | accept | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
-| onetrust mobile | reject | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
-| onetrust mobile | save | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
-| osano mobile | accept | 0/0/10; 0/10/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/10/0; 0/10/0 |
-| osano mobile | reject | 0/0/10; 0/10/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/10/0; 0/10/0 |
-| osano mobile | save | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
+| c15t Script tag desktop (local backend, self-hosted body script) | accept | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| c15t Script tag desktop (local backend, self-hosted body script) | reject | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| c15t Script tag desktop (local backend, self-hosted body script) | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| c15t headless desktop (local backend, headless API) | accept | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| c15t headless desktop (local backend, headless API) | reject | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| c15t headless desktop (local backend, headless API) | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| c15t React desktop (local backend, native integration) | accept | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| c15t React desktop (local backend, native integration) | reject | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| c15t React desktop (local backend, native integration) | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| c15t Next.js desktop (local backend, native provider) | accept | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| c15t Next.js desktop (local backend, native provider) | reject | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| c15t Next.js desktop (local backend, native provider) | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| c15t Vue desktop (local backend, native integration) | accept | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| c15t Vue desktop (local backend, native integration) | reject | 9/0/1; 9/0/1 | 9/10; 9/0/0; 9/0/0 | 9/10; 9/0/0; 9/0/0 |
+| c15t Vue desktop (local backend, native integration) | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| c15t Nuxt desktop (local backend, native integration) | accept | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| c15t Nuxt desktop (local backend, native integration) | reject | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| c15t Nuxt desktop (local backend, native integration) | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| c15t Astro desktop (local backend, native integration) | accept | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| c15t Astro desktop (local backend, native integration) | reject | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| c15t Astro desktop (local backend, native integration) | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| c15t TanStack Start desktop (local backend, native integration) | accept | 1/0/9; 1/0/9 | 1/10; 1/0/0; 1/0/0 | 1/10; 1/0/0; 1/0/0 |
+| c15t TanStack Start desktop (local backend, native integration) | reject | 0/0/10; 0/0/10 | 0/10; 0/0/0; 0/0/0 | 0/10; 0/0/0; 0/0/0 |
+| c15t TanStack Start desktop (local backend, native integration) | save | 0/0/10; 0/0/10 | 0/10; 0/0/0; 0/0/0 | 0/10; 0/0/0; 0/0/0 |
+| cookie-control desktop (remote, before `</body>`) | accept | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| cookie-control desktop (remote, before `</body>`) | reject | 9/1/0; 9/1/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 9/1/0; 9/1/0 |
+| cookie-control desktop (remote, before `</body>`) | save | 0/0/10; 0/0/10 | 10/10; 0/0/10; 0/0/10 | 10/10; 0/0/10; 0/0/10 |
+| didomi desktop (remote, start of `<head>`) | accept | 8/1/1; 8/1/1 | 10/10; 9/0/1; 9/0/1 | 10/10; 9/1/0; 9/1/0 |
+| didomi desktop (remote, start of `<head>`) | reject | 9/1/0; 9/1/0 | 10/10; 9/1/0; 9/1/0 | 10/10; 10/0/0; 10/0/0 |
+| didomi desktop (remote, start of `<head>`) | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| enzuzo desktop (remote, start of `<head>`) | accept | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| enzuzo desktop (remote, start of `<head>`) | reject | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| enzuzo desktop (remote, start of `<head>`) | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| iubenda desktop (remote, end of `<head>`) | accept | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| iubenda desktop (remote, end of `<head>`) | reject | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| iubenda desktop (remote, end of `<head>`) | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| ketch desktop (remote, client effect) | accept | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
+| ketch desktop (remote, client effect) | reject | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
+| ketch desktop (remote, client effect) | save | 0/0/10; 0/0/10 | 0/10; 0/0/0; 0/0/0 | 0/10; 0/0/0; 0/0/0 |
+| onetrust desktop (remote, start of `<head>`) | accept | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
+| onetrust desktop (remote, start of `<head>`) | reject | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
+| onetrust desktop (remote, start of `<head>`) | save | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
+| osano desktop (remote, client effect) | accept | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
+| osano desktop (remote, client effect) | reject | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
+| osano desktop (remote, client effect) | save | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
+| c15t Script tag mobile (local backend, self-hosted body script) | accept | 0/0/10; 10/0/0 | 10/10; 3/0/7; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
+| c15t Script tag mobile (local backend, self-hosted body script) | reject | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 1/0/9; 10/0/0 |
+| c15t Script tag mobile (local backend, self-hosted body script) | save | 7/0/3; 10/0/0 | 10/10; 8/0/2; 10/0/0 | 10/10; 8/0/2; 10/0/0 |
+| c15t headless mobile (local backend, headless API) | accept | 1/0/9; 10/0/0 | 10/10; 2/0/8; 10/0/0 | 10/10; 2/0/8; 10/0/0 |
+| c15t headless mobile (local backend, headless API) | reject | 1/0/9; 10/0/0 | 10/10; 1/0/9; 10/0/0 | 10/10; 2/0/8; 10/0/0 |
+| c15t headless mobile (local backend, headless API) | save | 7/0/3; 10/0/0 | 10/10; 7/0/3; 10/0/0 | 10/10; 8/0/2; 10/0/0 |
+| c15t React mobile (local backend, native integration) | accept | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
+| c15t React mobile (local backend, native integration) | reject | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
+| c15t React mobile (local backend, native integration) | save | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 2/0/8; 10/0/0 |
+| c15t Next.js mobile (local backend, native provider) | accept | 8/0/2; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 8/0/2; 10/0/0 |
+| c15t Next.js mobile (local backend, native provider) | reject | 9/0/1; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 9/0/1; 10/0/0 |
+| c15t Next.js mobile (local backend, native provider) | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| c15t Vue mobile (local backend, native integration) | accept | 0/0/10; 10/0/0 | 10/10; 1/0/9; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
+| c15t Vue mobile (local backend, native integration) | reject | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
+| c15t Vue mobile (local backend, native integration) | save | 2/0/8; 10/0/0 | 10/10; 3/0/7; 10/0/0 | 10/10; 3/0/7; 10/0/0 |
+| c15t Astro mobile (local backend, native integration) | accept | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| c15t Astro mobile (local backend, native integration) | reject | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| c15t Astro mobile (local backend, native integration) | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| c15t TanStack Start mobile (local backend, native integration) | accept | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
+| c15t TanStack Start mobile (local backend, native integration) | reject | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
+| c15t TanStack Start mobile (local backend, native integration) | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| cookie-control mobile (remote, before `</body>`) | accept | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| cookie-control mobile (remote, before `</body>`) | reject | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| cookie-control mobile (remote, before `</body>`) | save | 0/0/10; 0/0/10 | 10/10; 0/0/10; 0/0/10 | 10/10; 0/0/10; 0/0/10 |
+| didomi mobile (remote, start of `<head>`) | accept | 0/0/10; 0/0/10 | 10/10; 0/0/10; 0/0/10 | 10/10; 2/0/8; 2/0/8 |
+| didomi mobile (remote, start of `<head>`) | reject | 0/0/10; 0/0/10 | 10/10; 0/0/10; 0/0/10 | 10/10; 0/0/10; 0/0/10 |
+| didomi mobile (remote, start of `<head>`) | save | 0/0/10; 0/0/10 | 10/10; 0/0/10; 0/0/10 | 10/10; 0/0/10; 0/0/10 |
+| enzuzo mobile (remote, start of `<head>`) | accept | 0/0/10; 0/0/10 | 0/10; 0/0/0; 0/0/0 | 0/10; 0/0/0; 0/0/0 |
+| enzuzo mobile (remote, start of `<head>`) | reject | 0/0/10; 0/0/10 | 0/10; 0/0/0; 0/0/0 | 0/10; 0/0/0; 0/0/0 |
+| enzuzo mobile (remote, start of `<head>`) | save | 5/0/5; 5/0/5 | 10/10; 10/0/0; 10/0/0 | 10/10; 5/0/5; 5/0/5 |
+| iubenda mobile (remote, end of `<head>`) | accept | 9/0/1; 10/0/0 | 10/10; 9/0/1; 10/0/0 | 10/10; 9/0/1; 10/0/0 |
+| iubenda mobile (remote, end of `<head>`) | reject | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| iubenda mobile (remote, end of `<head>`) | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
+| ketch mobile (remote, client effect) | accept | 0/10/0; 0/10/0 | 10/10; 0/10/0; 0/10/0 | 10/10; 0/10/0; 0/10/0 |
+| ketch mobile (remote, client effect) | reject | 0/10/0; 0/10/0 | 10/10; 0/10/0; 0/10/0 | 10/10; 0/10/0; 0/10/0 |
+| ketch mobile (remote, client effect) | save | 0/10/0; 0/10/0 | 10/10; 0/10/0; 0/10/0 | 10/10; 0/10/0; 0/10/0 |
+| onetrust mobile (remote, start of `<head>`) | accept | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
+| onetrust mobile (remote, start of `<head>`) | reject | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
+| onetrust mobile (remote, start of `<head>`) | save | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
+| osano mobile (remote, client effect) | accept | 0/0/10; 0/10/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/10/0; 0/10/0 |
+| osano mobile (remote, client effect) | reject | 0/0/10; 0/10/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/10/0; 0/10/0 |
+| osano mobile (remote, client effect) | save | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
 | c15t Nuxt mobile [correction-001; correction of c15t-nuxt-mobile-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | accept | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
 | c15t Nuxt mobile [correction-001; correction of c15t-nuxt-mobile-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | reject | 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 | 10/10; 0/0/10; 10/0/0 |
 | c15t Nuxt mobile [correction-001; correction of c15t-nuxt-mobile-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | save | 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 | 10/10; 10/0/0; 10/0/0 |
@@ -717,35 +729,35 @@ Milliseconds. Each action cell is median / p75; A/I/E/M. Followup counts concern
 
 | Fixture/profile | Accept | Reject | Save |
 | --- | --- | --- | --- |
-| c15t Script tag desktop | 48 / 62; 10/10/0/0 | 52 / 56; 10/10/0/0 | 32 / 48; 10/10/0/0 |
-| c15t headless desktop | 60 / 70; 10/10/0/0 | 64 / 70; 10/10/0/0 | 24 / 24; 5/5/0/5 |
-| c15t React desktop | 56 / 62; 10/10/0/0 | 56 / 62; 10/10/0/0 | 20 / 24; 6/6/0/4 |
-| c15t Next.js desktop | 64 / 64; 10/10/0/0 | 56 / 62; 10/10/0/0 | 24 / 24; 9/9/0/1 |
-| c15t Vue desktop | 44 / 48; 10/10/0/0 | 40 / 48; 9/9/0/1 | 16 / 20; 7/7/0/3 |
-| c15t Nuxt desktop | 56 / 62; 10/10/0/0 | 60 / 72; 10/10/0/0 | 24 / 24; 9/9/0/1 |
-| c15t Astro desktop | 64 / 98; 10/10/0/0 | 60 / 70; 10/10/0/0 | 24 / 24; 7/7/0/3 |
-| c15t TanStack Start desktop | 64 / 64; 1/1/0/9 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| cookie-control desktop | 108 / 130; 10/10/0/0 | 80 / 104; 10/9/1/0 | unavailable / unavailable; 0/0/0/10 |
-| didomi desktop | 68 / 72; 10/8/2/0 | 56 / 72; 9/9/0/1 | 24 / 24; 10/10/0/0 |
-| enzuzo desktop | 64 / 76; 10/10/0/0 | 60 / 64; 10/10/0/0 | 16 / 16; 5/5/0/5 |
-| iubenda desktop | 16 / 24; 9/9/0/1 | 16 / 16; 3/3/0/7 | 16 / 16; 5/5/0/5 |
-| ketch desktop | 24 / 24; 10/10/0/0 | 80 / 88; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 |
-| onetrust desktop | 92 / 138; 10/10/0/0 | 120 / 150; 10/10/0/0 | 32 / 32; 9/9/0/1 |
-| osano desktop | 84 / 104; 10/10/0/0 | 76 / 80; 10/10/0/0 | 24 / 30; 10/10/0/0 |
-| c15t Script tag mobile | 80 / 88; 10/10/0/0 | 72 / 86; 10/10/0/0 | 32 / 32; 10/10/0/0 |
-| c15t headless mobile | 104 / 110; 10/10/0/0 | 92 / 118; 10/10/0/0 | 32 / 32; 10/10/0/0 |
-| c15t React mobile | 92 / 102; 10/10/0/0 | 84 / 88; 10/10/0/0 | 32 / 32; 10/10/0/0 |
-| c15t Next.js mobile | 108 / 120; 10/10/0/0 | 88 / 96; 10/10/0/0 | 36 / 40; 10/10/0/0 |
-| c15t Vue mobile | 108 / 238; 10/10/0/0 | 96 / 124; 10/10/0/0 | 32 / 40; 10/10/0/0 |
-| c15t Astro mobile | 56 / 64; 10/10/0/0 | 56 / 62; 10/10/0/0 | 24 / 32; 10/10/0/0 |
-| c15t TanStack Start mobile | 60 / 70; 10/10/0/0 | 56 / 76; 10/10/0/0 | 32 / 32; 10/10/0/0 |
-| cookie-control mobile | 56 / 70; 10/10/0/0 | 56 / 56; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 |
-| didomi mobile | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 10/0/10/0 |
-| enzuzo mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | 48 / 48; 10/5/5/0 |
-| iubenda mobile | 24 / 30; 6/6/0/4 | 24 / 24; 8/8/0/2 | 40 / 48; 10/10/0/0 |
-| ketch mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| onetrust mobile | 80 / 88; 10/10/0/0 | 64 / 86; 10/10/0/0 | 32 / 40; 10/10/0/0 |
-| osano mobile | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 10/0/10/0 | 72 / 78; 10/10/0/0 |
+| c15t Script tag desktop (local backend, self-hosted body script) | 48 / 62; 10/10/0/0 | 52 / 56; 10/10/0/0 | 32 / 48; 10/10/0/0 |
+| c15t headless desktop (local backend, headless API) | 60 / 70; 10/10/0/0 | 64 / 70; 10/10/0/0 | 24 / 24; 5/5/0/5 |
+| c15t React desktop (local backend, native integration) | 56 / 62; 10/10/0/0 | 56 / 62; 10/10/0/0 | 20 / 24; 6/6/0/4 |
+| c15t Next.js desktop (local backend, native provider) | 64 / 64; 10/10/0/0 | 56 / 62; 10/10/0/0 | 24 / 24; 9/9/0/1 |
+| c15t Vue desktop (local backend, native integration) | 44 / 48; 10/10/0/0 | 40 / 48; 9/9/0/1 | 16 / 20; 7/7/0/3 |
+| c15t Nuxt desktop (local backend, native integration) | 56 / 62; 10/10/0/0 | 60 / 72; 10/10/0/0 | 24 / 24; 9/9/0/1 |
+| c15t Astro desktop (local backend, native integration) | 64 / 98; 10/10/0/0 | 60 / 70; 10/10/0/0 | 24 / 24; 7/7/0/3 |
+| c15t TanStack Start desktop (local backend, native integration) | 64 / 64; 1/1/0/9 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| cookie-control desktop (remote, before `</body>`) | 108 / 130; 10/10/0/0 | 80 / 104; 10/9/1/0 | unavailable / unavailable; 0/0/0/10 |
+| didomi desktop (remote, start of `<head>`) | 68 / 72; 10/8/2/0 | 56 / 72; 9/9/0/1 | 24 / 24; 10/10/0/0 |
+| enzuzo desktop (remote, start of `<head>`) | 64 / 76; 10/10/0/0 | 60 / 64; 10/10/0/0 | 16 / 16; 5/5/0/5 |
+| iubenda desktop (remote, end of `<head>`) | 16 / 24; 9/9/0/1 | 16 / 16; 3/3/0/7 | 16 / 16; 5/5/0/5 |
+| ketch desktop (remote, client effect) | 24 / 24; 10/10/0/0 | 80 / 88; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 |
+| onetrust desktop (remote, start of `<head>`) | 92 / 138; 10/10/0/0 | 120 / 150; 10/10/0/0 | 32 / 32; 9/9/0/1 |
+| osano desktop (remote, client effect) | 84 / 104; 10/10/0/0 | 76 / 80; 10/10/0/0 | 24 / 30; 10/10/0/0 |
+| c15t Script tag mobile (local backend, self-hosted body script) | 80 / 88; 10/10/0/0 | 72 / 86; 10/10/0/0 | 32 / 32; 10/10/0/0 |
+| c15t headless mobile (local backend, headless API) | 104 / 110; 10/10/0/0 | 92 / 118; 10/10/0/0 | 32 / 32; 10/10/0/0 |
+| c15t React mobile (local backend, native integration) | 92 / 102; 10/10/0/0 | 84 / 88; 10/10/0/0 | 32 / 32; 10/10/0/0 |
+| c15t Next.js mobile (local backend, native provider) | 108 / 120; 10/10/0/0 | 88 / 96; 10/10/0/0 | 36 / 40; 10/10/0/0 |
+| c15t Vue mobile (local backend, native integration) | 108 / 238; 10/10/0/0 | 96 / 124; 10/10/0/0 | 32 / 40; 10/10/0/0 |
+| c15t Astro mobile (local backend, native integration) | 56 / 64; 10/10/0/0 | 56 / 62; 10/10/0/0 | 24 / 32; 10/10/0/0 |
+| c15t TanStack Start mobile (local backend, native integration) | 60 / 70; 10/10/0/0 | 56 / 76; 10/10/0/0 | 32 / 32; 10/10/0/0 |
+| cookie-control mobile (remote, before `</body>`) | 56 / 70; 10/10/0/0 | 56 / 56; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 |
+| didomi mobile (remote, start of `<head>`) | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 10/0/10/0 |
+| enzuzo mobile (remote, start of `<head>`) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | 48 / 48; 10/5/5/0 |
+| iubenda mobile (remote, end of `<head>`) | 24 / 30; 6/6/0/4 | 24 / 24; 8/8/0/2 | 40 / 48; 10/10/0/0 |
+| ketch mobile (remote, client effect) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| onetrust mobile (remote, start of `<head>`) | 80 / 88; 10/10/0/0 | 64 / 86; 10/10/0/0 | 32 / 40; 10/10/0/0 |
+| osano mobile (remote, client effect) | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 10/0/10/0 | 72 / 78; 10/10/0/0 |
 | c15t Nuxt mobile [correction-001; correction of c15t-nuxt-mobile-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | 56 / 56; 10/10/0/0 | 48 / 48; 10/10/0/0 | 16 / 16; 10/10/0/0 |
 | c15t TanStack Start desktop [correction-001; correction of c15t-tanstack-start-desktop-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | 32 / 40; 10/10/0/0 | 36 / 46; 10/10/0/0 | 16 / 16; 8/8/0/2 |
 | didomi desktop [correction-001; correction of didomi-desktop-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | 44 / 48; 10/10/0/0 | 40 / 40; 10/10/0/0 | 24 / 24; 10/10/0/0 |
@@ -759,35 +771,35 @@ Milliseconds. Each action cell is median / p75; A/I/E/M. Followup counts concern
 
 | Fixture/profile | Accept | Reject | Save |
 | --- | --- | --- | --- |
-| c15t Script tag desktop | 45.1 / 49.4; 10/10/0/0 | 42.85 / 50.08; 10/10/0/0 | 8.3 / 10.08; 10/10/0/0 |
-| c15t headless desktop | 54.4 / 58.92; 10/10/0/0 | 57.5 / 64.1; 10/10/0/0 | 8.1 / 13.07; 10/10/0/0 |
-| c15t React desktop | 49.9 / 53.62; 10/10/0/0 | 48.5 / 56.05; 10/10/0/0 | 6.25 / 8.63; 10/10/0/0 |
-| c15t Next.js desktop | 61.2 / 64.33; 10/10/0/0 | 54.15 / 58.98; 10/10/0/0 | 6.9 / 11.23; 10/10/0/0 |
-| c15t Vue desktop | 42.45 / 44.52; 10/10/0/0 | 42.2 / 46.9; 9/9/0/1 | 9.05 / 10.97; 10/10/0/0 |
-| c15t Nuxt desktop | 51.95 / 60.37; 10/10/0/0 | 56.8 / 66.98; 10/10/0/0 | 9.05 / 11.38; 10/10/0/0 |
-| c15t Astro desktop | 66.2 / 95; 10/10/0/0 | 60.15 / 66; 10/10/0/0 | 11.25 / 13.9; 10/10/0/0 |
-| c15t TanStack Start desktop | 65.1 / 65.1; 1/1/0/9 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| cookie-control desktop | 104.95 / 129.9; 10/10/0/0 | 76.8 / 98.1; 10/9/1/0 | unavailable / unavailable; 0/0/0/10 |
-| didomi desktop | 93.95 / 102.8; 10/8/2/0 | 81.3 / 96.8; 9/9/0/1 | 23.9 / 32.57; 10/10/0/0 |
-| enzuzo desktop | 53.9 / 64.9; 10/10/0/0 | 47.7 / 57.83; 10/10/0/0 | 24.7 / 27.7; 10/10/0/0 |
-| iubenda desktop | 66.55 / 74.97; 10/10/0/0 | 63.6 / 71.75; 10/10/0/0 | 8.3 / 10.6; 10/10/0/0 |
-| ketch desktop | 363.95 / 377.2; 10/10/0/0 | 342.45 / 347.38; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 |
-| onetrust desktop | 91.15 / 148.55; 10/10/0/0 | 116.65 / 145.18; 10/10/0/0 | 28.55 / 31.53; 10/10/0/0 |
-| osano desktop | 68.2 / 82.42; 10/10/0/0 | 58.6 / 65.88; 10/10/0/0 | 11.15 / 12.17; 10/10/0/0 |
-| c15t Script tag mobile | 74.25 / 85.23; 10/10/0/0 | 68.1 / 82.38; 10/10/0/0 | 20.6 / 23.9; 10/10/0/0 |
-| c15t headless mobile | 99.35 / 102.52; 10/10/0/0 | 87.2 / 111.57; 10/10/0/0 | 25.55 / 26.2; 10/10/0/0 |
-| c15t React mobile | 85.95 / 99.25; 10/10/0/0 | 80.7 / 87.93; 10/10/0/0 | 26.95 / 30.4; 10/10/0/0 |
-| c15t Next.js mobile | 106.25 / 115.47; 10/10/0/0 | 89.15 / 95.08; 10/10/0/0 | 30.45 / 34.9; 10/10/0/0 |
-| c15t Vue mobile | 104.05 / 233.95; 10/10/0/0 | 94.65 / 120.53; 10/10/0/0 | 27.65 / 32.22; 10/10/0/0 |
-| c15t Astro mobile | 57.2 / 63.25; 10/10/0/0 | 53.35 / 58.05; 10/10/0/0 | 23.4 / 26.7; 10/10/0/0 |
-| c15t TanStack Start mobile | 59.45 / 66.95; 10/10/0/0 | 57.05 / 75.82; 10/10/0/0 | 20.95 / 22.65; 10/10/0/0 |
-| cookie-control mobile | 58.15 / 67.1; 10/10/0/0 | 54.8 / 56.1; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 |
-| didomi mobile | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 10/0/10/0 |
-| enzuzo mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | 45.3 / 47.8; 10/5/5/0 |
-| iubenda mobile | 26.8 / 40.98; 10/10/0/0 | 27.95 / 33.9; 10/10/0/0 | 25.6 / 27.68; 10/10/0/0 |
-| ketch mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| onetrust mobile | 97.05 / 123.3; 10/10/0/0 | 76.3 / 107.92; 10/10/0/0 | 41.6 / 45.7; 10/10/0/0 |
-| osano mobile | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 10/0/10/0 | 47.25 / 59.17; 10/10/0/0 |
+| c15t Script tag desktop (local backend, self-hosted body script) | 45.1 / 49.4; 10/10/0/0 | 42.85 / 50.08; 10/10/0/0 | 8.3 / 10.08; 10/10/0/0 |
+| c15t headless desktop (local backend, headless API) | 54.4 / 58.92; 10/10/0/0 | 57.5 / 64.1; 10/10/0/0 | 8.1 / 13.07; 10/10/0/0 |
+| c15t React desktop (local backend, native integration) | 49.9 / 53.62; 10/10/0/0 | 48.5 / 56.05; 10/10/0/0 | 6.25 / 8.63; 10/10/0/0 |
+| c15t Next.js desktop (local backend, native provider) | 61.2 / 64.33; 10/10/0/0 | 54.15 / 58.98; 10/10/0/0 | 6.9 / 11.23; 10/10/0/0 |
+| c15t Vue desktop (local backend, native integration) | 42.45 / 44.52; 10/10/0/0 | 42.2 / 46.9; 9/9/0/1 | 9.05 / 10.97; 10/10/0/0 |
+| c15t Nuxt desktop (local backend, native integration) | 51.95 / 60.37; 10/10/0/0 | 56.8 / 66.98; 10/10/0/0 | 9.05 / 11.38; 10/10/0/0 |
+| c15t Astro desktop (local backend, native integration) | 66.2 / 95; 10/10/0/0 | 60.15 / 66; 10/10/0/0 | 11.25 / 13.9; 10/10/0/0 |
+| c15t TanStack Start desktop (local backend, native integration) | 65.1 / 65.1; 1/1/0/9 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| cookie-control desktop (remote, before `</body>`) | 104.95 / 129.9; 10/10/0/0 | 76.8 / 98.1; 10/9/1/0 | unavailable / unavailable; 0/0/0/10 |
+| didomi desktop (remote, start of `<head>`) | 93.95 / 102.8; 10/8/2/0 | 81.3 / 96.8; 9/9/0/1 | 23.9 / 32.57; 10/10/0/0 |
+| enzuzo desktop (remote, start of `<head>`) | 53.9 / 64.9; 10/10/0/0 | 47.7 / 57.83; 10/10/0/0 | 24.7 / 27.7; 10/10/0/0 |
+| iubenda desktop (remote, end of `<head>`) | 66.55 / 74.97; 10/10/0/0 | 63.6 / 71.75; 10/10/0/0 | 8.3 / 10.6; 10/10/0/0 |
+| ketch desktop (remote, client effect) | 363.95 / 377.2; 10/10/0/0 | 342.45 / 347.38; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 |
+| onetrust desktop (remote, start of `<head>`) | 91.15 / 148.55; 10/10/0/0 | 116.65 / 145.18; 10/10/0/0 | 28.55 / 31.53; 10/10/0/0 |
+| osano desktop (remote, client effect) | 68.2 / 82.42; 10/10/0/0 | 58.6 / 65.88; 10/10/0/0 | 11.15 / 12.17; 10/10/0/0 |
+| c15t Script tag mobile (local backend, self-hosted body script) | 74.25 / 85.23; 10/10/0/0 | 68.1 / 82.38; 10/10/0/0 | 20.6 / 23.9; 10/10/0/0 |
+| c15t headless mobile (local backend, headless API) | 99.35 / 102.52; 10/10/0/0 | 87.2 / 111.57; 10/10/0/0 | 25.55 / 26.2; 10/10/0/0 |
+| c15t React mobile (local backend, native integration) | 85.95 / 99.25; 10/10/0/0 | 80.7 / 87.93; 10/10/0/0 | 26.95 / 30.4; 10/10/0/0 |
+| c15t Next.js mobile (local backend, native provider) | 106.25 / 115.47; 10/10/0/0 | 89.15 / 95.08; 10/10/0/0 | 30.45 / 34.9; 10/10/0/0 |
+| c15t Vue mobile (local backend, native integration) | 104.05 / 233.95; 10/10/0/0 | 94.65 / 120.53; 10/10/0/0 | 27.65 / 32.22; 10/10/0/0 |
+| c15t Astro mobile (local backend, native integration) | 57.2 / 63.25; 10/10/0/0 | 53.35 / 58.05; 10/10/0/0 | 23.4 / 26.7; 10/10/0/0 |
+| c15t TanStack Start mobile (local backend, native integration) | 59.45 / 66.95; 10/10/0/0 | 57.05 / 75.82; 10/10/0/0 | 20.95 / 22.65; 10/10/0/0 |
+| cookie-control mobile (remote, before `</body>`) | 58.15 / 67.1; 10/10/0/0 | 54.8 / 56.1; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 |
+| didomi mobile (remote, start of `<head>`) | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 10/0/10/0 |
+| enzuzo mobile (remote, start of `<head>`) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | 45.3 / 47.8; 10/5/5/0 |
+| iubenda mobile (remote, end of `<head>`) | 26.8 / 40.98; 10/10/0/0 | 27.95 / 33.9; 10/10/0/0 | 25.6 / 27.68; 10/10/0/0 |
+| ketch mobile (remote, client effect) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| onetrust mobile (remote, start of `<head>`) | 97.05 / 123.3; 10/10/0/0 | 76.3 / 107.92; 10/10/0/0 | 41.6 / 45.7; 10/10/0/0 |
+| osano mobile (remote, client effect) | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 10/0/10/0 | 47.25 / 59.17; 10/10/0/0 |
 | c15t Nuxt mobile [correction-001; correction of c15t-nuxt-mobile-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | 51.8 / 54.27; 10/10/0/0 | 47.9 / 48.8; 10/10/0/0 | 15.65 / 16.12; 10/10/0/0 |
 | c15t TanStack Start desktop [correction-001; correction of c15t-tanstack-start-desktop-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | 33.85 / 41.53; 10/10/0/0 | 38 / 43.6; 10/10/0/0 | 9.75 / 10.6; 10/10/0/0 |
 | didomi desktop [correction-001; correction of didomi-desktop-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | 63.65 / 66.6; 10/10/0/0 | 58.95 / 61.47; 10/10/0/0 | 27.6 / 28.15; 10/10/0/0 |
@@ -801,35 +813,35 @@ Milliseconds. Each action cell is median / p75; A/I/E/M. Followup counts concern
 
 | Fixture/profile | Accept | Reject | Save |
 | --- | --- | --- | --- |
-| c15t Script tag desktop | 64.95 / 77.63; 10/10/0/0 | 53.25 / 66.37; 10/10/0/0 | 159.05 / 160.8; 10/10/0/0 |
-| c15t headless desktop | 54.4 / 58.92; 10/10/0/0 | 57.5 / 64.1; 10/10/0/0 | 8.1 / 13.07; 10/10/0/0 |
-| c15t React desktop | 49.9 / 53.62; 10/10/0/0 | 48.5 / 56.05; 10/10/0/0 | 6.25 / 8.63; 10/10/0/0 |
-| c15t Next.js desktop | 61.2 / 64.33; 10/10/0/0 | 54.15 / 58.98; 10/10/0/0 | 6.9 / 11.23; 10/10/0/0 |
-| c15t Vue desktop | 42.45 / 44.52; 10/10/0/0 | 42.2 / 46.9; 9/9/0/1 | 9.05 / 10.97; 10/10/0/0 |
-| c15t Nuxt desktop | 128.55 / 142.52; 10/10/0/0 | 131.9 / 145.85; 10/10/0/0 | 9.05 / 11.38; 10/10/0/0 |
-| c15t Astro desktop | 66.2 / 95; 10/10/0/0 | 60.15 / 66; 10/10/0/0 | 11.25 / 13.9; 10/10/0/0 |
-| c15t TanStack Start desktop | 65.1 / 65.1; 1/1/0/9 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| cookie-control desktop | 103.2 / 128.65; 10/10/0/0 | 74.9 / 97.5; 10/9/1/0 | unavailable / unavailable; 0/0/0/10 |
-| didomi desktop | 85.8 / 91.2; 10/8/2/0 | 73 / 86.8; 9/9/0/1 | 25.25 / 36.23; 10/10/0/0 |
-| enzuzo desktop | 52.25 / 63.42; 10/10/0/0 | 46.2 / 55.93; 10/10/0/0 | 7.95 / 11.35; 10/10/0/0 |
-| iubenda desktop | 66.55 / 74.97; 10/10/0/0 | 63.6 / 71.75; 10/10/0/0 | 8.3 / 10.6; 10/10/0/0 |
-| ketch desktop | 9.35 / 10.67; 10/10/0/0 | 65.9 / 81.4; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 |
-| onetrust desktop | 492 / 550.87; 10/10/0/0 | 517.95 / 545.75; 10/10/0/0 | 429.3 / 432.27; 10/10/0/0 |
-| osano desktop | 87.9 / 95.35; 10/10/0/0 | 87.4 / 126.05; 10/10/0/0 | 222.55 / 226.8; 10/10/0/0 |
-| c15t Script tag mobile | 107.2 / 116.25; 10/10/0/0 | 109.3 / 111.45; 10/10/0/0 | 173.55 / 179.05; 10/10/0/0 |
-| c15t headless mobile | 99.35 / 102.52; 10/10/0/0 | 87.2 / 111.57; 10/10/0/0 | 25.55 / 26.2; 10/10/0/0 |
-| c15t React mobile | 85.95 / 99.25; 10/10/0/0 | 80.7 / 87.93; 10/10/0/0 | 26.95 / 30.4; 10/10/0/0 |
-| c15t Next.js mobile | 106.25 / 115.47; 10/10/0/0 | 89.15 / 95.08; 10/10/0/0 | 30.45 / 34.9; 10/10/0/0 |
-| c15t Vue mobile | 104.05 / 233.95; 10/10/0/0 | 94.65 / 120.53; 10/10/0/0 | 27.65 / 32.22; 10/10/0/0 |
-| c15t Astro mobile | 57.2 / 63.25; 10/10/0/0 | 53.35 / 58.05; 10/10/0/0 | 23.4 / 26.7; 10/10/0/0 |
-| c15t TanStack Start mobile | 59.45 / 66.95; 10/10/0/0 | 57.05 / 75.82; 10/10/0/0 | 20.95 / 22.65; 10/10/0/0 |
-| cookie-control mobile | 55.1 / 63.23; 10/10/0/0 | 52.45 / 54.45; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 |
-| didomi mobile | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 10/0/10/0 |
-| enzuzo mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | 34.1 / 41; 10/5/5/0 |
-| iubenda mobile | 26.8 / 40.98; 10/10/0/0 | 27.95 / 33.9; 10/10/0/0 | 25.6 / 27.68; 10/10/0/0 |
-| ketch mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| onetrust mobile | 483.6 / 501.08; 10/10/0/0 | 467.85 / 488.45; 10/10/0/0 | 429.95 / 432.85; 10/10/0/0 |
-| osano mobile | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 10/0/10/0 | 272.85 / 277.45; 10/10/0/0 |
+| c15t Script tag desktop (local backend, self-hosted body script) | 64.95 / 77.63; 10/10/0/0 | 53.25 / 66.37; 10/10/0/0 | 159.05 / 160.8; 10/10/0/0 |
+| c15t headless desktop (local backend, headless API) | 54.4 / 58.92; 10/10/0/0 | 57.5 / 64.1; 10/10/0/0 | 8.1 / 13.07; 10/10/0/0 |
+| c15t React desktop (local backend, native integration) | 49.9 / 53.62; 10/10/0/0 | 48.5 / 56.05; 10/10/0/0 | 6.25 / 8.63; 10/10/0/0 |
+| c15t Next.js desktop (local backend, native provider) | 61.2 / 64.33; 10/10/0/0 | 54.15 / 58.98; 10/10/0/0 | 6.9 / 11.23; 10/10/0/0 |
+| c15t Vue desktop (local backend, native integration) | 42.45 / 44.52; 10/10/0/0 | 42.2 / 46.9; 9/9/0/1 | 9.05 / 10.97; 10/10/0/0 |
+| c15t Nuxt desktop (local backend, native integration) | 128.55 / 142.52; 10/10/0/0 | 131.9 / 145.85; 10/10/0/0 | 9.05 / 11.38; 10/10/0/0 |
+| c15t Astro desktop (local backend, native integration) | 66.2 / 95; 10/10/0/0 | 60.15 / 66; 10/10/0/0 | 11.25 / 13.9; 10/10/0/0 |
+| c15t TanStack Start desktop (local backend, native integration) | 65.1 / 65.1; 1/1/0/9 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| cookie-control desktop (remote, before `</body>`) | 103.2 / 128.65; 10/10/0/0 | 74.9 / 97.5; 10/9/1/0 | unavailable / unavailable; 0/0/0/10 |
+| didomi desktop (remote, start of `<head>`) | 85.8 / 91.2; 10/8/2/0 | 73 / 86.8; 9/9/0/1 | 25.25 / 36.23; 10/10/0/0 |
+| enzuzo desktop (remote, start of `<head>`) | 52.25 / 63.42; 10/10/0/0 | 46.2 / 55.93; 10/10/0/0 | 7.95 / 11.35; 10/10/0/0 |
+| iubenda desktop (remote, end of `<head>`) | 66.55 / 74.97; 10/10/0/0 | 63.6 / 71.75; 10/10/0/0 | 8.3 / 10.6; 10/10/0/0 |
+| ketch desktop (remote, client effect) | 9.35 / 10.67; 10/10/0/0 | 65.9 / 81.4; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 |
+| onetrust desktop (remote, start of `<head>`) | 492 / 550.87; 10/10/0/0 | 517.95 / 545.75; 10/10/0/0 | 429.3 / 432.27; 10/10/0/0 |
+| osano desktop (remote, client effect) | 87.9 / 95.35; 10/10/0/0 | 87.4 / 126.05; 10/10/0/0 | 222.55 / 226.8; 10/10/0/0 |
+| c15t Script tag mobile (local backend, self-hosted body script) | 107.2 / 116.25; 10/10/0/0 | 109.3 / 111.45; 10/10/0/0 | 173.55 / 179.05; 10/10/0/0 |
+| c15t headless mobile (local backend, headless API) | 99.35 / 102.52; 10/10/0/0 | 87.2 / 111.57; 10/10/0/0 | 25.55 / 26.2; 10/10/0/0 |
+| c15t React mobile (local backend, native integration) | 85.95 / 99.25; 10/10/0/0 | 80.7 / 87.93; 10/10/0/0 | 26.95 / 30.4; 10/10/0/0 |
+| c15t Next.js mobile (local backend, native provider) | 106.25 / 115.47; 10/10/0/0 | 89.15 / 95.08; 10/10/0/0 | 30.45 / 34.9; 10/10/0/0 |
+| c15t Vue mobile (local backend, native integration) | 104.05 / 233.95; 10/10/0/0 | 94.65 / 120.53; 10/10/0/0 | 27.65 / 32.22; 10/10/0/0 |
+| c15t Astro mobile (local backend, native integration) | 57.2 / 63.25; 10/10/0/0 | 53.35 / 58.05; 10/10/0/0 | 23.4 / 26.7; 10/10/0/0 |
+| c15t TanStack Start mobile (local backend, native integration) | 59.45 / 66.95; 10/10/0/0 | 57.05 / 75.82; 10/10/0/0 | 20.95 / 22.65; 10/10/0/0 |
+| cookie-control mobile (remote, before `</body>`) | 55.1 / 63.23; 10/10/0/0 | 52.45 / 54.45; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 |
+| didomi mobile (remote, start of `<head>`) | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 10/0/10/0 |
+| enzuzo mobile (remote, start of `<head>`) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | 34.1 / 41; 10/5/5/0 |
+| iubenda mobile (remote, end of `<head>`) | 26.8 / 40.98; 10/10/0/0 | 27.95 / 33.9; 10/10/0/0 | 25.6 / 27.68; 10/10/0/0 |
+| ketch mobile (remote, client effect) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| onetrust mobile (remote, start of `<head>`) | 483.6 / 501.08; 10/10/0/0 | 467.85 / 488.45; 10/10/0/0 | 429.95 / 432.85; 10/10/0/0 |
+| osano mobile (remote, client effect) | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 10/0/10/0 | 272.85 / 277.45; 10/10/0/0 |
 | c15t Nuxt mobile [correction-001; correction of c15t-nuxt-mobile-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | 134.45 / 137.08; 10/10/0/0 | 124.7 / 130.47; 10/10/0/0 | 15.65 / 16.12; 10/10/0/0 |
 | c15t TanStack Start desktop [correction-001; correction of c15t-tanstack-start-desktop-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | 33.85 / 41.53; 10/10/0/0 | 38 / 43.6; 10/10/0/0 | 9.75 / 10.6; 10/10/0/0 |
 | didomi desktop [correction-001; correction of didomi-desktop-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | 58.6 / 61.2; 10/10/0/0 | 51.7 / 54.07; 10/10/0/0 | 27.6 / 28.15; 10/10/0/0 |
@@ -843,35 +855,35 @@ Milliseconds. Each action cell is median / p75; A/I/E/M. Followup counts concern
 
 | Fixture/profile | Accept | Reject | Save |
 | --- | --- | --- | --- |
-| c15t Script tag desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t headless desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t React desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t Next.js desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t Vue desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t Nuxt desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t Astro desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t TanStack Start desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| cookie-control desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| didomi desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| enzuzo desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| iubenda desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| ketch desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| onetrust desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| osano desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t Script tag mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t headless mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t React mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t Next.js mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t Vue mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t Astro mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t TanStack Start mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| cookie-control mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| didomi mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| enzuzo mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| iubenda mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| ketch mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| onetrust mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| osano mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t Script tag desktop (local backend, self-hosted body script) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t headless desktop (local backend, headless API) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t React desktop (local backend, native integration) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t Next.js desktop (local backend, native provider) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t Vue desktop (local backend, native integration) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t Nuxt desktop (local backend, native integration) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t Astro desktop (local backend, native integration) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t TanStack Start desktop (local backend, native integration) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| cookie-control desktop (remote, before `</body>`) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| didomi desktop (remote, start of `<head>`) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| enzuzo desktop (remote, start of `<head>`) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| iubenda desktop (remote, end of `<head>`) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| ketch desktop (remote, client effect) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| onetrust desktop (remote, start of `<head>`) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| osano desktop (remote, client effect) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t Script tag mobile (local backend, self-hosted body script) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t headless mobile (local backend, headless API) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t React mobile (local backend, native integration) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t Next.js mobile (local backend, native provider) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t Vue mobile (local backend, native integration) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t Astro mobile (local backend, native integration) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t TanStack Start mobile (local backend, native integration) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| cookie-control mobile (remote, before `</body>`) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| didomi mobile (remote, start of `<head>`) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| enzuzo mobile (remote, start of `<head>`) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| iubenda mobile (remote, end of `<head>`) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| ketch mobile (remote, client effect) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| onetrust mobile (remote, start of `<head>`) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| osano mobile (remote, client effect) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
 | c15t Nuxt mobile [correction-001; correction of c15t-nuxt-mobile-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
 | c15t TanStack Start desktop [correction-001; correction of c15t-tanstack-start-desktop-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
 | didomi desktop [correction-001; correction of didomi-desktop-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
@@ -885,35 +897,35 @@ Milliseconds. Each action cell is median / p75; A/I/E/M. Followup counts concern
 
 | Fixture/profile | Accept | Reject | Save |
 | --- | --- | --- | --- |
-| c15t Script tag desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t headless desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t React desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t Next.js desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t Vue desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t Nuxt desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t Astro desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t TanStack Start desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| cookie-control desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| didomi desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| enzuzo desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| iubenda desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| ketch desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| onetrust desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| osano desktop | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t Script tag mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t headless mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t React mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t Next.js mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t Vue mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t Astro mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| c15t TanStack Start mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| cookie-control mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| didomi mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| enzuzo mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| iubenda mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| ketch mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| onetrust mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| osano mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t Script tag desktop (local backend, self-hosted body script) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t headless desktop (local backend, headless API) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t React desktop (local backend, native integration) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t Next.js desktop (local backend, native provider) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t Vue desktop (local backend, native integration) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t Nuxt desktop (local backend, native integration) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t Astro desktop (local backend, native integration) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t TanStack Start desktop (local backend, native integration) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| cookie-control desktop (remote, before `</body>`) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| didomi desktop (remote, start of `<head>`) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| enzuzo desktop (remote, start of `<head>`) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| iubenda desktop (remote, end of `<head>`) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| ketch desktop (remote, client effect) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| onetrust desktop (remote, start of `<head>`) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| osano desktop (remote, client effect) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t Script tag mobile (local backend, self-hosted body script) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t headless mobile (local backend, headless API) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t React mobile (local backend, native integration) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t Next.js mobile (local backend, native provider) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t Vue mobile (local backend, native integration) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t Astro mobile (local backend, native integration) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| c15t TanStack Start mobile (local backend, native integration) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| cookie-control mobile (remote, before `</body>`) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| didomi mobile (remote, start of `<head>`) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| enzuzo mobile (remote, start of `<head>`) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| iubenda mobile (remote, end of `<head>`) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| ketch mobile (remote, client effect) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| onetrust mobile (remote, start of `<head>`) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| osano mobile (remote, client effect) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
 | c15t Nuxt mobile [correction-001; correction of c15t-nuxt-mobile-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
 | c15t TanStack Start desktop [correction-001; correction of c15t-tanstack-start-desktop-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
 | didomi desktop [correction-001; correction of didomi-desktop-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
@@ -927,35 +939,35 @@ Milliseconds. Each action cell is median / p75; A/I/E/M. Followup counts concern
 
 | Fixture/profile | Accept | Reject | Save |
 | --- | --- | --- | --- |
-| c15t Script tag desktop | 48.5 / 52.88; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 12.55 / 14.15; 10/10/0/0 |
-| c15t headless desktop | 58.6 / 66.6; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 16.65 / 18.65; 10/10/0/0 |
-| c15t React desktop | 53.3 / 57.95; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 10.95 / 13.85; 10/10/0/0 |
-| c15t Next.js desktop | 66.75 / 71.93; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 13.8 / 19.3; 10/10/0/0 |
-| c15t Vue desktop | 45.8 / 47.85; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 12.6 / 14.25; 10/10/0/0 |
-| c15t Nuxt desktop | 56.55 / 65.1; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 13.05 / 14.9; 10/10/0/0 |
-| c15t Astro desktop | 69.5 / 99.1; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 15.15 / 20.5; 10/10/0/0 |
-| c15t TanStack Start desktop | 73.5 / 73.5; 1/1/0/9 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| cookie-control desktop | 116.2 / 140.95; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| didomi desktop | 91.85 / 99.05; 10/8/2/0 | unavailable / unavailable; 0/0/0/10 | 23.3 / 25.35; 10/10/0/0 |
-| enzuzo desktop | 57.8 / 66.7; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 13.45 / 18.33; 10/10/0/0 |
-| iubenda desktop | 23.8 / 27.07; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 12.1 / 15.55; 10/10/0/0 |
-| ketch desktop | 391.4 / 411.35; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| onetrust desktop | 95.15 / 184.48; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 36.85 / 46.72; 10/10/0/0 |
-| osano desktop | 71.65 / 86.55; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 22.6 / 34.73; 10/10/0/0 |
-| c15t Script tag mobile | 189.95 / 194.1; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 178.55 / 182.2; 10/10/0/0 |
-| c15t headless mobile | 190.15 / 193.65; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 182.5 / 183.92; 10/10/0/0 |
-| c15t React mobile | 196.25 / 203.32; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 182.7 / 187.53; 10/10/0/0 |
-| c15t Next.js mobile | 198.35 / 200.05; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 181.2 / 184.33; 10/10/0/0 |
-| c15t Vue mobile | 193.2 / 266.52; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 182.65 / 186.6; 10/10/0/0 |
-| c15t Astro mobile | 186.7 / 188.65; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 176.2 / 181.27; 10/10/0/0 |
-| c15t TanStack Start mobile | 300.3 / 319.92; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 175.6 / 176.55; 10/10/0/0 |
-| cookie-control mobile | 230.8 / 239.78; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| didomi mobile | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 10/0/10/0 |
-| enzuzo mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | 205.6 / 206; 10/5/5/0 |
-| iubenda mobile | 193.4 / 206.9; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 178.35 / 183.73; 10/10/0/0 |
-| ketch mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| onetrust mobile | 257.9 / 282.15; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 207.05 / 210.5; 10/10/0/0 |
-| osano mobile | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 0/0/0/10 | 190.2 / 193.67; 10/10/0/0 |
+| c15t Script tag desktop (local backend, self-hosted body script) | 48.5 / 52.88; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 12.55 / 14.15; 10/10/0/0 |
+| c15t headless desktop (local backend, headless API) | 58.6 / 66.6; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 16.65 / 18.65; 10/10/0/0 |
+| c15t React desktop (local backend, native integration) | 53.3 / 57.95; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 10.95 / 13.85; 10/10/0/0 |
+| c15t Next.js desktop (local backend, native provider) | 66.75 / 71.93; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 13.8 / 19.3; 10/10/0/0 |
+| c15t Vue desktop (local backend, native integration) | 45.8 / 47.85; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 12.6 / 14.25; 10/10/0/0 |
+| c15t Nuxt desktop (local backend, native integration) | 56.55 / 65.1; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 13.05 / 14.9; 10/10/0/0 |
+| c15t Astro desktop (local backend, native integration) | 69.5 / 99.1; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 15.15 / 20.5; 10/10/0/0 |
+| c15t TanStack Start desktop (local backend, native integration) | 73.5 / 73.5; 1/1/0/9 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| cookie-control desktop (remote, before `</body>`) | 116.2 / 140.95; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| didomi desktop (remote, start of `<head>`) | 91.85 / 99.05; 10/8/2/0 | unavailable / unavailable; 0/0/0/10 | 23.3 / 25.35; 10/10/0/0 |
+| enzuzo desktop (remote, start of `<head>`) | 57.8 / 66.7; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 13.45 / 18.33; 10/10/0/0 |
+| iubenda desktop (remote, end of `<head>`) | 23.8 / 27.07; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 12.1 / 15.55; 10/10/0/0 |
+| ketch desktop (remote, client effect) | 391.4 / 411.35; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| onetrust desktop (remote, start of `<head>`) | 95.15 / 184.48; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 36.85 / 46.72; 10/10/0/0 |
+| osano desktop (remote, client effect) | 71.65 / 86.55; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 22.6 / 34.73; 10/10/0/0 |
+| c15t Script tag mobile (local backend, self-hosted body script) | 189.95 / 194.1; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 178.55 / 182.2; 10/10/0/0 |
+| c15t headless mobile (local backend, headless API) | 190.15 / 193.65; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 182.5 / 183.92; 10/10/0/0 |
+| c15t React mobile (local backend, native integration) | 196.25 / 203.32; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 182.7 / 187.53; 10/10/0/0 |
+| c15t Next.js mobile (local backend, native provider) | 198.35 / 200.05; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 181.2 / 184.33; 10/10/0/0 |
+| c15t Vue mobile (local backend, native integration) | 193.2 / 266.52; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 182.65 / 186.6; 10/10/0/0 |
+| c15t Astro mobile (local backend, native integration) | 186.7 / 188.65; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 176.2 / 181.27; 10/10/0/0 |
+| c15t TanStack Start mobile (local backend, native integration) | 300.3 / 319.92; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 175.6 / 176.55; 10/10/0/0 |
+| cookie-control mobile (remote, before `</body>`) | 230.8 / 239.78; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| didomi mobile (remote, start of `<head>`) | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 10/0/10/0 |
+| enzuzo mobile (remote, start of `<head>`) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | 205.6 / 206; 10/5/5/0 |
+| iubenda mobile (remote, end of `<head>`) | 193.4 / 206.9; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 178.35 / 183.73; 10/10/0/0 |
+| ketch mobile (remote, client effect) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| onetrust mobile (remote, start of `<head>`) | 257.9 / 282.15; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 207.05 / 210.5; 10/10/0/0 |
+| osano mobile (remote, client effect) | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 0/0/0/10 | 190.2 / 193.67; 10/10/0/0 |
 | c15t Nuxt mobile [correction-001; correction of c15t-nuxt-mobile-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | 192.55 / 193.95; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 171.75 / 172.88; 10/10/0/0 |
 | c15t TanStack Start desktop [correction-001; correction of c15t-tanstack-start-desktop-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | 37.4 / 45.35; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 13 / 13.45; 10/10/0/0 |
 | didomi desktop [correction-001; correction of didomi-desktop-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | 62.05 / 64.7; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 | 19.05 / 19.28; 10/10/0/0 |
@@ -969,35 +981,35 @@ Milliseconds. Each action cell is median / p75; A/I/E/M. Followup counts concern
 
 | Fixture/profile | Accept | Reject | Save |
 | --- | --- | --- | --- |
-| c15t Script tag desktop | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 |
-| c15t headless desktop | 0 / 3.75; 10/10/0/0 | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 |
-| c15t React desktop | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 |
-| c15t Next.js desktop | 0.5 / 4.25; 10/10/0/0 | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 |
-| c15t Vue desktop | 0 / 0; 10/10/0/0 | 0 / 0; 9/9/0/1 | 0 / 0; 10/10/0/0 |
-| c15t Nuxt desktop | 0 / 0; 10/10/0/0 | 2.5 / 10.5; 10/10/0/0 | 0 / 0; 10/10/0/0 |
-| c15t Astro desktop | 3.5 / 18.75; 10/10/0/0 | 1.5 / 6.75; 10/10/0/0 | 0 / 0; 10/10/0/0 |
-| c15t TanStack Start desktop | 0 / 0; 1/1/0/9 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| cookie-control desktop | 27 / 54; 10/10/0/0 | 9 / 40; 10/9/1/0 | unavailable / unavailable; 0/0/0/10 |
-| didomi desktop | 4.5 / 8.25; 10/8/2/0 | 0 / 9; 9/9/0/1 | 0 / 0; 10/10/0/0 |
-| enzuzo desktop | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 |
-| iubenda desktop | 0 / 3; 10/10/0/0 | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 |
-| ketch desktop | 0 / 0; 10/10/0/0 | 7 / 17.5; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 |
-| onetrust desktop | 19.5 / 56; 10/10/0/0 | 47.5 / 74.5; 10/10/0/0 | 0 / 0; 10/10/0/0 |
-| osano desktop | 3.5 / 16.5; 10/10/0/0 | 0 / 5.5; 10/10/0/0 | 0 / 0; 10/10/0/0 |
-| c15t Script tag mobile | 8.5 / 15.75; 10/10/0/0 | 7 / 17.5; 10/10/0/0 | 0 / 0; 10/10/0/0 |
-| c15t headless mobile | 25.5 / 29.75; 10/10/0/0 | 26 / 45; 10/10/0/0 | 0 / 0; 10/10/0/0 |
-| c15t React mobile | 6 / 20; 10/10/0/0 | 10 / 15.5; 10/10/0/0 | 0 / 0; 10/10/0/0 |
-| c15t Next.js mobile | 28 / 39.75; 10/10/0/0 | 13.5 / 22; 10/10/0/0 | 0 / 0; 10/10/0/0 |
-| c15t Vue mobile | 23 / 150; 10/10/0/0 | 24.5 / 50; 10/10/0/0 | 0 / 0; 10/10/0/0 |
-| c15t Astro mobile | 0 / 3.75; 10/10/0/0 | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 |
-| c15t TanStack Start mobile | 0 / 0; 10/10/0/0 | 0 / 9; 10/10/0/0 | 0 / 0; 10/10/0/0 |
-| cookie-control mobile | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 |
-| didomi mobile | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 10/0/10/0 |
-| enzuzo mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | 0 / 0; 10/5/5/0 |
-| iubenda mobile | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 |
-| ketch mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| onetrust mobile | 0 / 15.75; 10/10/0/0 | 0 / 7.25; 10/10/0/0 | 0 / 0; 10/10/0/0 |
-| osano mobile | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 10/0/10/0 | 0 / 2.25; 10/10/0/0 |
+| c15t Script tag desktop (local backend, self-hosted body script) | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 |
+| c15t headless desktop (local backend, headless API) | 0 / 3.75; 10/10/0/0 | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 |
+| c15t React desktop (local backend, native integration) | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 |
+| c15t Next.js desktop (local backend, native provider) | 0.5 / 4.25; 10/10/0/0 | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 |
+| c15t Vue desktop (local backend, native integration) | 0 / 0; 10/10/0/0 | 0 / 0; 9/9/0/1 | 0 / 0; 10/10/0/0 |
+| c15t Nuxt desktop (local backend, native integration) | 0 / 0; 10/10/0/0 | 2.5 / 10.5; 10/10/0/0 | 0 / 0; 10/10/0/0 |
+| c15t Astro desktop (local backend, native integration) | 3.5 / 18.75; 10/10/0/0 | 1.5 / 6.75; 10/10/0/0 | 0 / 0; 10/10/0/0 |
+| c15t TanStack Start desktop (local backend, native integration) | 0 / 0; 1/1/0/9 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| cookie-control desktop (remote, before `</body>`) | 27 / 54; 10/10/0/0 | 9 / 40; 10/9/1/0 | unavailable / unavailable; 0/0/0/10 |
+| didomi desktop (remote, start of `<head>`) | 4.5 / 8.25; 10/8/2/0 | 0 / 9; 9/9/0/1 | 0 / 0; 10/10/0/0 |
+| enzuzo desktop (remote, start of `<head>`) | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 |
+| iubenda desktop (remote, end of `<head>`) | 0 / 3; 10/10/0/0 | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 |
+| ketch desktop (remote, client effect) | 0 / 0; 10/10/0/0 | 7 / 17.5; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 |
+| onetrust desktop (remote, start of `<head>`) | 19.5 / 56; 10/10/0/0 | 47.5 / 74.5; 10/10/0/0 | 0 / 0; 10/10/0/0 |
+| osano desktop (remote, client effect) | 3.5 / 16.5; 10/10/0/0 | 0 / 5.5; 10/10/0/0 | 0 / 0; 10/10/0/0 |
+| c15t Script tag mobile (local backend, self-hosted body script) | 8.5 / 15.75; 10/10/0/0 | 7 / 17.5; 10/10/0/0 | 0 / 0; 10/10/0/0 |
+| c15t headless mobile (local backend, headless API) | 25.5 / 29.75; 10/10/0/0 | 26 / 45; 10/10/0/0 | 0 / 0; 10/10/0/0 |
+| c15t React mobile (local backend, native integration) | 6 / 20; 10/10/0/0 | 10 / 15.5; 10/10/0/0 | 0 / 0; 10/10/0/0 |
+| c15t Next.js mobile (local backend, native provider) | 28 / 39.75; 10/10/0/0 | 13.5 / 22; 10/10/0/0 | 0 / 0; 10/10/0/0 |
+| c15t Vue mobile (local backend, native integration) | 23 / 150; 10/10/0/0 | 24.5 / 50; 10/10/0/0 | 0 / 0; 10/10/0/0 |
+| c15t Astro mobile (local backend, native integration) | 0 / 3.75; 10/10/0/0 | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 |
+| c15t TanStack Start mobile (local backend, native integration) | 0 / 0; 10/10/0/0 | 0 / 9; 10/10/0/0 | 0 / 0; 10/10/0/0 |
+| cookie-control mobile (remote, before `</body>`) | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 | unavailable / unavailable; 0/0/0/10 |
+| didomi mobile (remote, start of `<head>`) | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 10/0/10/0 |
+| enzuzo mobile (remote, start of `<head>`) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | 0 / 0; 10/5/5/0 |
+| iubenda mobile (remote, end of `<head>`) | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 |
+| ketch mobile (remote, client effect) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| onetrust mobile (remote, start of `<head>`) | 0 / 15.75; 10/10/0/0 | 0 / 7.25; 10/10/0/0 | 0 / 0; 10/10/0/0 |
+| osano mobile (remote, client effect) | unavailable / unavailable; 10/0/10/0 | unavailable / unavailable; 10/0/10/0 | 0 / 2.25; 10/10/0/0 |
 | c15t Nuxt mobile [correction-001; correction of c15t-nuxt-mobile-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 |
 | c15t TanStack Start desktop [correction-001; correction of c15t-tanstack-start-desktop-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 |
 | didomi desktop [correction-001; correction of didomi-desktop-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 | 0 / 0; 10/10/0/0 |
@@ -1011,35 +1023,35 @@ Milliseconds. Each action cell is median / p75; A/I/E/M. Followup counts concern
 
 | Fixture/profile | Accept | Reject | Save |
 | --- | --- | --- | --- |
-| c15t Script tag desktop | 16 / 16; 8/8/0/2 | 16 / 16; 8/8/0/2 | 16 / 16; 7/7/0/3 |
-| c15t headless desktop | 16 / 16; 7/7/0/3 | 16 / 16; 3/3/0/7 | 16 / 16; 6/6/0/4 |
-| c15t React desktop | 16 / 16; 8/8/0/2 | 16 / 16; 7/7/0/3 | 16 / 16; 6/6/0/4 |
-| c15t Next.js desktop | 16 / 16; 3/3/0/7 | 16 / 16; 7/7/0/3 | 16 / 16; 3/3/0/7 |
-| c15t Vue desktop | 16 / 16; 9/9/0/1 | 16 / 16; 7/7/0/2 | 16 / 16; 7/7/0/3 |
-| c15t Nuxt desktop | 16 / 16; 6/6/0/4 | 16 / 16; 6/6/0/4 | 16 / 16; 7/7/0/3 |
-| c15t Astro desktop | 16 / 16; 3/3/0/7 | 16 / 16; 9/9/0/1 | 16 / 16; 8/8/0/2 |
-| c15t TanStack Start desktop | 16 / 16; 1/1/0/0 | unavailable / unavailable; 0/0/0/0 | unavailable / unavailable; 0/0/0/0 |
-| cookie-control desktop | 16 / 16; 4/4/0/6 | 16 / 16; 6/6/0/4 | unavailable / unavailable; 0/0/0/10 |
-| didomi desktop | 16 / 16; 2/2/0/8 | 16 / 16; 7/7/0/3 | 16 / 16; 7/7/0/3 |
-| enzuzo desktop | 16 / 16; 4/4/0/6 | 16 / 16; 7/7/0/3 | 16 / 16; 8/8/0/2 |
-| iubenda desktop | 16 / 16; 7/7/0/3 | 16 / 16; 8/8/0/2 | 16 / 16; 4/4/0/6 |
-| ketch desktop | 16 / 16; 8/8/0/2 | 16 / 16; 4/4/0/6 | unavailable / unavailable; 0/0/0/0 |
-| onetrust desktop | 32 / 38; 10/10/0/0 | 32 / 40; 10/10/0/0 | 28 / 32; 10/10/0/0 |
-| osano desktop | 16 / 16; 10/10/0/0 | 16 / 16; 6/6/0/4 | 16 / 16; 4/4/0/6 |
-| c15t Script tag mobile | 16 / 18; 4/4/0/6 | 16 / 16; 5/5/0/5 | 16 / 16; 6/6/0/4 |
-| c15t headless mobile | 16 / 16; 8/8/0/2 | 16 / 22; 6/6/0/4 | 16 / 20; 7/7/0/3 |
-| c15t React mobile | 16 / 16; 7/7/0/3 | 16 / 16; 3/3/0/7 | 16 / 16; 9/9/0/1 |
-| c15t Next.js mobile | 16 / 16; 9/9/0/1 | 16 / 16; 8/8/0/2 | 16 / 16; 9/9/0/1 |
-| c15t Vue mobile | 16 / 18; 8/8/0/2 | 16 / 16; 6/6/0/4 | 16 / 16; 10/10/0/0 |
-| c15t Astro mobile | 16 / 16; 4/4/0/6 | 16 / 16; 5/5/0/5 | 16 / 16; 4/4/0/6 |
-| c15t TanStack Start mobile | 16 / 16; 5/5/0/5 | 16 / 16; 5/5/0/5 | 16 / 16; 7/7/0/3 |
-| cookie-control mobile | 16 / 16; 7/7/0/3 | 16 / 16; 3/3/0/7 | unavailable / unavailable; 0/0/0/10 |
-| didomi mobile | 16 / 16; 5/1/4/5 | unavailable / unavailable; 7/0/7/3 | unavailable / unavailable; 6/0/6/4 |
-| enzuzo mobile | unavailable / unavailable; 0/0/0/0 | unavailable / unavailable; 0/0/0/0 | 20 / 24; 7/4/3/3 |
-| iubenda mobile | 16 / 16; 6/6/0/4 | 16 / 18; 4/4/0/6 | 16 / 16; 6/6/0/4 |
-| ketch mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
-| onetrust mobile | 40 / 40; 10/10/0/0 | 40 / 40; 10/10/0/0 | 40 / 40; 10/10/0/0 |
-| osano mobile | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | 16 / 16; 6/6/0/4 |
+| c15t Script tag desktop (local backend, self-hosted body script) | 16 / 16; 8/8/0/2 | 16 / 16; 8/8/0/2 | 16 / 16; 7/7/0/3 |
+| c15t headless desktop (local backend, headless API) | 16 / 16; 7/7/0/3 | 16 / 16; 3/3/0/7 | 16 / 16; 6/6/0/4 |
+| c15t React desktop (local backend, native integration) | 16 / 16; 8/8/0/2 | 16 / 16; 7/7/0/3 | 16 / 16; 6/6/0/4 |
+| c15t Next.js desktop (local backend, native provider) | 16 / 16; 3/3/0/7 | 16 / 16; 7/7/0/3 | 16 / 16; 3/3/0/7 |
+| c15t Vue desktop (local backend, native integration) | 16 / 16; 9/9/0/1 | 16 / 16; 7/7/0/2 | 16 / 16; 7/7/0/3 |
+| c15t Nuxt desktop (local backend, native integration) | 16 / 16; 6/6/0/4 | 16 / 16; 6/6/0/4 | 16 / 16; 7/7/0/3 |
+| c15t Astro desktop (local backend, native integration) | 16 / 16; 3/3/0/7 | 16 / 16; 9/9/0/1 | 16 / 16; 8/8/0/2 |
+| c15t TanStack Start desktop (local backend, native integration) | 16 / 16; 1/1/0/0 | unavailable / unavailable; 0/0/0/0 | unavailable / unavailable; 0/0/0/0 |
+| cookie-control desktop (remote, before `</body>`) | 16 / 16; 4/4/0/6 | 16 / 16; 6/6/0/4 | unavailable / unavailable; 0/0/0/10 |
+| didomi desktop (remote, start of `<head>`) | 16 / 16; 2/2/0/8 | 16 / 16; 7/7/0/3 | 16 / 16; 7/7/0/3 |
+| enzuzo desktop (remote, start of `<head>`) | 16 / 16; 4/4/0/6 | 16 / 16; 7/7/0/3 | 16 / 16; 8/8/0/2 |
+| iubenda desktop (remote, end of `<head>`) | 16 / 16; 7/7/0/3 | 16 / 16; 8/8/0/2 | 16 / 16; 4/4/0/6 |
+| ketch desktop (remote, client effect) | 16 / 16; 8/8/0/2 | 16 / 16; 4/4/0/6 | unavailable / unavailable; 0/0/0/0 |
+| onetrust desktop (remote, start of `<head>`) | 32 / 38; 10/10/0/0 | 32 / 40; 10/10/0/0 | 28 / 32; 10/10/0/0 |
+| osano desktop (remote, client effect) | 16 / 16; 10/10/0/0 | 16 / 16; 6/6/0/4 | 16 / 16; 4/4/0/6 |
+| c15t Script tag mobile (local backend, self-hosted body script) | 16 / 18; 4/4/0/6 | 16 / 16; 5/5/0/5 | 16 / 16; 6/6/0/4 |
+| c15t headless mobile (local backend, headless API) | 16 / 16; 8/8/0/2 | 16 / 22; 6/6/0/4 | 16 / 20; 7/7/0/3 |
+| c15t React mobile (local backend, native integration) | 16 / 16; 7/7/0/3 | 16 / 16; 3/3/0/7 | 16 / 16; 9/9/0/1 |
+| c15t Next.js mobile (local backend, native provider) | 16 / 16; 9/9/0/1 | 16 / 16; 8/8/0/2 | 16 / 16; 9/9/0/1 |
+| c15t Vue mobile (local backend, native integration) | 16 / 18; 8/8/0/2 | 16 / 16; 6/6/0/4 | 16 / 16; 10/10/0/0 |
+| c15t Astro mobile (local backend, native integration) | 16 / 16; 4/4/0/6 | 16 / 16; 5/5/0/5 | 16 / 16; 4/4/0/6 |
+| c15t TanStack Start mobile (local backend, native integration) | 16 / 16; 5/5/0/5 | 16 / 16; 5/5/0/5 | 16 / 16; 7/7/0/3 |
+| cookie-control mobile (remote, before `</body>`) | 16 / 16; 7/7/0/3 | 16 / 16; 3/3/0/7 | unavailable / unavailable; 0/0/0/10 |
+| didomi mobile (remote, start of `<head>`) | 16 / 16; 5/1/4/5 | unavailable / unavailable; 7/0/7/3 | unavailable / unavailable; 6/0/6/4 |
+| enzuzo mobile (remote, start of `<head>`) | unavailable / unavailable; 0/0/0/0 | unavailable / unavailable; 0/0/0/0 | 20 / 24; 7/4/3/3 |
+| iubenda mobile (remote, end of `<head>`) | 16 / 16; 6/6/0/4 | 16 / 18; 4/4/0/6 | 16 / 16; 6/6/0/4 |
+| ketch mobile (remote, client effect) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 |
+| onetrust mobile (remote, start of `<head>`) | 40 / 40; 10/10/0/0 | 40 / 40; 10/10/0/0 | 40 / 40; 10/10/0/0 |
+| osano mobile (remote, client effect) | unavailable / unavailable; 0/0/0/10 | unavailable / unavailable; 0/0/0/10 | 16 / 16; 6/6/0/4 |
 | c15t Nuxt mobile [correction-001; correction of c15t-nuxt-mobile-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | 16 / 16; 5/5/0/5 | 16 / 16; 8/8/0/2 | 16 / 16; 7/7/0/3 |
 | c15t TanStack Start desktop [correction-001; correction of c15t-tanstack-start-desktop-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | 16 / 16; 8/8/0/2 | 16 / 16; 7/7/0/3 | 16 / 16; 8/8/0/2 |
 | didomi desktop [correction-001; correction of didomi-desktop-actions; cookiebench-runner-3.2.1/cookiebench-v3.2.1] | 16 / 16; 3/3/0/7 | 16 / 16; 6/6/0/4 | 16 / 16; 8/8/0/2 |

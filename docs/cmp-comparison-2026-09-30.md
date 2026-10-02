@@ -1,5 +1,12 @@
 # CMP comparison in 60 seconds
 
+These fixtures are not like-for-like, so cross-CMP numbers are not a ranking.
+
+- c15t fixtures call a controlled local test backend on the same machine. The desktop profile adds 0 ms latency, so those calls return almost at once. Competitor fixtures call their vendors' remote services over the internet.
+- c15t Next.js loads through its native `c15t/next` provider. Ketch and Osano load from a client effect after hydration. The proxy injects Didomi, Enzuzo and OneTrust at the start of `<head>`, iubenda at the end of `<head>`, and Cookie Control before `</body>`.
+
+Differences between CMPs mix product cost with backend location and script placement. The CookieYes and Usercentrics fixtures, which also load from a client effect, are not in this batch.
+
 c15t's main content appeared later on mobile. Desktop showed no clear extra delay, and mobile consent checks succeeded.
 
 These are c15t Next.js results from September 30. Extra delay compares c15t with the same page without a consent manager.
@@ -17,6 +24,6 @@ Mobile consent correctness was verified in all 30 attempts. Three still lacked r
 
 Later corrections passed Didomi's consent checks on both profiles. Enzuzo's mobile accept/reject buttons stayed outside the viewport in 20 attempts, leaving correctness unknown.
 
-c15t used a local test backend, competitors used remote services, the machine was shared, and mobile was emulated. This cannot establish a fastest vendor or production performance.
+The machine was shared and mobile was emulated. These results cannot establish a fastest vendor or production performance.
 
 [Full results and limitations](cmp-comparison-2026-09-30-details.md) preserve every result and failure.
