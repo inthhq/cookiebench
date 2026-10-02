@@ -20,7 +20,7 @@
       },
       "artifactPolicy": "immutable-release",
       "baseline": true,
-      "configurationHash": "3e43018b6ef07a44e2e4b1f9dd212f8deda930a07af2abde01a26f609e41e26c",
+      "configurationHash": "af1a092ca845cd2d1cc692b0ac54ba294e32bcaf4d77d93db5882cdde42002fc",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -36,7 +36,8 @@
         "lockfileHash": "11ab0d9df6f55a1e564cc8595df60164b142b0d398c9a731b4e7fb2494dda206",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
-      "revision": "3.2.1-article-v1-next-client-effect",
+      "resolveHost": "127.0.0.1",
+      "revision": "3.2.2-article-v1-next-client-effect-registered-host",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -51,14 +52,13 @@
           "command": "pnpm"
         }
       },
-      "url": "http://127.0.0.1:4321/baseline",
+      "url": "https://benchmarks-with-cookie-yes.vercel.app:4521/baseline",
       "version": "16.0.7"
     },
     {
       "adapter": {
         "accept": ".cky-btn-accept",
         "banner": ".cky-consent-container",
-        "categoryToggle": "#ckySwitchanalytics",
         "controlledRequestPath": "/controlled/script",
         "pageAction": "#page-action",
         "preferences": ".cky-btn-customize",
@@ -67,14 +67,13 @@
         "ready": "html[data-consent-ready=\"true\"]",
         "reject": ".cky-btn-reject",
         "reopen": "#reopen-preferences",
-        "save": ".cky-btn-preferences",
         "serverEventsUrl": "http://127.0.0.1:4321/controlled/events",
         "stateGlobal": "__cookiebench",
         "withdraw": ".cky-preference-center .cky-btn-reject"
       },
       "artifactPolicy": "mutable-network",
       "baseline": false,
-      "configurationHash": "80261d6a62a78227bb25bc5681f4b103edba2e7def37219f033b754a0d8ed6aa",
+      "configurationHash": "ccc6e04f3382b04f1331bb323fc5b2e100087a76a4c5cc4401b8d9936a2f62da",
       "deployment": {
         "assets": "mixed",
         "backend": "remote-service"
@@ -90,7 +89,8 @@
         "lockfileHash": "11ab0d9df6f55a1e564cc8595df60164b142b0d398c9a731b4e7fb2494dda206",
         "sourceUrl": "https://cdn-cookieyes.com/client_data/830009093fab466a1ff5d9a1/script.js"
       },
-      "revision": "3.2.1-article-v1-next-client-effect",
+      "resolveHost": "127.0.0.1",
+      "revision": "3.2.2-article-v1-next-client-effect-registered-host",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -105,7 +105,7 @@
           "command": "pnpm"
         }
       },
-      "url": "http://127.0.0.1:4321/",
+      "url": "https://benchmarks-with-cookie-yes.vercel.app:4521/",
       "version": "remote-capture-05cf90780dac"
     }
   ],

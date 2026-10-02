@@ -148,10 +148,17 @@ function civic(runtime: Runtime) {
   );
 }
 function cookieYes(runtime: Runtime) {
+  // getCkyConsent exists before the banner attaches its button handlers, and
+  // an earlier click is ignored. Publish (and so report ready) only after the
+  // banner loads or once a choice exists.
+  let bannerLoaded = false;
   const sync = () => {
     const snapshot = runtime.vendor.getCkyConsent?.();
-    if (!snapshot) {
-      return;
+    if (
+      !snapshot ||
+      !(bannerLoaded || snapshot.isUserActionCompleted === true)
+    ) {
+      return false;
     }
     runtime.publish({
       explicit: snapshot.isUserActionCompleted === true,
@@ -160,20 +167,18 @@ function cookieYes(runtime: Runtime) {
         measurement: snapshot.categories?.analytics === true,
       },
     });
+    return true;
   };
+  document.addEventListener("cookieyes_banner_load", () => {
+    bannerLoaded = true;
+    sync();
+  });
   document.addEventListener("cookieyes_consent_update", sync);
   runtime.reopen(() => runtime.vendor.revisitCkyConsent?.());
   runtime.load(
     "https://cdn-cookieyes.com/client_data/830009093fab466a1ff5d9a1/script.js",
     { id: "cookieyes" },
-    () =>
-      runtime.waitFor(() => {
-        if (!runtime.vendor.getCkyConsent) {
-          return false;
-        }
-        sync();
-        return true;
-      })
+    () => runtime.waitFor(sync)
   );
 }
 function didomi(runtime: Runtime) {

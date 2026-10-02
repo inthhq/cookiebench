@@ -19,7 +19,7 @@
         "withdraw": "#reject"
       },
       "baseline": false,
-      "configurationHash": "d85e53c5709d114c6cbd913dca9dec0ee3bf5487ce4de8441323d89b32d2dc65",
+      "configurationHash": "43dc9c7dd4070985311a823aefaf64faf509fbb007ed556bc25a9289f4f95a9a",
       "deployment": {
         "assets": "local",
         "backend": "controlled-local"

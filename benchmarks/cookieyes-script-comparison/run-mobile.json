@@ -20,7 +20,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "9b31423f4bbe73dfc8fd37b9b3993d136286c5aa6a76a7f56d30af1d97d59429",
+      "configurationHash": "abb1f2e0f2bdb9d73139fd3290cf7b99254a720032e2a8c4efa497a6a3641d64",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -75,7 +75,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "61293c656deb8fc5a82546801035e5493d6ec4cdce9bd5d95ac5dd857497d8a6",
+      "configurationHash": "e00b7d291bbef60dfdefeaedf144fbf5d6e15ae15914801fc9402f2cd71851a0",
       "deployment": {
         "assets": "local",
         "backend": "controlled-local"
@@ -114,7 +114,6 @@
       "adapter": {
         "accept": ".cky-btn-accept",
         "banner": ".cky-consent-container",
-        "categoryToggle": "#ckySwitchanalytics",
         "controlledRequestPath": "/controlled/script",
         "pageAction": "#page-action",
         "preferences": ".cky-btn-customize",
@@ -123,14 +122,13 @@
         "ready": "html[data-consent-ready=\"true\"]",
         "reject": ".cky-btn-reject",
         "reopen": "#reopen-preferences",
-        "save": ".cky-btn-preferences",
         "serverEventsUrl": "http://127.0.0.1:4310/controlled/events",
         "stateGlobal": "__cookiebench",
         "withdraw": ".cky-preference-center .cky-btn-reject"
       },
       "artifactPolicy": "mutable-network",
       "baseline": false,
-      "configurationHash": "d255ea8dca42c461908325a26d915e02ae5a03031d802973d79f482dc5e9939f",
+      "configurationHash": "f0aabf0386c92017f7f895ad5f50a16ed75b77e09bea3037a1da5189e1cd5a8e",
       "deployment": {
         "assets": "remote",
         "backend": "remote-service"
