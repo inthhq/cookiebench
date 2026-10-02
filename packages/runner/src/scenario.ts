@@ -30,7 +30,7 @@ import {
 import type { PublicStateEvidence } from "./navigation.ts";
 import { collectNetwork, partitionNetwork } from "./network.ts";
 import { readServerEvidence } from "./server-evidence.ts";
-import { attachChildTargets, emulateProfile } from "./targets.ts";
+import { emulateProfile } from "./targets.ts";
 
 function expectedChoice(scenario: ScenarioConfig) {
   if (scenario.action === "accept") {
@@ -287,7 +287,7 @@ export function runSample(options: {
         const network = await collectNetwork(page, url.href);
         const unthrottledTargets = await emulateProfile(
           network.session,
-          await attachChildTargets(network.session),
+          network.targets,
           profile
         );
         const documentEvidence = await captureDocuments(

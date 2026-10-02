@@ -141,8 +141,10 @@ test("preflight-first delivery cannot steal a same-URL XHR body or encoded bytes
 test("unsupported execution targets keep missing network coverage explicit", async () => {
   const c = await collector();
   expect(c.network.coverage()).toMatchObject({ complete: true, reasons: [] });
-  c.page.emit("worker", {});
+  // Frames report through the page target or an attached child target.
   c.page.emit("frameattached", {});
+  expect(c.network.coverage()).toMatchObject({ complete: true, reasons: [] });
+  c.page.emit("worker", {});
   c.context.emit("serviceworker", {});
   c.context.emit("page", {});
   c.session.emit("Target.targetCreated", {
@@ -151,15 +153,88 @@ test("unsupported execution targets keep missing network coverage explicit", asy
       type: "shared_worker",
     },
   });
-  expect(c.network.coverage().reasons).toHaveLength(4);
+  expect(c.network.coverage().reasons).toHaveLength(3);
   c.session.emit("Target.targetCreated", {
     targetInfo: { browserContextId: "test-context", type: "shared_worker" },
   });
   expect(c.network.coverage()).toMatchObject({
     complete: false,
-    scope: "page-target",
+    scope: "page-tree",
   });
-  expect(c.network.coverage().reasons).toHaveLength(5);
+  expect(c.network.coverage().reasons).toHaveLength(4);
+  c.session.emit("Network.loadingFinished", {
+    encodedDataLength: 10,
+    requestId: "unseen",
+    timestamp: 1,
+  });
+  expect(c.network.coverage().reasons.join(" ")).toContain(
+    "start was not observed"
+  );
+});
+
+test("redirect hops keep their own transfer bytes and an unread body", async () => {
+  const c = await collector();
+  c.start("hop", "Script");
+  c.session.emit("Network.requestWillBeSent", {
+    redirectResponse: { encodedDataLength: 180, status: 301 },
+    request: { method: "GET", url },
+    requestId: "hop",
+    timestamp: 1.05,
+    type: "Script",
+    wallTime: 1000.05,
+  });
+  c.response("hop", 200, "application/json", { "Content-Length": "40" });
+  c.data("hop", 40);
+  c.finish("hop", 300);
+  const [redirect, final] = await c.network.snapshot();
+  expect(redirect).toMatchObject({
+    decodedBodyBytes: 0,
+    encodedBodyBytes: 0,
+    finished: true,
+    status: 301,
+    transferBytes: 180,
+  });
+  expect(final).toMatchObject({ encodedBodyBytes: 40, transferBytes: 300 });
+});
+
+test("exchanges without a response by failure or cutoff carry zero bytes", async () => {
+  const c = await collector();
+  c.start("blocked", "Script");
+  c.session.emit("Network.loadingFailed", {
+    errorText: "net::ERR_BLOCKED_BY_CLIENT",
+    requestId: "blocked",
+    timestamp: 1.1,
+  });
+  c.start("pending", "Fetch");
+  c.start("cors", "Fetch");
+  c.session.emit("Network.responseReceivedExtraInfo", { requestId: "cors" });
+  c.session.emit("Network.loadingFailed", {
+    corsErrorStatus: { corsError: "MissingAllowOriginHeader" },
+    errorText: "net::ERR_FAILED",
+    requestId: "cors",
+    timestamp: 1.1,
+  });
+  c.start("partial", "Fetch");
+  c.response("partial", 200);
+  c.data("partial", 40);
+  const rows = await c.network.snapshot();
+  const byId = (id: string) => rows.find((row) => row.id.startsWith(`${id}:`));
+  for (const [id, reason] of [
+    ["blocked", "failed"],
+    ["pending", "pending-at-cutoff"],
+  ] as const) {
+    expect(byId(id)).toMatchObject({
+      decodedBodyBytes: 0,
+      encodedBodyBytes: 0,
+      noResponse: reason,
+      transferBytes: 0,
+    });
+  }
+  // Headers arrived before the failure or the cutoff: the bytes stay unknown.
+  for (const id of ["cors", "partial"]) {
+    expect(byId(id)?.noResponse).toBeUndefined();
+    expect(byId(id)?.transferBytes).toBeUndefined();
+  }
 });
 
 test("bodyless responses retain zero even when a browser size fallback reports transfer bytes", async () => {

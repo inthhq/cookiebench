@@ -1,6 +1,10 @@
 import { describe, expect, it } from "vitest";
 
-import { measured, missingRequiredMeasurements } from "../src/measure.ts";
+import {
+  measured,
+  measurementsFor,
+  missingRequiredMeasurements,
+} from "../src/measure.ts";
 import { classifyHostname, networkAtDeadline } from "../src/network.ts";
 import { referenceScenario } from "../src/reference.ts";
 
@@ -246,10 +250,18 @@ describe("per-request byte consistency", () => {
     expect(
       byteInconsistencies({ ...row, fromCache: true, transferBytes: 0 })
     ).toEqual([]);
+    // Chromium reports CORS preflight exchanges with zero encodedDataLength.
+    expect(
+      byteInconsistencies({
+        ...row,
+        method: "OPTIONS",
+        preflight: true,
+        transferBytes: 0,
+      })
+    ).toEqual([]);
   });
   it("withholds every phase byte total when one request is inconsistent", async () => {
-    const { measurementsFor } = await import("../src/measure.ts");
-    const { referenceFixture } = await import("../src/reference.ts");
+    const reference = await import("../src/reference.ts");
     const metrics = measurementsFor(
       {
         events: [],
@@ -273,7 +285,7 @@ describe("per-request byte consistency", () => {
         },
       ],
       referenceScenario({ action: "load" }),
-      referenceFixture()
+      reference.referenceFixture()
     );
     for (const key of ["transfer", "encoded-body", "decoded-body"]) {
       expect(
@@ -283,5 +295,75 @@ describe("per-request byte consistency", () => {
         status: "unavailable",
       });
     }
+  });
+});
+
+async function initialTransfer(rows: Parameters<typeof measurementsFor>[1]) {
+  const reference = await import("../src/reference.ts");
+  return measurementsFor(
+    {
+      events: [],
+      frameIntervals: [],
+      inputs: [],
+      longTasks: [],
+      observerCallbacks: 0,
+      stateHistory: [],
+      supported: [],
+      vitals: {},
+    },
+    rows,
+    referenceScenario({ action: "load" }),
+    reference.referenceFixture()
+  ).find((metric) => metric.key === "initial.transfer");
+}
+
+describe("byte totals with incomplete exchanges", () => {
+  const base = {
+    hostname: "shop.test",
+    party: "first-party" as const,
+    phase: "initial" as const,
+    resourceType: "Fetch",
+    startedAt: 10,
+    url: "https://shop.test/api",
+    wallTimeMs: 1000,
+  };
+  const done = {
+    ...base,
+    decodedBodyBytes: 10,
+    encodedBodyBytes: 10,
+    finished: true,
+    id: "done",
+    status: 200,
+    transferBytes: 200,
+  };
+  it("counts a request with no response by the cutoff as zero bytes", async () => {
+    expect(
+      await initialTransfer([
+        done,
+        {
+          ...base,
+          decodedBodyBytes: 0,
+          encodedBodyBytes: 0,
+          finished: false,
+          id: "pending",
+          noResponse: "pending-at-cutoff",
+          transferBytes: 0,
+        },
+      ])
+    ).toMatchObject({ status: "measured", value: 200 });
+  });
+  it("withholds totals while a started response is incomplete", async () => {
+    expect(
+      await initialTransfer([
+        done,
+        {
+          ...base,
+          decodedBodyBytes: 40,
+          finished: false,
+          id: "partial",
+          status: 200,
+        },
+      ])
+    ).toMatchObject({ status: "unavailable" });
   });
 });

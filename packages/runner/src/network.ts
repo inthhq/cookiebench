@@ -2,6 +2,9 @@ import { createHash } from "node:crypto";
 
 import type { CDPSession, Page } from "playwright";
 
+import { attachChildTargets } from "./targets.ts";
+import type { ProtocolSession } from "./targets.ts";
+
 export interface NetworkRequest {
   id: string;
   url: string;
@@ -32,16 +35,36 @@ export interface NetworkRequest {
   bodyDigestUnavailable?: string;
   failed?: string;
   finished: boolean;
+  // CORS preflight. Chromium reports its exchange with zero encodedDataLength,
+  // so transfer totals omit preflight header bytes.
+  preflight?: boolean;
+  // Response headers were observed, possibly without a responseReceived event.
+  responseStarted?: boolean;
+  // Bytes are zero because no response began before failure or the cutoff.
+  noResponse?: "failed" | "pending-at-cutoff";
 }
 
 export interface NetworkCoverage {
-  scope: "page-target";
+  // page-tree: the page target plus auto-attached frame and worker targets.
+  scope: "page-target" | "page-tree";
   complete: boolean;
   reasons: string[];
 }
 
 function hasNoBody(row: NetworkRequest): boolean {
-  return row.method === "HEAD" || [204, 205, 304].includes(row.status ?? 0);
+  // Chromium never exposes a CORS preflight response body.
+  return (
+    row.method === "HEAD" ||
+    row.preflight === true ||
+    [204, 205, 304].includes(row.status ?? 0)
+  );
+}
+
+function hasDigestibleBody(row: NetworkRequest): boolean {
+  return (
+    ["Script", "Stylesheet"].includes(row.resourceType) ||
+    /javascript|json|css/iu.test(row.responseContentType ?? "")
+  );
 }
 
 function identityEncoded(row: NetworkRequest): boolean {
@@ -83,15 +106,20 @@ function settleBodySizes(row: NetworkRequest, length?: number): boolean {
  * its headers can legitimately exceed the decoded body.
  */
 export function byteInconsistencies(row: NetworkRequest): string[] {
-  if (!row.finished || row.failed || row.fromCache) {
+  if (
+    !row.finished ||
+    row.failed ||
+    row.fromCache ||
+    !/^https?:/u.test(row.url)
+  ) {
     return [];
   }
   const problems: string[] = [];
   if (
     row.transferBytes === 0 &&
+    !row.preflight &&
     (row.status ?? 0) >= 200 &&
-    (row.status ?? 0) < 300 &&
-    /^https?:/u.test(row.url)
+    (row.status ?? 0) < 300
   ) {
     // Even an empty uncached HTTP response carries a status line and headers.
     problems.push("uncached response reported zero transfer bytes");
@@ -162,33 +190,67 @@ export function networkAtDeadline(
   return [...latest.values()];
 }
 
+function header(headers: Record<string, unknown> | undefined, name: string) {
+  const value = Object.entries(headers ?? {}).find(
+    ([key]) => key.toLowerCase() === name
+  )?.[1];
+  return typeof value === "string" ? value : undefined;
+}
+
+function contentLength(headers: Record<string, unknown> | undefined) {
+  const length = header(headers, "content-length");
+  return length !== undefined &&
+    /^\d+$/u.test(length) &&
+    Number.isSafeInteger(Number(length))
+    ? Number(length)
+    : undefined;
+}
+
+/**
+ * A request that failed, or was still pending at the cutoff, before any response
+ * evidence arrived has received no response bytes. Its bytes are exactly zero.
+ * Once a response has started, an incomplete or failed exchange has unknown bytes.
+ */
+function settleWithoutResponse(row: NetworkRequest) {
+  const incomplete = !row.finished || row.failed !== undefined;
+  const responseEvidence =
+    row.responseStarted ||
+    row.status !== undefined ||
+    row.decodedBodyBytes !== undefined ||
+    row.encodedDataBytes !== undefined;
+  if (!incomplete || responseEvidence) {
+    return;
+  }
+  row.noResponse = row.failed === undefined ? "pending-at-cutoff" : "failed";
+  row.transferBytes = 0;
+  row.encodedBodyBytes = 0;
+  row.decodedBodyBytes = 0;
+}
+
 export async function collectNetwork(page: Page, pageUrl: string) {
   const session: CDPSession = await page.context().newCDPSession(page);
   const gaps = new Set<string>();
+  // Child frames wait for this collector before running. A dedicated worker's
+  // fetch has been observed without requestWillBeSent even though Network.enable
+  // on the worker target completed before the worker resumed.
   const workerGap = () =>
-    gaps.add("Worker traffic is outside the attached page CDP target");
-  const frameGap = () =>
     gaps.add(
-      "Child-frame traffic has not been independently verified by the page-target collector"
+      "Worker traffic can start before its target's network events are enabled"
     );
-  const serviceWorkerGap = () =>
-    gaps.add("Service-worker traffic is outside the attached page CDP target");
   page.on("worker", workerGap);
-  page.on("frameattached", frameGap);
+  if (page.workers().length) {
+    workerGap();
+  }
+  const serviceWorkerGap = () =>
+    gaps.add("Service-worker traffic is outside the attached page CDP targets");
   page.context().on("serviceworker", serviceWorkerGap);
   page.context().on("page", (other) => {
     if (other !== page) {
       gaps.add(
-        "Additional-page traffic is outside the attached page CDP target"
+        "Additional-page traffic is outside the attached page CDP targets"
       );
     }
   });
-  if (page.workers().length) {
-    workerGap();
-  }
-  if (page.frames().some((frame) => frame !== page.mainFrame())) {
-    frameGap();
-  }
   if (page.context().serviceWorkers().length) {
     serviceWorkerGap();
   }
@@ -203,7 +265,7 @@ export async function collectNetwork(page: Page, pageUrl: string) {
           target.browserContextId === targetInfo.browserContextId)
       ) {
         gaps.add(
-          "Shared-worker traffic is outside the attached page CDP target"
+          "Shared-worker traffic is outside the attached page CDP targets"
         );
       }
     });
@@ -219,6 +281,8 @@ export async function collectNetwork(page: Page, pageUrl: string) {
   const requests: NetworkRequest[] = [];
   const active = new Map<string, NetworkRequest>();
   const requestIds = new Map<string, string>();
+  // Body reads go to the target that delivered the response.
+  const bodySessions = new Map<string, ProtocolSession>();
   const contentLengths = new Map<string, number>();
   const completed = new Set<string>();
   const revisions: NetworkRevision[] = [];
@@ -228,111 +292,165 @@ export async function collectNetwork(page: Page, pageUrl: string) {
       request: { ...row },
     });
   };
-  session.on("Network.requestWillBeSent", (event) => {
-    if (event.redirectResponse) {
-      const previous = active.get(event.requestId);
-      if (previous) {
-        previous.status = event.redirectResponse.status;
-        previous.bodyDigestUnavailable =
+  // In-process frames report through the page target. Out-of-process frames and
+  // workers report through their own targets, and one request can start on the
+  // page target and finish on a child, so rows are keyed by CDP request ID.
+  const known = (requestId: string) => {
+    const row = active.get(requestId);
+    if (!row) {
+      gaps.add(
+        "Network events arrived for a request whose start was not observed"
+      );
+    }
+    return row;
+  };
+  const listen = (source: ProtocolSession) => {
+    source.on("Network.requestWillBeSent", (event) => {
+      const existing = active.get(event.requestId);
+      if (event.redirectResponse && existing) {
+        existing.status = event.redirectResponse.status;
+        existing.bodyDigestUnavailable =
           "Exact response body unavailable for redirected request hop";
-        // CDP does not expose a complete redirect body/transfer breakdown here.
-        previous.finished = true;
-        record(previous, event.timestamp);
+        existing.transferBytes = event.redirectResponse.encodedDataLength;
+        if (
+          existing.decodedBodyBytes === undefined &&
+          existing.encodedDataBytes === undefined
+        ) {
+          // Chromium followed the redirect from its headers; no hop body was read.
+          existing.encodedBodyBytes = 0;
+          existing.decodedBodyBytes = 0;
+        }
+        existing.finished = true;
+        record(existing, event.timestamp);
+      } else if (
+        existing &&
+        !existing.finished &&
+        existing.url === event.request.url
+      ) {
+        // Another target announced the same request.
+        return;
+      }
+      const row: NetworkRequest = {
+        finished: false,
+        hostname: new URL(event.request.url).hostname,
+        id: `${event.requestId}:${requests.length}`,
+        method: event.request.method,
+        party: classifyHostname(event.request.url, pageUrl),
+        phase: "initial",
+        resourceType: event.type ?? "Other",
+        startedAt: event.timestamp * 1000,
+        ...(event.type === "Preflight" ||
+        (event.request.method === "OPTIONS" &&
+          header(event.request.headers, "access-control-request-method"))
+          ? { preflight: true }
+          : {}),
+        url: event.request.url,
+        wallTimeMs: event.wallTime * 1000,
+      };
+      requestIds.set(row.id, event.requestId);
+      active.set(event.requestId, row);
+      requests.push(row);
+      record(row, event.timestamp);
+    });
+    source.on("Network.responseReceivedExtraInfo", (event) => {
+      // Raw headers arrive even when CORS or ORB later hides the response.
+      const row = active.get(event.requestId);
+      if (row) {
+        row.responseStarted = true;
+      }
+    });
+    source.on("Network.responseReceived", (event) => {
+      const row = known(event.requestId);
+      if (!row) {
+        return;
+      }
+      bodySessions.set(row.id, source);
+      row.status = event.response.status;
+      row.responseContentType = event.response.mimeType;
+      row.fromCache = Boolean(
+        row.fromCache ||
+        event.response.fromDiskCache ||
+        event.response.fromPrefetchCache ||
+        event.response.fromServiceWorker
+      );
+      const length = contentLength(event.response.headers);
+      if (length !== undefined) {
+        contentLengths.set(row.id, length);
+      }
+      row.contentEncoding = header(event.response.headers, "content-encoding")
+        ?.trim()
+        .toLowerCase();
+      if (hasNoBody(row)) {
+        row.encodedBodyBytes = 0;
+        row.decodedBodyBytes = 0;
+      }
+      record(row, event.timestamp);
+    });
+    source.on("Network.requestServedFromCache", (event) => {
+      const row = active.get(event.requestId);
+      if (row) {
+        row.fromCache = true;
+      }
+    });
+    source.on("Network.dataReceived", (event) => {
+      const row = known(event.requestId);
+      if (!row) {
+        return;
+      }
+      row.decodedBodyBytes = (row.decodedBodyBytes ?? 0) + event.dataLength;
+      row.encodedDataBytes =
+        (row.encodedDataBytes ?? 0) + event.encodedDataLength;
+      record(row, event.timestamp);
+    });
+    source.on("Network.loadingFinished", (event) => {
+      const row = known(event.requestId);
+      if (!row || row.finished) {
+        return;
+      }
+      bodySessions.set(row.id, source);
+      row.transferBytes = event.encodedDataLength;
+      row.finished = true;
+      completed.add(row.id);
+      record(row, event.timestamp);
+    });
+    source.on("Network.loadingFailed", (event) => {
+      const row = known(event.requestId);
+      if (!row || row.finished) {
+        return;
+      }
+      row.failed = event.errorText;
+      // CORS can reject a response after its headers arrived.
+      row.responseStarted ||= event.corsErrorStatus !== undefined;
+      row.finished = true;
+      record(row, event.timestamp);
+    });
+  };
+  listen(session);
+  await session.send("Network.enable");
+  const targets = await attachChildTargets(session);
+  await targets.prepare(async (target) => {
+    if (target.type !== "iframe") {
+      workerGap();
+    }
+    listen(target.session);
+    try {
+      await target.session.send("Network.enable");
+    } catch (error) {
+      // A target detached before resuming never ran, so it sent no requests.
+      if (!/Target detached|No session with given id/u.test(String(error))) {
+        gaps.add(
+          `Network events were unavailable for a ${target.type} target: ${String(error)}`
+        );
       }
     }
-    const row: NetworkRequest = {
-      finished: false,
-      hostname: new URL(event.request.url).hostname,
-      id: `${event.requestId}:${requests.length}`,
-      method: event.request.method,
-      party: classifyHostname(event.request.url, pageUrl),
-      phase: "initial",
-      resourceType: event.type ?? "Other",
-      startedAt: event.timestamp * 1000,
-      url: event.request.url,
-      wallTimeMs: event.wallTime * 1000,
-    };
-    requestIds.set(row.id, event.requestId);
-    active.set(event.requestId, row);
-    requests.push(row);
-    record(row, event.timestamp);
   });
-  session.on("Network.responseReceived", (event) => {
-    const row = active.get(event.requestId);
-    if (!row) {
-      return;
-    }
-    row.status = event.response.status;
-    row.responseContentType = event.response.mimeType;
-    row.fromCache = Boolean(
-      row.fromCache ||
-      event.response.fromDiskCache ||
-      event.response.fromPrefetchCache ||
-      event.response.fromServiceWorker
-    );
-    const length = Object.entries(event.response.headers ?? {}).find(
-      ([name]) => name.toLowerCase() === "content-length"
-    )?.[1];
-    if (
-      typeof length === "string" &&
-      /^\d+$/u.test(length) &&
-      Number.isSafeInteger(Number(length))
-    ) {
-      contentLengths.set(row.id, Number(length));
-    }
-    const encoding = Object.entries(event.response.headers ?? {}).find(
-      ([name]) => name.toLowerCase() === "content-encoding"
-    )?.[1];
-    row.contentEncoding =
-      typeof encoding === "string" ? encoding.trim().toLowerCase() : undefined;
-    if (hasNoBody(row)) {
-      row.encodedBodyBytes = 0;
-      row.decodedBodyBytes = 0;
-    }
-    record(row, event.timestamp);
-  });
-  session.on("Network.requestServedFromCache", (event) => {
-    const row = active.get(event.requestId);
-    if (row) {
-      row.fromCache = true;
-    }
-  });
-  session.on("Network.dataReceived", (event) => {
-    const row = active.get(event.requestId);
-    if (!row) {
-      return;
-    }
-    row.decodedBodyBytes = (row.decodedBodyBytes ?? 0) + event.dataLength;
-    row.encodedDataBytes =
-      (row.encodedDataBytes ?? 0) + event.encodedDataLength;
-    record(row, event.timestamp);
-  });
-  session.on("Network.loadingFinished", (event) => {
-    const row = active.get(event.requestId);
-    if (!row) {
-      return;
-    }
-    row.transferBytes = event.encodedDataLength;
-    row.finished = true;
-    completed.add(row.id);
-    record(row, event.timestamp);
-  });
-  session.on("Network.loadingFailed", (event) => {
-    const row = active.get(event.requestId);
-    if (!row) {
-      return;
-    }
-    row.failed = event.errorText;
-    row.finished = true;
-    record(row, event.timestamp);
-  });
-  await session.send("Network.enable");
   const snapshot = async (deadlineEpochMs?: number) => {
     const frozen =
       deadlineEpochMs === undefined
         ? requests.map((request) => ({ ...request }))
         : networkAtDeadline(revisions, deadlineEpochMs);
     for (const row of frozen) {
+      settleWithoutResponse(row);
       if (!row.finished || row.failed) {
         continue;
       }
@@ -348,12 +466,7 @@ export async function collectNetwork(page: Page, pageUrl: string) {
       if (problems.length) {
         row.byteInconsistencies = problems;
       }
-      if (
-        !(
-          ["Script", "Stylesheet"].includes(row.resourceType) ||
-          /javascript|json|css/iu.test(row.responseContentType ?? "")
-        )
-      ) {
+      if (!hasDigestibleBody(row)) {
         continue;
       }
       if (undelivered) {
@@ -363,6 +476,7 @@ export async function collectNetwork(page: Page, pageUrl: string) {
         continue;
       }
       const requestId = requestIds.get(row.id);
+      const bodySession = bodySessions.get(row.id) ?? session;
       if (!requestId || active.get(requestId)?.id !== row.id) {
         row.bodyDigestUnavailable =
           "Exact response body unavailable for redirected request hop";
@@ -375,7 +489,7 @@ export async function collectNetwork(page: Page, pageUrl: string) {
         row.bodyDigestEncoding = "empty-body";
         if (!bodyless) {
           // oxlint-disable-next-line no-await-in-loop -- Read completed protocol bodies serially after timing collection.
-          const response = await session.send("Network.getResponseBody", {
+          const response = await bodySession.send("Network.getResponseBody", {
             requestId,
           });
           body = Buffer.from(
@@ -397,10 +511,11 @@ export async function collectNetwork(page: Page, pageUrl: string) {
     coverage: (): NetworkCoverage => ({
       complete: gaps.size === 0,
       reasons: [...gaps].toSorted(),
-      scope: "page-target",
+      scope: "page-tree",
     }),
     requests,
     session,
     snapshot,
+    targets,
   };
 }

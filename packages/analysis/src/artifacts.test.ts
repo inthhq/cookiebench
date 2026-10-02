@@ -24,6 +24,15 @@ test("dated identical measured bytes qualify even when their URL is mutable", ()
     artifactEligibility(fixture, [sample([request]), sample([request])])
   ).toEqual([]);
 });
+test("complete page-tree coverage qualifies like page-target coverage", () => {
+  const tree = {
+    diagnostics: {
+      networkCoverage: { complete: true, reasons: [], scope: "page-tree" },
+      requests: [request],
+    },
+  };
+  expect(artifactEligibility(fixture, [tree, sample([request])])).toEqual([]);
+});
 test("missing bodies, failed requests and observed artifact drift withhold identity", () => {
   for (const changed of [
     { ...request, decodedBodySha256: undefined },

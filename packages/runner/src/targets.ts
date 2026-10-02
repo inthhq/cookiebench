@@ -44,6 +44,11 @@ function relaySession(parent: ProtocolSession, sessionId: string) {
       nextId += 1;
       const id = nextId;
       const reply = Promise.withResolvers<unknown>();
+      // Detachment can reject a reply before this command finishes sending.
+      // oxlint-disable-next-line promise/prefer-await-to-then -- Mark the rejection handled without awaiting it here.
+      reply.promise.catch(() => {
+        /* Callers still receive the rejection through the returned promise. */
+      });
       pending.set(id, reply);
       try {
         await parent.send("Target.sendMessageToTarget", {

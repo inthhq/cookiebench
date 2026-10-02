@@ -239,10 +239,14 @@ export function measurementsFor(
       ["encoded-body", "encodedBodyBytes"],
       ["decoded-body", "decodedBodyBytes"],
     ] as const) {
+      // Exchanges without any response by failure or cutoff carry zero bytes;
+      // a response that started but did not complete keeps unknown bytes.
       const complete =
         inconsistent.length === 0 &&
         rows.every(
-          (row) => row.finished && !row.failed && row[field] !== undefined
+          (row) =>
+            (row.noResponse !== undefined || (row.finished && !row.failed)) &&
+            row[field] !== undefined
         );
       add(
         `${phase}.${key}`,
@@ -252,11 +256,11 @@ export function measurementsFor(
           : undefined,
         {
           decodedBodyBytes:
-            "network bytes v3; CDP dataReceived.dataLength sum, or identity Content-Length for bodies no renderer read",
+            "network bytes v3; CDP dataReceived.dataLength sum, or identity Content-Length for bodies no renderer read; zero for redirect hops and without a response",
           encodedBodyBytes:
-            "network bytes v2; completed uncached Content-Length or identity decoded bytes",
+            "network bytes v3; completed uncached Content-Length or identity decoded bytes; zero for redirect hops and without a response",
           transferBytes:
-            "network bytes v2; completed CDP loadingFinished.encodedDataLength",
+            "network bytes v3; completed CDP loadingFinished or redirect encodedDataLength; zero without a response by failure or cutoff",
         }[field],
         inconsistent.length
           ? `Inconsistent per-request byte observations: ${inconsistent.join("; ")}`
@@ -385,7 +389,7 @@ export function measurementsFor(
       return {
         key: metric.key,
         method: metric.method,
-        reason: `Page-target network coverage is incomplete: ${networkCoverage.reasons.join("; ")}`,
+        reason: `Network target coverage is incomplete: ${networkCoverage.reasons.join("; ")}`,
         status: "unavailable" as const,
         unit: metric.unit,
       };

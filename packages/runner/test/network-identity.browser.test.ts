@@ -4,7 +4,8 @@ import { createServer } from "node:http";
 import type { Server } from "node:http";
 import { gzipSync } from "node:zlib";
 
-import { expect, test } from "@playwright/test";
+import { chromium, expect, test } from "@playwright/test";
+import type { Page } from "@playwright/test";
 
 import { collectNetwork } from "../src/network.ts";
 
@@ -58,6 +59,13 @@ test.beforeAll(async () => {
       const bytes = compressed ? zipped : body;
       response.setHeader("Content-Length", bytes.length);
       response.end(bytes);
+      return;
+    }
+    if (request.url === "/redirect-to-gzip") {
+      response.statusCode = 302;
+      response.setHeader("Location", "/gzip.json");
+      response.setHeader("Content-Length", 0);
+      response.end();
       return;
     }
     if (request.method === "OPTIONS" || request.url === "/bodyless") {
@@ -197,7 +205,7 @@ test("text body identity records its encoding separately from original response 
   expect(row?.decodedBodySha256).toBe(hash(expectedBody));
 });
 
-test("worker fetches reach the server without qualifying page-only network totals", async ({
+test("worker fetches reach the server without qualifying network totals", async ({
   page,
 }, testInfo) => {
   const network = await collectNetwork(page, origin);
@@ -230,7 +238,7 @@ test("worker fetches reach the server without qualifying page-only network total
   expect(requestedUrls).toContain("/scope-worker-body.json");
   expect(network.coverage()).toMatchObject({
     complete: false,
-    scope: "page-target",
+    scope: "page-tree",
   });
   expect(network.coverage().reasons.join(" ")).toContain("Worker traffic");
   await testInfo.attach("worker-coverage", {
@@ -243,9 +251,7 @@ test("worker fetches reach the server without qualifying page-only network total
   });
 });
 
-test("cross-site frame traffic does not qualify page-only network totals", async ({
-  page,
-}, testInfo) => {
+async function frameTraffic(page: Page) {
   const network = await collectNetwork(page, origin);
   await page.goto(origin);
   const target = `${remote.replace("127.0.0.1", "localhost")}/scope-frame`;
@@ -268,18 +274,57 @@ test("cross-site frame traffic does not qualify page-only network totals", async
       }),
     target
   );
-  expect(requestedUrls).toContain("/scope-frame-body.json");
-  expect(network.coverage()).toMatchObject({ complete: false });
-  expect(network.coverage().reasons.join(" ")).toContain("Child-frame traffic");
-  await testInfo.attach("frame-coverage", {
-    body: JSON.stringify({
-      collectorObserved: network.requests.some((row) =>
-        row.url.endsWith("/scope-frame-body.json")
-      ),
-      coverage: network.coverage(),
-      serverObserved: true,
-    }),
-    contentType: "application/json",
+  const rows = await network.snapshot();
+  for (const suffix of ["/scope-frame", "/scope-frame-body.json"]) {
+    const row = rows.find((request) => request.url.endsWith(suffix));
+    expect(row).toMatchObject({ finished: true, status: 200 });
+    expect(row?.transferBytes).toBeGreaterThan(0);
+    expect(row?.byteInconsistencies).toBeUndefined();
+  }
+  expect(network.coverage()).toMatchObject({ complete: true });
+}
+
+test("in-process cross-site frame traffic is collected without breaking coverage", async ({
+  page,
+}) => {
+  await frameTraffic(page);
+});
+
+test("out-of-process frame traffic is collected through its own target", async () => {
+  // Headless shell keeps cross-site frames in-process unless site isolation is on.
+  const browser = await chromium.launch({ args: ["--site-per-process"] });
+  try {
+    await frameTraffic(await browser.newPage());
+  } finally {
+    await browser.close();
+  }
+});
+
+test("redirect hops record their own transfer bytes", async ({ page }) => {
+  const network = await collectNetwork(page, origin);
+  const hopHeaders: number[] = [];
+  network.session.on("Network.responseReceivedExtraInfo", (event) => {
+    if (event.statusCode === 302 && event.headersText) {
+      hopHeaders.push(Buffer.byteLength(event.headersText));
+    }
+  });
+  await page.goto(origin);
+  await page.evaluate(async (base) => {
+    const response = await fetch(`${base}/redirect-to-gzip`);
+    await response.text();
+  }, remote);
+  const rows = await network.snapshot();
+  const hop = rows.find((row) => row.url.endsWith("/redirect-to-gzip"));
+  expect(hop).toMatchObject({
+    decodedBodyBytes: 0,
+    encodedBodyBytes: 0,
+    finished: true,
+    status: 302,
+  });
+  // A bodyless redirect transfers exactly its header bytes.
+  expect(hop?.transferBytes).toBe(hopHeaders[0]);
+  expect(rows.find((row) => row.url.endsWith("/gzip.json"))).toMatchObject({
+    encodedBodyBytes: zipped.length,
   });
 });
 

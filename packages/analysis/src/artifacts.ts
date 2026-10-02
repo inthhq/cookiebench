@@ -5,7 +5,8 @@ const decodeCoverage = Schema.decodeUnknownOption(
   Schema.Struct({
     complete: Schema.Boolean,
     reasons: Schema.Array(Schema.String),
-    scope: Schema.Literal("page-target"),
+    // page-tree adds auto-attached frame and worker targets to the page target.
+    scope: Schema.Literals(["page-target", "page-tree"]),
   })
 );
 
