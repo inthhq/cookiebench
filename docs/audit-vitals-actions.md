@@ -88,6 +88,7 @@ The report should expose adapter-ready time, actionability preparation duration,
 | `action.followup-input-to-next-paint` | Same measurement for page-control input in separate attempt | Same attribution defect; actual offset needs reporting |
 | `action.acknowledgement` | First visible changed acknowledgement text after arm/input | Timestamp defect; text-only heuristic; unrelated text changes can qualify |
 | `action.dismissed` | Banner absent and declared blocking overlay absent, plus panel absent for save/withdraw | Timestamp defect; DOM-based endpoint; useful overlay handling |
+| `action.dismissal-started` | First post-input inspection where the armed banner or save/withdraw panel loses over 1% of rendered footprint, stops accepting pointer events, or disappears | Added after this audit; first visible response, excludes the remaining exit animation |
 | `action.consent-effective` | First sampled explicit consent and exact allowed-category set | Timestamp defect; not an execution or persistence timestamp |
 | `action.local-persisted` | Adapter's successful storage completion minus input | Only valid where adapter reports it; current action cutoff allows late value; reload separately verifies restoration |
 | `action.remote-persisted` | Adapter's acknowledged backend success minus input | Backend acknowledgement, not guaranteed durable server commit; current action cutoff allows late value |

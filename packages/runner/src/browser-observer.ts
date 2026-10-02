@@ -32,6 +32,7 @@ export interface BrowserObservations {
   readinessSource?: "public-state" | "selector";
   coverage?: number;
   preferencesVisibleAt?: number;
+  dismissalStartedAt?: number;
   dismissedAt?: number;
   acknowledgedAt?: number;
   effectiveAt?: number;
@@ -240,10 +241,15 @@ export function installObserver(config: ObserverConfig) {
     }
     return found;
   };
-  const visible = (element: Element | null, ignoreOpacity = false): boolean => {
+  // Visible means any rendered pixel: some opacity and some area inside the viewport.
+  // The same pass yields the rendered footprint, effective opacity times viewport area.
+  const presence = (element: Element | null, ignoreOpacity = false) => {
+    const hidden = { area: 0, footprint: 0, intercepts: false, visible: false };
     if (!element || !element.isConnected) {
-      return false;
+      return hidden;
     }
+    let opacity = 1;
+    let intercepts = true;
     let ancestor: Element | null = element;
     while (ancestor) {
       const style = getComputedStyle(ancestor);
@@ -254,8 +260,12 @@ export function installObserver(config: ObserverConfig) {
         (!ignoreOpacity && Number(style.opacity) === 0) ||
         style.contentVisibility === "hidden"
       ) {
-        return false;
+        return hidden;
       }
+      if (ancestor === element) {
+        intercepts = style.pointerEvents !== "none";
+      }
+      opacity *= Number(style.opacity);
       ancestor =
         ancestor.parentElement ||
         (ancestor.getRootNode() instanceof ShadowRoot
@@ -263,15 +273,21 @@ export function installObserver(config: ObserverConfig) {
           : null);
     }
     const rect = element.getBoundingClientRect();
-    return (
+    const shown =
       rect.width > 0 &&
       rect.height > 0 &&
       rect.bottom > 0 &&
       rect.right > 0 &&
       rect.left < innerWidth &&
-      rect.top < innerHeight
-    );
+      rect.top < innerHeight;
+    const area = shown
+      ? (Math.min(rect.right, innerWidth) - Math.max(rect.left, 0)) *
+        (Math.min(rect.bottom, innerHeight) - Math.max(rect.top, 0))
+      : 0;
+    return { area, footprint: area * opacity, intercepts, visible: shown };
   };
+  const visible = (element: Element | null, ignoreOpacity = false): boolean =>
+    presence(element, ignoreOpacity).visible;
   const queryAll = (selector: string): Element[] => {
     refresh();
     let elements = cachedAll.get(selector);
@@ -291,6 +307,8 @@ export function installObserver(config: ObserverConfig) {
     );
   let armedSelector: string | undefined;
   let armedAction: string | undefined;
+  // The consent surface visible at arm, and its footprint at the latest inspection.
+  let dismissalSurface: { selector: string; footprint: number } | undefined;
   let feedbackBefore: string | undefined;
   let lastFrame: number | undefined;
   // DOM state freezes at the cutoff; native observers stop after the presentation grace.
@@ -729,24 +747,36 @@ export function installObserver(config: ObserverConfig) {
     const awaitingDismissal =
       observations.input !== undefined &&
       observations.dismissedAt === undefined;
-    const banner =
+    const banner = presence(
       observations.visibleAt === undefined || awaitingDismissal
         ? query(config.banner)
-        : null;
-    if (banner && visible(banner)) {
+        : null
+    );
+    // Dismissal starts when the armed surface first loses rendered footprint, stops
+    // taking pointer input, or disappears. Exit animations stay inside action.dismissed.
+    if (
+      dismissalSurface &&
+      observations.input &&
+      observations.dismissalStartedAt === undefined
+    ) {
+      const surface =
+        dismissalSurface.selector === config.banner
+          ? banner
+          : presence(query(dismissalSurface.selector));
+      if (
+        !surface.visible ||
+        !surface.intercepts ||
+        surface.footprint < dismissalSurface.footprint * 0.99
+      ) {
+        observations.dismissalStartedAt = at;
+      } else {
+        dismissalSurface.footprint = surface.footprint;
+      }
+    }
+    if (banner.visible) {
       if (observations.visibleAt === undefined) {
         observations.visibleAt = at;
-        const rect = banner.getBoundingClientRect();
-        observations.coverage =
-          (Math.max(
-            0,
-            Math.min(rect.right, innerWidth) - Math.max(rect.left, 0)
-          ) *
-            Math.max(
-              0,
-              Math.min(rect.bottom, innerHeight) - Math.max(rect.top, 0)
-            )) /
-          (innerWidth * innerHeight);
+        observations.coverage = banner.area / (innerWidth * innerHeight);
       }
     } else if (
       awaitingDismissal &&
@@ -861,10 +891,19 @@ export function installObserver(config: ObserverConfig) {
       observations.input = undefined;
       observations.inputEvents = [];
       observations.dismissedAt = undefined;
+      observations.dismissalStartedAt = undefined;
       observations.effectiveAt = undefined;
       observations.acknowledgedAt = undefined;
       observations.preferencesVisibleAt = undefined;
       observations.probeStartedAt = performance.now();
+      const surfaceSelector =
+        ["save", "withdraw"].includes(action) && config.preferencesPanel
+          ? config.preferencesPanel
+          : config.banner;
+      const surface = presence(query(surfaceSelector));
+      dismissalSurface = surface.visible
+        ? { footprint: surface.footprint, selector: surfaceSelector }
+        : undefined;
       feedbackBefore = config.acknowledgement
         ? (query(config.acknowledgement)?.textContent ?? undefined)
         : undefined;

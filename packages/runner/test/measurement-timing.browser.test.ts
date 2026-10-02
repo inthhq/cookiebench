@@ -271,3 +271,50 @@ test("cached selector queries still see a banner in a shadow root attached later
     { timeout: 2000 }
   );
 });
+
+for (const hiding of ["opacity:0", "opacity:0;pointer-events:none"]) {
+  test(`dismissal start precedes a fade-out that action.dismissed includes (${hiding})`, async ({
+    page,
+  }) => {
+    await page.setContent(
+      `<style>#banner{transition:opacity 300ms linear}#banner.hiding{${hiding}}</style><div id="banner"><button id="accept">Accept</button></div>`
+    );
+    await page.evaluate(() => {
+      Object.assign(window, {
+        __cookiebench: { allowedCategories: [], consent: "unset", scripts: [] },
+      });
+      document.querySelector("#accept")?.addEventListener("click", () => {
+        Object.assign(window, {
+          __cookiebench: {
+            allowedCategories: ["analytics"],
+            consent: "accepted",
+            scripts: [],
+          },
+        });
+        document.querySelector("#banner")?.classList.add("hiding");
+      });
+    });
+    await page.evaluate(installObserver, {
+      banner: "#banner",
+      categories: ["analytics"],
+      maxDurationMs: 30_000,
+      stateGlobal: "__cookiebench",
+    });
+    await page.waitForFunction(
+      () => window.__bench.observations.visibleAt !== undefined
+    );
+    await page.evaluate(() => window.__bench.arm("#accept", "accept"));
+    await page.locator("#accept").click();
+    await page.waitForFunction(
+      () => window.__bench.observations.dismissedAt !== undefined
+    );
+    const data = await page.evaluate(() => window.__bench.stop());
+    const input = data.input?.at ?? Number.NaN;
+    const started = (data.dismissalStartedAt ?? Number.NaN) - input;
+    const dismissed = (data.dismissedAt ?? Number.NaN) - input;
+    expect(started).toBeGreaterThanOrEqual(0);
+    expect(started).toBeLessThan(150);
+    expect(dismissed).toBeGreaterThanOrEqual(250);
+    expect(dismissed - started).toBeGreaterThanOrEqual(150);
+  });
+}

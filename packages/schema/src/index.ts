@@ -213,6 +213,7 @@ export type MetricUnit = typeof MetricUnit.Type;
 export const METRIC_UNITS: Readonly<Record<string, MetricUnit>> = {
   "action.acknowledgement": "ms",
   "action.consent-effective": "ms",
+  "action.dismissal-started": "ms",
   "action.dismissed": "ms",
   "action.followup-input-to-next-paint": "ms",
   "action.input-to-next-paint": "ms",

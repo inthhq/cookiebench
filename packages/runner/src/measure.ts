@@ -273,6 +273,13 @@ export function measurementsFor(
     "No matching reportable entry; values below 16 ms are censored, not zero"
   );
   add("action.acknowledgement", "ms", elapsed(data.acknowledgedAt));
+  add(
+    "action.dismissal-started",
+    "ms",
+    elapsed(data.dismissalStartedAt),
+    `${observed}; first post-input inspection where the banner, or the open preferences panel for save/withdraw, loses over 1% of its rendered footprint (effective opacity times viewport area), stops accepting pointer events, or is no longer visible`,
+    "No consent surface was visible at arm, or it did not begin hiding before the cutoff"
+  );
   add("action.dismissed", "ms", elapsed(data.dismissedAt));
   add(
     "action.consent-effective",
