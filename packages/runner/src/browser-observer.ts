@@ -56,6 +56,12 @@ export interface BrowserObservations {
     target: string;
   }[];
   primaryContentPaintAt?: number;
+  /** Declared primary content as inspected at the cutoff; absent from pre-cutoff snapshots. */
+  primaryContentAtCutoff?: {
+    present: boolean;
+    elementTiming: boolean;
+    imageComplete?: boolean;
+  };
   events: {
     startTime: number;
     duration: number;
@@ -413,6 +419,25 @@ export function installObserver(config: ObserverConfig) {
       }
     }
   });
+  // A primary image still loading or unpainted at cutoff can become a later, larger LCP candidate.
+  const inspectPrimaryContent = ():
+    | BrowserObservations["primaryContentAtCutoff"]
+    | undefined => {
+    if (!config.primaryContent) {
+      return;
+    }
+    const primary = query(config.primaryContent);
+    return {
+      elementTiming:
+        primary?.getAttribute("elementtiming") === "primary-content",
+      imageComplete:
+        primary?.tagName === "IMG"
+          ? (primary as HTMLImageElement).complete &&
+            (primary as HTMLImageElement).naturalWidth > 0
+          : undefined,
+      present: Boolean(primary),
+    };
+  };
   const stop = () => {
     if (stopped) {
       return observations;
@@ -451,6 +476,7 @@ export function installObserver(config: ObserverConfig) {
         }
       }
     }
+    observations.primaryContentAtCutoff = inspectPrimaryContent();
     const navigation = performance.getEntriesByType?.("navigation")[0] as
       | PerformanceNavigationTiming
       | undefined;

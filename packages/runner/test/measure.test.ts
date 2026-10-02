@@ -93,3 +93,45 @@ describe("page observations without a trusted action input", () => {
     }
   );
 });
+
+describe("right-censored LCP", () => {
+  const load = referenceScenario({ action: "load", observationMs: 5000 });
+  const lcp = (data: BrowserObservations) =>
+    measurementsFor(data, [], load, referenceFixture()).find(
+      (metric) => metric.key === "page.lcp"
+    );
+
+  it.each([
+    [{ elementTiming: true, imageComplete: false, present: true }, "loading"],
+    [{ elementTiming: true, imageComplete: true, present: true }, "paint"],
+    [{ elementTiming: false, present: false }, "not in the document"],
+  ])(
+    "withholds an earlier text candidate when primary content is %o",
+    (primaryContentAtCutoff, reason) => {
+      const data = {
+        ...observations(),
+        lcpAttribution: { role: "other" as const, size: 900, tag: "P" },
+        primaryContentAtCutoff,
+        primaryContentPaintAt: undefined,
+        vitals: { LCP: { entries: [], value: 3140 } },
+      };
+      expect(lcp(data)).toMatchObject({
+        reason: expect.stringContaining(reason),
+        status: "unavailable",
+      });
+    }
+  );
+
+  it("keeps LCP once the timed primary content painted by cutoff", () => {
+    expect(
+      lcp({
+        ...observations(),
+        primaryContentAtCutoff: {
+          elementTiming: true,
+          imageComplete: true,
+          present: true,
+        },
+      })
+    ).toMatchObject({ status: "measured", value: 4868 });
+  });
+});

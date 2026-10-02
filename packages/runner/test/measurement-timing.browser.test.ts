@@ -2,7 +2,8 @@
 import { expect, test } from "@playwright/test";
 
 import { installObserver } from "../src/browser-observer.ts";
-import { longTaskBlocking } from "../src/measure.ts";
+import { longTaskBlocking, measurementsFor } from "../src/measure.ts";
+import { referenceFixture, referenceScenario } from "../src/reference.ts";
 
 test("trusted action endpoints follow input even when the frame timestamp is older", async ({
   page,
@@ -143,4 +144,47 @@ test("a completed task crossing cutoff drains as a native longtask and clips to 
     3
   );
   expect(data.observationEndedAt).toBe(deadline);
+});
+
+test("an earlier text LCP is withheld while the primary image is still loading at cutoff", async ({
+  page,
+}) => {
+  await page.route("https://cookiebench.test/hero.png", () => {
+    /* Leave the primary image request in flight past the cutoff. */
+  });
+  await page.setContent(
+    '<p style="font-size:32px">An article paragraph that paints first</p><img id="hero" width="600" height="400" elementtiming="primary-content" src="https://cookiebench.test/hero.png">',
+    { waitUntil: "domcontentloaded" }
+  );
+  const deadline = await page.evaluate(() => performance.now() + 300);
+  await page.evaluate(installObserver, {
+    banner: "#banner",
+    categories: [],
+    fixedDeadlineMs: deadline,
+    maxDurationMs: 30_000,
+    primaryContent: "#hero",
+    stateGlobal: "__cookiebench",
+  });
+  await page.waitForFunction(
+    () => window.__bench.observations.observationEndedAt !== undefined
+  );
+  const data = await page.evaluate(() => window.__bench.stop());
+  expect(data.vitals.LCP?.value).toBeLessThanOrEqual(deadline);
+  expect(data.lcpAttribution?.tag).toBe("P");
+  expect(data.primaryContentAtCutoff).toEqual({
+    elementTiming: true,
+    imageComplete: false,
+    present: true,
+  });
+  const fixture = referenceFixture();
+  const lcp = measurementsFor(
+    data,
+    [],
+    referenceScenario({ action: "load", observationMs: 300 }),
+    { ...fixture, adapter: { ...fixture.adapter, primaryContent: "#hero" } }
+  ).find((metric) => metric.key === "page.lcp");
+  expect(lcp).toMatchObject({
+    reason: expect.stringContaining("right-censored"),
+    status: "unavailable",
+  });
 });

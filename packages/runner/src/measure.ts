@@ -104,6 +104,35 @@ export function longTaskBlocking(
   );
 }
 
+/**
+ * An LCP read at the cutoff is right-censored while the declared primary content
+ * is missing, still loading, or unpainted: a later, larger candidate cannot be excluded.
+ */
+export function lcpCensoring(
+  data: BrowserObservations,
+  fixture: FixtureConfig
+): string | undefined {
+  const primary = data.primaryContentAtCutoff;
+  if (!fixture.adapter.primaryContent || !primary) {
+    return undefined;
+  }
+  const prefix = "LCP is right-censored at the cutoff:";
+  if (!primary.present) {
+    return `${prefix} the declared primary content was not in the document`;
+  }
+  if (primary.imageComplete === false) {
+    return `${prefix} the declared primary image had not finished loading`;
+  }
+  if (
+    primary.elementTiming &&
+    data.supported.includes("element") &&
+    data.primaryContentPaintAt === undefined
+  ) {
+    return `${prefix} the declared primary content had no Element Timing paint within the window`;
+  }
+  return undefined;
+}
+
 // oxlint-disable-next-line complexity -- Each registered metric keeps its availability branch beside its collection method.
 export function measurementsFor(
   data: BrowserObservations,
@@ -139,6 +168,7 @@ export function measurementsFor(
     "Element Timing v1; native renderTime of primary-content image; bounded foreground observation",
     missingActionWindow
   );
+  const censoredLcp = lcpCensoring(data, fixture);
   for (const [key, name, unit] of [
     ["page.lcp", "LCP", "ms"],
     ["page.fcp", "FCP", "ms"],
@@ -146,20 +176,22 @@ export function measurementsFor(
     ["page.cls", "CLS", "score"],
     ["page.lab-inp", "INP", "ms"],
   ] as const) {
+    const withheld =
+      missingActionWindow ?? (name === "LCP" ? censoredLcp : undefined);
     add(
       key,
       unit,
-      missingActionWindow ? undefined : data.vitals[name]?.value,
+      withheld ? undefined : data.vitals[name]?.value,
       {
         CLS: "bounded native vitals v2; main-document foreground entry-time cutoff; maximum session window; owned PerformanceObserver queue drain",
         FCP: "bounded native vitals v2; main-document foreground entry-time cutoff; owned PerformanceObserver queue drain",
         INP: "INP withheld v2; web-vitals snapshot retained as an unfinalized diagnostic",
-        LCP: "bounded native vitals v2; main-document foreground entry-time cutoff; owned PerformanceObserver queue drain",
+        LCP: "bounded native vitals v3; main-document foreground entry-time cutoff; owned PerformanceObserver queue drain; withheld as right-censored when declared primary content is absent, loading or unpainted at cutoff",
         TTFB: "bounded navigation timing v2; native responseStart at or before cutoff; no foreground restriction",
       }[name],
       name === "INP"
         ? "Whole-visit INP is not finalized by this bounded collector; inspect primary interaction duration"
-        : missingActionWindow
+        : withheld
     );
   }
   const loadEnd =
