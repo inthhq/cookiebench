@@ -19,7 +19,7 @@
       },
       "artifactPolicy": "immutable-release",
       "baseline": true,
-      "configurationHash": "c0fc079cbd23df1f95b085435a7765a7637659e543bb3b279d19b10840a04715",
+      "configurationHash": "1f2f0b8f1281567bca1a5b28a189da13519f9a2b338aa8d83fe416d703d31257",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -35,7 +35,7 @@
         "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
-      "revision": "3.2.0-next-client-effect",
+      "revision": "3.2.1-article-v1-next-client-effect",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -72,7 +72,7 @@
       },
       "artifactPolicy": "mutable-network",
       "baseline": false,
-      "configurationHash": "cdb23146c0523ddb3a10055ed658d6c1d5de97a37b8aef13af9c90f0fed5abbb",
+      "configurationHash": "5b2b7aa8ac28124ee99d0db99604dc7d662c94ac24ce0027e056c2238d14c8cc",
       "deployment": {
         "assets": "mixed",
         "backend": "remote-service"
@@ -88,7 +88,7 @@
         "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
         "sourceUrl": "https://web.cmp.usercentrics.eu/ui/loader.js"
       },
-      "revision": "3.2.0-next-client-effect",
+      "revision": "3.2.1-article-v1-next-client-effect",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -117,7 +117,7 @@
       "id": "load",
       "input": "pointer",
       "navigationTimeoutMs": 15000,
-      "observationMs": 1500,
+      "observationMs": 5000,
       "readiness": "ready",
       "visitor": "fresh",
       "workload": {
@@ -219,7 +219,7 @@
       "id": "returning-accepted",
       "input": "pointer",
       "navigationTimeoutMs": 15000,
-      "observationMs": 1500,
+      "observationMs": 5000,
       "readiness": "ready",
       "visitor": "returning-accepted",
       "workload": {
@@ -236,7 +236,7 @@
       "id": "returning-rejected",
       "input": "pointer",
       "navigationTimeoutMs": 15000,
-      "observationMs": 1500,
+      "observationMs": 5000,
       "readiness": "ready",
       "visitor": "returning-rejected",
       "workload": {
@@ -282,7 +282,8 @@
   "profile": {
     "cpuSlowdown": 1,
     "deviceScaleFactor": 1,
-    "id": "desktop-local",
+    "hasTouch": false,
+    "id": "desktop-article-v1",
     "isMobile": false,
     "locale": "en-GB",
     "network": {

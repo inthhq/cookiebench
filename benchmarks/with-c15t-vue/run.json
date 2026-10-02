@@ -20,7 +20,7 @@
         "withdraw": "[data-testid=\"consent-widget-footer-reject-button\"], [data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "c1a9b8ad928be06bd8ee7835cbee82b7c837dc8b7443ca444d8b502f1337ed7f",
+      "configurationHash": "0669e41c23c1de209a0c24c781ac54c68b4fd31a0999a0a5602423b909a79eb4",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -36,7 +36,7 @@
         "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
         "sourceUrl": "https://registry.npmjs.org/vue/-/vue-3.5.43.tgz"
       },
-      "revision": "3.2.0-article-v1",
+      "revision": "3.2.1-article-v1",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -74,7 +74,7 @@
         "withdraw": "[data-testid=\"consent-widget-footer-reject-button\"], [data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "d47c67c22b509a5fa80d18db50d809bcfcced5756afcd23c0489927ca64213e9",
+      "configurationHash": "45d8525243bae12a9494d676abd8f2b78bafa897b840c1b04427490940cb2500",
       "deployment": {
         "assets": "local",
         "backend": "controlled-local"
@@ -90,7 +90,7 @@
         "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
         "sourceUrl": "https://registry.npmjs.org/@c15t/vue/-/vue-3.0.0-alpha.3.tgz"
       },
-      "revision": "3.2.0-article-v1",
+      "revision": "3.2.1-article-v1",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -115,7 +115,7 @@
       "actionDeadlineMs": 5000,
       "cache": "cold",
       "expectedBanner": true,
-      "followupOffsetMs": 100,
+      "followupOffsetMs": 500,
       "id": "load",
       "input": "pointer",
       "navigationTimeoutMs": 15000,
@@ -132,7 +132,7 @@
       "actionDeadlineMs": 5000,
       "cache": "cold",
       "expectedBanner": true,
-      "followupOffsetMs": 100,
+      "followupOffsetMs": 500,
       "id": "accept",
       "input": "pointer",
       "navigationTimeoutMs": 15000,
@@ -145,11 +145,45 @@
       }
     },
     {
+      "action": "accept",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "accept-early",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "early",
+      "visitor": "fresh",
+      "workload": {
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "accept",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "accept-large",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "scriptCount": 20,
+        "categories": ["measurement", "marketing"]
+      }
+    },
+    {
       "action": "reject",
       "actionDeadlineMs": 5000,
       "cache": "cold",
       "expectedBanner": true,
-      "followupOffsetMs": 100,
+      "followupOffsetMs": 500,
       "id": "reject",
       "input": "pointer",
       "navigationTimeoutMs": 15000,
@@ -166,7 +200,7 @@
       "actionDeadlineMs": 5000,
       "cache": "cold",
       "expectedBanner": true,
-      "followupOffsetMs": 100,
+      "followupOffsetMs": 500,
       "id": "save",
       "input": "pointer",
       "navigationTimeoutMs": 15000,
@@ -183,7 +217,7 @@
       "actionDeadlineMs": 5000,
       "cache": "cold",
       "expectedBanner": true,
-      "followupOffsetMs": 100,
+      "followupOffsetMs": 500,
       "id": "preferences",
       "input": "pointer",
       "navigationTimeoutMs": 15000,
@@ -198,9 +232,9 @@
     {
       "action": "withdraw",
       "actionDeadlineMs": 5000,
-      "cache": "cold",
+      "cache": "warm",
       "expectedBanner": false,
-      "followupOffsetMs": 100,
+      "followupOffsetMs": 500,
       "id": "withdraw",
       "input": "pointer",
       "navigationTimeoutMs": 15000,
@@ -213,45 +247,11 @@
       }
     },
     {
-      "action": "accept",
-      "actionDeadlineMs": 5000,
-      "cache": "cold",
-      "expectedBanner": true,
-      "followupOffsetMs": 100,
-      "id": "accept-early",
-      "input": "pointer",
-      "navigationTimeoutMs": 15000,
-      "observationMs": 1500,
-      "readiness": "early",
-      "visitor": "fresh",
-      "workload": {
-        "categories": ["measurement", "marketing"],
-        "scriptCount": 2
-      }
-    },
-    {
-      "action": "reject",
-      "actionDeadlineMs": 5000,
-      "cache": "cold",
-      "expectedBanner": true,
-      "followupOffsetMs": 100,
-      "id": "reject-keyboard",
-      "input": "keyboard",
-      "navigationTimeoutMs": 15000,
-      "observationMs": 1500,
-      "readiness": "ready",
-      "visitor": "fresh",
-      "workload": {
-        "categories": ["measurement", "marketing"],
-        "scriptCount": 2
-      }
-    },
-    {
       "action": "load",
       "actionDeadlineMs": 5000,
-      "cache": "cold",
+      "cache": "warm",
       "expectedBanner": false,
-      "followupOffsetMs": 100,
+      "followupOffsetMs": 500,
       "id": "returning-accepted",
       "input": "pointer",
       "navigationTimeoutMs": 15000,
@@ -266,9 +266,9 @@
     {
       "action": "load",
       "actionDeadlineMs": 5000,
-      "cache": "cold",
+      "cache": "warm",
       "expectedBanner": false,
-      "followupOffsetMs": 100,
+      "followupOffsetMs": 500,
       "id": "returning-rejected",
       "input": "pointer",
       "navigationTimeoutMs": 15000,
@@ -281,20 +281,20 @@
       }
     },
     {
-      "action": "accept",
+      "action": "reject",
       "actionDeadlineMs": 5000,
       "cache": "cold",
       "expectedBanner": true,
-      "followupOffsetMs": 100,
-      "id": "accept-large",
-      "input": "pointer",
+      "followupOffsetMs": 500,
+      "id": "reject-keyboard",
+      "input": "keyboard",
       "navigationTimeoutMs": 15000,
       "observationMs": 1500,
       "readiness": "ready",
       "visitor": "fresh",
       "workload": {
-        "scriptCount": 20,
-        "categories": ["measurement", "marketing"]
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
       }
     },
     {
@@ -302,8 +302,8 @@
       "actionDeadlineMs": 5000,
       "cache": "cold",
       "expectedBanner": true,
-      "followupOffsetMs": 500,
-      "id": "save-post-dismissal",
+      "followupOffsetMs": 100,
+      "id": "save-page-probe-100ms",
       "input": "pointer",
       "navigationTimeoutMs": 15000,
       "observationMs": 1500,

@@ -20,7 +20,7 @@
       },
       "artifactPolicy": "immutable-release",
       "baseline": true,
-      "configurationHash": "9766103f7f68e941dd75c606bb52fb0097b4ec42b89012738664629df0bab4bd",
+      "configurationHash": "49ef43e49ae81ae4b1d900a6cbf97a5929a8f7b2e25677f9376bc4512b499c37",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -36,7 +36,7 @@
         "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
-      "revision": "3.2.0-next-client-effect",
+      "revision": "3.2.1-article-v1-next-client-effect",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -74,7 +74,7 @@
       },
       "artifactPolicy": "mutable-network",
       "baseline": false,
-      "configurationHash": "64edca098ece42961ab6ee41e761c5229cfe40d38b42877aea3b9d372369ccb6",
+      "configurationHash": "881623c34c8d0df25c6ec2a781644ec04a2128894aac40f2a5285c7b6dc1f804",
       "deployment": {
         "assets": "mixed",
         "backend": "remote-service"
@@ -90,7 +90,7 @@
         "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
         "sourceUrl": "https://cdn-cookieyes.com/client_data/830009093fab466a1ff5d9a1/script.js"
       },
-      "revision": "3.2.0-next-client-effect",
+      "revision": "3.2.1-article-v1-next-client-effect",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -119,7 +119,7 @@
       "id": "load",
       "input": "pointer",
       "navigationTimeoutMs": 15000,
-      "observationMs": 1500,
+      "observationMs": 5000,
       "readiness": "ready",
       "visitor": "fresh",
       "workload": {
@@ -221,7 +221,7 @@
       "id": "returning-accepted",
       "input": "pointer",
       "navigationTimeoutMs": 15000,
-      "observationMs": 1500,
+      "observationMs": 5000,
       "readiness": "ready",
       "visitor": "returning-accepted",
       "workload": {
@@ -238,7 +238,7 @@
       "id": "returning-rejected",
       "input": "pointer",
       "navigationTimeoutMs": 15000,
-      "observationMs": 1500,
+      "observationMs": 5000,
       "readiness": "ready",
       "visitor": "returning-rejected",
       "workload": {
@@ -284,7 +284,8 @@
   "profile": {
     "cpuSlowdown": 1,
     "deviceScaleFactor": 1,
-    "id": "desktop-local",
+    "hasTouch": false,
+    "id": "desktop-article-v1",
     "isMobile": false,
     "locale": "en-GB",
     "network": {
