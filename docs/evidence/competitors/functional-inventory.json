@@ -29,7 +29,7 @@
     {
       "vendor": "cookie-yes",
       "config": "benchmarks/with-cookie-yes/run.json",
-      "status": "excluded-at-user-request",
+      "status": "excluded",
       "flows": {
         "load": {
           "status": "failed",
@@ -37,7 +37,7 @@
         }
       },
       "limitations": [
-        "Excluded at user request. Retained earlier hostname rejection evidence only."
+        "Excluded from this batch. Retained earlier hostname rejection evidence only."
       ]
     },
     {

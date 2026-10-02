@@ -4,7 +4,7 @@ Raw run artifacts are not stored in this repository. The `artifacts/` paths belo
 
 The audit found collector defects and fixture bias. The independently checked statistics were correct. CookieBench needs to report several distinct measurements, with their limits, rather than turn missing data or a zero paired difference into a performance claim.
 
-The detailed reviews cover [browser vitals and actions](audit-vitals-actions.md), [network evidence and statistics](audit-evidence-statistics.md), and [fixture realism](audit-fixture-realism.md). The replacement checks follow a [declared validation plan](measurement-validation-plan.md).
+The detailed reviews cover [browser vitals and actions](audit-vitals-actions.md), [network evidence and statistics](audit-evidence-statistics.md), and [fixture realism](audit-fixture-realism.md).
 
 The results below preserve the September 27 collection and its then-current eligibility policy. The [September 30 comparison](cmp-comparison-2026-09-30.md) uses metric-specific eligibility, independent correctness evidence, stored primary outcomes and compressed static serving. Its measurements are separate; the historical figures below have not been recomputed or relabeled.
 

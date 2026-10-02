@@ -4,7 +4,7 @@ This historical record covers alpha.2. The checked-in consumers now use alpha.3;
 
 These checks exercise the benchmark implementation and the pinned consumer fixtures. They do not publish a performance ranking. The c15t consumers use the published `3.0.0-alpha.2` artifacts. A one-sample flow check establishes only that recorded attempt.
 
-This is the earlier published-artifact development pass. The [Effect review](effect-review.md) records later collector corrections. The [source-build workflow](source-build.md) and [serial measurement batches](measurement-batches.md) keep exact-source consumers and subsequent runs separate from these npm artifact checks.
+This is the earlier published-artifact development pass. The [measurement audit](measurement-audit.md) records later collector corrections. The [source-build workflow](source-build.md) and [serial measurement batches](measurement-batches.md) keep exact-source consumers and subsequent runs separate from these npm artifact checks.
 
 That pass's root `pnpm check` passed lint, 23 typecheck tasks, 57 unit tests, and 26 browser tests. The unit run enabled the real PostgreSQL integration tests and process-level CLI cancellation. Browser verification ran serially and included 18 reference tests plus eight production-consumer tests. A passing test suite includes assertions that the known Astro vendor flows fail as recorded below. The root `pnpm build` also passed all 23 tasks with no cached tasks.
 

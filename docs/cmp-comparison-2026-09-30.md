@@ -1,6 +1,6 @@
 # CMP comparison in 60 seconds
 
-**Mobile page loading is the next focus.** c15t's main content appeared later on mobile. Desktop showed no clear extra delay, and mobile consent checks succeeded.
+c15t's main content appeared later on mobile. Desktop showed no clear extra delay, and mobile consent checks succeeded.
 
 These are c15t Next.js results from September 30. Extra delay compares c15t with the same page without a consent manager.
 

@@ -80,4 +80,4 @@ Initial production startup evidence (`artifacts/v3-measurement-audit/startup-fin
 
 The evidence includes raw HTTP documents, response headers, screenshots, and server logs. Candidate responses omitted the original Content-Length and ETag after transformation. Both documents used identity HTML. Checked assertions (`artifacts/v3-measurement-audit/startup-final/checks.json`) record these outcomes. The earlier startup probe remains alongside the final one and documents the intermediate version with a redundant client import that the final fixture removes.
 
-Focused fixture tests cover PNG identity and dimensions, compressed response parity, idempotent page installation, and stream injection at every split position, including non-BMP text. Broader consent flows and timed measurements belong to the separate [validation plan](measurement-validation-plan.md).
+Focused fixture tests cover PNG identity and dimensions, compressed response parity, idempotent page installation, and stream injection at every split position, including non-BMP text. The [measurement audit](measurement-audit.md) reports the broader consent flows and timed measurements.

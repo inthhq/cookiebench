@@ -1,7 +1,6 @@
 import { defineConfig } from "oxlint";
 import core from "ultracite/oxlint/core";
 
-// inth's Ultracite core is shared. Its private anti-slop plugin is not vendored.
 export default defineConfig({
   extends: [core],
   ignorePatterns: [
