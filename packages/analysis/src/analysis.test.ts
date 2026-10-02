@@ -965,3 +965,100 @@ it("keeps native paint values descriptive when remote artifact coverage cannot q
     "network coverage is missing or incomplete"
   );
 });
+
+describe("action timings right-censored at the observation window", () => {
+  const accept = {
+    ...scenario,
+    action: "accept" as const,
+    observationMs: 1500,
+  };
+  const context = { fixture, manifest: envelope().manifest, scenario: accept };
+  const visit = (
+    index: number,
+    dismissed: number | undefined,
+    failures: Sample["failures"] = []
+  ): Sample => ({
+    ...sample(0, index),
+    failures,
+    measurements: [
+      dismissed === undefined
+        ? {
+            key: "action.dismissed",
+            method: "dom",
+            reason: "No qualifying observation before the declared deadline",
+            status: "unavailable",
+            unit: "ms",
+          }
+        : {
+            key: "action.dismissed",
+            method: "dom",
+            status: "measured",
+            unit: "ms",
+            value: dismissed,
+          },
+    ],
+    status: failures.length ? "incomplete" : "passed",
+  });
+  const late = [
+    {
+      code: "observation-window-exceeded",
+      message:
+        "Action completion was verified only after the measurement cutoff",
+    },
+  ];
+  it("keeps late completions in the percentiles instead of dropping them", () => {
+    // One visit in four completes after the 1500 ms window.
+    const summary = summarize(
+      [visit(0, 100), visit(1, 200), visit(2, 300), visit(3, undefined, late)],
+      "action.dismissed",
+      context
+    );
+    expect(summary).toMatchObject({
+      censoring: {
+        censored: 1,
+        exceedsWindow: ["max", "mean", "p75"],
+        windowMs: 1500,
+      },
+      eligibilityReasons: [],
+      max: null,
+      mean: null,
+      measured: 3,
+      median: 250,
+      min: 100,
+      p75: null,
+    });
+  });
+  it("keeps an in-window endpoint exact and does not censor failed or invalid visits", () => {
+    const summary = summarize(
+      [
+        // Dismissed in time; consent became effective only after the window.
+        visit(0, 400, late),
+        visit(1, undefined, [
+          ...late,
+          { code: "consent-mismatch", message: "Analytics permitted" },
+        ]),
+        {
+          ...visit(2, undefined, [
+            { code: "first-input-failed", message: "No completion" },
+          ]),
+          status: "failed",
+        },
+      ],
+      "action.dismissed",
+      context
+    );
+    expect(summary).toMatchObject({
+      censoring: { censored: 0, exceedsWindow: [] },
+      failed: 1,
+      max: 400,
+      measured: 1,
+      median: 400,
+    });
+    expect(
+      summarize([visit(0, 100)], "action.dismissed", {
+        ...context,
+        scenario,
+      }).censoring
+    ).toBeNull();
+  });
+});

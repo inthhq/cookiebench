@@ -257,7 +257,15 @@ describe("analysis records", () => {
   ) => ({
     ...historical,
     analysisVersion: ANALYSIS_VERSION,
-    comparisons: [{ ...comparison, paired, ...overrides }],
+    comparisons: [
+      {
+        ...comparison,
+        baseline: { ...comparison.baseline, censoring: null },
+        candidate: { ...comparison.candidate, censoring: null },
+        paired,
+        ...overrides,
+      },
+    ],
     multiplicity,
   });
   const eligible = { eligibilityReasons: [], eligible: true };
@@ -293,5 +301,16 @@ describe("analysis records", () => {
     ).toThrow();
     const { p75Delta: _omitted, ...withoutDelta } = descriptive;
     expect(() => decodeAnalysis(current(withoutDelta))).toThrow();
+  });
+  it("requires statistics beyond the observation window to be withheld", () => {
+    const censoring = { censored: 1, exceedsWindow: ["p75"], windowMs: 1500 };
+    const action = (candidate: object) =>
+      current(descriptive, { candidate: { ...candidate, censoring } });
+    expect(() => decodeAnalysis(action(comparison.candidate))).toThrow();
+    expect(() =>
+      decodeAnalysis(
+        action({ ...comparison.candidate, max: null, mean: null, p75: null })
+      )
+    ).not.toThrow();
   });
 });

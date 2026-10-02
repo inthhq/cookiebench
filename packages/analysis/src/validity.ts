@@ -115,16 +115,27 @@ export function measurementValidity(
 export interface MetricContext {
   manifest: RunManifest;
   fixture: Pick<FixtureConfig, "artifactPolicy">;
-  scenario?: Pick<ScenarioConfig, "action">;
+  scenario?: Pick<ScenarioConfig, "action"> &
+    Partial<Pick<ScenarioConfig, "observationMs">>;
 }
 
-/** Missing unrelated observations do not invalidate a recorded metric. */
-export function metricEligibility(
-  sample: Sample,
-  key: string,
-  context?: MetricContext
-): string[] {
-  const reasons = context
+/**
+ * The runner stops observing an action at input + observationMs. When it
+ * verifies completion only after that cutoff, it records
+ * `observation-window-exceeded` and leaves these completion endpoints
+ * unavailable. Such an endpoint is right-censored at the window, not missing.
+ */
+function censoredEndpoints(action: ScenarioConfig["action"]): string[] {
+  if (action === "load") {
+    return [];
+  }
+  return action === "preferences"
+    ? ["action.preferences-visible"]
+    : ["action.dismissed", "action.consent-effective"];
+}
+
+function collectorValidity(key: string, context?: MetricContext): string[] {
+  return context
     ? measurementValidity(
         context.manifest,
         context.fixture,
@@ -132,14 +143,34 @@ export function metricEligibility(
         context.scenario
       )
     : [];
-  const measurement = sample.measurements.find((item) => item.key === key);
-  if (measurement?.status !== "measured") {
-    reasons.push(`Metric ${key} is ${measurement?.status ?? "missing"}.`);
-  }
+}
+
+/** The observation window for a metric that can be right-censored, if any. */
+export function censoringWindow(
+  key: string,
+  context?: MetricContext
+): number | undefined {
+  const scenario = context?.scenario;
+  return scenario?.observationMs !== undefined &&
+    censoredEndpoints(scenario.action).includes(key)
+    ? scenario.observationMs
+    : undefined;
+}
+
+/** Failures and attempt states that exclude a sample, apart from its own value. */
+function sampleExclusions(
+  sample: Sample,
+  key: string,
+  context?: MetricContext
+): string[] {
+  const reasons: string[] = [];
+  const censorable = censoringWindow(key, context) !== undefined;
   const blockingFailures = sample.failures.filter(
     (failure) =>
       failure.code !== "required-measurement-unavailable" &&
-      failure.code !== "followup:required-measurement-unavailable"
+      failure.code !== "followup:required-measurement-unavailable" &&
+      // A late completion censors this endpoint; it does not invalidate it.
+      !(censorable && failure.code === "observation-window-exceeded")
   );
   for (const failure of blockingFailures) {
     reasons.push(`Sample failure ${failure.code}: ${failure.message}`);
@@ -153,5 +184,52 @@ export function metricEligibility(
   } else if (sample.status === "passed" && sample.failures.length > 0) {
     reasons.push("Passed attempt contains failures.");
   }
+  return reasons;
+}
+
+/** Missing unrelated observations do not invalidate a recorded metric. */
+export function metricEligibility(
+  sample: Sample,
+  key: string,
+  context?: MetricContext
+): string[] {
+  const reasons = collectorValidity(key, context);
+  const measurement = sample.measurements.find((item) => item.key === key);
+  const window = censoringWindow(key, context);
+  if (measurement?.status !== "measured") {
+    reasons.push(`Metric ${key} is ${measurement?.status ?? "missing"}.`);
+  } else if (window !== undefined && measurement.value > window) {
+    reasons.push(`Metric ${key} exceeds the ${window} ms observation window.`);
+  }
+  reasons.push(...sampleExclusions(sample, key, context));
   return [...new Set(reasons)];
+}
+
+/**
+ * True when the runner verified this completion endpoint only after the
+ * observation window and nothing else excludes the sample. The value is
+ * known only to exceed the window.
+ */
+export function isRightCensored(
+  sample: Sample,
+  key: string,
+  context?: MetricContext
+): boolean {
+  const window = censoringWindow(key, context);
+  if (
+    window === undefined ||
+    !sample.failures.some(
+      (failure) => failure.code === "observation-window-exceeded"
+    )
+  ) {
+    return false;
+  }
+  const measurement = sample.measurements.find((item) => item.key === key);
+  if (measurement?.status === "measured" && measurement.value <= window) {
+    return false;
+  }
+  return (
+    collectorValidity(key, context).length === 0 &&
+    sampleExclusions(sample, key, context).length === 0
+  );
 }

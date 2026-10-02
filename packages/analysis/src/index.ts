@@ -13,7 +13,12 @@ import { artifactEligibility } from "./artifacts.ts";
 import type { summarizeLcpAttribution } from "./lcp.ts";
 import { lcpComparison } from "./lcp.ts";
 import type { MetricContext } from "./validity.ts";
-import { measurementValidity, metricEligibility } from "./validity.ts";
+import {
+  censoringWindow,
+  isRightCensored,
+  measurementValidity,
+  metricEligibility,
+} from "./validity.ts";
 
 export type { CorrectnessSummary } from "./correctness.ts";
 export { sampleCorrectness, summarizeCorrectness } from "./correctness.ts";
@@ -23,9 +28,20 @@ export { measurementValidity, metricEligibility } from "./validity.ts";
 
 export { ANALYSIS_VERSION } from "@cookiebench/schema";
 
+export type CensoredStatistic = "max" | "mean" | "median" | "p75";
 export interface MetricSummary {
   attempts: number;
   available: number;
+  /**
+   * Present for action completion endpoints, which the runner stops observing
+   * at input + observationMs. `censored` counts included visits that completed
+   * only after that window; `measured` counts exact values.
+   */
+  censoring: {
+    censored: number;
+    exceedsWindow: CensoredStatistic[];
+    windowMs: number;
+  } | null;
   excluded: number;
   includedIncomplete: number;
   eligibilityReasons: string[];
@@ -140,6 +156,34 @@ export function percentile(
 function metric(sample: Sample, key: string) {
   return sample.measurements.find((measurement) => measurement.key === key);
 }
+/** R-7 percentile over exact values plus censored values that exceed all of them. */
+function censoredPercentile(
+  values: readonly number[],
+  censored: number,
+  probability: number
+): number | "exceeds-window" | null {
+  if (censored === 0) {
+    return percentile(values, probability);
+  }
+  const position = (values.length + censored - 1) * probability;
+  if (Math.ceil(position) >= values.length) {
+    return "exceeds-window";
+  }
+  const sorted = values.toSorted((a, b) => a - b);
+  const lower = sorted[Math.floor(position)];
+  const upper = sorted[Math.ceil(position)];
+  if (lower === undefined || upper === undefined) {
+    return null;
+  }
+  return lower + (upper - lower) * (position - Math.floor(position));
+}
+
+/**
+ * Summarizes eligible values. Action completion endpoints verified only after
+ * the observation window are right-censored: they count toward percentiles as
+ * values beyond the window, and a statistic that depends on them is null and
+ * listed in `censoring.exceedsWindow`.
+ */
 export function summarize(
   samples: readonly Sample[],
   key: string,
@@ -155,32 +199,65 @@ export function summarize(
     const measurement = metric(sample, key);
     return measurement?.status === "measured" ? [measurement.value] : [];
   });
+  const window = censoringWindow(key, context);
+  const censoredSamples = samples.filter((sample) =>
+    isRightCensored(sample, key, context)
+  );
+  const censored = censoredSamples.length;
+  const exceedsWindow: CensoredStatistic[] =
+    censored > 0 ? ["mean", "max"] : [];
+  const statistic = (name: "median" | "p75", probability: number) => {
+    const value = censoredPercentile(values, censored, probability);
+    if (value === "exceeds-window") {
+      exceedsWindow.push(name);
+      return null;
+    }
+    return value;
+  };
+  const median = statistic("median", 0.5);
+  const p75 = statistic("p75", 0.75);
   return {
     attempts: samples.length,
     available,
+    censoring:
+      window === undefined
+        ? null
+        : {
+            censored,
+            exceedsWindow: exceedsWindow.toSorted(),
+            windowMs: window,
+          },
     eligibilityReasons: [
       ...new Set(
-        samples.flatMap((sample) => metricEligibility(sample, key, context))
+        samples
+          .filter((sample) => !censoredSamples.includes(sample))
+          .flatMap((sample) => metricEligibility(sample, key, context))
       ),
     ],
-    excluded: available - values.length,
+    excluded:
+      available -
+      values.length -
+      censoredSamples.filter(
+        (sample) => metric(sample, key)?.status === "measured"
+      ).length,
     failed: samples.filter((sample) => sample.status === "failed").length,
     includedIncomplete: eligible.filter(
       (sample) => sample.status === "incomplete"
     ).length,
     incomplete: samples.filter((sample) => sample.status === "incomplete")
       .length,
-    max: values.length ? Math.max(...values) : null,
-    mean: values.length
-      ? values.reduce((sum, value) => sum + value / values.length, 0)
-      : null,
+    max: values.length && censored === 0 ? Math.max(...values) : null,
+    mean:
+      values.length && censored === 0
+        ? values.reduce((sum, value) => sum + value / values.length, 0)
+        : null,
     measured: values.length,
-    median: percentile(values, 0.5),
+    median,
     min: values.length ? Math.min(...values) : null,
     missing: samples.filter(
       (sample) => metric(sample, key)?.status !== "measured"
     ).length,
-    p75: percentile(values, 0.75),
+    p75,
     passed: samples.filter((sample) => sample.status === "passed").length,
   };
 }

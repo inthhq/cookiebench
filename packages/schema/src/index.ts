@@ -526,8 +526,40 @@ const HistoricalComparisonFields = {
   scenarioId: Text,
   unit: Schema.NullOr(MetricUnit),
 };
+/**
+ * Action completion endpoints are right-censored at the observation window.
+ * Statistics listed in `exceedsWindow` depend on censored visits, so they are
+ * null rather than a value computed from the visits that finished in time.
+ */
+const CensoredStatistic = Schema.Literals(["max", "mean", "median", "p75"]);
+export const CurrentMetricSummary = Schema.Struct({
+  ...MetricSummary.fields,
+  censoring: Schema.NullOr(
+    Schema.Struct({
+      censored: Count,
+      exceedsWindow: Schema.Array(CensoredStatistic),
+      windowMs: Positive,
+    })
+  ),
+}).check(
+  Schema.makeFilter(
+    (summary) =>
+      summary.censoring === null ||
+      ((summary.censoring.censored > 0 ||
+        summary.censoring.exceedsWindow.length === 0) &&
+        summary.censoring.exceedsWindow.every(
+          (statistic) => summary[statistic] === null
+        )),
+    {
+      message:
+        "Statistics that exceed the observation window must be null, and only censored visits can make them exceed it.",
+    }
+  )
+);
 const ComparisonFields = {
   ...HistoricalComparisonFields,
+  baseline: CurrentMetricSummary,
+  candidate: CurrentMetricSummary,
   paired: PairedSummary,
 };
 
