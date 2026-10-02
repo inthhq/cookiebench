@@ -25,6 +25,8 @@ import {
   BrowserService,
 } from "./lifecycle.ts";
 import { seededOrder } from "./order.ts";
+import { primeFixture, readEncodingMisses } from "./prime.ts";
+import type { EncodingMiss } from "./prime.ts";
 import { hashCollectorSource } from "./provenance.ts";
 import { runSample } from "./scenario.ts";
 
@@ -54,6 +56,36 @@ function combinedStatus(
   return "passed";
 }
 const COLLECTOR_VERSION = "cookiebench-runner-3.2.2";
+
+/**
+ * A server that compressed an asset on demand during a sample did cold work
+ * inside the measured visit. Such a sample stays as evidence but is incomplete.
+ */
+export function guardColdEncoding(
+  sample: Sample,
+  before: readonly EncodingMiss[] | undefined,
+  after: readonly EncodingMiss[] | undefined
+): Sample {
+  if (before === undefined || after === undefined) {
+    return sample;
+  }
+  const cold = after.slice(before.length);
+  if (!cold.length) {
+    return sample;
+  }
+  return {
+    ...sample,
+    diagnostics: { ...sample.diagnostics, serverColdEncodings: cold },
+    failures: [
+      ...sample.failures,
+      {
+        code: "server-cold-encoding",
+        message: `The fixture server compressed ${cold.length} uncached representation(s) during this sample: ${cold.map((miss) => `${miss.source} (${Math.round(miss.durationMs)} ms)`).join(", ")}`,
+      },
+    ],
+    status: sample.status === "failed" ? "failed" : "incomplete",
+  };
+}
 export const runBenchmark = (input: RunConfig) =>
   Effect.scoped(
     Effect.gen(function* benchmarkScope() {
@@ -86,6 +118,22 @@ export const runBenchmark = (input: RunConfig) =>
         browser,
         config.executablePath
       );
+      // Unmeasured visits fill server encoding caches before any sample,
+      // whatever the warmup setting.
+      const primeScriptCount = Math.max(
+        0,
+        ...config.scenarios.map((scenario) => scenario.workload.scriptCount)
+      );
+      const primed: Awaited<ReturnType<typeof primeFixture>>[] = [];
+      for (const fixture of config.fixtures) {
+        if (fixture.server) {
+          primed.push(
+            yield* attempt("fixture-prime", () =>
+              primeFixture(browser, fixture, config.profile, primeScriptCount)
+            )
+          );
+        }
+      }
       const vitalsSource = yield* attempt("collector-load", () =>
         readFile(
           path.join(
@@ -110,13 +158,26 @@ export const runBenchmark = (input: RunConfig) =>
             scenario,
             vitalsSource,
           };
+          // Only servers that reported an encoding log at priming are polled.
+          const logged = primed.some(
+            (visit) => visit.primed && visit.url === fixture.url
+          );
+          const coldMisses = () =>
+            logged
+              ? Effect.promise(() => readEncodingMisses(fixture))
+              : Effect.undefined;
+          const coldBefore = yield* coldMisses();
           const primary = yield* runSample({ ...options, probe: "primary" });
+          const guard = (sample: Sample) =>
+            Effect.map(coldMisses(), (after) =>
+              guardColdEncoding(sample, coldBefore, after)
+            );
           if (
             fixture.baseline ||
             !fixture.adapter.pageAction ||
             !["accept", "reject", "save", "withdraw"].includes(scenario.action)
           ) {
-            return primary;
+            return yield* guard(primary);
           }
           const followup = yield* runSample({ ...options, probe: "followup" });
           const followupMetric = followup.measurements.find(
@@ -129,7 +190,7 @@ export const runBenchmark = (input: RunConfig) =>
               message: failure.message,
             })),
           ];
-          return {
+          return yield* guard({
             ...primary,
             diagnostics: {
               ...primary.diagnostics,
@@ -147,7 +208,7 @@ export const runBenchmark = (input: RunConfig) =>
                 : metric
             ),
             status: combinedStatus([primary, followup]),
-          };
+          });
         }).pipe(
           Effect.provideService(BrowserService, { browser }),
           // oxlint-disable-next-line promise/prefer-await-to-then, promise/prefer-await-to-callbacks -- Effect.catch handles the typed error channel, not a Promise.
@@ -264,6 +325,11 @@ export const runBenchmark = (input: RunConfig) =>
             release: release(),
             serverCache:
               "production server shared for run; browser cache declared per scenario",
+            serverPrime: JSON.stringify({
+              method:
+                "one unmeasured load visit per local fixture URL whose server logs on-demand encoding, after readiness and before warmups; samples overlapping on-demand server encoding are incomplete",
+              visits: primed,
+            }),
             warmups: String(config.warmups ?? 0),
           },
           id: manifestId,

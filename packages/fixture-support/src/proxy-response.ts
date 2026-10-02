@@ -13,7 +13,7 @@ import {
   negotiateEncoding,
   representationTag,
 } from "./compression.ts";
-import type { ContentEncoding } from "./compression.ts";
+import type { ContentEncoding, Representations } from "./compression.ts";
 import { HtmlInjection } from "./html-injection.ts";
 
 function varyOnEncoding(headers: IncomingHttpHeaders) {
@@ -42,7 +42,8 @@ function streamingCompressor(encoding: ContentEncoding) {
 async function sendRepresentation(
   response: IncomingMessage,
   outgoing: ServerResponse,
-  encoding: ContentEncoding
+  encoding: ContentEncoding,
+  source: string
 ) {
   const chunks: Buffer[] = [];
   try {
@@ -53,7 +54,17 @@ async function sendRepresentation(
     outgoing.destroy();
     return;
   }
-  const body = cachedRepresentations(Buffer.concat(chunks))[encoding];
+  let representations: Representations;
+  try {
+    representations = await cachedRepresentations(
+      Buffer.concat(chunks),
+      source
+    );
+  } catch {
+    outgoing.destroy();
+    return;
+  }
+  const body = representations[encoding];
   const headers: IncomingHttpHeaders = {
     ...response.headers,
     "content-length": String(body.length),
@@ -83,13 +94,13 @@ export function forwardResponse(
   options: {
     acceptEncoding?: string;
     method?: string;
+    path?: string;
     injection?: ConstructorParameters<typeof HtmlInjection>[0];
   }
 ) {
   const status = response.statusCode ?? 502;
   const html = response.headers["content-type"]?.includes("text/html");
-  const compressible =
-    html || compressibleType(response.headers["content-type"]);
+  const compressible = compressibleType(response.headers["content-type"]);
   const encoded =
     response.headers["content-encoding"] &&
     response.headers["content-encoding"] !== "identity";
@@ -119,7 +130,12 @@ export function forwardResponse(
     options.method !== "HEAD" &&
     response.headers["content-length"] !== undefined
   ) {
-    void sendRepresentation(response, outgoing, encoding);
+    void sendRepresentation(
+      response,
+      outgoing,
+      encoding,
+      options.path ?? "proxied response"
+    );
     return;
   }
   const headers = {

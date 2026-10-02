@@ -8,6 +8,7 @@ import { initResponse } from "./backend.ts";
 import { competitorBootstrap } from "./competitor-bootstrap.ts";
 import {
   cachedRepresentations,
+  encodingMisses,
   negotiateEncoding,
   upstreamValidators,
 } from "./compression.ts";
@@ -71,6 +72,7 @@ const events: {
   type: string;
   url: string;
 }[] = [];
+const subjectResponse = { ok: true, subjectId: "cookiebench-subject" };
 const serveStatic = values.static
   ? createStaticResponder(values.static)
   : undefined;
@@ -92,7 +94,7 @@ function servePageAsset(
   return false;
 }
 // The controlled consent backend follows the same compression policy as assets.
-function sendConsentJson(
+async function sendConsentJson(
   incoming: IncomingMessage,
   outgoing: ServerResponse,
   value: unknown
@@ -103,9 +105,11 @@ function sendConsentJson(
     outgoing.end();
     return;
   }
-  const body = cachedRepresentations(Buffer.from(JSON.stringify(value)))[
-    encoding
-  ];
+  const representations = await cachedRepresentations(
+    Buffer.from(JSON.stringify(value)),
+    "consent response"
+  );
+  const body = representations[encoding];
   outgoing.writeHead(200, {
     "Cache-Control": "no-store",
     "Content-Length": body.length,
@@ -114,6 +118,42 @@ function sendConsentJson(
     ...(encoding === "identity" ? {} : { "Content-Encoding": encoding }),
   });
   outgoing.end(incoming.method === "HEAD" ? undefined : body);
+}
+async function sendHealth(outgoing: ServerResponse) {
+  if (values.static) {
+    outgoing.end("ready");
+    return;
+  }
+  try {
+    const response = await fetch(`http://127.0.0.1:${upstreamPort}/`);
+    outgoing.writeHead(response.ok ? 200 : 503);
+    outgoing.end(response.ok ? "ready" : "starting");
+  } catch {
+    outgoing.writeHead(503);
+    outgoing.end("starting");
+  }
+}
+function sendControlledLog(url: URL, outgoing: ServerResponse) {
+  let rows: unknown;
+  if (url.pathname === "/controlled/events") {
+    rows = events.filter(
+      (event) =>
+        !url.searchParams.has("token") ||
+        event.token === url.searchParams.get("token")
+    );
+  } else if (url.pathname === "/controlled/encoding-misses") {
+    // Representations built on demand since startup; the runner checks that
+    // none happen while a measured visit is open.
+    rows = encodingMisses();
+  } else {
+    return false;
+  }
+  outgoing.writeHead(200, {
+    "Cache-Control": "no-store",
+    "Content-Type": "application/json",
+  });
+  outgoing.end(JSON.stringify(rows));
+  return true;
 }
 function proxyHeaders(incoming: IncomingMessage) {
   // Upstreams send identity bytes so forwardResponse applies one compression
@@ -139,24 +179,13 @@ const server = createServer(async (incoming, outgoing) => {
   if (servePageAsset(url, incoming, outgoing)) {
     return;
   }
-  if (url.pathname === "/health" && values.static) {
-    outgoing.end("ready");
-    return;
-  }
   if (url.pathname === "/health") {
-    try {
-      const response = await fetch(`http://127.0.0.1:${upstreamPort}/`);
-      outgoing.writeHead(response.ok ? 200 : 503);
-      outgoing.end(response.ok ? "ready" : "starting");
-    } catch {
-      outgoing.writeHead(503);
-      outgoing.end("starting");
-    }
+    await sendHealth(outgoing);
     return;
   }
   if (url.pathname === "/api/consent/init") {
     await waitForBackend(backendDelayMs);
-    sendConsentJson(incoming, outgoing, initResponse);
+    await sendConsentJson(incoming, outgoing, initResponse);
     return;
   }
   if (url.pathname === "/api/consent/subjects") {
@@ -164,10 +193,7 @@ const server = createServer(async (incoming, outgoing) => {
     // This acknowledges a controlled backend write; browser timing observes the response separately.
     incoming.resume();
     incoming.on("end", () => {
-      sendConsentJson(incoming, outgoing, {
-        ok: true,
-        subjectId: "cookiebench-subject",
-      });
+      void sendConsentJson(incoming, outgoing, subjectResponse);
     });
     return;
   }
@@ -190,20 +216,10 @@ const server = createServer(async (incoming, outgoing) => {
     );
     return;
   }
-  if (url.pathname === "/controlled/events") {
-    outgoing.writeHead(200, {
-      "Cache-Control": "no-store",
-      "Content-Type": "application/json",
-    });
-    outgoing.end(
-      JSON.stringify(
-        events.filter(
-          (event) =>
-            !url.searchParams.has("token") ||
-            event.token === url.searchParams.get("token")
-        )
-      )
-    );
+  if (
+    url.pathname.startsWith("/controlled/") &&
+    sendControlledLog(url, outgoing)
+  ) {
     return;
   }
   if (serveStatic) {
@@ -224,6 +240,7 @@ const server = createServer(async (incoming, outgoing) => {
         acceptEncoding: incoming.headers["accept-encoding"],
         injection: url.pathname === "/" ? bootstrap : undefined,
         method: incoming.method,
+        path: url.pathname,
       });
     }
   );
@@ -257,6 +274,19 @@ child?.on("exit", (code) => {
     stop();
   }
 });
+// Fixed responses and static files are encoded before the server accepts
+// requests; the runner primes proxied framework assets after readiness.
+await Promise.all([
+  cachedRepresentations(
+    Buffer.from(JSON.stringify(initResponse)),
+    "consent init"
+  ),
+  cachedRepresentations(
+    Buffer.from(JSON.stringify(subjectResponse)),
+    "consent subjects"
+  ),
+  serveStatic?.prime(),
+]);
 server.listen(port, "127.0.0.1", () =>
   process.stdout.write(`Fixture listening at http://127.0.0.1:${port}\n`)
 );

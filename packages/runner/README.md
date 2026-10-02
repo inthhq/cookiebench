@@ -16,7 +16,7 @@ const result = await runBenchmarkPromise({
 
 ## Fixture contract
 
-A fixture declares a production build command, production start command, working directory, URL and HTTP readiness deadline. Commands use argument arrays, without shell interpretation. A fixture with no server declaration uses an already-running deployment. Fixtures sharing a readiness URL share a server within the run.
+A fixture declares a production build command, production start command, working directory, URL and HTTP readiness deadline. Commands use argument arrays, without shell interpretation. A fixture with no server declaration uses an already-running deployment. Fixtures sharing a readiness URL share a server within the run. After readiness, and before warmups, the runner makes one unmeasured load visit to every local fixture URL served by fixture-support in a throwaway context, so first-request server work such as Brotli encoding is done before sample 1 whatever the warmup setting; `manifest.environment.serverPrime` records it. Fixture servers log each on-demand encoding at `/controlled/encoding-misses`, and a sample that overlaps one is incomplete with `server-cold-encoding`.
 
 The adapter declares CSS selectors for the banner, readiness condition and action controls. Selectors and visibility observation traverse open shadow roots. Cross-origin frames and closed shadow roots need a separate adapter implementation; this release cannot measure their internal UI. Missing expected UI fails instead of producing a zero.
 

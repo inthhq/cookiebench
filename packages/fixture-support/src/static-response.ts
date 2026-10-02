@@ -1,15 +1,16 @@
 import { createHash } from "node:crypto";
-import { readFile, stat } from "node:fs/promises";
+import { readdir, readFile, stat } from "node:fs/promises";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import path from "node:path";
 
 import {
-  compressedRepresentations,
+  compressRepresentations,
   compressibleType,
   matchesIfNoneMatch,
   negotiateEncoding,
   representationTag,
 } from "./compression.ts";
+import type { Representations } from "./compression.ts";
 
 const mime: Record<string, string> = {
   ".css": "text/css; charset=utf-8",
@@ -29,12 +30,51 @@ export function createStaticResponder(directory: string) {
     {
       stamp: string;
       bodies: Promise<{
-        representations: ReturnType<typeof compressedRepresentations>;
+        representations: Representations;
         etag: string;
       }>;
     }
   >();
-  return async (
+  const load = (file: string, stamp: string, compressible: boolean) => {
+    let cached = cache.get(file);
+    if (cached?.stamp !== stamp) {
+      cached = {
+        bodies: (async () => {
+          const body = await readFile(file);
+          return {
+            etag: `"${createHash("sha256").update(body).digest("hex")}"`,
+            representations: compressible
+              ? await compressRepresentations(body, file)
+              : { br: body, gzip: body, identity: body },
+          };
+        })(),
+        stamp,
+      };
+      cache.set(file, cached);
+    }
+    return cached.bodies;
+  };
+  /** Build every file's representations before the server listens. */
+  const prime = async () => {
+    const entries = await readdir(root, {
+      recursive: true,
+      withFileTypes: true,
+    });
+    await Promise.all(
+      entries
+        .filter((entry) => entry.isFile())
+        .map(async (entry) => {
+          const file = path.join(entry.parentPath, entry.name);
+          const metadata = await stat(file);
+          await load(
+            file,
+            `${metadata.mtimeMs}:${metadata.size}`,
+            compressibleType(mime[path.extname(file)])
+          );
+        })
+    );
+  };
+  const respond = async (
     url: URL,
     incoming: IncomingMessage,
     outgoing: ServerResponse
@@ -87,24 +127,11 @@ export function createStaticResponder(directory: string) {
         outgoing.end();
         return;
       }
-      const stamp = `${metadata.mtimeMs}:${metadata.size}`;
-      let cached = cache.get(file);
-      if (cached?.stamp !== stamp) {
-        cached = {
-          bodies: (async () => {
-            const body = await readFile(file);
-            return {
-              etag: `"${createHash("sha256").update(body).digest("hex")}"`,
-              representations: compressible
-                ? compressedRepresentations(body)
-                : { br: body, gzip: body, identity: body },
-            };
-          })(),
-          stamp,
-        };
-        cache.set(file, cached);
-      }
-      const { etag: identityTag, representations } = await cached.bodies;
+      const { etag: identityTag, representations } = await load(
+        file,
+        `${metadata.mtimeMs}:${metadata.size}`,
+        compressible
+      );
       const body = representations[encoding];
       // A strong validator per selected representation, as the proxy uses.
       const etag = representationTag(identityTag, encoding) ?? identityTag;
@@ -131,4 +158,5 @@ export function createStaticResponder(directory: string) {
       outgoing.end(incoming.method === "HEAD" ? undefined : "Not found");
     }
   };
+  return Object.assign(respond, { prime });
 }

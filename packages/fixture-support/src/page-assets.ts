@@ -14,6 +14,7 @@ const assetTypes = {
   "reading-list.json": "application/json; charset=utf-8",
 } as const;
 
+// Built synchronously at module load, before the fixture server listens.
 const assets = new Map(
   Object.entries(assetTypes).map(([name, type]) => {
     const body = readFileSync(new URL(`../assets/${name}`, import.meta.url));

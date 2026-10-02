@@ -17,10 +17,15 @@ const upstream = `
 const { createServer } = require("node:http");
 const script = Buffer.from("export const value = " + JSON.stringify("x".repeat(4000)) + ";");
 const png = Buffer.alloc(2000, 7);
+let state = 2463534242;
+const words = [];
+for (let i = 0; i < 60000; i += 1) { state ^= state << 13; state ^= state >>> 17; state ^= state << 5; state >>>= 0; words.push("w" + (state % 1000000).toString(36)); }
+const large = Buffer.from("export const words = " + JSON.stringify(words) + ";");
 const seen = [];
 createServer((request, response) => {
   seen.push({ encoding: request.headers["accept-encoding"], ifNoneMatch: request.headers["if-none-match"], url: request.url });
   if (request.url === "/seen") { response.end(JSON.stringify(seen)); return; }
+  if (request.url === "/large.js") { response.writeHead(200, { "Content-Length": large.length, "Content-Type": "text/javascript" }); response.end(large); return; }
   if (request.url === "/asset.png") { response.writeHead(200, { "Content-Length": png.length, "Content-Type": "image/png" }); response.end(png); return; }
   if (request.headers["if-none-match"] === '"asset-v1"') { response.writeHead(304, { ETag: '"asset-v1"' }); response.end(); return; }
   response.writeHead(200, { "Cache-Control": "public, max-age=0, must-revalidate", "Content-Length": script.length, "Content-Type": "text/javascript; charset=utf-8", ETag: '"asset-v1"' });
@@ -136,5 +141,42 @@ describe("framework proxy compression", () => {
     expect(seen.find((entry) => entry.ifNoneMatch)?.ifNoneMatch).toBe(
       '"asset-v1"'
     );
+  });
+
+  it("compresses a cold asset off the event loop and logs it as on-demand work", async () => {
+    const missesUrl = `http://127.0.0.1:${port}/controlled/encoding-misses`;
+    const missLog = async () => {
+      const response = await fetch(missesUrl);
+      return (await response.json()) as {
+        source: string;
+        durationMs: number;
+      }[];
+    };
+    const before = await missLog();
+    const started = performance.now();
+    const cold = get(port, "/large.js", { "Accept-Encoding": "br" }).then(
+      (result) => ({ ...result, ms: performance.now() - started })
+    );
+    await delay(20);
+    const sideStarted = performance.now();
+    const side = await fetch(`http://127.0.0.1:${port}/controlled/events`);
+    await side.arrayBuffer();
+    const sideMs = performance.now() - sideStarted;
+    const { body, ms } = await cold;
+    expect(brotliDecompressSync(body).toString()).toContain(
+      "export const words"
+    );
+    // Brotli quality 11 on this ~480 kB script takes hundreds of milliseconds; an
+    // unrelated response must not queue behind it.
+    expect(ms).toBeGreaterThan(150);
+    expect(sideMs).toBeLessThan(ms / 3);
+    const after = await missLog();
+    expect(after.slice(before.length).map((miss) => miss.source)).toEqual([
+      "/large.js",
+    ]);
+    const warmStarted = performance.now();
+    await get(port, "/large.js", { "Accept-Encoding": "br" });
+    expect(performance.now() - warmStarted).toBeLessThan(ms / 3);
+    expect(await missLog()).toHaveLength(after.length);
   });
 });

@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
-import { brotliCompressSync, gzipSync } from "node:zlib";
+import { promisify } from "node:util";
+import { brotliCompress, brotliCompressSync, gzip, gzipSync } from "node:zlib";
 
 export type ContentEncoding = "br" | "gzip" | "identity";
 
@@ -49,8 +50,51 @@ export function negotiateEncoding(
     : undefined;
 }
 
-export function compressedRepresentations(body: Buffer) {
+export interface Representations {
+  br: Buffer;
+  gzip: Buffer;
+  identity: Buffer;
+}
+
+/** Synchronous; only for module-load work that finishes before a server listens. */
+export function compressedRepresentations(body: Buffer): Representations {
   return { br: brotliCompressSync(body), gzip: gzipSync(body), identity: body };
+}
+
+const brotliAsync = promisify(brotliCompress);
+const gzipAsync = promisify(gzip);
+
+export interface EncodingMiss {
+  at: number;
+  bytes: number;
+  durationMs: number;
+  source: string;
+}
+const misses: EncodingMiss[] = [];
+
+/** Every representation built on demand, so a runner can tell cold work from cached responses. */
+export function encodingMisses(): readonly EncodingMiss[] {
+  return misses;
+}
+
+/**
+ * Brotli quality 11 takes hundreds of milliseconds for a large script. The
+ * zlib thread pool keeps that work off the event loop, so one cold asset does
+ * not stall unrelated responses. Each call is recorded as a cold miss.
+ */
+export async function compressRepresentations(
+  body: Buffer,
+  source: string
+): Promise<Representations> {
+  const started = performance.now();
+  const [br, gzipped] = await Promise.all([brotliAsync(body), gzipAsync(body)]);
+  misses.push({
+    at: Date.now(),
+    bytes: body.length,
+    durationMs: performance.now() - started,
+    source,
+  });
+  return { br, gzip: gzipped, identity: body };
 }
 
 /** One compressible-type policy for static files, shared assets and proxied responses. */
@@ -65,17 +109,25 @@ export function compressibleType(contentType: string | undefined): boolean {
   );
 }
 
-const representationCache = new Map<
-  string,
-  ReturnType<typeof compressedRepresentations>
->();
+const representationCache = new Map<string, Promise<Representations>>();
 
 /** Content-addressed, so changed upstream bytes never reuse stale encodings. */
-export function cachedRepresentations(body: Buffer) {
+export function cachedRepresentations(
+  body: Buffer,
+  source: string
+): Promise<Representations> {
   const key = createHash("sha256").update(body).digest("hex");
   let cached = representationCache.get(key);
   if (!cached) {
-    cached = compressedRepresentations(body);
+    // Concurrent requests for the same bytes share one compression.
+    cached = (async () => {
+      try {
+        return await compressRepresentations(body, source);
+      } catch (error) {
+        representationCache.delete(key);
+        throw error;
+      }
+    })();
     if (representationCache.size >= 512) {
       const oldest = representationCache.keys().next();
       if (!oldest.done) {
