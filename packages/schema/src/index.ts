@@ -116,6 +116,12 @@ export const FixtureConfig = Schema.Struct({
   ),
   product: Text,
   provenance: Schema.optionalKey(Provenance),
+  /**
+   * The browser resolves the URL's hostname to this local address, so a vendor
+   * that checks its registered domain sees that domain. HTTPS URLs use a
+   * run-scoped certificate that only the benchmark browser trusts.
+   */
+  resolveHost: Schema.optionalKey(Schema.Literal("127.0.0.1")),
   revision: Text,
   schemaVersion: Schema.Literal(3),
   server: Schema.optionalKey(ServerConfig),

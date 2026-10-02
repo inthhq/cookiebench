@@ -20,7 +20,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "14c7e827024f22aad6f24099463a91f127e5c017e0ca3537039e5c6c4c8c531a",
+      "configurationHash": "0c3084156a1375e6bf23196dc006ca7f72e4adc64867960622f54df6568a06ab",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -74,7 +74,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "f7e8ea3fcd67b429c57a5c204b5c4abcfe40b56794148bc8a48cee8d40036bd7",
+      "configurationHash": "2facd435629cba9258eede74a89570e07e5613d5f0b4cc0cf18a77dafb9c64d3",
       "deployment": {
         "assets": "local",
         "backend": "controlled-local"
@@ -128,7 +128,7 @@
       },
       "artifactPolicy": "mutable-network",
       "baseline": false,
-      "configurationHash": "e45c62cbe7c79addd11141439aca8d3e61fe930d4b89b441c308286ecf9cbfe4",
+      "configurationHash": "f7906636c9134e360bc073ca2cd5901b614cba3222435b8f0160e8136cfa2fe2",
       "deployment": {
         "assets": "remote",
         "backend": "remote-service"

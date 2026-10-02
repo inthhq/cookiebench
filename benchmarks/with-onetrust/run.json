@@ -20,7 +20,7 @@
       },
       "artifactPolicy": "immutable-release",
       "baseline": true,
-      "configurationHash": "e313a1fcf31bea461b9bc9efa135a195ea49f44e37bb3a773bee7e10764f1f62",
+      "configurationHash": "add882cd432c8904c853e3f55631d93811873fb50650b8eba4db5977762e5e11",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -74,7 +74,7 @@
       },
       "artifactPolicy": "mutable-network",
       "baseline": false,
-      "configurationHash": "f9f9e52f728088a8266eed7358d56861078273f706df66d4a7f83e68e6bdb3a5",
+      "configurationHash": "cbb1897dab078e25277091f3815586bed1c64c2b5af480bac35a979abf41af82",
       "deployment": {
         "assets": "mixed",
         "backend": "remote-service"

@@ -23,6 +23,11 @@ import { decodeRunConfig } from "./config.ts";
 import type { RunConfig } from "./config.ts";
 import { validateCalibrationRuntime } from "./cpu-calibration.ts";
 import {
+  hostResolution,
+  hostResolutionArgs,
+  hostResolutionEnv,
+} from "./host-resolution.ts";
+import {
   attempt,
   browserResource,
   measurementLock,
@@ -336,8 +341,12 @@ export const runInstrumentationOverhead = Effect.fn("instrumentation.audit")(
     });
     yield* measurementLock();
     const [source] = config.fixtures;
-    yield* productionServer(source);
-    const browser = yield* browserResource(config.executablePath);
+    const resolution = yield* hostResolution([source]);
+    yield* productionServer(source, hostResolutionEnv(resolution));
+    const browser = yield* browserResource(
+      config.executablePath,
+      hostResolutionArgs(resolution)
+    );
     yield* validateCalibrationRuntime(
       config.profile,
       browser,

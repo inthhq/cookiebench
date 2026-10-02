@@ -110,6 +110,8 @@ Historical competitor `config.json` files do not provide v3 action adapters or c
 
 Adapters can set `readinessSource: "public-state"` to require `ready === true` on their configured `stateGlobal` bridge. This gates ready-mode input and returning-visitor preparation, supplies the observer's readiness timestamp, and checks restoration without a DOM marker. Restoration still requires the exact expected consent and effective categories. Omitting `readinessSource` preserves the existing `ready` selector behavior. Readiness diagnostics identify the selected source; public-state evidence does not claim a selector check.
 
+Some vendors only render for their registered domain. A fixture can set `resolveHost: "127.0.0.1"` and use that domain in its `url`. The benchmark browser then resolves the hostname to the local fixture server with `--host-resolver-rules`; Node-side readiness and log requests keep using `127.0.0.1`. For HTTPS URLs, the runner creates a one-day self-signed certificate, passes it to fixture servers through `COOKIEBENCH_TLS_CERT` and `COOKIEBENCH_TLS_KEY`, and pins its public key with `--ignore-certificate-errors-spki-list`, so no other certificate error is ignored. `serve.ts --tls-port` opens the HTTPS listener alongside the plain one, and needs `openssl` on the host. Serve every arm of a comparison the same way, so TLS and hostname conditions match.
+
 ## Reports and comparisons
 
 Published cross-CMP results are not like-for-like and are not a ranking:

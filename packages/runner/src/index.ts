@@ -17,6 +17,11 @@ import { decodeRunConfig } from "./config.ts";
 import type { RunConfig } from "./config.ts";
 import { validateCalibrationRuntime } from "./cpu-calibration.ts";
 import {
+  hostResolution,
+  hostResolutionArgs,
+  hostResolutionEnv,
+} from "./host-resolution.ts";
+import {
   attempt,
   browserResource,
   measurementLock,
@@ -106,13 +111,17 @@ export const runBenchmark = (input: RunConfig) =>
       const createdAt = new Date().toISOString();
       const samples: Sample[] = [];
       const prepared = new Set<string>();
+      const resolution = yield* hostResolution(config.fixtures);
       for (const fixture of config.fixtures) {
         if (fixture.server && !prepared.has(fixture.server.readinessUrl)) {
-          yield* productionServer(fixture);
+          yield* productionServer(fixture, hostResolutionEnv(resolution));
           prepared.add(fixture.server.readinessUrl);
         }
       }
-      const browser = yield* browserResource(config.executablePath);
+      const browser = yield* browserResource(
+        config.executablePath,
+        hostResolutionArgs(resolution)
+      );
       yield* validateCalibrationRuntime(
         config.profile,
         browser,

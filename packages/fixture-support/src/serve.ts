@@ -1,6 +1,9 @@
 import { spawn } from "node:child_process";
+import { once } from "node:events";
+import { readFileSync } from "node:fs";
 import { createServer, request } from "node:http";
 import type { IncomingMessage, ServerResponse } from "node:http";
+import { createServer as createTlsServer } from "node:https";
 import { parseArgs } from "node:util";
 
 import { parseBackendDelay, waitForBackend } from "./backend-delay.ts";
@@ -25,6 +28,7 @@ const { values, positionals } = parseArgs({
     competitor: { type: "string" },
     port: { type: "string" },
     static: { type: "string" },
+    "tls-port": { type: "string" },
     "upstream-port": { type: "string" },
   },
 });
@@ -34,6 +38,28 @@ const bootstrap = competitorBootstrap(values.competitor);
 if (!Number.isSafeInteger(port) || port < 1 || port > 65_535) {
   throw new Error("Expected --port between 1 and 65535.");
 }
+const tlsPort =
+  values["tls-port"] === undefined ? undefined : Number(values["tls-port"]);
+if (
+  tlsPort !== undefined &&
+  (!Number.isSafeInteger(tlsPort) || tlsPort < 1 || tlsPort > 65_535)
+) {
+  throw new Error("Expected --tls-port between 1 and 65535.");
+}
+// The runner creates a run-scoped certificate for hosts it maps to this server.
+const tlsCertificate =
+  tlsPort === undefined
+    ? undefined
+    : (() => {
+        const cert = process.env.COOKIEBENCH_TLS_CERT;
+        const key = process.env.COOKIEBENCH_TLS_KEY;
+        if (!cert || !key) {
+          throw new Error(
+            "--tls-port requires COOKIEBENCH_TLS_CERT and COOKIEBENCH_TLS_KEY from the runner."
+          );
+        }
+        return { cert: readFileSync(cert), key: readFileSync(key) };
+      })();
 const upstreamPort = Number(values["upstream-port"]);
 const [command, ...args] = positionals;
 const child = command
@@ -163,11 +189,11 @@ function proxyHeaders(incoming: IncomingMessage) {
     ...incoming.headers,
     "accept-encoding": "identity",
     ...(ifNoneMatch === undefined ? {} : { "if-none-match": ifNoneMatch }),
-    "x-forwarded-host": `127.0.0.1:${port}`,
-    "x-forwarded-proto": "http",
+    "x-forwarded-host": incoming.headers.host ?? `127.0.0.1:${port}`,
+    "x-forwarded-proto": "encrypted" in incoming.socket ? "https" : "http",
   };
 }
-const server = createServer(async (incoming, outgoing) => {
+async function handle(incoming: IncomingMessage, outgoing: ServerResponse) {
   const url = new URL(incoming.url ?? "/", `http://127.0.0.1:${port}`);
   outgoing.setHeader("Access-Control-Allow-Origin", "*");
   outgoing.setHeader("Access-Control-Allow-Headers", "Content-Type");
@@ -249,7 +275,13 @@ const server = createServer(async (incoming, outgoing) => {
     outgoing.end("Production server starting");
   });
   incoming.pipe(proxy);
-});
+}
+const server = createServer(handle);
+// The HTTPS listener shares every route with the plain one, which keeps
+// serving readiness and controlled logs to the runner.
+const tlsServer = tlsCertificate
+  ? createTlsServer(tlsCertificate, handle)
+  : undefined;
 let stopping = false;
 const stop = () => {
   if (stopping) {
@@ -260,6 +292,8 @@ const stop = () => {
   baselineChild?.kill("SIGTERM");
   server.close();
   server.closeAllConnections();
+  tlsServer?.close();
+  tlsServer?.closeAllConnections();
 };
 process.on("SIGTERM", stop);
 process.on("SIGINT", stop);
@@ -287,6 +321,12 @@ await Promise.all([
   ),
   serveStatic?.prime(),
 ]);
+// Readiness polls the plain listener, so it opens only after HTTPS is bound.
+if (tlsServer) {
+  tlsServer.listen(tlsPort, "127.0.0.1");
+  await once(tlsServer, "listening");
+  process.stdout.write(`Fixture listening at https://127.0.0.1:${tlsPort}\n`);
+}
 server.listen(port, "127.0.0.1", () =>
   process.stdout.write(`Fixture listening at http://127.0.0.1:${port}\n`)
 );

@@ -36,10 +36,14 @@ export class BrowserService extends Context.Service<
   BrowserService,
   { browser: Browser }
 >()("cookiebench/BrowserService") {}
-export const browserResource = (executablePath?: string) =>
+export const browserResource = (
+  executablePath?: string,
+  args: readonly string[] = []
+) =>
   Effect.acquireRelease(
     attempt("browser-launch", () =>
       chromium.launch({
+        args: [...args],
         executablePath,
         // The CLI owns signal handling so scope finalizers close fixture servers before exit.
         handleSIGINT: false,
@@ -80,13 +84,15 @@ async function killTree(child: ChildProcess) {
 }
 function processResource(
   command: { command: string; args: readonly string[] },
-  cwd: string
+  cwd: string,
+  env: Record<string, string> = {}
 ) {
   return Effect.acquireRelease(
     attempt("server-spawn", async () => {
       const child = spawn(command.command, [...command.args], {
         cwd,
         detached: process.platform !== "win32",
+        env: { ...process.env, ...env },
         stdio: ["ignore", "pipe", "pipe"],
       });
       let logs = "";
@@ -105,7 +111,10 @@ function processResource(
     ({ child }) => cleanup(() => killTree(child))
   );
 }
-export const productionServer = (fixture: FixtureConfig) =>
+export const productionServer = (
+  fixture: FixtureConfig,
+  env: Record<string, string> = {}
+) =>
   Effect.gen(function* serverScope() {
     const config = fixture.server;
     if (!config) {
@@ -151,7 +160,7 @@ export const productionServer = (fixture: FixtureConfig) =>
         })
       );
     }
-    const server = yield* processResource(config.start, config.cwd);
+    const server = yield* processResource(config.start, config.cwd, env);
     yield* attempt("server-readiness", async (signal) => {
       const deadline = performance.now() + config.readinessTimeoutMs;
       while (performance.now() < deadline) {
