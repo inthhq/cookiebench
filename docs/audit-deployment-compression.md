@@ -27,6 +27,17 @@ The relevant bundled sources are `c15t/docs/guides/deployment-modes.md` and `c15
 
 A remote c15t run needs the intended public backend endpoint and a benchmark hostname allowed by that project's origin configuration. Its policy and language must match the benchmark workload. Verify actual initialization, consent acknowledgement, reload and withdrawal before collecting performance samples. Record the endpoint and fetching path in a separate fixture revision with `backend: remote-service`, and retain the controlled suite separately. This batch uses the controlled local backend. A future public Inth endpoint needs a separate fixture identity and measurements. No account, remote configuration or deployment was created for this audit.
 
+## Fixture HTTP version
+
+Every fixture server, including baselines, is plain HTTP/1.1 on one `127.0.0.1` origin. The c15t script, styles and `/api/consent/init` share that origin, and Chromium's limit of six connections per host, with the page's own assets. Remote CMPs load from their vendors' HTTP/2 CDNs. This was measured rather than assumed, on the c15t script-tag fixture with a 150 ms backend delay under the mobile profile (4x CPU, 200 kB/s, 150 ms latency), three visits per arm:
+
+| Server | Connections | Longest wait before send | Baseline LCP | c15t LCP | c15t init finished |
+| --- | --- | --- | --- | --- | --- |
+| HTTP/1.1 (current) | 3 baseline, 5 c15t | 12 ms | 2,848–2,856 ms | 3,272–3,276 ms | 1,812 ms |
+| HTTP/2 with TLS (experiment) | 1 | 40 ms (TLS setup, first visit) | 2,860–2,896 ms | 3,272–3,280 ms | 1,805 ms |
+
+No request waited for a free connection: the page never has more than six same-origin requests in flight, and the init request reuses an idle connection. DevTools network emulation applies latency per request and shares the emulated bandwidth across all connections, so multiplexing does not change these results. HTTP/2 is therefore not adopted. Two limits remain. Workloads that start more than six same-origin requests at once, such as `scriptCount: 20`, can queue on HTTP/1.1; their controlled scripts come from the same local origin for every product, so both arms share that constraint. Real TLS, connection setup and CDN distance are not emulated and stay outside local comparisons.
+
 ## Static response correction
 
 The fixture static server previously sent production HTML, JavaScript and CSS uncompressed even when browsers advertised Brotli or gzip. This inflated encoded transfer sizes for static consumers relative to production framework servers with compression.
