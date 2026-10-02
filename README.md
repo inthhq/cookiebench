@@ -85,7 +85,14 @@ pnpm --filter with-c15t-script typecheck
 pnpm --filter with-c15t-nextjs typecheck
 ```
 
-The script, React, Next, and headless configurations request one sample and zero warmups for functional checks. Check each configuration before running; other framework configurations may request the full protocol. Override with `--iterations 30 --warmups 3` for the proposed measurement protocol. Explicit command flags override configuration values; omitted flags preserve them.
+Checked-in configurations request different sample counts:
+
+| Configurations | Samples | Warmups |
+| --- | --: | --: |
+| c15t script, headless, React, Next.js and TanStack Start; every competitor; the CookieYes script comparison | 1 | 0 |
+| c15t Vue, Nuxt and Astro | 30 | 3 |
+
+One sample with no warmups is a functional check. Override with `--iterations 30 --warmups 3` for the measurement protocol. Explicit command flags override configuration values; omitted flags preserve them.
 
 The c15t fixture backend is a controlled local test double with a strict opt-in policy. It returns fixed initialization data and acknowledges writes without a production consent database. A future managed Inth endpoint needs its own fixture identity and measurements. Manifest mode is excluded. See the [deployment and compression audit](docs/audit-deployment-compression.md). Native script loaders release two controlled scripts by default, in measurement and marketing categories, and the server records actual requests. The headless implementation uses the same public API and backend with its own UI. It has a distinct presentation identity and cannot be mixed with default UI results.
 
