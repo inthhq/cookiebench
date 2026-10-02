@@ -1,39 +1,37 @@
 {
-	"$schema": "https://turborepo.com/schema.json",
-	"ui": "tui",
-	"globalEnv": [
-		"TURSO_DATABASE_URL",
-		"TURSO_DATABASE_AUTH_TOKEN"
-	],
-	"tasks": {
-		"build": {
-			"dependsOn": ["^build"],
-			"inputs": ["$TURBO_DEFAULT$", ".env*"],
-			"outputs": [".next/**", "!.next/cache/**", "dist/**"]
-		},
-		"@cookiebench/cli#build": {
-			"inputs": ["src/**", "package.json", "rslib.config.ts", "tsconfig.json"],
-			"outputs": ["dist/**"]
-		},
-		"@cookiebench/www#build": {
-			"inputs": ["$TURBO_DEFAULT$", ".env*"],
-			"outputs": [".next/**", "!.next/cache/**"]
-		},
-		"lint": {
-			"dependsOn": ["^lint"]
-		},
-		"check-types": {
-			"dependsOn": ["^check-types"]
-		},
-		"fmt": {
-			"dependsOn": ["^fmt"]
-		},
-		"benchmark": {
-			"dependsOn": ["^build", "^benchmark"]
-		},
-		"dev": {
-			"cache": false,
-			"persistent": true
-		}
-	}
+  "$schema": "https://turborepo.com/schema.json",
+  "ui": "tui",
+  "globalEnv": ["DATABASE_URL", "MIGRATION_DATABASE_URL"],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**",
+        ".nuxt/**",
+        ".nuxt-baseline/**",
+        ".output/**",
+        ".output-baseline/**",
+        ".astro/**",
+        "dist/**",
+        "dist-baseline/**"
+      ]
+    },
+    "typecheck": {
+      "dependsOn": ["^typecheck"]
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "cache": false
+    },
+    "benchmark": {
+      "dependsOn": ["^build"],
+      "cache": false
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
 }

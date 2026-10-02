@@ -1,0 +1,29 @@
+{
+  "name": "@cookiebench/fixture-support",
+  "version": "3.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/browser.ts",
+    "./backend": "./src/backend.ts",
+    "./page": "./src/page.ts",
+    "./config": "./src/config.ts",
+    "./provenance": "./src/provenance.ts",
+    "./competitor": "./src/competitor.ts"
+  },
+  "scripts": {
+    "build": "tsc --noEmit",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@c15t/schema": "3.0.0-alpha.1",
+    "@cookiebench/schema": "workspace:*",
+    "effect": "catalog:",
+    "esbuild": "0.28.2"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

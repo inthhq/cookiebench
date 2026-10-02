@@ -1,0 +1,19 @@
+{
+  "cpuSlowdown": 4,
+  "deviceScaleFactor": 3,
+  "hasTouch": true,
+  "id": "mobile-article-v1",
+  "isMobile": true,
+  "locale": "en-GB",
+  "network": {
+    "downloadBytesPerSecond": 200000,
+    "latencyMs": 150,
+    "uploadBytesPerSecond": 93750
+  },
+  "region": "GB",
+  "userAgent": "Mozilla/5.0 (Linux; Android 13; CookieBench Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+  "viewport": {
+    "height": 844,
+    "width": 390
+  }
+}

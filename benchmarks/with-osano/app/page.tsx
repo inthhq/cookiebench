@@ -1,7 +1,14 @@
-export default function Home() {
-	return (
-		<div>
-			<h1>Benchmark</h1>
-		</div>
-	);
+import { pageHTML } from "@cookiebench/fixture-support/page";
+
+import { ConsentFixture } from "./consent.tsx";
+import { Interaction } from "./interaction.tsx";
+
+export default function Page() {
+  return (
+    <>
+      <div dangerouslySetInnerHTML={{ __html: pageHTML }} />
+      <Interaction />
+      <ConsentFixture />
+    </>
+  );
 }

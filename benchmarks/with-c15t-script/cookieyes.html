@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CookieBench script consent fixture</title>
+    <!-- CookieYes's standard classic head script is deliberately parser-blocking. -->
+    <script
+      id="cookieyes"
+      src="https://cdn-cookieyes.com/client_data/f66d6dffd4f9c8178517db8d4aeddcaa/script.js"
+    ></script>
+  </head>
+  <body>
+    <div id="content"></div>
+    <button id="reopen-preferences" type="button">Privacy preferences</button
+    ><button id="withdraw-consent" type="button">
+      Withdraw optional consent
+    </button>
+    <script type="module" src="/src/cookieyes.ts"></script>
+  </body>
+</html>

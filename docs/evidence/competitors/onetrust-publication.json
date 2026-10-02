@@ -1,0 +1,17 @@
+{
+  "performanceEvidence": false,
+  "production": {
+    "domainScript": "fff8df06-1dd2-491b-88f6-01cae248cd17",
+    "configuredDomain": "onetrust.com",
+    "scriptType": "PRODUCTION",
+    "sdkVersion": "202604.2.0",
+    "observed": "Native accept updates effective groups 2 and 4, but local browser retains no consent cookies and reload resets groups. SDK writes domain=.onetrust.com, which the local origin rejects."
+  },
+  "test": {
+    "domainScript": "fff8df06-1dd2-491b-88f6-01cae248cd17-test",
+    "scriptType": "TEST",
+    "sdkVersion": "202602.1.0",
+    "observed": "Existing public test publication uses native host-only cookies. Fixed-window load, accept, reject and action reload assertions passed."
+  },
+  "documentation": "https://developer.onetrust.com/onetrust/docs/bulk-domain-management"
+}

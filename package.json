@@ -1,31 +1,42 @@
 {
-	"name": "cookiebench",
-	"private": true,
-	"scripts": {
-		"benchmark": "turbo run benchmark",
-		"build": "turbo run build",
-		"check-types": "turbo run check-types",
-		"db": "pnpm exec benchmark-cli db",
-		"dev": "turbo run dev --filter=benchmarks",
-		"fmt": "turbo fmt",
-		"lint": "turbo run lint",
-		"results": "pnpm exec benchmark-cli results"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "2.3.8",
-		"@c15t/translations": "^1.8.0",
-		"@cookiebench/cli": "workspace:*",
-		"@playwright/test": "^1.57.0",
-		"cli-table3": "^0.6.5",
-		"drizzle-kit": "^0.31.8",
-		"p-limit": "^7.2.0",
-		"pretty-ms": "^9.3.0",
-		"turbo": "^2.6.3",
-		"typescript": "5.9.3",
-		"ultracite": "^6.3.9"
-	},
-	"packageManager": "pnpm@9.0.0",
-	"engines": {
-		"node": ">=18"
-	}
+  "name": "cookiebench",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "benchmark": "node packages/cli/src/index.ts run",
+    "build": "turbo run build",
+    "check": "pnpm lint && pnpm typecheck && pnpm test:unit && pnpm test",
+    "dev": "turbo run dev",
+    "format": "ultracite fix .",
+    "lint": "ultracite check .",
+    "lint:fix": "ultracite fix .",
+    "typecheck": "turbo run typecheck",
+    "test:unit": "vitest run",
+    "test": "pnpm --filter @cookiebench/runner test",
+    "test:watch": "vitest",
+    "db": "node packages/cli/src/index.ts db",
+    "cookiebench": "node packages/cli/src/index.ts",
+    "fixtures:provenance": "node packages/fixture-support/src/refresh-provenance.ts",
+    "source:prepare": "node packages/source-build/src/index.ts --mode all",
+    "source:artifacts": "node packages/source-build/src/index.ts --mode artifacts",
+    "source:consumer": "node packages/source-build/src/index.ts --mode consumer",
+    "source:verify": "node packages/source-build/src/index.ts --mode verify"
+  },
+  "devDependencies": {
+    "@cookiebench/cli": "workspace:*",
+    "@oxlint/plugins": "catalog:",
+    "@playwright/test": "catalog:",
+    "@types/node": "catalog:",
+    "effect": "catalog:",
+    "oxfmt": "catalog:",
+    "oxlint": "catalog:",
+    "turbo": "catalog:",
+    "typescript": "catalog:",
+    "ultracite": "catalog:",
+    "vitest": "catalog:"
+  },
+  "engines": {
+    "node": "24.x"
+  },
+  "packageManager": "pnpm@11.25.0"
 }

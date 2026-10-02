@@ -1,0 +1,278 @@
+{
+  "capturedAt": "2026-09-27T16:59:13.393Z",
+  "method": "Serial Chromium functional inspection using existing public integration IDs on http://127.0.0.1:4350; no timing claims; original integration policies before migration",
+  "results": [
+    {
+      "vendor": "cookie-control",
+      "bannerTextExcerpt": "This site uses cookies to store information on your computer.\n\nSome of these cookies are essential, while others help us to improve your experience by providing insights into how the site is being used.\n\nI Accept CookiesI Do Not Accept Cookies\nNecessary Cookies\n\nNecessary cookies enable core functionality such as page navigation and access to secure areas. The website cannot function properly without these cookies, and can only be disabled by changing your browser preferences.\n\nAnalytical Cookies\n\nAnalytical cookies help us to improve our website by collecting and reporting information on its usage.\n\nAnalytical Cookies\nOn\nOff\nMarketing Cookies\n\nWe use marketing cookies to help us improve the relevancy of advertising campaigns you receive.\n\nMarketing Cookies\nOn\nOff\nAbout this tool\n(Opens in a new window)\nConsent integration inspection\n\nExisting public integration, local origin.",
+      "errors": [],
+      "failedRequests": [],
+      "responses": [
+        {
+          "url": "https://cc.cdn.civiccomputing.com/9/cookieControl-9.10.1.min.js",
+          "status": 200
+        },
+        {
+          "url": "https://apikeys.civiccomputing.com/c/v?d=127.0.0.1&p=CookieControl%20Free&v=9&k=ce6586e299e7333a8c22432a32c1972fd859a49c&format=json",
+          "status": 200
+        }
+      ],
+      "publicGlobals": ["CookieControl"]
+    },
+    {
+      "vendor": "cookie-yes",
+      "bannerTextExcerpt": "Consent integration inspection\n\nExisting public integration, local origin.",
+      "errors": [
+        "Uncaught Error: Looks like your website URL has changed. To ensure the proper functioning of your banner, update the registered URL on your CookieYes account (navigate to the Organizations & Sites page (https://app.cookieyes.com/settings/organizations-and-sites) and click the More button associated with your site). Then, reload this page to retry. If the issue persists, please contact us at https://www.cookieyes.com/support."
+      ],
+      "failedRequests": [],
+      "responses": [
+        {
+          "url": "https://cdn-cookieyes.com/client_data/830009093fab466a1ff5d9a1/script.js",
+          "status": 200
+        }
+      ],
+      "publicGlobals": []
+    },
+    {
+      "vendor": "didomi",
+      "bannerTextExcerpt": "Consent integration inspection\n\nExisting public integration, local origin.",
+      "errors": [],
+      "failedRequests": [],
+      "responses": [
+        {
+          "url": "https://sdk.privacy-center.org/7dd8ec4e-746c-455e-a610-99121b4148df/loader.js?target=127.0.0.1",
+          "status": 200
+        },
+        {
+          "url": "https://sdk.privacy-center.org/sdk/13bf66eed2f46cd960f33ddb63c29bac69702a05/modern/sdk.13bf66eed2f46cd960f33ddb63c29bac69702a05.js",
+          "status": 200
+        },
+        {
+          "url": "https://sdk.privacy-center.org/sdk/13bf66eed2f46cd960f33ddb63c29bac69702a05/modern/src_sdk_core_modules_integrations_sdk-integrations_providers_gcm_gcm_js.13bf66eed2f46cd960f33ddb63c29bac69702a05.js",
+          "status": 200
+        },
+        {
+          "url": "https://api.privacy-center.org/v1/events",
+          "status": 204
+        }
+      ],
+      "publicGlobals": [
+        "didomiConfig",
+        "didomiVendorListCore",
+        "didomiRemoteConfig",
+        "didomiCountry",
+        "didomiRegion",
+        "didomiGeoRegulations",
+        "webpackChunkDidomi",
+        "Didomi",
+        "didomiEventListeners",
+        "didomiOnReady",
+        "DidomiSanitizing",
+        "didomiState"
+      ]
+    },
+    {
+      "vendor": "enzuzo",
+      "bannerTextExcerpt": "Consent integration inspection\n\nExisting public integration, local origin.\n\nWe use cookies to optimize your browsing experience for the purpose of personalizing and measuring the effectiveness of ads. By clicking \"Allow All\", you consent to our use of cookies. Privacy Policy \u2197\nManage Cookies\nDecline\nAllow All",
+      "errors": [],
+      "failedRequests": [],
+      "responses": [
+        {
+          "url": "https://app.enzuzo.com/scripts/cookiebar/ede431e2-968b-11eb-9cc0-2358d2c9e564",
+          "status": 200
+        },
+        {
+          "url": "https://app.enzuzo.com/api/public/v1/analytics/ede431e2-968b-11eb-9cc0-2358d2c9e564?__enzuzo_analyticsPayload=%257B%2522cookies-functional%2522%253Atrue%252C%2522settings%2522%253A%257B%2522position%2522%253A%2522bottom-center-floating%2522%257D%252C%2522consent%2522%253A%257B%2522gpc%2522%253Afalse%252C%2522dnt%2522%253Anull%252C%2522googleCmp%2522%253Atrue%257D%252C%2522connection%2522%253A%257B%2522downlink%2522%253A10%252C%2522rtt%2522%253A0%252C%2522effectiveType%2522%253A%25224g%2522%257D%252C%2522document%2522%253A%257B%2522dir%2522%253A%2522%2522%252C%2522visibilityState%2522%253A%2522visible%2522%252C%2522charset%2522%253A%2522windows-1252%2522%252C%2522contentType%2522%253A%2522text%252Fhtml%2522%252C%2522title%2522%253A%2522%2522%257D%252C%2522geo%2522%253A%257B%2522language%2522%253A%2522en-US%2522%252C%2522referrer%2522%253A%2522%2522%257D%252C%2522location%2522%253A%257B%2522url%2522%253A%2522http%253A%252F%252F127.0.0.1%253A4350%252Fenzuzo%2522%257D%252C%2522navigator%2522%253A%257B%2522languages%2522%253A%255B%2522en-US%2522%255D%252C%2522deviceMemory%2522%253A16%252C%2522platform%2522%253A%2522MacIntel%2522%257D%252C%2522screen%2522%253A%257B%2522h%2522%253A720%252C%2522w%2522%253A1280%252C%2522availHeight%2522%253A720%252C%2522availWidth%2522%253A1280%252C%2522colorDepth%2522%253A24%252C%2522isExtended%2522%253Afalse%252C%2522fullscreen%2522%253Afalse%252C%2522height%2522%253A720%252C%2522orientation%2522%253A%257B%2522angle%2522%253A0%252C%2522type%2522%253A%2522landscape-primary%2522%257D%252C%2522pixelDepth%2522%253A24%252C%2522width%2522%253A1280%257D%252C%2522scroll%2522%253A%257B%2522x%2522%253A0%252C%2522y%2522%253A0%257D%252C%2522uuid%2522%253A%2522ede431e2-968b-11eb-9cc0-2358d2c9e564%2522%252C%2522gpc%2522%253Afalse%252C%2522mode%2522%253A%2522opt-in%2522%252C%2522action%2522%253A%2522page-view%2522%257D&__enzuzo_apiHost=app.enzuzo.com",
+          "status": 200
+        }
+      ],
+      "publicGlobals": [
+        "__enzuzo",
+        "@enzuzo/consent-banner",
+        "__enzuzoApi",
+        "__ENZUZO_STARTED__",
+        "__enzuzoConfig",
+        "enzuzoGtmConsentObj"
+      ]
+    },
+    {
+      "vendor": "iubenda",
+      "bannerTextExcerpt": "\u00d7\nNotice\n\nWe and selected third parties use cookies or similar technologies for technical purposes and, with your consent, for other purposes as specified in the cookie policy.\n\nUse the \u201cAccept\u201d button to consent. Use the \u201cReject\u201d button or close this notice to continue without accepting.\n\nLearn more and customize\nReject\nAccept\nConsent integration inspection\n\nExisting public integration, local origin.",
+      "errors": [],
+      "failedRequests": [],
+      "responses": [
+        {
+          "url": "https://cdn.iubenda.com/cs/iubenda_cs.js",
+          "status": 200
+        },
+        {
+          "url": "https://cdn.iubenda.com/cookie_solution/iubenda_cs/1.107.0/core-en.js",
+          "status": 200
+        },
+        {
+          "url": "https://cs.iubenda.com/cookie-solution/confs/js/252372.js",
+          "status": 200
+        },
+        {
+          "url": "https://idb.iubenda.com/csdata?db=hits1",
+          "status": 204
+        }
+      ],
+      "publicGlobals": ["_iub"]
+    },
+    {
+      "vendor": "ketch",
+      "bannerTextExcerpt": "Your Privacy\n\nWelcome to Ketch! We're glad you're here and want you to know that we respect your privacy and your right to control how we collect, process, and use your personal data. Listed below are the purposes for which we process your data--please consent to those you're ok with by toggling the slider(s) to On. For more information on our privacy practices, including legal bases and our use of tracking technologies like cookies, please read our Privacy Policy.\n\nPurposes\nReject All\nAccept All\nVendors\n1025\nAnalytics\nBehavioral Advertising\nPersonalization\nEssential Services\nAlways Active\nSave choices\nConsent integration inspection\n\nExisting public integration, local origin.",
+      "errors": [],
+      "failedRequests": [],
+      "responses": [
+        {
+          "url": "https://global.ketchcdn.com/web/v3/config/switchbitcorp/switchbit/boot.js",
+          "status": 200
+        },
+        {
+          "url": "https://cdn.ketchjs.com/ketchtag/stable/v2.12/ketch-sdk.js",
+          "status": 200
+        },
+        {
+          "url": "https://global.ketchcdn.com/web/v3/ip",
+          "status": 200
+        },
+        {
+          "url": "https://global.ketchcdn.com/web/v3/config/switchbitcorp/switchbit/production/gdpreea/en-US/config.json?hash=9679003312245129505",
+          "status": 200
+        }
+      ],
+      "publicGlobals": [
+        "ketch",
+        "ketchNativeResolve",
+        "disableHubSpotCookieBanner",
+        "KetchLog"
+      ]
+    },
+    {
+      "vendor": "onetrust",
+      "bannerTextExcerpt": "Consent integration inspection\n\nExisting public integration, local origin.\n\nWhy we use cookies and other tracking technologies?\n\nOur site enables script (e.g. cookies) that is able to read, store, and write information on your browser and in your device. The information processed by this script includes data relating to you which may include personal identifiers (e.g. IP address and session details) and browsing activity. We use this information for various purposes - e.g. to deliver content, maintain security, enable user choice, improve our sites, and for marketing purposes. You can reject all non-essential processing by choosing to accept only necessary cookies. To personalize your choice and learn more click here to adjust your preferencesCookie Notice\nAllow AllAccept only necessaryAdjust my preferences",
+      "errors": [],
+      "failedRequests": [],
+      "responses": [
+        {
+          "url": "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js",
+          "status": 200
+        },
+        {
+          "url": "https://cdn.cookielaw.org/consent/fff8df06-1dd2-491b-88f6-01cae248cd17/fff8df06-1dd2-491b-88f6-01cae248cd17.json",
+          "status": 200
+        },
+        {
+          "url": "https://geolocation.onetrust.com/cookieconsentpub/v1/geo/location",
+          "status": 200
+        },
+        {
+          "url": "https://cdn.cookielaw.org/scripttemplates/202604.2.0/otBannerSdk.js",
+          "status": 200
+        },
+        {
+          "url": "https://cdn.cookielaw.org/consent/fff8df06-1dd2-491b-88f6-01cae248cd17/019e4b22-747b-7ea5-9da5-0b96da0c3c12/en.json",
+          "status": 200
+        },
+        {
+          "url": "https://cdn.cookielaw.org/scripttemplates/202604.2.0/assets/otFloatingRoundedIcon.json",
+          "status": 200
+        },
+        {
+          "url": "https://cdn.cookielaw.org/scripttemplates/202604.2.0/assets/otCommonStyles.css",
+          "status": 200
+        },
+        {
+          "url": "https://cdn.cookielaw.org/scripttemplates/202604.2.0/assets/otCookieSettingsButton.json",
+          "status": 200
+        },
+        {
+          "url": "https://cdn.cookielaw.org/scripttemplates/202604.2.0/assets/v2/otPcTab.json",
+          "status": 200
+        },
+        {
+          "url": "https://cdn.cookielaw.org/logos/static/powered_by_logo.svg",
+          "status": 200
+        },
+        {
+          "url": "https://cdn.cookielaw.org/logos/37bcc497-a196-48f1-a08b-e897b5a77859/019d03fd-70a2-7412-9ab7-a2438ea90687/7fba3fa7-8200-4ea2-8273-c42dfc818da3/ot-logo-lockup-black.png",
+          "status": 200
+        },
+        {
+          "url": "https://cdn.cookielaw.org/logos/static/ot_guard_logo.svg",
+          "status": 200
+        }
+      ],
+      "publicGlobals": [
+        "OptanonWrapper",
+        "OneTrustStub",
+        "Optanon",
+        "OneTrust",
+        "OnetrustActiveGroups",
+        "OptanonActiveGroups"
+      ]
+    },
+    {
+      "vendor": "osano",
+      "bannerTextExcerpt": "This website utilizes technologies such as cookies to enable essential site functionality, as well as for analytics, personalization, and targeted advertising. You may change your settings at any time or accept the default settings. You may close this banner to continue with only essential cookies. Cookie Policy\n\nStorage Preferences\n\nTargeted Advertising\nPersonalization\nAnalytics\nSave\nAccept All\nReject Non-Essential\nConsent integration inspection\n\nExisting public integration, local origin.",
+      "errors": [],
+      "failedRequests": [],
+      "responses": [
+        {
+          "url": "https://cmp.osano.com/2sUBzx7wRdAfu6J2kkS/8e547744-886f-4a9b-a90f-7e96a47aa604/osano.js",
+          "status": 200
+        },
+        {
+          "url": "https://cmp.osano.com/2sUBzx7wRdAfu6J2kkS/8e547744-886f-4a9b-a90f-7e96a47aa604/osano-ui.js",
+          "status": 200
+        },
+        {
+          "url": "https://cmp.osano.com/2sUBzx7wRdAfu6J2kkS/8e547744-886f-4a9b-a90f-7e96a47aa604/en.json",
+          "status": 200
+        }
+      ],
+      "publicGlobals": ["webpackChunk_osano_cmp_consent_manager", "Osano"]
+    },
+    {
+      "vendor": "usercentrics",
+      "bannerTextExcerpt": "Consent integration inspection\n\nExisting public integration, local origin.",
+      "errors": [],
+      "failedRequests": [
+        {
+          "url": "https://consent-api.service.consent.usercentrics.eu/consent/uw/3",
+          "error": "net::ERR_ABORTED"
+        }
+      ],
+      "responses": [
+        {
+          "url": "https://web.cmp.usercentrics.eu/ui/loader.js",
+          "status": 200
+        },
+        {
+          "url": "https://web.cmp.usercentrics.eu/ui/v/4.20.0/WebSdk.lib.8e67814b.js",
+          "status": 200
+        },
+        {
+          "url": "https://v1.api.service.cmp.usercentrics.eu/latest/ruleSetData?id=NFEcTLx7a",
+          "status": 200
+        },
+        {
+          "url": "https://v1.api.service.cmp.usercentrics.eu/latest/core/fDU1kq9HV",
+          "status": 200
+        },
+        {
+          "url": "https://v1.api.service.cmp.usercentrics.eu/latest/1/cmp/en/GDPR/fDU1kq9HV/279.85.471/279.85.471?isOutsideEu=true&isBot=true",
+          "status": 200
+        },
+        {
+          "url": "https://web.cmp.usercentrics.eu/ui/v/4.20.0/GdprCmpController.f1f19c11.js",
+          "status": 200
+        }
+      ],
+      "publicGlobals": ["__ucCmp", "UC_UI"]
+    }
+  ]
+}

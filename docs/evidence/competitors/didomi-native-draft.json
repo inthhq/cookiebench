@@ -1,0 +1,129 @@
+{
+  "performanceEvidence": false,
+  "method": "Native actionable clicks for Disagree all, Analytics Agree, then Save. Public SDK state read at each stage. This diagnoses the separate benchmark forced-commit failure.",
+  "observations": [
+    {
+      "stage": "fresh",
+      "publicPurposes": {
+        "enabled": [],
+        "disabled": []
+      },
+      "bridge": {
+        "allowedCategories": [],
+        "consent": "unset",
+        "scripts": [],
+        "ready": true
+      },
+      "draftChoices": []
+    },
+    {
+      "stage": "preferences",
+      "publicPurposes": {
+        "enabled": [],
+        "disabled": []
+      },
+      "bridge": {
+        "allowedCategories": [],
+        "consent": "unset",
+        "scripts": [],
+        "ready": true
+      },
+      "draftChoices": [
+        {
+          "purpose": "didomi-popup-purposes-all",
+          "checked": false,
+          "choice": "Disagree"
+        },
+        {
+          "purpose": "didomi-popup-purposes-all",
+          "checked": false,
+          "choice": "Agree"
+        },
+        {
+          "purpose": "didomi-purpose-analytics",
+          "checked": false,
+          "choice": "Disagree"
+        },
+        {
+          "purpose": "didomi-purpose-analytics",
+          "checked": false,
+          "choice": "Agree"
+        }
+      ]
+    },
+    {
+      "stage": "draft",
+      "publicPurposes": {
+        "enabled": [],
+        "disabled": []
+      },
+      "bridge": {
+        "allowedCategories": [],
+        "consent": "unset",
+        "scripts": [],
+        "ready": true
+      },
+      "draftChoices": [
+        {
+          "purpose": "didomi-popup-purposes-all",
+          "checked": false,
+          "choice": "Disagree"
+        },
+        {
+          "purpose": "didomi-popup-purposes-all",
+          "checked": false,
+          "choice": "Agree"
+        },
+        {
+          "purpose": "didomi-purpose-analytics",
+          "checked": false,
+          "choice": "Disagree"
+        },
+        {
+          "purpose": "didomi-purpose-analytics",
+          "checked": true,
+          "choice": "Agree"
+        }
+      ]
+    },
+    {
+      "stage": "saved",
+      "publicPurposes": {
+        "enabled": ["analytics"],
+        "disabled": [
+          "cookies",
+          "create_ads_profile",
+          "select_personalized_ads",
+          "select_basic_ads",
+          "measure_ad_performance",
+          "market_research",
+          "improve_products",
+          "create_content_profile",
+          "measure_content_performance",
+          "select_personalized_content",
+          "marketing",
+          "livetrack-JC9apnNW",
+          "authentica-kNYenhPH",
+          "functional-K2rV8qte",
+          "contact-6Ab8npmw",
+          "usagestat-qAKyPkqZ",
+          "device_characteristics",
+          "geo_ads"
+        ]
+      },
+      "bridge": {
+        "allowedCategories": ["measurement"],
+        "consent": "custom",
+        "scripts": [
+          {
+            "id": "controlled-0",
+            "category": "measurement",
+            "at": 3564.300000190735
+          }
+        ],
+        "ready": true
+      },
+      "draftChoices": []
+    }
+  ]
+}

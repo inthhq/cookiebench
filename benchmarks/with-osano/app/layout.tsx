@@ -1,21 +1,13 @@
-import type { Metadata } from "next";
+import { pageCSS } from "@cookiebench/fixture-support/page";
 import type { ReactNode } from "react";
 
-export const metadata: Metadata = {
-	title: "benchmark",
-};
-
-export default function RootLayout({
-	children,
-}: Readonly<{
-	children: ReactNode;
-}>) {
-	return (
-		<html lang="en" suppressHydrationWarning>
-			<head>
-				<script src="https://cmp.osano.com/2sUBzx7wRdAfu6J2kkS/8e547744-886f-4a9b-a90f-7e96a47aa604/osano.js" />
-			</head>
-			<body>{children}</body>
-		</html>
-	);
+export default function RootLayout({ children }: { children: ReactNode }) {
+  return (
+    <html lang="en">
+      <head>
+        <style>{pageCSS}</style>
+      </head>
+      <body>{children}</body>
+    </html>
+  );
 }

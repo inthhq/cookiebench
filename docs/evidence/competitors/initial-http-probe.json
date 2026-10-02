@@ -1,0 +1,72 @@
+{
+  "capturedAt": "2026-09-27T17:10:09.319148+00:00",
+  "method": "Python urllib unauthenticated HTTP fetch; status differs from browser requests; these are preflight captures only",
+  "artifacts": [
+    {
+      "vendor": "cookie-control",
+      "url": "https://cc.cdn.civiccomputing.com/9/cookieControl-9.10.1.min.js",
+      "status": 200,
+      "bytes": 342747,
+      "sha256": "b1b5932fd0694de0bd9444b66c520d3647fdb493d9c51fcc2e7dc581e95319c0",
+      "contentType": "application/javascript"
+    },
+    {
+      "vendor": "cookie-yes",
+      "url": "https://cdn-cookieyes.com/client_data/830009093fab466a1ff5d9a1/script.js",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "vendor": "didomi",
+      "url": "https://sdk.privacy-center.org/7dd8ec4e-746c-455e-a610-99121b4148df/loader.js?target=www.cookiebench.com",
+      "status": 200,
+      "bytes": 263804,
+      "sha256": "cc92b467085d5f8ba06c3ef54c5a38c4f0c7fc30421a003dde26d1bb692972f4",
+      "contentType": "application/javascript; charset=utf-8"
+    },
+    {
+      "vendor": "enzuzo",
+      "url": "https://app.enzuzo.com/scripts/cookiebar/ede431e2-968b-11eb-9cc0-2358d2c9e564",
+      "status": 200,
+      "bytes": 599070,
+      "sha256": "701c45802c0c8b5a572ba9773a44a77be3db3cbc3d9ddbf4f367358b8a8f36a3",
+      "contentType": "application/javascript; charset=utf-8"
+    },
+    {
+      "vendor": "iubenda",
+      "url": "https://cdn.iubenda.com/cs/iubenda_cs.js",
+      "status": 200,
+      "bytes": 4101,
+      "sha256": "cc2e4ae530879bf564ba3cc7002ab8f20736ef518371c1a3073585473fa055ee",
+      "contentType": "application/javascript"
+    },
+    {
+      "vendor": "ketch",
+      "url": "https://global.ketchcdn.com/web/v3/config/switchbitcorp/switchbit/boot.js",
+      "status": 200,
+      "bytes": 18474,
+      "sha256": "5cba221e280e14de6e556d340c3a2cb3320484afd6e7b1cb755acb66207e45c5",
+      "contentType": "application/javascript"
+    },
+    {
+      "vendor": "onetrust",
+      "url": "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "vendor": "osano",
+      "url": "https://cmp.osano.com/2sUBzx7wRdAfu6J2kkS/8e547744-886f-4a9b-a90f-7e96a47aa604/osano.js",
+      "status": 200,
+      "bytes": 171681,
+      "sha256": "f60eb82bba72d7d52baaeae2d818e009632ef27a0548a7c4a513d528b66c3952",
+      "contentType": "application/javascript; charset=utf-8"
+    },
+    {
+      "vendor": "usercentrics",
+      "url": "https://web.cmp.usercentrics.eu/ui/loader.js",
+      "status": 200,
+      "bytes": 70614,
+      "sha256": "5e623d7e48e52c797830315066b5cfae5f46e334c3833809c2ccb417744646f1",
+      "contentType": "application/javascript"
+    }
+  ]
+}

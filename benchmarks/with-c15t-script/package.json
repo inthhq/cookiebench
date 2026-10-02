@@ -1,0 +1,20 @@
+{
+  "name": "with-c15t-script",
+  "version": "3.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node prepare-assets.mjs && vite build",
+    "start": "node ../../packages/fixture-support/src/serve.ts --port 4310 --static dist",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@c15t/browser": "3.0.0-alpha.3",
+    "@cookiebench/fixture-support": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "typescript": "catalog:",
+    "vite": "8.3.1"
+  }
+}

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Consent reference shop</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Field notes for the weekend</h1>
+      <div class="hero" data-primary-content>Find your next path</div>
+      <p>
+        A shared page with stable content, navigation, and an independent page
+        action.
+      </p>
+      <button id="page-action">Add a field guide</button
+      ><output id="page-result" aria-live="polite">0 guides</output>
+      <article>
+        <h2>Walk farther, carry less</h2>
+        <p>
+          Explore a collection of walking routes, maps, and advice for a day
+          outdoors. Our reference page keeps the same content for every consent
+          configuration.
+        </p>
+      </article>
+      <button id="reopen">Privacy choices</button>
+    </main>
+    <div id="banner-host">
+      <section id="banner" role="dialog" aria-label="Privacy choices">
+        <h2>Your privacy choices</h2>
+        <p>
+          Optional analytics and marketing scripts stay off until you choose.
+        </p>
+        <button id="accept">Accept all</button
+        ><button id="reject">Reject all</button
+        ><button id="preferences">Preferences</button>
+        <div id="choices" hidden>
+          <label><input id="analytics" type="checkbox" />Analytics</label
+          ><button id="save">Save choices</button
+          ><button id="withdraw">Withdraw consent</button>
+        </div>
+        <p id="feedback" role="status"></p>
+      </section>
+    </div>
+    <script src="/app.js"></script>
+  </body>
+</html>

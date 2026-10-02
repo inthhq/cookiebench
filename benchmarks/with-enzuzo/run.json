@@ -1,0 +1,305 @@
+{
+  "fixtures": [
+    {
+      "adapter": {
+        "accept": "#ez-cookie-notification__accept",
+        "banner": "#ez-cookie-notification",
+        "controlledRequestPath": "/controlled/script",
+        "pageAction": "#page-action",
+        "preferences": "#notificationManagerLink",
+        "preferencesPanel": ".enzuzo-cookie-modal",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": "#ez-cookie-notification__decline",
+        "reopen": "#reopen-preferences",
+        "save": "#ez-confirm-modal",
+        "savePreparation": ["label[for=\"ez-cookie-preferences--analytics\"]"],
+        "serverEventsUrl": "http://127.0.0.1:4323/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": "#ez-reject-modal"
+      },
+      "artifactPolicy": "immutable-release",
+      "baseline": true,
+      "configurationHash": "eac12a25865a96f373fac5b36fcd30c6c260d42cbf784c25e2861ad31dfb0f45",
+      "deployment": {
+        "assets": "local",
+        "backend": "none"
+      },
+      "framework": "nextjs",
+      "frameworkVersion": "16.0.7",
+      "id": "nextjs-enzuzo-baseline",
+      "mode": "hosted",
+      "presentation": "default",
+      "product": "baseline",
+      "provenance": {
+        "artifactIntegrity": "fixture-source-only",
+        "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
+        "sourceUrl": "https://github.com/inthhq/cookiebench"
+      },
+      "revision": "3.2.0-article-v1-head-start-async-sdk",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": ["build"],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-enzuzo",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4323/health",
+        "start": {
+          "args": ["start"],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4323/baseline",
+      "version": "16.0.7"
+    },
+    {
+      "adapter": {
+        "accept": "#ez-cookie-notification__accept",
+        "banner": "#ez-cookie-notification",
+        "controlledRequestPath": "/controlled/script",
+        "pageAction": "#page-action",
+        "preferences": "#notificationManagerLink",
+        "preferencesPanel": ".enzuzo-cookie-modal",
+        "primaryContent": "#primary-content",
+        "readinessSource": "public-state",
+        "reject": "#ez-cookie-notification__decline",
+        "reopen": "#reopen-preferences",
+        "save": "#ez-confirm-modal",
+        "savePreparation": ["label[for=\"ez-cookie-preferences--analytics\"]"],
+        "serverEventsUrl": "http://127.0.0.1:4323/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": "#ez-reject-modal"
+      },
+      "artifactPolicy": "mutable-network",
+      "baseline": false,
+      "configurationHash": "1564642c632fdf98934f9d4d895743faa5cbf12d63154d83f061ffe405649de0",
+      "deployment": {
+        "assets": "mixed",
+        "backend": "remote-service"
+      },
+      "framework": "nextjs",
+      "frameworkVersion": "16.0.7",
+      "id": "nextjs-enzuzo-cmp",
+      "mode": "hosted",
+      "presentation": "default",
+      "product": "enzuzo",
+      "provenance": {
+        "artifactIntegrity": "sha256-7b87a37178266792cc9793eac8d6c3a35854c39ac825f9ad77ada7d449bfb0ff",
+        "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
+        "sourceUrl": "https://app.enzuzo.com/scripts/cookiebar/ede431e2-968b-11eb-9cc0-2358d2c9e564"
+      },
+      "revision": "3.2.1-article-v1-head-start-public-state-readiness",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": ["build"],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-enzuzo",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4323/health",
+        "start": {
+          "args": ["start"],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4323/",
+      "version": "remote-capture-7b87a3717826"
+    }
+  ],
+  "scenarios": [
+    {
+      "action": "load",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "load",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 5000,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "accept",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "accept",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "reject",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "reject",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "save",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "save",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "preferences",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "preferences",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "withdraw",
+      "actionDeadlineMs": 5000,
+      "cache": "warm",
+      "expectedBanner": false,
+      "followupOffsetMs": 500,
+      "id": "withdraw",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "returning-accepted",
+      "workload": {
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "load",
+      "actionDeadlineMs": 5000,
+      "cache": "warm",
+      "expectedBanner": false,
+      "followupOffsetMs": 500,
+      "id": "returning-accepted",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 5000,
+      "readiness": "ready",
+      "visitor": "returning-accepted",
+      "workload": {
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "load",
+      "actionDeadlineMs": 5000,
+      "cache": "warm",
+      "expectedBanner": false,
+      "followupOffsetMs": 500,
+      "id": "returning-rejected",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 5000,
+      "readiness": "ready",
+      "visitor": "returning-rejected",
+      "workload": {
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "reject",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "reject-keyboard",
+      "input": "keyboard",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "save",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 100,
+      "id": "save-page-probe-100ms",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
+      }
+    }
+  ],
+  "profile": {
+    "cpuSlowdown": 1,
+    "deviceScaleFactor": 1,
+    "hasTouch": false,
+    "id": "desktop-article-v1",
+    "isMobile": false,
+    "locale": "en-GB",
+    "network": {
+      "downloadBytesPerSecond": 12500000,
+      "latencyMs": 0,
+      "uploadBytesPerSecond": 12500000
+    },
+    "region": "GB",
+    "viewport": {
+      "height": 768,
+      "width": 1365
+    }
+  },
+  "iterations": 1,
+  "warmups": 0,
+  "seed": 1
+}

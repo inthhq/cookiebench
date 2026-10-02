@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-	/* config options here */
+const config: NextConfig = {
+  transpilePackages: ["@cookiebench/fixture-support"],
 };
-
-export default nextConfig;
+export default config;

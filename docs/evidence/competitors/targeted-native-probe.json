@@ -1,0 +1,111 @@
+{
+  "capturedAt": "2026-09-27T17:30:00.438Z",
+  "performanceEvidence": false,
+  "usercentrics": {
+    "loading": "original synchronous head script, same ruleset NFEcTLx7a",
+    "observations": [
+      {
+        "elapsedMs": 1217.8000001907349,
+        "visibleText": "Consent integration inspection\n\nExisting public integration, local origin.",
+        "services": []
+      },
+      {
+        "elapsedMs": 3225.6000003814697,
+        "initialized": true,
+        "required": false,
+        "visibleText": "Consent integration inspection\n\nExisting public integration, local origin.",
+        "services": [
+          {
+            "id": "ZNl-QzrhP",
+            "status": true,
+            "historyLength": 0
+          },
+          {
+            "id": "87JYasXPF",
+            "status": true,
+            "historyLength": 0
+          }
+        ]
+      },
+      {
+        "elapsedMs": 8270.10000038147,
+        "initialized": true,
+        "required": false,
+        "visibleText": "Consent integration inspection\n\nExisting public integration, local origin.",
+        "services": [
+          {
+            "id": "ZNl-QzrhP",
+            "status": true,
+            "historyLength": 0
+          },
+          {
+            "id": "87JYasXPF",
+            "status": true,
+            "historyLength": 0
+          }
+        ]
+      }
+    ],
+    "requests": [
+      {
+        "origin": "https://v1.api.service.cmp.usercentrics.eu",
+        "path": "/latest/1/cmp/en/GDPR/fDU1kq9HV/279.85.471/279.85.471",
+        "isBot": "true",
+        "isOutsideEu": "true"
+      }
+    ]
+  },
+  "civic": {
+    "steps": [
+      "Open fresh native preference panel",
+      "Enable only analytics checkbox",
+      "Read public API and controlled execution",
+      "Reload and read persisted permission"
+    ],
+    "fresh": {
+      "permissions": [null, null],
+      "bridge": {
+        "allowedCategories": [],
+        "consent": "unset",
+        "scripts": []
+      },
+      "controlledScripts": []
+    },
+    "changed": {
+      "permissions": [true, null],
+      "bridge": {
+        "allowedCategories": ["measurement"],
+        "consent": "custom",
+        "scripts": [
+          {
+            "id": "controlled-0",
+            "category": "measurement",
+            "at": 908.5999999046326
+          }
+        ],
+        "ready": true
+      },
+      "controlledScripts": [
+        "http://127.0.0.1:4320/controlled/script?category=measurement&id=controlled-0&token=fixture"
+      ]
+    },
+    "reloaded": {
+      "permissions": [true, null],
+      "bridge": {
+        "allowedCategories": ["measurement"],
+        "consent": "custom",
+        "scripts": [
+          {
+            "id": "controlled-0",
+            "category": "measurement",
+            "at": 78.09999990463257
+          }
+        ],
+        "ready": true
+      },
+      "controlledScripts": [
+        "http://127.0.0.1:4320/controlled/script?category=measurement&id=controlled-0&token=fixture"
+      ]
+    }
+  }
+}

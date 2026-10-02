@@ -1,0 +1,317 @@
+{
+  "fixtures": [
+    {
+      "adapter": {
+        "accept": "#didomi-notice-agree-button",
+        "banner": ".didomi-popup-notice",
+        "controlledRequestPath": "/controlled/script",
+        "pageAction": "#page-action",
+        "preferences": "#didomi-notice-learn-more-button",
+        "preferencesPanel": ".didomi-consent-popup-preferences",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": "#didomi-notice-disagree-button",
+        "reopen": "#reopen-preferences",
+        "save": "#btn-toggle-save",
+        "savePreparation": [
+          "button[aria-describedby=\"didomi-popup-purposes-all\"]:has(span:text-is(\"Disagree\"))",
+          "button[aria-describedby=\"didomi-purpose-analytics\"]:has(span:text-is(\"Agree\"))"
+        ],
+        "serverEventsUrl": "http://127.0.0.1:4322/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": "#btn-toggle-save",
+        "withdrawPreparation": [
+          "button[aria-describedby=\"didomi-popup-purposes-all\"]:has(span:text-is(\"Disagree\"))"
+        ]
+      },
+      "artifactPolicy": "immutable-release",
+      "baseline": true,
+      "configurationHash": "1a921837aeaabb7ee721855a2322b671ba02973ff2b7acdcfeb9c553de36fc8e",
+      "deployment": {
+        "assets": "local",
+        "backend": "none"
+      },
+      "framework": "nextjs",
+      "frameworkVersion": "16.0.7",
+      "id": "nextjs-didomi-baseline",
+      "mode": "hosted",
+      "presentation": "default",
+      "product": "baseline",
+      "provenance": {
+        "artifactIntegrity": "fixture-source-only",
+        "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
+        "sourceUrl": "https://github.com/inthhq/cookiebench"
+      },
+      "revision": "3.2.0-article-v1-head-start-async-sdk",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": ["build"],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-didomi",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4322/health",
+        "start": {
+          "args": ["start"],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4322/baseline",
+      "version": "16.0.7"
+    },
+    {
+      "adapter": {
+        "accept": "#didomi-notice-agree-button",
+        "banner": ".didomi-popup-notice",
+        "controlledRequestPath": "/controlled/script",
+        "pageAction": "#page-action",
+        "preferences": "#didomi-notice-learn-more-button",
+        "preferencesPanel": ".didomi-consent-popup-preferences",
+        "primaryContent": "#primary-content",
+        "readinessSource": "public-state",
+        "reject": "#didomi-notice-disagree-button",
+        "reopen": "#reopen-preferences",
+        "save": "#btn-toggle-save",
+        "savePreparation": [
+          "button[aria-describedby=\"didomi-popup-purposes-all\"]:has(span:text-is(\"Disagree\"))",
+          "button[aria-describedby=\"didomi-purpose-analytics\"]:has(span:text-is(\"Agree\"))"
+        ],
+        "serverEventsUrl": "http://127.0.0.1:4322/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": "#btn-toggle-save",
+        "withdrawPreparation": [
+          "button[aria-describedby=\"didomi-popup-purposes-all\"]:has(span:text-is(\"Disagree\"))"
+        ]
+      },
+      "artifactPolicy": "mutable-network",
+      "baseline": false,
+      "configurationHash": "36f3c64224426d2e85e8c177ecf4129c75483d0ca53399b014b6c79c7b32b12c",
+      "deployment": {
+        "assets": "mixed",
+        "backend": "remote-service"
+      },
+      "framework": "nextjs",
+      "frameworkVersion": "16.0.7",
+      "id": "nextjs-didomi-cmp",
+      "mode": "hosted",
+      "presentation": "default",
+      "product": "didomi",
+      "provenance": {
+        "artifactIntegrity": "sha256-cc92b467085d5f8ba06c3ef54c5a38c4f0c7fc30421a003dde26d1bb692972f4",
+        "lockfileHash": "78f11c458ede5f27389e48a44608d483dc06f58211555854ef25d9b0448a12d7",
+        "sourceUrl": "https://sdk.privacy-center.org/7dd8ec4e-746c-455e-a610-99121b4148df/loader.js?target=127.0.0.1"
+      },
+      "revision": "3.2.1-article-v1-head-start-public-state-readiness",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": ["build"],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-didomi",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4322/health",
+        "start": {
+          "args": ["start"],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4322/",
+      "version": "remote-capture-cc92b467085d"
+    }
+  ],
+  "scenarios": [
+    {
+      "action": "load",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "load",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 5000,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "accept",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "accept",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "reject",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "reject",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "save",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "save",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "preferences",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "preferences",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "withdraw",
+      "actionDeadlineMs": 5000,
+      "cache": "warm",
+      "expectedBanner": false,
+      "followupOffsetMs": 500,
+      "id": "withdraw",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "returning-accepted",
+      "workload": {
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "load",
+      "actionDeadlineMs": 5000,
+      "cache": "warm",
+      "expectedBanner": false,
+      "followupOffsetMs": 500,
+      "id": "returning-accepted",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 5000,
+      "readiness": "ready",
+      "visitor": "returning-accepted",
+      "workload": {
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "load",
+      "actionDeadlineMs": 5000,
+      "cache": "warm",
+      "expectedBanner": false,
+      "followupOffsetMs": 500,
+      "id": "returning-rejected",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 5000,
+      "readiness": "ready",
+      "visitor": "returning-rejected",
+      "workload": {
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "reject",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "reject-keyboard",
+      "input": "keyboard",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "save",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 100,
+      "id": "save-page-probe-100ms",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
+      }
+    }
+  ],
+  "profile": {
+    "cpuSlowdown": 1,
+    "deviceScaleFactor": 1,
+    "hasTouch": false,
+    "id": "desktop-article-v1",
+    "isMobile": false,
+    "locale": "en-GB",
+    "network": {
+      "downloadBytesPerSecond": 12500000,
+      "latencyMs": 0,
+      "uploadBytesPerSecond": 12500000
+    },
+    "region": "GB",
+    "viewport": {
+      "height": 768,
+      "width": 1365
+    }
+  },
+  "iterations": 1,
+  "warmups": 0,
+  "seed": 1
+}

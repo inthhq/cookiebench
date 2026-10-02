@@ -43,3 +43,13 @@ yarn-error.log*
 
 test-results
 playwright-report
+.nuxt/
+.nuxt-baseline/
+.output/
+.output-baseline/
+.astro/
+dist-baseline/
+*.tsbuildinfo
+public/vendor/
+.source-build/
+/artifacts/

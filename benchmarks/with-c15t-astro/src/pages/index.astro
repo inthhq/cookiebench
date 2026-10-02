@@ -1,0 +1,25 @@
+---
+import "@c15t/astro/styles.css";
+import ConsentScript from '@c15t/astro/components/consent-script.astro';
+import ConsentBanner from '@c15t/astro/components/consent-banner.astro';
+import ConsentDialog from '@c15t/astro/components/consent-dialog.astro';
+import { pageHTML, pageCSS } from '@cookiebench/fixture-support/page';
+---
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Field notes</title><style is:inline set:html={pageCSS}/><ConsentScript /></head>
+<body><Fragment set:html={pageHTML}/><button id="reopen-preferences" type="button">Privacy settings</button><button id="withdraw-consent" type="button">Withdraw optional consent</button><ConsentBanner /><ConsentDialog />
+<script>
+import { getConsentClient } from '@c15t/astro/client';
+import { installPageInteraction, updateBridge } from '@cookiebench/fixture-support';
+
+installPageInteraction();
+const deadline = performance.now() + 10_000;
+const attach = () => {
+  const client = getConsentClient();
+  if (!client) { if (performance.now() < deadline) {requestAnimationFrame(attach);} return; }
+  updateBridge(client.getConsent());
+  client.subscribe(updateBridge);
+  document.querySelector('#reopen-preferences')?.addEventListener('click', () => client.openDialog());
+  document.querySelector('#withdraw-consent')?.addEventListener('click', () => client.rejectAll());
+};
+attach();
+</script></body></html>

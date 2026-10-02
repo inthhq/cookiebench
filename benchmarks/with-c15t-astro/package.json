@@ -1,0 +1,26 @@
+{
+  "name": "with-c15t-astro",
+  "version": "3.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "COOKIEBENCH_BASELINE=1 astro build && astro build",
+    "typecheck": "astro check",
+    "start": "node ../../packages/fixture-support/src/serve.ts --port 4315 --upstream-port 4415 --baseline-upstream-port 4515 --baseline-entry dist-baseline/server/entry.mjs -- node dist/server/entry.mjs"
+  },
+  "dependencies": {
+    "@astrojs/node": "9.5.5",
+    "@astrojs/svelte": "7.2.5",
+    "@c15t/astro": "3.0.0-alpha.3",
+    "@c15t/core": "3.0.0-alpha.3",
+    "@c15t/svelte": "3.0.0-alpha.3",
+    "@cookiebench/fixture-support": "workspace:*",
+    "astro": "5.18.2",
+    "svelte": "5.57.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.9",
+    "@types/node": "catalog:",
+    "typescript": "catalog:"
+  }
+}

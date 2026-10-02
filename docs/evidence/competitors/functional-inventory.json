@@ -1,0 +1,288 @@
+{
+  "capturedAt": "2026-09-27T17:45:23.391139+00:00",
+  "performanceEvidence": false,
+  "topology": "Next client-effect callback integration",
+  "scope": "Development diagnostics across adapter revisions. Later targeted scenarios supersede earlier diagnostic outcomes. Untested final scenarios retain their earlier diagnostic status; the final batch is authoritative.",
+  "fixtures": [
+    {
+      "vendor": "cookie-control",
+      "config": "benchmarks/with-cookie-control/run.json",
+      "status": "migrated-with-flow-evidence",
+      "flows": {
+        "load": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "accept": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "reject": {
+          "status": "passed",
+          "failureCodes": []
+        }
+      },
+      "limitations": [
+        "Separate fresh preferences-opening and transactional Save protocols unsupported: native panel is open initially and granular toggles apply immediately. Immediate measurement-only toggle and reload passed a separate functional probe."
+      ]
+    },
+    {
+      "vendor": "cookie-yes",
+      "config": "benchmarks/with-cookie-yes/run.json",
+      "status": "excluded-at-user-request",
+      "flows": {
+        "load": {
+          "status": "failed",
+          "failureCodes": ["banner-missing"]
+        }
+      },
+      "limitations": [
+        "Excluded at user request. Retained earlier hostname rejection evidence only."
+      ]
+    },
+    {
+      "vendor": "didomi",
+      "config": "benchmarks/with-didomi/run.json",
+      "status": "migrated-with-flow-evidence",
+      "flows": {
+        "load": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "accept": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "reject": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "save": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "preferences": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "withdraw": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "save-page-probe-100ms": {
+          "status": "incomplete",
+          "failureCodes": ["sample-browser"]
+        }
+      },
+      "limitations": [
+        "Native draft probe confirms measurement-only consent. Final targeted Save and withdrawal pass after untimed final-control actionability preparation."
+      ]
+    },
+    {
+      "vendor": "enzuzo",
+      "config": "benchmarks/with-enzuzo/run.json",
+      "status": "migrated-with-flow-evidence",
+      "flows": {
+        "load": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "accept": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "reject": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "save": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "preferences": {
+          "status": "incomplete",
+          "failureCodes": ["sample-browser"]
+        },
+        "withdraw": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "save-page-probe-100ms": {
+          "status": "incomplete",
+          "failureCodes": ["sample-browser"]
+        }
+      },
+      "limitations": [
+        "Fresh measured preferences click can occur while its link is outside viewport during native entrance motion."
+      ]
+    },
+    {
+      "vendor": "iubenda",
+      "config": "benchmarks/with-iubenda/run.json",
+      "status": "migrated-with-flow-evidence",
+      "flows": {
+        "load": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "accept": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "reject": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "save": {
+          "status": "failed",
+          "failureCodes": ["banner-missing"]
+        },
+        "preferences": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "withdraw": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "save-page-probe-100ms": {
+          "status": "passed",
+          "failureCodes": []
+        }
+      },
+      "limitations": [
+        "One Save attempt missed the banner deadline. Earlier ordinary Save and final 100 ms diagnostic Save passed; retain each attempt, no success-only selection."
+      ]
+    },
+    {
+      "vendor": "ketch",
+      "config": "benchmarks/with-ketch/run.json",
+      "status": "migrated-with-flow-evidence",
+      "flows": {
+        "load": {
+          "status": "failed",
+          "failureCodes": ["banner-missing"]
+        },
+        "accept": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "reject": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "save": {
+          "status": "incomplete",
+          "failureCodes": ["sample-browser"]
+        },
+        "preferences": {
+          "status": "incomplete",
+          "failureCodes": ["sample-browser"]
+        },
+        "withdraw": {
+          "status": "incomplete",
+          "failureCodes": ["sample-browser"]
+        },
+        "save-page-probe-100ms": {
+          "status": "incomplete",
+          "failureCodes": ["sample-browser"]
+        }
+      },
+      "limitations": [
+        "Initial modal missed fixed 1500 ms load window.",
+        "Adapter unqualified for Save/preferences/withdrawal: fresh modal blocks page reopen control; returning drawer does not match Reject All selector. This does not establish missing native capabilities."
+      ]
+    },
+    {
+      "vendor": "onetrust",
+      "config": "benchmarks/with-onetrust/run.json",
+      "status": "migrated-with-flow-evidence",
+      "flows": {
+        "load": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "accept": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "reject": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "save": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "preferences": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "withdraw": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "save-page-probe-100ms": {
+          "status": "incomplete",
+          "failureCodes": ["sample-browser"]
+        }
+      },
+      "limitations": [
+        "Uses existing public TEST publication with SDK 202602.1.0; production 202604.2.0 cookie-domain failure preserved separately.",
+        "Native Performance section expansion plus visible label mapping passes granular Save."
+      ]
+    },
+    {
+      "vendor": "osano",
+      "config": "benchmarks/with-osano/run.json",
+      "status": "migrated-with-flow-evidence",
+      "flows": {
+        "load": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "accept": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "reject": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "save": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "preferences": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "withdraw": {
+          "status": "passed",
+          "failureCodes": []
+        },
+        "save-page-probe-100ms": {
+          "status": "incomplete",
+          "failureCodes": ["sample-browser"]
+        }
+      },
+      "limitations": [
+        "Visible native label mapping passes Save and withdrawal targeted checks."
+      ]
+    },
+    {
+      "vendor": "usercentrics",
+      "config": "benchmarks/with-usercentrics/run.json",
+      "status": "configuration-unqualified",
+      "flows": {
+        "load": {
+          "status": "failed",
+          "failureCodes": ["banner-missing"]
+        }
+      },
+      "limitations": [
+        "Configuration unqualified for strict opt-in: original head script and migrated integration show no UI, required=false, effective mapped grants with no choice history. Bot/geo query flags observed; cause not established solely from those flags."
+      ]
+    }
+  ]
+}

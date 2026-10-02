@@ -1,7 +1,6 @@
 {
   "extends": "@cookiebench/ts-config/nextjs.json",
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
     }

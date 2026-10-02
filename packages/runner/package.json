@@ -1,0 +1,25 @@
+{
+  "name": "@cookiebench/runner",
+  "version": "3.0.0",
+  "private": true,
+  "type": "module",
+  "exports": "./src/index.ts",
+  "scripts": {
+    "build": "tsc --noEmit -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test:unit": "vitest run test/network.test.ts",
+    "test": "playwright test --config playwright.config.ts"
+  },
+  "dependencies": {
+    "@cookiebench/schema": "workspace:*",
+    "effect": "4.0.0-rc.117",
+    "playwright": "1.63.0",
+    "web-vitals": "6.2.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/node": "24.13.3",
+    "typescript": "6.0.3",
+    "vitest": "5.0.0"
+  }
+}

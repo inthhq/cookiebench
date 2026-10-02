@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CookieBench headless consent fixture</title>
+  </head>
+  <body>
+    <div id="content"></div>
+    <button id="reopen-preferences" type="button">Privacy preferences</button
+    ><button id="withdraw-consent" type="button">
+      Withdraw optional consent
+    </button>
+    <section id="banner" hidden aria-labelledby="privacy-title">
+      <h2 id="privacy-title">Your privacy choices</h2>
+      <p>
+        Allow optional measurement and marketing scripts, reject them, or choose
+        categories.
+      </p>
+      <div class="actions">
+        <button id="accept" type="button">Accept all</button
+        ><button id="reject" type="button">Reject all</button
+        ><button id="preferences" type="button">Choose categories</button>
+      </div>
+      <form id="choices" hidden>
+        <label
+          ><input id="measurement" type="checkbox" /> Allow measurement</label
+        ><label><input id="marketing" type="checkbox" /> Allow marketing</label
+        ><button id="save" type="submit">Save preferences</button>
+      </form>
+      <p id="feedback" role="status"></p>
+    </section>
+    <script type="module" src="/src/headless.ts"></script>
+  </body>
+</html>

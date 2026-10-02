@@ -1,26 +1,23 @@
 {
   "name": "with-osano",
+  "version": "3.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "benchmark": "pnpm exec benchmark-cli benchmark",
     "build": "next build",
-    "dev": "next dev --port 3006",
-    "fmt": "biome format . --write",
-    "lint": "biome lint .",
-    "start": "next start"
+    "start": "node ../../packages/fixture-support/src/serve.ts --port 4327 --upstream-port 4427 -- pnpm exec next start --port 4427",
+    "typecheck": "next typegen && tsc --noEmit"
   },
   "dependencies": {
+    "@cookiebench/fixture-support": "workspace:*",
     "next": "16.0.7",
-    "react": "^19.2.1",
-    "react-dom": "^19.2.1"
+    "react": "19.2.1",
+    "react-dom": "19.2.1"
   },
   "devDependencies": {
-    "@cookiebench/benchmark-schema": "workspace:*",
-    "@cookiebench/cli": "workspace:*",
-    "@cookiebench/ts-config": "workspace:*",
-    "@types/node": "^24.10.1",
-    "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3",
-    "typescript": "^5.9.3"
+    "@types/node": "catalog:",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "typescript": "catalog:"
   }
 }

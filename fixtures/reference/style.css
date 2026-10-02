@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  background: #f4f2eb;
+  color: #20271e;
+  font: 18px/1.5 system-ui;
+}
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 32px;
+}
+.hero {
+  height: 260px;
+  background: #4d6441;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 40px;
+}
+button {
+  font: inherit;
+  padding: 10px 16px;
+  margin: 6px;
+  cursor: pointer;
+}
+#banner {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  max-width: 540px;
+  padding: 24px;
+  background: white;
+  border: 1px solid #777;
+  box-shadow: 0 8px 32px #0002;
+  z-index: 5;
+}
+#banner[hidden],
+[hidden] {
+  display: none !important;
+}
+h1,
+h2 {
+  line-height: 1.2;
+}
+input {
+  width: 22px;
+  height: 22px;
+}
+article {
+  min-height: 200px;
+}

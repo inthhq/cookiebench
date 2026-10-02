@@ -1,0 +1,23 @@
+{
+  "name": "with-c15t-nuxt",
+  "version": "3.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build && COOKIEBENCH_BASELINE=1 nuxt build",
+    "typecheck": "nuxt typecheck",
+    "start": "node ../../packages/fixture-support/src/serve.ts --port 4314 --upstream-port 4414 --baseline-upstream-port 4514 --baseline-entry .output-baseline/server/index.mjs -- node .output/server/index.mjs"
+  },
+  "dependencies": {
+    "@c15t/core": "3.0.0-alpha.3",
+    "@c15t/vue": "3.0.0-alpha.3",
+    "@cookiebench/fixture-support": "workspace:*",
+    "nuxt": "4.5.2",
+    "vue": "3.5.43"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "typescript": "catalog:",
+    "vue-tsc": "3.3.3"
+  }
+}

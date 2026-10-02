@@ -1,0 +1,5 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "include": ["src/**/*", "baseline/**/*", ".astro/types.d.ts"],
+  "compilerOptions": { "types": ["node"] }
+}

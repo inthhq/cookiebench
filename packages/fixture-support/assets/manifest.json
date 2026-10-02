@@ -1,0 +1,26 @@
+{
+  "revision": "article-workload-v1",
+  "image": {
+    "file": "courtyard.png",
+    "width": 1200,
+    "height": 640,
+    "author": "CookieBench contributors",
+    "license": "CC0-1.0",
+    "source": "scripts/generate-reference-assets.py",
+    "seed": 20260927
+  },
+  "assets": {
+    "courtyard.png": {
+      "bytes": 493556,
+      "sha256": "27b0022abedd48ab3d98e6225baf9712a580f53f729d62e435f4560aa111e7b0"
+    },
+    "reading-list.json": {
+      "bytes": 26060,
+      "sha256": "f9210bab39800d0511d82f1625d591fba97d2df229ccd9d340a930fcb552e62a"
+    },
+    "reading-list.js": {
+      "bytes": 1527,
+      "sha256": "38ed86263591cbe8634360c7cff5cd0f437040a3138e8bec95d4200a0893283e"
+    }
+  }
+}

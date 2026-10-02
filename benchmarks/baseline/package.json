@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "benchmark": "pnpm exec benchmark-cli benchmark",
     "build": "next build ",
     "dev": "next dev --port 3000",
-    "fmt": "biome format . --write",
-    "lint": "biome lint .",
-    "start": "next start"
+    "lint": "ultracite check .",
+    "start": "next start",
+    "format": "ultracite fix .",
+    "typecheck": "next typegen && tsc --noEmit"
   },
   "dependencies": {
     "next": "16.0.7",
@@ -19,9 +19,9 @@
     "@cookiebench/benchmark-schema": "workspace:*",
     "@cookiebench/cli": "workspace:*",
     "@cookiebench/ts-config": "workspace:*",
-    "@types/node": "^24.10.1",
+    "@types/node": "catalog:",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
-    "typescript": "^5.9.3"
+    "typescript": "catalog:"
   }
 }
