@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { brotliCompressSync, gzipSync } from "node:zlib";
 
 export type ContentEncoding = "br" | "gzip" | "identity";
@@ -50,4 +51,60 @@ export function negotiateEncoding(
 
 export function compressedRepresentations(body: Buffer) {
   return { br: brotliCompressSync(body), gzip: gzipSync(body), identity: body };
+}
+
+/** One compressible-type policy for static files, shared assets and proxied responses. */
+export function compressibleType(contentType: string | undefined): boolean {
+  const type = contentType?.split(";")[0]?.trim().toLowerCase() ?? "";
+  return (
+    type.startsWith("text/") ||
+    /^application\/(?:javascript|json|xml|[\w.-]+\+(?:json|xml))$/u.test(
+      type
+    ) ||
+    type === "image/svg+xml"
+  );
+}
+
+const representationCache = new Map<
+  string,
+  ReturnType<typeof compressedRepresentations>
+>();
+
+/** Content-addressed, so changed upstream bytes never reuse stale encodings. */
+export function cachedRepresentations(body: Buffer) {
+  const key = createHash("sha256").update(body).digest("hex");
+  let cached = representationCache.get(key);
+  if (!cached) {
+    cached = compressedRepresentations(body);
+    if (representationCache.size >= 512) {
+      const oldest = representationCache.keys().next();
+      if (!oldest.done) {
+        representationCache.delete(oldest.value);
+      }
+    }
+    representationCache.set(key, cached);
+  }
+  return cached;
+}
+
+/**
+ * A strong validator names exact bytes, so each encoded representation gets
+ * its own entity tag. `upstreamValidators` reverses the suffix before a
+ * conditional request reaches the identity-only upstream.
+ */
+export function representationTag(
+  etag: string | undefined,
+  encoding: ContentEncoding
+): string | undefined {
+  if (!etag || encoding === "identity") {
+    return etag;
+  }
+  const match = /^(?<weak>W\/)?"(?<tag>[^"]*)"$/u.exec(etag.trim());
+  return match?.groups
+    ? `${match.groups.weak ?? ""}"${match.groups.tag}~${encoding}"`
+    : undefined;
+}
+
+export function upstreamValidators(header: string | undefined) {
+  return header?.replaceAll(/~(?:br|gzip)"/gu, '"');
 }

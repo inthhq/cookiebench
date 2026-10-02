@@ -1,7 +1,11 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 
-import { compressedRepresentations, negotiateEncoding } from "./compression.ts";
+import {
+  compressedRepresentations,
+  compressibleType,
+  negotiateEncoding,
+} from "./compression.ts";
 
 const assetTypes = {
   "courtyard.png": "image/png",
@@ -36,7 +40,7 @@ export function pageAssetResponse(pathname: string, acceptEncoding = "") {
   // PNG is already compressed. Text assets use identical compression everywhere.
   const encoding = negotiateEncoding(
     acceptEncoding,
-    asset.type !== "image/png"
+    compressibleType(asset.type)
   );
   if (!encoding) {
     return {

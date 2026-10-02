@@ -1,11 +1,82 @@
-import type { IncomingMessage, ServerResponse } from "node:http";
+import type {
+  IncomingHttpHeaders,
+  IncomingMessage,
+  ServerResponse,
+} from "node:http";
 import { pipeline } from "node:stream";
 import type { Transform } from "node:stream";
 import { constants, createBrotliCompress, createGzip } from "node:zlib";
 
-import { negotiateEncoding } from "./compression.ts";
+import {
+  cachedRepresentations,
+  compressibleType,
+  negotiateEncoding,
+  representationTag,
+} from "./compression.ts";
+import type { ContentEncoding } from "./compression.ts";
 import { HtmlInjection } from "./html-injection.ts";
 
+function varyOnEncoding(headers: IncomingHttpHeaders) {
+  const vary = headers.vary?.split(",").map((value) => value.trim()) ?? [];
+  if (
+    !vary.some((value) =>
+      ["accept-encoding", "*"].includes(value.toLowerCase())
+    )
+  ) {
+    vary.push("Accept-Encoding");
+  }
+  return vary.join(", ");
+}
+
+// Flushing each input chunk lets streamed HTML reach the browser before upstream ends.
+function streamingCompressor(encoding: ContentEncoding) {
+  if (encoding === "br") {
+    return createBrotliCompress({ flush: constants.BROTLI_OPERATION_FLUSH });
+  }
+  return encoding === "gzip"
+    ? createGzip({ flush: constants.Z_SYNC_FLUSH })
+    : undefined;
+}
+
+/** Sized identity assets are compressed once, like static files, and cached by content. */
+async function sendRepresentation(
+  response: IncomingMessage,
+  outgoing: ServerResponse,
+  encoding: ContentEncoding
+) {
+  const chunks: Buffer[] = [];
+  try {
+    for await (const chunk of response) {
+      chunks.push(Buffer.from(chunk));
+    }
+  } catch {
+    outgoing.destroy();
+    return;
+  }
+  const body = cachedRepresentations(Buffer.concat(chunks))[encoding];
+  const headers: IncomingHttpHeaders = {
+    ...response.headers,
+    "content-length": String(body.length),
+    etag: representationTag(response.headers.etag, encoding),
+    vary: varyOnEncoding(response.headers),
+  };
+  if (encoding === "identity") {
+    delete headers["content-encoding"];
+  } else {
+    headers["content-encoding"] = encoding;
+  }
+  if (headers.etag === undefined) {
+    delete headers.etag;
+  }
+  outgoing.writeHead(response.statusCode ?? 502, headers);
+  outgoing.end(body);
+}
+
+/**
+ * Every fixture asks its upstream for identity bytes, so this proxy applies one
+ * compression policy: compressible types use Brotli or gzip from
+ * Accept-Encoding, other types and already encoded bytes pass through.
+ */
 export function forwardResponse(
   response: IncomingMessage,
   outgoing: ServerResponse,
@@ -17,11 +88,13 @@ export function forwardResponse(
 ) {
   const status = response.statusCode ?? 502;
   const html = response.headers["content-type"]?.includes("text/html");
+  const compressible =
+    html || compressibleType(response.headers["content-type"]);
   const encoded =
     response.headers["content-encoding"] &&
     response.headers["content-encoding"] !== "identity";
   const hasBody = ![204, 304].includes(status);
-  if (!html || !hasBody || (encoded && !options.injection)) {
+  if (!compressible || !hasBody || (encoded && !options.injection)) {
     outgoing.writeHead(status, response.headers);
     pipeline(response, outgoing, () => {
       // Pipeline destroys its streams on errors.
@@ -41,16 +114,18 @@ export function forwardResponse(
     outgoing.end();
     return;
   }
-  const headers = { ...response.headers };
-  const vary = headers.vary?.split(",").map((value) => value.trim()) ?? [];
   if (
-    !vary.some((value) =>
-      ["accept-encoding", "*"].includes(value.toLowerCase())
-    )
+    !html &&
+    options.method !== "HEAD" &&
+    response.headers["content-length"] !== undefined
   ) {
-    vary.push("Accept-Encoding");
+    void sendRepresentation(response, outgoing, encoding);
+    return;
   }
-  headers.vary = vary.join(", ");
+  const headers = {
+    ...response.headers,
+    vary: varyOnEncoding(response.headers),
+  };
   if (options.injection || encoding !== "identity") {
     delete headers["content-length"];
     delete headers.etag;
@@ -62,13 +137,9 @@ export function forwardResponse(
   if (options.injection) {
     transforms.push(new HtmlInjection(options.injection));
   }
-  if (encoding === "br") {
-    transforms.push(
-      createBrotliCompress({ flush: constants.BROTLI_OPERATION_FLUSH })
-    );
-  }
-  if (encoding === "gzip") {
-    transforms.push(createGzip({ flush: constants.Z_SYNC_FLUSH }));
+  const compressor = streamingCompressor(encoding);
+  if (compressor) {
+    transforms.push(compressor);
   }
   outgoing.writeHead(status, headers);
   if (options.method === "HEAD") {

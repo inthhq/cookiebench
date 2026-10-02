@@ -6,6 +6,11 @@ import { parseArgs } from "node:util";
 import { parseBackendDelay, waitForBackend } from "./backend-delay.ts";
 import { initResponse } from "./backend.ts";
 import { competitorBootstrap } from "./competitor-bootstrap.ts";
+import {
+  cachedRepresentations,
+  negotiateEncoding,
+  upstreamValidators,
+} from "./compression.ts";
 import { pageAssetResponse } from "./page-assets.ts";
 import { forwardResponse } from "./proxy-response.ts";
 import { createStaticResponder } from "./static-response.ts";
@@ -85,12 +90,38 @@ function servePageAsset(
   }
   return false;
 }
-function proxyHeaders(incoming: IncomingMessage, url: URL) {
-  const fixtureDocument =
-    Boolean(bootstrap) && ["/", "/baseline"].includes(url.pathname);
+// The controlled consent backend follows the same compression policy as assets.
+function sendConsentJson(
+  incoming: IncomingMessage,
+  outgoing: ServerResponse,
+  value: unknown
+) {
+  const encoding = negotiateEncoding(incoming.headers["accept-encoding"]);
+  if (!encoding) {
+    outgoing.writeHead(406, { Vary: "Accept-Encoding" });
+    outgoing.end();
+    return;
+  }
+  const body = cachedRepresentations(Buffer.from(JSON.stringify(value)))[
+    encoding
+  ];
+  outgoing.writeHead(200, {
+    "Cache-Control": "no-store",
+    "Content-Length": body.length,
+    "Content-Type": "application/json",
+    Vary: "Accept-Encoding",
+    ...(encoding === "identity" ? {} : { "Content-Encoding": encoding }),
+  });
+  outgoing.end(incoming.method === "HEAD" ? undefined : body);
+}
+function proxyHeaders(incoming: IncomingMessage) {
+  // Upstreams send identity bytes so forwardResponse applies one compression
+  // policy to every framework, as the static responder does for files.
+  const ifNoneMatch = upstreamValidators(incoming.headers["if-none-match"]);
   return {
     ...incoming.headers,
-    ...(fixtureDocument ? { "accept-encoding": "identity" } : {}),
+    "accept-encoding": "identity",
+    ...(ifNoneMatch === undefined ? {} : { "if-none-match": ifNoneMatch }),
     "x-forwarded-host": `127.0.0.1:${port}`,
     "x-forwarded-proto": "http",
   };
@@ -124,11 +155,7 @@ const server = createServer(async (incoming, outgoing) => {
   }
   if (url.pathname === "/api/consent/init") {
     await waitForBackend(backendDelayMs);
-    outgoing.writeHead(200, {
-      "Cache-Control": "no-store",
-      "Content-Type": "application/json",
-    });
-    outgoing.end(JSON.stringify(initResponse));
+    sendConsentJson(incoming, outgoing, initResponse);
     return;
   }
   if (url.pathname === "/api/consent/subjects") {
@@ -136,13 +163,10 @@ const server = createServer(async (incoming, outgoing) => {
     // This acknowledges a controlled backend write; browser timing observes the response separately.
     incoming.resume();
     incoming.on("end", () => {
-      outgoing.writeHead(200, {
-        "Cache-Control": "no-store",
-        "Content-Type": "application/json",
+      sendConsentJson(incoming, outgoing, {
+        ok: true,
+        subjectId: "cookiebench-subject",
       });
-      outgoing.end(
-        JSON.stringify({ ok: true, subjectId: "cookiebench-subject" })
-      );
     });
     return;
   }
@@ -188,7 +212,7 @@ const server = createServer(async (incoming, outgoing) => {
   const isBaseline = baselineChild && url.pathname.startsWith("/baseline");
   const proxy = request(
     {
-      headers: proxyHeaders(incoming, url),
+      headers: proxyHeaders(incoming),
       hostname: "127.0.0.1",
       method: incoming.method,
       path: incoming.url,

@@ -2,7 +2,11 @@ import { readFile, stat } from "node:fs/promises";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import path from "node:path";
 
-import { compressedRepresentations, negotiateEncoding } from "./compression.ts";
+import {
+  compressedRepresentations,
+  compressibleType,
+  negotiateEncoding,
+} from "./compression.ts";
 
 const mime: Record<string, string> = {
   ".css": "text/css; charset=utf-8",
@@ -13,13 +17,6 @@ const mime: Record<string, string> = {
   ".svg": "image/svg+xml",
   ".woff2": "font/woff2",
 };
-const compressibleExtensions = new Set([
-  ".css",
-  ".html",
-  ".js",
-  ".json",
-  ".svg",
-]);
 
 /** Cache production representations so compression work is not repeated per visit. */
 export function createStaticResponder(directory: string) {
@@ -74,7 +71,7 @@ export function createStaticResponder(directory: string) {
         throw new Error("Not a file");
       }
       const extension = path.extname(file);
-      const compressible = compressibleExtensions.has(extension);
+      const compressible = compressibleType(mime[extension]);
       const encoding = negotiateEncoding(
         incoming.headers["accept-encoding"],
         compressible
