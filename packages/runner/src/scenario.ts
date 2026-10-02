@@ -65,6 +65,34 @@ async function act(
     await control.click({ force: !preparation, noWaitAfter: true });
   }
 }
+/**
+ * A consent action may reload the page; c15t reloads after a revoke. An evaluate
+ * that races that navigation loses its execution context, so wait for the new
+ * document, whose observer the init script installed, and evaluate there.
+ */
+export async function acrossNavigation<T>(
+  page: Page,
+  operation: () => Promise<T>
+): Promise<T> {
+  for (let retry = 0; ; retry += 1) {
+    try {
+      // oxlint-disable-next-line no-await-in-loop -- Each retry follows the navigation that destroyed the previous context.
+      return await operation();
+    } catch (error) {
+      if (
+        retry >= 2 ||
+        !(error instanceof Error) ||
+        !/Execution context was destroyed|Cannot find context/u.test(
+          error.message
+        )
+      ) {
+        throw error;
+      }
+      // oxlint-disable-next-line no-await-in-loop -- See above.
+      await page.waitForLoadState("domcontentloaded").catch(() => null);
+    }
+  }
+}
 async function waitUntil(
   page: Page,
   predicate: () => boolean,
@@ -537,9 +565,11 @@ export function runSample(options: {
                     throw error;
                   }
                 );
-              actionNavigated = await page.evaluate(
-                (origin) => performance.timeOrigin !== origin,
-                initialTimeOrigin
+              actionNavigated = await acrossNavigation(page, () =>
+                page.evaluate(
+                  (origin) => performance.timeOrigin !== origin,
+                  initialTimeOrigin
+                )
               );
               if (actionNavigated) {
                 actionNavigation = await waitForPublicState(
@@ -651,11 +681,14 @@ export function runSample(options: {
           { timeout: scenario.observationMs + scenario.actionDeadlineMs }
         );
         await followup;
-        const finalDocumentData: BrowserObservations = await page.evaluate(() =>
-          window.__bench.settle()
-        );
-        const finalTimeOrigin = await page.evaluate(
-          () => performance.timeOrigin
+        // Settling waits out the paint grace, so a reload can land inside it.
+        const { finalDocumentData, finalTimeOrigin } = await acrossNavigation(
+          page,
+          () =>
+            page.evaluate(async () => ({
+              finalDocumentData: await window.__bench.settle(),
+              finalTimeOrigin: performance.timeOrigin,
+            }))
         );
         actionNavigated ||= finalTimeOrigin !== initialTimeOrigin;
         if (actionNavigated && !actionNavigation) {
