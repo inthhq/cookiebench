@@ -9,7 +9,11 @@ import type {
 import { Effect } from "effect";
 import type { Browser, BrowserContext, Page } from "playwright";
 
-import { installObserver, installVitals } from "./browser-observer.ts";
+import {
+  installObserver,
+  installVitals,
+  PAINT_GRACE_MS,
+} from "./browser-observer.ts";
 import type {
   ActionInspection,
   BrowserObservations,
@@ -260,7 +264,7 @@ export function runSample(options: {
           "__cookiebenchCapture"
         );
         await page.addInitScript({
-          content: `(${installObserver.toString()})(${JSON.stringify({ ...fixture.adapter, actionObservationMs: scenario.observationMs, categories: scenario.workload.categories, fixedDeadlineMs: scenario.action === "load" ? scenario.observationMs : undefined, maxDurationMs: scenario.navigationTimeoutMs + scenario.actionDeadlineMs * 3 + scenario.observationMs + 1000 })});\n${vitalsSource}\nwindow.webVitals = webVitals;\n(${installVitals.toString()})();\n(${installNavigationCapture.toString()})("__cookiebenchCapture", ${JSON.stringify(fixture.adapter.stateGlobal)});`,
+          content: `(${installObserver.toString()})(${JSON.stringify({ ...fixture.adapter, actionObservationMs: scenario.observationMs, categories: scenario.workload.categories, fixedDeadlineMs: scenario.action === "load" ? scenario.observationMs : undefined, maxDurationMs: scenario.navigationTimeoutMs + scenario.actionDeadlineMs * 3 + scenario.observationMs + 1000, paintGraceMs: PAINT_GRACE_MS })});\n${vitalsSource}\nwindow.webVitals = webVitals;\n(${installVitals.toString()})();\n(${installNavigationCapture.toString()})("__cookiebenchCapture", ${JSON.stringify(fixture.adapter.stateGlobal)});`,
         });
         const failures: Failure[] = [];
         await page.goto(url.href, {
@@ -605,7 +609,7 @@ export function runSample(options: {
         );
         await followup;
         const finalDocumentData: BrowserObservations = await page.evaluate(() =>
-          window.__bench.stop()
+          window.__bench.settle()
         );
         const finalTimeOrigin = await page.evaluate(
           () => performance.timeOrigin

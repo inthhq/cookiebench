@@ -1,7 +1,8 @@
-/* oxlint-disable promise/prefer-await-to-callbacks -- Browser callback interception deliberately supplies stale frame timestamps. */
+/* oxlint-disable promise/prefer-await-to-callbacks, promise/avoid-new -- Browser callback interception deliberately supplies stale frame timestamps and schedules paints around the cutoff. */
 import { expect, test } from "@playwright/test";
 
 import { installObserver } from "../src/browser-observer.ts";
+import type { BrowserObservations } from "../src/browser-observer.ts";
 import { longTaskBlocking, measurementsFor } from "../src/measure.ts";
 import { referenceFixture, referenceScenario } from "../src/reference.ts";
 
@@ -187,4 +188,48 @@ test("an earlier text LCP is withheld while the primary image is still loading a
     reason: expect.stringContaining("right-censored"),
     status: "unavailable",
   });
+});
+
+test("a paint presented before cutoff but queued after it still counts", async ({
+  page,
+}) => {
+  await page.setContent("<p>Small first paint</p>");
+  const deadline = await page.evaluate(() => performance.now() + 400);
+  await page.evaluate(installObserver, {
+    banner: "#banner",
+    categories: [],
+    fixedDeadlineMs: deadline,
+    maxDurationMs: 30_000,
+    paintGraceMs: 250,
+    stateGlobal: "__cookiebench",
+  });
+  const data = await page.evaluate(
+    (cutoff) =>
+      new Promise<BrowserObservations>((resolve) => {
+        setTimeout(
+          () => {
+            const late = document.createElement("h1");
+            late.id = "late";
+            late.style.fontSize = "64px";
+            late.textContent = "Painted inside the window";
+            document.body.append(late);
+            // Keep the main thread busy after the frame is committed, so Chrome can only
+            // queue its presentation-time entries once the cutoff has passed.
+            requestAnimationFrame(() =>
+              setTimeout(() => {
+                while (performance.now() < cutoff + 5) {
+                  /* Deliberate uninterrupted renderer task. */
+                }
+                resolve(window.__bench.settle());
+              }, 0)
+            );
+          },
+          Math.max(0, cutoff - 150 - performance.now())
+        );
+      }),
+    deadline
+  );
+  expect(data.observationEndedAt).toBe(deadline);
+  expect(data.lcpAttribution?.id).toBe("late");
+  expect(data.vitals.LCP?.value).toBeLessThanOrEqual(deadline);
 });

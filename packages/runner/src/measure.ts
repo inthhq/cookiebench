@@ -165,7 +165,7 @@ export function measurementsFor(
     "page.primary-content-paint",
     "ms",
     missingActionWindow ? undefined : data.primaryContentPaintAt,
-    "Element Timing v1; native renderTime of primary-content image; bounded foreground observation",
+    "Element Timing v2; native renderTime of primary-content image; bounded foreground observation; 250 ms presentation grace before drain",
     missingActionWindow
   );
   const censoredLcp = lcpCensoring(data, fixture);
@@ -183,10 +183,10 @@ export function measurementsFor(
       unit,
       withheld ? undefined : data.vitals[name]?.value,
       {
-        CLS: "bounded native vitals v2; main-document foreground entry-time cutoff; maximum session window; owned PerformanceObserver queue drain",
-        FCP: "bounded native vitals v2; main-document foreground entry-time cutoff; owned PerformanceObserver queue drain",
+        CLS: "bounded native vitals v3; main-document foreground entry-time cutoff; maximum session window; owned PerformanceObserver queue drain after 250 ms presentation grace",
+        FCP: "bounded native vitals v3; main-document foreground entry-time cutoff; owned PerformanceObserver queue drain after 250 ms presentation grace",
         INP: "INP withheld v2; web-vitals snapshot retained as an unfinalized diagnostic",
-        LCP: "bounded native vitals v3; main-document foreground entry-time cutoff; owned PerformanceObserver queue drain; withheld as right-censored when declared primary content is absent, loading or unpainted at cutoff",
+        LCP: "bounded native vitals v3; main-document foreground entry-time cutoff; owned PerformanceObserver queue drain after 250 ms presentation grace; withheld as right-censored when declared primary content is absent, loading or unpainted at cutoff",
         TTFB: "bounded navigation timing v2; native responseStart at or before cutoff; no foreground restriction",
       }[name],
       name === "INP"

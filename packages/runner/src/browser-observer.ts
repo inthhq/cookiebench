@@ -92,6 +92,8 @@ export interface ObserverConfig {
   maxDurationMs: number;
   fixedDeadlineMs?: number;
   actionObservationMs?: number;
+  /** Native observers stay connected this long after the cutoff before their queues drain. */
+  paintGraceMs?: number;
   categories: readonly string[];
 }
 export interface ActionInspection {
@@ -108,6 +110,7 @@ export interface BrowserBench {
   visible: (element: Element | null) => boolean;
   arm: (selector: string, action: string) => void;
   stop: () => BrowserObservations;
+  settle: () => Promise<BrowserObservations>;
   inspectAction: () => ActionInspection;
 }
 declare global {
@@ -126,6 +129,9 @@ declare global {
     >;
   }
 }
+
+/** Bounded wait for paint entries that Chrome queues after frame presentation. */
+export const PAINT_GRACE_MS = 250;
 
 // Passed to addInitScript. Keep this function self-contained: it runs before fixture JavaScript.
 // oxlint-disable-next-line unicorn/consistent-function-scoping -- Playwright serializes this entire function into the page; its helpers must remain inside.
@@ -217,7 +223,12 @@ export function installObserver(config: ObserverConfig) {
   let armedAction: string | undefined;
   let feedbackBefore: string | undefined;
   let lastFrame: number | undefined;
+  // DOM state freezes at the cutoff; native observers stop after the presentation grace.
+  let frozen = false;
   let stopped = false;
+  let settling: Promise<BrowserObservations> | undefined;
+  const cutoff = () =>
+    observations.observationEndedAt ?? observations.deadlineAt ?? Infinity;
   const observers: {
     observer: PerformanceObserver;
     callback: (entries: PerformanceEntry[]) => void;
@@ -231,11 +242,7 @@ export function installObserver(config: ObserverConfig) {
       return;
     }
     const collectWithinWindow = (entries: PerformanceEntry[]) =>
-      collectEntries(
-        entries.filter(
-          (entry) => entry.startTime <= (observations.deadlineAt ?? Infinity)
-        )
-      );
+      collectEntries(entries.filter((entry) => entry.startTime <= cutoff()));
     const observer = new PerformanceObserver((list) =>
       collectWithinWindow(list.getEntries())
     );
@@ -411,7 +418,7 @@ export function installObserver(config: ObserverConfig) {
       if (
         paint.identifier === "primary-content" &&
         paint.renderTime > 0 &&
-        paint.renderTime <= (observations.deadlineAt ?? Infinity) &&
+        paint.renderTime <= cutoff() &&
         paint.renderTime < firstHiddenAt &&
         observations.primaryContentPaintAt === undefined
       ) {
@@ -438,11 +445,11 @@ export function installObserver(config: ObserverConfig) {
       present: Boolean(primary),
     };
   };
-  const stop = () => {
-    if (stopped) {
-      return observations;
+  const freeze = () => {
+    if (frozen) {
+      return;
     }
-    stopped = true;
+    frozen = true;
     observations.observationEndedAt = Math.min(
       performance.now(),
       observations.deadlineAt ?? Infinity
@@ -452,15 +459,15 @@ export function installObserver(config: ObserverConfig) {
       config.stateGlobal
     ];
     if (observations.state && finalState) {
-      const cutoff = observations.observationEndedAt;
+      const endedAt = observations.observationEndedAt;
       observations.state.scripts = finalState.scripts
-        .filter((item) => item.at <= cutoff)
+        .filter((item) => item.at <= endedAt)
         .map((item) => ({ ...item }));
       observations.state.storageWrites = finalState.storageWrites
-        ?.filter((item) => item.at <= cutoff)
+        ?.filter((item) => item.at <= endedAt)
         .map((item) => ({ ...item }));
       observations.state.frames = finalState.frames
-        ?.filter((item) => item.at <= cutoff)
+        ?.filter((item) => item.at <= endedAt)
         .map((item) => ({ ...item }));
       for (const key of [
         "persistedAt",
@@ -468,7 +475,7 @@ export function installObserver(config: ObserverConfig) {
         "resolvedAt",
       ] as const) {
         const at = finalState[key];
-        if (at !== undefined && at <= cutoff) {
+        if (at !== undefined && at <= endedAt) {
           observations.state[key] = at;
           if (key !== "resolvedAt") {
             observations[key] = at;
@@ -490,11 +497,47 @@ export function installObserver(config: ObserverConfig) {
         value: navigation.responseStart,
       };
     }
+  };
+  // Synchronous stop drains only entries already queued; pagehide has no time for a grace period.
+  const stop = () => {
+    freeze();
+    if (stopped) {
+      return observations;
+    }
+    stopped = true;
     for (const { observer, callback: collectEntries } of observers) {
       collectEntries(observer.takeRecords());
       observer.disconnect();
     }
     return observations;
+  };
+  // Chrome queues paint entries after frame presentation, so a paint just before the cutoff
+  // can arrive after it. Entries remain admitted by occurrence time, never by delivery time.
+  const settle = () => {
+    freeze();
+    // oxlint-disable-next-line promise/avoid-new -- The page-side timer callback resolves the one shared settlement.
+    settling ??= new Promise<BrowserObservations>((resolve) => {
+      const drainAfterGrace = () => {
+        const remaining =
+          cutoff() + (config.paintGraceMs ?? 0) - performance.now();
+        if (stopped || remaining <= 0) {
+          resolve(stop());
+          return;
+        }
+        setTimeout(drainAfterGrace, remaining);
+      };
+      drainAfterGrace();
+    });
+    return settling;
+  };
+  // Timers can fire marginally early; the cutoff never precedes the declared deadline.
+  const settleAtDeadline = () => {
+    const remaining = (observations.deadlineAt ?? 0) - performance.now();
+    if (remaining > 0) {
+      setTimeout(settleAtDeadline, remaining);
+      return;
+    }
+    void settle();
   };
   let activeInput:
     | { target: string; key?: string; pointerId?: number }
@@ -502,7 +545,7 @@ export function installObserver(config: ObserverConfig) {
   // oxlint-disable-next-line complexity -- Trusted event admission checks identity, activation keys, deadlines and primary/followup ownership together.
   const inputListener = (event: Event) => {
     if (
-      stopped ||
+      frozen ||
       !armedSelector ||
       !event.isTrusted ||
       performance.now() > (observations.deadlineAt ?? Infinity)
@@ -569,10 +612,7 @@ export function installObserver(config: ObserverConfig) {
       observations.input = input;
       if (config.actionObservationMs !== undefined) {
         observations.deadlineAt = input.at + config.actionObservationMs;
-        setTimeout(
-          stop,
-          Math.max(0, observations.deadlineAt - performance.now())
-        );
+        settleAtDeadline();
       }
     }
     observations.inputs.push(input);
@@ -592,11 +632,11 @@ export function installObserver(config: ObserverConfig) {
   // oxlint-disable-next-line complexity -- One bounded frame callback observes independent optional milestones without scheduling extra work.
   const tick = (frameAt: number) => {
     const at = performance.now();
-    if (stopped) {
+    if (frozen) {
       return;
     }
     if (at > (observations.deadlineAt ?? Infinity)) {
-      stop();
+      void settle();
       return;
     }
     observations.observerCallbacks += 1;
@@ -731,7 +771,7 @@ export function installObserver(config: ObserverConfig) {
     if (performance.now() <= config.maxDurationMs) {
       requestAnimationFrame(tick);
     } else {
-      stop();
+      void settle();
     }
   };
   window.__bench = {
@@ -771,12 +811,13 @@ export function installObserver(config: ObserverConfig) {
     },
     observations,
     query,
+    settle,
     stop,
     visible,
   };
   if (config.fixedDeadlineMs !== undefined) {
     observations.deadlineAt = config.fixedDeadlineMs;
-    setTimeout(stop, Math.max(0, config.fixedDeadlineMs - performance.now()));
+    settleAtDeadline();
   }
   requestAnimationFrame(tick);
 }

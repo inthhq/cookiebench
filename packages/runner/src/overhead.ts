@@ -14,7 +14,11 @@ import type {
 import { Effect } from "effect";
 import type { Browser } from "playwright";
 
-import { installObserver, installVitals } from "./browser-observer.ts";
+import {
+  installObserver,
+  installVitals,
+  PAINT_GRACE_MS,
+} from "./browser-observer.ts";
 import { decodeRunConfig } from "./config.ts";
 import type { RunConfig } from "./config.ts";
 import { validateCalibrationRuntime } from "./cpu-calibration.ts";
@@ -33,8 +37,8 @@ import { hashCollectorSource } from "./provenance.ts";
 
 const require = createRequire(import.meta.url);
 const METHODS = {
-  fcp: "native paint entry at navigation-relative deadline; identical minimal observer in both audit arms",
-  lcp: "native LCP entry at navigation-relative deadline; identical minimal observer in both audit arms",
+  fcp: "native paint entry at navigation-relative deadline; 250 ms presentation grace before drain; identical minimal observer in both audit arms",
+  lcp: "native LCP entry at navigation-relative deadline; 250 ms presentation grace before drain; identical minimal observer in both audit arms",
   task: "CDP Performance.TaskDuration delta before navigation to recorded endpoint; threadTicks; seconds converted to ms",
 };
 
@@ -52,12 +56,12 @@ interface AuditPaint {
 declare global {
   interface Window {
     __auditPaint: AuditPaint;
-    __stopAuditPaint: () => void;
+    __settleAuditPaint: () => Promise<AuditPaint>;
   }
 }
 
-// Both arms share only native paint entry collection and one deadline timer.
-export function installAuditPaint(deadline: number) {
+// Both arms share only native paint entry collection, one deadline timer and the same presentation grace.
+export function installAuditPaint(deadline: number, graceMs: number) {
   const data: AuditPaint = {
     deadline,
     entries: [],
@@ -87,18 +91,29 @@ export function installAuditPaint(deadline: number) {
     observer.observe({ buffered: true, type });
     observers.push(observer);
   }
-  const stop = () => {
-    if (data.stoppedAt !== undefined) {
-      return;
-    }
-    for (const observer of observers) {
-      collect(observer.takeRecords());
-      observer.disconnect();
-    }
-    data.stoppedAt = performance.now();
+  let settling: Promise<AuditPaint> | undefined;
+  const settle = () => {
+    // oxlint-disable-next-line promise/avoid-new -- The page-side timer callback resolves the one shared settlement.
+    settling ??= new Promise((resolve) => {
+      const drainAfterGrace = () => {
+        const remaining = deadline + graceMs - performance.now();
+        if (remaining > 0) {
+          setTimeout(drainAfterGrace, remaining);
+          return;
+        }
+        for (const observer of observers) {
+          collect(observer.takeRecords());
+          observer.disconnect();
+        }
+        data.stoppedAt = performance.now();
+        resolve(data);
+      };
+      drainAfterGrace();
+    });
+    return settling;
   };
-  window.__stopAuditPaint = stop;
-  setTimeout(stop, Math.max(0, deadline - performance.now()));
+  window.__settleAuditPaint = settle;
+  setTimeout(settle, Math.max(0, deadline - performance.now()));
 }
 
 export function validateOverheadConfig(input: RunConfig): RunConfig {
@@ -187,9 +202,9 @@ const auditSample = Effect.fn("instrumentation.auditSample")(
       const documentEvidence = network
         ? await captureDocuments(network.session, "__cookiebenchCapture")
         : undefined;
-      let init = `(${installAuditPaint.toString()})(${scenario.observationMs});`;
+      let init = `(${installAuditPaint.toString()})(${scenario.observationMs}, ${PAINT_GRACE_MS});`;
       if (arm === "full") {
-        init += `\n(${installObserver.toString()})(${JSON.stringify({ ...fixture.adapter, categories: scenario.workload.categories, fixedDeadlineMs: scenario.observationMs, maxDurationMs: scenario.observationMs })});\n${vitalsSource}\nwindow.webVitals = webVitals;\n(${installVitals.toString()})();\n(${installNavigationCapture.toString()})("__cookiebenchCapture", ${JSON.stringify(fixture.adapter.stateGlobal)});`;
+        init += `\n(${installObserver.toString()})(${JSON.stringify({ ...fixture.adapter, categories: scenario.workload.categories, fixedDeadlineMs: scenario.observationMs, maxDurationMs: scenario.observationMs, paintGraceMs: PAINT_GRACE_MS })});\n${vitalsSource}\nwindow.webVitals = webVitals;\n(${installVitals.toString()})();\n(${installNavigationCapture.toString()})("__cookiebenchCapture", ${JSON.stringify(fixture.adapter.stateGlobal)});`;
       }
       await page.addInitScript({ content: init });
       const before = await session.send("Performance.getMetrics");
@@ -203,12 +218,16 @@ const auditSample = Effect.fn("instrumentation.auditSample")(
       );
       await delay(remaining, undefined, { signal });
       const after = await session.send("Performance.getMetrics");
-      const raw = await page.evaluate(() => {
-        window.__stopAuditPaint();
+      const raw = await page.evaluate(async () => {
+        const endpointAt = performance.now();
+        const [paint, observations] = await Promise.all([
+          window.__settleAuditPaint(),
+          window.__bench?.settle(),
+        ]);
         return {
-          endpointAt: performance.now(),
-          observations: window.__bench?.stop(),
-          paint: window.__auditPaint,
+          endpointAt,
+          observations,
+          paint,
           timeOrigin: performance.timeOrigin,
           userAgent: navigator.userAgent,
         };
@@ -428,7 +447,7 @@ export const runInstrumentationOverhead = Effect.fn("instrumentation.audit")(
             "not calibrated: load-only visits do not arm a consent action, dispatch trusted input or serialize input/unload snapshots; no overhead correction is applied",
           lockfileHash,
           minimalArm:
-            "main-document native paint/LCP observer with timer and snapshot queue drain, shared CDP emulation and Performance domain; no DOM polling, web-vitals or network listeners",
+            "main-document native paint/LCP observer with timer and snapshot queue drain after a 250 ms presentation grace, shared CDP emulation and Performance domain; no DOM polling, web-vitals or network listeners",
           order: JSON.stringify(orders),
           platform: platform(),
           release: release(),
