@@ -21,6 +21,11 @@ export interface NetworkRequest {
   // Exact encoded body length, established only for completed uncached responses.
   encodedBodyBytes?: number;
   decodedBodyBytes?: number;
+  // Why a completed response's decoded size is unknown, e.g. an undelivered compressed prefetch.
+  decodedBodyUnavailable?: string;
+  // Violated per-request byte relations; any entry withholds the phase byte totals.
+  byteInconsistencies?: string[];
+  contentEncoding?: string;
   decodedBodySha256?: string;
   // Text responses hash the protocol string re-encoded as UTF-8, not original charset bytes.
   bodyDigestEncoding?: "base64-bytes" | "utf8-text" | "empty-body";
@@ -37,6 +42,80 @@ export interface NetworkCoverage {
 
 function hasNoBody(row: NetworkRequest): boolean {
   return row.method === "HEAD" || [204, 205, 304].includes(row.status ?? 0);
+}
+
+function identityEncoded(row: NetworkRequest): boolean {
+  return ["", "identity"].includes(row.contentEncoding ?? "");
+}
+
+/**
+ * Chunk-event encoded counts can include framing or be partial. Content-Length
+ * establishes the encoded body size; identity encoding also permits the complete
+ * decoded byte count. Compressed bodies without an exact length stay unknown.
+ * Returns true when the network delivered body bytes that no renderer read.
+ */
+function settleBodySizes(row: NetworkRequest, length?: number): boolean {
+  const identity = identityEncoded(row);
+  if (
+    !row.decodedBodyBytes &&
+    ((row.encodedDataBytes ?? 0) > 0 || (length ?? 0) > 0)
+  ) {
+    // As with rel=prefetch, CDP reports encoded data with zero dataLength. Only
+    // identity encoding makes the decoded size known without the body.
+    row.encodedBodyBytes = length;
+    row.decodedBodyBytes = identity ? length : undefined;
+    if (row.decodedBodyBytes === undefined) {
+      row.decodedBodyUnavailable =
+        "Response body was not delivered to a renderer and its decoded size is not established";
+    }
+    return true;
+  }
+  row.encodedBodyBytes =
+    length ?? (identity ? row.decodedBodyBytes : undefined);
+  return false;
+}
+
+/**
+ * Relations every completed uncached response must satisfy. Transfer includes
+ * headers and framing, so it can never be smaller than the encoded body, and
+ * identity encoding makes decoded and encoded bodies the same bytes. Transfer
+ * is deliberately not compared with decoded size: a small compressed body plus
+ * its headers can legitimately exceed the decoded body.
+ */
+export function byteInconsistencies(row: NetworkRequest): string[] {
+  if (!row.finished || row.failed || row.fromCache) {
+    return [];
+  }
+  const problems: string[] = [];
+  if (
+    row.transferBytes === 0 &&
+    (row.status ?? 0) >= 200 &&
+    (row.status ?? 0) < 300 &&
+    /^https?:/u.test(row.url)
+  ) {
+    // Even an empty uncached HTTP response carries a status line and headers.
+    problems.push("uncached response reported zero transfer bytes");
+  }
+  if (
+    row.transferBytes !== undefined &&
+    row.encodedBodyBytes !== undefined &&
+    row.transferBytes < row.encodedBodyBytes
+  ) {
+    problems.push(
+      `transfer ${row.transferBytes} B is smaller than encoded body ${row.encodedBodyBytes} B`
+    );
+  }
+  if (
+    identityEncoded(row) &&
+    row.encodedBodyBytes !== undefined &&
+    row.decodedBodyBytes !== undefined &&
+    row.encodedBodyBytes !== row.decodedBodyBytes
+  ) {
+    problems.push(
+      `identity-encoded decoded body ${row.decodedBodyBytes} B differs from encoded body ${row.encodedBodyBytes} B`
+    );
+  }
+  return problems;
 }
 
 export function classifyHostname(
@@ -141,7 +220,6 @@ export async function collectNetwork(page: Page, pageUrl: string) {
   const active = new Map<string, NetworkRequest>();
   const requestIds = new Map<string, string>();
   const contentLengths = new Map<string, number>();
-  const identityEncoding = new Set<string>();
   const completed = new Set<string>();
   const revisions: NetworkRevision[] = [];
   const record = (row: NetworkRequest, monotonicSeconds: number) => {
@@ -189,6 +267,7 @@ export async function collectNetwork(page: Page, pageUrl: string) {
     row.fromCache = Boolean(
       row.fromCache ||
       event.response.fromDiskCache ||
+      event.response.fromPrefetchCache ||
       event.response.fromServiceWorker
     );
     const length = Object.entries(event.response.headers ?? {}).find(
@@ -204,13 +283,8 @@ export async function collectNetwork(page: Page, pageUrl: string) {
     const encoding = Object.entries(event.response.headers ?? {}).find(
       ([name]) => name.toLowerCase() === "content-encoding"
     )?.[1];
-    if (
-      encoding === undefined ||
-      (typeof encoding === "string" &&
-        ["", "identity"].includes(encoding.trim().toLowerCase()))
-    ) {
-      identityEncoding.add(row.id);
-    }
+    row.contentEncoding =
+      typeof encoding === "string" ? encoding.trim().toLowerCase() : undefined;
     if (hasNoBody(row)) {
       row.encodedBodyBytes = 0;
       row.decodedBodyBytes = 0;
@@ -262,17 +336,17 @@ export async function collectNetwork(page: Page, pageUrl: string) {
       if (!row.finished || row.failed) {
         continue;
       }
+      let undelivered = false;
       const bodyless = hasNoBody(row);
       if (bodyless) {
         row.encodedBodyBytes = 0;
         row.decodedBodyBytes = 0;
       } else if (!row.fromCache && completed.has(row.id)) {
-        // Chunk-event encoded counts can include framing or be partial. Content-Length
-        // establishes the encoded body size; identity encoding also permits the complete
-        // decoded byte count. Compressed bodies without an exact length stay unknown.
-        row.encodedBodyBytes =
-          contentLengths.get(row.id) ??
-          (identityEncoding.has(row.id) ? row.decodedBodyBytes : undefined);
+        undelivered = settleBodySizes(row, contentLengths.get(row.id));
+      }
+      const problems = byteInconsistencies(row);
+      if (problems.length) {
+        row.byteInconsistencies = problems;
       }
       if (
         !(
@@ -280,6 +354,12 @@ export async function collectNetwork(page: Page, pageUrl: string) {
           /javascript|json|css/iu.test(row.responseContentType ?? "")
         )
       ) {
+        continue;
+      }
+      if (undelivered) {
+        // getResponseBody returns an empty body here, which is not the response.
+        row.bodyDigestUnavailable =
+          "Response body was not delivered to a renderer";
         continue;
       }
       const requestId = requestIds.get(row.id);

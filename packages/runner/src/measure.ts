@@ -230,14 +230,20 @@ export function measurementsFor(
       rows.filter((row) => row.party === "third-party").length,
       "exact URL hostname comparison; no substring or registrable-domain inference"
     );
+    // Impossible per-request relations withhold every byte total in the phase.
+    const inconsistent = rows.flatMap((row) =>
+      (row.byteInconsistencies ?? []).map((problem) => `${row.url}: ${problem}`)
+    );
     for (const [key, field] of [
       ["transfer", "transferBytes"],
       ["encoded-body", "encodedBodyBytes"],
       ["decoded-body", "decodedBodyBytes"],
     ] as const) {
-      const complete = rows.every(
-        (row) => row.finished && !row.failed && row[field] !== undefined
-      );
+      const complete =
+        inconsistent.length === 0 &&
+        rows.every(
+          (row) => row.finished && !row.failed && row[field] !== undefined
+        );
       add(
         `${phase}.${key}`,
         "bytes",
@@ -245,13 +251,16 @@ export function measurementsFor(
           ? rows.reduce((sum, row) => sum + Number(row[field]), 0)
           : undefined,
         {
-          decodedBodyBytes: "network bytes v2; CDP dataReceived.dataLength sum",
+          decodedBodyBytes:
+            "network bytes v3; CDP dataReceived.dataLength sum, or identity Content-Length for bodies no renderer read",
           encodedBodyBytes:
             "network bytes v2; completed uncached Content-Length or identity decoded bytes",
           transferBytes:
             "network bytes v2; completed CDP loadingFinished.encodedDataLength",
         }[field],
-        "One or more responses lack a complete byte observation; inspect raw requests"
+        inconsistent.length
+          ? `Inconsistent per-request byte observations: ${inconsistent.join("; ")}`
+          : "One or more responses lack a complete byte observation; inspect raw requests"
       );
     }
   }

@@ -48,6 +48,18 @@ test.beforeAll(async () => {
       );
       return;
     }
+    if (request.url?.startsWith("/prefetch-")) {
+      const compressed = request.url.includes("gzip");
+      response.setHeader("Cache-Control", "max-age=3600");
+      response.setHeader("Content-Type", "text/javascript");
+      if (compressed) {
+        response.setHeader("Content-Encoding", "gzip");
+      }
+      const bytes = compressed ? zipped : body;
+      response.setHeader("Content-Length", bytes.length);
+      response.end(bytes);
+      return;
+    }
     if (request.method === "OPTIONS" || request.url === "/bodyless") {
       response.statusCode = 204;
       response.end();
@@ -410,5 +422,48 @@ test("preflight and concurrent same-URL responses retain exact CDP body identity
       const protocolId = row.id.slice(0, row.id.lastIndexOf(":"));
       expect(row.decodedBodySha256).toBe(expected.get(protocolId));
     }
+  }
+});
+
+test("prefetched bodies no renderer read keep exact or explicitly unknown decoded sizes", async ({
+  page,
+}) => {
+  const network = await collectNetwork(page, origin);
+  await page.goto(origin);
+  await page.evaluate((base) => {
+    for (const name of ["prefetch-identity.js", "prefetch-gzip.js"]) {
+      const link = document.createElement("link");
+      link.rel = "prefetch";
+      link.crossOrigin = "anonymous";
+      link.href = `${base}/${name}`;
+      document.head.append(link);
+    }
+  }, remote);
+  await expect
+    .poll(
+      () =>
+        network.requests.filter(
+          (row) => row.url.includes("/prefetch-") && row.finished
+        ).length
+    )
+    .toBe(2);
+  const rows = await network.snapshot();
+  const identity = rows.find((row) =>
+    row.url.endsWith("/prefetch-identity.js")
+  );
+  const gzip = rows.find((row) => row.url.endsWith("/prefetch-gzip.js"));
+  // CDP reports the network bytes of a prefetch with zero decoded dataLength.
+  expect(identity?.encodedDataBytes).toBeGreaterThan(0);
+  expect(identity).toMatchObject({
+    decodedBodyBytes: body.length,
+    encodedBodyBytes: body.length,
+  });
+  expect(gzip).toMatchObject({ encodedBodyBytes: zipped.length });
+  expect(gzip?.decodedBodyBytes).toBeUndefined();
+  expect(gzip?.decodedBodyUnavailable).toContain("not delivered");
+  for (const row of [identity, gzip]) {
+    // An empty protocol body is not this response's identity.
+    expect(row?.decodedBodySha256).toBeUndefined();
+    expect(row?.byteInconsistencies).toBeUndefined();
   }
 });

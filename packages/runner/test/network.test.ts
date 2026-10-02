@@ -193,3 +193,95 @@ describe("actual-input network windows", () => {
     expect(requests.every((request) => request.phase === "initial")).toBe(true);
   });
 });
+
+describe("per-request byte consistency", () => {
+  const row = {
+    finished: true,
+    hostname: "shop.test",
+    id: "request",
+    party: "first-party" as const,
+    phase: "initial" as const,
+    resourceType: "Script",
+    startedAt: 10,
+    status: 200,
+    url: "https://shop.test/asset.js",
+    wallTimeMs: 1000,
+  };
+  it("accepts a tiny compressed body whose transfer exceeds its decoded size", async () => {
+    const { byteInconsistencies } = await import("../src/network.ts");
+    expect(
+      byteInconsistencies({
+        ...row,
+        contentEncoding: "gzip",
+        decodedBodyBytes: 2,
+        encodedBodyBytes: 22,
+        transferBytes: 300,
+      })
+    ).toEqual([]);
+  });
+  it("rejects identity bodies whose decoded size differs from the encoded body", async () => {
+    const { byteInconsistencies } = await import("../src/network.ts");
+    // The Nuxt rel=prefetch shape: network bytes arrived, decoded dataLength stayed 0.
+    expect(
+      byteInconsistencies({
+        ...row,
+        decodedBodyBytes: 0,
+        encodedBodyBytes: 3016,
+        transferBytes: 3402,
+      })
+    ).toEqual([
+      "identity-encoded decoded body 0 B differs from encoded body 3016 B",
+    ]);
+    expect(
+      byteInconsistencies({
+        ...row,
+        contentEncoding: "br",
+        encodedBodyBytes: 500,
+        transferBytes: 400,
+      })
+    ).toEqual(["transfer 400 B is smaller than encoded body 500 B"]);
+    expect(byteInconsistencies({ ...row, transferBytes: 0 })).toEqual([
+      "uncached response reported zero transfer bytes",
+    ]);
+    expect(
+      byteInconsistencies({ ...row, fromCache: true, transferBytes: 0 })
+    ).toEqual([]);
+  });
+  it("withholds every phase byte total when one request is inconsistent", async () => {
+    const { measurementsFor } = await import("../src/measure.ts");
+    const { referenceFixture } = await import("../src/reference.ts");
+    const metrics = measurementsFor(
+      {
+        events: [],
+        frameIntervals: [],
+        inputs: [],
+        longTasks: [],
+        observerCallbacks: 0,
+        stateHistory: [],
+        supported: [],
+        vitals: {},
+      },
+      [
+        {
+          ...row,
+          byteInconsistencies: [
+            "transfer 400 B is smaller than encoded body 500 B",
+          ],
+          decodedBodyBytes: 900,
+          encodedBodyBytes: 500,
+          transferBytes: 400,
+        },
+      ],
+      referenceScenario({ action: "load" }),
+      referenceFixture()
+    );
+    for (const key of ["transfer", "encoded-body", "decoded-body"]) {
+      expect(
+        metrics.find((metric) => metric.key === `initial.${key}`)
+      ).toMatchObject({
+        reason: expect.stringContaining("smaller than encoded body"),
+        status: "unavailable",
+      });
+    }
+  });
+});
