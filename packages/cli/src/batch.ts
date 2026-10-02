@@ -2,6 +2,7 @@
 import { spawn } from "node:child_process";
 import { createHash } from "node:crypto";
 import { mkdir, open, readFile, readdir, writeFile } from "node:fs/promises";
+import { cpus, platform, release } from "node:os";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { isDeepStrictEqual } from "node:util";
@@ -324,6 +325,100 @@ export async function describePlan(planFile: string) {
   };
 }
 
+/** Host fields in the form the runner records them. */
+const hostConditions = () => ({
+  cpu: cpus()[0]?.model ?? "unavailable",
+  platform: platform(),
+  release: release(),
+});
+
+/**
+ * Conditions every envelope in one batch must share, so paired results from
+ * different entries stay comparable. Fixture-specific fields such as the
+ * device profile and lockfile are covered by each entry's configuration hash.
+ */
+function measurementConditions(envelope: ResultEnvelope) {
+  const { environment, profile, versions } = envelope.manifest;
+  return {
+    collectorSourceHash: environment.collectorSourceHash ?? null,
+    cpuCalibration: profile.cpuCalibration
+      ? {
+          id: profile.cpuCalibration.artifact.id,
+          tier: profile.cpuCalibration.tier,
+        }
+      : null,
+    cpuSlowdown: profile.cpuSlowdown,
+    host: {
+      cpu: environment.cpu ?? null,
+      platform: environment.platform ?? null,
+      release: environment.release ?? null,
+    },
+    versions,
+  };
+}
+interface BatchConditions {
+  entryId: string;
+  conditions: ReturnType<typeof measurementConditions>;
+}
+
+function conditionDifferences(
+  expected: Record<string, unknown>,
+  actual: Record<string, unknown>
+) {
+  return Object.keys(expected)
+    .filter((key) => !isDeepStrictEqual(expected[key], actual[key]))
+    .map(
+      (key) =>
+        `${key} (${JSON.stringify(expected[key])} != ${JSON.stringify(actual[key])})`
+    );
+}
+
+/** The first recorded envelope sets the batch conditions; every later one must match. */
+function requireBatchConditions(
+  reference: BatchConditions | undefined,
+  entryId: string,
+  envelope: ResultEnvelope
+): BatchConditions {
+  const conditions = measurementConditions(envelope);
+  if (!reference) {
+    return { conditions, entryId };
+  }
+  const differences = conditionDifferences(reference.conditions, conditions);
+  if (differences.length > 0) {
+    throw new Error(
+      `Cannot mix measurement conditions in one batch: ${entryId} differs from ${reference.entryId} in ${differences.join("; ")}. Start a new output directory.`
+    );
+  }
+  return reference;
+}
+
+/** Before a resumed batch launches a browser, check what the host can report without one. */
+async function requireCurrentConditions(reference: BatchConditions) {
+  const runner = await import("@cookiebench/runner");
+  const { conditions } = reference;
+  const differences = conditionDifferences(
+    {
+      collectorSourceHash: conditions.collectorSourceHash,
+      host: conditions.host,
+      node: conditions.versions.node ?? null,
+    },
+    {
+      collectorSourceHash: await runner.currentCollectorSourceHash(),
+      host: hostConditions(),
+      node: process.version,
+    }
+  );
+  if (differences.length > 0) {
+    throw new Error(
+      `Cannot resume a batch recorded under different measurement conditions: ${reference.entryId} recorded ${differences.join("; ")} (recorded != current). Start a new output directory.`
+    );
+  }
+}
+
+async function readEnvelope(file: string) {
+  return decodeResult(JSON.parse(await readFile(file, "utf-8")));
+}
+
 async function save(file: string, value: unknown) {
   await writeFile(file, `${JSON.stringify(value, null, 2)}\n`, { flag: "wx" });
 }
@@ -619,6 +714,8 @@ async function executeBatch(
       }
     );
   };
+  let conditions: BatchConditions | undefined;
+  let launched = false;
   for (const entry of plan.entries) {
     if (state.interruptionExitCode) {
       break;
@@ -628,6 +725,13 @@ async function executeBatch(
     if (await fileHash(resultFile)) {
       const previous = JSON.parse(await readFile(resultFile, "utf-8"));
       await verifySavedBatchEntry(entry, plan.seed, entryDirectory, previous);
+      if (previous.envelopeSha256) {
+        conditions = requireBatchConditions(
+          conditions,
+          entry.id,
+          await readEnvelope(previous.envelopeFile)
+        );
+      }
       results.push(previous);
       continue;
     }
@@ -661,6 +765,10 @@ async function executeBatch(
         { flag: "wx" }
       );
     }
+    if (conditions && !launched) {
+      await requireCurrentConditions(conditions);
+    }
+    launched = true;
     const envelopeFile = path.join(directory, "envelope.json");
     const args = batchArguments(entry, plan.seed, envelopeFile);
     process.stdout.write(`${new Date().toISOString()} ${entry.id}\n`);
@@ -673,11 +781,18 @@ async function executeBatch(
     let details: unknown;
     let decodeError: string | undefined;
     const analyses = [];
+    let envelope: ResultEnvelope | undefined;
     try {
-      if (envelopeSha256) {
-        const envelope = decodeResult(
-          JSON.parse(await readFile(envelopeFile, "utf-8"))
-        );
+      envelope = envelopeSha256 ? await readEnvelope(envelopeFile) : undefined;
+    } catch (error) {
+      decodeError = error instanceof Error ? error.message : String(error);
+    }
+    if (envelope) {
+      // A mismatch stops the batch before this entry's result is recorded.
+      conditions = requireBatchConditions(conditions, entry.id, envelope);
+    }
+    try {
+      if (envelope) {
         const summary = summarizeEnvelope(envelope);
         details = summary;
         if (!state.interruptionExitCode) {
@@ -755,6 +870,7 @@ async function executeBatch(
       results.length === plan.entries.length && !state.interruptionExitCode,
     completedAt: new Date().toISOString(),
     interruptionExitCode: state.interruptionExitCode,
+    measurementConditions: conditions?.conditions ?? null,
     planSha256: digest(bytes),
     results,
     schemaVersion: 1,

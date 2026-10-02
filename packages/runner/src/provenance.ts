@@ -31,3 +31,8 @@ export async function hashCollectorSource(directory: string): Promise<string> {
   }
   return hash.digest("hex");
 }
+
+/** The collector source hash that a run from this checkout records. */
+export function currentCollectorSourceHash(): Promise<string> {
+  return hashCollectorSource(import.meta.dirname);
+}

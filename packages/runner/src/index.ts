@@ -40,6 +40,7 @@ export { classifyHostname } from "./network.ts";
 export { runInstrumentationOverhead } from "./overhead.ts";
 export { RunConfig, decodeRunConfig } from "./config.ts";
 export { runCpuCalibration, applyCpuCalibration } from "./cpu-calibration.ts";
+export { currentCollectorSourceHash } from "./provenance.ts";
 const require = createRequire(import.meta.url);
 function combinedStatus(
   samples: readonly { status: Sample["status"] }[]

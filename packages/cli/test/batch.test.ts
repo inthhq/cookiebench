@@ -3,11 +3,14 @@ import type * as ChildProcessModule from "node:child_process";
 import { createHash } from "node:crypto";
 import { EventEmitter } from "node:events";
 import { mkdtemp, mkdir, readFile, readdir, writeFile } from "node:fs/promises";
-import { tmpdir } from "node:os";
+import { cpus, platform, release, tmpdir } from "node:os";
 import path from "node:path";
 import { setTimeout as delay } from "node:timers/promises";
 
-import { referenceRunConfig } from "@cookiebench/runner";
+import {
+  currentCollectorSourceHash,
+  referenceRunConfig,
+} from "@cookiebench/runner";
 import type { ResultEnvelope, Sample } from "@cookiebench/schema";
 import { expect, test, vi } from "vitest";
 
@@ -97,6 +100,55 @@ function result(): ResultEnvelope {
 
 const hash = (value: string) =>
   createHash("sha256").update(value).digest("hex");
+
+/** Replace CLI child processes; `respond` returns the exit code. */
+async function withMockedCli<T>(
+  respond: (argv: string[]) => Promise<number>,
+  body: (commands: string[][]) => Promise<T>
+): Promise<T> {
+  const original =
+    await vi.importActual<typeof ChildProcessModule>("node:child_process");
+  const commands: string[][] = [];
+  vi.mocked(spawn).mockImplementation((_command, args) => {
+    const argv = args as string[];
+    commands.push(argv);
+    // eslint-disable-next-line unicorn/prefer-event-target -- Match the Node ChildProcess event contract.
+    const child = Object.assign(new EventEmitter(), { kill: () => true });
+    const settle = async () => {
+      await delay(0);
+      child.emit("close", await respond(argv), null);
+    };
+    // eslint-disable-next-line promise/prefer-await-to-callbacks -- The mock returns its child before delivering process events.
+    settle().catch((error) => {
+      child.emit("error", error);
+    });
+    return child as ReturnType<typeof spawn>;
+  });
+  try {
+    return await body(commands);
+  } finally {
+    vi.mocked(spawn).mockImplementation(original.spawn);
+  }
+}
+
+/** A run envelope recorded under the given collector and host conditions. */
+async function writeRunEnvelope(
+  argv: string[],
+  environment: Record<string, string>
+) {
+  const envelope = result();
+  await writeFile(
+    argv[argv.indexOf("--output") + 1],
+    JSON.stringify({
+      ...envelope,
+      manifest: {
+        ...envelope.manifest,
+        environment,
+        versions: { browser: "140.0", node: process.version },
+      },
+    })
+  );
+}
 
 test("resume rejects changed envelope bytes and forged result identity before reusing evidence", async () => {
   const directory = await mkdtemp(path.join(tmpdir(), "cookiebench-evidence-"));
@@ -343,8 +395,6 @@ test("a batch declares every load and audit comparison in its plan as one interv
 });
 
 test("batch compare commands carry the declared family", async () => {
-  const original =
-    await vi.importActual<typeof ChildProcessModule>("node:child_process");
   const directory = await mkdtemp(path.join(tmpdir(), "cookiebench-family-"));
   const plan = path.join(directory, "plan.json");
   const bytes = JSON.stringify({
@@ -352,42 +402,135 @@ test("batch compare commands carry the declared family", async () => {
     seed: 1,
   });
   await writeFile(plan, bytes);
-  const commands: string[][] = [];
-  vi.mocked(spawn).mockImplementation((_command, args) => {
-    const argv = args as string[];
-    commands.push(argv);
-    // eslint-disable-next-line unicorn/prefer-event-target -- Match the Node ChildProcess event contract.
-    const child = Object.assign(new EventEmitter(), { kill: () => true });
-    const respond = async () => {
-      await delay(0);
+  await withMockedCli(
+    async (argv) => {
       if (argv.includes("run")) {
-        await writeFile(
-          argv[argv.indexOf("--output") + 1],
-          JSON.stringify(result())
-        );
+        await writeRunEnvelope(argv, {});
       }
-      child.emit("close", 0, null);
-    };
-    // eslint-disable-next-line promise/prefer-await-to-callbacks -- The mock returns its child before delivering process events.
-    respond().catch((error) => {
-      child.emit("error", error);
-    });
-    return child as ReturnType<typeof spawn>;
+      return 0;
+    },
+    async (commands) => {
+      const index = await runBatch(plan, path.join(directory, "output"));
+      const family = { comparisons: 6, id: `batch:${hash(bytes)}` };
+      expect(index.comparisonFamily).toEqual(family);
+      const compare = commands.find((args) => args.includes("compare"));
+      expect(compare?.slice(-4)).toEqual([
+        "--family",
+        family.id,
+        "--family-size",
+        "6",
+      ]);
+    }
+  );
+});
+
+test("a batch stops when an entry was measured under different collector conditions", async () => {
+  const directory = await mkdtemp(path.join(tmpdir(), "cookiebench-mixed-"));
+  const plan = path.join(directory, "plan.json");
+  const output = path.join(directory, "output");
+  await writeFile(
+    plan,
+    JSON.stringify({
+      entries: [
+        { id: "before", kind: "flows", reference: "correct" },
+        { id: "after", kind: "flows", reference: "correct" },
+      ],
+      seed: 1,
+    })
+  );
+  let runs = 0;
+  await withMockedCli(
+    async (argv) => {
+      if (argv.includes("run")) {
+        runs += 1;
+        // The collector source changes between the two entries.
+        await writeRunEnvelope(argv, {
+          collectorSourceHash: (runs === 1 ? "a" : "b").repeat(64),
+        });
+      }
+      return 0;
+    },
+    async () => {
+      await expect(runBatch(plan, output)).rejects.toThrow(
+        /after differs from before in collectorSourceHash/u
+      );
+    }
+  );
+  expect(await readdir(output)).not.toContain("index.json");
+  expect(await readdir(path.join(output, "after"))).toEqual(["attempt-001"]);
+});
+
+test("resume checks the current collector and host before launching another entry", async () => {
+  const current = {
+    collectorSourceHash: await currentCollectorSourceHash(),
+    cpu: cpus()[0]?.model ?? "unavailable",
+    platform: platform(),
+    release: release(),
+  };
+  const interruptedBatch = async (environment: Record<string, string>) => {
+    const directory = await mkdtemp(path.join(tmpdir(), "cookiebench-env-"));
+    const plan = path.join(directory, "plan.json");
+    await writeFile(
+      plan,
+      JSON.stringify({
+        entries: [
+          { id: "first", kind: "flows", reference: "correct" },
+          { id: "second", kind: "flows", reference: "correct" },
+        ],
+        seed: 1,
+      })
+    );
+    let runs = 0;
+    const output = path.join(directory, "output");
+    await withMockedCli(
+      async (argv) => {
+        if (!argv.includes("run")) {
+          return 0;
+        }
+        runs += 1;
+        if (runs === 1) {
+          await writeRunEnvelope(argv, environment);
+          return 0;
+        }
+        process.emit("SIGTERM");
+        return 143;
+      },
+      async () => {
+        expect(await runBatch(plan, output)).toMatchObject({
+          complete: false,
+        });
+      }
+    );
+    return { output, plan };
+  };
+  const resume = (batch: { output: string; plan: string }) =>
+    withMockedCli(
+      async (argv) => {
+        if (argv.includes("run")) {
+          await writeRunEnvelope(argv, current);
+        }
+        return 0;
+      },
+      async (commands) => {
+        const index = await runBatch(batch.plan, batch.output).catch(
+          (error: unknown) => error
+        );
+        return { commands, index };
+      }
+    );
+  const changed = await resume(
+    await interruptedBatch({ ...current, collectorSourceHash: "c".repeat(64) })
+  );
+  expect(String(changed.index)).toMatch(
+    /different measurement conditions: first recorded collectorSourceHash/u
+  );
+  expect(changed.commands).toEqual([]);
+  const unchanged = await resume(await interruptedBatch(current));
+  expect(unchanged.index).toMatchObject({
+    complete: true,
+    measurementConditions: { collectorSourceHash: current.collectorSourceHash },
   });
-  try {
-    const index = await runBatch(plan, path.join(directory, "output"));
-    const family = { comparisons: 6, id: `batch:${hash(bytes)}` };
-    expect(index.comparisonFamily).toEqual(family);
-    const compare = commands.find((args) => args.includes("compare"));
-    expect(compare?.slice(-4)).toEqual([
-      "--family",
-      family.id,
-      "--family-size",
-      "6",
-    ]);
-  } finally {
-    vi.mocked(spawn).mockImplementation(original.spawn);
-  }
+  expect(unchanged.commands.map((args) => args[1])).toEqual(["run", "report"]);
 });
 
 test("failed CLI execution retains exact command, exit, stderr, and immutable logs", async () => {
