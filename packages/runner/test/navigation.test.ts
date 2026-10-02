@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import {
+  installNavigationCapture,
   inspectPublicState,
   navigationMeasurements,
 } from "../src/navigation.ts";
@@ -153,5 +154,85 @@ describe("explicit public-state restoration", () => {
       ready: false,
       reason: "public-state-unavailable",
     });
+  });
+});
+
+function captureHarness() {
+  const documentListeners = new Map<string, EventListener>();
+  const windowListeners = new Map<string, EventListener>();
+  const queue: (() => void)[] = [];
+  const published: string[] = [];
+  const observations = {
+    input: undefined as { at: number } | undefined,
+    inputs: [] as unknown[],
+  };
+  const page = {
+    __bench: { observations, stop: () => observations },
+    __cookiebenchCapture: (payload: string) => published.push(payload),
+    addEventListener: (name: string, listener: EventListener) =>
+      windowListeners.set(name, listener),
+    top: undefined as unknown,
+  };
+  page.top = page;
+  vi.stubGlobal("window", page);
+  vi.stubGlobal("document", {
+    addEventListener: (name: string, listener: EventListener) =>
+      documentListeners.set(name, listener),
+  });
+  vi.stubGlobal("performance", { now: () => 120, timeOrigin: 1000 });
+  for (const name of [
+    "requestAnimationFrame",
+    "setTimeout",
+    "requestIdleCallback",
+  ]) {
+    // oxlint-disable-next-line promise/prefer-await-to-callbacks -- Scheduler fakes run queued browser callbacks in order.
+    vi.stubGlobal(name, (callback: () => void) => queue.push(callback));
+  }
+  installNavigationCapture("__cookiebenchCapture");
+  return {
+    drain: () => {
+      while (queue.length) {
+        queue.shift()?.();
+      }
+    },
+    input: () => {
+      // The observer's earlier capture listener has already recorded the trusted input.
+      observations.input = { at: 100 };
+      documentListeners.get("pointerdown")?.({
+        isTrusted: true,
+      } as Event);
+    },
+    published,
+    unload: () => windowListeners.get("beforeunload")?.({} as Event),
+  };
+}
+
+describe("navigation input capture", () => {
+  it("does no serialization or binding work inside the input handler", () => {
+    const harness = captureHarness();
+    const stringify = vi.spyOn(JSON, "stringify");
+    harness.input();
+    harness.input();
+    expect(stringify).not.toHaveBeenCalled();
+    expect(harness.published).toEqual([]);
+    stringify.mockRestore();
+    harness.drain();
+    expect(harness.published.map((payload) => JSON.parse(payload))).toEqual([
+      expect.objectContaining({
+        observations: expect.objectContaining({ input: { at: 100 } }),
+        reason: "input",
+        timeOrigin: 1000,
+      }),
+    ]);
+  });
+
+  it("does not publish a stale input snapshot after unload evidence", () => {
+    const harness = captureHarness();
+    harness.input();
+    harness.unload();
+    harness.drain();
+    expect(
+      harness.published.map((payload) => JSON.parse(payload).reason)
+    ).toEqual(["beforeunload"]);
   });
 });

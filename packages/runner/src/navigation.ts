@@ -169,6 +169,7 @@ export async function captureDocuments(
 }
 
 // Capture input and beforeunload through the native binding. pagehide is best effort because its execution context may already be disappearing.
+// The input snapshot is deferred past the interaction's next paint; beforeunload and pagehide still publish synchronously.
 export function installNavigationCapture(
   binding: string,
   stateGlobal = "__cookiebench"
@@ -176,8 +177,12 @@ export function installNavigationCapture(
   if (window !== window.top) {
     return;
   }
+  let unloading = false;
   const send = (reason: DocumentEvidence["reason"]) => {
     const bench = window.__bench;
+    if (reason !== "input") {
+      unloading = true;
+    }
     if (
       !bench ||
       (!bench.observations.input && bench.observations.inputs.length === 0)
@@ -208,16 +213,33 @@ export function installNavigationCapture(
       })
     );
   };
+  // The observer already holds the trusted input timestamp. The handler only schedules,
+  // so serialization and the binding call cannot delay CMP handlers or the next paint.
+  let inputPending = false;
+  const flushInput = () => {
+    inputPending = false;
+    if (!unloading) {
+      send("input");
+    }
+  };
+  const afterPaint = () => {
+    if (typeof requestIdleCallback === "function") {
+      requestIdleCallback(flushInput, { timeout: 1000 });
+    } else {
+      flushInput();
+    }
+  };
+  const scheduleInput = (input: Event) => {
+    if (input.isTrusted && !inputPending) {
+      inputPending = true;
+      requestAnimationFrame(() => setTimeout(afterPaint, 0));
+    }
+  };
   for (const event of ["pointerdown", "keydown"]) {
-    document.addEventListener(
-      event,
-      (input) => {
-        if (input.isTrusted) {
-          send("input");
-        }
-      },
-      { capture: true, passive: true }
-    );
+    document.addEventListener(event, scheduleInput, {
+      capture: true,
+      passive: true,
+    });
   }
   window.addEventListener("beforeunload", () => send("beforeunload"));
   window.addEventListener("pagehide", () => send("pagehide"));

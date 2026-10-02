@@ -417,6 +417,22 @@ export function runSample(options: {
                 )
               ) {
                 followup = (async () => {
+                  // Input evidence is published after the next paint, so read the original
+                  // document's trusted timestamp directly while it is still loaded.
+                  const capturedInput = () =>
+                    documentEvidence.find(
+                      (entry) => entry.timeOrigin === initialTimeOrigin
+                    )?.observations.input?.at;
+                  const liveInput = await page
+                    .evaluate(
+                      (origin) =>
+                        performance.timeOrigin === origin
+                          ? (window.__bench.observations.input?.at ?? null)
+                          : null,
+                      initialTimeOrigin
+                    )
+                    .catch(() => null);
+                  const inputAt = capturedInput() ?? liveInput ?? undefined;
                   await page.waitForFunction(
                     ({ offset, capturedEpoch }) => {
                       const at = window.__bench.observations.input?.at;
@@ -432,14 +448,10 @@ export function runSample(options: {
                       );
                     },
                     {
-                      capturedEpoch: (() => {
-                        const captured = documentEvidence.find(
-                          (entry) => entry.timeOrigin === initialTimeOrigin
-                        )?.observations.input;
-                        return captured
-                          ? initialTimeOrigin + captured.at
-                          : undefined;
-                      })(),
+                      capturedEpoch:
+                        inputAt === undefined
+                          ? undefined
+                          : initialTimeOrigin + inputAt,
                       offset: scenario.followupOffsetMs,
                     },
                     { timeout: scenario.actionDeadlineMs }
