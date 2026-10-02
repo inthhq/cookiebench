@@ -133,12 +133,22 @@ export const runBenchmark = (input: RunConfig) =>
         0,
         ...config.scenarios.map((scenario) => scenario.workload.scriptCount)
       );
+      const primeDwellMs = Math.max(
+        0,
+        ...config.scenarios.map((scenario) => scenario.observationMs)
+      );
       const primed: Awaited<ReturnType<typeof primeFixture>>[] = [];
       for (const fixture of config.fixtures) {
         if (fixture.server) {
           primed.push(
             yield* attempt("fixture-prime", () =>
-              primeFixture(browser, fixture, config.profile, primeScriptCount)
+              primeFixture(
+                browser,
+                fixture,
+                config.profile,
+                primeScriptCount,
+                primeDwellMs
+              )
             )
           );
         }
@@ -336,7 +346,7 @@ export const runBenchmark = (input: RunConfig) =>
               "production server shared for run; browser cache declared per scenario",
             serverPrime: JSON.stringify({
               method:
-                "one unmeasured load visit per local fixture URL whose server logs on-demand encoding, after readiness and before warmups; samples overlapping on-demand server encoding are incomplete",
+                "one unmeasured load visit per local fixture URL whose server logs on-demand encoding, after readiness and before warmups, held open for the longest observation window and opening preferences on CMP fixtures; samples overlapping on-demand server encoding are incomplete",
               visits: primed,
             }),
             warmups: String(config.warmups ?? 0),

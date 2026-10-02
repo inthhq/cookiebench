@@ -23,12 +23,12 @@ const script = (seed) => {
   for (let i = 0; i < 40000; i += 1) { state ^= state << 13; state ^= state >>> 17; state ^= state << 5; state >>>= 0; words.push("w" + (state % 1000000).toString(36)); }
   return Buffer.from("window.words = " + JSON.stringify(words) + ";");
 };
-const assets = { "/entry.js": script(2463534242), "/lazy.js": script(88675123) };
+const assets = { "/entry.js": script(2463534242), "/lazy.js": script(88675123), "/dialog.js": script(521288629), "/idle.js": script(362436069) };
 createServer((request, response) => {
   const path = new URL(request.url, "http://x").pathname;
   if (assets[path]) { response.writeHead(200, { "Content-Length": assets[path].length, "Content-Type": "text/javascript" }); response.end(assets[path]); return; }
   response.writeHead(200, { "Content-Type": "text/html" });
-  response.end('<!doctype html><link rel="prefetch" href="/lazy.js"><script src="/entry.js"></script><p>fixture</p>');
+  response.end('<!doctype html><link rel="prefetch" href="/lazy.js"><script src="/entry.js"></script><p>fixture</p><button id="prefs" onclick="import(&quot;/dialog.js&quot;)">Preferences</button><script>addEventListener("load", () => setTimeout(() => import("/idle.js"), 4000))</script>');
 }).listen(Number(process.env.PORT), "127.0.0.1");
 `;
 
@@ -72,6 +72,8 @@ async function startFixture() {
   const reference = referenceFixture();
   const fixture: FixtureConfig = {
     ...reference,
+    adapter: { ...reference.adapter, preferences: "#prefs" },
+    baseline: false,
     server: {
       cwd: ".",
       readinessTimeoutMs: 5000,
@@ -127,6 +129,46 @@ test("priming fills encoding caches before the first measured visit", async ({
     const primed = await primeFixture(browser, fixture, desktopProfile, 0);
     expect(primed.coldEncodings).toBeGreaterThanOrEqual(2);
     expect(await visitMisses(browser, fixture)).toEqual([]);
+  } finally {
+    await stop(child);
+  }
+});
+
+test("priming opens preferences so a lazily loaded dialog is encoded", async ({
+  browser,
+}) => {
+  const { child, fixture } = await startFixture();
+  try {
+    await primeFixture(browser, fixture, desktopProfile, 0);
+    const before = (await readEncodingMisses(fixture)) ?? [];
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    await page.goto(fixture.url, { waitUntil: "load" });
+    await page.click("#prefs");
+    await page.waitForLoadState("networkidle");
+    await context.close();
+    const after = (await readEncodingMisses(fixture)) ?? [];
+    expect(after.slice(before.length)).toEqual([]);
+  } finally {
+    await stop(child);
+  }
+});
+
+test("priming stays open long enough for modules fetched at idle", async ({
+  browser,
+}) => {
+  const { child, fixture } = await startFixture();
+  try {
+    await primeFixture(browser, fixture, desktopProfile, 0, 5000);
+    const before = (await readEncodingMisses(fixture)) ?? [];
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    await page.goto(fixture.url, { waitUntil: "load" });
+    // Like a measured visit, stay open past the idle fetch.
+    await page.waitForResponse("**/idle.js");
+    await context.close();
+    const after = (await readEncodingMisses(fixture)) ?? [];
+    expect(after.slice(before.length)).toEqual([]);
   } finally {
     await stop(child);
   }
