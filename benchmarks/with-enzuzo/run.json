@@ -20,7 +20,7 @@
       },
       "artifactPolicy": "immutable-release",
       "baseline": true,
-      "configurationHash": "e2920ecfbed4c66021d5010c30ef7e8ca16c88d75da31db9c2cf72863f39ab78",
+      "configurationHash": "24fb6e47607f00bbe3bba5aae38bc33a812cd13b391693f562a204618eb51d5b",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -33,7 +33,7 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "fixture-source-only",
-        "lockfileHash": "c5826a3b1a6c92ca84efd4e133f059c36770e80f3fd2da90b7721ccb2dc87a0a",
+        "lockfileHash": "11ab0d9df6f55a1e564cc8595df60164b142b0d398c9a731b4e7fb2494dda206",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
       "revision": "3.2.0-article-v1-head-start-async-sdk",
@@ -74,7 +74,7 @@
       },
       "artifactPolicy": "mutable-network",
       "baseline": false,
-      "configurationHash": "0049796b63af0dd6c9b38c2a95ff29f52dbbc6adf0ec2b4f21cabdc658c07811",
+      "configurationHash": "ab77fdcf5ef14afccc1ac20d2bc7b46802b14e315f90b124ee2a782543b67e50",
       "deployment": {
         "assets": "mixed",
         "backend": "remote-service"
@@ -87,7 +87,7 @@
       "product": "enzuzo",
       "provenance": {
         "artifactIntegrity": "sha256-7b87a37178266792cc9793eac8d6c3a35854c39ac825f9ad77ada7d449bfb0ff",
-        "lockfileHash": "c5826a3b1a6c92ca84efd4e133f059c36770e80f3fd2da90b7721ccb2dc87a0a",
+        "lockfileHash": "11ab0d9df6f55a1e564cc8595df60164b142b0d398c9a731b4e7fb2494dda206",
         "sourceUrl": "https://app.enzuzo.com/scripts/cookiebar/ede431e2-968b-11eb-9cc0-2358d2c9e564"
       },
       "revision": "3.2.1-article-v1-head-start-public-state-readiness",

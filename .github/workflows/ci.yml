@@ -8,6 +8,7 @@ permissions:
 jobs:
   check:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     services:
       postgres:
         image: postgres:17.6
@@ -31,14 +32,23 @@ jobs:
           node-version: 24.21.0
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm exec playwright install --with-deps chromium
+      - id: playwright
+        run: echo "version=$(pnpm exec playwright --version | awk '{print $2}')" >> "$GITHUB_OUTPUT"
+      - id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.playwright.outputs.version }}
+      - if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: pnpm exec playwright install --with-deps chromium
+      - if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: pnpm exec playwright install-deps chromium
       - run: pnpm check
-      - run: pnpm build
+      # The browser tests in `pnpm check` already build every c15t fixture.
+      # Build only the competitor fixtures, which no test starts.
+      - run: pnpm exec turbo run build --filter='with-*' --filter='!with-c15t-*'
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: browser-failures
-          path: |
-            test-results/
-            playwright-report/
-            packages/runner/test-results/
+          path: packages/runner/test-results/

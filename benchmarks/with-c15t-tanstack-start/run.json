@@ -20,7 +20,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "34140c946ef5a0a152bf04b43983c2f2f7fa04fa708ec05aff533257146591e9",
+      "configurationHash": "60b0b611f59056338af2e6d26197799963fa378edc4e1e2566410b48d5ed6f8e",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -33,7 +33,7 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "sha512-PYIUFOsGp98QvqbW6GDkRqjAZNYJ1c+rA0pGtEwb6oDQeECnrbLij1NbGLPed/nVnROyBNwvq/+rAK3Hb3j9eg==",
-        "lockfileHash": "c5826a3b1a6c92ca84efd4e133f059c36770e80f3fd2da90b7721ccb2dc87a0a",
+        "lockfileHash": "11ab0d9df6f55a1e564cc8595df60164b142b0d398c9a731b4e7fb2494dda206",
         "sourceUrl": "https://registry.npmjs.org/@tanstack/react-start/-/react-start-1.168.58.tgz"
       },
       "revision": "3.2.0-article-v1",
@@ -74,7 +74,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "c230be94a374af2a63dd66cf862eedc0364e82fe6b8dab0ab4fab2fa70d4cc48",
+      "configurationHash": "8a5472cddffe2f3f5dfc0d37d0d1d9ad8dfc4c2ee9642edd731ca2cc62145730",
       "deployment": {
         "assets": "local",
         "backend": "controlled-local"
@@ -87,7 +87,7 @@
       "product": "c15t",
       "provenance": {
         "artifactIntegrity": "sha512-hNHcOCxkQf8eJ/4RAwq0hVBfVsH+67gvDIViqQ7RpV98ciiF/lVHth61fkhbdSf3c5e8NoqUgdUQJpL9Td/0Pg==",
-        "lockfileHash": "c5826a3b1a6c92ca84efd4e133f059c36770e80f3fd2da90b7721ccb2dc87a0a",
+        "lockfileHash": "11ab0d9df6f55a1e564cc8595df60164b142b0d398c9a731b4e7fb2494dda206",
         "sourceUrl": "https://registry.npmjs.org/@c15t/tanstack-start/-/tanstack-start-3.0.0-alpha.3.tgz"
       },
       "revision": "3.2.0-article-v1",

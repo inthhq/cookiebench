@@ -27,7 +27,7 @@
       },
       "artifactPolicy": "immutable-release",
       "baseline": true,
-      "configurationHash": "bcc9ffae86fb8e3c77f24bb3c91a0475272df20ee190ca1523ac8abf9fb721d7",
+      "configurationHash": "b6484101b3a88a9e87a424f8501b6cc2ce9c027fa5bf87366442e4562f837fdb",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -40,7 +40,7 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "fixture-source-only",
-        "lockfileHash": "c5826a3b1a6c92ca84efd4e133f059c36770e80f3fd2da90b7721ccb2dc87a0a",
+        "lockfileHash": "11ab0d9df6f55a1e564cc8595df60164b142b0d398c9a731b4e7fb2494dda206",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
       "revision": "3.2.0-article-v1-next-client-effect",
@@ -88,7 +88,7 @@
       },
       "artifactPolicy": "mutable-network",
       "baseline": false,
-      "configurationHash": "04fad46aadf6b35515f6511b4e73495838025d48b70d1c641bc15ed6757136f6",
+      "configurationHash": "60d506aef66e6e79c6e98ce0ee4fc5d6fd1ec4f2b6e5830f10745df2518fc9c6",
       "deployment": {
         "assets": "mixed",
         "backend": "remote-service"
@@ -101,7 +101,7 @@
       "product": "osano",
       "provenance": {
         "artifactIntegrity": "sha256-ee7e8d0309f66bef0de741b405b5023dd54c0d5aa12d11faf4dd3ffa8d4013a8",
-        "lockfileHash": "c5826a3b1a6c92ca84efd4e133f059c36770e80f3fd2da90b7721ccb2dc87a0a",
+        "lockfileHash": "11ab0d9df6f55a1e564cc8595df60164b142b0d398c9a731b4e7fb2494dda206",
         "sourceUrl": "https://cmp.osano.com/2sUBzx7wRdAfu6J2kkS/8e547744-886f-4a9b-a90f-7e96a47aa604/osano.js"
       },
       "revision": "3.2.0-article-v1-next-client-effect",
