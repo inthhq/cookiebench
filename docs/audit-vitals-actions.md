@@ -115,7 +115,7 @@ The existing reference desktop profile has no added latency, CPU slowdown 1, and
 
 ## Returning visits, withdrawal and persistence
 
-Returning preparation applies real consent, waits its observation period, reloads and checks restoration. A cold returning sample copies cookies/local storage into a new context; a warm sample reuses its context. Storage copying does not preserve all browser storage systems by default, so adapters requiring IndexedDB or session storage need an explicit supported contract. Warm fresh preparation clears origin storage and cookie state after its warmup visit; only the intended HTTP cache warming should be claimed.
+Returning preparation applies real consent, waits its observation period, reloads and checks restoration. A cold returning sample copies cookies/local storage into a new context; a warm sample reuses its context. Storage copying does not preserve all browser storage systems by default, so adapters requiring IndexedDB or session storage need an explicit supported contract. Warm fresh preparation closes its warmup page before clearing cookies and origin storage, so late CMP writes cannot survive, and then requires empty cookies, localStorage and IndexedDB before the measured visit; only the intended HTTP cache warming should be claimed.
 
 Withdrawal retains pre-input controlled executions and changes permission expectations after the actual input. This is the correct distinction: earlier allowed execution is not retroactively a leak. However controlled release-once scripts do not prove withdrawal can stop recurring trackers, cancel in-flight requests, or prevent all future vendor activity. Recheck permission enforcement with a fresh post-withdraw controlled action before making that broader claim.
 

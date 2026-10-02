@@ -101,7 +101,49 @@ const contextResource = (
     ),
     (context) => Effect.promise(() => context.close())
   );
-async function prime(
+const visitorStorage =
+  "cookies,local_storage,indexeddb,websql,service_workers,cache_storage";
+// Runs after every priming page has closed, so no timer or late response can write afterwards.
+async function clearVisitorStorage(context: BrowserContext, origin: string) {
+  await context.clearCookies();
+  const visited = await context.storageState({ indexedDB: true });
+  const page = await context.newPage();
+  try {
+    const session = await context.newCDPSession(page);
+    for (const target of new Set([
+      origin,
+      ...visited.origins.map((item) => item.origin),
+    ])) {
+      // oxlint-disable-next-line no-await-in-loop -- One CDP session clears each origin in turn.
+      await session.send("Storage.clearDataForOrigin", {
+        origin: target,
+        storageTypes: visitorStorage,
+      });
+    }
+    await session.detach();
+  } finally {
+    await page.close();
+  }
+  const remaining = await context.storageState({ indexedDB: true });
+  const residue = [
+    ...remaining.cookies.map((cookie) => `cookie ${cookie.name}`),
+    ...remaining.origins.flatMap((item) => [
+      ...item.localStorage.map(
+        (entry) => `localStorage ${entry.name} at ${item.origin}`
+      ),
+      // Playwright returns IndexedDB snapshots here but omits them from the declared type.
+      ...((item as { indexedDB?: { name: string }[] }).indexedDB ?? []).map(
+        (database) => `IndexedDB ${database.name} at ${item.origin}`
+      ),
+    ]),
+  ];
+  if (residue.length) {
+    throw new Error(
+      `Fresh warm-cache preparation left visitor storage: ${residue.join(", ")}`
+    );
+  }
+}
+export async function prime(
   context: BrowserContext,
   fixture: FixtureConfig,
   scenario: ScenarioConfig
@@ -116,17 +158,9 @@ async function prime(
       waitUntil: "load",
     });
     if (scenario.visitor === "fresh") {
-      await context.clearCookies();
-      const storageSession = await context.newCDPSession(page);
-      await storageSession.send("Storage.clearDataForOrigin", {
-        origin: new URL(fixture.url).origin,
-        storageTypes:
-          "cookies,local_storage,indexeddb,websql,service_workers,cache_storage",
-      });
-      await storageSession.detach();
-      await page.evaluate(() => {
-        sessionStorage.clear();
-      });
+      // Closing the page also discards its sessionStorage namespace.
+      await page.close();
+      await clearVisitorStorage(context, new URL(fixture.url).origin);
     } else {
       if (
         fixture.adapter.readinessSource === "public-state" ||
