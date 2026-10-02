@@ -308,6 +308,88 @@ test("dry run includes every repeated action and separately repeated followup", 
   });
 });
 
+test("a batch declares every load and audit comparison in its plan as one interval family", async () => {
+  const directory = await mkdtemp(path.join(tmpdir(), "cookiebench-family-"));
+  const configFile = path.join(directory, "load.json");
+  const planFile = path.join(directory, "plan.json");
+  const config = referenceRunConfig();
+  await writeFile(
+    configFile,
+    JSON.stringify({
+      ...config,
+      fixtures: ["baseline", "first", "second"].map((id) => ({
+        ...config.fixtures[0],
+        baseline: id === "baseline",
+        id,
+      })),
+    })
+  );
+  const plan = JSON.stringify({
+    entries: [
+      { config: configFile, id: "two-cmps", kind: "load" },
+      { id: "overhead", kind: "audit" },
+      { id: "flows", kind: "flows", reference: "correct" },
+      { excludedReason: "Not requested", id: "skipped", kind: "load" },
+    ],
+    seed: 1,
+  });
+  await writeFile(planFile, plan);
+  // Two CMPs x six load metrics, plus one audit arm x five audit metrics.
+  const described = await describePlan(planFile);
+  expect(described.comparisonFamily).toEqual({
+    comparisons: 17,
+    id: `batch:${hash(plan)}`,
+  });
+});
+
+test("batch compare commands carry the declared family", async () => {
+  const original =
+    await vi.importActual<typeof ChildProcessModule>("node:child_process");
+  const directory = await mkdtemp(path.join(tmpdir(), "cookiebench-family-"));
+  const plan = path.join(directory, "plan.json");
+  const bytes = JSON.stringify({
+    entries: [{ id: "load", kind: "load", reference: "correct" }],
+    seed: 1,
+  });
+  await writeFile(plan, bytes);
+  const commands: string[][] = [];
+  vi.mocked(spawn).mockImplementation((_command, args) => {
+    const argv = args as string[];
+    commands.push(argv);
+    // eslint-disable-next-line unicorn/prefer-event-target -- Match the Node ChildProcess event contract.
+    const child = Object.assign(new EventEmitter(), { kill: () => true });
+    const respond = async () => {
+      await delay(0);
+      if (argv.includes("run")) {
+        await writeFile(
+          argv[argv.indexOf("--output") + 1],
+          JSON.stringify(result())
+        );
+      }
+      child.emit("close", 0, null);
+    };
+    // eslint-disable-next-line promise/prefer-await-to-callbacks -- The mock returns its child before delivering process events.
+    respond().catch((error) => {
+      child.emit("error", error);
+    });
+    return child as ReturnType<typeof spawn>;
+  });
+  try {
+    const index = await runBatch(plan, path.join(directory, "output"));
+    const family = { comparisons: 6, id: `batch:${hash(bytes)}` };
+    expect(index.comparisonFamily).toEqual(family);
+    const compare = commands.find((args) => args.includes("compare"));
+    expect(compare?.slice(-4)).toEqual([
+      "--family",
+      family.id,
+      "--family-size",
+      "6",
+    ]);
+  } finally {
+    vi.mocked(spawn).mockImplementation(original.spawn);
+  }
+});
+
 test("failed CLI execution retains exact command, exit, stderr, and immutable logs", async () => {
   const directory = path.join(
     await mkdtemp(path.join(tmpdir(), "cookiebench-batch-")),

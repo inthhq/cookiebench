@@ -221,7 +221,17 @@ describe("analysis records", () => {
     expect(decodeAnalysis(historical)).toEqual(historical);
   });
   it("rejects a current analysis that publishes a verdict for an ineligible comparison", () => {
-    const current = { ...historical, analysisVersion: ANALYSIS_VERSION };
+    const current = {
+      ...historical,
+      analysisVersion: ANALYSIS_VERSION,
+      multiplicity: {
+        comparisons: 1,
+        family: "compare-invocation",
+        familyLevel: 0.95,
+        intervalLevel: 0.95,
+        method: "bonferroni",
+      },
+    };
     expect(() => decodeAnalysis(current)).toThrow();
     expect(() =>
       decodeAnalysis({
@@ -250,6 +260,46 @@ describe("analysis records", () => {
       decodeAnalysis({
         ...current,
         comparisons: [{ ...comparison, eligibilityReasons: [] }],
+      })
+    ).toThrow();
+  });
+  it("requires every current interval to use the declared family's adjusted level", () => {
+    const eligible = { ...comparison, eligibilityReasons: [], eligible: true };
+    const family = {
+      comparisons: 90,
+      family: "batch:plan",
+      familyLevel: 0.95,
+      intervalLevel: 1 - 0.05 / 90,
+      method: "bonferroni",
+    };
+    const current = {
+      ...historical,
+      analysisVersion: ANALYSIS_VERSION,
+      comparisons: [eligible],
+      multiplicity: family,
+    };
+    expect(() => decodeAnalysis(current)).toThrow();
+    expect(() =>
+      decodeAnalysis({
+        ...current,
+        comparisons: [
+          {
+            ...eligible,
+            paired: {
+              ...eligible.paired,
+              confidenceInterval: {
+                ...eligible.paired.confidenceInterval,
+                level: family.intervalLevel,
+              },
+            },
+          },
+        ],
+      })
+    ).not.toThrow();
+    expect(() =>
+      decodeAnalysis({
+        ...current,
+        multiplicity: { ...family, intervalLevel: 0.95 },
       })
     ).toThrow();
   });

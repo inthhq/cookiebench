@@ -56,6 +56,8 @@ Options:
   --baseline <file>         Baseline envelope for compare
   --candidate <file>        Candidate envelope for compare
   --metric <key>            Registered metric, default page.lcp
+  --family <id>             Comparison family shared by several compare calls
+  --family-size <count>     Comparisons declared in --family; sets the adjusted level
   --run-id <uuid>           Read report input from PostgreSQL
   --database               Persist after local output, requires DATABASE_URL
   --json                   Machine-readable JSON, also the default
@@ -88,6 +90,8 @@ const options = {
   "cpu-calibration": { type: "string" },
   "cpu-tier": { type: "string" },
   database: { type: "boolean" },
+  family: { type: "string" },
+  "family-size": { type: "string" },
   file: { type: "string" },
   help: { short: "h", type: "boolean" },
   iterations: { type: "string" },
@@ -526,10 +530,29 @@ export async function main(
         const candidate = await readEnvelope(
           required(values.candidate, "--candidate")
         );
+        if (
+          (values.family === undefined) !==
+          (values["family-size"] === undefined)
+        ) {
+          throw new Error("--family and --family-size must be used together.");
+        }
         const analysis = compareResults(
           baseline,
           candidate,
-          values.metric ?? "page.lcp"
+          values.metric ?? "page.lcp",
+          values.family === undefined
+            ? {}
+            : {
+                family: {
+                  comparisons: integer(
+                    values["family-size"],
+                    1,
+                    1,
+                    "--family-size"
+                  ),
+                  id: values.family,
+                },
+              }
         );
         // Stored analyses must satisfy the current verdict invariants.
         decodeAnalysis(analysis);

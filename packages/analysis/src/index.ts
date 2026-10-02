@@ -1,3 +1,5 @@
+import { createHash } from "node:crypto";
+
 import { ANALYSIS_VERSION, decodeResult } from "@cookiebench/schema";
 import type {
   FixtureConfig,
@@ -45,7 +47,8 @@ export interface PairedSummary {
   confidenceInterval: {
     low: number;
     high: number;
-    level: 0.95;
+    /** Per-interval level after the family-wise adjustment in Analysis.multiplicity. */
+    level: number;
     method: "paired-percentile-bootstrap";
     resamples: number;
   } | null;
@@ -70,12 +73,33 @@ export interface Comparison {
     candidate: ReturnType<typeof summarizeLcpAttribution>;
   };
 }
+/**
+ * Bonferroni control over a declared family of paired comparisons. Each interval
+ * uses `intervalLevel`, so all intervals in the family hold jointly with
+ * probability of at least `familyLevel`.
+ */
+export interface Multiplicity {
+  method: "bonferroni";
+  family: string;
+  comparisons: number;
+  familyLevel: 0.95;
+  intervalLevel: number;
+}
+export interface ComparisonFamily {
+  /** Stable label for the family, for example a batch plan hash. */
+  id: string;
+  /** Every paired comparison the family declares, regardless of outcome. */
+  comparisons: number;
+}
 export interface Analysis {
   analysisVersion: string;
   metricKey: string;
+  multiplicity: Multiplicity;
   sourceRunIds: string[];
   comparisons: Comparison[];
 }
+
+const FAMILY_LEVEL = 0.95;
 
 /** R-7 interpolation, also used by R and NumPy's default quantile. */
 export function percentile(
@@ -147,6 +171,23 @@ export function summarize(
     p75: percentile(values, 0.75),
     passed: samples.filter((sample) => sample.status === "passed").length,
   };
+}
+
+/** Hashing the comparison identity gives each comparison its own deterministic bootstrap stream. */
+function comparisonSeed(seed: number, key: string): number {
+  return Number.parseInt(
+    createHash("sha256")
+      .update(`${seed}\u0000${key}`)
+      .digest("hex")
+      .slice(0, 8),
+    16
+  );
+}
+
+/** Enough resamples to place about ten draws beyond each adjusted tail. */
+function resamplesFor(level: number): number {
+  const tail = (1 - level) / 2;
+  return Math.max(2000, Math.ceil(10 / tail / 1000) * 1000);
 }
 
 function random(seed: number) {
@@ -232,13 +273,14 @@ function pairDifferences(
 
 function summarizeDifferences(
   differences: readonly number[],
-  interval?: { seed: number }
+  interval?: { level: number; seed: number }
 ): PairedSummary {
   let confidenceInterval: PairedSummary["confidenceInterval"] = null;
   // Small batches do not support a stable-looking uncertainty interval.
   if (interval && differences.length >= 30) {
     const drawRandom = random(interval.seed);
-    const medians = Array.from({ length: 2000 }, () => {
+    const resamples = resamplesFor(interval.level);
+    const medians = Array.from({ length: resamples }, () => {
       const draw = Array.from({ length: differences.length }, () => {
         const value =
           differences[Math.floor(drawRandom() * differences.length)];
@@ -253,15 +295,16 @@ function summarizeDifferences(
       }
       return median;
     });
-    const low = percentile(medians, 0.025);
-    const high = percentile(medians, 0.975);
+    const tail = (1 - interval.level) / 2;
+    const low = percentile(medians, tail);
+    const high = percentile(medians, 1 - tail);
     if (low !== null && high !== null) {
       confidenceInterval = {
         high,
-        level: 0.95,
+        level: interval.level,
         low,
         method: "paired-percentile-bootstrap",
-        resamples: 2000,
+        resamples,
       };
     }
   }
@@ -284,7 +327,7 @@ export function pairedDifferences(
   key: string,
   options: {
     contexts?: { baseline: MetricContext; candidate: MetricContext };
-    interval?: { seed: number };
+    interval?: { level: number; seed: number };
   } = {}
 ): PairedSummary {
   return summarizeDifferences(
@@ -395,15 +438,66 @@ function coverageReasons(
   return reasons;
 }
 
+/** Computes each eligible interval at the family's Bonferroni-adjusted level. */
+function adjustIntervals(
+  comparisons: Comparison[],
+  inferential: readonly {
+    index: number;
+    differences: readonly number[];
+    seed: number;
+  }[],
+  family: ComparisonFamily,
+  declarable: number
+): Multiplicity {
+  if (
+    !Number.isSafeInteger(family.comparisons) ||
+    family.comparisons < declarable
+  ) {
+    throw new Error(
+      `Comparison family ${family.id} declares ${family.comparisons} comparisons, fewer than the ${declarable} in this analysis.`
+    );
+  }
+  const intervalLevel =
+    1 - (1 - FAMILY_LEVEL) / Math.max(1, family.comparisons);
+  for (const { differences, index, seed } of inferential) {
+    const comparison = comparisons[index];
+    if (comparison) {
+      comparison.paired = summarizeDifferences(differences, {
+        level: intervalLevel,
+        seed,
+      });
+    }
+  }
+  return {
+    comparisons: family.comparisons,
+    family: family.id,
+    familyLevel: FAMILY_LEVEL,
+    intervalLevel,
+    method: "bonferroni",
+  };
+}
+
+/**
+ * Compares every candidate fixture and scenario with its paired baseline.
+ *
+ * Intervals are Bonferroni-adjusted over a declared family. Without `family`,
+ * the family is this invocation's fresh-load comparisons, the only ones whose
+ * design permits an interval. Callers that publish several invocations
+ * together, such as the batch helper, declare the combined family instead.
+ */
 export function compareResults(
   baselineInput: ResultEnvelope,
   candidateInput: ResultEnvelope,
-  metricKey: string
+  metricKey: string,
+  options: { family?: ComparisonFamily } = {}
 ): Analysis {
   const baseline = decodeResult(baselineInput);
   const candidate = decodeResult(candidateInput);
   ensureRunCompatibility(baseline, candidate);
   const comparisons: Comparison[] = [];
+  const inferential: { index: number; differences: number[]; seed: number }[] =
+    [];
+  let declarable = 0;
   for (const fixture of candidate.fixtures.filter((item) => !item.baseline)) {
     const controls = baseline.fixtures.filter(
       (item) => item.baseline && compatibleFixture(item, fixture)
@@ -467,6 +561,9 @@ export function compareResults(
         contexts.candidate
       );
       const comparableWindow = hasComparableLoadWindow(scenario);
+      if (comparableWindow) {
+        declarable += 1;
+      }
       // The current runner coerces baseline actions to load-only. Those windows cannot support action deltas.
       const differences = pairDifferences(
         comparableWindow ? baselineSamples : [],
@@ -498,6 +595,16 @@ export function compareResults(
       ];
       const eligibilityReasons = [...new Set(reasons)];
       const eligible = eligibilityReasons.length === 0;
+      if (eligible) {
+        inferential.push({
+          differences,
+          index: comparisons.length,
+          seed: comparisonSeed(
+            candidate.manifest.seed,
+            [metricKey, scenario.id, control.id, fixture.id].join("\u0000")
+          ),
+        });
+      }
       comparisons.push({
         ...lcpComparison(
           metricKey,
@@ -513,19 +620,23 @@ export function compareResults(
         eligibilityReasons,
         eligible,
         // An ineligible comparison stays descriptive: no interval or verdict.
-        paired: summarizeDifferences(
-          differences,
-          eligible ? { seed: candidate.manifest.seed } : undefined
-        ),
+        paired: summarizeDifferences(differences),
         scenarioId: scenario.id,
         unit: metrics[0]?.unit ?? null,
       });
     }
   }
+  const multiplicity = adjustIntervals(
+    comparisons,
+    inferential,
+    options.family ?? { comparisons: declarable, id: "compare-invocation" },
+    declarable
+  );
   return {
     analysisVersion: ANALYSIS_VERSION,
     comparisons,
     metricKey,
+    multiplicity,
     sourceRunIds: [...new Set([baseline.manifest.id, candidate.manifest.id])],
   };
 }

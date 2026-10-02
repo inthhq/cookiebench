@@ -321,6 +321,102 @@ describe("deterministic aggregation", () => {
   });
 });
 
+const delta = (index: number) => ((index * 37) % 30) - 10 + index * 0.13;
+
+describe("family-wise interval control", () => {
+  const lcp = (
+    fixtureId: string,
+    value: number,
+    index: number,
+    offset = 0
+  ): Sample => ({
+    ...sample(0, index + offset),
+    fixtureId,
+    measurements: [
+      {
+        key: "page.lcp",
+        method: "native-lcp",
+        status: "measured",
+        unit: "ms",
+        value,
+      },
+    ],
+    pairId: `pair-${index}`,
+  });
+  it("records the declared family and widens intervals to its Bonferroni level", () => {
+    // Seven of 30 pairs go the other way: clear at 95%, not across 90 comparisons.
+    const candidate = envelope(true);
+    const shifted: ResultEnvelope = {
+      ...candidate,
+      samples: candidate.samples.map((item, index) => ({
+        ...item,
+        measurements: item.measurements.map((measurement) => ({
+          ...measurement,
+          value: index < 7 ? 0 : 2,
+        })),
+      })),
+    };
+    const single = compareResults(envelope(), shifted, "initial.requests");
+    expect(single.multiplicity).toEqual({
+      comparisons: 1,
+      family: "compare-invocation",
+      familyLevel: 0.95,
+      intervalLevel: 0.95,
+      method: "bonferroni",
+    });
+    expect(single.comparisons[0]?.paired.conclusion).toBe("candidate-higher");
+    const family = compareResults(envelope(), shifted, "initial.requests", {
+      family: { comparisons: 90, id: "batch:test" },
+    });
+    expect(family.multiplicity).toMatchObject({
+      comparisons: 90,
+      family: "batch:test",
+      intervalLevel: 1 - 0.05 / 90,
+    });
+    expect(family.comparisons[0]?.paired).toMatchObject({
+      conclusion: "inconclusive",
+      confidenceInterval: { level: 1 - 0.05 / 90 },
+    });
+    expect(decodeAnalysis(family)).toEqual(family);
+    expect(() =>
+      compareResults(envelope(), shifted, "initial.requests", {
+        family: { comparisons: 0, id: "too-small" },
+      })
+    ).toThrow(/fewer than the 1/u);
+  });
+  it("draws a separate deterministic bootstrap stream for each comparison", () => {
+    const baseline: ResultEnvelope = {
+      ...envelope(),
+      samples: Array.from({ length: 30 }, (_, index) =>
+        lcp("baseline", 500, index)
+      ),
+    };
+    const original = envelope(true);
+    const candidate: ResultEnvelope = {
+      ...original,
+      fixtures: ["vendor-a", "vendor-b"].map((id) => ({
+        ...fixture,
+        baseline: false,
+        id,
+      })),
+      samples: ["vendor-a", "vendor-b"].flatMap((id, cell) =>
+        Array.from({ length: 30 }, (_, index) =>
+          lcp(id, 500 + delta(index), index, cell * 30)
+        )
+      ),
+    };
+    const analysis = compareResults(baseline, candidate, "page.lcp");
+    const [first, second] = analysis.comparisons.map(
+      (comparison) => comparison.paired
+    );
+    expect(analysis.multiplicity.comparisons).toBe(2);
+    expect(first?.medianDifference).toBe(second?.medianDifference);
+    expect(first?.confidenceInterval).not.toBeNull();
+    expect(first?.confidenceInterval).not.toEqual(second?.confidenceInterval);
+    expect(compareResults(baseline, candidate, "page.lcp")).toEqual(analysis);
+  });
+});
+
 describe("paired comparison boundaries", () => {
   const otherRunId = "33333333-3333-4333-8333-333333333333";
   it("never pairs reused pair IDs from separate runs", () => {

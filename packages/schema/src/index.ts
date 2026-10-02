@@ -450,8 +450,39 @@ const HistoricalPairedSummary = Schema.Struct({
   medianDifference: Schema.NullOr(Finite),
   p75Difference: Schema.NullOr(Finite),
 });
-export const PairedSummary = HistoricalPairedSummary;
-const ComparisonFields = {
+const ConfidenceLevel = Finite.check(
+  Schema.isGreaterThanOrEqualTo(0.95),
+  Schema.isLessThan(1)
+);
+export const PairedSummary = Schema.Struct({
+  ...HistoricalPairedSummary.fields,
+  confidenceInterval: Schema.NullOr(
+    Schema.Struct({
+      high: Finite,
+      level: ConfidenceLevel,
+      low: Finite,
+      method: Schema.Literal("paired-percentile-bootstrap"),
+      resamples: Count,
+    }).check(Schema.makeFilter((interval) => interval.low <= interval.high))
+  ),
+});
+/** Bonferroni control: each interval uses 1 - (1 - familyLevel) / comparisons. */
+export const Multiplicity = Schema.Struct({
+  comparisons: Count,
+  family: Text,
+  familyLevel: Schema.Literal(0.95),
+  intervalLevel: ConfidenceLevel,
+  method: Schema.Literal("bonferroni"),
+}).check(
+  Schema.makeFilter(
+    (multiplicity) =>
+      multiplicity.intervalLevel ===
+      1 -
+        (1 - multiplicity.familyLevel) / Math.max(1, multiplicity.comparisons),
+    { message: "The interval level must be the Bonferroni-adjusted level." }
+  )
+);
+const HistoricalComparisonFields = {
   baseline: MetricSummary,
   baselineFixtureId: Text,
   candidate: MetricSummary,
@@ -473,6 +504,10 @@ const ComparisonFields = {
   paired: HistoricalPairedSummary,
   scenarioId: Text,
   unit: Schema.NullOr(MetricUnit),
+};
+const ComparisonFields = {
+  ...HistoricalComparisonFields,
+  paired: PairedSummary,
 };
 
 /** Only an eligible comparison may carry an interval, and a verdict must follow from it. */
@@ -510,18 +545,40 @@ const CurrentAnalysis = Schema.Struct({
     )
   ),
   metricKey: Text,
+  multiplicity: Multiplicity,
   sourceRunIds: Schema.Array(UUID),
-});
+}).check(
+  Schema.makeFilter(
+    (analysis) => {
+      const intervals = analysis.comparisons.flatMap((comparison) =>
+        comparison.paired.confidenceInterval
+          ? [comparison.paired.confidenceInterval]
+          : []
+      );
+      return (
+        intervals.length <= analysis.multiplicity.comparisons &&
+        intervals.every(
+          (interval) => interval.level === analysis.multiplicity.intervalLevel
+        )
+      );
+    },
+    {
+      message:
+        "Every interval must use the family's adjusted level, and the family must cover every interval.",
+    }
+  )
+);
 /**
  * Earlier analyses remain decodable as recorded. Before v3.3.0 an ineligible
  * comparison could still carry an interval and a directional conclusion; that
- * verdict is not evidence.
+ * verdict is not evidence. Their 95% intervals had no multiplicity adjustment
+ * and shared one bootstrap seed across comparisons.
  */
 const HistoricalAnalysis = Schema.Struct({
   analysisVersion: Text.check(
     Schema.makeFilter((version) => version !== ANALYSIS_VERSION)
   ),
-  comparisons: Schema.Array(Schema.Struct(ComparisonFields)),
+  comparisons: Schema.Array(Schema.Struct(HistoricalComparisonFields)),
   metricKey: Text,
   sourceRunIds: Schema.Array(UUID),
 });

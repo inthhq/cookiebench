@@ -70,6 +70,41 @@ const FlowIterations = Schema.Number.check(
 );
 const decodeFlowIterations = Schema.decodeUnknownSync(FlowIterations);
 
+const skippedReason = (entry: BatchEntry) =>
+  entry.excludedReason ??
+  (entry.kind === "load" ? entry.blockedReason : undefined);
+
+/**
+ * Every paired comparison a plan can produce forms one Bonferroni family, so a
+ * batch's directional conclusions share one 95% family-wise level. Flows have
+ * no paired comparisons. Unreadable configurations count one candidate; their
+ * runs fail before producing comparisons.
+ */
+async function comparisonFamily(plan: BatchPlan, planSha256: string) {
+  let comparisons = 0;
+  for (const entry of plan.entries) {
+    if (entry.kind === "flows" || skippedReason(entry)) {
+      continue;
+    }
+    let candidates = 1;
+    if (entry.kind === "load" && entry.config) {
+      try {
+        const config = JSON.parse(await readFile(entry.config, "utf-8"));
+        candidates = Array.isArray(config.fixtures)
+          ? config.fixtures.filter(
+              (fixture: FixtureConfig) => fixture && !fixture.baseline
+            ).length
+          : 1;
+      } catch {
+        candidates = 1;
+      }
+    }
+    comparisons +=
+      candidates * (entry.kind === "load" ? loadMetrics : auditMetrics).length;
+  }
+  return { comparisons, id: `batch:${planSha256}` };
+}
+
 function iterationsFor(entry: BatchEntry) {
   return entry.kind === "flows" ? (entry.iterations ?? 1) : 30;
 }
@@ -223,7 +258,8 @@ export function decodePlan(value: unknown): BatchPlan {
 }
 
 export async function describePlan(planFile: string) {
-  const plan = decodePlan(JSON.parse(await readFile(planFile, "utf-8")));
+  const bytes = await readFile(planFile);
+  const plan = decodePlan(JSON.parse(bytes.toString("utf-8")));
   const entries = [];
   for (const entry of plan.entries) {
     const excluded = Boolean(
@@ -270,6 +306,7 @@ export async function describePlan(planFile: string) {
       (sum, entry) => sum + entry.additionalFollowupProbes,
       0
     ),
+    comparisonFamily: await comparisonFamily(plan, digest(bytes)),
     entries,
     measuredAttempts: entries.reduce(
       (sum, entry) => sum + entry.measuredAttempts,
@@ -454,9 +491,7 @@ export async function verifySavedBatchEntry(
       );
     }
   }
-  const skipped =
-    entry.excludedReason ??
-    (entry.kind === "load" ? entry.blockedReason : undefined);
+  const skipped = skippedReason(entry);
   if (skipped) {
     const status = entry.excludedReason ? "excluded" : "configuration-blocked";
     if (
@@ -565,6 +600,7 @@ async function executeBatch(
   if (!savedPlan) {
     await writeFile(path.join(output, "plan.json"), bytes, { flag: "wx" });
   }
+  const family = await comparisonFamily(plan, digest(bytes));
   const results: Record<string, unknown>[] = [];
   const outputFiles = await readdir(output);
   let checkpoint = outputFiles.filter((name) =>
@@ -575,6 +611,7 @@ async function executeBatch(
     await save(
       path.join(output, `index-${String(checkpoint).padStart(4, "0")}.json`),
       {
+        comparisonFamily: family,
         planSha256: digest(bytes),
         results,
         schemaVersion: 1,
@@ -595,9 +632,7 @@ async function executeBatch(
       continue;
     }
     await mkdir(entryDirectory, { recursive: true });
-    const skipped =
-      entry.excludedReason ??
-      (entry.kind === "load" ? entry.blockedReason : undefined);
+    const skipped = skippedReason(entry);
     if (skipped) {
       const record = {
         ...entry,
@@ -670,10 +705,14 @@ async function executeBatch(
               envelopeFile,
               "--metric",
               metric,
+              "--family",
+              family.id,
+              "--family-size",
+              String(family.comparisons),
             ]
           );
           analyses.push({
-            ...compareResults(envelope, envelope, metric),
+            ...compareResults(envelope, envelope, metric, { family }),
             execution: comparison,
           });
         }
@@ -711,6 +750,7 @@ async function executeBatch(
     }
   }
   const index = {
+    comparisonFamily: family,
     complete:
       results.length === plan.entries.length && !state.interruptionExitCode,
     completedAt: new Date().toISOString(),
