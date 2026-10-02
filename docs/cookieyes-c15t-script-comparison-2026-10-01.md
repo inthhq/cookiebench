@@ -6,15 +6,15 @@ Compared self-hosted `@c15t/browser@3.0.0-alpha.3` with a 150 ms backend delay a
 
 Medians in milliseconds. Each cell lists **c15t / CookieYes**.
 
-| Measurement | Desktop | Emulated mobile |
-|---|---:|---:|
-| Article LCP | 88 / 150 | 3288 / 3056 |
-| Paired added LCP versus baseline | +2 / +68 | +428 / +196 |
-| Banner DOM visibility | 227 / 389 | 1475 / 1570 |
-| Accept input-to-next-paint | 44 / 44 | 56 / 48 |
-| Reject input-to-next-paint | 40 / 48 | 56 / 48 |
-| Accept dismissal | 32 / 41 | 72 / 43 |
-| Reject dismissal | 31 / 42 | 75 / 47 |
+| Measurement                      |   Desktop | Emulated mobile |
+| -------------------------------- | --------: | --------------: |
+| Article LCP                      |  88 / 150 |     3288 / 3056 |
+| Paired added LCP versus baseline |  +2 / +68 |     +428 / +196 |
+| Banner DOM visibility            | 227 / 389 |     1475 / 1570 |
+| Accept input-to-next-paint       |   44 / 44 |         56 / 48 |
+| Reject input-to-next-paint       |   40 / 48 |         56 / 48 |
+| Accept dismissal                 |   32 / 41 |         72 / 43 |
+| Reject dismissal                 |   31 / 42 |         75 / 47 |
 
 Each fixture/profile has 30 loads; baseline LCP was 84/2860 ms desktop/mobile. All four comparisons are eligible; c15t's desktop added-LCP interval includes zero. Primary action timings have 10/10 eligible observations. All 80 repeated consent checks verified; 20 c15t mobile attempts lacked byte readings.
 

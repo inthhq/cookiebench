@@ -2,16 +2,16 @@ CookieYes added less LCP delay. c15t's banner appeared 105 ms earlier.
 
 Chrome mid-tier calibration selected **2.83×** slowdown. Validation passed before and after measurement. Mobile network settings remained 1.6 Mbps and 150 ms latency.
 
-| Median, milliseconds | c15t alpha.3 | CookieYes |
-|---|---:|---:|
-| Page LCP | 3,280 | 3,048 |
-| Paired added LCP over baseline | 426 | 196 |
-| Added-LCP 95% interval | 424 to 432 | 188 to 200 |
-| Banner visible | 1,435 | 1,540 |
-| Accept input to next paint | 60 | 48 |
-| Reject input to next paint | 64 | 48 |
-| Accept dismissal | 54.6 | 48.5 |
-| Reject dismissal | 80.9 | 46.1 |
+| Median, milliseconds           | c15t alpha.3 |  CookieYes |
+| ------------------------------ | -----------: | ---------: |
+| Page LCP                       |        3,280 |      3,048 |
+| Paired added LCP over baseline |          426 |        196 |
+| Added-LCP 95% interval         |   424 to 432 | 188 to 200 |
+| Banner visible                 |        1,435 |      1,540 |
+| Accept input to next paint     |           60 |         48 |
+| Reject input to next paint     |           64 |         48 |
+| Accept dismissal               |         54.6 |       48.5 |
+| Reject dismissal               |         80.9 |       46.1 |
 
 Baseline LCP was 2,852 ms. All 30 loads per fixture passed, with 30 eligible pairs per CMP and identical image attribution. Three warmups per fixture were excluded.
 
