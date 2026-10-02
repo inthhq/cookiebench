@@ -454,31 +454,52 @@ const ConfidenceLevel = Finite.check(
   Schema.isGreaterThanOrEqualTo(0.95),
   Schema.isLessThan(1)
 );
+const ConfidenceInterval = Schema.Struct({
+  high: Finite,
+  level: ConfidenceLevel,
+  low: Finite,
+  method: Schema.Literal("paired-percentile-bootstrap"),
+  resamples: Count,
+}).check(Schema.makeFilter((interval) => interval.low <= interval.high));
+/**
+ * `pairDifferenceP75` is the 75th percentile of within-pair differences.
+ * `p75Delta` is p75(candidate) - p75(baseline) over the same pairs, with an
+ * interval from the same paired bootstrap. The conclusion follows from the
+ * median-difference interval alone.
+ */
 export const PairedSummary = Schema.Struct({
-  ...HistoricalPairedSummary.fields,
-  confidenceInterval: Schema.NullOr(
-    Schema.Struct({
-      high: Finite,
-      level: ConfidenceLevel,
-      low: Finite,
-      method: Schema.Literal("paired-percentile-bootstrap"),
-      resamples: Count,
-    }).check(Schema.makeFilter((interval) => interval.low <= interval.high))
-  ),
-});
-/** Bonferroni control: each interval uses 1 - (1 - familyLevel) / comparisons. */
+  conclusion: HistoricalPairedSummary.fields.conclusion,
+  confidenceInterval: Schema.NullOr(ConfidenceInterval),
+  count: Count,
+  medianDifference: Schema.NullOr(Finite),
+  p75Delta: Schema.Struct({
+    confidenceInterval: Schema.NullOr(ConfidenceInterval),
+    estimate: Schema.NullOr(Finite),
+  }),
+  pairDifferenceP75: Schema.NullOr(Finite),
+}).check(
+  Schema.makeFilter(
+    (paired) =>
+      (paired.confidenceInterval === null) ===
+      (paired.p75Delta.confidenceInterval === null)
+  )
+);
+/** Bonferroni control: each interval uses 1 - (1 - familyLevel) / intervals. */
 export const Multiplicity = Schema.Struct({
   comparisons: Count,
   family: Text,
   familyLevel: Schema.Literal(0.95),
   intervalLevel: ConfidenceLevel,
+  intervals: Count,
   method: Schema.Literal("bonferroni"),
 }).check(
   Schema.makeFilter(
     (multiplicity) =>
+      // Each comparison reports a median-difference and a p75-delta interval.
+      multiplicity.intervals === multiplicity.comparisons * 2 &&
       multiplicity.intervalLevel ===
-      1 -
-        (1 - multiplicity.familyLevel) / Math.max(1, multiplicity.comparisons),
+        1 -
+          (1 - multiplicity.familyLevel) / Math.max(1, multiplicity.intervals),
     { message: "The interval level must be the Bonferroni-adjusted level." }
   )
 );
@@ -551,12 +572,13 @@ const CurrentAnalysis = Schema.Struct({
   Schema.makeFilter(
     (analysis) => {
       const intervals = analysis.comparisons.flatMap((comparison) =>
-        comparison.paired.confidenceInterval
-          ? [comparison.paired.confidenceInterval]
-          : []
+        [
+          comparison.paired.confidenceInterval,
+          comparison.paired.p75Delta.confidenceInterval,
+        ].filter((interval) => interval !== null)
       );
       return (
-        intervals.length <= analysis.multiplicity.comparisons &&
+        intervals.length <= analysis.multiplicity.intervals &&
         intervals.every(
           (interval) => interval.level === analysis.multiplicity.intervalLevel
         )

@@ -156,6 +156,36 @@ describe("deterministic aggregation", () => {
       ).count
     ).toBe(0);
   });
+  it("reports the change in p75 separately from the p75 of pair differences", () => {
+    const timing = (fixtureId: string, value: number, index: number) => ({
+      ...sample(0, index),
+      fixtureId,
+      measurements: [
+        {
+          key: "page.lcp",
+          method: "native-lcp",
+          status: "measured" as const,
+          unit: "ms" as const,
+          value,
+        },
+      ],
+    });
+    const paired = pairedDifferences(
+      [100, 200, 100, 100].map((value, index) =>
+        timing("baseline", value, index)
+      ),
+      [200, 100, 100, 100].map((value, index) =>
+        timing("vendor", value, index)
+      ),
+      "page.lcp"
+    );
+    // Both arms have p75 125 ms, but the within-pair differences have p75 25 ms.
+    expect(paired).toMatchObject({
+      p75Delta: { confidenceInterval: null, estimate: 0 },
+      pairDifferenceP75: 25,
+    });
+    expect(paired).not.toHaveProperty("p75Difference");
+  });
   it("compares valid pairs deterministically and never grades the baseline", () => {
     const result = compareResults(
       envelope(),
@@ -172,6 +202,7 @@ describe("deterministic aggregation", () => {
         confidenceInterval: { high: 1, low: 1 },
         count: 30,
         medianDifference: 1,
+        p75Delta: { confidenceInterval: { high: 1, low: 1 }, estimate: 1 },
       },
     });
     expect(result).not.toHaveProperty("score");
@@ -344,7 +375,7 @@ describe("family-wise interval control", () => {
     pairId: `pair-${index}`,
   });
   it("records the declared family and widens intervals to its Bonferroni level", () => {
-    // Seven of 30 pairs go the other way: clear at 95%, not across 90 comparisons.
+    // Seven of 30 pairs go the other way: clear for one comparison, not across 90.
     const candidate = envelope(true);
     const shifted: ResultEnvelope = {
       ...candidate,
@@ -361,7 +392,8 @@ describe("family-wise interval control", () => {
       comparisons: 1,
       family: "compare-invocation",
       familyLevel: 0.95,
-      intervalLevel: 0.95,
+      intervalLevel: 0.975,
+      intervals: 2,
       method: "bonferroni",
     });
     expect(single.comparisons[0]?.paired.conclusion).toBe("candidate-higher");
@@ -371,11 +403,13 @@ describe("family-wise interval control", () => {
     expect(family.multiplicity).toMatchObject({
       comparisons: 90,
       family: "batch:test",
-      intervalLevel: 1 - 0.05 / 90,
+      intervalLevel: 1 - 0.05 / 180,
+      intervals: 180,
     });
     expect(family.comparisons[0]?.paired).toMatchObject({
       conclusion: "inconclusive",
-      confidenceInterval: { level: 1 - 0.05 / 90 },
+      confidenceInterval: { level: 1 - 0.05 / 180 },
+      p75Delta: { confidenceInterval: { level: 1 - 0.05 / 180 } },
     });
     expect(decodeAnalysis(family)).toEqual(family);
     expect(() =>

@@ -173,6 +173,22 @@ describe("explicit fixture readiness", () => {
   });
 });
 
+const family = (comparisons: number) => ({
+  comparisons,
+  family: "compare-invocation",
+  familyLevel: 0.95,
+  intervalLevel: 1 - 0.05 / (comparisons * 2),
+  intervals: comparisons * 2,
+  method: "bonferroni",
+});
+const interval = (level: number) => ({
+  high: -1,
+  level,
+  low: -1,
+  method: "paired-percentile-bootstrap",
+  resamples: 2000,
+});
+
 describe("analysis records", () => {
   const summary = {
     attempts: 40,
@@ -220,87 +236,62 @@ describe("analysis records", () => {
   it("keeps historical analyses decodable as recorded", () => {
     expect(decodeAnalysis(historical)).toEqual(historical);
   });
+  const descriptive = {
+    conclusion: "inconclusive",
+    confidenceInterval: null,
+    count: 34,
+    medianDifference: -1,
+    p75Delta: { confidenceInterval: null, estimate: -1 },
+    pairDifferenceP75: -1,
+  };
+  const verdict = (level: number) => ({
+    ...descriptive,
+    conclusion: "candidate-lower",
+    confidenceInterval: interval(level),
+    p75Delta: { confidenceInterval: interval(level), estimate: -1 },
+  });
+  const current = (
+    paired: object,
+    overrides: object = {},
+    multiplicity: object = family(1)
+  ) => ({
+    ...historical,
+    analysisVersion: ANALYSIS_VERSION,
+    comparisons: [{ ...comparison, paired, ...overrides }],
+    multiplicity,
+  });
+  const eligible = { eligibilityReasons: [], eligible: true };
   it("rejects a current analysis that publishes a verdict for an ineligible comparison", () => {
-    const current = {
-      ...historical,
-      analysisVersion: ANALYSIS_VERSION,
-      multiplicity: {
-        comparisons: 1,
-        family: "compare-invocation",
-        familyLevel: 0.95,
-        intervalLevel: 0.95,
-        method: "bonferroni",
-      },
-    };
-    expect(() => decodeAnalysis(current)).toThrow();
+    expect(() => decodeAnalysis(current(verdict(0.975)))).toThrow();
+    expect(() => decodeAnalysis(current(descriptive))).not.toThrow();
     expect(() =>
-      decodeAnalysis({
-        ...current,
-        comparisons: [
-          {
-            ...comparison,
-            paired: {
-              ...comparison.paired,
-              conclusion: "inconclusive",
-              confidenceInterval: null,
-            },
-          },
-        ],
-      })
+      decodeAnalysis(current(verdict(0.975), eligible))
     ).not.toThrow();
     expect(() =>
-      decodeAnalysis({
-        ...current,
-        comparisons: [
-          { ...comparison, eligibilityReasons: [], eligible: true },
-        ],
-      })
-    ).not.toThrow();
-    expect(() =>
-      decodeAnalysis({
-        ...current,
-        comparisons: [{ ...comparison, eligibilityReasons: [] }],
-      })
+      decodeAnalysis(current(verdict(0.975), { eligibilityReasons: [] }))
     ).toThrow();
   });
   it("requires every current interval to use the declared family's adjusted level", () => {
-    const eligible = { ...comparison, eligibilityReasons: [], eligible: true };
-    const family = {
-      comparisons: 90,
-      family: "batch:plan",
-      familyLevel: 0.95,
-      intervalLevel: 1 - 0.05 / 90,
-      method: "bonferroni",
-    };
-    const current = {
-      ...historical,
-      analysisVersion: ANALYSIS_VERSION,
-      comparisons: [eligible],
-      multiplicity: family,
-    };
-    expect(() => decodeAnalysis(current)).toThrow();
     expect(() =>
-      decodeAnalysis({
-        ...current,
-        comparisons: [
-          {
-            ...eligible,
-            paired: {
-              ...eligible.paired,
-              confidenceInterval: {
-                ...eligible.paired.confidenceInterval,
-                level: family.intervalLevel,
-              },
-            },
-          },
-        ],
-      })
+      decodeAnalysis(current(verdict(0.975), eligible, family(90)))
+    ).toThrow();
+    expect(() =>
+      decodeAnalysis(current(verdict(1 - 0.05 / 180), eligible, family(90)))
     ).not.toThrow();
     expect(() =>
-      decodeAnalysis({
-        ...current,
-        multiplicity: { ...family, intervalLevel: 0.95 },
-      })
+      decodeAnalysis(
+        current(verdict(0.975), eligible, {
+          ...family(90),
+          intervalLevel: 0.975,
+        })
+      )
     ).toThrow();
+  });
+  it("names the within-pair quantile separately from the p75 delta in current analyses", () => {
+    expect(() =>
+      decodeAnalysis(current({ ...descriptive, p75Difference: -1 }))
+    ).toThrow();
+    const { p75Delta: _omitted, ...withoutDelta } = descriptive;
+    expect(() => decodeAnalysis(current(withoutDelta))).toThrow();
   });
 });

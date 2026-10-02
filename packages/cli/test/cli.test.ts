@@ -163,7 +163,8 @@ test("compare records a declared comparison family and requires both family flag
     comparisons: 6,
     family: "batch:test",
     familyLevel: 0.95,
-    intervalLevel: 1 - 0.05 / 6,
+    intervalLevel: 1 - 0.05 / 12,
+    intervals: 12,
     method: "bonferroni",
   });
 });

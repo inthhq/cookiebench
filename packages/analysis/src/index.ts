@@ -40,18 +40,27 @@ export interface MetricSummary {
   min: number | null;
   max: number | null;
 }
+export interface ConfidenceInterval {
+  low: number;
+  high: number;
+  /** Per-interval level after the family-wise adjustment in Analysis.multiplicity. */
+  level: number;
+  method: "paired-percentile-bootstrap";
+  resamples: number;
+}
 export interface PairedSummary {
   count: number;
+  /** Median of within-pair candidate-minus-baseline differences. */
   medianDifference: number | null;
-  p75Difference: number | null;
-  confidenceInterval: {
-    low: number;
-    high: number;
-    /** Per-interval level after the family-wise adjustment in Analysis.multiplicity. */
-    level: number;
-    method: "paired-percentile-bootstrap";
-    resamples: number;
-  } | null;
+  /** 75th percentile of within-pair differences. This is not a change in p75. */
+  pairDifferenceP75: number | null;
+  /** p75(candidate) - p75(baseline) over the paired observations. */
+  p75Delta: {
+    estimate: number | null;
+    confidenceInterval: ConfidenceInterval | null;
+  };
+  /** Interval for medianDifference; the conclusion follows from it alone. */
+  confidenceInterval: ConfidenceInterval | null;
   conclusion: "candidate-lower" | "candidate-higher" | "inconclusive";
 }
 export interface Comparison {
@@ -82,6 +91,8 @@ export interface Multiplicity {
   method: "bonferroni";
   family: string;
   comparisons: number;
+  /** Each comparison contributes its median-difference and p75-delta intervals. */
+  intervals: number;
   familyLevel: 0.95;
   intervalLevel: number;
 }
@@ -100,6 +111,7 @@ export interface Analysis {
 }
 
 const FAMILY_LEVEL = 0.95;
+const INTERVALS_PER_COMPARISON = 2;
 
 /** R-7 interpolation, also used by R and NumPy's default quantile. */
 export function percentile(
@@ -223,13 +235,18 @@ function conclusion(
   return "inconclusive";
 }
 
-/** Signed candidate-minus-baseline differences for eligible pairs within one run. */
-function pairDifferences(
+interface PairedValue {
+  baseline: number;
+  candidate: number;
+}
+
+/** Eligible baseline and candidate values matched within one run. */
+function pairValues(
   baseline: readonly Sample[],
   candidate: readonly Sample[],
   key: string,
   contexts?: { baseline: MetricContext; candidate: MetricContext }
-): number[] {
+): PairedValue[] {
   const pairs = new Map<string, Sample>();
   for (const sample of baseline) {
     if (!sample.pairId) {
@@ -242,7 +259,7 @@ function pairDifferences(
     pairs.set(id, sample);
   }
   const seen = new Set<string>();
-  const differences: number[] = [];
+  const values: PairedValue[] = [];
   for (const sample of candidate) {
     if (!sample.pairId) {
       continue;
@@ -265,60 +282,98 @@ function pairDifferences(
           "Paired metric units and collection methods must match."
         );
       }
-      differences.push(value.value - reference.value);
+      values.push({ baseline: reference.value, candidate: value.value });
     }
   }
-  return differences;
+  return values;
 }
 
-function summarizeDifferences(
-  differences: readonly number[],
+/** R-7 quantile of an ascending, nonempty typed array. */
+function sortedQuantile(sorted: Float64Array, probability: number): number {
+  const position = (sorted.length - 1) * probability;
+  const lower = sorted[Math.floor(position)];
+  const upper = sorted[Math.ceil(position)];
+  if (lower === undefined || upper === undefined) {
+    throw new Error("Quantile requires a nonempty sample.");
+  }
+  return lower + (upper - lower) * (position - Math.floor(position));
+}
+
+/** One paired bootstrap: both statistics come from the same resampled pairs. */
+function bootstrapIntervals(
+  pairs: readonly PairedValue[],
+  interval: { level: number; seed: number }
+): { median: ConfidenceInterval; p75Delta: ConfidenceInterval } {
+  const drawRandom = random(interval.seed);
+  const resamples = resamplesFor(interval.level);
+  const medians = new Float64Array(resamples);
+  const p75Deltas = new Float64Array(resamples);
+  const differences = new Float64Array(pairs.length);
+  const baselines = new Float64Array(pairs.length);
+  const candidates = new Float64Array(pairs.length);
+  for (let resample = 0; resample < resamples; resample += 1) {
+    for (let index = 0; index < pairs.length; index += 1) {
+      const pair = pairs[Math.floor(drawRandom() * pairs.length)];
+      if (pair === undefined) {
+        throw new Error("Bootstrap index outside nonempty sample.");
+      }
+      differences[index] = pair.candidate - pair.baseline;
+      baselines[index] = pair.baseline;
+      candidates[index] = pair.candidate;
+    }
+    medians[resample] = sortedQuantile(differences.toSorted(), 0.5);
+    p75Deltas[resample] =
+      sortedQuantile(candidates.toSorted(), 0.75) -
+      sortedQuantile(baselines.toSorted(), 0.75);
+  }
+  const tail = (1 - interval.level) / 2;
+  const bounds = (draws: Float64Array): ConfidenceInterval => {
+    const sorted = draws.toSorted();
+    return {
+      high: sortedQuantile(sorted, 1 - tail),
+      level: interval.level,
+      low: sortedQuantile(sorted, tail),
+      method: "paired-percentile-bootstrap",
+      resamples,
+    };
+  };
+  return { median: bounds(medians), p75Delta: bounds(p75Deltas) };
+}
+
+function summarizePairs(
+  pairs: readonly PairedValue[],
   interval?: { level: number; seed: number }
 ): PairedSummary {
-  let confidenceInterval: PairedSummary["confidenceInterval"] = null;
   // Small batches do not support a stable-looking uncertainty interval.
-  if (interval && differences.length >= 30) {
-    const drawRandom = random(interval.seed);
-    const resamples = resamplesFor(interval.level);
-    const medians = Array.from({ length: resamples }, () => {
-      const draw = Array.from({ length: differences.length }, () => {
-        const value =
-          differences[Math.floor(drawRandom() * differences.length)];
-        if (value === undefined) {
-          throw new Error("Bootstrap index outside nonempty sample.");
-        }
-        return value;
-      });
-      const median = percentile(draw, 0.5);
-      if (median === null) {
-        throw new Error("Bootstrap requires nonempty samples.");
-      }
-      return median;
-    });
-    const tail = (1 - interval.level) / 2;
-    const low = percentile(medians, tail);
-    const high = percentile(medians, 1 - tail);
-    if (low !== null && high !== null) {
-      confidenceInterval = {
-        high,
-        level: interval.level,
-        low,
-        method: "paired-percentile-bootstrap",
-        resamples,
-      };
-    }
-  }
+  const intervals =
+    interval && pairs.length >= 30 ? bootstrapIntervals(pairs, interval) : null;
+  const differences = pairs.map((pair) => pair.candidate - pair.baseline);
+  const candidateP75 = percentile(
+    pairs.map((pair) => pair.candidate),
+    0.75
+  );
+  const baselineP75 = percentile(
+    pairs.map((pair) => pair.baseline),
+    0.75
+  );
   return {
-    conclusion: conclusion(confidenceInterval),
-    confidenceInterval,
-    count: differences.length,
+    conclusion: conclusion(intervals?.median ?? null),
+    confidenceInterval: intervals?.median ?? null,
+    count: pairs.length,
     medianDifference: percentile(differences, 0.5),
-    p75Difference: percentile(differences, 0.75),
+    p75Delta: {
+      confidenceInterval: intervals?.p75Delta ?? null,
+      estimate:
+        candidateP75 === null || baselineP75 === null
+          ? null
+          : candidateP75 - baselineP75,
+    },
+    pairDifferenceP75: percentile(differences, 0.75),
   };
 }
 
 /**
- * Describes paired differences. An interval and verdict are computed only when
+ * Describes paired differences. Intervals and a verdict are computed only when
  * `interval` is supplied; compareResults supplies it for eligible comparisons.
  */
 export function pairedDifferences(
@@ -330,8 +385,8 @@ export function pairedDifferences(
     interval?: { level: number; seed: number };
   } = {}
 ): PairedSummary {
-  return summarizeDifferences(
-    pairDifferences(baseline, candidate, key, options.contexts),
+  return summarizePairs(
+    pairValues(baseline, candidate, key, options.contexts),
     options.interval
   );
 }
@@ -443,7 +498,7 @@ function adjustIntervals(
   comparisons: Comparison[],
   inferential: readonly {
     index: number;
-    differences: readonly number[];
+    pairs: readonly PairedValue[];
     seed: number;
   }[],
   family: ComparisonFamily,
@@ -457,12 +512,12 @@ function adjustIntervals(
       `Comparison family ${family.id} declares ${family.comparisons} comparisons, fewer than the ${declarable} in this analysis.`
     );
   }
-  const intervalLevel =
-    1 - (1 - FAMILY_LEVEL) / Math.max(1, family.comparisons);
-  for (const { differences, index, seed } of inferential) {
+  const intervals = family.comparisons * INTERVALS_PER_COMPARISON;
+  const intervalLevel = 1 - (1 - FAMILY_LEVEL) / Math.max(1, intervals);
+  for (const { pairs, index, seed } of inferential) {
     const comparison = comparisons[index];
     if (comparison) {
-      comparison.paired = summarizeDifferences(differences, {
+      comparison.paired = summarizePairs(pairs, {
         level: intervalLevel,
         seed,
       });
@@ -473,6 +528,7 @@ function adjustIntervals(
     family: family.id,
     familyLevel: FAMILY_LEVEL,
     intervalLevel,
+    intervals,
     method: "bonferroni",
   };
 }
@@ -495,7 +551,7 @@ export function compareResults(
   const candidate = decodeResult(candidateInput);
   ensureRunCompatibility(baseline, candidate);
   const comparisons: Comparison[] = [];
-  const inferential: { index: number; differences: number[]; seed: number }[] =
+  const inferential: { index: number; pairs: PairedValue[]; seed: number }[] =
     [];
   let declarable = 0;
   for (const fixture of candidate.fixtures.filter((item) => !item.baseline)) {
@@ -565,7 +621,7 @@ export function compareResults(
         declarable += 1;
       }
       // The current runner coerces baseline actions to load-only. Those windows cannot support action deltas.
-      const differences = pairDifferences(
+      const pairs = pairValues(
         comparableWindow ? baselineSamples : [],
         comparableWindow ? candidateSamples : [],
         metricKey,
@@ -590,15 +646,15 @@ export function compareResults(
           comparableWindow,
           [baselineSamples, candidateSamples],
           [baselineSummary, candidateSummary],
-          differences.length
+          pairs.length
         ),
       ];
       const eligibilityReasons = [...new Set(reasons)];
       const eligible = eligibilityReasons.length === 0;
       if (eligible) {
         inferential.push({
-          differences,
           index: comparisons.length,
+          pairs,
           seed: comparisonSeed(
             candidate.manifest.seed,
             [metricKey, scenario.id, control.id, fixture.id].join("\u0000")
@@ -620,7 +676,7 @@ export function compareResults(
         eligibilityReasons,
         eligible,
         // An ineligible comparison stays descriptive: no interval or verdict.
-        paired: summarizeDifferences(differences),
+        paired: summarizePairs(pairs),
         scenarioId: scenario.id,
         unit: metrics[0]?.unit ?? null,
       });
