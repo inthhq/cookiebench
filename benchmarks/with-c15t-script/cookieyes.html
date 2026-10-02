@@ -4,10 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>CookieBench script consent fixture</title>
+    <!-- getCkyConsent exists before the banner's handlers; record banner load before CookieYes can fire it. -->
+    <script>
+      document.addEventListener("cookieyes_banner_load", () => {
+        window.__cookiebenchCkyBannerLoaded = true;
+      });
+    </script>
     <!-- CookieYes's standard classic head script is deliberately parser-blocking. -->
     <script
       id="cookieyes"
-      src="https://cdn-cookieyes.com/client_data/f66d6dffd4f9c8178517db8d4aeddcaa/script.js"
+      src="https://cdn-cookieyes.com/client_data/830009093fab466a1ff5d9a1/script.js"
     ></script>
   </head>
   <body>

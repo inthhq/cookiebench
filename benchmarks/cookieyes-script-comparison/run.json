@@ -20,7 +20,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "0c3084156a1375e6bf23196dc006ca7f72e4adc64867960622f54df6568a06ab",
+      "configurationHash": "9b31423f4bbe73dfc8fd37b9b3993d136286c5aa6a76a7f56d30af1d97d59429",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -36,7 +36,8 @@
         "lockfileHash": "11ab0d9df6f55a1e564cc8595df60164b142b0d398c9a731b4e7fb2494dda206",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
-      "revision": "3.2.2-backend150-v1",
+      "resolveHost": "127.0.0.1",
+      "revision": "3.2.3-backend150-v1-registered-host",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -47,11 +48,11 @@
         "readinessTimeoutMs": 120000,
         "readinessUrl": "http://127.0.0.1:4310/health",
         "start": {
-          "args": ["start", "--backend-delay-ms", "150"],
+          "args": ["start", "--backend-delay-ms", "150", "--tls-port", "4410"],
           "command": "pnpm"
         }
       },
-      "url": "http://127.0.0.1:4310/baseline",
+      "url": "https://benchmarks-with-cookie-yes.vercel.app:4410/baseline",
       "version": "html"
     },
     {
@@ -74,7 +75,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "2facd435629cba9258eede74a89570e07e5613d5f0b4cc0cf18a77dafb9c64d3",
+      "configurationHash": "61293c656deb8fc5a82546801035e5493d6ec4cdce9bd5d95ac5dd857497d8a6",
       "deployment": {
         "assets": "local",
         "backend": "controlled-local"
@@ -90,7 +91,8 @@
         "lockfileHash": "11ab0d9df6f55a1e564cc8595df60164b142b0d398c9a731b4e7fb2494dda206",
         "sourceUrl": "https://registry.npmjs.org/@c15t/browser/-/browser-3.0.0-alpha.3.tgz"
       },
-      "revision": "3.2.2-backend150-v1",
+      "resolveHost": "127.0.0.1",
+      "revision": "3.2.3-backend150-v1-registered-host",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -101,11 +103,11 @@
         "readinessTimeoutMs": 120000,
         "readinessUrl": "http://127.0.0.1:4310/health",
         "start": {
-          "args": ["start", "--backend-delay-ms", "150"],
+          "args": ["start", "--backend-delay-ms", "150", "--tls-port", "4410"],
           "command": "pnpm"
         }
       },
-      "url": "http://127.0.0.1:4310/",
+      "url": "https://benchmarks-with-cookie-yes.vercel.app:4410/",
       "version": "3.0.0-alpha.3"
     },
     {
@@ -128,7 +130,7 @@
       },
       "artifactPolicy": "mutable-network",
       "baseline": false,
-      "configurationHash": "f7906636c9134e360bc073ca2cd5901b614cba3222435b8f0160e8136cfa2fe2",
+      "configurationHash": "d255ea8dca42c461908325a26d915e02ae5a03031d802973d79f482dc5e9939f",
       "deployment": {
         "assets": "remote",
         "backend": "remote-service"
@@ -142,9 +144,10 @@
       "provenance": {
         "artifactIntegrity": "remote-unpinned",
         "lockfileHash": "11ab0d9df6f55a1e564cc8595df60164b142b0d398c9a731b4e7fb2494dda206",
-        "sourceUrl": "https://cdn-cookieyes.com/client_data/f66d6dffd4f9c8178517db8d4aeddcaa/script.js"
+        "sourceUrl": "https://cdn-cookieyes.com/client_data/830009093fab466a1ff5d9a1/script.js"
       },
-      "revision": "3.2.2-script-head-v1",
+      "resolveHost": "127.0.0.1",
+      "revision": "3.2.3-script-head-v1-registered-host",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -155,11 +158,11 @@
         "readinessTimeoutMs": 120000,
         "readinessUrl": "http://127.0.0.1:4310/health",
         "start": {
-          "args": ["start", "--backend-delay-ms", "150"],
+          "args": ["start", "--backend-delay-ms", "150", "--tls-port", "4410"],
           "command": "pnpm"
         }
       },
-      "url": "http://127.0.0.1:4310/cookieyes",
+      "url": "https://benchmarks-with-cookie-yes.vercel.app:4410/cookieyes",
       "version": "remote-unpinned"
     }
   ],

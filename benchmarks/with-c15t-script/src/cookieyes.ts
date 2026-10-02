@@ -14,6 +14,7 @@ declare global {
       categories?: Record<string, boolean>;
     };
     revisitCkyConsent?: () => void;
+    __cookiebenchCkyBannerLoaded?: boolean;
   }
 }
 
@@ -35,6 +36,11 @@ function syncConsent(): boolean {
   if (!snapshot) {
     return false;
   }
+  // The consent API exists before the banner attaches its button handlers, and
+  // an earlier click is ignored. Ready means the banner loaded or a choice exists.
+  const ready =
+    window.__cookiebenchCkyBannerLoaded === true ||
+    snapshot.isUserActionCompleted === true;
   const permissions = {
     marketing: snapshot.categories?.advertisement === true,
     measurement: snapshot.categories?.analytics === true,
@@ -50,7 +56,7 @@ function syncConsent(): boolean {
             },
           }
         : null,
-    resolution: { status: "matched" },
+    resolution: { status: ready ? "matched" : "pending" },
   });
   for (const workload of workloads) {
     if (!permissions[workload.category] || requested.has(workload.id)) {
@@ -62,10 +68,11 @@ function syncConsent(): boolean {
     // Public-consent callback gating, not a test of CookieYes native automatic blocking.
     document.head.append(script);
   }
-  return true;
+  return ready;
 }
 
 document.addEventListener("cookieyes_consent_update", syncConsent);
+document.addEventListener("cookieyes_banner_load", syncConsent);
 const readinessDeadline = performance.now() + 15_000;
 function readInitialConsent(): void {
   if (syncConsent() || performance.now() >= readinessDeadline) {

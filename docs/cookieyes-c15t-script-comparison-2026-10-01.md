@@ -14,13 +14,15 @@ This comparison is separate from the main September 27 and September 30 batches,
 | Script source | Self-hosted copy of `@c15t/browser@3.0.0-alpha.3` at `/vendor/c15t.js` | Vendor CDN, `cdn-cookieyes.com` |
 | Script placement | Classic script in `<body>`, after the article | Classic script in `<head>`, parser-blocking (the vendor's standard install) |
 | Backend | Controlled local test double on the fixture server, fixed 150 ms delay per policy or save response | CookieYes remote services |
-| Site ID | Not applicable | `f66d6dffd4f9c8178517db8d4aeddcaa` |
+| Site ID | Not applicable | `f66d6dffd4f9c8178517db8d4aeddcaa` (results below); checked-in configurations use `830009093fab466a1ff5d9a1` |
 
 Both arms share the static article page and the plain HTML baseline. c15t releases the two controlled workload scripts through its native script loader. The CookieYes page releases them from the `cookieyes_consent_update` callback, not CookieYes's automatic blocking.
 
-The CookieYes Next.js fixture (`benchmarks/with-cookie-yes`) uses a different site ID, `830009093fab466a1ff5d9a1`, which rejects the local hostname. This page uses another CookieYes site. The repository does not record who registered `f66d6dff…`, its registered URL or its banner settings.
+The run configuration used for this comparison was not committed. `benchmarks/cookieyes-script-comparison/run.json` (desktop) and `run-mobile.json` (emulated mobile) reconstruct it from the page sources: the unchanged baseline and c15t fixtures from `run.json`, a CookieYes fixture at `/cookieyes`, and the load, accept and reject scenarios.
 
-The run configuration used for this comparison was not committed. `benchmarks/cookieyes-script-comparison/run.json` (desktop) and `run-mobile.json` (emulated mobile) reconstruct it from the page sources: the unchanged baseline and c15t fixtures from `run.json`, a CookieYes fixture at `/cookieyes`, and the load, accept and reject scenarios. A one-sample load check of the reconstructed desktop configuration on October 2, 2026 failed with `banner-missing`. The CookieYes script reported that the site's registered URL had changed. The results below cannot currently be reproduced from this repository.
+CookieYes renders only on the domain registered for a site. On any other hostname, including `127.0.0.1`, its script throws "Looks like your website URL has changed" and shows no banner. Site `f66d6dff…`, used for the results below, is registered to `consentbench-with-cookie-yes.vercel.app`, so the original runs must have served the page under that hostname. The setup that did so was not committed, and that site is no longer used.
+
+The checked-in configurations, `benchmarks/cookieyes-script-comparison/run.json` (desktop) and `run-mobile.json` (emulated mobile), use site `830009093fab466a1ff5d9a1`, registered to `benchmarks-with-cookie-yes.vercel.app`. This is the same site as the Next.js fixture. They serve the baseline, c15t and CookieYes pages under that hostname over local HTTPS (`resolveHost`), so all three arms share the hostname and TLS conditions. The CookieYes adapter waits for `cookieyes_banner_load` before input, because the consent API exists before the banner's buttons respond. A one-iteration check on October 2, 2026 passed every desktop load, accept and reject sample and verified every emulated-mobile consent flow. The site, hostname, TLS and readiness differ from the original runs, so results from these configurations are not comparable with the numbers below. A rerun is needed to replace them.
 
 ```sh
 pnpm cookiebench run --config benchmarks/cookieyes-script-comparison/run.json --scenario load --iterations 30 --warmups 3 --output artifacts/cookieyes-desktop-load.json
