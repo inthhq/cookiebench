@@ -93,6 +93,39 @@ export async function acrossNavigation<T>(
     }
   }
 }
+/**
+ * When the consent action navigates, a followup input can reach the unloading
+ * document, or the new one before its observer is armed, and no observer records
+ * it. Whether the page responded is then unknown, not unresponsive.
+ */
+export function pageResponseFailure(
+  pageAction: string | undefined,
+  dispatchedAcrossNavigation: boolean,
+  responders: readonly { state?: { pageActionAt?: number } }[],
+  observers: readonly { inputs: readonly { target: string }[] }[]
+): Failure | undefined {
+  if (
+    responders.some((document) => document.state?.pageActionAt !== undefined)
+  ) {
+    return undefined;
+  }
+  if (
+    dispatchedAcrossNavigation &&
+    !observers.some((document) =>
+      document.inputs.some((input) => input.target === pageAction)
+    )
+  ) {
+    return {
+      code: "page-input-unobserved",
+      message:
+        "The page control input was dispatched across the consent action's navigation and no document recorded it, so whether the page responded is unknown",
+    };
+  }
+  return {
+    code: "page-unresponsive",
+    message: "Page control did not respond after the consent action",
+  };
+}
 async function waitUntil(
   page: Page,
   predicate: () => boolean,
@@ -369,6 +402,7 @@ export function runSample(options: {
             }
           | undefined;
         let followup: Promise<void> | undefined;
+        let pageActionDispatched = false;
         if (scenario.action !== "load" && available) {
           if (
             scenario.readiness === "ready" &&
@@ -531,6 +565,7 @@ export function runSample(options: {
                     fixture.adapter.pageAction ?? "body",
                     scenario.input
                   );
+                  pageActionDispatched = true;
                 })().catch((error: unknown) => {
                   failures.push({
                     code: "page-interaction-failed",
@@ -890,15 +925,20 @@ export function runSample(options: {
               message: state.remoteError,
             });
           }
-          if (
-            followup &&
-            state.pageActionAt === undefined &&
-            finalDocumentData.state?.pageActionAt === undefined
-          ) {
-            failures.push({
-              code: "page-unresponsive",
-              message: "Page control did not respond after the consent action",
-            });
+          const responseFailure = followup
+            ? pageResponseFailure(
+                fixture.adapter.pageAction,
+                pageActionDispatched && actionNavigated,
+                [data, finalDocumentData],
+                [
+                  data,
+                  finalDocumentData,
+                  ...documentEvidence.map((entry) => entry.observations),
+                ]
+              )
+            : undefined;
+          if (responseFailure) {
+            failures.push(responseFailure);
           }
         }
         let serverEvents: unknown;
@@ -1007,6 +1047,7 @@ export function runSample(options: {
             failure.code === "server-evidence-unavailable" ||
             failure.code === "required-measurement-unavailable" ||
             failure.code === "observation-window-exceeded" ||
+            failure.code === "page-input-unobserved" ||
             failure.code.startsWith("unsupported")
         )
           ? "incomplete"

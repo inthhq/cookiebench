@@ -100,6 +100,13 @@ for (const [directory, profile] of [
           "required-measurement-unavailable",
           "followup:required-measurement-unavailable",
         ];
+        if (sample.scenarioId === "withdraw") {
+          // The fixed-offset followup input can land while the reload replaces the page.
+          permittedFailures.push("followup:page-input-unobserved");
+          if (visit === followup) {
+            permittedFailures.push("page-input-unobserved");
+          }
+        }
         if (
           directory === "with-c15t-script" &&
           sample.scenarioId === "withdraw"
