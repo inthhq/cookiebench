@@ -51,18 +51,49 @@ interface Failure {
   code: string;
   message: string;
 }
-async function act(
+/**
+ * Forced clicks skip Playwright's stability wait, so they can reach a fixed
+ * control that is still sliding in from off screen, as Enzuzo's mobile banner
+ * does. Playwright refuses that click; a person could not make it either, so
+ * retry each frame until the control is on screen or the deadline passes.
+ */
+export async function act(
   page: Page,
   selector: string,
   input: ScenarioConfig["input"],
-  preparation = false
+  preparation = false,
+  timeoutMs = 5000
 ) {
   const control = page.locator(selector).first();
   if (input === "keyboard") {
     await control.focus();
     await page.keyboard.press("Enter");
-  } else {
-    await control.click({ force: !preparation, noWaitAfter: true });
+    return;
+  }
+  const deadline = Date.now() + timeoutMs;
+  for (;;) {
+    try {
+      // oxlint-disable-next-line no-await-in-loop -- Each retry follows a frame in which the control may have moved on screen.
+      await control.click({ force: !preparation, noWaitAfter: true });
+      return;
+    } catch (error) {
+      if (
+        preparation ||
+        Date.now() >= deadline ||
+        !(error instanceof Error) ||
+        !error.message.includes("Element is outside of the viewport")
+      ) {
+        throw error;
+      }
+    }
+    // oxlint-disable-next-line no-await-in-loop -- Wait one rendered frame before retrying.
+    await page.evaluate(
+      () =>
+        // oxlint-disable-next-line promise/avoid-new -- Page code cannot import node:timers/promises.
+        new Promise((resolve) => {
+          requestAnimationFrame(resolve);
+        })
+    );
   }
 }
 /**
@@ -238,14 +269,16 @@ export async function prime(
         ? (fixture.adapter.acceptPreparation ?? [])
         : (fixture.adapter.rejectPreparation ?? [])) {
         // oxlint-disable-next-line no-await-in-loop -- Native selection steps must precede the one final commit.
-        await act(page, selector, "pointer");
+        await act(page, selector, "pointer", false, scenario.actionDeadlineMs);
       }
       await act(
         page,
         scenario.visitor === "returning-accepted"
           ? fixture.adapter.accept
           : fixture.adapter.reject,
-        "pointer"
+        "pointer",
+        false,
+        scenario.actionDeadlineMs
       );
       const expected = {
         allowedCategories:
@@ -500,7 +533,13 @@ export function runSample(options: {
                   window.__bench.arm(target, action),
                 { action: scenario.action, selector }
               );
-              await act(page, selector, scenario.input);
+              await act(
+                page,
+                selector,
+                scenario.input,
+                false,
+                scenario.actionDeadlineMs
+              );
               actionStarted = true;
               if (
                 options.probe === "followup" &&
@@ -563,7 +602,9 @@ export function runSample(options: {
                   await act(
                     page,
                     fixture.adapter.pageAction ?? "body",
-                    scenario.input
+                    scenario.input,
+                    false,
+                    scenario.actionDeadlineMs
                   );
                   pageActionDispatched = true;
                 })().catch((error: unknown) => {
