@@ -9,8 +9,8 @@
     "start": "node ../../packages/fixture-support/src/serve.ts --port 4314 --upstream-port 4414 --baseline-upstream-port 4514 --baseline-entry .output-baseline/server/index.mjs -- node .output/server/index.mjs"
   },
   "dependencies": {
-    "@c15t/core": "3.0.0-alpha.3",
-    "@c15t/vue": "3.0.0-alpha.3",
+    "@c15t/core": "3.0.0-alpha.4",
+    "@c15t/vue": "3.0.0-alpha.4",
     "@cookiebench/fixture-support": "workspace:*",
     "nuxt": "4.5.2",
     "vue": "3.5.43"

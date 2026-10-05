@@ -82,34 +82,23 @@ for (const [framework, directory, file] of cells) {
         (entry) => entry.id === sample.fixtureId
       );
       expect(fixture).toBeDefined();
+      // Alpha.4 renders accepted returning Astro visitors without the banner.
+      expect(
+        sample.failures,
+        `${sample.fixtureId}/${sample.scenarioId}`
+      ).toEqual([]);
+      expect(sample.status).toBe("passed");
       if (
         framework === "astro" &&
         !fixture?.baseline &&
-        sample.scenarioId === "returning-accepted"
+        ["accept", "reject"].includes(sample.scenarioId)
       ) {
-        // Published alpha.3 still shows the banner for a returning accepted visitor.
-        expect(sample.status).toBe("failed");
-        expect(sample.failures.map((failure) => failure.code)).toContain(
-          "unexpected-banner"
-        );
-      } else {
-        expect(
-          sample.failures,
-          `${sample.fixtureId}/${sample.scenarioId}`
-        ).toEqual([]);
-        expect(sample.status).toBe("passed");
-        if (
-          framework === "astro" &&
-          !fixture?.baseline &&
-          ["accept", "reject"].includes(sample.scenarioId)
-        ) {
-          for (const key of ["action.consent-effective", "action.dismissed"]) {
-            expect(
-              sample.measurements.find((measurement) => measurement.key === key)
-                ?.status,
-              `${sample.fixtureId}/${sample.scenarioId}/${key}`
-            ).toBe("measured");
-          }
+        for (const key of ["action.consent-effective", "action.dismissed"]) {
+          expect(
+            sample.measurements.find((measurement) => measurement.key === key)
+              ?.status,
+            `${sample.fixtureId}/${sample.scenarioId}/${key}`
+          ).toBe("measured");
         }
       }
       expect(sample.diagnostics?.browserErrors).toEqual([]);

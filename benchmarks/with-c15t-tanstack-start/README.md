@@ -1,6 +1,6 @@
 # TanStack Start fixture
 
-This production fixture pins TanStack Start 1.168.58, React 19.2.1 and the published `@c15t/tanstack-start@3.0.0-alpha.3` adapter.
+This production fixture pins TanStack Start 1.168.60, TanStack Router 1.170.41, React 19.2.1 and the published `@c15t/tanstack-start@3.0.0-alpha.4` adapter.
 
 `src/consent-state.ts` attaches consent middleware only to the consent server function and resolves request cookies with the public server API and fetches the controlled backend init response on every SSR request. `ConsentRoot` hydrates that state. The public snapshot and script loader provide observable consent behavior. Default banner and dialog animations stay enabled.
 

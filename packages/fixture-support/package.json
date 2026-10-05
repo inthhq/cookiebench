@@ -16,7 +16,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@c15t/schema": "3.0.0-alpha.2",
+    "@c15t/schema": "3.0.0-alpha.3",
     "@cookiebench/schema": "workspace:*",
     "effect": "catalog:",
     "esbuild": "0.28.2"

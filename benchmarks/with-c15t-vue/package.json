@@ -9,8 +9,8 @@
     "start": "node ../../packages/fixture-support/src/serve.ts --port 4313 --static dist"
   },
   "dependencies": {
-    "@c15t/core": "3.0.0-alpha.3",
-    "@c15t/vue": "3.0.0-alpha.3",
+    "@c15t/core": "3.0.0-alpha.4",
+    "@c15t/vue": "3.0.0-alpha.4",
     "@cookiebench/fixture-support": "workspace:*",
     "vue": "3.5.43"
   },

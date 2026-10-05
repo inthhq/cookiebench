@@ -20,7 +20,7 @@
         "withdraw": "[data-testid=\"consent-widget-footer-reject-button\"], [data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "80f6251094ed2628ae23a59784b481983263d435e77781d22df39f6f8d51185f",
+      "configurationHash": "7c9295c199b5b23b47637cd0559a635ff80b8f84f17774086bebaab96f886d46",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -33,7 +33,7 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "sha512-o5qZoksdnjIKvW1srZ3ab7pcDNYAerBjRe54D0LBLfRdCYFrSgBHVXokMas35czQc0//lmx4/tuY4ZNQ+Rf2Ng==",
-        "lockfileHash": "11ab0d9df6f55a1e564cc8595df60164b142b0d398c9a731b4e7fb2494dda206",
+        "lockfileHash": "9a4bb10762521a4a7ed25c362cf01f79e870134fb5f618e4aee2bbacec9b8f8f",
         "sourceUrl": "https://registry.npmjs.org/vue/-/vue-3.5.43.tgz"
       },
       "revision": "3.2.1-article-v1",
@@ -74,7 +74,7 @@
         "withdraw": "[data-testid=\"consent-widget-footer-reject-button\"], [data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "1ad3ecf1ba4dadfca300095a8b551603e5824585a3b34ee24488feac01823309",
+      "configurationHash": "44197af1fe5580b3ae390086a5010489470cd14953b3ab08a7d95231c6898e7c",
       "deployment": {
         "assets": "local",
         "backend": "controlled-local"
@@ -86,9 +86,9 @@
       "presentation": "default",
       "product": "c15t",
       "provenance": {
-        "artifactIntegrity": "sha512-mki/rod9ibD4fTLKfWt1CGXcu8z3zuJ2cvvYofmOCrB+GLFeavvk1bKitIvGytV0rBUe2RwCDdVOVObHU0NjKg==",
-        "lockfileHash": "11ab0d9df6f55a1e564cc8595df60164b142b0d398c9a731b4e7fb2494dda206",
-        "sourceUrl": "https://registry.npmjs.org/@c15t/vue/-/vue-3.0.0-alpha.3.tgz"
+        "artifactIntegrity": "sha512-TCdgaeI/ytfN+AwWoMS7hs3wuxTEdbtv45oSlqYgPQr7G6zr5OhI/n/+G/xSr1KZoCWJ7CfHfgeDs7IS2yL7aA==",
+        "lockfileHash": "9a4bb10762521a4a7ed25c362cf01f79e870134fb5f618e4aee2bbacec9b8f8f",
+        "sourceUrl": "https://registry.npmjs.org/@c15t/vue/-/vue-3.0.0-alpha.4.tgz"
       },
       "revision": "3.2.1-article-v1",
       "schemaVersion": 3,
@@ -106,7 +106,7 @@
         }
       },
       "url": "http://127.0.0.1:4313/",
-      "version": "3.0.0-alpha.3"
+      "version": "3.0.0-alpha.4"
     }
   ],
   "scenarios": [

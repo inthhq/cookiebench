@@ -20,21 +20,21 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "f8c260db11f9c91bfcc9b4d61c251610af5d0a1140e6d3f87e999df7d315e00c",
+      "configurationHash": "ea9864a7482a14e6aca51ca864f8c7f8a8d59f3b945460d4261ebcceb083b449",
       "deployment": {
         "assets": "local",
         "backend": "none"
       },
       "framework": "tanstack-start",
-      "frameworkVersion": "1.168.58",
+      "frameworkVersion": "1.168.60",
       "id": "tanstack-start-baseline",
       "mode": "hosted",
       "presentation": "default",
       "product": "baseline",
       "provenance": {
-        "artifactIntegrity": "sha512-PYIUFOsGp98QvqbW6GDkRqjAZNYJ1c+rA0pGtEwb6oDQeECnrbLij1NbGLPed/nVnROyBNwvq/+rAK3Hb3j9eg==",
-        "lockfileHash": "11ab0d9df6f55a1e564cc8595df60164b142b0d398c9a731b4e7fb2494dda206",
-        "sourceUrl": "https://registry.npmjs.org/@tanstack/react-start/-/react-start-1.168.58.tgz"
+        "artifactIntegrity": "sha512-WMOM0Xlh2lPbVlbjYM6uOxOpiaWRPvODm/dwkLsGKq5tjyHOHZmKckJgwlrZl7OQUqFlOZHYj8bKUTgoeg8cUQ==",
+        "lockfileHash": "9a4bb10762521a4a7ed25c362cf01f79e870134fb5f618e4aee2bbacec9b8f8f",
+        "sourceUrl": "https://registry.npmjs.org/@tanstack/react-start/-/react-start-1.168.60.tgz"
       },
       "revision": "3.2.0-article-v1",
       "schemaVersion": 3,
@@ -52,7 +52,7 @@
         }
       },
       "url": "http://127.0.0.1:4316/baseline",
-      "version": "1.168.58"
+      "version": "1.168.60"
     },
     {
       "adapter": {
@@ -74,21 +74,21 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "6c550ce7131c219c533ae927109b308e3100e49465c98cb1110d93cd15ddde37",
+      "configurationHash": "ec7d05862d421d7bc3ae48a8fbc1e133281a458b59f9349bf367489b4deca57b",
       "deployment": {
         "assets": "local",
         "backend": "controlled-local"
       },
       "framework": "tanstack-start",
-      "frameworkVersion": "1.168.58",
+      "frameworkVersion": "1.168.60",
       "id": "tanstack-start-c15t",
       "mode": "hosted",
       "presentation": "default",
       "product": "c15t",
       "provenance": {
-        "artifactIntegrity": "sha512-hNHcOCxkQf8eJ/4RAwq0hVBfVsH+67gvDIViqQ7RpV98ciiF/lVHth61fkhbdSf3c5e8NoqUgdUQJpL9Td/0Pg==",
-        "lockfileHash": "11ab0d9df6f55a1e564cc8595df60164b142b0d398c9a731b4e7fb2494dda206",
-        "sourceUrl": "https://registry.npmjs.org/@c15t/tanstack-start/-/tanstack-start-3.0.0-alpha.3.tgz"
+        "artifactIntegrity": "sha512-y7aOzgmfmz3sfSkTYkKC0jE1F244ZAAXGPl2pGSdOuv19zvQsExW6h5oYntcZzI+q7+cYlNWuhlErbkwuBcX7Q==",
+        "lockfileHash": "9a4bb10762521a4a7ed25c362cf01f79e870134fb5f618e4aee2bbacec9b8f8f",
+        "sourceUrl": "https://registry.npmjs.org/@c15t/tanstack-start/-/tanstack-start-3.0.0-alpha.4.tgz"
       },
       "revision": "3.2.0-article-v1",
       "schemaVersion": 3,
@@ -106,7 +106,7 @@
         }
       },
       "url": "http://127.0.0.1:4316/",
-      "version": "3.0.0-alpha.3"
+      "version": "3.0.0-alpha.4"
     }
   ],
   "scenarios": [

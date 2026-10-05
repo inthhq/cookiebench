@@ -20,7 +20,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "64f44ebdc55dadc0058a97d7fe4ed4c63337aa63b129a50a133b355e25785715",
+      "configurationHash": "897e6d7e9136e06cdcb93560c2f4ac9a5c1b3a5534626c444de6101253a96788",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -33,7 +33,7 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "fixture-source-only",
-        "lockfileHash": "11ab0d9df6f55a1e564cc8595df60164b142b0d398c9a731b4e7fb2494dda206",
+        "lockfileHash": "9a4bb10762521a4a7ed25c362cf01f79e870134fb5f618e4aee2bbacec9b8f8f",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
       "revision": "3.2.0-article-v1",
@@ -74,7 +74,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "06faed969e91ca409ea7b85f3e7872a5f58e37d62620376cb9f96d9891a69d53",
+      "configurationHash": "777d40d2efd19ff56ad880cdcc02859d99742c51c47b92c33c6cf11af6998d04",
       "deployment": {
         "assets": "local",
         "backend": "controlled-local"
@@ -86,9 +86,9 @@
       "presentation": "default",
       "product": "c15t",
       "provenance": {
-        "artifactIntegrity": "sha512-AAoEbsVQ4j8CgAPEWrTGfJAbt1e1NDd3/SJv8zz3hgiUnokojIDyzzQYhOGWwUsIj+QZ2QSVLt+P52MIDSxv9Q==",
-        "lockfileHash": "11ab0d9df6f55a1e564cc8595df60164b142b0d398c9a731b4e7fb2494dda206",
-        "sourceUrl": "https://registry.npmjs.org/c15t/-/c15t-3.0.0-alpha.3.tgz"
+        "artifactIntegrity": "sha512-ydEdQiiXcUGbfS1VJ1FeflVpmo5yDuVDV/gonXckW/CtE/bhgw/g8/SQJlbKN53372WrHE1GmFIVKTkWqzBDNA==",
+        "lockfileHash": "9a4bb10762521a4a7ed25c362cf01f79e870134fb5f618e4aee2bbacec9b8f8f",
+        "sourceUrl": "https://registry.npmjs.org/c15t/-/c15t-3.0.0-alpha.4.tgz"
       },
       "revision": "3.2.0-article-v1",
       "schemaVersion": 3,
@@ -106,7 +106,7 @@
         }
       },
       "url": "http://127.0.0.1:4312/",
-      "version": "3.0.0-alpha.3"
+      "version": "3.0.0-alpha.4"
     }
   ],
   "scenarios": [

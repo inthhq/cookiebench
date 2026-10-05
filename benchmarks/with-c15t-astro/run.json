@@ -20,7 +20,7 @@
         "withdraw": "[data-testid=\"consent-widget-footer-reject-button\"], [data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "6ab4356bd062c0401ef2724a2b392dc7b573a443e9e29d6e9d79491be2a95be7",
+      "configurationHash": "07af6a84f74946ec3b9280bd4604741ae363c2dae3f1da856fb282beb91efc99",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -33,7 +33,7 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "sha512-TnFwLnAXty5MXKPDGuKXqK4AMBXG+FH6RUdK7Oyc3gyfNoFIthT+4eRbzOK43bdRlLaZuxgciDSjgtggZ3OtGQ==",
-        "lockfileHash": "11ab0d9df6f55a1e564cc8595df60164b142b0d398c9a731b4e7fb2494dda206",
+        "lockfileHash": "9a4bb10762521a4a7ed25c362cf01f79e870134fb5f618e4aee2bbacec9b8f8f",
         "sourceUrl": "https://registry.npmjs.org/astro/-/astro-5.18.2.tgz"
       },
       "revision": "3.2.1-article-v1",
@@ -74,7 +74,7 @@
         "withdraw": "[data-testid=\"consent-widget-footer-reject-button\"], [data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "9e6923dd3c6c450840fa62335446e7abdabce49f231c8a19d0ff6eaaf1911930",
+      "configurationHash": "908855207aeff03b9def69f490141036b8a3fc8ab1a4a09540de68a1bd01b2aa",
       "deployment": {
         "assets": "local",
         "backend": "controlled-local"
@@ -86,9 +86,9 @@
       "presentation": "default",
       "product": "c15t",
       "provenance": {
-        "artifactIntegrity": "sha512-9aQkQxL+CTmb+bGbzzwIgSsOhsqeds9jtKIu/Dh5gO0+iSB9s+Cyl0Z+A+NeR/TlkjIaSXbGYTe+X/wdN6vBIA==",
-        "lockfileHash": "11ab0d9df6f55a1e564cc8595df60164b142b0d398c9a731b4e7fb2494dda206",
-        "sourceUrl": "https://registry.npmjs.org/@c15t/astro/-/astro-3.0.0-alpha.3.tgz"
+        "artifactIntegrity": "sha512-4fX3Q2Fe7uiOu/L8DJS3Mh2xkVsoEumyAxFcQa3/xV9yIUKtUfHx2Zdje8B7SV4R1jogetOmpZDwV89RbQ9Gsg==",
+        "lockfileHash": "9a4bb10762521a4a7ed25c362cf01f79e870134fb5f618e4aee2bbacec9b8f8f",
+        "sourceUrl": "https://registry.npmjs.org/@c15t/astro/-/astro-3.0.0-alpha.4.tgz"
       },
       "revision": "3.2.1-article-v1",
       "schemaVersion": 3,
@@ -106,7 +106,7 @@
         }
       },
       "url": "http://127.0.0.1:4315/",
-      "version": "3.0.0-alpha.3"
+      "version": "3.0.0-alpha.4"
     }
   ],
   "scenarios": [
