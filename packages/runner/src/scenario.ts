@@ -52,6 +52,30 @@ interface Failure {
   message: string;
 }
 /**
+ * How a save or withdrawal reaches the preference controls: through the
+ * declared opening control, or, for a save without one, from a first layer
+ * that already is the preference center, as Ketch's modal is.
+ */
+export function preferencesEntry(
+  action: "save" | "withdraw",
+  adapter: Pick<
+    FixtureConfig["adapter"],
+    "preferences" | "preferencesPanel" | "reopen"
+  >
+):
+  | { open: string; visible?: never }
+  | { open?: never; visible: string }
+  | undefined {
+  const open = action === "withdraw" ? adapter.reopen : adapter.preferences;
+  if (open) {
+    return { open };
+  }
+  if (action === "save" && adapter.preferencesPanel) {
+    return { visible: adapter.preferencesPanel };
+  }
+  return undefined;
+}
+/**
  * Forced clicks skip Playwright's stability wait, so they can reach a fixed
  * control that is still sliding in from off screen, as Enzuzo's mobile banner
  * does. Playwright refuses that click; a person could not make it either, so
@@ -464,12 +488,19 @@ export function runSample(options: {
                 scenario.action === "save" ||
                 scenario.action === "withdraw"
               ) {
-                const open =
-                  scenario.action === "withdraw"
-                    ? fixture.adapter.reopen
-                    : fixture.adapter.preferences;
-                if (open) {
-                  await act(page, open, scenario.input, true);
+                const entry = preferencesEntry(
+                  scenario.action,
+                  fixture.adapter
+                );
+                if (entry?.open) {
+                  await act(page, entry.open, scenario.input, true);
+                } else if (entry?.visible) {
+                  await page.locator(entry.visible).first().waitFor({
+                    state: "visible",
+                    timeout: scenario.actionDeadlineMs,
+                  });
+                }
+                if (entry) {
                   if (
                     scenario.action === "save" &&
                     fixture.adapter.categoryToggle &&

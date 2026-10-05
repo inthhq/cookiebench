@@ -5,10 +5,8 @@
         "accept": "button[aria-label=\"Save choices\"]",
         "acceptPreparation": ["button[aria-label=\"Accept All\"]"],
         "banner": "#ketch-purposes-modal",
-        "categoryToggle": "#bizsiteanalytics",
         "controlledRequestPath": "/controlled/script",
         "pageAction": "#page-action",
-        "preferences": "#reopen-preferences",
         "preferencesPanel": "#ketch-preference-panel, #ketch-purposes-modal",
         "primaryContent": "#primary-content",
         "ready": "html[data-consent-ready=\"true\"]",
@@ -16,14 +14,18 @@
         "rejectPreparation": ["button[aria-label=\"Reject All\"]"],
         "reopen": "#reopen-preferences",
         "save": "button[aria-label=\"Save choices\"]",
+        "savePreparation": ["label[for=\"bizsiteanalytics\"]"],
         "serverEventsUrl": "http://127.0.0.1:4325/controlled/events",
         "stateGlobal": "__cookiebench",
-        "withdraw": "button[aria-label=\"Save choices\"]",
-        "withdrawPreparation": ["button[aria-label=\"Reject All\"]"]
+        "withdraw": "button[aria-label=\"Save\"]",
+        "withdrawPreparation": [
+          "#ketch-preferences-navigation-purposes-tab",
+          "button[aria-label=\"Reject All\"]"
+        ]
       },
       "artifactPolicy": "immutable-release",
       "baseline": true,
-      "configurationHash": "5d1c37dcf21a33183f2a48e3fe775773d6ef913282523583f50ea651594b15bf",
+      "configurationHash": "5dede26162fea452a8bd57f63341e0a932e93301caded8e37aa3ed027d0fda73",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -39,7 +41,7 @@
         "lockfileHash": "9a4bb10762521a4a7ed25c362cf01f79e870134fb5f618e4aee2bbacec9b8f8f",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
-      "revision": "3.2.0-article-v1-next-client-effect",
+      "revision": "3.2.1-article-v1-next-client-effect-native-drawer",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -62,10 +64,8 @@
         "accept": "button[aria-label=\"Save choices\"]",
         "acceptPreparation": ["button[aria-label=\"Accept All\"]"],
         "banner": "#ketch-purposes-modal",
-        "categoryToggle": "#bizsiteanalytics",
         "controlledRequestPath": "/controlled/script",
         "pageAction": "#page-action",
-        "preferences": "#reopen-preferences",
         "preferencesPanel": "#ketch-preference-panel, #ketch-purposes-modal",
         "primaryContent": "#primary-content",
         "ready": "html[data-consent-ready=\"true\"]",
@@ -73,14 +73,18 @@
         "rejectPreparation": ["button[aria-label=\"Reject All\"]"],
         "reopen": "#reopen-preferences",
         "save": "button[aria-label=\"Save choices\"]",
+        "savePreparation": ["label[for=\"bizsiteanalytics\"]"],
         "serverEventsUrl": "http://127.0.0.1:4325/controlled/events",
         "stateGlobal": "__cookiebench",
-        "withdraw": "button[aria-label=\"Save choices\"]",
-        "withdrawPreparation": ["button[aria-label=\"Reject All\"]"]
+        "withdraw": "button[aria-label=\"Save\"]",
+        "withdrawPreparation": [
+          "#ketch-preferences-navigation-purposes-tab",
+          "button[aria-label=\"Reject All\"]"
+        ]
       },
       "artifactPolicy": "mutable-network",
       "baseline": false,
-      "configurationHash": "741768895ab3d5872caac1b9fc6f7a8cb2a8c01f2219c1f1a6a97cfe7f99f59e",
+      "configurationHash": "2a7d0bf528678e000317c1184d1a251c83832b9e4b117c0b7e7477d18325f27f",
       "deployment": {
         "assets": "mixed",
         "backend": "remote-service"
@@ -96,7 +100,7 @@
         "lockfileHash": "9a4bb10762521a4a7ed25c362cf01f79e870134fb5f618e4aee2bbacec9b8f8f",
         "sourceUrl": "https://global.ketchcdn.com/web/v3/config/switchbitcorp/switchbit/boot.js"
       },
-      "revision": "3.2.0-article-v1-next-client-effect",
+      "revision": "3.2.1-article-v1-next-client-effect-native-drawer",
       "schemaVersion": 3,
       "server": {
         "build": {
