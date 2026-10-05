@@ -83,7 +83,8 @@ interface VendorWindow {
 }
 interface Runtime {
   vendor: VendorWindow;
-  publish: (snapshot: CompetitorSnapshot) => void;
+  /** Applies the vendor state; `ready` reports that its controls respond. */
+  publish: (snapshot: CompetitorSnapshot, ready?: boolean) => void;
   reopen: (callback: Callback) => void;
   load: (
     url: string,
@@ -149,8 +150,9 @@ function civic(runtime: Runtime) {
 }
 function cookieYes(runtime: Runtime) {
   // getCkyConsent exists before the banner attaches its button handlers, and
-  // an earlier click is ignored. Publish (and so report ready) only after the
-  // banner loads or once a choice exists.
+  // an earlier click is ignored. Before then, revisitCkyConsent also throws for
+  // a returning visitor. A stored choice applies at once, but readiness waits
+  // for the banner.
   let bannerLoaded = false;
   const sync = () => {
     const snapshot = runtime.vendor.getCkyConsent?.();
@@ -160,13 +162,16 @@ function cookieYes(runtime: Runtime) {
     ) {
       return false;
     }
-    runtime.publish({
-      explicit: snapshot.isUserActionCompleted === true,
-      permissions: {
-        marketing: snapshot.categories?.advertisement === true,
-        measurement: snapshot.categories?.analytics === true,
+    runtime.publish(
+      {
+        explicit: snapshot.isUserActionCompleted === true,
+        permissions: {
+          marketing: snapshot.categories?.advertisement === true,
+          measurement: snapshot.categories?.analytics === true,
+        },
       },
-    });
+      bannerLoaded
+    );
     return true;
   };
   document.addEventListener("cookieyes_banner_load", () => {
@@ -469,11 +474,12 @@ function installCompetitor(
       document.head.append(script);
       scripts.push(script);
     },
-    publish: (snapshot) => {
-      Object.assign(bridge, normalizeCompetitorState(snapshot), {
-        ready: true,
-      });
-      document.documentElement.dataset.consentReady = "true";
+    publish: (snapshot, ready = true) => {
+      Object.assign(bridge, normalizeCompetitorState(snapshot));
+      if (ready) {
+        bridge.ready = true;
+        document.documentElement.dataset.consentReady = "true";
+      }
       for (const workload of workloadScripts) {
         if (
           !snapshot.permissions[workload.category] ||

@@ -20,7 +20,7 @@
       },
       "artifactPolicy": "immutable-release",
       "baseline": true,
-      "configurationHash": "60eb1533ed62395a84fded2b964d3a4494488f371980d4e41c15e27a52c222af",
+      "configurationHash": "71d5efa946d696eb758bc0d46801bcf325ab5b36e53b642a4ebfb92942058aa5",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -73,7 +73,7 @@
       },
       "artifactPolicy": "mutable-network",
       "baseline": false,
-      "configurationHash": "0516f42f915c3eaf5376af211c05bb30155edce1d56a38cb75d7a2e052cae6b4",
+      "configurationHash": "1debd1d4d15a6e90ed156f017a3cba8d2871f32b0971844c2fe8aeb074578094",
       "deployment": {
         "assets": "mixed",
         "backend": "remote-service"
@@ -90,7 +90,7 @@
         "sourceUrl": "https://cdn-cookieyes.com/client_data/830009093fab466a1ff5d9a1/script.js"
       },
       "resolveHost": "127.0.0.1",
-      "revision": "3.2.2-article-v1-next-client-effect-registered-host",
+      "revision": "3.2.3-article-v1-next-client-effect-registered-host-banner-readiness",
       "schemaVersion": 3,
       "server": {
         "build": {
