@@ -11,6 +11,10 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 
 import { finalizeFixture } from "../../packages/fixture-support/src/provenance.ts";
+import {
+  referenceRunConfig,
+  referenceScenario,
+} from "../../packages/runner/src/reference.ts";
 
 const [output] = process.argv.slice(2);
 if (!output) {
@@ -94,6 +98,31 @@ function headless(): Json {
   };
 }
 
+// Without a configuration the reference audit runs on the runner's desktop
+// profile, and a batch cannot mix CPU settings. Other profiles get the same
+// page and scenario as `instrumentation audit` builds, on their own profile.
+function referenceAudit(profileName: string, profile: Json): string {
+  const file = path.join(
+    output,
+    "configs",
+    `reference-overhead-${profileName}.json`
+  );
+  const config = {
+    ...referenceRunConfig({ variant: "baseline" }),
+    profile,
+    scenarios: [
+      referenceScenario({
+        action: "load",
+        expectedBanner: false,
+        id: "load",
+        observationMs: 1000,
+      }),
+    ],
+  };
+  writeFileSync(file, `${JSON.stringify(config, null, 2)}\n`);
+  return file;
+}
+
 mkdirSync(path.join(output, "configs"), { recursive: true });
 for (const [profileName, profile] of Object.entries(profiles)) {
   const entries: Json[] = [];
@@ -140,7 +169,13 @@ for (const [profileName, profile] of Object.entries(profiles)) {
     `with-c15t-nextjs-${profileName}.json`
   );
   entries.push(
-    { id: "reference-overhead", kind: "audit" },
+    profile
+      ? {
+          config: referenceAudit(profileName, profile),
+          id: "reference-overhead",
+          kind: "audit",
+        }
+      : { id: "reference-overhead", kind: "audit" },
     { config: nextFull, id: "next-overhead", kind: "audit" }
   );
   writeFileSync(
