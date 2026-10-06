@@ -21,3 +21,11 @@ alpha.3 rendered the banner for an accepted returning Astro visitor because the 
 ## Comparability
 
 alpha.4 also changes banner, dialog and stylesheet code. Measurements on alpha.4 are a new cohort. Don't pool them with alpha.3 results, including the October 2 rerun, or read the difference between the two as a release speedup without a matched comparison.
+
+## alpha.5
+
+On October 6, 2026 the fixtures moved to `3.0.0-alpha.5`, published that day. It depends on `@c15t/schema@3.0.0-alpha.4`, so the controlled backend moves to that schema release too. The TanStack peer ranges are unchanged.
+
+alpha.5 was less than a day old at install, so `pnpm-workspace.yaml` lists release-age exceptions for its packages again. Remove them once the release is a day old.
+
+All framework typechecks and production builds passed. Unit tests passed. In the c15t browser tests, the script tag, headless, React, Next.js, Vue, Astro and TanStack Start fixture tests passed, as did the withdrawal navigation and priming tests. The Nuxt fixture test did not run to completion: a heavily loaded host first timed it out, which left its server holding the port, and a retry then exceeded the 120-second build limit. alpha.5 measurements are a new cohort, like alpha.4's: don't pool them with earlier releases.

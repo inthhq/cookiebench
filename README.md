@@ -64,7 +64,7 @@ Large traces and screenshots belong in artifact storage, with a SHA-256, byte si
 
 Use the same content, framework version, browser revision, profile, policy, script workload, cache state, and scenario for a CMP and its baseline. The SDK deployment mode does not establish where its backend runs. Keep controlled local backends and remote services in separate comparison groups, using the explicit deployment metadata. Fresh visitors use isolated browser contexts. Returning visitors obtain consent by performing the actual action before the measured visit.
 
-The checked-in c15t consumers pin `3.0.0-alpha.4` from npm. The [source-build workflow](docs/source-build.md) creates separate consumers from an exact c15t commit and verifies their dependency graph before publishing configuration paths. Published artifacts and source builds retain separate provenance. These are local fixture checks, not a public performance ranking.
+The checked-in c15t consumers pin `3.0.0-alpha.5` from npm. The [source-build workflow](docs/source-build.md) creates separate consumers from an exact c15t commit and verifies their dependency graph before publishing configuration paths. Published artifacts and source builds retain separate provenance. These are local fixture checks, not a public performance ranking.
 
 | Configuration | Integration and baseline |
 | --- | --- |
@@ -189,6 +189,6 @@ It sends SIGINT to a spawned CLI, requires exit code 130, and confirms that the 
 
 The [v3 proposal](docs/cookiebench-v3-proposal.md) records the original audit and intended methodology. Runtime schemas and executable checks determine what this implementation currently accepts.
 
-See the [alpha.4 upgrade record](docs/alpha4-upgrade.md) for the current fixture versions and validation, and the [alpha.3 upgrade record](docs/alpha3-upgrade.md) for the previous release. The [earlier framework validation record](docs/v3-validation.md) preserves the published Astro alpha.2 failure.
+See the [alpha.4 upgrade record](docs/alpha4-upgrade.md) for the current fixture versions and validation, including the alpha.5 update, and the [alpha.3 upgrade record](docs/alpha3-upgrade.md) for the previous release. The [earlier framework validation record](docs/v3-validation.md) preserves the published Astro alpha.2 failure.
 
 The [integration-maintenance task template](docs/integration-maintenance.md) defines the evidence and rerun gates for agent-proposed fixture updates.

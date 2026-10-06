@@ -11,9 +11,9 @@
   "dependencies": {
     "@astrojs/node": "9.5.5",
     "@astrojs/svelte": "7.2.5",
-    "@c15t/astro": "3.0.0-alpha.4",
-    "@c15t/core": "3.0.0-alpha.4",
-    "@c15t/svelte": "3.0.0-alpha.4",
+    "@c15t/astro": "3.0.0-alpha.5",
+    "@c15t/core": "3.0.0-alpha.5",
+    "@c15t/svelte": "3.0.0-alpha.5",
     "@cookiebench/fixture-support": "workspace:*",
     "astro": "5.18.2",
     "svelte": "5.57.1"

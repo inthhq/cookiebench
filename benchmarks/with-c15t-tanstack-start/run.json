@@ -20,7 +20,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "1910cc7ae1511e5a357f692d57b4087ceeaa548859ad95e7d8fee4fabedd7108",
+      "configurationHash": "f678bee15f4a0e1ff9ccaf17b1dc57c573a4f2e7e89bbded66d061c1856de18e",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -33,7 +33,7 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "sha512-WMOM0Xlh2lPbVlbjYM6uOxOpiaWRPvODm/dwkLsGKq5tjyHOHZmKckJgwlrZl7OQUqFlOZHYj8bKUTgoeg8cUQ==",
-        "lockfileHash": "9a4bb10762521a4a7ed25c362cf01f79e870134fb5f618e4aee2bbacec9b8f8f",
+        "lockfileHash": "e4116c35698cced81b021ad1d5e9a3e1653a918a72e1454b0a6a15c5c676b9c7",
         "sourceUrl": "https://registry.npmjs.org/@tanstack/react-start/-/react-start-1.168.60.tgz"
       },
       "revision": "3.2.0-article-v1",
@@ -74,7 +74,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "b9df97706697fdf3e0e0339ec30c7a70dd7a276efcdfdef264d8c4c6222f7bd6",
+      "configurationHash": "c8d8802c5594ca53edd5289114aa96b3252fa96bb3144294fa96ab9b17fb94be",
       "deployment": {
         "assets": "local",
         "backend": "controlled-local"
@@ -86,9 +86,9 @@
       "presentation": "default",
       "product": "c15t",
       "provenance": {
-        "artifactIntegrity": "sha512-y7aOzgmfmz3sfSkTYkKC0jE1F244ZAAXGPl2pGSdOuv19zvQsExW6h5oYntcZzI+q7+cYlNWuhlErbkwuBcX7Q==",
-        "lockfileHash": "9a4bb10762521a4a7ed25c362cf01f79e870134fb5f618e4aee2bbacec9b8f8f",
-        "sourceUrl": "https://registry.npmjs.org/@c15t/tanstack-start/-/tanstack-start-3.0.0-alpha.4.tgz"
+        "artifactIntegrity": "sha512-vd4U/RNznB08E8q+kq2zbAMLqpcgzW7GAkdUiRw4DGaghGRl5OgIgpNCN4hpzg1oaMeGwb61lWpsN0uByj/bMg==",
+        "lockfileHash": "e4116c35698cced81b021ad1d5e9a3e1653a918a72e1454b0a6a15c5c676b9c7",
+        "sourceUrl": "https://registry.npmjs.org/@c15t/tanstack-start/-/tanstack-start-3.0.0-alpha.5.tgz"
       },
       "revision": "3.2.0-article-v1",
       "schemaVersion": 3,
@@ -106,7 +106,7 @@
         }
       },
       "url": "http://127.0.0.1:4316/",
-      "version": "3.0.0-alpha.4"
+      "version": "3.0.0-alpha.5"
     }
   ],
   "scenarios": [

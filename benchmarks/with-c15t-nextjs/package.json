@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@cookiebench/fixture-support": "workspace:*",
-    "c15t": "3.0.0-alpha.4",
+    "c15t": "3.0.0-alpha.5",
     "next": "16.0.7",
     "react": "19.2.1",
     "react-dom": "19.2.1"
