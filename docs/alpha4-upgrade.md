@@ -29,3 +29,11 @@ On October 6, 2026 the fixtures moved to `3.0.0-alpha.5`, published that day. It
 alpha.5 was less than a day old at install, so `pnpm-workspace.yaml` lists release-age exceptions for its packages again. Remove them once the release is a day old.
 
 All framework typechecks and production builds passed. Unit tests passed. In the c15t browser tests, the script tag, headless, React, Next.js, Vue, Astro and TanStack Start fixture tests passed, as did the withdrawal navigation and priming tests. The Nuxt fixture test did not run to completion: a heavily loaded host first timed it out, which left its server holding the port, and a retry then exceeded the 120-second build limit. alpha.5 measurements are a new cohort, like alpha.4's: don't pool them with earlier releases.
+
+## alpha.6
+
+On October 7, 2026 the fixtures moved to `3.0.0-alpha.6`, published that day. It depends on `@c15t/schema@3.0.0-alpha.5` and `@c15t/translations@3.0.0-alpha.6`, so the controlled backend moves to that schema release. `pnpm-workspace.yaml` lists release-age exceptions for the alpha.6 packages and replaces the alpha.5 ones, which are now more than a day old. Remove them once alpha.6 is a day old.
+
+alpha.6 puts the preference dialog rules back into `styles.css`, which grows the render-blocking stylesheet by about 4.5 kB gzip. It also adds build-time manifest snapshots for Next.js, TanStack Start, Nuxt, Astro and Vite.
+
+All framework typechecks and production builds passed, and unit tests passed. alpha.6 measurements are a new cohort: don't pool them with earlier releases.

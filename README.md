@@ -64,7 +64,7 @@ Large traces and screenshots belong in artifact storage, with a SHA-256, byte si
 
 Use the same content, framework version, browser revision, profile, policy, script workload, cache state, and scenario for a CMP and its baseline. The SDK deployment mode does not establish where its backend runs. Keep controlled local backends and remote services in separate comparison groups, using the explicit deployment metadata. Fresh visitors use isolated browser contexts. Returning visitors obtain consent by performing the actual action before the measured visit.
 
-The checked-in c15t consumers pin `3.0.0-alpha.5` from npm. The [source-build workflow](docs/source-build.md) creates separate consumers from an exact c15t commit and verifies their dependency graph before publishing configuration paths. Published artifacts and source builds retain separate provenance. These are local fixture checks, not a public performance ranking.
+The checked-in c15t consumers pin `3.0.0-alpha.6` from npm. The [source-build workflow](docs/source-build.md) creates separate consumers from an exact c15t commit and verifies their dependency graph before publishing configuration paths. Published artifacts and source builds retain separate provenance. These are local fixture checks, not a public performance ranking.
 
 | Configuration | Integration and baseline |
 | --- | --- |
