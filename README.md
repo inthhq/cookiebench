@@ -70,7 +70,7 @@ The checked-in c15t consumers pin `3.0.0-alpha.6` from npm. The [source-build wo
 | --- | --- |
 | `benchmarks/with-c15t-script/run.json` | Self-hosted `@c15t/browser/c15t.js` with browser `/init`, plain HTML baseline |
 | `benchmarks/with-c15t-react/run.json` | Standalone React 19.2.1 with Vite 8.3.1 and browser `/init`, separate React baseline entry |
-| `benchmarks/with-c15t-nextjs/run.json` | Next 16.0.7 App Router, `ConsentRoot` with consent resolved on the server from a build-time manifest, separate prerendered baseline route |
+| `benchmarks/with-c15t-nextjs/run.json` | Next 16.0.7 App Router, `ConsentRoot` with consent awaited on the server from a build-time manifest so the banner is in the HTML, separate prerendered baseline route |
 | `benchmarks/with-c15t-script/run-headless.json` | Public `@c15t/browser/headless` API and a complete custom banner/preferences form |
 | `benchmarks/with-c15t-nuxt/run.json` | Nuxt 4.5.2 native module with a server manifest cached at runtime, separate baseline build |
 | `benchmarks/with-c15t-astro/run.json` | Astro 5.18.2 server output, native middleware/banner with a build-time manifest and deferred Svelte dialog, separate baseline build |

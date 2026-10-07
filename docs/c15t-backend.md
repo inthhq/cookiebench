@@ -4,7 +4,7 @@ From revision `3.3.0` on October 7, 2026, every c15t fixture talks to a live Int
 
 | Fixture | Policy path | Browser consent requests |
 | --- | --- | --- |
-| Next.js | Build-time manifest. The root layout of the consent route resolves each request on the server and streams the result. | `POST /subjects` on a save |
+| Next.js | Build-time manifest. The consent route's layout awaits `resolveConsent` inside `Suspense`, so the banner arrives in the server HTML. | `POST /subjects` on a save |
 | TanStack Start | Build-time manifest, resolved on the server | `POST /subjects` on a save |
 | Nuxt | Server manifest (`manifest: "server"`), fetched and cached at runtime, resolved on the Nuxt server. See [Nuxt](#nuxt). | `POST /subjects` on a save |
 | Astro | Server output with `manifest()` and `buildManifest: true`; middleware resolves each request | `POST /subjects` on a save |
@@ -35,4 +35,4 @@ The fixture servers receive no CDN location headers, so server-side resolution s
 
 ## Comparability
 
-These fixtures differ in backend, policy, copy and branding from earlier revisions. Don't pool them with results from the controlled local backend. The Next.js consent route was prerendered before; it now renders per request. Its baseline route stays prerendered, so the Next.js delta includes the cost of dynamic rendering.
+These fixtures differ in backend, policy, copy and branding from earlier revisions. Don't pool them with results from the controlled local backend. The Next.js consent route was prerendered before; it now renders per request. Its baseline route stays prerendered, so the Next.js delta includes the cost of dynamic rendering. Revision `3.3.0` streamed the consent state and rendered the banner after hydration, as the quickstart does. From `3.3.1` the layout awaits consent, following the docs' "render the banner in the server HTML" option: the page content waits for the resolution, which the bundled manifest makes a local computation.

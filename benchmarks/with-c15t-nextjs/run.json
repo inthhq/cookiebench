@@ -20,7 +20,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "afdb9ba730dfc961d3306567e894ffe1fb53471b805c1d4a74d4eeb735d75ce0",
+      "configurationHash": "ec8751a2e67ed0ade278bd8fd6dc5ad5ba51cfd93a33b68d856b9a86c644aab9",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -36,7 +36,7 @@
         "lockfileHash": "04f3431ca7fc9522d08cfc8ab4eca5688ae3a2d12b7b3431016e347490820dc7",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
-      "revision": "3.3.0-article-v1-inth-build-manifest",
+      "revision": "3.3.1-article-v1-inth-build-manifest-server-banner",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -74,7 +74,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "54e8252387b6e62a4c979b7ba115e71b9ea49a45f16b6c0f8f5db773f9ea03de",
+      "configurationHash": "0869496b956a2649717b97d7332060d79d953f57649b996f32f301bc1e987f90",
       "deployment": {
         "assets": "local",
         "backend": "remote-service"
@@ -90,7 +90,7 @@
         "lockfileHash": "04f3431ca7fc9522d08cfc8ab4eca5688ae3a2d12b7b3431016e347490820dc7",
         "sourceUrl": "https://registry.npmjs.org/c15t/-/c15t-3.0.0-alpha.6.tgz"
       },
-      "revision": "3.3.0-article-v1-inth-build-manifest",
+      "revision": "3.3.1-article-v1-inth-build-manifest-server-banner",
       "schemaVersion": 3,
       "server": {
         "build": {
