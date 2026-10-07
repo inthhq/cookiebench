@@ -333,7 +333,7 @@
       "width": 1365
     }
   },
-  "iterations": 30,
+  "iterations": 15,
   "warmups": 3,
   "seed": 42
 }

@@ -438,7 +438,7 @@ const LcpAttributionSummary = Schema.Struct({
 });
 
 /** Analyses written by this version must satisfy the current invariants below. */
-export const ANALYSIS_VERSION = "cookiebench-analysis-v3.3.0";
+export const ANALYSIS_VERSION = "cookiebench-analysis-v3.4.0";
 const HistoricalPairedSummary = Schema.Struct({
   conclusion: Schema.Literals([
     "candidate-lower",

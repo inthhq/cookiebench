@@ -20,7 +20,7 @@ pnpm exec playwright install chromium
 pnpm cookiebench --help
 ```
 
-A browser run does not require a database. The default protocol requests 30 measured samples per cell and three excluded warmups. A two-sample run is a smoke check, not a ranking. Ordinary load warmup observations are excluded and not retained; their counts stay in the configuration. Instrumentation audits retain their warmups separately.
+A browser run does not require a database. The default protocol requests 15 measured samples per cell and three excluded warmups. Runs before October 7, 2026 used 30. A two-sample run is a smoke check, not a ranking. Ordinary load warmup observations are excluded and not retained; their counts stay in the configuration. Instrumentation audits retain their warmups separately.
 
 ```sh
 pnpm cookiebench run --reference correct --iterations 2 --warmups 0 --output artifacts/reference.json
@@ -90,9 +90,9 @@ Checked-in configurations request different sample counts:
 | Configurations | Samples | Warmups |
 | --- | --: | --: |
 | c15t script, headless, React, Next.js and TanStack Start; every competitor; the CookieYes script comparison | 1 | 0 |
-| c15t Vue, Nuxt and Astro | 30 | 3 |
+| c15t Vue, Nuxt and Astro | 15 | 3 |
 
-One sample with no warmups is a functional check. Override with `--iterations 30 --warmups 3` for the measurement protocol. Explicit command flags override configuration values; omitted flags preserve them.
+One sample with no warmups is a functional check. Override with `--iterations 15 --warmups 3` for the measurement protocol. Explicit command flags override configuration values; omitted flags preserve them.
 
 The c15t fixture backend is a controlled local test double with a strict opt-in policy. It returns fixed initialization data and acknowledges writes without a production consent database. A future managed Inth endpoint needs its own fixture identity and measurements. Manifest mode is excluded. See the [deployment and compression audit](docs/audit-deployment-compression.md). Native script loaders release two controlled scripts by default, in measurement and marketing categories, and the server records actual requests. The headless implementation uses the same public API and backend with its own UI. It has a distinct presentation identity and cannot be mixed with default UI results.
 
@@ -128,7 +128,7 @@ pnpm cookiebench compare --baseline artifacts/paired-run.json --candidate artifa
 For a page-impact comparison, select only the load scenario and collect the paired baseline/CMP samples in one run:
 
 ```sh
-pnpm cookiebench run --config benchmarks/with-c15t-react/run.json --scenario load --iterations 30 --warmups 3 --output artifacts/paired-run.json
+pnpm cookiebench run --config benchmarks/with-c15t-react/run.json --scenario load --iterations 15 --warmups 3 --output artifacts/paired-run.json
 pnpm cookiebench compare --baseline artifacts/paired-run.json --candidate artifacts/paired-run.json --metric page.lcp
 ```
 
@@ -136,7 +136,7 @@ The full flow configuration provides absolute action timings. Its action scenari
 
 Use one configuration containing the baseline and CMP fixtures so the runner interleaves their paired samples. Pass that resulting envelope as both inputs. Independently collected runs do not establish paired observations.
 
-The [serial batch helper](docs/measurement-batches.md) records full-flow checks, 30-pair load comparisons, and [instrumentation overhead](docs/instrumentation-overhead.md) with immutable checkpoints and resumable execution. It reports the normal 500 ms flow checks separately from the 100 ms diagnostic. The [September 2026 source and competitor record](docs/v3-measurements.md) reports the measured fixtures, failed attempts, and validity limits.
+The [serial batch helper](docs/measurement-batches.md) records full-flow checks, 15-pair load comparisons, and [instrumentation overhead](docs/instrumentation-overhead.md) with immutable checkpoints and resumable execution. It reports the normal 500 ms flow checks separately from the 100 ms diagnostic. The [September 2026 source and competitor record](docs/v3-measurements.md) reports the measured fixtures, failed attempts, and validity limits.
 
 Two c15t and CookieYes script-tag comparisons sit outside the main batches: [October 1](docs/cookieyes-c15t-script-comparison-2026-10-01.md) (desktop and emulated mobile) and [October 2](docs/calibrated-cookieyes-c15t-comparison-2026-10-02.md) (emulated mobile with calibrated CPU). Their arms differ in script hosting, script placement and backend, and used an earlier CookieYes site, `f66d6dff…`. Each doc lists those conditions and the reconstructed run configurations, `benchmarks/cookieyes-script-comparison/run.json` and `run-mobile.json`, which now use site `830009093fab466a1ff5d9a1`.
 

@@ -8,6 +8,7 @@ import { pathToFileURL } from "node:url";
 import { isDeepStrictEqual } from "node:util";
 
 import {
+  MINIMUM_PAIRS,
   compareResults,
   summarize,
   summarizeCorrectness,
@@ -107,7 +108,7 @@ async function comparisonFamily(plan: BatchPlan, planSha256: string) {
 }
 
 function iterationsFor(entry: BatchEntry) {
-  return entry.kind === "flows" ? (entry.iterations ?? 1) : 30;
+  return entry.kind === "flows" ? (entry.iterations ?? 1) : MINIMUM_PAIRS;
 }
 
 function passed(selected: { attempts: number; passed: number }[]) {

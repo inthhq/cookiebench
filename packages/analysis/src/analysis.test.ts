@@ -484,6 +484,37 @@ describe("paired comparison boundaries", () => {
       "one-to-one pairing"
     );
   });
+  it("needs 15 pairs for an interval and an eligible comparison", () => {
+    const pairs = (count: number, candidate = false) => {
+      const run = envelope(candidate);
+      return { ...run, samples: run.samples.slice(0, count) };
+    };
+    const [fifteen] = compareResults(
+      pairs(15),
+      pairs(15, true),
+      "initial.requests"
+    ).comparisons;
+    expect(fifteen).toMatchObject({
+      eligible: true,
+      paired: {
+        conclusion: "candidate-higher",
+        confidenceInterval: { high: 1, low: 1 },
+        count: 15,
+      },
+    });
+    const [fourteen] = compareResults(
+      pairs(14),
+      pairs(14, true),
+      "initial.requests"
+    ).comparisons;
+    expect(fourteen).toMatchObject({
+      eligible: false,
+      paired: { confidenceInterval: null, count: 14, medianDifference: 1 },
+    });
+    expect(fourteen?.eligibilityReasons).toEqual([
+      "Fewer than 15 eligible paired metric observations.",
+    ]);
+  });
   it("requires complete successful one-to-one coverage, even with 30 surviving pairs", () => {
     const baseline = envelope();
     const extra = {

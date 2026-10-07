@@ -4,6 +4,7 @@ import { parseArgs } from "node:util";
 
 import {
   ANALYSIS_VERSION,
+  MINIMUM_PAIRS,
   compareResults,
   summarize,
   summarizeCorrectness,
@@ -47,7 +48,7 @@ Options:
   --cpu-calibration <file>  Reuse a saved CPU calibration artifact
   --cpu-tier <mid|low>      Calibrated CPU target, default mid; requires artifact
   --reference <variant>     Controlled reference fixture, default correct
-  --iterations <count>     Measured samples per cell, default 30
+  --iterations <count>     Measured samples per cell, default 15
   --warmups <count>         Excluded warmups per cell, default 3
   --scenario <id>          Run only one declared scenario, e.g. load
   --seed <integer>          Recorded execution-order seed, default 1
@@ -202,7 +203,7 @@ async function runCommand(
   }
   const iterations = integer(
     values.iterations,
-    command === "capabilities verify" ? 1 : 30,
+    command === "capabilities verify" ? 1 : MINIMUM_PAIRS,
     1,
     "--iterations"
   );

@@ -128,6 +128,8 @@ export interface Analysis {
 
 const FAMILY_LEVEL = 0.95;
 const INTERVALS_PER_COMPARISON = 2;
+/** Fewest eligible pairs that support an interval and an eligible comparison. */
+export const MINIMUM_PAIRS = 15;
 
 /** R-7 interpolation, also used by R and NumPy's default quantile. */
 export function percentile(
@@ -423,7 +425,9 @@ function summarizePairs(
 ): PairedSummary {
   // Small batches do not support a stable-looking uncertainty interval.
   const intervals =
-    interval && pairs.length >= 30 ? bootstrapIntervals(pairs, interval) : null;
+    interval && pairs.length >= MINIMUM_PAIRS
+      ? bootstrapIntervals(pairs, interval)
+      : null;
   const differences = pairs.map((pair) => pair.candidate - pair.baseline);
   const candidateP75 = percentile(
     pairs.map((pair) => pair.candidate),
@@ -564,8 +568,10 @@ function coverageReasons(
       "Eligible metric observations do not have complete one-to-one pairing within the same run."
     );
   }
-  if (pairs < 30) {
-    reasons.push("Fewer than 30 eligible paired metric observations.");
+  if (pairs < MINIMUM_PAIRS) {
+    reasons.push(
+      `Fewer than ${MINIMUM_PAIRS} eligible paired metric observations.`
+    );
   }
   return reasons;
 }

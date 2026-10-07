@@ -652,7 +652,7 @@ function createConsumer(): void {
       const config = {
         ...originalConfig,
         fixtures: baseFixtures,
-        iterations: 30,
+        iterations: 15,
         scenarios,
         warmups: 3,
       };

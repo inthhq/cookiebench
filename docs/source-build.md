@@ -41,9 +41,9 @@ This reuses the immutable upstream archives and creates a new consumer snapshot 
 
 ```sh
 pnpm cookiebench run --config /absolute/path/from/current.json --iterations 1 --warmups 0 --output artifacts/source-flows.json
-pnpm cookiebench run --config /absolute/path/from/current.json --scenario load --iterations 30 --warmups 3 --output artifacts/source-load.json
+pnpm cookiebench run --config /absolute/path/from/current.json --scenario load --iterations 15 --warmups 3 --output artifacts/source-load.json
 ```
 
-The configs default to 30 iterations and three warmups. Select the load scenario for paired load measurements, and run the full declared protocol separately for functional validation. Archive the result envelopes together with `current.json`, `artifacts.json`, and the isolated consumer lockfile. A successful build or verification is not evidence that a consent flow passed.
+The configs default to 15 iterations and three warmups. Select the load scenario for paired load measurements, and run the full declared protocol separately for functional validation. Archive the result envelopes together with `current.json`, `artifacts.json`, and the isolated consumer lockfile. A successful build or verification is not evidence that a consent flow passed.
 
 If an interrupted consumer build leaves an incomplete directory, the next command reports its exact path. Preserve the logs and remove only that generated consumer directory before retrying. A completed snapshot is never overwritten in place.
