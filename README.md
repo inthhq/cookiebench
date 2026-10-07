@@ -68,13 +68,13 @@ The checked-in c15t consumers pin `3.0.0-alpha.6` from npm. The [source-build wo
 
 | Configuration | Integration and baseline |
 | --- | --- |
-| `benchmarks/with-c15t-script/run.json` | Self-hosted `@c15t/browser/c15t.js`, 150 ms added backend delay, plain HTML baseline |
-| `benchmarks/with-c15t-react/run.json` | Standalone React 19.2.1 with Vite 8.3.1, separate React baseline entry |
-| `benchmarks/with-c15t-nextjs/run.json` | Next 16.0.7, native `c15t/next` client provider over a prerendered page, separate baseline route |
+| `benchmarks/with-c15t-script/run.json` | Self-hosted `@c15t/browser/c15t.js` with browser `/init`, plain HTML baseline |
+| `benchmarks/with-c15t-react/run.json` | Standalone React 19.2.1 with Vite 8.3.1 and browser `/init`, separate React baseline entry |
+| `benchmarks/with-c15t-nextjs/run.json` | Next 16.0.7 App Router, `ConsentRoot` with consent resolved on the server from a build-time manifest, separate prerendered baseline route |
 | `benchmarks/with-c15t-script/run-headless.json` | Public `@c15t/browser/headless` API and a complete custom banner/preferences form |
-| `benchmarks/with-c15t-nuxt/run.json` | Nuxt 4.5.2 native module, separate baseline build |
-| `benchmarks/with-c15t-astro/run.json` | Astro 5.18.2 native middleware/banner and deferred Svelte dialog, separate baseline build |
-| `benchmarks/with-c15t-tanstack-start/run.json` | TanStack Start 1.168.60 native adapter, separate baseline route |
+| `benchmarks/with-c15t-nuxt/run.json` | Nuxt 4.5.2 native module with a server manifest cached at runtime, separate baseline build |
+| `benchmarks/with-c15t-astro/run.json` | Astro 5.18.2 server output, native middleware/banner with a build-time manifest and deferred Svelte dialog, separate baseline build |
+| `benchmarks/with-c15t-tanstack-start/run.json` | TanStack Start 1.168.60 native adapter with a build-time manifest, separate baseline route |
 
 ```sh
 pnpm cookiebench run --config benchmarks/with-c15t-react/run.json --output artifacts/react-smoke.json
@@ -93,11 +93,11 @@ Checked-in configurations request different sample counts:
 
 One sample with no warmups is a functional check. Override with `--iterations 15 --warmups 3` for the measurement protocol. Explicit command flags override configuration values; omitted flags preserve them.
 
-The c15t fixture backend is a controlled local test double with a strict opt-in policy. It returns fixed initialization data and acknowledges writes without a production consent database. A future managed Inth endpoint needs its own fixture identity and measurements. Manifest mode is excluded. See the [deployment and compression audit](docs/audit-deployment-compression.md). Native script loaders release two controlled scripts by default, in measurement and marketing categories, and the server records actual requests. The headless implementation uses the same public API and backend with its own UI. It has a distinct presentation identity and cannot be mixed with default UI results.
+The c15t fixtures use a live Inth backend, `https://benchmarks-inth.inth.app`. Next.js, TanStack Start and Astro bundle its policy manifest at build time and resolve consent on the server, and Nuxt does the same from a manifest it fetches at runtime; React and the script tag call `/init` from the browser. [c15t backend and policy fetching](docs/c15t-backend.md) lists each fixture's path, the location caveat and the request costs. Revisions before `3.3.0` used a controlled local test double instead; see the [deployment and compression audit](docs/audit-deployment-compression.md). Native script loaders release two controlled scripts by default, in measurement and marketing categories, and the server records actual requests. The headless implementation uses the same public API and backend with its own UI. It has a distinct presentation identity and cannot be mixed with default UI results.
 
-The default script-tag configuration copies the pinned npm bundle unchanged to `/vendor/c15t.js` and loads it through a classic script tag. Its server arguments add 150 ms before each policy or consent-save response. Static files, controlled scripts and health checks have no added server delay. This is simulated backend latency, in addition to the selected network profile. The mobile profile already adds 150 ms of network latency. The delayed fixture has separate IDs and a new revision; September 30 results and the headless configuration retain their original conditions. This delay does not reproduce a production backend's database, DNS, TLS or variable latency.
+The default script-tag configuration copies the pinned npm bundle unchanged to `/vendor/c15t.js` and loads it through a classic script tag. Revisions `3.2.2` and `3.2.3` added 150 ms to each response from the local test backend to stand in for a remote one; the remote backend replaces that delay.
 
-Consumer typechecks exercise valid SDK calls and require invalid category names or payloads to fail compilation. Stylesheet declarations cover CSS only. No ambient declarations replace the vendor's API types. The Next fixture does not yet establish server-resolved consent or request-isolation behavior.
+Consumer typechecks exercise valid SDK calls and require invalid category names or payloads to fail compilation. Stylesheet declarations cover CSS only. No ambient declarations replace the vendor's API types.
 
 Normal action scenarios probe the shared page control at a declared 500 ms after input. A separate `save-page-probe-100ms` scenario retains the early probe. The default script-tag dialog blocked that 100 ms probe in two local checks, including a rerun with rendered-visibility and overlay checks. The failure remains visible rather than subtracting its animation duration. Dismissal timing includes the configured animation and dialog/overlay disappearance. `banner.visible` and `action.dismissed` share one predicate: the banner is visible while any part has non-zero opacity inside the viewport. A fade-in therefore adds about one frame to appearance, while a fade-out adds its full duration to dismissal. `action.dismissal-started` records the first post-input inspection where the banner, or the open preferences panel for save and withdraw, loses more than 1% of its rendered footprint (effective opacity times viewport area), stops accepting pointer events, or is no longer visible. It separates response latency from the exit animation.
 
@@ -115,8 +115,8 @@ Some vendors only render for their registered domain. A fixture can set `resolve
 
 Published cross-CMP results are not like-for-like and are not a ranking:
 
-- c15t fixtures call a controlled local test backend on the same machine. The desktop profile adds 0 ms latency, so those calls return almost at once. Competitor fixtures call their vendors' remote services.
-- c15t Next.js uses its native `c15t/next` provider. Ketch and Osano, like the CookieYes and Usercentrics fixtures, load from a client effect after hydration. The fixture proxy injects Didomi, Enzuzo and OneTrust at the start of `<head>`, iubenda at the end of `<head>`, and Cookie Control before `</body>`. Each competitor fixture's `revision` in `benchmarks/with-*/run.json` names its placement.
+- c15t fixtures from revision `3.3.0` call the remote Inth backend, as competitor fixtures call their vendors' remote services. Earlier c15t revisions called a controlled local test backend on the same machine, which returned almost at once on the desktop profile.
+- c15t Next.js uses its native `ConsentRoot` with server-resolved consent. Ketch and Osano, like the CookieYes and Usercentrics fixtures, load from a client effect after hydration. The fixture proxy injects Didomi, Enzuzo and OneTrust at the start of `<head>`, iubenda at the end of `<head>`, and Cookie Control before `</body>`. Each competitor fixture's `revision` in `benchmarks/with-*/run.json` names its placement.
 
 Baseline deltas describe each fixture's own setup. A difference between two CMPs mixes product cost with backend location and script placement. The [September 30 report](docs/cmp-comparison-2026-09-30-details.md) labels each row with both.
 

@@ -73,7 +73,7 @@ createRoot(root).render(
   <ConsentProvider
     options={{
       consentCategories: ["necessary", "measurement", "marketing"],
-      mode: hosted({ url: "/api/consent" }),
+      mode: hosted({ url: "https://benchmarks-inth.inth.app" }),
     }}
   >
     <Page />

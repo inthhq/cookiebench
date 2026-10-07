@@ -20,14 +20,14 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "a6254652c656d9d3365ec9cf4eeb725e1975cc69e8e1078ed232bee809bac746",
+      "configurationHash": "ba9545d0253b0d825a3c67b7b4adfe627f592193472814233a1a430d3e42dc9a",
       "deployment": {
         "assets": "local",
         "backend": "none"
       },
       "framework": "script-tag",
       "frameworkVersion": "html",
-      "id": "script-tag-baseline-backend150",
+      "id": "script-tag-baseline-inth-init",
       "mode": "hosted",
       "presentation": "default",
       "product": "baseline",
@@ -37,7 +37,7 @@
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
       "resolveHost": "127.0.0.1",
-      "revision": "3.2.3-backend150-v1-registered-host",
+      "revision": "3.3.0-article-v1-inth-init-registered-host",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -48,7 +48,7 @@
         "readinessTimeoutMs": 120000,
         "readinessUrl": "http://127.0.0.1:4310/health",
         "start": {
-          "args": ["start", "--backend-delay-ms", "150", "--tls-port", "4410"],
+          "args": ["start", "--tls-port", "4410"],
           "command": "pnpm"
         }
       },
@@ -75,14 +75,14 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "2dc32aeed2e3c8bf2ec7af8dc723f379ca26b7f72efd1d54f0f45d276aea1adb",
+      "configurationHash": "62ae9f36ab194f240a694cf519e0dd60424e55d05dc20e94d5189745b5f74af2",
       "deployment": {
         "assets": "local",
-        "backend": "controlled-local"
+        "backend": "remote-service"
       },
       "framework": "script-tag",
       "frameworkVersion": "html",
-      "id": "script-tag-c15t-backend150",
+      "id": "script-tag-c15t-inth-init",
       "mode": "hosted",
       "presentation": "default",
       "product": "c15t",
@@ -92,7 +92,7 @@
         "sourceUrl": "https://registry.npmjs.org/@c15t/browser/-/browser-3.0.0-alpha.6.tgz"
       },
       "resolveHost": "127.0.0.1",
-      "revision": "3.2.3-backend150-v1-registered-host",
+      "revision": "3.3.0-article-v1-inth-init-registered-host",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -103,7 +103,7 @@
         "readinessTimeoutMs": 120000,
         "readinessUrl": "http://127.0.0.1:4310/health",
         "start": {
-          "args": ["start", "--backend-delay-ms", "150", "--tls-port", "4410"],
+          "args": ["start", "--tls-port", "4410"],
           "command": "pnpm"
         }
       },
@@ -128,7 +128,7 @@
       },
       "artifactPolicy": "mutable-network",
       "baseline": false,
-      "configurationHash": "d2c9e0cbcd0321a234936281fbb56270090d323f8c9bdd1ecdc51dc483e2349c",
+      "configurationHash": "f534f9b3d3fb2f0be22e3b297da1b3408ad779734a04c9fd44f43733d535bbe7",
       "deployment": {
         "assets": "remote",
         "backend": "remote-service"
@@ -156,7 +156,7 @@
         "readinessTimeoutMs": 120000,
         "readinessUrl": "http://127.0.0.1:4310/health",
         "start": {
-          "args": ["start", "--backend-delay-ms", "150", "--tls-port", "4410"],
+          "args": ["start", "--tls-port", "4410"],
           "command": "pnpm"
         }
       },

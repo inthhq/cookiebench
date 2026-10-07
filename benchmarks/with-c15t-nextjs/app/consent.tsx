@@ -5,18 +5,20 @@ import {
   updateBridge,
 } from "@cookiebench/fixture-support";
 import {
-  ConsentProvider,
   ConsentBanner,
   ConsentDialog,
-  hosted,
+  ConsentRoot,
   useSnapshot,
   useSetActiveUI,
   useSaveConsents,
   useScriptLoader,
 } from "c15t/next";
+import type { ConsentRootProps } from "c15t/next";
 import { useEffect, useState } from "react";
+import type { ReactNode } from "react";
 
 import "c15t/next/styles.css";
+import { consentConfig } from "../c15t.config.ts";
 import { Interaction } from "./interaction.tsx";
 
 function Probe() {
@@ -67,18 +69,24 @@ function Probe() {
     </div>
   );
 }
-export function ConsentFixture() {
+export function ConsentFixture({
+  children,
+  state,
+}: {
+  children: ReactNode;
+  state: ConsentRootProps["state"];
+}) {
   return (
-    <ConsentProvider
-      options={{
-        consentCategories: ["necessary", "measurement", "marketing"],
-        mode: hosted({ url: "/api/consent" }),
-      }}
+    <ConsentRoot
+      config={consentConfig}
+      options={{ consentCategories: ["necessary", "measurement", "marketing"] }}
+      state={state}
     >
+      {children}
       <Interaction />
       <Probe />
       <ConsentBanner />
       <ConsentDialog />
-    </ConsentProvider>
+    </ConsentRoot>
   );
 }

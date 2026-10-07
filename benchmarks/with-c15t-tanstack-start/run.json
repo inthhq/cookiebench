@@ -20,7 +20,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "766210624d726c5ef1d5a668dc13aec2521438b80b2a99d80bc912a259741aad",
+      "configurationHash": "d5c7714843aa8ec7a8bd255b383b142ce5f8e2d60f92782b7053b564ce07b4f6",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -28,7 +28,7 @@
       "framework": "tanstack-start",
       "frameworkVersion": "1.168.60",
       "id": "tanstack-start-baseline",
-      "mode": "hosted",
+      "mode": "manifest",
       "presentation": "default",
       "product": "baseline",
       "provenance": {
@@ -36,7 +36,7 @@
         "lockfileHash": "04f3431ca7fc9522d08cfc8ab4eca5688ae3a2d12b7b3431016e347490820dc7",
         "sourceUrl": "https://registry.npmjs.org/@tanstack/react-start/-/react-start-1.168.60.tgz"
       },
-      "revision": "3.2.0-article-v1",
+      "revision": "3.3.0-article-v1-inth-build-manifest",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -74,15 +74,15 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "f7095cfcdd26e0fbea5a969f1d4dc9ebcbfa49a8b718bd3849abc61da046125c",
+      "configurationHash": "d7fd44d29086cec323b3e6c7ba7c1c5433d3aa2a0fe81a0ad47ff2be5efd794c",
       "deployment": {
         "assets": "local",
-        "backend": "controlled-local"
+        "backend": "remote-service"
       },
       "framework": "tanstack-start",
       "frameworkVersion": "1.168.60",
       "id": "tanstack-start-c15t",
-      "mode": "hosted",
+      "mode": "manifest",
       "presentation": "default",
       "product": "c15t",
       "provenance": {
@@ -90,7 +90,7 @@
         "lockfileHash": "04f3431ca7fc9522d08cfc8ab4eca5688ae3a2d12b7b3431016e347490820dc7",
         "sourceUrl": "https://registry.npmjs.org/@c15t/tanstack-start/-/tanstack-start-3.0.0-alpha.6.tgz"
       },
-      "revision": "3.2.0-article-v1",
+      "revision": "3.3.0-article-v1-inth-build-manifest",
       "schemaVersion": 3,
       "server": {
         "build": {

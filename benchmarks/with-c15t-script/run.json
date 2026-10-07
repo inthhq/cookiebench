@@ -20,14 +20,14 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "698b792dca0e03f5b2f568838a7050c1a0318ad5d3fadb935774d6b6a9c9c6be",
+      "configurationHash": "c28cca08585c59a975c4e5d67bf3f0ee6db8082fcb185cbfce12ec412d6b6187",
       "deployment": {
         "assets": "local",
         "backend": "none"
       },
       "framework": "script-tag",
       "frameworkVersion": "html",
-      "id": "script-tag-baseline-backend150",
+      "id": "script-tag-baseline-inth-init",
       "mode": "hosted",
       "presentation": "default",
       "product": "baseline",
@@ -36,7 +36,7 @@
         "lockfileHash": "04f3431ca7fc9522d08cfc8ab4eca5688ae3a2d12b7b3431016e347490820dc7",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
-      "revision": "3.2.2-backend150-v1",
+      "revision": "3.3.0-article-v1-inth-init",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -47,7 +47,7 @@
         "readinessTimeoutMs": 120000,
         "readinessUrl": "http://127.0.0.1:4310/health",
         "start": {
-          "args": ["start", "--backend-delay-ms", "150"],
+          "args": ["start"],
           "command": "pnpm"
         }
       },
@@ -74,14 +74,14 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "c11d675ed83fe0c05d7093d55f9d29a2911a0f956424fdad493dc863fc448ccf",
+      "configurationHash": "d0632b01402f56f152c69ba74917aa639cf425e098aa82bd3d4fe9d02c8ba879",
       "deployment": {
         "assets": "local",
-        "backend": "controlled-local"
+        "backend": "remote-service"
       },
       "framework": "script-tag",
       "frameworkVersion": "html",
-      "id": "script-tag-c15t-backend150",
+      "id": "script-tag-c15t-inth-init",
       "mode": "hosted",
       "presentation": "default",
       "product": "c15t",
@@ -90,7 +90,7 @@
         "lockfileHash": "04f3431ca7fc9522d08cfc8ab4eca5688ae3a2d12b7b3431016e347490820dc7",
         "sourceUrl": "https://registry.npmjs.org/@c15t/browser/-/browser-3.0.0-alpha.6.tgz"
       },
-      "revision": "3.2.2-backend150-v1",
+      "revision": "3.3.0-article-v1-inth-init",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -101,7 +101,7 @@
         "readinessTimeoutMs": 120000,
         "readinessUrl": "http://127.0.0.1:4310/health",
         "start": {
-          "args": ["start", "--backend-delay-ms", "150"],
+          "args": ["start"],
           "command": "pnpm"
         }
       },

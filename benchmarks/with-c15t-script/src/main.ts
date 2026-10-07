@@ -16,7 +16,7 @@ declare global {
 initializePage();
 initializeBridge();
 const client = window.c15t.init({
-  backendURL: "/api/consent",
+  backendURL: "https://benchmarks-inth.inth.app",
   consentCategories: ["necessary", "measurement", "marketing"],
   mode: "hosted",
   scripts: Array.from(

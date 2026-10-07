@@ -18,7 +18,7 @@ const banner = requiredElement<HTMLElement>("#banner");
 const choices = requiredElement<HTMLFormElement>("#choices");
 const feedback = requiredElement<HTMLElement>("#feedback");
 const client = init({
-  backendURL: "/api/consent",
+  backendURL: "https://benchmarks-inth.inth.app",
   consentCategories: ["necessary", "measurement", "marketing"],
   mode: "hosted",
   scripts: Array.from(

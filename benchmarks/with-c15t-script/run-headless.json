@@ -19,10 +19,10 @@
         "withdraw": "#reject"
       },
       "baseline": false,
-      "configurationHash": "ed91794a8f41d4128f2fc41820e4dd017fcc6da2edc137a68b95ebab891f863c",
+      "configurationHash": "6a2a432af92e431ee85808515bb34bade6e90a52ca3b2972b46ef2d7a036d809",
       "deployment": {
         "assets": "local",
-        "backend": "controlled-local"
+        "backend": "remote-service"
       },
       "framework": "script-tag",
       "frameworkVersion": "html",
@@ -35,7 +35,7 @@
         "lockfileHash": "04f3431ca7fc9522d08cfc8ab4eca5688ae3a2d12b7b3431016e347490820dc7",
         "sourceUrl": "https://registry.npmjs.org/@c15t/browser/-/browser-3.0.0-alpha.6.tgz"
       },
-      "revision": "3.2.0-article-v1",
+      "revision": "3.3.0-article-v1-inth-init",
       "schemaVersion": 3,
       "server": {
         "build": {
