@@ -22,7 +22,7 @@ To build a different revision, supply its full 40-character commit SHA with `--c
 
 ## Isolated consumers
 
-After packing, the workflow copies the seven framework fixtures and their shared CookieBench dependencies into an isolated pnpm workspace. It overrides every c15t dependency with a recorded archive, installs and verifies a frozen consumer lockfile, then builds and typechecks each framework. The script-tag fixture also provides the eighth, headless configuration.
+After packing, the workflow copies the six framework fixtures and their shared CookieBench dependencies into an isolated pnpm workspace. It overrides every c15t dependency with a recorded archive, installs and verifies a frozen consumer lockfile, then builds and typechecks each framework. The script-tag fixture also provides the seventh, headless configuration.
 
 Every source configuration contains a matching no-CMP baseline. Source candidates have distinct fixture IDs and versions, the actual source commit, the relevant archive integrity, the isolated consumer lockfile hash, and a hash of the fixture source, shared support, and declared scenario protocol. The common source protocol includes load, accept, reject, granular save, preferences, withdrawal, returning accepted and rejected visitors, and keyboard rejection. Ordinary actions allow a 500 ms follow-up interval. `save-page-probe-100ms` remains a separate diagnostic.
 
@@ -37,7 +37,7 @@ pnpm source:verify
 
 This reuses the immutable upstream archives and creates a new consumer snapshot when inputs change. Verification rejects stale snapshots, changed consumer lockfiles or fixture hashes, damaged archives, and installed c15t packages whose file lists or bytes differ from the archives. It does not rerun browser measurements.
 
-`.source-build/<commit>/current.json` lists all eight absolute config paths and their consumer directory. Each config has an absolute server working directory and works with the current root CLI:
+`.source-build/<commit>/current.json` lists all seven absolute config paths and their consumer directory. Each config has an absolute server working directory and works with the current root CLI:
 
 ```sh
 pnpm cookiebench run --config /absolute/path/from/current.json --iterations 1 --warmups 0 --output artifacts/source-flows.json

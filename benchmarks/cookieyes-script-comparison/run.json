@@ -20,7 +20,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "880bd86211034fc1714d392756e0c822ccf5bc4504c77601505b04070d8d8376",
+      "configurationHash": "ac960d050505cf824ff75ce658b0bced3f720124e05c5c8276dfdaacbde57dfd",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -33,7 +33,7 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "fixture-source-only",
-        "lockfileHash": "e4116c35698cced81b021ad1d5e9a3e1653a918a72e1454b0a6a15c5c676b9c7",
+        "lockfileHash": "1bc1ea97ae2a51eb9523a2771664840bef8d590c283d2421db399eb568953498",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
       "resolveHost": "127.0.0.1",
@@ -75,7 +75,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "8dc0f779902acceefa3c39c7905d599d0ddc049bfc881329391d8b720ae63a91",
+      "configurationHash": "8790b9643ef576407569e671b0692c83f876ea70b1d415972b1dec0c1755d15b",
       "deployment": {
         "assets": "local",
         "backend": "controlled-local"
@@ -88,7 +88,7 @@
       "product": "c15t",
       "provenance": {
         "artifactIntegrity": "sha512-BNIj/eg2PkOhklFmL7bJ8/s/DidN26bbS2fMYa2YxFOyt7XqURnnvCKe5vTP9l807R8X1iCyXh/Wk1LIHNgpfQ==",
-        "lockfileHash": "e4116c35698cced81b021ad1d5e9a3e1653a918a72e1454b0a6a15c5c676b9c7",
+        "lockfileHash": "1bc1ea97ae2a51eb9523a2771664840bef8d590c283d2421db399eb568953498",
         "sourceUrl": "https://registry.npmjs.org/@c15t/browser/-/browser-3.0.0-alpha.5.tgz"
       },
       "resolveHost": "127.0.0.1",
@@ -128,7 +128,7 @@
       },
       "artifactPolicy": "mutable-network",
       "baseline": false,
-      "configurationHash": "592bb4c447e0f8dd85c9f4c760c7752307538a4b540cf329588171154c145647",
+      "configurationHash": "04a724e7765d866c85e47aae77f5cb05ba9c2abc76284ed883f814760197276a",
       "deployment": {
         "assets": "remote",
         "backend": "remote-service"
@@ -141,7 +141,7 @@
       "product": "cookie-yes",
       "provenance": {
         "artifactIntegrity": "remote-unpinned",
-        "lockfileHash": "e4116c35698cced81b021ad1d5e9a3e1653a918a72e1454b0a6a15c5c676b9c7",
+        "lockfileHash": "1bc1ea97ae2a51eb9523a2771664840bef8d590c283d2421db399eb568953498",
         "sourceUrl": "https://cdn-cookieyes.com/client_data/830009093fab466a1ff5d9a1/script.js"
       },
       "resolveHost": "127.0.0.1",

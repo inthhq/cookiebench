@@ -19,7 +19,7 @@
         "withdraw": "#reject"
       },
       "baseline": false,
-      "configurationHash": "63b0332960dd0940f5a4e72d6f1f65cdb5648b78db469743c12b33a8672c2552",
+      "configurationHash": "eaccdd02915c8c27746c3a46b3b0b95df970b6d8194645db27ff9f75dc4f5b26",
       "deployment": {
         "assets": "local",
         "backend": "controlled-local"
@@ -32,7 +32,7 @@
       "product": "c15t",
       "provenance": {
         "artifactIntegrity": "sha512-BNIj/eg2PkOhklFmL7bJ8/s/DidN26bbS2fMYa2YxFOyt7XqURnnvCKe5vTP9l807R8X1iCyXh/Wk1LIHNgpfQ==",
-        "lockfileHash": "e4116c35698cced81b021ad1d5e9a3e1653a918a72e1454b0a6a15c5c676b9c7",
+        "lockfileHash": "1bc1ea97ae2a51eb9523a2771664840bef8d590c283d2421db399eb568953498",
         "sourceUrl": "https://registry.npmjs.org/@c15t/browser/-/browser-3.0.0-alpha.5.tgz"
       },
       "revision": "3.2.0-article-v1",

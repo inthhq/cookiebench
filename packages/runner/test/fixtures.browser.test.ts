@@ -12,7 +12,6 @@ const cells = [
   ["headless script-tag", "with-c15t-script", "run-headless.json"],
   ["react", "with-c15t-react", "run.json"],
   ["nextjs", "with-c15t-nextjs", "run.json"],
-  ["vue", "with-c15t-vue", "run.json"],
   ["nuxt", "with-c15t-nuxt", "run.json"],
   ["astro", "with-c15t-astro", "run.json"],
   ["tanstack-start", "with-c15t-tanstack-start", "run.json"],

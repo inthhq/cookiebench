@@ -72,7 +72,6 @@ The checked-in c15t consumers pin `3.0.0-alpha.5` from npm. The [source-build wo
 | `benchmarks/with-c15t-react/run.json` | Standalone React 19.2.1 with Vite 8.3.1, separate React baseline entry |
 | `benchmarks/with-c15t-nextjs/run.json` | Next 16.0.7, native `c15t/next` client provider over a prerendered page, separate baseline route |
 | `benchmarks/with-c15t-script/run-headless.json` | Public `@c15t/browser/headless` API and a complete custom banner/preferences form |
-| `benchmarks/with-c15t-vue/run.json` | Vue 3.5.43 native plugin with Vite, separate baseline entry |
 | `benchmarks/with-c15t-nuxt/run.json` | Nuxt 4.5.2 native module, separate baseline build |
 | `benchmarks/with-c15t-astro/run.json` | Astro 5.18.2 native middleware/banner and deferred Svelte dialog, separate baseline build |
 | `benchmarks/with-c15t-tanstack-start/run.json` | TanStack Start 1.168.60 native adapter, separate baseline route |
@@ -90,7 +89,7 @@ Checked-in configurations request different sample counts:
 | Configurations | Samples | Warmups |
 | --- | --: | --: |
 | c15t script, headless, React, Next.js and TanStack Start; every competitor; the CookieYes script comparison | 1 | 0 |
-| c15t Vue, Nuxt and Astro | 15 | 3 |
+| c15t Nuxt and Astro | 15 | 3 |
 
 One sample with no warmups is a functional check. Override with `--iterations 15 --warmups 3` for the measurement protocol. Explicit command flags override configuration values; omitted flags preserve them.
 
@@ -102,7 +101,7 @@ Consumer typechecks exercise valid SDK calls and require invalid category names 
 
 Normal action scenarios probe the shared page control at a declared 500 ms after input. A separate `save-page-probe-100ms` scenario retains the early probe. The default script-tag dialog blocked that 100 ms probe in two local checks, including a rerun with rendered-visibility and overlay checks. The failure remains visible rather than subtracting its animation duration. Dismissal timing includes the configured animation and dialog/overlay disappearance. `banner.visible` and `action.dismissed` share one predicate: the banner is visible while any part has non-zero opacity inside the viewport. A fade-in therefore adds about one frame to appearance, while a fade-out adds its full duration to dismissal. `action.dismissal-started` records the first post-input inspection where the banner, or the open preferences panel for save and withdraw, loses more than 1% of its rendered footprint (effective opacity times viewport area), stops accepting pointer events, or is no longer visible. It separates response latency from the exit animation.
 
-A scenario ID means the same conditions in every checked-in configuration, and every desktop configuration uses `benchmarks/profiles/desktop.json`. Vue, Nuxt and Astro also declare `accept-early` (input before readiness) and `accept-large` (20 controlled scripts). Earlier revisions differed. Vue, Nuxt and Astro before `3.2.1-article-v1` probed at 100 ms, ran returning-visitor and withdrawal scenarios with a cold cache, and declared a `save-post-dismissal` scenario instead of `save-page-probe-100ms`. CookieYes and Usercentrics before `3.2.1-article-v1-next-client-effect` used a `desktop-local` profile and a 1,500 ms load window. Read results from those revisions against the scenario definitions recorded in their envelopes.
+A scenario ID means the same conditions in every checked-in configuration, and every desktop configuration uses `benchmarks/profiles/desktop.json`. Nuxt and Astro also declare `accept-early` (input before readiness) and `accept-large` (20 controlled scripts). Earlier revisions differed. Vue, Nuxt and Astro before `3.2.1-article-v1` probed at 100 ms, ran returning-visitor and withdrawal scenarios with a cold cache, and declared a `save-post-dismissal` scenario instead of `save-page-probe-100ms`. CookieYes and Usercentrics before `3.2.1-article-v1-next-client-effect` used a `desktop-local` profile and a 1,500 ms load window. Read results from those revisions against the scenario definitions recorded in their envelopes.
 
 Current baselines isolate initial page load. They do not yet provide an ungated action-script workload for attributing post-accept script cost. Action timings remain reported for the CMP itself; unavailable baseline action values are not manufactured.
 

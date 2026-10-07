@@ -28,7 +28,6 @@ const integrations = [
   "with-c15t-nextjs",
   "with-c15t-react",
   "with-c15t-script",
-  "with-c15t-vue",
   "with-c15t-nuxt",
   "with-c15t-astro",
   "with-c15t-tanstack-start",

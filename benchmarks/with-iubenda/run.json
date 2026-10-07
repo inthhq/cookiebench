@@ -21,7 +21,7 @@
       },
       "artifactPolicy": "immutable-release",
       "baseline": true,
-      "configurationHash": "c6ba553b95727d467788fd41444985bce056783ebfa070fe4ae7a7f9ec1ffea6",
+      "configurationHash": "4119cdf17d186296969a071bfb1d49d9d7eea5f1663a3f7e370cefdf668275af",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -34,7 +34,7 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "fixture-source-only",
-        "lockfileHash": "e4116c35698cced81b021ad1d5e9a3e1653a918a72e1454b0a6a15c5c676b9c7",
+        "lockfileHash": "1bc1ea97ae2a51eb9523a2771664840bef8d590c283d2421db399eb568953498",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
       "revision": "3.2.0-article-v1-head-end-async-sdk",
@@ -76,7 +76,7 @@
       },
       "artifactPolicy": "mutable-network",
       "baseline": false,
-      "configurationHash": "cee8710faf998956c652b43afbcc77bb24981f199686f38046b507cbdcc22d7c",
+      "configurationHash": "1f08c77d6b461be650e2eba076813019c577e1e4c078699faf2e99073113d982",
       "deployment": {
         "assets": "mixed",
         "backend": "remote-service"
@@ -89,7 +89,7 @@
       "product": "iubenda",
       "provenance": {
         "artifactIntegrity": "sha256-cc2e4ae530879bf564ba3cc7002ab8f20736ef518371c1a3073585473fa055ee",
-        "lockfileHash": "e4116c35698cced81b021ad1d5e9a3e1653a918a72e1454b0a6a15c5c676b9c7",
+        "lockfileHash": "1bc1ea97ae2a51eb9523a2771664840bef8d590c283d2421db399eb568953498",
         "sourceUrl": "https://cdn.iubenda.com/cs/iubenda_cs.js"
       },
       "revision": "3.2.0-article-v1-head-end-async-sdk",

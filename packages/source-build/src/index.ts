@@ -33,7 +33,6 @@ const fixtureDirectories = [
   "script",
   "react",
   "nextjs",
-  "vue",
   "nuxt",
   "astro",
   "tanstack-start",
@@ -665,7 +664,6 @@ function createConsumer(): void {
           nuxt: "@c15t/vue",
           "script-tag": "@c15t/browser",
           "tanstack-start": "@c15t/tanstack-start",
-          vue: "@c15t/vue",
         };
         const packageName = packageNames[fixture.framework] ?? "c15t";
         const artifact = artifacts.packages.find(

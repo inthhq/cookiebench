@@ -20,7 +20,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "149321745da341aba8357464f1000b1194af1431d516500836de22b0c0282d68",
+      "configurationHash": "156efd265c3394b05547a88086f98a658c74baa8fef86146d8c74c683d780c40",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -33,7 +33,7 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "fixture-source-only",
-        "lockfileHash": "e4116c35698cced81b021ad1d5e9a3e1653a918a72e1454b0a6a15c5c676b9c7",
+        "lockfileHash": "1bc1ea97ae2a51eb9523a2771664840bef8d590c283d2421db399eb568953498",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
       "revision": "3.2.0-article-v1",
@@ -74,7 +74,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "4ad81e0a2f7846e3db99461ab5105591d84ffae717cfd807fefef44999154ff5",
+      "configurationHash": "a654bb2239bfade982f5a7d3b46be26a64f61a96de3b7784705e968d317ea691",
       "deployment": {
         "assets": "local",
         "backend": "controlled-local"
@@ -87,7 +87,7 @@
       "product": "c15t",
       "provenance": {
         "artifactIntegrity": "sha512-+AUC4nThah0mYSVBTto/Osz2714yoakhsWqaEh485N+4FQ6PBWCBi7suMigj2efrTP68oPnSZFkkntHRbPM0ww==",
-        "lockfileHash": "e4116c35698cced81b021ad1d5e9a3e1653a918a72e1454b0a6a15c5c676b9c7",
+        "lockfileHash": "1bc1ea97ae2a51eb9523a2771664840bef8d590c283d2421db399eb568953498",
         "sourceUrl": "https://registry.npmjs.org/c15t/-/c15t-3.0.0-alpha.5.tgz"
       },
       "revision": "3.2.0-article-v1",
