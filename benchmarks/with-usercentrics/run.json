@@ -2,24 +2,27 @@
   "fixtures": [
     {
       "adapter": {
-        "accept": "[data-testid=\"uc-accept-all-button\"]",
-        "banner": "#usercentrics-cmp-ui",
+        "accept": ".uc-accept-button",
+        "banner": "#uc-main-dialog.cmp",
         "controlledRequestPath": "/controlled/script",
         "pageAction": "#page-action",
-        "preferences": "[data-testid=\"uc-more-button\"]",
-        "preferencesPanel": "[data-testid=\"uc-second-layer\"]",
+        "preferences": "#uc-more-link",
+        "preferencesPanel": "#uc-categories-list",
         "primaryContent": "#primary-content",
         "ready": "html[data-consent-ready=\"true\"]",
-        "reject": "[data-testid=\"uc-deny-all-button\"]",
+        "reject": ".uc-deny-button",
         "reopen": "#reopen-preferences",
-        "save": "[data-testid=\"uc-save-button\"]",
+        "save": ".uc-save-button",
+        "savePreparation": [
+          "#uc-category-customcategory-a3477a96-6545-4452-b3d7-93e442abd337-toggle"
+        ],
         "serverEventsUrl": "http://127.0.0.1:4328/controlled/events",
         "stateGlobal": "__cookiebench",
-        "withdraw": "[data-testid=\"uc-deny-all-button\"]"
+        "withdraw": ".uc-deny-button"
       },
       "artifactPolicy": "immutable-release",
       "baseline": true,
-      "configurationHash": "06cc9e029472291a6dd1f4f54d8411d78f7ec4c0b76ee8b7d09bb26061638625",
+      "configurationHash": "88ac926be91697f5c749fa33439001508d8f3fd712eca55a699a8d8baa33bdc6",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -32,10 +35,10 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "fixture-source-only",
-        "lockfileHash": "04f3431ca7fc9522d08cfc8ab4eca5688ae3a2d12b7b3431016e347490820dc7",
+        "lockfileHash": "595600a4c096b000da709d37b1a5b7e2a37c4b06f30df6a95ed63a8ebb07ea59",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
-      "revision": "3.2.1-article-v1-next-client-effect",
+      "revision": "3.2.4-article-v1-next-client-effect-browser-ua-ab-variant",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -55,24 +58,27 @@
     },
     {
       "adapter": {
-        "accept": "[data-testid=\"uc-accept-all-button\"]",
-        "banner": "#usercentrics-cmp-ui",
+        "accept": ".uc-accept-button",
+        "banner": "#uc-main-dialog.cmp",
         "controlledRequestPath": "/controlled/script",
         "pageAction": "#page-action",
-        "preferences": "[data-testid=\"uc-more-button\"]",
-        "preferencesPanel": "[data-testid=\"uc-second-layer\"]",
+        "preferences": "#uc-more-link",
+        "preferencesPanel": "#uc-categories-list",
         "primaryContent": "#primary-content",
         "ready": "html[data-consent-ready=\"true\"]",
-        "reject": "[data-testid=\"uc-deny-all-button\"]",
+        "reject": ".uc-deny-button",
         "reopen": "#reopen-preferences",
-        "save": "[data-testid=\"uc-save-button\"]",
+        "save": ".uc-save-button",
+        "savePreparation": [
+          "#uc-category-customcategory-a3477a96-6545-4452-b3d7-93e442abd337-toggle"
+        ],
         "serverEventsUrl": "http://127.0.0.1:4328/controlled/events",
         "stateGlobal": "__cookiebench",
-        "withdraw": "[data-testid=\"uc-deny-all-button\"]"
+        "withdraw": ".uc-deny-button"
       },
       "artifactPolicy": "mutable-network",
       "baseline": false,
-      "configurationHash": "720fb620e027208c92069f43da62485077b1aceeb2f41fcdcd48c48de6ef0b7c",
+      "configurationHash": "860cfd57747a8a8de1688b2015b419854e9d0aab1a3360e642419d534f9c5391",
       "deployment": {
         "assets": "mixed",
         "backend": "remote-service"
@@ -85,10 +91,10 @@
       "product": "usercentrics",
       "provenance": {
         "artifactIntegrity": "sha256-5e623d7e48e52c797830315066b5cfae5f46e334c3833809c2ccb417744646f1",
-        "lockfileHash": "04f3431ca7fc9522d08cfc8ab4eca5688ae3a2d12b7b3431016e347490820dc7",
+        "lockfileHash": "595600a4c096b000da709d37b1a5b7e2a37c4b06f30df6a95ed63a8ebb07ea59",
         "sourceUrl": "https://web.cmp.usercentrics.eu/ui/loader.js"
       },
-      "revision": "3.2.1-article-v1-next-client-effect",
+      "revision": "3.2.4-article-v1-next-client-effect-browser-ua-ab-variant",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -283,7 +289,7 @@
     "cpuSlowdown": 1,
     "deviceScaleFactor": 1,
     "hasTouch": false,
-    "id": "desktop-article-v1",
+    "id": "desktop-article-v1-browser-ua",
     "isMobile": false,
     "locale": "en-GB",
     "network": {
@@ -292,6 +298,7 @@
       "uploadBytesPerSecond": 12500000
     },
     "region": "GB",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
     "viewport": {
       "height": 768,
       "width": 1365

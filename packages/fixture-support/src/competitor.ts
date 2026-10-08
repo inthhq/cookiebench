@@ -45,16 +45,13 @@ interface OneTrustApi {
   IsAlertBoxClosedAndValid: () => boolean;
   ToggleInfoDisplay: () => void;
 }
-interface UsercentricsService {
-  id: string;
-  categorySlug?: string;
-  consent?: { status: boolean; history?: unknown[] };
-}
 interface UsercentricsApi {
-  isInitialized: () => boolean;
-  isConsentRequired: () => boolean | null;
-  getServicesBaseInfo: () => Promise<UsercentricsService[]>;
-  showSecondLayer: () => void;
+  isInitialized: () => Promise<boolean>;
+  getConsentDetails: () => Promise<{
+    consent: { type: "EXPLICIT" | "IMPLICIT" };
+    services: Record<string, { consent?: { given: boolean } } | undefined>;
+  }>;
+  showSecondLayer: () => Promise<void>;
 }
 interface VendorWindow {
   CookieControl?: CookieControlApi;
@@ -74,7 +71,8 @@ interface VendorWindow {
   OnetrustActiveGroups?: string;
   semaphore?: unknown[][];
   ketch?: (...args: unknown[]) => void;
-  UC_UI?: UsercentricsApi;
+  __ucCmp?: UsercentricsApi;
+  UC_AB_VARIANT?: string;
   getCkyConsent?: () => {
     isUserActionCompleted?: boolean;
     categories?: Record<string, boolean>;
@@ -382,31 +380,23 @@ function osano(runtime: Runtime) {
 }
 function usercentrics(runtime: Runtime) {
   const sync = async () => {
-    const api = runtime.vendor.UC_UI;
-    if (!api?.isInitialized()) {
+    const api = runtime.vendor.__ucCmp;
+    if (!(await api?.isInitialized())) {
       return;
     }
-    const services = await api.getServicesBaseInfo();
+    const details = await api?.getConsentDetails();
     // IDs observed from this ruleset public API: Google Analytics 4 and Google Ads.
-    // History, not isConsentRequired=false, distinguishes a recorded choice from bot defaults.
-    const measurement = services.filter(
-      (service) => service.id === "87JYasXPF"
-    );
-    const marketing = services.filter((service) => service.id === "ZNl-QzrhP");
-    if (!measurement.length || !marketing.length) {
+    const measurement = details?.services["87JYasXPF"]?.consent;
+    const marketing = details?.services["ZNl-QzrhP"]?.consent;
+    if (!details || !measurement || !marketing) {
       return;
     }
     runtime.publish({
-      explicit: [...measurement, ...marketing].every(
-        (service) => (service.consent?.history?.length ?? 0) > 0
-      ),
+      // The v3 SDK leaves service history empty; the consent type records a choice.
+      explicit: details.consent.type === "EXPLICIT",
       permissions: {
-        marketing: marketing.every(
-          (service) => service.consent?.status === true
-        ),
-        measurement: measurement.every(
-          (service) => service.consent?.status === true
-        ),
+        marketing: marketing.given,
+        measurement: measurement.given,
       },
     });
   };
@@ -418,8 +408,12 @@ function usercentrics(runtime: Runtime) {
     }
   };
   window.addEventListener("UC_UI_INITIALIZED", changed);
-  window.addEventListener("UC_UI_CMP_EVENT", changed);
-  runtime.reopen(() => runtime.vendor.UC_UI?.showSecondLayer());
+  // Dispatched for the initial state and after every consent change.
+  window.addEventListener("UC_CONSENT", changed);
+  runtime.reopen(() => runtime.vendor.__ucCmp?.showSecondLayer());
+  // These settings use external A/B testing: the site names the variant, and
+  // without one the SDK waits 2 s before requesting the banner.
+  runtime.vendor.UC_AB_VARIANT = "variant0";
   runtime.load("https://web.cmp.usercentrics.eu/ui/loader.js", {
     "data-ruleset-id": "NFEcTLx7a",
     id: "usercentrics-cmp",

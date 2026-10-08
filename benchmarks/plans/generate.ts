@@ -39,11 +39,8 @@ const integrations = [
   "with-ketch",
   "with-onetrust",
   "with-osano",
+  "with-usercentrics",
 ] as const;
-const blocked: Record<string, string> = {
-  "with-usercentrics":
-    "The public Usercentrics ruleset does not require consent for this automated local visitor.",
-};
 
 // oxlint-disable-next-line typescript/no-explicit-any -- Run configurations are copied as JSON; the runner decodes them.
 type Json = Record<string, any>;
@@ -148,17 +145,6 @@ for (const [profileName, profile] of Object.entries(profiles)) {
     entries.push(
       { config: full, id: `${name}-load`, kind: "load" },
       { config: actions, id: `${name}-actions`, iterations: 10, kind: "flows" },
-      { config: full, id: `${name}-correctness`, kind: "flows" }
-    );
-  }
-  for (const [name, reason] of Object.entries(blocked)) {
-    const source = read(`benchmarks/${name}/run.json`);
-    const full = write(
-      `${name}-${profileName}`,
-      profile ? { ...source, profile } : source
-    );
-    entries.push(
-      { blockedReason: reason, config: full, id: `${name}-load`, kind: "load" },
       { config: full, id: `${name}-correctness`, kind: "flows" }
     );
   }
