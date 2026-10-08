@@ -366,4 +366,55 @@ describe("byte totals with incomplete exchanges", () => {
       ])
     ).toMatchObject({ status: "unavailable" });
   });
+  it("requires an incomplete initial total from an action visit only when no response was still arriving", async () => {
+    const reference = await import("../src/reference.ts");
+    const required = (
+      action: "load" | "accept",
+      row: Parameters<typeof measurementsFor>[1][number]
+    ) => {
+      const scenario = referenceScenario({ action });
+      const metrics = measurementsFor(
+        {
+          events: [],
+          frameIntervals: [],
+          inputs: [],
+          longTasks: [],
+          observerCallbacks: 0,
+          stateHistory: [],
+          supported: [],
+          vitals: {},
+        },
+        [done, row],
+        scenario,
+        reference.referenceFixture()
+      );
+      return missingRequiredMeasurements(metrics, scenario)
+        .map((metric) => metric.key)
+        .includes("initial.transfer");
+    };
+    // The hero image was still downloading when an early banner took the click.
+    const arriving = {
+      ...base,
+      decodedBodyBytes: 40,
+      finished: false,
+      id: "hero",
+      status: 200,
+    };
+    expect(required("accept", arriving)).toBe(false);
+    expect(required("load", arriving)).toBe(true);
+    expect(
+      required("accept", {
+        ...arriving,
+        failed: "net::ERR_CONNECTION_RESET",
+        finished: true,
+      })
+    ).toBe(true);
+    expect(
+      required("accept", {
+        ...done,
+        id: "unmeasured",
+        transferBytes: undefined,
+      })
+    ).toBe(true);
+  });
 });

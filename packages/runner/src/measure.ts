@@ -10,6 +10,9 @@ import type { NetworkCoverage, NetworkRequest } from "./network.ts";
 
 const observed =
   "DOM observation v2; performance.now at inspection, frame-polled; not a paint timestamp";
+/** Every incomplete exchange in the phase had a response still arriving at the cutoff. */
+export const responsesArrivingAtCutoff =
+  "One or more responses were still arriving at the cutoff";
 
 export function missingRequiredMeasurements(
   measurements: readonly Measurement[],
@@ -27,8 +30,19 @@ export function missingRequiredMeasurements(
     requiredKeys.add("action.consent-effective");
     requiredKeys.add("action.dismissed");
   }
+  // Initial requests start before the input, so a response still arriving at
+  // an action's cutoff was arriving when the input landed. As with LCP, the
+  // input ended the load before its byte total could complete.
+  const loadEndedByInput = (metric: Measurement) =>
+    scenario.action !== "load" &&
+    metric.key === "initial.transfer" &&
+    metric.status === "unavailable" &&
+    metric.reason === responsesArrivingAtCutoff;
   return measurements.filter(
-    (metric) => requiredKeys.has(metric.key) && metric.status !== "measured"
+    (metric) =>
+      requiredKeys.has(metric.key) &&
+      metric.status !== "measured" &&
+      !loadEndedByInput(metric)
   );
 }
 
@@ -241,13 +255,25 @@ export function measurementsFor(
     ] as const) {
       // Exchanges without any response by failure or cutoff carry zero bytes;
       // a response that started but did not complete keeps unknown bytes.
-      const complete =
-        inconsistent.length === 0 &&
-        rows.every(
-          (row) =>
+      const incomplete = rows.filter(
+        (row) =>
+          !(
             (row.noResponse !== undefined || (row.finished && !row.failed)) &&
             row[field] !== undefined
-        );
+          )
+      );
+      const complete = inconsistent.length === 0 && incomplete.length === 0;
+      let unavailable =
+        "One or more responses lack a complete byte observation; inspect raw requests";
+      if (inconsistent.length) {
+        unavailable = `Inconsistent per-request byte observations: ${inconsistent.join("; ")}`;
+      } else if (
+        incomplete.every(
+          (row) => !row.finished && !row.failed && row.noResponse === undefined
+        )
+      ) {
+        unavailable = responsesArrivingAtCutoff;
+      }
       add(
         `${phase}.${key}`,
         "bytes",
@@ -262,9 +288,7 @@ export function measurementsFor(
           transferBytes:
             "network bytes v3; completed CDP loadingFinished or redirect encodedDataLength; zero without a response by failure or cutoff",
         }[field],
-        inconsistent.length
-          ? `Inconsistent per-request byte observations: ${inconsistent.join("; ")}`
-          : "One or more responses lack a complete byte observation; inspect raw requests"
+        unavailable
       );
     }
   }
