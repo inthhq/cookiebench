@@ -1,10 +1,12 @@
 /* oxlint-disable no-await-in-loop, promise/avoid-new, max-classes-per-file -- Readiness retries and resource ownership are serial; child-process events require Promise adapters. The error and service define this lifecycle boundary. */
-import { spawn } from "node:child_process";
+import { execFile, spawn } from "node:child_process";
 import type { ChildProcess } from "node:child_process";
+import { once } from "node:events";
 import { open, readFile, unlink } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { setTimeout as delay } from "node:timers/promises";
+import { promisify } from "node:util";
 
 import type { FixtureConfig } from "@cookiebench/schema";
 import { Context, Data, Effect } from "effect";
@@ -31,6 +33,7 @@ export const attempt = <A>(
   });
 const cleanup = (operation: () => Promise<unknown>) =>
   Effect.promise(operation);
+const run = promisify(execFile);
 
 export class BrowserService extends Context.Service<
   BrowserService,
@@ -54,33 +57,80 @@ export const browserResource = (
     (browser) => cleanup(() => browser.close())
   );
 
+async function descendants(pid: number) {
+  // Without a process listing, the process-group signal still applies.
+  const { stdout } = await run("ps", ["-A", "-o", "pid=,ppid="]).catch(() => ({
+    stdout: "",
+  }));
+  const children = new Map<number, number[]>();
+  for (const line of stdout.split("\n")) {
+    const [child, parent] = line.trim().split(/\s+/u).map(Number);
+    if (child && parent) {
+      children.set(parent, [...(children.get(parent) ?? []), child]);
+    }
+  }
+  const found: number[] = [];
+  const pending = [pid];
+  for (let next = pending.pop(); next !== undefined; next = pending.pop()) {
+    for (const child of children.get(next) ?? []) {
+      found.push(child);
+      pending.push(child);
+    }
+  }
+  return found;
+}
+const alive = (pid: number) => {
+  try {
+    process.kill(pid, 0);
+    return true;
+  } catch (error) {
+    return (error as NodeJS.ErrnoException).code !== "ESRCH";
+  }
+};
+const kill = (target: number, signal: NodeJS.Signals) => {
+  try {
+    process.kill(target, signal);
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== "ESRCH") {
+      throw error;
+    }
+  }
+};
+async function exited(
+  child: ChildProcess,
+  tree: readonly number[],
+  signal: AbortSignal
+) {
+  if (child.exitCode === null && child.signalCode === null) {
+    await once(child, "exit");
+  }
+  while (!signal.aborted && tree.some(alive)) {
+    await delay(25);
+  }
+}
 async function killTree(child: ChildProcess) {
   const { pid } = child;
   if (!pid) {
     return;
   }
-  const kill = (signal: NodeJS.Signals) => {
-    try {
-      process.kill(process.platform === "win32" ? pid : -pid, signal);
-    } catch (error) {
-      if ((error as NodeJS.ErrnoException).code !== "ESRCH") {
-        throw error;
-      }
+  // A server can start descendants in their own process groups, such as
+  // next-server under pnpm, and those keep the output pipes open. List the
+  // tree before signalling: a descendant whose parent exits leaves it.
+  const tree = process.platform === "win32" ? [] : await descendants(pid);
+  const killAll = (signal: NodeJS.Signals) => {
+    kill(process.platform === "win32" ? pid : -pid, signal);
+    for (const descendant of tree) {
+      kill(descendant, signal);
     }
   };
-  kill("SIGTERM");
-  await Promise.race([
-    new Promise<void>((resolve) => {
-      if (child.exitCode !== null || child.signalCode !== null) {
-        resolve();
-      } else {
-        child.once("exit", () => resolve());
-      }
-    }),
-    delay(500),
-  ]);
-  // Also kill descendants if the parent exited before them.
-  kill("SIGKILL");
+  killAll("SIGTERM");
+  const grace = new AbortController();
+  await Promise.race([exited(child, tree, grace.signal), delay(500)]);
+  grace.abort();
+  killAll("SIGKILL");
+  // Unread pipes would keep the runner alive if anything survives.
+  child.stdout?.destroy();
+  child.stderr?.destroy();
 }
 function processResource(
   command: { command: string; args: readonly string[] },
