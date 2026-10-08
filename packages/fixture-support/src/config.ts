@@ -70,7 +70,7 @@ export function createFixture(
       start: { args: ["start"], command: "pnpm" },
     },
     url: `http://127.0.0.1:${port}${path}`,
-    version: baseline ? frameworkVersion : "3.0.0-alpha.6",
+    version: baseline ? frameworkVersion : "3.0.0-alpha.8",
   };
 }
 export function createScenario(

@@ -20,7 +20,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "d5c7714843aa8ec7a8bd255b383b142ce5f8e2d60f92782b7053b564ce07b4f6",
+      "configurationHash": "f26ff26c648d27047897d22a92256ef0535e33356c299cc42e78af98e729aabf",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -33,7 +33,7 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "sha512-WMOM0Xlh2lPbVlbjYM6uOxOpiaWRPvODm/dwkLsGKq5tjyHOHZmKckJgwlrZl7OQUqFlOZHYj8bKUTgoeg8cUQ==",
-        "lockfileHash": "04f3431ca7fc9522d08cfc8ab4eca5688ae3a2d12b7b3431016e347490820dc7",
+        "lockfileHash": "595600a4c096b000da709d37b1a5b7e2a37c4b06f30df6a95ed63a8ebb07ea59",
         "sourceUrl": "https://registry.npmjs.org/@tanstack/react-start/-/react-start-1.168.60.tgz"
       },
       "revision": "3.3.0-article-v1-inth-build-manifest",
@@ -74,7 +74,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "d7fd44d29086cec323b3e6c7ba7c1c5433d3aa2a0fe81a0ad47ff2be5efd794c",
+      "configurationHash": "255651fb946678cce23b9445e624ac0806f71eca1694341a444bd6342845e8f5",
       "deployment": {
         "assets": "local",
         "backend": "remote-service"
@@ -86,9 +86,9 @@
       "presentation": "default",
       "product": "c15t",
       "provenance": {
-        "artifactIntegrity": "sha512-St3aAN8ZKhWrECHDb/tHKLfhGXbxTDw3l7UKYEi9fsMEq89P0qEPHt9ZKn5Vd/UL7ksH8G8zcJdF+Qho9B/oaA==",
-        "lockfileHash": "04f3431ca7fc9522d08cfc8ab4eca5688ae3a2d12b7b3431016e347490820dc7",
-        "sourceUrl": "https://registry.npmjs.org/@c15t/tanstack-start/-/tanstack-start-3.0.0-alpha.6.tgz"
+        "artifactIntegrity": "sha512-0wq3V6fYJZiZfAH0dBr37uYCytAn5G3CBKp2Wx1qegTiA0Da3LtLBTk50Fw7YjsOOYl2nBvELVC6MHRPOq8OEw==",
+        "lockfileHash": "595600a4c096b000da709d37b1a5b7e2a37c4b06f30df6a95ed63a8ebb07ea59",
+        "sourceUrl": "https://registry.npmjs.org/@c15t/tanstack-start/-/tanstack-start-3.0.0-alpha.8.tgz"
       },
       "revision": "3.3.0-article-v1-inth-build-manifest",
       "schemaVersion": 3,
@@ -106,7 +106,7 @@
         }
       },
       "url": "http://127.0.0.1:4316/",
-      "version": "3.0.0-alpha.6"
+      "version": "3.0.0-alpha.8"
     }
   ],
   "scenarios": [

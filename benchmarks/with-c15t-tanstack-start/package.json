@@ -9,8 +9,8 @@
     "start": "node ../../packages/fixture-support/src/serve.ts --port 4316 --upstream-port 4416 -- node server.mjs"
   },
   "dependencies": {
-    "@c15t/react": "3.0.0-alpha.6",
-    "@c15t/tanstack-start": "3.0.0-alpha.6",
+    "@c15t/react": "3.0.0-alpha.8",
+    "@c15t/tanstack-start": "3.0.0-alpha.8",
     "@cookiebench/fixture-support": "workspace:*",
     "@tanstack/react-router": "1.170.41",
     "@tanstack/react-start": "1.168.60",

@@ -1,6 +1,6 @@
 # TanStack Start fixture
 
-This production fixture pins TanStack Start 1.168.60, TanStack Router 1.170.41, React 19.2.1 and the published `@c15t/tanstack-start@3.0.0-alpha.6` adapter.
+This production fixture pins TanStack Start 1.168.60, TanStack Router 1.170.41, React 19.2.1 and the published `@c15t/tanstack-start@3.0.0-alpha.8` adapter.
 
 The Vite build bundles the Inth backend's policy manifest into `src/c15t-manifest.ts`, which Git ignores. `src/consent-state.ts` attaches consent middleware only to the consent server function, which resolves each request's cookies and policy from that snapshot with `createConsentStateHandler`. The index route's loader calls it rather than the root loader the docs show, so the baseline never resolves consent. `ConsentRoot` hydrates that state and sends saves to `https://benchmarks-inth.inth.app`. The public snapshot and script loader provide observable consent behavior. Default banner and dialog animations stay enabled.
 

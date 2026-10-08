@@ -37,3 +37,13 @@ On October 7, 2026 the fixtures moved to `3.0.0-alpha.6`, published that day. It
 alpha.6 puts the preference dialog rules back into `styles.css`, which grows the render-blocking stylesheet by about 4.5 kB gzip. It also adds build-time manifest snapshots for Next.js, TanStack Start, Nuxt, Astro and Vite.
 
 All framework typechecks and production builds passed, and unit tests passed. alpha.6 measurements are a new cohort: don't pool them with earlier releases.
+
+## alpha.8
+
+On October 8, 2026 the fixtures moved to `3.0.0-alpha.8`, published that day, skipping alpha.7. It depends on `@c15t/schema@3.0.0-alpha.7` and `@c15t/translations@3.0.0-alpha.6`, so the controlled backend moves to that schema release. `pnpm-workspace.yaml` lists release-age exceptions for the alpha.8 packages and replaces the alpha.6 ones. Remove them once alpha.8 is a day old.
+
+alpha.7 dropped the banner's spring entry. A banner that shows with the page, such as the server-rendered Next.js banner, appears on its first frame. One that arrives more than 100 ms after first paint fades in without moving. The exit keeps its fade, without the slide or scale, on an ease-in curve. alpha.7 also fixed the Nuxt build-time manifest, so the Nuxt fixture moves to `buildManifest: true` (see [the backend notes](c15t-backend.md#nuxt)).
+
+alpha.8 adds a journey id to `GET /init` and `POST /subjects` as query parameters. The controlled backend routes on the path, so it answers these requests as before. When `ConsentRoot` gets a promise, alpha.8 also streams the banner in a later chunk of the same response, before hydration. The Next.js fixture awaits the state, so its banner is already in the first chunk and this change doesn't apply.
+
+alpha.8 measurements are a new cohort: don't pool them with earlier releases.
