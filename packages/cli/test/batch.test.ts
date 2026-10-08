@@ -170,7 +170,7 @@ test("resume rejects changed envelope bytes and forged result identity before re
     envelopeSha256: hash(bytes),
     execution: {
       command: [
-        process.execPath,
+        "node",
         "packages/cli/src/index.ts",
         "run",
         "--reference",
@@ -569,6 +569,10 @@ test("batch resume retains a failed execution and rejects changed inputs", async
     execution: { exitCode: 1 },
     status: "execution-error",
   });
+  // Published evidence names neither the checkout nor the local Node binary.
+  const recorded = JSON.stringify(first.results);
+  expect(recorded).not.toContain(process.cwd());
+  expect(recorded).not.toContain(process.execPath);
   const execution = first.results[0].execution as { command: string[] };
   const iterationsIndex = execution.command.indexOf("--iterations");
   expect(execution.command[iterationsIndex + 1]).toBe("10");

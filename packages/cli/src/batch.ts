@@ -435,10 +435,16 @@ async function fileHash(file: string) {
   }
 }
 
+// Recorded commands and paths are relative to the repository root, the batch's
+// working directory, so published evidence names no local user or checkout.
+const repositoryPath = (file: string) =>
+  path.relative(process.cwd(), path.resolve(file)) || ".";
+const recordedNode = "node";
+
 function batchArguments(entry: BatchEntry, seed: number, envelopeFile: string) {
   let input: string[] = [];
   if (entry.config) {
-    input = ["--config", path.resolve(entry.config)];
+    input = ["--config", repositoryPath(entry.config)];
   } else if (entry.reference) {
     input = ["--reference", entry.reference];
   }
@@ -520,7 +526,7 @@ async function verifySavedEvidence(
     );
   }
   const expectedCommand = [
-    process.execPath,
+    recordedNode,
     "packages/cli/src/index.ts",
     ...batchArguments(entry, seed, saved.envelopeFile),
   ];
@@ -606,12 +612,12 @@ export async function verifySavedBatchEntry(
 }
 
 export async function runCommand(directory: string, args: string[]) {
-  const command = [process.execPath, "packages/cli/src/index.ts", ...args];
+  const command = [recordedNode, "packages/cli/src/index.ts", ...args];
   await mkdir(directory);
   const startedAt = new Date().toISOString();
   await save(path.join(directory, "started.json"), {
     command,
-    cwd: process.cwd(),
+    cwd: ".",
     startedAt,
   });
   const stdout = await open(path.join(directory, "stdout.json"), "wx");
@@ -625,7 +631,7 @@ export async function runCommand(directory: string, args: string[]) {
     try {
       // eslint-disable-next-line promise/avoid-new -- Bridge the child process close event and preserve its signal.
       outcome = await new Promise((resolve) => {
-        const child = spawn(command[0], command.slice(1), {
+        const child = spawn(process.execPath, command.slice(1), {
           stdio: ["ignore", stdout.fd, stderr.fd],
         });
         let spawnError: string | undefined;
@@ -654,7 +660,7 @@ export async function runCommand(directory: string, args: string[]) {
   }
   const record = {
     command,
-    cwd: process.cwd(),
+    cwd: ".",
     endedAt: new Date().toISOString(),
     startedAt,
     ...outcome,
@@ -686,7 +692,7 @@ async function executeBatch(
 ) {
   const bytes = await readFile(planFile);
   const plan = decodePlan(JSON.parse(bytes.toString("utf-8")));
-  const output = path.resolve(outputDirectory);
+  const output = repositoryPath(outputDirectory);
   await mkdir(path.dirname(output), { recursive: true });
   await mkdir(output, { recursive: true });
   const savedPlan = await fileHash(path.join(output, "plan.json"));
