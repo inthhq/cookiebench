@@ -8,7 +8,7 @@ import { parseArgs } from "node:util";
 
 import { parseBackendDelay, waitForBackend } from "./backend-delay.ts";
 import { initResponse } from "./backend.ts";
-import { competitorBootstrap } from "./competitor-bootstrap.ts";
+import { competitorBootstrap, competitors } from "./competitor-bootstrap.ts";
 import {
   cachedRepresentations,
   encodingMisses,
@@ -35,6 +35,11 @@ const { values, positionals } = parseArgs({
 const backendDelayMs = parseBackendDelay(values["backend-delay-ms"]);
 const port = Number(values.port);
 const bootstrap = competitorBootstrap(values.competitor);
+// The baseline document with ?cmp=<vendor> carries that vendor's bootstrap, so
+// every CMP runs on one page, build and server per framework.
+const vendorBootstraps = new Map(
+  competitors.map((name) => [name, competitorBootstrap(name)] as const)
+);
 if (!Number.isSafeInteger(port) || port < 1 || port > 65_535) {
   throw new Error("Expected --port between 1 and 65535.");
 }
@@ -181,6 +186,19 @@ function sendControlledLog(url: URL, outgoing: ServerResponse) {
   outgoing.end(JSON.stringify(rows));
   return true;
 }
+function vendorInjection(url: URL) {
+  const name = url.searchParams.get("cmp");
+  if (name === null) {
+    return;
+  }
+  if (url.pathname !== "/baseline" && url.pathname !== "/baseline/") {
+    return { error: "?cmp applies only to the baseline document" } as const;
+  }
+  const injection = vendorBootstraps.get(name as never);
+  return injection
+    ? { injection }
+    : ({ error: `Unknown CMP ${name}` } as const);
+}
 function proxyHeaders(incoming: IncomingMessage) {
   // Upstreams send identity bytes so forwardResponse applies one compression
   // policy to every framework, as the static responder does for files.
@@ -248,8 +266,14 @@ async function handle(incoming: IncomingMessage, outgoing: ServerResponse) {
   ) {
     return;
   }
+  const vendor = vendorInjection(url);
+  if (vendor && "error" in vendor) {
+    outgoing.writeHead(400, { "Content-Type": "text/plain" });
+    outgoing.end(vendor.error);
+    return;
+  }
   if (serveStatic) {
-    await serveStatic(url, incoming, outgoing);
+    await serveStatic(url, incoming, outgoing, vendor?.injection);
     return;
   }
   const isBaseline = baselineChild && url.pathname.startsWith("/baseline");
@@ -264,7 +288,8 @@ async function handle(incoming: IncomingMessage, outgoing: ServerResponse) {
     (response) => {
       forwardResponse(response, outgoing, {
         acceptEncoding: incoming.headers["accept-encoding"],
-        injection: url.pathname === "/" ? bootstrap : undefined,
+        injection:
+          vendor?.injection ?? (url.pathname === "/" ? bootstrap : undefined),
         method: incoming.method,
         path: url.pathname,
       });
@@ -319,7 +344,12 @@ await Promise.all([
     Buffer.from(JSON.stringify(subjectResponse)),
     "consent subjects"
   ),
-  serveStatic?.prime(),
+  serveStatic?.prime(
+    [...vendorBootstraps.values()].map((injection) => ({
+      injection: injection as NonNullable<typeof injection>,
+      pathname: "/baseline",
+    }))
+  ),
 ]);
 // Readiness polls the plain listener, so it opens only after HTTPS is bound.
 if (tlsServer) {

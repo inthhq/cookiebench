@@ -11,6 +11,8 @@ import {
   representationTag,
 } from "./compression.ts";
 import type { Representations } from "./compression.ts";
+import { injectHtml } from "./html-injection.ts";
+import type { Injection } from "./html-injection.ts";
 
 const mime: Record<string, string> = {
   ".css": "text/css; charset=utf-8",
@@ -35,12 +37,22 @@ export function createStaticResponder(directory: string) {
       }>;
     }
   >();
-  const load = (file: string, stamp: string, compressible: boolean) => {
-    let cached = cache.get(file);
+  const load = (
+    file: string,
+    stamp: string,
+    compressible: boolean,
+    injection?: Injection
+  ) => {
+    // Each injected variant of a document is its own cached representation.
+    const key = injection ? `${file}\0${injection.html}` : file;
+    let cached = cache.get(key);
     if (cached?.stamp !== stamp) {
       cached = {
         bodies: (async () => {
-          const body = await readFile(file);
+          const source = await readFile(file);
+          const body = injection
+            ? Buffer.from(injectHtml(source.toString("utf-8"), injection))
+            : source;
           return {
             etag: `"${createHash("sha256").update(body).digest("hex")}"`,
             representations: compressible
@@ -50,12 +62,50 @@ export function createStaticResponder(directory: string) {
         })(),
         stamp,
       };
-      cache.set(file, cached);
+      cache.set(key, cached);
     }
     return cached.bodies;
   };
+  // A path without an extension falls back to its .html document.
+  const resolveFile = async (pathname: string) => {
+    const file = path.resolve(
+      root,
+      `.${pathname.endsWith("/") ? `${pathname}index.html` : pathname}`
+    );
+    if (!file.startsWith(`${root}${path.sep}`)) {
+      return;
+    }
+    try {
+      const metadata = await stat(file);
+      if (metadata.isFile()) {
+        return file;
+      }
+    } catch {
+      // Fall through to the document fallback.
+    }
+    return path.extname(pathname)
+      ? file
+      : path.resolve(root, `${pathname.slice(1)}.html`);
+  };
   /** Build every file's representations before the server listens. */
-  const prime = async () => {
+  const prime = async (
+    injected: { pathname: string; injection: Injection }[] = []
+  ) => {
+    await Promise.all(
+      injected.map(async ({ pathname, injection }) => {
+        const file = await resolveFile(pathname);
+        if (!file) {
+          throw new Error(`No document to inject at ${pathname}`);
+        }
+        const metadata = await stat(file);
+        await load(
+          file,
+          `${metadata.mtimeMs}:${metadata.size}`,
+          true,
+          injection
+        );
+      })
+    );
     const entries = await readdir(root, {
       recursive: true,
       withFileTypes: true,
@@ -77,7 +127,8 @@ export function createStaticResponder(directory: string) {
   const respond = async (
     url: URL,
     incoming: IncomingMessage,
-    outgoing: ServerResponse
+    outgoing: ServerResponse,
+    injection?: Injection
   ) => {
     if (incoming.method !== "GET" && incoming.method !== "HEAD") {
       outgoing.writeHead(405, { Allow: "GET, HEAD" });
@@ -92,24 +143,11 @@ export function createStaticResponder(directory: string) {
       outgoing.end();
       return;
     }
-    let file = path.resolve(
-      root,
-      `.${pathname.endsWith("/") ? `${pathname}index.html` : pathname}`
-    );
-    if (!file.startsWith(`${root}${path.sep}`)) {
+    const file = await resolveFile(pathname);
+    if (!file) {
       outgoing.writeHead(403);
       outgoing.end();
       return;
-    }
-    try {
-      const requestedFile = await stat(file);
-      if (!requestedFile.isFile()) {
-        throw new Error("Not a file");
-      }
-    } catch {
-      if (!path.extname(pathname)) {
-        file = path.resolve(root, `${pathname.slice(1)}.html`);
-      }
     }
     try {
       const metadata = await stat(file);
@@ -127,10 +165,14 @@ export function createStaticResponder(directory: string) {
         outgoing.end();
         return;
       }
+      if (injection && extension !== ".html") {
+        throw new Error("Only documents accept an injection");
+      }
       const { etag: identityTag, representations } = await load(
         file,
         `${metadata.mtimeMs}:${metadata.size}`,
-        compressible
+        compressible,
+        injection
       );
       const body = representations[encoding];
       // A strong validator per selected representation, as the proxy uses.
@@ -153,7 +195,7 @@ export function createStaticResponder(directory: string) {
       });
       outgoing.end(incoming.method === "HEAD" ? undefined : body);
     } catch {
-      cache.delete(file);
+      cache.delete(injection ? `${file}\0${injection.html}` : file);
       outgoing.writeHead(404);
       outgoing.end(incoming.method === "HEAD" ? undefined : "Not found");
     }

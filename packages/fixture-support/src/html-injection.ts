@@ -3,22 +3,31 @@ import { Transform } from "node:stream";
 import type { TransformCallback } from "node:stream";
 import { StringDecoder } from "node:string_decoder";
 
+export interface Injection {
+  marker: string;
+  side: "before" | "after";
+  html: string;
+}
+
+/** Insert once into a complete document, as HtmlInjection does for a stream. */
+export function injectHtml(document: string, injection: Injection) {
+  const index = document.indexOf(injection.marker);
+  if (index === -1) {
+    throw new Error(`Fixture HTML lacks bootstrap marker ${injection.marker}`);
+  }
+  const offset =
+    index + (injection.side === "after" ? injection.marker.length : 0);
+  return document.slice(0, offset) + injection.html + document.slice(offset);
+}
+
 /** Insert once without buffering a whole streamed framework document. */
 export class HtmlInjection extends Transform {
   private pending = "";
   private injected = false;
   private readonly decoder = new StringDecoder("utf-8");
-  private readonly injection: {
-    marker: string;
-    side: "before" | "after";
-    html: string;
-  };
+  private readonly injection: Injection;
 
-  constructor(injection: {
-    marker: string;
-    side: "before" | "after";
-    html: string;
-  }) {
+  constructor(injection: Injection) {
     super();
     this.injection = injection;
   }

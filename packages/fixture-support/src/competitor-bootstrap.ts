@@ -1,22 +1,48 @@
 import { buildSync } from "esbuild";
 
+import type { Competitor } from "./competitor.ts";
+
+// CookieYes, Ketch, Osano and Usercentrics load from a client effect in their
+// Next.js fixtures. On other frameworks they use their generic snippet, which
+// each vendor places at the start of <head>.
 const placements = {
   "cookie-control": {
     exported: "installCookieControl",
     marker: "</body>",
     side: "before",
   },
+  "cookie-yes": {
+    exported: "installCookieYes",
+    marker: "<head>",
+    side: "after",
+  },
   didomi: { exported: "installDidomi", marker: "<head>", side: "after" },
   enzuzo: { exported: "installEnzuzo", marker: "<head>", side: "after" },
   iubenda: { exported: "installIubenda", marker: "</head>", side: "before" },
+  ketch: { exported: "installKetch", marker: "<head>", side: "after" },
   onetrust: { exported: "installOneTrust", marker: "<head>", side: "after" },
-} as const;
+  osano: { exported: "installOsano", marker: "<head>", side: "after" },
+  usercentrics: {
+    exported: "installUsercentrics",
+    marker: "<head>",
+    side: "after",
+  },
+} as const satisfies Record<
+  Competitor,
+  { exported: string; marker: string; side: "before" | "after" }
+>;
+
+export type CompetitorInjection = NonNullable<
+  ReturnType<typeof competitorBootstrap>
+>;
+
+export const competitors = Object.keys(placements) as Competitor[];
 
 export function competitorBootstrap(name: string | undefined) {
   if (!name || !(name in placements)) {
     return;
   }
-  const placement = placements[name as keyof typeof placements];
+  const placement = placements[name as Competitor];
   const result = buildSync({
     bundle: true,
     format: "iife",
