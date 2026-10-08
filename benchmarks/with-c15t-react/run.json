@@ -20,7 +20,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "f21f83873b28c7feadbba1b3f244161e04de4006fcbc91acc6d0a13e17d9c2c0",
+      "configurationHash": "2d700822b575122efa8dee085a46b9d28676857e3651fcd68e79d061d280059f",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -33,10 +33,10 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "fixture-source-only",
-        "lockfileHash": "04f3431ca7fc9522d08cfc8ab4eca5688ae3a2d12b7b3431016e347490820dc7",
+        "lockfileHash": "595600a4c096b000da709d37b1a5b7e2a37c4b06f30df6a95ed63a8ebb07ea59",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
-      "revision": "3.3.0-article-v1-inth-init",
+      "revision": "3.4.0-article-v1-inth-build-manifest",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -74,7 +74,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "0e8c15f6f6f8d565baffb7d5b857661d2b9495b65b8e381b97022334a538c5e5",
+      "configurationHash": "e7a893ac0354a22d166e671bccc6736d59434dc8420cddcdb51461de341198c9",
       "deployment": {
         "assets": "local",
         "backend": "remote-service"
@@ -86,11 +86,11 @@
       "presentation": "default",
       "product": "c15t",
       "provenance": {
-        "artifactIntegrity": "sha512-xSXApG4NeGy08wJuDpZy+DJqjElytNP34BR/jtu4Tqxwzy0N1Nm/oNpSpgN0U0IAtvi8alkUu9Ul0l5wpnMihQ==",
-        "lockfileHash": "04f3431ca7fc9522d08cfc8ab4eca5688ae3a2d12b7b3431016e347490820dc7",
-        "sourceUrl": "https://registry.npmjs.org/c15t/-/c15t-3.0.0-alpha.6.tgz"
+        "artifactIntegrity": "sha512-QZzHtTp/QBpApoXgtivVAfXUbpp3otzkKqbPySGFW6kiQaLIQ8zvZSl8Tkdo+yOc6U7Wrp9kOBnApsrViec60w==",
+        "lockfileHash": "595600a4c096b000da709d37b1a5b7e2a37c4b06f30df6a95ed63a8ebb07ea59",
+        "sourceUrl": "https://registry.npmjs.org/c15t/-/c15t-3.0.0-alpha.8.tgz"
       },
-      "revision": "3.3.0-article-v1-inth-init",
+      "revision": "3.4.0-article-v1-inth-build-manifest",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -106,7 +106,7 @@
         }
       },
       "url": "http://127.0.0.1:4311/",
-      "version": "3.0.0-alpha.6"
+      "version": "3.0.0-alpha.8"
     }
   ],
   "scenarios": [

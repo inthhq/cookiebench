@@ -1,21 +1,23 @@
 # c15t backend and policy fetching
 
-From revision `3.3.0` on October 7, 2026, every c15t fixture talks to a live Inth backend at `https://benchmarks-inth.inth.app` instead of the controlled local test double. Each fixture follows the setup the alpha.6 documentation recommends for its framework.
+From revision `3.3.0` on October 7, 2026, every c15t fixture talks to a live Inth backend at `https://benchmarks-inth.inth.app` instead of the controlled local test double. Each fixture follows the setup the c15t documentation recommends for its framework.
 
 | Fixture | Policy path | Browser consent requests |
 | --- | --- | --- |
 | Next.js | Build-time manifest. The consent route's layout awaits `resolveConsent` inside `Suspense`, so the banner arrives in the server HTML. | `POST /subjects` on a save |
 | TanStack Start | Build-time manifest, resolved on the server | `POST /subjects` on a save |
-| Nuxt | Server manifest (`manifest: "server"`), fetched and cached at runtime, resolved on the Nuxt server. See [Nuxt](#nuxt). | `POST /subjects` on a save |
+| Nuxt | Build-time manifest (`buildManifest: true`) from alpha.7 onward, resolved on the Nuxt server. See [Nuxt](#nuxt). | `POST /subjects` on a save |
 | Astro | Server output with `manifest()` and `buildManifest: true`; middleware resolves each request | `POST /subjects` on a save |
-| React (Vite) | Browser `/init` | `GET /init`, then `POST /subjects` on a save |
+| React (Vite) | Build-time manifest (`consentManifest` Vite plugin and `manifest()` mode), resolved in the browser. The policy matches on country, so the browser still asks `/init`. | `GET /init`, then `POST /subjects` on a save |
 | Script tag and headless | Browser `/init` | `GET /init`, then `POST /subjects` on a save |
 
-The docs recommend a build-time manifest wherever a server can resolve consent; Nuxt falls back to a runtime server manifest, as below. React with Vite and the script tag have no server, so they keep `/init`. Manifest fixtures and their baselines declare `mode: "manifest"`; the `/init` fixtures keep `mode: "hosted"`. Every c15t candidate declares `deployment.backend: "remote-service"`, the same as the competitor fixtures.
+The docs recommend a build-time manifest for every framework with a build step. From revision `3.4.0-article-v1-inth-build-manifest`, React follows the React quickstart and bundles the manifest. Without a server it can't know the visitor's country, and the Inth policy matches on country, so the browser still calls `/init`. The script tag has no build step, so it keeps `/init`. Manifest fixtures and their baselines declare `mode: "manifest"`; the `/init` fixtures keep `mode: "hosted"`. Every c15t candidate declares `deployment.backend: "remote-service"`, the same as the competitor fixtures.
 
 ## Nuxt
 
-The docs recommend `buildManifest: true` for Nuxt too, but it doesn't work with alpha.6 and Nitro 2.13.4. The c15t module stores the snapshot in private runtime config. Nitro's `provideFallbackValues` replaces every `null` in runtime config with `""` during the build, so each policy pack's `copyRevision: null` becomes `""`. `@c15t/schema` then rejects every pack, and every visitor gets `invalid-configuration` with no banner. The fixture uses the documented runtime alternative instead: the Nuxt server fetches `/manifest` on its first request, caches it and resolves each visitor on the server. The browser still makes no `/init` request. Its revision, `3.3.0-article-v1-inth-runtime-manifest`, keeps it apart from the build-time fixtures. The first request after the server starts includes the manifest fetch. Every run loads each fixture page once to prime it before any sample, so that fetch lands outside the measurements. The cache can expire during a long run, so a later sample can include a refresh.
+alpha.6 and Nitro 2.13.4 broke `buildManifest: true`. The c15t module stored the snapshot in private runtime config. Nitro's `provideFallbackValues` replaces every `null` in runtime config with `""` during the build, so each policy pack's `copyRevision: null` became `""`. `@c15t/schema` then rejected every pack, and every visitor got `invalid-configuration` with no banner. Revision `3.3.0-article-v1-inth-runtime-manifest` used the documented runtime alternative instead: the Nuxt server fetched `/manifest` on its first request, cached it, and the cache could expire during a long run.
+
+From alpha.7, c15t bundles the snapshot in the server instead of runtime config. From revision `3.3.1-article-v1-inth-build-manifest`, the Nuxt fixture uses `buildManifest: true` like the other server frameworks.
 
 ## What the build fetches
 
