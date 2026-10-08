@@ -53,7 +53,7 @@ The plan also runs the reference instrumentation audit. Action timings aren't re
 ## Known gaps
 
 - **Osano byte totals.** Osano starts a Web Worker. The collector can't prove it saw every worker request, so it withholds request and byte totals for Osano visits. Earlier Osano runs show the same gap. Osano's paint and banner timings are still measured.
-- **CookieYes save.** The CookieYes adapter has no granular save flow, so its save scenario reports `unsupported-action`, as in its standalone fixture.
+- **CookieYes and Cookie Control save.** Neither adapter has a granular save flow, so their save scenarios report `unsupported-action`, as in their standalone fixtures.
 
 ## What the matrix doesn't say
 
