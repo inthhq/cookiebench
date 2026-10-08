@@ -253,12 +253,15 @@ export function measurementsFor(
       ["encoded-body", "encodedBodyBytes"],
       ["decoded-body", "decodedBodyBytes"],
     ] as const) {
-      // Exchanges without any response by failure or cutoff carry zero bytes;
-      // a response that started but did not complete keeps unknown bytes.
+      // Exchanges without any response by failure or cutoff carry zero bytes,
+      // and one the page cancelled mid-response carries the bytes seen before
+      // the cancel. Any other response that did not complete keeps unknown bytes.
       const incomplete = rows.filter(
         (row) =>
           !(
-            (row.noResponse !== undefined || (row.finished && !row.failed)) &&
+            (row.noResponse !== undefined ||
+              row.cancelledAfterResponse ||
+              (row.finished && !row.failed)) &&
             row[field] !== undefined
           )
       );
@@ -284,9 +287,9 @@ export function measurementsFor(
           decodedBodyBytes:
             "network bytes v3; CDP dataReceived.dataLength sum, or identity Content-Length for bodies no renderer read; zero for redirect hops and without a response",
           encodedBodyBytes:
-            "network bytes v3; completed uncached Content-Length or identity decoded bytes; zero for redirect hops and without a response",
+            "network bytes v3; completed uncached Content-Length or identity decoded bytes; zero for redirect hops and without a response; dataReceived.encodedDataLength sum when the page cancelled mid-response",
           transferBytes:
-            "network bytes v3; completed CDP loadingFinished or redirect encodedDataLength; zero without a response by failure or cutoff",
+            "network bytes v3; completed CDP loadingFinished or redirect encodedDataLength; zero without a response by failure or cutoff; header plus received body bytes when the page cancelled mid-response",
         }[field],
         unavailable
       );

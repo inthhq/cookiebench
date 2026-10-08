@@ -237,6 +237,60 @@ test("exchanges without a response by failure or cutoff carry zero bytes", async
   }
 });
 
+test("an exchange the page cancelled after its response began counts the bytes seen", async () => {
+  const c = await collector();
+  const cancelled = (id: string, headerBytes?: number) => {
+    c.start(id, "Fetch", "POST");
+    c.session.emit("Network.responseReceived", {
+      requestId: id,
+      response: {
+        encodedDataLength: headerBytes,
+        headers: {},
+        mimeType: "application/json",
+        status: 201,
+      },
+      timestamp: 1.1,
+    });
+  };
+  const cancel = (id: string, canceled = true) =>
+    c.session.emit("Network.loadingFailed", {
+      canceled,
+      errorText: "net::ERR_ABORTED",
+      requestId: id,
+      timestamp: 1.3,
+    });
+  // The Usercentrics consent POST: a 201, then the SDK cancels before the body.
+  cancelled("headers", 74);
+  cancel("headers");
+  cancelled("body", 74);
+  c.data("body", 40);
+  cancel("body");
+  cancelled("uncounted");
+  cancel("uncounted");
+  cancelled("network", 74);
+  cancel("network", false);
+  const rows = await c.network.snapshot();
+  const byId = (id: string) => rows.find((row) => row.id.startsWith(`${id}:`));
+  expect(byId("headers")).toMatchObject({
+    cancelledAfterResponse: true,
+    decodedBodyBytes: 0,
+    encodedBodyBytes: 0,
+    transferBytes: 74,
+  });
+  expect(byId("body")).toMatchObject({
+    cancelledAfterResponse: true,
+    decodedBodyBytes: body.length,
+    encodedBodyBytes: 40,
+    transferBytes: 114,
+  });
+  // Without a header count, or when the network rather than the page ended it,
+  // the bytes stay unknown.
+  for (const id of ["uncounted", "network"]) {
+    expect(byId(id)?.cancelledAfterResponse).toBeUndefined();
+    expect(byId(id)?.transferBytes).toBeUndefined();
+  }
+});
+
 test("bodyless responses retain zero even when a browser size fallback reports transfer bytes", async () => {
   const c = await collector();
   c.browserRequest(567);

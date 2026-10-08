@@ -44,6 +44,9 @@ export interface NetworkRequest {
   responseStarted?: boolean;
   // Bytes are zero because no response began before failure or the cutoff.
   noResponse?: "failed" | "pending-at-cutoff";
+  // The page cancelled the exchange after its response began. Byte fields count
+  // only what arrived before the cancel, so they are lower bounds.
+  cancelledAfterResponse?: boolean;
 }
 
 export interface NetworkCoverage {
@@ -229,6 +232,22 @@ function settleWithoutResponse(row: NetworkRequest) {
   row.decodedBodyBytes = 0;
 }
 
+/**
+ * A page can cancel an exchange once its response begins, as the Usercentrics
+ * SDK does with its consent POST after the status arrives. Chromium then reports
+ * no loadingFinished total, so count the header and body bytes that arrived
+ * before the cancel. Without the header count the bytes stay unknown.
+ */
+function settleCancelled(row: NetworkRequest, headerBytes?: number) {
+  if (headerBytes === undefined) {
+    return;
+  }
+  row.cancelledAfterResponse = true;
+  row.transferBytes = headerBytes + (row.encodedDataBytes ?? 0);
+  row.encodedBodyBytes = row.encodedDataBytes ?? 0;
+  row.decodedBodyBytes ??= 0;
+}
+
 export async function collectNetwork(page: Page, pageUrl: string) {
   const session: CDPSession = await page.context().newCDPSession(page);
   const gaps = new Set<string>();
@@ -286,6 +305,9 @@ export async function collectNetwork(page: Page, pageUrl: string) {
   // Body reads go to the target that delivered the response.
   const bodySessions = new Map<string, ProtocolSession>();
   const contentLengths = new Map<string, number>();
+  // responseReceived encodedDataLength: the bytes received when headers arrived.
+  const headerBytes = new Map<string, number>();
+  const cancelled = new Set<string>();
   const completed = new Set<string>();
   const started = new Set<string>();
   const revalidated = new Set<string>();
@@ -403,6 +425,9 @@ export async function collectNetwork(page: Page, pageUrl: string) {
       if (length !== undefined) {
         contentLengths.set(row.id, length);
       }
+      if (event.response.encodedDataLength !== undefined) {
+        headerBytes.set(row.id, event.response.encodedDataLength);
+      }
       row.contentEncoding = header(event.response.headers, "content-encoding")
         ?.trim()
         .toLowerCase();
@@ -445,6 +470,9 @@ export async function collectNetwork(page: Page, pageUrl: string) {
         return;
       }
       row.failed = event.errorText;
+      if (event.canceled) {
+        cancelled.add(row.id);
+      }
       // CORS can reject a response after its headers arrived.
       row.responseStarted ||= event.corsErrorStatus !== undefined;
       row.finished = true;
@@ -476,6 +504,10 @@ export async function collectNetwork(page: Page, pageUrl: string) {
     row.responseStarted ||= started.has(row.id) || undefined;
     row.revalidated ||= revalidated.has(row.id) || undefined;
     settleWithoutResponse(row);
+    // A frozen row carries `failed` only if the cancel preceded the cutoff.
+    if (row.failed && !row.noResponse && cancelled.has(row.id)) {
+      settleCancelled(row, headerBytes.get(row.id));
+    }
     if (!row.finished || row.failed) {
       return false;
     }

@@ -352,6 +352,24 @@ describe("byte totals with incomplete exchanges", () => {
       ])
     ).toMatchObject({ status: "measured", value: 200 });
   });
+  it("counts an exchange the page cancelled after its response began", async () => {
+    expect(
+      await initialTransfer([
+        done,
+        {
+          ...base,
+          cancelledAfterResponse: true,
+          decodedBodyBytes: 0,
+          encodedBodyBytes: 0,
+          failed: "net::ERR_ABORTED",
+          finished: true,
+          id: "consent",
+          status: 201,
+          transferBytes: 74,
+        },
+      ])
+    ).toMatchObject({ status: "measured", value: 274 });
+  });
   it("withholds totals while a started response is incomplete", async () => {
     expect(
       await initialTransfer([

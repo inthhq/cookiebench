@@ -60,7 +60,7 @@ function combinedStatus(
   }
   return "passed";
 }
-const COLLECTOR_VERSION = "cookiebench-runner-3.2.3";
+const COLLECTOR_VERSION = "cookiebench-runner-3.2.4";
 
 /**
  * A server that compressed an asset on demand during a sample did cold work

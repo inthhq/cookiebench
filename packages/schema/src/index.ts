@@ -10,7 +10,7 @@ export {
 } from "./cpu-calibration.ts";
 
 export const SCHEMA_VERSION = 3;
-export const METHODOLOGY_VERSION = "cookiebench-v3.2.3";
+export const METHODOLOGY_VERSION = "cookiebench-v3.2.4";
 export const Text = Schema.String.check(Schema.isNonEmpty());
 export const Finite = Schema.Number.check(Schema.isFinite());
 export const NonNegative = Finite.check(Schema.isGreaterThanOrEqualTo(0));
