@@ -1,0 +1,654 @@
+{
+  "fixtures": [
+    {
+      "adapter": {
+        "accept": "[data-testid=\"consent-banner-accept-button\"]",
+        "banner": "[data-testid=\"consent-banner-root\"]",
+        "categoryToggle": "[data-testid=\"consent-widget-switch-measurement\"]",
+        "controlledRequestPath": "/controlled/script",
+        "overlay": "[data-testid=\"consent-dialog-overlay\"], [data-testid=\"consent-banner-overlay\"]",
+        "pageAction": "#page-action",
+        "preferences": "[data-testid=\"consent-banner-customize-button\"]",
+        "preferencesPanel": "[data-testid=\"consent-dialog-root\"]",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": "[data-testid=\"consent-banner-reject-button\"]",
+        "reopen": "#reopen-preferences",
+        "save": "[data-testid=\"consent-widget-footer-save-button\"]",
+        "serverEventsUrl": "http://127.0.0.1:4314/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": "[data-testid=\"consent-widget-footer-reject-button\"], [data-testid=\"consent-widget-reject-button\"]"
+      },
+      "baseline": true,
+      "configurationHash": "4d43106c555ba18296b28caefcdfb3c0aca4451e4416e4907285e5fa672a5006",
+      "deployment": {
+        "assets": "local",
+        "backend": "none"
+      },
+      "framework": "nuxt",
+      "frameworkVersion": "4.5.2",
+      "id": "nuxt-baseline",
+      "mode": "manifest",
+      "presentation": "default",
+      "product": "baseline",
+      "provenance": {
+        "artifactIntegrity": "sha512-tR3fcqeHlHmmkLMpIg3V7Y+1ltr302lW8djMw/iy+myfo7QSSz+BVJDuQhg5j73b9oteSyBfOKTDYTgvMtj6TA==",
+        "lockfileHash": "595600a4c096b000da709d37b1a5b7e2a37c4b06f30df6a95ed63a8ebb07ea59",
+        "sourceUrl": "https://registry.npmjs.org/nuxt/-/nuxt-4.5.2.tgz"
+      },
+      "revision": "3.3.1-article-v1-inth-build-manifest-matrix",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": ["build"],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-nuxt",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4314/health",
+        "start": {
+          "args": ["start"],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4314/baseline/",
+      "version": "4.5.2"
+    },
+    {
+      "adapter": {
+        "accept": "[data-testid=\"consent-banner-accept-button\"]",
+        "banner": "[data-testid=\"consent-banner-root\"]",
+        "categoryToggle": "[data-testid=\"consent-widget-switch-measurement\"]",
+        "controlledRequestPath": "/controlled/script",
+        "overlay": "[data-testid=\"consent-dialog-overlay\"], [data-testid=\"consent-banner-overlay\"]",
+        "pageAction": "#page-action",
+        "preferences": "[data-testid=\"consent-banner-customize-button\"]",
+        "preferencesPanel": "[data-testid=\"consent-dialog-root\"]",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": "[data-testid=\"consent-banner-reject-button\"]",
+        "reopen": "#reopen-preferences",
+        "save": "[data-testid=\"consent-widget-footer-save-button\"]",
+        "serverEventsUrl": "http://127.0.0.1:4314/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": "[data-testid=\"consent-widget-footer-reject-button\"], [data-testid=\"consent-widget-reject-button\"]"
+      },
+      "baseline": false,
+      "configurationHash": "881ccd5ca4bcf1ad5b24d388d097d35208713b54c857db886576956f98ed7f29",
+      "deployment": {
+        "assets": "local",
+        "backend": "remote-service"
+      },
+      "framework": "nuxt",
+      "frameworkVersion": "4.5.2",
+      "id": "nuxt-c15t",
+      "mode": "manifest",
+      "presentation": "default",
+      "product": "c15t",
+      "provenance": {
+        "artifactIntegrity": "sha512-WXzf/e8TsrWznRuSlorD2znyiw45EinzJBFbtfBBaEW1vmq4PoWGYTD3i1C3rVoGDGyeaz3oMYo9DtuBk29ZcQ==",
+        "lockfileHash": "595600a4c096b000da709d37b1a5b7e2a37c4b06f30df6a95ed63a8ebb07ea59",
+        "sourceUrl": "https://registry.npmjs.org/@c15t/vue/-/vue-3.0.0-alpha.8.tgz"
+      },
+      "revision": "3.3.1-article-v1-inth-build-manifest-matrix",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": ["build"],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-nuxt",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4314/health",
+        "start": {
+          "args": ["start"],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4314/",
+      "version": "3.0.0-alpha.8"
+    },
+    {
+      "adapter": {
+        "accept": "#ccc-recommended-settings",
+        "banner": ".ccc-module--slideout",
+        "controlledRequestPath": "/controlled/script",
+        "pageAction": "#page-action",
+        "preferencesPanel": ".ccc-module--slideout",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": "#ccc-reject-settings",
+        "reopen": "#reopen-preferences",
+        "serverEventsUrl": "http://127.0.0.1:4314/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": "#ccc-reject-settings"
+      },
+      "artifactPolicy": "mutable-network",
+      "baseline": false,
+      "configurationHash": "f5f0a336695c89d73e998c7b8ee1705959e340ccce29c8e9c589d5f1ea09e0c0",
+      "deployment": {
+        "assets": "mixed",
+        "backend": "remote-service"
+      },
+      "framework": "nuxt",
+      "frameworkVersion": "4.5.2",
+      "id": "nuxt-cookie-control",
+      "mode": "hosted",
+      "presentation": "default",
+      "product": "cookie-control",
+      "provenance": {
+        "artifactIntegrity": "sha256-b1b5932fd0694de0bd9444b66c520d3647fdb493d9c51fcc2e7dc581e95319c0",
+        "lockfileHash": "595600a4c096b000da709d37b1a5b7e2a37c4b06f30df6a95ed63a8ebb07ea59",
+        "sourceUrl": "https://cc.cdn.civiccomputing.com/9/cookieControl-9.10.1.min.js"
+      },
+      "revision": "3.4.0-matrix-article-v1-body-end",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": ["build"],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-nuxt",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4314/health",
+        "start": {
+          "args": ["start"],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4314/baseline/?cmp=cookie-control",
+      "version": "remote-capture-b1b5932fd069"
+    },
+    {
+      "adapter": {
+        "accept": "#didomi-notice-agree-button",
+        "banner": ".didomi-popup-notice",
+        "controlledRequestPath": "/controlled/script",
+        "pageAction": "#page-action",
+        "preferences": "#didomi-notice-learn-more-button",
+        "preferencesPanel": ".didomi-consent-popup-preferences",
+        "primaryContent": "#primary-content",
+        "readinessSource": "public-state",
+        "reject": "#didomi-notice-disagree-button",
+        "reopen": "#reopen-preferences",
+        "save": "#btn-toggle-save",
+        "savePreparation": [
+          "button[aria-describedby=\"didomi-popup-purposes-all\"]:has(span:text-is(\"Disagree\"))",
+          "button[aria-describedby=\"didomi-purpose-analytics\"]:has(span:text-is(\"Agree\"))"
+        ],
+        "serverEventsUrl": "http://127.0.0.1:4314/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": "#btn-toggle-save",
+        "withdrawPreparation": [
+          "button[aria-describedby=\"didomi-popup-purposes-all\"]:has(span:text-is(\"Disagree\"))"
+        ]
+      },
+      "artifactPolicy": "mutable-network",
+      "baseline": false,
+      "configurationHash": "fb8e6a023660deefed44a0f26dba53bd77bca52587ecdff03a0c567d522075e9",
+      "deployment": {
+        "assets": "mixed",
+        "backend": "remote-service"
+      },
+      "framework": "nuxt",
+      "frameworkVersion": "4.5.2",
+      "id": "nuxt-didomi",
+      "mode": "hosted",
+      "presentation": "default",
+      "product": "didomi",
+      "provenance": {
+        "artifactIntegrity": "sha256-cc92b467085d5f8ba06c3ef54c5a38c4f0c7fc30421a003dde26d1bb692972f4",
+        "lockfileHash": "595600a4c096b000da709d37b1a5b7e2a37c4b06f30df6a95ed63a8ebb07ea59",
+        "sourceUrl": "https://sdk.privacy-center.org/7dd8ec4e-746c-455e-a610-99121b4148df/loader.js?target=127.0.0.1"
+      },
+      "revision": "3.4.0-matrix-article-v1-head-start",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": ["build"],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-nuxt",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4314/health",
+        "start": {
+          "args": ["start"],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4314/baseline/?cmp=didomi",
+      "version": "remote-capture-cc92b467085d"
+    },
+    {
+      "adapter": {
+        "accept": "#ez-cookie-notification__accept",
+        "banner": "#ez-cookie-notification",
+        "controlledRequestPath": "/controlled/script",
+        "pageAction": "#page-action",
+        "preferences": "#notificationManagerLink",
+        "preferencesPanel": ".enzuzo-cookie-modal",
+        "primaryContent": "#primary-content",
+        "readinessSource": "public-state",
+        "reject": "#ez-cookie-notification__decline",
+        "reopen": "#reopen-preferences",
+        "save": "#ez-confirm-modal",
+        "savePreparation": ["label[for=\"ez-cookie-preferences--analytics\"]"],
+        "serverEventsUrl": "http://127.0.0.1:4314/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": "#ez-reject-modal"
+      },
+      "artifactPolicy": "mutable-network",
+      "baseline": false,
+      "configurationHash": "d5142058140e7fd3d0df3b65e6b93d8c51e36e944ded7cc65a5a94befd1f5667",
+      "deployment": {
+        "assets": "mixed",
+        "backend": "remote-service"
+      },
+      "framework": "nuxt",
+      "frameworkVersion": "4.5.2",
+      "id": "nuxt-enzuzo",
+      "mode": "hosted",
+      "presentation": "default",
+      "product": "enzuzo",
+      "provenance": {
+        "artifactIntegrity": "sha256-7b87a37178266792cc9793eac8d6c3a35854c39ac825f9ad77ada7d449bfb0ff",
+        "lockfileHash": "595600a4c096b000da709d37b1a5b7e2a37c4b06f30df6a95ed63a8ebb07ea59",
+        "sourceUrl": "https://app.enzuzo.com/scripts/cookiebar/ede431e2-968b-11eb-9cc0-2358d2c9e564"
+      },
+      "revision": "3.4.0-matrix-article-v1-head-start",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": ["build"],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-nuxt",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4314/health",
+        "start": {
+          "args": ["start"],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4314/baseline/?cmp=enzuzo",
+      "version": "remote-capture-7b87a3717826"
+    },
+    {
+      "adapter": {
+        "accept": ".iubenda-cs-accept-btn",
+        "banner": "#iubenda-cs-banner",
+        "categoryToggle": "#purpose-4",
+        "controlledRequestPath": "/controlled/script",
+        "pageAction": "#page-action",
+        "preferences": ".iubenda-cs-customize-btn",
+        "preferencesPanel": "#iubenda-iframe-popup",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": ".iubenda-cs-reject-btn",
+        "reopen": "#reopen-preferences",
+        "save": "#iubFooterBtn",
+        "serverEventsUrl": "http://127.0.0.1:4314/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": "#iubFooterBtn",
+        "withdrawPreparation": [".iub-btn-reject"]
+      },
+      "artifactPolicy": "mutable-network",
+      "baseline": false,
+      "configurationHash": "32784788463e6fb8adc37ca23e35daa57f05a35de1fe82d1c7723331592178ae",
+      "deployment": {
+        "assets": "mixed",
+        "backend": "remote-service"
+      },
+      "framework": "nuxt",
+      "frameworkVersion": "4.5.2",
+      "id": "nuxt-iubenda",
+      "mode": "hosted",
+      "presentation": "default",
+      "product": "iubenda",
+      "provenance": {
+        "artifactIntegrity": "sha256-cc2e4ae530879bf564ba3cc7002ab8f20736ef518371c1a3073585473fa055ee",
+        "lockfileHash": "595600a4c096b000da709d37b1a5b7e2a37c4b06f30df6a95ed63a8ebb07ea59",
+        "sourceUrl": "https://cdn.iubenda.com/cs/iubenda_cs.js"
+      },
+      "revision": "3.4.0-matrix-article-v1-head-end",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": ["build"],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-nuxt",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4314/health",
+        "start": {
+          "args": ["start"],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4314/baseline/?cmp=iubenda",
+      "version": "remote-capture-cc2e4ae53087"
+    },
+    {
+      "adapter": {
+        "accept": "button[aria-label=\"Save choices\"]",
+        "acceptPreparation": ["button[aria-label=\"Accept All\"]"],
+        "banner": "#ketch-purposes-modal",
+        "controlledRequestPath": "/controlled/script",
+        "pageAction": "#page-action",
+        "preferencesPanel": "#ketch-preference-panel, #ketch-purposes-modal",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": "button[aria-label=\"Save choices\"]",
+        "rejectPreparation": ["button[aria-label=\"Reject All\"]"],
+        "reopen": "#reopen-preferences",
+        "save": "button[aria-label=\"Save choices\"]",
+        "savePreparation": ["label[for=\"bizsiteanalytics\"]"],
+        "serverEventsUrl": "http://127.0.0.1:4314/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": "button[aria-label=\"Save\"]",
+        "withdrawPreparation": [
+          "#ketch-preferences-navigation-purposes-tab",
+          "button[aria-label=\"Reject All\"]"
+        ]
+      },
+      "artifactPolicy": "mutable-network",
+      "baseline": false,
+      "configurationHash": "83bd0a1bbb8920245dec28da14eedfcad769b8a807a7970ea06e2bf50bf52a50",
+      "deployment": {
+        "assets": "mixed",
+        "backend": "remote-service"
+      },
+      "framework": "nuxt",
+      "frameworkVersion": "4.5.2",
+      "id": "nuxt-ketch",
+      "mode": "hosted",
+      "presentation": "default",
+      "product": "ketch",
+      "provenance": {
+        "artifactIntegrity": "sha256-5cba221e280e14de6e556d340c3a2cb3320484afd6e7b1cb755acb66207e45c5",
+        "lockfileHash": "595600a4c096b000da709d37b1a5b7e2a37c4b06f30df6a95ed63a8ebb07ea59",
+        "sourceUrl": "https://global.ketchcdn.com/web/v3/config/switchbitcorp/switchbit/boot.js"
+      },
+      "revision": "3.4.0-matrix-article-v1-head-start",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": ["build"],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-nuxt",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4314/health",
+        "start": {
+          "args": ["start"],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4314/baseline/?cmp=ketch",
+      "version": "remote-capture-5cba221e280e"
+    },
+    {
+      "adapter": {
+        "accept": "#onetrust-accept-btn-handler",
+        "banner": "#onetrust-banner-sdk",
+        "controlledRequestPath": "/controlled/script",
+        "pageAction": "#page-action",
+        "preferences": "#onetrust-pc-btn-handler",
+        "preferencesPanel": "#onetrust-pc-sdk",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": "#onetrust-reject-all-handler",
+        "reopen": "#reopen-preferences",
+        "save": ".save-preference-btn-handler",
+        "savePreparation": ["#ot-header-id-2", "label[for=\"ot-group-id-2\"]"],
+        "serverEventsUrl": "http://127.0.0.1:4314/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": ".ot-pc-refuse-all-handler"
+      },
+      "artifactPolicy": "mutable-network",
+      "baseline": false,
+      "configurationHash": "c2a1b62839f76d68fb8cd375fe441ae4e1bb26f9640a25afa7ae4cc5dff93a00",
+      "deployment": {
+        "assets": "mixed",
+        "backend": "remote-service"
+      },
+      "framework": "nuxt",
+      "frameworkVersion": "4.5.2",
+      "id": "nuxt-onetrust",
+      "mode": "hosted",
+      "presentation": "default",
+      "product": "onetrust",
+      "provenance": {
+        "artifactIntegrity": "sha256-3258940d51f736d6d58b6b98af4617a0450545f16e307c3e72d308c7ff6b3d8e",
+        "lockfileHash": "595600a4c096b000da709d37b1a5b7e2a37c4b06f30df6a95ed63a8ebb07ea59",
+        "sourceUrl": "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
+      },
+      "revision": "3.4.0-matrix-article-v1-head-start",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": ["build"],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-nuxt",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4314/health",
+        "start": {
+          "args": ["start"],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4314/baseline/?cmp=onetrust",
+      "version": "202602.1.0-test"
+    },
+    {
+      "adapter": {
+        "accept": ".osano-cm-accept-all",
+        "banner": ".osano-cm-dialog",
+        "controlledRequestPath": "/controlled/script",
+        "pageAction": "#page-action",
+        "preferences": ".osano-cm-link--type_manage",
+        "preferencesPanel": ".osano-cm-info-dialog",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": ".osano-cm-denyAll",
+        "reopen": "#reopen-preferences",
+        "save": ".osano-cm-info-dialog .osano-cm-save",
+        "savePreparation": [
+          "label[for=\"osano-cm-drawer-toggle--category_ANALYTICS\"]"
+        ],
+        "serverEventsUrl": "http://127.0.0.1:4314/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": ".osano-cm-info-dialog .osano-cm-save",
+        "withdrawPreparation": [
+          "label[for=\"osano-cm-drawer-toggle--category_MARKETING\"]",
+          "label[for=\"osano-cm-drawer-toggle--category_PERSONALIZATION\"]",
+          "label[for=\"osano-cm-drawer-toggle--category_ANALYTICS\"]"
+        ]
+      },
+      "artifactPolicy": "mutable-network",
+      "baseline": false,
+      "configurationHash": "44637af8c891ba4f6b4ca2c9a276fb54f1d53f7bb16183271788247ce8f66676",
+      "deployment": {
+        "assets": "mixed",
+        "backend": "remote-service"
+      },
+      "framework": "nuxt",
+      "frameworkVersion": "4.5.2",
+      "id": "nuxt-osano",
+      "mode": "hosted",
+      "presentation": "default",
+      "product": "osano",
+      "provenance": {
+        "artifactIntegrity": "sha256-ee7e8d0309f66bef0de741b405b5023dd54c0d5aa12d11faf4dd3ffa8d4013a8",
+        "lockfileHash": "595600a4c096b000da709d37b1a5b7e2a37c4b06f30df6a95ed63a8ebb07ea59",
+        "sourceUrl": "https://cmp.osano.com/2sUBzx7wRdAfu6J2kkS/8e547744-886f-4a9b-a90f-7e96a47aa604/osano.js"
+      },
+      "revision": "3.4.0-matrix-article-v1-head-start",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": ["build"],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-nuxt",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4314/health",
+        "start": {
+          "args": ["start"],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4314/baseline/?cmp=osano",
+      "version": "remote-capture-ee7e8d0309f6"
+    },
+    {
+      "adapter": {
+        "accept": ".uc-accept-button",
+        "banner": "#uc-main-dialog.cmp",
+        "controlledRequestPath": "/controlled/script",
+        "pageAction": "#page-action",
+        "preferences": "#uc-more-link",
+        "preferencesPanel": "#uc-categories-list",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": ".uc-deny-button",
+        "reopen": "#reopen-preferences",
+        "save": ".uc-save-button",
+        "savePreparation": [
+          "#uc-category-customcategory-a3477a96-6545-4452-b3d7-93e442abd337-toggle"
+        ],
+        "serverEventsUrl": "http://127.0.0.1:4314/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": ".uc-deny-button"
+      },
+      "artifactPolicy": "mutable-network",
+      "baseline": false,
+      "configurationHash": "e8331a3c1c752feb199132d25b9675460d8869491efb37a03b9cade242f1b4bf",
+      "deployment": {
+        "assets": "mixed",
+        "backend": "remote-service"
+      },
+      "framework": "nuxt",
+      "frameworkVersion": "4.5.2",
+      "id": "nuxt-usercentrics",
+      "mode": "hosted",
+      "presentation": "default",
+      "product": "usercentrics",
+      "provenance": {
+        "artifactIntegrity": "sha256-5e623d7e48e52c797830315066b5cfae5f46e334c3833809c2ccb417744646f1",
+        "lockfileHash": "595600a4c096b000da709d37b1a5b7e2a37c4b06f30df6a95ed63a8ebb07ea59",
+        "sourceUrl": "https://web.cmp.usercentrics.eu/ui/loader.js"
+      },
+      "revision": "3.4.0-matrix-article-v1-head-start",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": ["build"],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-nuxt",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4314/health",
+        "start": {
+          "args": ["start"],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4314/baseline/?cmp=usercentrics",
+      "version": "remote-capture-5e623d7e48e5"
+    }
+  ],
+  "scenarios": [
+    {
+      "action": "load",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "load",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 5000,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "accept",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "accept",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "reject",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "reject",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "save",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "save",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": ["measurement", "marketing"],
+        "scriptCount": 2
+      }
+    }
+  ],
+  "profile": {
+    "cpuSlowdown": 1,
+    "deviceScaleFactor": 1,
+    "hasTouch": false,
+    "id": "desktop-article-v1-browser-ua",
+    "isMobile": false,
+    "locale": "en-GB",
+    "network": {
+      "downloadBytesPerSecond": 12500000,
+      "latencyMs": 0,
+      "uploadBytesPerSecond": 12500000
+    },
+    "region": "GB",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+    "viewport": {
+      "height": 768,
+      "width": 1365
+    }
+  },
+  "iterations": 15,
+  "warmups": 3,
+  "seed": 42
+}

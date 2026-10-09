@@ -1,0 +1,403 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:58f22974-258b-4d3a-8011-e3b12a5c947d",
+        "sample:47715aaf-c118-4546-9c84-5226f59f47fd",
+        "sample:f66931e0-0708-4511-aad0-2a4ede332b92",
+        "sample:fe375c79-1a7e-473c-b9aa-5faf65d82ee6",
+        "sample:1b4a61c8-16d5-4766-aff7-308cf1f378d3",
+        "sample:b4846700-5de8-4da3-97b1-0ba1143510a2",
+        "sample:5b3f52ab-b1d0-4bed-9d12-37659d17fbbc",
+        "sample:4834f42b-9e66-44f7-8162-b15b8b59cdb8",
+        "sample:64f9727a-3ed7-4897-b463-5cc1771f5fcd",
+        "sample:98fef5ef-5507-40d0-b6ae-d4ed6f4f9b7f",
+        "sample:aafa2389-44af-4a35-820d-dcb543fe6b41",
+        "sample:7bf5a85c-fe18-428a-b840-d018f20012ba",
+        "sample:1d6d06eb-bb9c-41ba-b1e7-cb1646629832",
+        "sample:95e75aaf-da99-4ad7-8855-3c598c28eb73",
+        "sample:f60dcb65-0e14-442c-b844-1f6eb38df6ae"
+      ],
+      "fixtureId": "nextjs-c15t",
+      "framework": "nextjs",
+      "id": "fb78d7f7-1193-447a-b19c-198b271f457b",
+      "mode": "manifest",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T03:51:45.286Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:d7007897-62b0-486e-a654-5834a7722cd2",
+        "sample:74e3b455-3e9d-4e16-8e3f-3038a0101bf8",
+        "sample:29139dee-7fda-4373-95fa-341902648113",
+        "sample:72322bb7-8425-4f82-8467-8163ca3b97bf",
+        "sample:ffac995c-3a70-4873-8cdc-3311f4515971",
+        "sample:f83db9a9-dd65-4b8c-931e-389ebfcc366f",
+        "sample:84ce7bb0-d488-4c93-a702-6e2e1a7da30d",
+        "sample:871f114f-615d-48e6-bca4-6c8a5577596e",
+        "sample:6b05b42d-4bf0-4b89-8327-ae2a611faf7f",
+        "sample:59164550-93b8-4db7-be86-f10efe6a9c2a",
+        "sample:c6bfda26-43d1-494b-8182-0daa8d43978a",
+        "sample:094c1342-c725-4fb5-9f58-bc28ffd6f631",
+        "sample:8fd54bf2-10b2-4e2e-a5c4-b10e96d82749",
+        "sample:bd040dd0-2496-4fa3-aa0f-7f2084640b0f",
+        "sample:1d913be0-0794-48a6-803d-78af89dddac6"
+      ],
+      "fixtureId": "nextjs-cookie-control",
+      "framework": "nextjs",
+      "id": "5c27dade-de86-44e8-a9a4-9b34177d6536",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T03:51:45.286Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:e9fd8a3f-68ba-47c0-a5bf-9d219b665308",
+        "sample:ab5e316e-0038-4713-961b-d2bc8085b336",
+        "sample:5d46ed80-f484-4d5b-8f22-83bbcac38402",
+        "sample:bc8c5dc9-fc88-43f4-bfe0-3aa50556fb75",
+        "sample:4182a108-52c8-49d5-84eb-095e86ce292a",
+        "sample:a5bdd5a2-3e6e-42e9-b9a8-f4b3013aa8c1",
+        "sample:478dcdf2-9cc1-4914-8771-fdc2da98810a",
+        "sample:e6445ff3-8042-4934-8b8a-a0a5c0e854a3",
+        "sample:26a0962d-6d29-4d09-821f-cd019ae379cb",
+        "sample:e710859e-993f-4187-afea-766a200f65fd",
+        "sample:d1235821-5c9e-4faf-a117-d13e9e2a7e51",
+        "sample:47db0ddf-e94a-4898-b1c7-20249325f9ca",
+        "sample:43dde315-791d-4a1c-96e4-775aeeefb4ef",
+        "sample:6fc48cfc-c14d-406a-bed9-69bfe69f0a1e",
+        "sample:89b9cc0b-cdaf-442a-b916-5b52071dad54"
+      ],
+      "fixtureId": "nextjs-didomi",
+      "framework": "nextjs",
+      "id": "b0c9c749-c4aa-4bf3-93da-bc66e28b8498",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T03:51:45.286Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:59f49a97-4bcf-4236-82f5-e32ae48aa6f3",
+        "sample:56db4692-71d9-46a5-bd06-9619130740e2",
+        "sample:0ea65ee1-627a-434c-bc9a-1a95111fa19d",
+        "sample:58992bac-be9e-4430-b05f-9a7fbe05712f",
+        "sample:7028a557-8063-499b-9114-2d0402bf54c9",
+        "sample:eb6c62ce-0ce4-47b5-a4de-4705a57e7f1b",
+        "sample:5ac9ecf7-cc37-4121-b8e2-844ddd9fb17c",
+        "sample:1ae03e31-6ef1-42a2-86c1-fd4e182f76ab",
+        "sample:bcc1236c-1ca3-4b7e-8379-d095d3190c7f",
+        "sample:78aab5a8-2065-4b0a-b057-544a4a9efd08",
+        "sample:e59cae9d-4c1d-4f42-a850-accd72413f9b",
+        "sample:358956df-200d-4150-86f2-245e8cd885a5",
+        "sample:36604fad-dbb7-435b-b29d-f1ac3ec5f75c",
+        "sample:ef73fc80-d7c2-4eb3-b0bb-af305edd60e7",
+        "sample:69f4af2d-8258-4d76-8eec-1f0e855f6c2f"
+      ],
+      "fixtureId": "nextjs-enzuzo",
+      "framework": "nextjs",
+      "id": "9145a72c-58d7-4649-a438-ac360f85d2fd",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T03:51:45.286Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:357aeebc-c7c9-439f-bda1-73471b95d50e",
+        "sample:269d18c5-8ed6-4495-a7d5-b439052bbc0e",
+        "sample:136477ba-d22f-48ea-8f89-d0e01ccb2d7f",
+        "sample:c1d83d6e-d002-4356-bd08-d27d572b2f08",
+        "sample:8216ff6b-68f0-46be-94a3-ccf8e79fb8a6",
+        "sample:32d5155c-c98c-48c4-8401-663c50a4dce3",
+        "sample:9939ad4b-4d02-4f19-b842-134383976d09",
+        "sample:7816021c-7201-449d-ae8b-859d7b15a26c",
+        "sample:6bee1567-ad8e-4eba-b854-7b15bcdd0be2",
+        "sample:08b4d394-1e14-4ff6-9a4b-3c281d44e99d",
+        "sample:61c09826-caf2-48dd-a433-85b1c4426150",
+        "sample:6b2a0b87-041e-4098-9e84-05a203662e7d",
+        "sample:a2a5b2c3-0cb6-4981-81a1-ecda2b075e63",
+        "sample:dfdb0c95-920f-48b4-a42d-0d05d84c78cb",
+        "sample:0360482d-3464-4cf2-a1ed-5f09bceb38a3"
+      ],
+      "fixtureId": "nextjs-iubenda",
+      "framework": "nextjs",
+      "id": "eb394c8a-f27f-4d49-8ee6-1e4599f2faf0",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T03:51:45.286Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:8f10305d-c462-46e3-ab12-7c6d972990c2",
+        "sample:d82a8141-94cd-4a9b-91a2-dd2de96ffbb3",
+        "sample:f6ea45c6-97cf-48eb-bbc8-f2a59c985c15",
+        "sample:a257f347-f162-4696-bc1a-6482c87dd486",
+        "sample:ebb6b2fc-ec07-4969-ba1a-4b0b6b50fafe",
+        "sample:b2d68d60-bc2e-48ed-91f7-9f491bbb1c63",
+        "sample:2cb2c50c-eae1-49cb-90b2-0eb3d7960563",
+        "sample:c88c658e-c109-434e-aef2-db1eb60f1da0",
+        "sample:2b30793d-5e3c-4a44-b844-a7ea50c183a9",
+        "sample:83597ada-f84c-482a-b2b6-e9db54337f94",
+        "sample:7911cf18-2056-45c3-a1d2-e30d487f9e75",
+        "sample:959d0787-33be-4265-9be0-988dab1d937a",
+        "sample:01df46cf-e81b-4014-b2b8-78f2c602c480",
+        "sample:12936aa8-4ed0-4f9b-bcc4-d1878f08a2b9",
+        "sample:8748360b-9575-474c-bf26-87f3096ec301"
+      ],
+      "fixtureId": "nextjs-ketch",
+      "framework": "nextjs",
+      "id": "40876cb2-f5cc-468f-b820-03696f3468ab",
+      "mode": "hosted",
+      "reason": "0/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "failed",
+      "verifiedAt": "2026-10-09T03:51:45.286Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:2366bfa1-3204-4475-bf9f-518859407c36",
+        "sample:90b5041b-c292-4818-b977-56b8f46fbf87",
+        "sample:34731923-8d8e-4da2-8cc0-dca3e96f28d0",
+        "sample:9f87780c-aa0e-45a7-a675-756f541b0f6d",
+        "sample:ba62760f-02a0-48a2-be6d-91b78fd7a149",
+        "sample:bac10741-71bb-4d16-b306-6b4411526d6a",
+        "sample:00e16c42-c5ef-4f19-8289-1de0cbdeff4d",
+        "sample:15442f62-cf5c-44bb-8b6c-467cde26fbe7",
+        "sample:41cf6e89-a994-4e20-99ef-6d16c15b3cdc",
+        "sample:02f0d09f-187c-4b7c-96f7-7cfe245ee5a3",
+        "sample:28072fcf-58e0-4a68-8017-1d4a93f14740",
+        "sample:fa9294ce-a521-47f9-abe8-5834ecef4c7d",
+        "sample:def52fd2-f6ca-4b2b-827c-c29604f1ed01",
+        "sample:67108d2f-b0a0-4582-9000-cf80de08e5e1",
+        "sample:c64f2124-3a3b-4adc-9d05-4ad2aface011"
+      ],
+      "fixtureId": "nextjs-onetrust",
+      "framework": "nextjs",
+      "id": "07d1a4cd-18ed-479d-923b-9d959439b29b",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T03:51:45.286Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:0241fe22-6c1b-4e84-9a1b-7cd2a1cb194e",
+        "sample:661d7f02-15f9-40e4-b47e-d093a4a91f0c",
+        "sample:ca6cc13c-2cbb-4b24-97cc-64d401af2158",
+        "sample:e6942fd8-3019-4fa9-9d39-a3311663de99",
+        "sample:f2b2e3eb-f5c0-4176-8db6-c60978f04a3c",
+        "sample:49a44e8a-f5eb-42e3-8f5a-fdf48791ce09",
+        "sample:c1e490f1-ff33-4c70-8283-4a40bed725a3",
+        "sample:2e697f7f-f2a2-4a3d-8026-9c91393cc976",
+        "sample:8cf45090-2019-4797-a384-df271bef4bad",
+        "sample:89ae16b4-cd93-4ad1-9f0f-afaba33a7fad",
+        "sample:f8284ba9-cb8e-4988-afde-530d09a08378",
+        "sample:f9bf234c-aa0d-4b73-a98c-a6f1bc9a854b",
+        "sample:f08a6521-ce9f-4990-8b54-151a868ef7f1",
+        "sample:092ecf4d-226d-43a4-b21f-f281ad6fd38a",
+        "sample:d1ffac93-ca03-4082-93e3-cb627a78ea33"
+      ],
+      "fixtureId": "nextjs-osano",
+      "framework": "nextjs",
+      "id": "fc602485-531c-451c-b7e2-c356d717df5e",
+      "mode": "hosted",
+      "reason": "0/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "unknown",
+      "verifiedAt": "2026-10-09T03:51:45.286Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:2a64694c-bf8f-4897-a8aa-3d117144d1b8",
+        "sample:7296d539-46dc-470d-8db8-d78f4a5ae6fd",
+        "sample:61305ee5-690b-4a44-bf58-94e8f7395f75",
+        "sample:e4fb2ed7-b379-45ac-8b4a-24f2e8eda302",
+        "sample:0c142128-ee89-43b8-9df7-dfcd25bafe42",
+        "sample:b3007f8e-91e0-4043-a62c-2b7c54e4e0bb",
+        "sample:26a4c53c-3eba-402b-b9a1-0d212fbd3f27",
+        "sample:fa0bbefc-4fbb-4bdc-a89b-75e061346a8b",
+        "sample:24338411-c8a8-4247-8adc-5ffe32d7f792",
+        "sample:9b1e1241-7158-4c77-98bb-4f6013cf20f4",
+        "sample:5c19e374-1037-41eb-bef6-fcf7f1888c1c",
+        "sample:fba5b448-1144-43ba-adb3-fa0d609b7ea9",
+        "sample:29a1cf2a-d78c-4f30-86ec-7136f720fc90",
+        "sample:45a7b80e-acd3-473f-9393-90d6eaac6171",
+        "sample:e5f1e694-a73e-473e-bfb5-9e018fd118b1"
+      ],
+      "fixtureId": "nextjs-usercentrics",
+      "framework": "nextjs",
+      "id": "4c4e1e6c-c95b-48d1-8318-9aabd9368533",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T03:51:45.286Z"
+    }
+  ],
+  "failures": [
+    {
+      "sampleId": "8f10305d-c462-46e3-ab12-7c6d972990c2",
+      "code": "banner-missing",
+      "message": "Expected banner was not observed visible within the fixed load observation window"
+    },
+    {
+      "sampleId": "0241fe22-6c1b-4e84-9a1b-7cd2a1cb194e",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "d82a8141-94cd-4a9b-91a2-dd2de96ffbb3",
+      "code": "banner-missing",
+      "message": "Expected banner was not observed visible within the fixed load observation window"
+    },
+    {
+      "sampleId": "661d7f02-15f9-40e4-b47e-d093a4a91f0c",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "f6ea45c6-97cf-48eb-bbc8-f2a59c985c15",
+      "code": "banner-missing",
+      "message": "Expected banner was not observed visible within the fixed load observation window"
+    },
+    {
+      "sampleId": "ca6cc13c-2cbb-4b24-97cc-64d401af2158",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "e6942fd8-3019-4fa9-9d39-a3311663de99",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "a257f347-f162-4696-bc1a-6482c87dd486",
+      "code": "banner-missing",
+      "message": "Expected banner was not observed visible within the fixed load observation window"
+    },
+    {
+      "sampleId": "ebb6b2fc-ec07-4969-ba1a-4b0b6b50fafe",
+      "code": "banner-missing",
+      "message": "Expected banner was not observed visible within the fixed load observation window"
+    },
+    {
+      "sampleId": "f2b2e3eb-f5c0-4176-8db6-c60978f04a3c",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "b2d68d60-bc2e-48ed-91f7-9f491bbb1c63",
+      "code": "banner-missing",
+      "message": "Expected banner was not observed visible within the fixed load observation window"
+    },
+    {
+      "sampleId": "49a44e8a-f5eb-42e3-8f5a-fdf48791ce09",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "c1e490f1-ff33-4c70-8283-4a40bed725a3",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "2cb2c50c-eae1-49cb-90b2-0eb3d7960563",
+      "code": "banner-missing",
+      "message": "Expected banner was not observed visible within the fixed load observation window"
+    },
+    {
+      "sampleId": "2e697f7f-f2a2-4a3d-8026-9c91393cc976",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "c88c658e-c109-434e-aef2-db1eb60f1da0",
+      "code": "banner-missing",
+      "message": "Expected banner was not observed visible within the fixed load observation window"
+    },
+    {
+      "sampleId": "2b30793d-5e3c-4a44-b844-a7ea50c183a9",
+      "code": "banner-missing",
+      "message": "Expected banner was not observed visible within the fixed load observation window"
+    },
+    {
+      "sampleId": "8cf45090-2019-4797-a384-df271bef4bad",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "83597ada-f84c-482a-b2b6-e9db54337f94",
+      "code": "banner-missing",
+      "message": "Expected banner was not observed visible within the fixed load observation window"
+    },
+    {
+      "sampleId": "89ae16b4-cd93-4ad1-9f0f-afaba33a7fad",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "7911cf18-2056-45c3-a1d2-e30d487f9e75",
+      "code": "banner-missing",
+      "message": "Expected banner was not observed visible within the fixed load observation window"
+    },
+    {
+      "sampleId": "f8284ba9-cb8e-4988-afde-530d09a08378",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "959d0787-33be-4265-9be0-988dab1d937a",
+      "code": "banner-missing",
+      "message": "Expected banner was not observed visible within the fixed load observation window"
+    },
+    {
+      "sampleId": "f9bf234c-aa0d-4b73-a98c-a6f1bc9a854b",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "f08a6521-ce9f-4990-8b54-151a868ef7f1",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "01df46cf-e81b-4014-b2b8-78f2c602c480",
+      "code": "banner-missing",
+      "message": "Expected banner was not observed visible within the fixed load observation window"
+    },
+    {
+      "sampleId": "12936aa8-4ed0-4f9b-bcc4-d1878f08a2b9",
+      "code": "banner-missing",
+      "message": "Expected banner was not observed visible within the fixed load observation window"
+    },
+    {
+      "sampleId": "092ecf4d-226d-43a4-b21f-f281ad6fd38a",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "d1ffac93-ca03-4082-93e3-cb627a78ea33",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "8748360b-9575-474c-bf26-87f3096ec301",
+      "code": "banner-missing",
+      "message": "Expected banner was not observed visible within the fixed load observation window"
+    }
+  ],
+  "output": "results/2026-10-09/mobile/nextjs-load/attempt-001/envelope.json",
+  "runId": "c0a6f4f0-a156-4249-b6c2-35938fa1a061",
+  "samples": 150,
+  "status": "incomplete"
+}

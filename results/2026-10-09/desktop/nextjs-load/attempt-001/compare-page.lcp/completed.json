@@ -1,0 +1,24 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "results/2026-10-09/desktop/nextjs-load/attempt-001/envelope.json",
+    "--candidate",
+    "results/2026-10-09/desktop/nextjs-load/attempt-001/envelope.json",
+    "--metric",
+    "page.lcp",
+    "--family",
+    "batch:04f17e2f988a748a9433dfb8273d079086d164b160acd42c7724bea51f74e4f9",
+    "--family-size",
+    "365"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-09T01:00:47.424Z",
+  "startedAt": "2026-10-09T01:00:46.781Z",
+  "exitCode": 1,
+  "signal": null,
+  "stderrSha256": "0ce7b665571138dad0c4aecff6eda8494cc4abfd6db6912028e572e3361e5d2f",
+  "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

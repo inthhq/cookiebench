@@ -1,0 +1,24 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "results/2026-10-09/desktop/nuxt-cookie-yes-load/attempt-001/envelope.json",
+    "--candidate",
+    "results/2026-10-09/desktop/nuxt-cookie-yes-load/attempt-001/envelope.json",
+    "--metric",
+    "page.lcp",
+    "--family",
+    "batch:04f17e2f988a748a9433dfb8273d079086d164b160acd42c7724bea51f74e4f9",
+    "--family-size",
+    "365"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-09T01:37:03.252Z",
+  "startedAt": "2026-10-09T01:37:02.817Z",
+  "exitCode": 1,
+  "signal": null,
+  "stderrSha256": "2a88b62ad783c7c6386564d114acfed89e33de4b0b268eab345ed66817b30d97",
+  "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

@@ -1,0 +1,24 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "results/2026-10-09/desktop/nuxt-load/attempt-001/envelope.json",
+    "--candidate",
+    "results/2026-10-09/desktop/nuxt-load/attempt-001/envelope.json",
+    "--metric",
+    "page.lcp",
+    "--family",
+    "batch:04f17e2f988a748a9433dfb8273d079086d164b160acd42c7724bea51f74e4f9",
+    "--family-size",
+    "365"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-09T01:28:05.075Z",
+  "startedAt": "2026-10-09T01:28:04.476Z",
+  "exitCode": 1,
+  "signal": null,
+  "stderrSha256": "f48a5a06df748f7129a9f31119998fd54b96de2b0cc7a26b012db4c95350a1a5",
+  "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

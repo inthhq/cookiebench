@@ -1,0 +1,667 @@
+{
+  "status": "incomplete",
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "comparisons": [
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 496968,
+        "mean": 496968.0000000001,
+        "measured": 15,
+        "median": 496968,
+        "min": 496968,
+        "missing": 0,
+        "p75": 496968,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 0,
+        "censoring": null,
+        "eligibilityReasons": [
+          "Metric initial.encoded-body is unavailable."
+        ],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": null,
+        "mean": null,
+        "measured": 0,
+        "median": null,
+        "min": null,
+        "missing": 15,
+        "p75": null,
+        "passed": 15
+      },
+      "candidateFixtureId": "script-tag-c15t-inth-init",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "local",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Required metric measurements are missing.",
+        "Eligible metric observations do not have complete one-to-one pairing within the same run.",
+        "Fewer than 15 eligible paired metric observations."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 0,
+        "medianDifference": null,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": null
+        },
+        "pairDifferenceP75": null
+      },
+      "scenarioId": "load",
+      "unit": "bytes"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 496968,
+        "mean": 496968.0000000001,
+        "measured": 15,
+        "median": 496968,
+        "min": 496968,
+        "missing": 0,
+        "p75": 496968,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 0,
+        "censoring": null,
+        "eligibilityReasons": [
+          "Metric initial.encoded-body is unavailable."
+        ],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": null,
+        "mean": null,
+        "measured": 0,
+        "median": null,
+        "min": null,
+        "missing": 15,
+        "p75": null,
+        "passed": 15
+      },
+      "candidateFixtureId": "script-tag-cookie-control",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Required metric measurements are missing.",
+        "Eligible metric observations do not have complete one-to-one pairing within the same run.",
+        "Fewer than 15 eligible paired metric observations."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 0,
+        "medianDifference": null,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": null
+        },
+        "pairDifferenceP75": null
+      },
+      "scenarioId": "load",
+      "unit": "bytes"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 496968,
+        "mean": 496968.0000000001,
+        "measured": 15,
+        "median": 496968,
+        "min": 496968,
+        "missing": 0,
+        "p75": 496968,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 0,
+        "censoring": null,
+        "eligibilityReasons": [
+          "Metric initial.encoded-body is unavailable."
+        ],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": null,
+        "mean": null,
+        "measured": 0,
+        "median": null,
+        "min": null,
+        "missing": 15,
+        "p75": null,
+        "passed": 15
+      },
+      "candidateFixtureId": "script-tag-didomi",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Required metric measurements are missing.",
+        "Eligible metric observations do not have complete one-to-one pairing within the same run.",
+        "Fewer than 15 eligible paired metric observations."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 0,
+        "medianDifference": null,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": null
+        },
+        "pairDifferenceP75": null
+      },
+      "scenarioId": "load",
+      "unit": "bytes"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 496968,
+        "mean": 496968.0000000001,
+        "measured": 15,
+        "median": 496968,
+        "min": 496968,
+        "missing": 0,
+        "p75": 496968,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 0,
+        "censoring": null,
+        "eligibilityReasons": [
+          "Metric initial.encoded-body is unavailable."
+        ],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": null,
+        "mean": null,
+        "measured": 0,
+        "median": null,
+        "min": null,
+        "missing": 15,
+        "p75": null,
+        "passed": 15
+      },
+      "candidateFixtureId": "script-tag-enzuzo",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Observed remote script/style/config URL or decoded-body digest changed within this comparison cell; artifact identity remains provisional.",
+        "Required metric measurements are missing.",
+        "Eligible metric observations do not have complete one-to-one pairing within the same run.",
+        "Fewer than 15 eligible paired metric observations."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 0,
+        "medianDifference": null,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": null
+        },
+        "pairDifferenceP75": null
+      },
+      "scenarioId": "load",
+      "unit": "bytes"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 496968,
+        "mean": 496968.0000000001,
+        "measured": 15,
+        "median": 496968,
+        "min": 496968,
+        "missing": 0,
+        "p75": 496968,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 1,
+        "censoring": null,
+        "eligibilityReasons": [
+          "Sample failure banner-missing: Expected banner was not observed visible within the fixed load observation window",
+          "Failed attempts cannot contribute metric values.",
+          "Metric initial.encoded-body is unavailable."
+        ],
+        "excluded": 1,
+        "failed": 1,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": null,
+        "mean": null,
+        "measured": 0,
+        "median": null,
+        "min": null,
+        "missing": 14,
+        "p75": null,
+        "passed": 14
+      },
+      "candidateFixtureId": "script-tag-iubenda",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Measured remote script/style/config response identity is missing or incomplete in one or more attempts.",
+        "One or more recorded metric values are ineligible.",
+        "Required metric measurements are missing.",
+        "Eligible metric observations do not have complete one-to-one pairing within the same run.",
+        "Fewer than 15 eligible paired metric observations."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 0,
+        "medianDifference": null,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": null
+        },
+        "pairDifferenceP75": null
+      },
+      "scenarioId": "load",
+      "unit": "bytes"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 496968,
+        "mean": 496968.0000000001,
+        "measured": 15,
+        "median": 496968,
+        "min": 496968,
+        "missing": 0,
+        "p75": 496968,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 5,
+        "censoring": null,
+        "eligibilityReasons": [
+          "Metric initial.encoded-body is unavailable.",
+          "Sample failure banner-missing: Expected banner was not observed visible within the fixed load observation window",
+          "Failed attempts cannot contribute metric values."
+        ],
+        "excluded": 5,
+        "failed": 15,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": null,
+        "mean": null,
+        "measured": 0,
+        "median": null,
+        "min": null,
+        "missing": 10,
+        "p75": null,
+        "passed": 0
+      },
+      "candidateFixtureId": "script-tag-ketch",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Observed remote script/style/config URL or decoded-body digest changed within this comparison cell; artifact identity remains provisional.",
+        "One or more recorded metric values are ineligible.",
+        "Required metric measurements are missing.",
+        "Eligible metric observations do not have complete one-to-one pairing within the same run.",
+        "Fewer than 15 eligible paired metric observations."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 0,
+        "medianDifference": null,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": null
+        },
+        "pairDifferenceP75": null
+      },
+      "scenarioId": "load",
+      "unit": "bytes"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 496968,
+        "mean": 496968.0000000001,
+        "measured": 15,
+        "median": 496968,
+        "min": 496968,
+        "missing": 0,
+        "p75": 496968,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 0,
+        "censoring": null,
+        "eligibilityReasons": [
+          "Metric initial.encoded-body is unavailable."
+        ],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": null,
+        "mean": null,
+        "measured": 0,
+        "median": null,
+        "min": null,
+        "missing": 15,
+        "p75": null,
+        "passed": 15
+      },
+      "candidateFixtureId": "script-tag-onetrust",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Required metric measurements are missing.",
+        "Eligible metric observations do not have complete one-to-one pairing within the same run.",
+        "Fewer than 15 eligible paired metric observations."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 0,
+        "medianDifference": null,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": null
+        },
+        "pairDifferenceP75": null
+      },
+      "scenarioId": "load",
+      "unit": "bytes"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 496968,
+        "mean": 496968.0000000001,
+        "measured": 15,
+        "median": 496968,
+        "min": 496968,
+        "missing": 0,
+        "p75": 496968,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 0,
+        "censoring": null,
+        "eligibilityReasons": [
+          "Metric initial.encoded-body is unavailable."
+        ],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 15,
+        "max": null,
+        "mean": null,
+        "measured": 0,
+        "median": null,
+        "min": null,
+        "missing": 15,
+        "p75": null,
+        "passed": 0
+      },
+      "candidateFixtureId": "script-tag-osano",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Remote artifact identity covers captured page-target response bodies only; network coverage is missing or incomplete, so unseen frame or worker assets cannot be qualified.",
+        "Required metric measurements are missing.",
+        "Eligible metric observations do not have complete one-to-one pairing within the same run.",
+        "Fewer than 15 eligible paired metric observations."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 0,
+        "medianDifference": null,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": null
+        },
+        "pairDifferenceP75": null
+      },
+      "scenarioId": "load",
+      "unit": "bytes"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 496968,
+        "mean": 496968.0000000001,
+        "measured": 15,
+        "median": 496968,
+        "min": 496968,
+        "missing": 0,
+        "p75": 496968,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 0,
+        "censoring": null,
+        "eligibilityReasons": [
+          "Metric initial.encoded-body is unavailable."
+        ],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": null,
+        "mean": null,
+        "measured": 0,
+        "median": null,
+        "min": null,
+        "missing": 15,
+        "p75": null,
+        "passed": 15
+      },
+      "candidateFixtureId": "script-tag-usercentrics",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Required metric measurements are missing.",
+        "Eligible metric observations do not have complete one-to-one pairing within the same run.",
+        "Fewer than 15 eligible paired metric observations."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 0,
+        "medianDifference": null,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": null
+        },
+        "pairDifferenceP75": null
+      },
+      "scenarioId": "load",
+      "unit": "bytes"
+    }
+  ],
+  "metricKey": "initial.encoded-body",
+  "multiplicity": {
+    "comparisons": 365,
+    "family": "batch:051dc4fa3a96b2707885a506fe483c709e237bbea86547435b71f3fe8960bc49",
+    "familyLevel": 0.95,
+    "intervalLevel": 0.9999315068493151,
+    "intervals": 730,
+    "method": "bonferroni"
+  },
+  "sourceRunIds": [
+    "f4612c3c-681d-40c6-b71f-de9b85d861cd"
+  ]
+}

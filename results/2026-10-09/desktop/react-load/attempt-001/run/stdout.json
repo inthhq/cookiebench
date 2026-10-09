@@ -1,0 +1,328 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:8126ae48-de30-44a2-aa6e-2ba62514b577",
+        "sample:8c8f2402-4fc0-4437-9974-5ad1363722c3",
+        "sample:e83d14b8-8efa-4c91-a5bd-64bd4ffe4cc4",
+        "sample:aa3b2468-58be-4aca-bfb6-93ad4b7745bd",
+        "sample:bfb98c25-ae23-49bd-b89e-465c769e7a55",
+        "sample:50303d76-f275-4bc3-9df7-e2e4cf6ca720",
+        "sample:de71168e-9c91-453d-bd27-0d429b1fa646",
+        "sample:bb98db2b-e4b0-4695-b834-0311823ffde0",
+        "sample:e51c4c99-9010-4180-80f6-1f78776dfb30",
+        "sample:b6725ff4-3073-49b2-9686-ded602b0fb5b",
+        "sample:4a1c8c81-b226-4f50-bae3-8c4a1ea1fb83",
+        "sample:8f0311fe-93e0-4de0-9853-63b5b198f987",
+        "sample:28e75885-3b83-4adb-b265-27415ccf59cb",
+        "sample:ecdefa83-ed2d-4a41-9012-39437ac0826d",
+        "sample:de58654a-8446-40dc-a5b7-3606c8d07a74"
+      ],
+      "fixtureId": "react-c15t",
+      "framework": "react",
+      "id": "f1babc77-c330-49ae-936b-4ecdf66f2a27",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T00:32:22.847Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:da067872-b184-4d90-936f-74c69a67e295",
+        "sample:84d6b96b-4e14-4670-b91a-538b58cb5a70",
+        "sample:53c92311-ea1e-4bc9-8012-dc5830cd0d1f",
+        "sample:d292a381-f638-44d8-adc0-50719077104a",
+        "sample:5660d522-f77c-44bd-be89-d0a8376dd450",
+        "sample:b52d0af1-1cda-402d-9b1b-391f54e87077",
+        "sample:ce8ca43b-20fa-4544-89c7-af07a26c5263",
+        "sample:60cd3551-1b00-4461-9704-a1e38454e400",
+        "sample:0aaca6b6-9fca-4e6c-96e0-f2ec7a9752de",
+        "sample:102e3b9d-0cc0-475d-a48e-cd0b064e1cca",
+        "sample:fe4b74ce-6386-4506-99c6-e5611cb883db",
+        "sample:c8b322b3-f813-45b0-958a-1f634934177d",
+        "sample:57e888e9-955f-4b01-b5e0-e5ac1d6f893f",
+        "sample:55e4f458-d102-4ee4-8e51-848143ad9577",
+        "sample:b4f071ff-0f55-4f71-9b96-68d0bacca6f1"
+      ],
+      "fixtureId": "react-cookie-control",
+      "framework": "react",
+      "id": "6636a794-6d26-4236-aefa-a7c2206ed513",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T00:32:22.847Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:03833c0b-25e8-4f0a-92a9-1eb31b1624a6",
+        "sample:071b8dd7-6a0c-489e-8cc6-b1ebd25ec317",
+        "sample:a198bd13-9583-475b-b42c-ed13fb6bad69",
+        "sample:bf09ea4b-5337-4677-84fd-41937e332a1f",
+        "sample:c7cff4c7-389c-4f3b-8fc9-40d35d3f9c8b",
+        "sample:416dd14a-6536-42a8-b6a2-04648db16a2d",
+        "sample:8a0dd8d6-85ef-49a3-acd3-1b1c84062e80",
+        "sample:1d6d3d56-2ea2-4cd7-b691-efb36a9a8d30",
+        "sample:2fffef52-9108-406b-806e-65cbc7a79b91",
+        "sample:9e6ed00a-1665-4ead-a685-1c18da1d6476",
+        "sample:21d2a257-4d0d-47d7-b9d9-0821b1e9eecb",
+        "sample:80ae1e53-4316-4407-bc9f-1ea6b9d9eecd",
+        "sample:fa8a4376-c337-41d5-909e-47b6ef929efa",
+        "sample:724db046-958f-4981-95e9-a5703c798254",
+        "sample:d9b8e3f7-2ac6-4484-a426-d4533609cfab"
+      ],
+      "fixtureId": "react-didomi",
+      "framework": "react",
+      "id": "3066a311-cfa6-43f2-90ee-74412088dbf0",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T00:32:22.847Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:fa5cacb5-6d77-47ab-af4f-6c9a0ac1a3e4",
+        "sample:0dd8fc94-4eb2-408a-939a-f127bfa53cef",
+        "sample:2791f75a-fa5a-4536-931d-853dbcca934f",
+        "sample:244ec807-3516-42c8-9d98-d0aad3a77ddf",
+        "sample:3bc42eaf-74ee-484e-bc70-b4680793b6ee",
+        "sample:abf1241b-1972-47b4-85a8-d2106a2c85d6",
+        "sample:48eb40fa-09d9-40a7-9d5b-14d4d401d54e",
+        "sample:f99edbaa-77d9-4bee-a410-ad1e0b9103d5",
+        "sample:25883eca-d345-4eaa-b87d-b62759dcf8fd",
+        "sample:4659efbe-8c8e-4b06-bb60-b3cc78518e07",
+        "sample:45f1fc47-90ba-46d2-9a97-97896ff85bba",
+        "sample:49ab5513-f375-4716-adb9-2b509ee32d34",
+        "sample:024700a4-6dc5-4b17-9970-11adfe357ded",
+        "sample:dfe544cf-c803-43f9-be69-0f1617b028d3",
+        "sample:192c8cb3-6e04-4183-8a3c-c2f4234957b7"
+      ],
+      "fixtureId": "react-enzuzo",
+      "framework": "react",
+      "id": "e955deea-5242-4bbc-9689-de643ff8f978",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T00:32:22.847Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:8b443520-8cdf-41e1-9395-c7a97e2988aa",
+        "sample:11b1931c-41be-49d4-9341-d426324d3802",
+        "sample:24b75bfa-0569-4685-a71c-64e89b9b3ef2",
+        "sample:4ceb6b01-c905-4a57-a109-d3d79427b2a4",
+        "sample:9d4b81d3-f9fd-466b-a2c0-a24ca412576c",
+        "sample:73bb9764-0240-4b3b-ad17-747ce1c867ad",
+        "sample:0afd3ac2-d897-47bb-bac9-1a33a5cef5c5",
+        "sample:4220f59c-d138-40d6-9355-d27e9168921e",
+        "sample:d6f137ea-c057-4f32-b732-ba2706e5921a",
+        "sample:7d5cd29a-83e9-4230-b94b-d7bf8c1ecd0a",
+        "sample:ea6a9cdd-3578-4031-948e-8bcbcae7e401",
+        "sample:f490a56a-7928-4370-b8d2-5412fefc9486",
+        "sample:1aff60fc-2bbd-4c05-a3ce-9dc466cd3348",
+        "sample:e4dad05f-21a1-41d2-a054-6ed0684b6aaf",
+        "sample:f93ad2fc-490e-49a9-bffc-60ba337a7b3f"
+      ],
+      "fixtureId": "react-iubenda",
+      "framework": "react",
+      "id": "e5cdc050-f1bd-415d-837f-42c75e0f2219",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T00:32:22.847Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:89087dc1-9116-46e4-a0f0-cd4acab16787",
+        "sample:4d23f394-75c9-48c7-9aaa-e4e8f790482f",
+        "sample:2aea0451-a3ab-4ae2-a4c5-007c82a60826",
+        "sample:c10772f2-4a53-4ec1-961b-7b6c98562d17",
+        "sample:069a8a39-987e-4dae-85c7-692c8f0c34a4",
+        "sample:7aa3109a-1a25-4300-ac9d-4fc5f538c048",
+        "sample:a749943c-c70d-4f9f-9168-63686262fb36",
+        "sample:5456fa30-64bc-49ac-aaec-ed0d81c27c72",
+        "sample:86e2a2c4-b4c3-40ae-aa98-ad9048e62159",
+        "sample:5f455280-cdf5-48a3-80eb-0e6dc8271673",
+        "sample:48988e37-cc1d-4b58-bf6c-97e5d8a623ba",
+        "sample:2387c699-6128-4e00-b96f-0c072f213e97",
+        "sample:219009d2-c63e-4d75-8d70-2f8a689c2fda",
+        "sample:cbf28881-1b3e-41f4-b092-716a2617431e",
+        "sample:21758411-461f-4cc4-b7ce-ccd5498845e5"
+      ],
+      "fixtureId": "react-ketch",
+      "framework": "react",
+      "id": "be2622f0-f197-494e-8a57-0458aa050ab3",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T00:32:22.847Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:e810d00c-5105-4d59-a266-4a407dcbf666",
+        "sample:4ff246c1-7fc3-4dd5-94dc-a24d537b5e35",
+        "sample:12b9de04-30cf-4cfc-af1a-bd60a575ad1e",
+        "sample:f45b32d9-e236-47a4-ba97-086820fae4c9",
+        "sample:5eba5664-fd52-4a37-bdae-c0a4ba242138",
+        "sample:e81b3564-e445-4af3-aeae-fda3bf92d522",
+        "sample:98e46445-07d9-408b-a3a0-c2374ef89023",
+        "sample:558c8a94-a99b-4827-a61a-0c9ef088e2d7",
+        "sample:9f8dbff0-0f4f-4abb-acec-755c18583676",
+        "sample:38f7e967-26ab-4025-8ffc-ea42777a17bd",
+        "sample:ec84bb86-8739-4bcd-a945-6886a2eee5e6",
+        "sample:ed1a1863-ee93-4386-9cc5-ccc95dbde947",
+        "sample:c8b1964c-8c0e-456d-98c6-21cac83e3ae7",
+        "sample:4ba54ba8-9682-4b1d-822d-647aa45ff0ff",
+        "sample:4f02dfc3-f778-4bfe-84f8-757290fd7ecf"
+      ],
+      "fixtureId": "react-onetrust",
+      "framework": "react",
+      "id": "78fa6a1c-f865-4cbd-a2d2-9f35bd9d8af0",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T00:32:22.847Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:1cf71625-0098-4faa-a98e-d8be40ef243f",
+        "sample:10213e9b-4a7c-41ea-857d-f94c40f0f13e",
+        "sample:1105e81e-bfef-45e2-bd42-0b581a7dab75",
+        "sample:b78ca518-b340-478b-91ea-bffda9a0df42",
+        "sample:487c2ec7-9832-462f-ad03-71f526e7a8b6",
+        "sample:38a7f7d9-a0be-4ae9-b485-0a27cf6dcb16",
+        "sample:21326a21-0dbc-45a5-9793-af7a3857740b",
+        "sample:b0f09329-5be5-40ab-aec2-d7ac5d494298",
+        "sample:d297b056-e3ba-4e43-8324-32f3f0d6e94d",
+        "sample:2e62bd73-d8ae-4423-abd1-4ea6414701c9",
+        "sample:1046a95c-c933-4957-99f7-06d059d22844",
+        "sample:ec0437b5-02ed-4ccd-8876-90d833f0345e",
+        "sample:2bbad67b-47b7-4171-ac32-037308872575",
+        "sample:9ce588dc-bd65-46de-b7f6-2028249df434",
+        "sample:2c75bd77-09b3-4a31-ae7b-1db0eed38924"
+      ],
+      "fixtureId": "react-osano",
+      "framework": "react",
+      "id": "11394f58-4e26-4c68-9fbf-edd1ec2ebd1c",
+      "mode": "hosted",
+      "reason": "0/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "unknown",
+      "verifiedAt": "2026-10-09T00:32:22.847Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:38259b53-aa5f-423b-b018-b84c43644703",
+        "sample:dc034a9f-9c32-44be-9e3c-514ce0cf9a70",
+        "sample:8830133b-1cde-4bd1-9996-2d7a57bc27af",
+        "sample:df4e474e-ed74-4ce4-bde2-d8a6f6d20fd3",
+        "sample:6698f445-d5fc-4cba-9e66-9437d9bc7f30",
+        "sample:9dbbcb81-09a7-4e16-8559-37a0d4af8d24",
+        "sample:81c25e2e-e289-4ab9-a10f-dcc3bbd7dcfe",
+        "sample:517ee23b-3a12-4b08-a7d2-789783c592ad",
+        "sample:f9dfd15a-2872-4f85-825f-4ce42b27a6ac",
+        "sample:b83698bb-b4d2-467b-a363-60b723ac7423",
+        "sample:4e472248-7426-4b5b-b468-fe74d6d5c5fb",
+        "sample:80897ac5-47a1-4db2-aed5-cc4f4b571ef4",
+        "sample:d1b6294d-75f8-4aee-85b7-f62a36d4b82b",
+        "sample:b3f061ce-a532-43b8-81cc-917030792c9b",
+        "sample:46b713e0-52c6-4d6f-a6d7-1cf5f12bfb2e"
+      ],
+      "fixtureId": "react-usercentrics",
+      "framework": "react",
+      "id": "ac23bebf-e84c-4e46-8751-3e4ceed40939",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T00:32:22.847Z"
+    }
+  ],
+  "failures": [
+    {
+      "sampleId": "1cf71625-0098-4faa-a98e-d8be40ef243f",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "10213e9b-4a7c-41ea-857d-f94c40f0f13e",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "1105e81e-bfef-45e2-bd42-0b581a7dab75",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "b78ca518-b340-478b-91ea-bffda9a0df42",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "487c2ec7-9832-462f-ad03-71f526e7a8b6",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "38a7f7d9-a0be-4ae9-b485-0a27cf6dcb16",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "21326a21-0dbc-45a5-9793-af7a3857740b",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "b0f09329-5be5-40ab-aec2-d7ac5d494298",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "d297b056-e3ba-4e43-8324-32f3f0d6e94d",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "2e62bd73-d8ae-4423-abd1-4ea6414701c9",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "1046a95c-c933-4957-99f7-06d059d22844",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "ec0437b5-02ed-4ccd-8876-90d833f0345e",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "2bbad67b-47b7-4171-ac32-037308872575",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "9ce588dc-bd65-46de-b7f6-2028249df434",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "2c75bd77-09b3-4a31-ae7b-1db0eed38924",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    }
+  ],
+  "output": "results/2026-10-09/desktop/react-load/attempt-001/envelope.json",
+  "runId": "b408f0f9-4621-4aa6-ae6a-5802fccc08c5",
+  "samples": 150,
+  "status": "incomplete"
+}

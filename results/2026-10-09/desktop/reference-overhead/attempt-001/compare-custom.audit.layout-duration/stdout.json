@@ -1,0 +1,93 @@
+{
+  "status": "passed",
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "comparisons": [
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 5.9670000000000005,
+        "mean": 2.9694666666666665,
+        "measured": 15,
+        "median": 2.604,
+        "min": 2.099,
+        "missing": 0,
+        "p75": 3.035,
+        "passed": 15
+      },
+      "baselineFixtureId": "reference-baseline-minimal",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 5.3629999999999995,
+        "mean": 2.7272,
+        "measured": 15,
+        "median": 2.386,
+        "min": 2.1670000000000003,
+        "missing": 0,
+        "p75": 2.92,
+        "passed": 15
+      },
+      "candidateFixtureId": "reference-baseline-full",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "local",
+          "backend": "none"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 0.6299999999999999,
+          "level": 0.9999315068493151,
+          "low": -2.511,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 0.01599999999999957,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 2.4309999999999996,
+            "level": 0.9999315068493151,
+            "low": -3.6330000000000005,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": -0.11500000000000021
+        },
+        "pairDifferenceP75": 0.44399999999999995
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    }
+  ],
+  "metricKey": "custom.audit.layout-duration",
+  "multiplicity": {
+    "comparisons": 365,
+    "family": "batch:04f17e2f988a748a9433dfb8273d079086d164b160acd42c7724bea51f74e4f9",
+    "familyLevel": 0.95,
+    "intervalLevel": 0.9999315068493151,
+    "intervals": 730,
+    "method": "bonferroni"
+  },
+  "sourceRunIds": ["27c839fc-2d71-4b9f-bba0-57e8cd45f9a9"]
+}

@@ -1,0 +1,689 @@
+{
+  "status": "incomplete",
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "comparisons": [
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3460,
+        "mean": 3448,
+        "measured": 15,
+        "median": 3448,
+        "min": 3440,
+        "missing": 0,
+        "p75": 3452,
+        "passed": 15
+      },
+      "baselineFixtureId": "nextjs-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3896,
+        "mean": 3882.6666666666665,
+        "measured": 15,
+        "median": 3880,
+        "min": 3872,
+        "missing": 0,
+        "p75": 3888,
+        "passed": 15
+      },
+      "candidateFixtureId": "nextjs-c15t",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "local",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 448,
+          "level": 0.9999315068493151,
+          "low": 420,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 432,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 452,
+            "level": 0.9999315068493151,
+            "low": 420,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 436
+        },
+        "pairDifferenceP75": 444
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3460,
+        "mean": 3448,
+        "measured": 15,
+        "median": 3448,
+        "min": 3440,
+        "missing": 0,
+        "p75": 3452,
+        "passed": 15
+      },
+      "baselineFixtureId": "nextjs-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3960,
+        "mean": 3945.6,
+        "measured": 15,
+        "median": 3944,
+        "min": 3932,
+        "missing": 0,
+        "p75": 3950,
+        "passed": 15
+      },
+      "candidateFixtureId": "nextjs-cookie-control",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 512,
+          "level": 0.9999315068493151,
+          "low": 492,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 496,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 516,
+            "level": 0.9999315068493151,
+            "low": 484,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 498
+        },
+        "pairDifferenceP75": 502
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3460,
+        "mean": 3448,
+        "measured": 15,
+        "median": 3448,
+        "min": 3440,
+        "missing": 0,
+        "p75": 3452,
+        "passed": 15
+      },
+      "baselineFixtureId": "nextjs-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 4744,
+        "mean": 4730.133333333332,
+        "measured": 15,
+        "median": 4728,
+        "min": 4720,
+        "missing": 0,
+        "p75": 4732,
+        "passed": 15
+      },
+      "candidateFixtureId": "nextjs-didomi",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 1292,
+          "level": 0.9999315068493151,
+          "low": 1268,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 1288,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 1292,
+            "level": 0.9999315068493151,
+            "low": 1268,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 1280
+        },
+        "pairDifferenceP75": 1288
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3460,
+        "mean": 3448,
+        "measured": 15,
+        "median": 3448,
+        "min": 3440,
+        "missing": 0,
+        "p75": 3452,
+        "passed": 15
+      },
+      "baselineFixtureId": "nextjs-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 4236,
+        "mean": 4218.933333333333,
+        "measured": 15,
+        "median": 4220,
+        "min": 4204,
+        "missing": 0,
+        "p75": 4220,
+        "passed": 15
+      },
+      "candidateFixtureId": "nextjs-enzuzo",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Observed remote script/style/config URL or decoded-body digest changed within this comparison cell; artifact identity remains provisional."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 15,
+        "medianDifference": 772,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": 768
+        },
+        "pairDifferenceP75": 776
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3460,
+        "mean": 3448,
+        "measured": 15,
+        "median": 3448,
+        "min": 3440,
+        "missing": 0,
+        "p75": 3452,
+        "passed": 15
+      },
+      "baselineFixtureId": "nextjs-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 4076,
+        "mean": 4063.2,
+        "measured": 15,
+        "median": 4064,
+        "min": 4052,
+        "missing": 0,
+        "p75": 4066,
+        "passed": 15
+      },
+      "candidateFixtureId": "nextjs-iubenda",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 624,
+          "level": 0.9999315068493151,
+          "low": 604,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 616,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 632,
+            "level": 0.9999315068493151,
+            "low": 606,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 614
+        },
+        "pairDifferenceP75": 620
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3460,
+        "mean": 3448,
+        "measured": 15,
+        "median": 3448,
+        "min": 3440,
+        "missing": 0,
+        "p75": 3452,
+        "passed": 15
+      },
+      "baselineFixtureId": "nextjs-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 1,
+        "censoring": null,
+        "eligibilityReasons": [
+          "Metric page.primary-content-paint is unavailable.",
+          "Sample failure banner-missing: Expected banner was not observed visible within the fixed load observation window",
+          "Failed attempts cannot contribute metric values."
+        ],
+        "excluded": 1,
+        "failed": 15,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": null,
+        "mean": null,
+        "measured": 0,
+        "median": null,
+        "min": null,
+        "missing": 14,
+        "p75": null,
+        "passed": 0
+      },
+      "candidateFixtureId": "nextjs-ketch",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Measured remote script/style/config response identity is missing or incomplete in one or more attempts.",
+        "One or more recorded metric values are ineligible.",
+        "Required metric measurements are missing.",
+        "Eligible metric observations do not have complete one-to-one pairing within the same run.",
+        "Fewer than 15 eligible paired metric observations."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 0,
+        "medianDifference": null,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": null
+        },
+        "pairDifferenceP75": null
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3460,
+        "mean": 3448,
+        "measured": 15,
+        "median": 3448,
+        "min": 3440,
+        "missing": 0,
+        "p75": 3452,
+        "passed": 15
+      },
+      "baselineFixtureId": "nextjs-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 4552,
+        "mean": 4539.733333333333,
+        "measured": 15,
+        "median": 4540,
+        "min": 4532,
+        "missing": 0,
+        "p75": 4544,
+        "passed": 15
+      },
+      "candidateFixtureId": "nextjs-onetrust",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 1100,
+          "level": 0.9999315068493151,
+          "low": 1084,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 1092,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 1104,
+            "level": 0.9999315068493151,
+            "low": 1076,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 1092
+        },
+        "pairDifferenceP75": 1096
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3460,
+        "mean": 3448,
+        "measured": 15,
+        "median": 3448,
+        "min": 3440,
+        "missing": 0,
+        "p75": 3452,
+        "passed": 15
+      },
+      "baselineFixtureId": "nextjs-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 15,
+        "incomplete": 15,
+        "max": 3908,
+        "mean": 3894.666666666666,
+        "measured": 15,
+        "median": 3896,
+        "min": 3880,
+        "missing": 0,
+        "p75": 3900,
+        "passed": 0
+      },
+      "candidateFixtureId": "nextjs-osano",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Remote artifact identity covers captured page-target response bodies only; network coverage is missing or incomplete, so unseen frame or worker assets cannot be qualified."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 15,
+        "medianDifference": 448,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": 448
+        },
+        "pairDifferenceP75": 454
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3460,
+        "mean": 3448,
+        "measured": 15,
+        "median": 3448,
+        "min": 3440,
+        "missing": 0,
+        "p75": 3452,
+        "passed": 15
+      },
+      "baselineFixtureId": "nextjs-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 4372,
+        "mean": 4300.533333333333,
+        "measured": 15,
+        "median": 4296,
+        "min": 4284,
+        "missing": 0,
+        "p75": 4304,
+        "passed": 15
+      },
+      "candidateFixtureId": "nextjs-usercentrics",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 860,
+          "level": 0.9999315068493151,
+          "low": 832,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 848,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 924,
+            "level": 0.9999315068493151,
+            "low": 836,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 852
+        },
+        "pairDifferenceP75": 856
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    }
+  ],
+  "metricKey": "page.primary-content-paint",
+  "multiplicity": {
+    "comparisons": 365,
+    "family": "batch:051dc4fa3a96b2707885a506fe483c709e237bbea86547435b71f3fe8960bc49",
+    "familyLevel": 0.95,
+    "intervalLevel": 0.9999315068493151,
+    "intervals": 730,
+    "method": "bonferroni"
+  },
+  "sourceRunIds": [
+    "c0a6f4f0-a156-4249-b6c2-35938fa1a061"
+  ]
+}

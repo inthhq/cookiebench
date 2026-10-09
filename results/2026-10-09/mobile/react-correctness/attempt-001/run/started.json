@@ -1,0 +1,19 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "run",
+    "--config",
+    "results/2026-10-09/configs/react-mobile.json",
+    "--iterations",
+    "1",
+    "--warmups",
+    "0",
+    "--seed",
+    "20261009",
+    "--output",
+    "results/2026-10-09/mobile/react-correctness/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "startedAt": "2026-10-09T03:22:09.211Z"
+}

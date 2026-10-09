@@ -22,9 +22,9 @@
           "args": [
             "build.mjs"
           ],
-          "command": "/home/kaylee/.cache/nub/node/24.21.0/bin/node"
+          "command": "node"
         },
-        "cwd": "/home/kaylee/.t3/worktrees/cookiebench/t3code-cef51b81/fixtures/reference",
+        "cwd": "fixtures/reference",
         "readinessTimeoutMs": 5000,
         "readinessUrl": "http://127.0.0.1:4173/health",
         "start": {
@@ -32,7 +32,7 @@
             "server.mjs",
             "4173"
           ],
-          "command": "/home/kaylee/.cache/nub/node/24.21.0/bin/node"
+          "command": "node"
         }
       },
       "adapter": {

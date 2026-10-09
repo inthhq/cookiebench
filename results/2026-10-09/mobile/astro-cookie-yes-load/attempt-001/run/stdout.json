@@ -1,0 +1,36 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:12f4d9c6-ca65-4fc1-876d-9a8b8b81a045",
+        "sample:e582f852-1599-42aa-ad62-51bbc0b4b5ac",
+        "sample:7a350a06-16c5-4212-be6e-b1f4b0a5af3a",
+        "sample:5f94e684-a906-49a2-8656-a7cbd40175c0",
+        "sample:94a50a6f-ac57-4ca3-8687-56d8a55e9ab6",
+        "sample:a0acb9d8-75ff-4e22-b5a8-f0856f8394b2",
+        "sample:fec37c8f-ad6e-40e1-8995-79c44dc2e502",
+        "sample:cb8b261f-8523-4a50-abac-a2b654a72678",
+        "sample:104dc507-3e0b-4ccc-9529-5e568f2f352c",
+        "sample:bc4fa563-f100-4408-bb20-890e1ed7e443",
+        "sample:3bc0294f-09b6-4c90-9c37-ceb5ef79555f",
+        "sample:04458c7d-fe9c-4093-a2db-d8b611f16ef9",
+        "sample:116faf04-c505-4bb9-8af3-71679f0cb1bc",
+        "sample:958e5853-53b8-4eff-988f-3eabf15437b2",
+        "sample:fede8c44-85e5-43b1-82bd-1cb9c417fb8d"
+      ],
+      "fixtureId": "astro-cookie-yes",
+      "framework": "astro",
+      "id": "cbc055a5-112d-4d20-a7c2-3610107525de",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T05:03:57.010Z"
+    }
+  ],
+  "failures": [],
+  "output": "results/2026-10-09/mobile/astro-cookie-yes-load/attempt-001/envelope.json",
+  "runId": "148b74a6-89d9-40b4-a352-4e061dac6d21",
+  "samples": 30,
+  "status": "passed"
+}

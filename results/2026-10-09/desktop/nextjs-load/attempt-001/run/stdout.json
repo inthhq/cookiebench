@@ -1,0 +1,328 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:302a8830-7b29-4347-9db1-28afc1d4298b",
+        "sample:9cb0afc2-14b3-4075-9f33-c6a380bad35f",
+        "sample:8d409f5e-5796-4b07-acf5-ff65e7e862ca",
+        "sample:9d537fe0-1799-40ac-9ca9-329aee71fc9c",
+        "sample:cc44a016-4f37-473f-a463-0db64a496ad5",
+        "sample:2f22c907-9442-45e3-8942-2f82e7a48a33",
+        "sample:40a88549-6ec7-4b09-87f6-251c117264d4",
+        "sample:76833492-3d17-4360-960b-756965813347",
+        "sample:5ba61515-8ed8-4798-abbb-47b865aa4a0c",
+        "sample:e547ff63-ca5f-4fad-843f-34920eaad650",
+        "sample:29598805-308b-47b8-95f1-ad4d270d1b3d",
+        "sample:52a6abcc-6a6c-429f-ab97-7e6607d76975",
+        "sample:f236b39c-ad29-4b8a-b2bd-d8e3b93011d9",
+        "sample:95ee9e27-f561-44a8-921d-28f76822d169",
+        "sample:34586749-85c1-4c24-8bce-6718038e42c0"
+      ],
+      "fixtureId": "nextjs-c15t",
+      "framework": "nextjs",
+      "id": "9da41cfc-cdff-4d11-8a8c-eda88bbebc7a",
+      "mode": "manifest",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T01:00:45.515Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:36611f45-e6d8-4be3-b1e2-96b144984e2f",
+        "sample:84f2d06c-51ad-491f-a8a5-92d3617bd360",
+        "sample:31998daf-55ad-446e-9b9f-f9a96e1e2f95",
+        "sample:bfd8e26f-5a8a-433f-a9fe-f4172ba1728a",
+        "sample:7683c76b-1d30-4a95-b19c-eb13bb2e2a46",
+        "sample:b39bad7c-c2f9-46d1-a5e2-6fd4bc3c0e28",
+        "sample:2dbc9278-4ebb-4c8f-a9e1-f39ca33f3f6b",
+        "sample:1da2541c-f197-4e65-a360-33649def6d54",
+        "sample:cb75d810-7b99-4c8e-9e52-d2069a4de58e",
+        "sample:53b58558-280b-4eb8-a84e-be0989e90fca",
+        "sample:d500ed3d-bdf4-42ae-b482-d01c8c59b885",
+        "sample:e531d489-655a-4655-ae7e-54059f2958dc",
+        "sample:54700c5c-001a-465b-a01f-bff0c87861af",
+        "sample:c1843d26-440f-475c-bb39-0be465823b0b",
+        "sample:2b5e289b-21cb-4da8-854a-0a8b26204dcb"
+      ],
+      "fixtureId": "nextjs-cookie-control",
+      "framework": "nextjs",
+      "id": "f4279f04-4d01-422f-b71e-7541ae012aa8",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T01:00:45.516Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:b250162c-fb67-4500-9f77-c267dbc961ab",
+        "sample:59d0ebef-4577-45d0-a1b1-41fd4cb9db69",
+        "sample:f084588a-a561-42e8-8e9d-f0b9f31527b0",
+        "sample:bb8a78d4-0257-4015-8306-f35989cec05e",
+        "sample:7382d4f2-8bc7-4a38-b404-d6c5e3ed6f33",
+        "sample:b5ee206e-6c63-4115-b2ef-0779500cdd16",
+        "sample:000bf811-93cd-43bd-9b3f-eb29be42ddf8",
+        "sample:5b29bd24-6104-4281-ba70-b80f0fde3291",
+        "sample:c7f1aca9-fcfc-4038-806f-eddc6bd3becf",
+        "sample:7d1a14ac-cb84-46d5-b4e3-b3b90df1495a",
+        "sample:a8cd14f3-5bce-4341-91b9-a30212bce562",
+        "sample:67e8555a-0fa7-452b-9374-3fbc16d6fc11",
+        "sample:c9c8abb4-2032-4c49-817b-c2e4c5846fe5",
+        "sample:4e87726e-ce01-466a-b070-8c17b573050e",
+        "sample:58c1762c-ce33-4ae1-9e5f-3cb7622dac2e"
+      ],
+      "fixtureId": "nextjs-didomi",
+      "framework": "nextjs",
+      "id": "a456acd7-9529-4441-9b1d-4ffde24c892f",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T01:00:45.516Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:53ce1cb4-4997-433d-938e-e279df5ce2f5",
+        "sample:0217777c-2f28-4514-b09a-e3c8bef9613b",
+        "sample:82d3dd83-e43d-4779-888d-061075415a1d",
+        "sample:ebafd1e1-dc3c-4b8f-986b-38d2d03dce62",
+        "sample:2d9cd499-ebe4-4be5-92ff-43728f1bb16f",
+        "sample:ac3ba30a-ba6d-47fd-b03f-e20c0876d4ba",
+        "sample:b42b8694-f502-4f77-adfc-9f5e7773ec6c",
+        "sample:e27e60d3-497a-47e0-b91f-e952c2dade77",
+        "sample:be66dec4-6ccb-4c06-9074-e6e8e05231a7",
+        "sample:82ac2a53-7072-46d1-83d7-9dd6498df096",
+        "sample:62025d82-a8d6-44e3-a474-9cb8b0641e6a",
+        "sample:9e6050e5-2b7e-4890-8d0f-44646a91cadb",
+        "sample:0f94cd66-1622-4aa0-b841-3d34273ca015",
+        "sample:c2d2f379-8351-4224-8451-a2c8c61d281c",
+        "sample:a4edfcc9-e554-4357-b0cd-2fc452a0b813"
+      ],
+      "fixtureId": "nextjs-enzuzo",
+      "framework": "nextjs",
+      "id": "8eff2211-5188-4a2a-8fbd-23e632ab5083",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T01:00:45.516Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:066d646f-f445-4ac8-b544-5f7340005e6a",
+        "sample:b4126b12-4284-42a9-8baa-8dc3c811f49d",
+        "sample:85a1903d-5c99-4a6c-ad50-ef8d19d0f53f",
+        "sample:0fddd7a1-856f-4791-ab79-9f89371ceabf",
+        "sample:9363dbba-ec7e-4076-9d76-cb8a0863ca1d",
+        "sample:49b8a268-5be7-4b10-9505-b4c873ae6cb8",
+        "sample:87da4bfc-3ea1-49a9-8a18-36c3199ea400",
+        "sample:97ba18d0-595e-48fb-845a-0de81cb30edf",
+        "sample:cf6ad7f4-daa9-47e0-b102-e76927347a93",
+        "sample:b7312dca-ae3c-4ab2-bc6f-9983b25d0aa5",
+        "sample:9483ef7b-837b-4751-8a7b-01cfec66e646",
+        "sample:a2750585-d21a-4dae-8d56-7d394852b85f",
+        "sample:842b2fca-56f1-41ee-a45d-6d4b716fe9df",
+        "sample:c960dfed-f42d-43b8-9312-c7123ca0ae95",
+        "sample:2788504e-6a16-4039-a7e2-ab5b857735e0"
+      ],
+      "fixtureId": "nextjs-iubenda",
+      "framework": "nextjs",
+      "id": "83624f3a-d92f-43c5-b1c8-7b3ad2aa36c5",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T01:00:45.516Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:c2b42a51-1f57-4fe9-944d-272631fc9075",
+        "sample:dfca2ea6-cdd9-4f08-8ad3-7ae0b9bd3ea9",
+        "sample:3fa49564-0caf-4056-bca0-29ba6b78e7c6",
+        "sample:206a5852-3221-4dc7-bc2a-2e683a21f960",
+        "sample:0543fd65-66b4-4199-aad4-5305636a97a3",
+        "sample:e62122d4-2b67-4921-8407-dfd82cdba1aa",
+        "sample:4ca6019e-eaeb-4fe2-8cde-95ac2c064349",
+        "sample:c71cf971-95d9-471b-bfa9-2cb0eb9c0365",
+        "sample:9331a02d-f164-4800-8888-ca192e5521f8",
+        "sample:c3092fa2-9785-4888-b80f-6b1fd2519e68",
+        "sample:6ef65a24-21fb-4392-acf1-940b1f995c9e",
+        "sample:9201bd4d-ef1f-48da-bc17-3092e162eca2",
+        "sample:c9333d64-15ab-41a4-ba6f-3211cfd6ae37",
+        "sample:ddeb9041-ed85-4006-85ce-1ec09dd4f50c",
+        "sample:cb661585-0cca-4d38-95ec-5988731e346c"
+      ],
+      "fixtureId": "nextjs-ketch",
+      "framework": "nextjs",
+      "id": "846ac76f-49a7-4690-89fc-e3cc950a4315",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T01:00:45.516Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:6c13093f-d5ab-4d29-b46c-ed35a1d57b52",
+        "sample:742b7e2a-eeda-4332-9ac3-feb0da3f2a68",
+        "sample:18b63c4d-b0e3-4ff2-be6c-41bb7d71d239",
+        "sample:ed507ace-cc68-43c5-bea6-f8c03b5c18ed",
+        "sample:91660de7-d5f9-427f-9248-5c7f8654e0a5",
+        "sample:ef187c0f-0da7-4f12-a398-af5c702cea09",
+        "sample:85d8f83f-d9c9-42c9-b8b4-b423c3b456a5",
+        "sample:fa6e8df1-b535-4a4e-a220-b985b8230d47",
+        "sample:0b2591de-38e9-4799-8aea-a44f6142590d",
+        "sample:5fbfce36-1839-4c81-a88c-648b8fbe6471",
+        "sample:b696a1cc-1a99-4900-aa47-705f82ac0053",
+        "sample:5f9ae600-52b5-496e-ac33-d11fe405543d",
+        "sample:90c6e3cb-6e5a-420b-9358-8eddafc671d9",
+        "sample:fc44f9b0-3fdf-4a44-8a7e-3116fe7eac7b",
+        "sample:dce1a260-9748-40f7-9a7e-367d29a1e21d"
+      ],
+      "fixtureId": "nextjs-onetrust",
+      "framework": "nextjs",
+      "id": "58b18dff-f5b0-49ad-9b32-84db2857822d",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T01:00:45.516Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:6979b123-00c8-4c04-9e1a-285b2bbff3e4",
+        "sample:9910f713-3c9a-496f-ad19-bad85123b108",
+        "sample:fd7e3457-62a3-4a8d-96cc-a987aa4b2da0",
+        "sample:5bc9e365-6f4b-4f26-b1fe-7466baeb805a",
+        "sample:2edf43d6-7080-4a7e-887f-251d334bfaa0",
+        "sample:5c3e8e01-5e45-493d-98f5-02a7b367facd",
+        "sample:26c29f4c-1f36-4073-908e-0c803ffd86f7",
+        "sample:c1181a66-20e1-4316-a900-43a19d4ca194",
+        "sample:87f183b9-101a-406c-ac02-993afa2e4b97",
+        "sample:507ba132-2e1c-4afb-9c9d-f0fb8e6f3560",
+        "sample:7632b565-64d3-42c4-ae11-0328aca2e753",
+        "sample:5fb40fe3-d2a8-4754-bbed-d1b070065adc",
+        "sample:ab9686dc-7261-4485-babc-150b200ed2c2",
+        "sample:64a0a943-e76a-4868-b4c1-e2c17a343a6f",
+        "sample:bd2fc582-fd65-47b5-9a94-7fc25a0bb2a0"
+      ],
+      "fixtureId": "nextjs-osano",
+      "framework": "nextjs",
+      "id": "3b9be3a3-8b3a-432b-8409-e9c42975e4e1",
+      "mode": "hosted",
+      "reason": "0/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "unknown",
+      "verifiedAt": "2026-10-09T01:00:45.516Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:e87ebf8d-a242-422b-b3c7-872680ef91b2",
+        "sample:af2d1c94-2952-4881-8418-a5d03efdba4d",
+        "sample:a4231e8f-c71c-47f2-9336-317fca1540f3",
+        "sample:75e723ee-2364-4106-857f-e6464317ba98",
+        "sample:ba60908e-ad1f-47ce-ab25-316ca909ad93",
+        "sample:addfff94-507d-4c33-a162-72cc8854c34a",
+        "sample:942dd6e4-7c57-4f46-9899-547784d6c43f",
+        "sample:bb3cdb2d-d105-4a43-9ae4-4f4f50ec1e83",
+        "sample:99def598-ff6e-417c-9886-c0f9ab8076fa",
+        "sample:d6b120bd-d887-4a1b-8782-ea1f61d6d977",
+        "sample:778f315b-5fbf-472e-b373-44694a910574",
+        "sample:0c1f46d2-9fc9-4ce4-8fc3-760a1547c873",
+        "sample:e491aa17-12a9-4da3-aeae-238b4e94306b",
+        "sample:531fa5f5-0746-4466-8903-080581f7caa3",
+        "sample:8e70c990-13bc-47b6-94b9-f6d2ea76028c"
+      ],
+      "fixtureId": "nextjs-usercentrics",
+      "framework": "nextjs",
+      "id": "e02fd920-c901-40db-bf57-0f3b91b556de",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T01:00:45.516Z"
+    }
+  ],
+  "failures": [
+    {
+      "sampleId": "6979b123-00c8-4c04-9e1a-285b2bbff3e4",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "9910f713-3c9a-496f-ad19-bad85123b108",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "fd7e3457-62a3-4a8d-96cc-a987aa4b2da0",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "5bc9e365-6f4b-4f26-b1fe-7466baeb805a",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "2edf43d6-7080-4a7e-887f-251d334bfaa0",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "5c3e8e01-5e45-493d-98f5-02a7b367facd",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "26c29f4c-1f36-4073-908e-0c803ffd86f7",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "c1181a66-20e1-4316-a900-43a19d4ca194",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "87f183b9-101a-406c-ac02-993afa2e4b97",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "507ba132-2e1c-4afb-9c9d-f0fb8e6f3560",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "7632b565-64d3-42c4-ae11-0328aca2e753",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "5fb40fe3-d2a8-4754-bbed-d1b070065adc",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "ab9686dc-7261-4485-babc-150b200ed2c2",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "64a0a943-e76a-4868-b4c1-e2c17a343a6f",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    },
+    {
+      "sampleId": "bd2fc582-fd65-47b5-9a94-7fc25a0bb2a0",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: initial.transfer"
+    }
+  ],
+  "output": "results/2026-10-09/desktop/nextjs-load/attempt-001/envelope.json",
+  "runId": "2dc137dc-7dc9-4936-9771-f5402f40df7d",
+  "samples": 150,
+  "status": "incomplete"
+}

@@ -1,0 +1,16 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "report",
+    "--file",
+    "results/2026-10-09/mobile/nuxt-cookie-yes-load/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-09T04:34:02.215Z",
+  "startedAt": "2026-10-09T04:34:01.800Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "7cc1cdea48d9ab3f8855f57c79910cdb0b9b57b1d816f1fa870b8d6661d3a5a3"
+}
