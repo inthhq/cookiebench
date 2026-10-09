@@ -10,7 +10,6 @@ import type { ConsentRootProps } from "@c15t/tanstack-start";
 import { controlledWorkload, updateBridge } from "@cookiebench/fixture-support";
 import { useEffect, useState } from "react";
 
-import "@c15t/tanstack-start/styles.css";
 import { backendURL } from "./consent-backend";
 import { Page } from "./page";
 

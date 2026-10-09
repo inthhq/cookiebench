@@ -17,7 +17,6 @@ import type { ConsentRootProps } from "c15t/next";
 import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 
-import "c15t/next/styles.css";
 import { consentConfig } from "../c15t.config.ts";
 import { Interaction } from "./interaction.tsx";
 

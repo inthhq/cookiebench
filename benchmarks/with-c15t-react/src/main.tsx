@@ -16,7 +16,6 @@ import {
 import { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 
-import "c15t/react/styles.css";
 import { consentManifest } from "./c15t-manifest";
 import { Page } from "./page.tsx";
 

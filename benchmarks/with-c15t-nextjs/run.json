@@ -20,7 +20,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "b288c1adc38138f1774a0aeb5c62d451d5484ac1c876da95e913faf0c5efb75e",
+      "configurationHash": "a97074bc2abda509eec380e233deac035891d3ee106566405e74beb5967d65ac",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -33,7 +33,7 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "fixture-source-only",
-        "lockfileHash": "595600a4c096b000da709d37b1a5b7e2a37c4b06f30df6a95ed63a8ebb07ea59",
+        "lockfileHash": "a05ec87e754afd764933c9892bac7c189d3b5bcdbe1b8bb70d7cf7cc209dd6e1",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
       "revision": "3.3.1-article-v1-inth-build-manifest-server-banner",
@@ -74,7 +74,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "d0d738d0da44811244f0a9614bbcae80be52ceb5c274aa58ac6f59a784aa68f5",
+      "configurationHash": "9b9c422825a1389e3c3a8d03a3c99ffd05720f4ad2a1246bc4a52f4af6bf34f2",
       "deployment": {
         "assets": "local",
         "backend": "remote-service"
@@ -86,11 +86,11 @@
       "presentation": "default",
       "product": "c15t",
       "provenance": {
-        "artifactIntegrity": "sha512-QZzHtTp/QBpApoXgtivVAfXUbpp3otzkKqbPySGFW6kiQaLIQ8zvZSl8Tkdo+yOc6U7Wrp9kOBnApsrViec60w==",
-        "lockfileHash": "595600a4c096b000da709d37b1a5b7e2a37c4b06f30df6a95ed63a8ebb07ea59",
-        "sourceUrl": "https://registry.npmjs.org/c15t/-/c15t-3.0.0-alpha.8.tgz"
+        "artifactIntegrity": "sha512-b7WKCskDkniXnjbxUKukgo4uYH982WM3S2geSkwSdsnssxpnG24zTGR9+r12Zc/OlnlwoJl9xQ/3ze9nMJJeXQ==",
+        "lockfileHash": "a05ec87e754afd764933c9892bac7c189d3b5bcdbe1b8bb70d7cf7cc209dd6e1",
+        "sourceUrl": "https://registry.npmjs.org/c15t/-/c15t-3.0.0-alpha.9.tgz"
       },
-      "revision": "3.3.1-article-v1-inth-build-manifest-server-banner",
+      "revision": "3.3.1-article-v1-inth-build-manifest-server-banner-inline-styles",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -106,7 +106,7 @@
         }
       },
       "url": "http://127.0.0.1:4312/",
-      "version": "3.0.0-alpha.8"
+      "version": "3.0.0-alpha.9"
     }
   ],
   "scenarios": [

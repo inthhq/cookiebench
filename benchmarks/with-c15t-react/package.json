@@ -9,9 +9,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@c15t/browser": "3.0.0-alpha.8",
+    "@c15t/browser": "3.0.0-alpha.9",
     "@cookiebench/fixture-support": "workspace:*",
-    "c15t": "3.0.0-alpha.8",
+    "c15t": "3.0.0-alpha.9",
     "react": "19.2.1",
     "react-dom": "19.2.1"
   },

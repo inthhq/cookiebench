@@ -20,7 +20,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "2d700822b575122efa8dee085a46b9d28676857e3651fcd68e79d061d280059f",
+      "configurationHash": "3577c292165cfaa81bad95f1030cb47ee7f10ccc437c4d6f91abb5a1e42e6a35",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -33,7 +33,7 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "fixture-source-only",
-        "lockfileHash": "595600a4c096b000da709d37b1a5b7e2a37c4b06f30df6a95ed63a8ebb07ea59",
+        "lockfileHash": "a05ec87e754afd764933c9892bac7c189d3b5bcdbe1b8bb70d7cf7cc209dd6e1",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
       "revision": "3.4.0-article-v1-inth-build-manifest",
@@ -74,7 +74,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "e7a893ac0354a22d166e671bccc6736d59434dc8420cddcdb51461de341198c9",
+      "configurationHash": "719d93afdfa5f9e0f114466d472b84dcf1a94dd3e467cad66be465b12cc47f56",
       "deployment": {
         "assets": "local",
         "backend": "remote-service"
@@ -86,11 +86,11 @@
       "presentation": "default",
       "product": "c15t",
       "provenance": {
-        "artifactIntegrity": "sha512-QZzHtTp/QBpApoXgtivVAfXUbpp3otzkKqbPySGFW6kiQaLIQ8zvZSl8Tkdo+yOc6U7Wrp9kOBnApsrViec60w==",
-        "lockfileHash": "595600a4c096b000da709d37b1a5b7e2a37c4b06f30df6a95ed63a8ebb07ea59",
-        "sourceUrl": "https://registry.npmjs.org/c15t/-/c15t-3.0.0-alpha.8.tgz"
+        "artifactIntegrity": "sha512-b7WKCskDkniXnjbxUKukgo4uYH982WM3S2geSkwSdsnssxpnG24zTGR9+r12Zc/OlnlwoJl9xQ/3ze9nMJJeXQ==",
+        "lockfileHash": "a05ec87e754afd764933c9892bac7c189d3b5bcdbe1b8bb70d7cf7cc209dd6e1",
+        "sourceUrl": "https://registry.npmjs.org/c15t/-/c15t-3.0.0-alpha.9.tgz"
       },
-      "revision": "3.4.0-article-v1-inth-build-manifest",
+      "revision": "3.4.0-article-v1-inth-build-manifest-inline-styles",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -106,7 +106,7 @@
         }
       },
       "url": "http://127.0.0.1:4311/",
-      "version": "3.0.0-alpha.8"
+      "version": "3.0.0-alpha.9"
     }
   ],
   "scenarios": [
