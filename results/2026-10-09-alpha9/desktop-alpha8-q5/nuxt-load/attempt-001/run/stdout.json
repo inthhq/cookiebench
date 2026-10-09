@@ -1,0 +1,36 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:ddbb6eed-8de7-4e4c-8443-51ea60c7b1d2",
+        "sample:822d4cfe-6855-495d-b7fb-b19cd271a73f",
+        "sample:6abe77fc-4e65-4736-8120-38fb1c220a72",
+        "sample:0206d04d-116f-457b-bc61-208b9ef72601",
+        "sample:5ea7d19a-2ddb-4334-848b-7a43b7b73380",
+        "sample:f177816b-15b7-4013-9df2-2caa12b4c982",
+        "sample:19367894-6596-466d-8b9b-419b0e96bcca",
+        "sample:346af83a-c662-4fd9-8416-394fffe65ea2",
+        "sample:1b2fb987-2c7a-41cc-b349-7ea2c7d60889",
+        "sample:c03f96c2-001b-477e-b4a8-7230309f8ac5",
+        "sample:8963976a-31ba-44cd-b4e4-16feae41037f",
+        "sample:e153c581-eb86-451c-939d-063ef7cc724a",
+        "sample:19a46bff-af64-477c-b0a9-828b7cf1952f",
+        "sample:fbfe2842-1de2-4542-a707-74eee7611dda",
+        "sample:a8785790-bddb-47b7-9da2-f5ac4bd54110"
+      ],
+      "fixtureId": "nuxt-c15t",
+      "framework": "nuxt",
+      "id": "7c42b1b4-3a93-41af-88e1-aadc0e105e88",
+      "mode": "manifest",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T15:23:28.235Z"
+    }
+  ],
+  "failures": [],
+  "output": "results/2026-10-09-alpha9/desktop-alpha8-q5/nuxt-load/attempt-001/envelope.json",
+  "runId": "80f281ec-1e00-48bc-a12a-238e132c0eb1",
+  "samples": 30,
+  "status": "passed"
+}

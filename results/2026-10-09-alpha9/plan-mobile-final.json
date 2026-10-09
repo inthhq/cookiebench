@@ -1,0 +1,65 @@
+{
+  "entries": [
+    {
+      "config": "results/2026-10-09-alpha9/configs/nextjs-mobile.json",
+      "id": "nextjs-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-09-alpha9/configs/nuxt-mobile.json",
+      "id": "nuxt-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-09-alpha9/configs/astro-mobile.json",
+      "id": "astro-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-09-alpha9/configs/tanstack-start-mobile.json",
+      "id": "tanstack-start-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-09-alpha9/configs/react-mobile.json",
+      "id": "react-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-09-alpha9/configs/script-mobile.json",
+      "id": "script-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-09-alpha9/configs/nextjs-mobile.json",
+      "id": "nextjs-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-09-alpha9/configs/nuxt-mobile.json",
+      "id": "nuxt-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-09-alpha9/configs/astro-mobile.json",
+      "id": "astro-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-09-alpha9/configs/tanstack-start-mobile.json",
+      "id": "tanstack-start-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-09-alpha9/configs/react-mobile.json",
+      "id": "react-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-09-alpha9/configs/script-mobile.json",
+      "id": "script-correctness",
+      "kind": "flows"
+    }
+  ],
+  "seed": 20261009
+}

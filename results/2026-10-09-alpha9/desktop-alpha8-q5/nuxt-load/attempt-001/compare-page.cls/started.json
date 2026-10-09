@@ -1,0 +1,19 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "results/2026-10-09-alpha9/desktop-alpha8-q5/nuxt-load/attempt-001/envelope.json",
+    "--candidate",
+    "results/2026-10-09-alpha9/desktop-alpha8-q5/nuxt-load/attempt-001/envelope.json",
+    "--metric",
+    "page.cls",
+    "--family",
+    "batch:40c89087a9af91d10ba1afc0bf5709c9cd47beb27b2a89bae7f43d14bb64d04f",
+    "--family-size",
+    "12"
+  ],
+  "cwd": ".",
+  "startedAt": "2026-10-09T15:23:30.518Z"
+}

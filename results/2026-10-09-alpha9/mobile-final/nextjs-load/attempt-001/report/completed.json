@@ -1,0 +1,16 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "report",
+    "--file",
+    "results/2026-10-09-alpha9/mobile-final/nextjs-load/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-09T15:57:30.472Z",
+  "startedAt": "2026-10-09T15:57:30.049Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "125c9bf5fdea0dba303cf845047ca5616cd1a3a7a17ea3938ae7735ade784c8d"
+}

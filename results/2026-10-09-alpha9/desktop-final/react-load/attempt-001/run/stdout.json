@@ -1,0 +1,36 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:26db9955-2501-4bfe-91bb-3ca73f57637b",
+        "sample:902069a1-2ce4-4998-93df-14ffd0daf356",
+        "sample:2f243364-a462-47d6-b958-26b7679825ac",
+        "sample:ef3d403f-c759-4195-9a78-f4edb2227b77",
+        "sample:2bf6427e-f715-442f-ad9c-55ec501f9176",
+        "sample:a272d19b-d19e-4ae1-8e03-04644a010a60",
+        "sample:9b1e3602-7098-4d36-a586-ce437e3336db",
+        "sample:2bfbdf91-978d-4840-a99d-4bd00bdc745e",
+        "sample:a4bccd77-7f22-4208-b829-2e22401d648a",
+        "sample:459e7740-8655-4cda-aa78-2a83d1ab2d42",
+        "sample:81e98bff-35dd-4940-b580-977ead86bc13",
+        "sample:a72de20a-3ac2-44e5-9a23-9350d11ac6b2",
+        "sample:1aea0c72-9c4e-49ee-a231-f92f20dac142",
+        "sample:7fb1eed6-1cf0-4863-9e42-5ab3e1c37b98",
+        "sample:c36acf2c-c609-415f-8a02-20d82541aa83"
+      ],
+      "fixtureId": "react-c15t",
+      "framework": "react",
+      "id": "b799f048-2032-4419-9c27-e06aa0edd3da",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T15:44:42.044Z"
+    }
+  ],
+  "failures": [],
+  "output": "results/2026-10-09-alpha9/desktop-final/react-load/attempt-001/envelope.json",
+  "runId": "754d0e98-b5b1-4914-9733-3120da57669a",
+  "samples": 30,
+  "status": "passed"
+}

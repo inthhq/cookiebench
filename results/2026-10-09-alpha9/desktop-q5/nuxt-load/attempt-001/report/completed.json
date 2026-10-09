@@ -1,0 +1,16 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "report",
+    "--file",
+    "results/2026-10-09-alpha9/desktop-q5/nuxt-load/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-09T15:14:54.459Z",
+  "startedAt": "2026-10-09T15:14:54.013Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "ac4e7ab0ea342747de2dbfa31d3fbf047d3b28e6bd12e6cbda6094710f638c3a"
+}

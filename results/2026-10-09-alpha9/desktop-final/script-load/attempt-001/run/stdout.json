@@ -1,0 +1,36 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:80343e84-0b22-455f-8237-db37fecf5c63",
+        "sample:d161337c-c209-4dd7-a7d1-8490caf3a58e",
+        "sample:edebb5a4-ed1b-4955-9839-53bb2a7e29cf",
+        "sample:e80a62ce-e39a-4279-9538-783c25cb0365",
+        "sample:74a6af8c-d0b2-49e8-80be-030d6a4f3e47",
+        "sample:7014f032-fe92-44fe-a838-f01135ace956",
+        "sample:69ed2843-5c45-4051-b0dd-e679f350e8d3",
+        "sample:858bcdb3-3d68-4746-adc0-c68dc388703f",
+        "sample:3a6073ed-26ba-4504-9dce-80cee1eb2c3a",
+        "sample:825a90a6-e8ea-47e2-a769-573043fe78fa",
+        "sample:95808fa5-938f-428a-9917-d2879be3f384",
+        "sample:2f0ed331-adcf-4868-9a88-d327d74989f6",
+        "sample:fc9b8315-cb88-4367-ac6b-044b2e5f42e6",
+        "sample:0f594166-99c4-4af9-86df-8ba4a6100d93",
+        "sample:c55ca013-b37b-4df1-ac1d-c801d0e3de78"
+      ],
+      "fixtureId": "script-tag-c15t-inth-init",
+      "framework": "script-tag",
+      "id": "82b7df2a-7388-4a62-964a-eb8eb1cb36dc",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T15:48:16.602Z"
+    }
+  ],
+  "failures": [],
+  "output": "results/2026-10-09-alpha9/desktop-final/script-load/attempt-001/envelope.json",
+  "runId": "1eda3555-dd17-4c7a-8626-3ffef596e6b8",
+  "samples": 30,
+  "status": "passed"
+}

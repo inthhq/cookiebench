@@ -1,0 +1,77 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:8e45208e-18ae-41db-bd9d-972aa7faeacc"
+      ],
+      "fixtureId": "react-c15t",
+      "framework": "react",
+      "id": "80183a43-8a03-47f4-8f98-60b86a76b74d",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T16:21:45.902Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:b6cead2c-e688-40c8-82e8-95f0a58431b7"
+      ],
+      "fixtureId": "react-c15t",
+      "framework": "react",
+      "id": "58c9dda1-6604-4481-a032-7dc07c39bb65",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T16:21:45.902Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:1c9a8f5c-86fa-469d-b28e-870278087636"
+      ],
+      "fixtureId": "react-c15t",
+      "framework": "react",
+      "id": "9829bf09-b991-418a-8798-0373e192e1dd",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T16:21:45.902Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:50bffb2f-1e1d-448a-aac1-9e0f1b7a34af"
+      ],
+      "fixtureId": "react-c15t",
+      "framework": "react",
+      "id": "9d14c0f3-f814-47a9-81fa-a0237b60c97d",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T16:21:45.902Z"
+    }
+  ],
+  "failures": [
+    {
+      "sampleId": "d16540be-03c9-4df0-9d9e-ce3f0253ac3c",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: page.lcp, initial.transfer"
+    },
+    {
+      "sampleId": "b3da1f79-3a87-40a7-a375-61445c10c20d",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: page.lcp, initial.transfer"
+    },
+    {
+      "sampleId": "610cc7bc-d7ea-4503-a038-4b792c34c8ba",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: page.lcp, initial.transfer"
+    }
+  ],
+  "output": "results/2026-10-09-alpha9/mobile-final/react-correctness/attempt-001/envelope.json",
+  "runId": "ccfa64fa-d946-44e9-ad05-2f174b4d7220",
+  "samples": 8,
+  "status": "incomplete"
+}

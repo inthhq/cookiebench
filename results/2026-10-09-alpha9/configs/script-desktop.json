@@ -1,0 +1,224 @@
+{
+  "fixtures": [
+    {
+      "adapter": {
+        "accept": "[data-testid=\"consent-banner-accept-button\"]",
+        "banner": "[data-testid=\"consent-banner-root\"]",
+        "categoryToggle": "[data-testid=\"consent-widget-switch-measurement\"]",
+        "controlledRequestPath": "/controlled/script",
+        "overlay": "[data-testid=\"consent-dialog-overlay\"], [data-testid=\"consent-banner-overlay\"]",
+        "pageAction": "#page-action",
+        "preferences": "[data-testid=\"consent-banner-customize-button\"]",
+        "preferencesPanel": "[data-testid=\"consent-dialog-root\"]",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": "[data-testid=\"consent-banner-reject-button\"]",
+        "reopen": "#reopen-preferences",
+        "save": "[data-testid=\"consent-widget-footer-save-button\"]",
+        "serverEventsUrl": "http://127.0.0.1:4310/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
+      },
+      "baseline": true,
+      "configurationHash": "6902db38402ec77521503fb05d9405b31737129563e05a708dfae4ddb80eebd7",
+      "deployment": {
+        "assets": "local",
+        "backend": "none"
+      },
+      "framework": "script-tag",
+      "frameworkVersion": "html",
+      "id": "script-tag-baseline-inth-init",
+      "mode": "hosted",
+      "presentation": "default",
+      "product": "baseline",
+      "provenance": {
+        "artifactIntegrity": "fixture-source-only",
+        "lockfileHash": "a05ec87e754afd764933c9892bac7c189d3b5bcdbe1b8bb70d7cf7cc209dd6e1",
+        "sourceUrl": "https://github.com/inthhq/cookiebench"
+      },
+      "revision": "3.3.0-article-v1-inth-init-matrix",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": [
+            "build"
+          ],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-script",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4310/health",
+        "start": {
+          "args": [
+            "start"
+          ],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4310/baseline",
+      "version": "html"
+    },
+    {
+      "adapter": {
+        "accept": "[data-testid=\"consent-banner-accept-button\"]",
+        "banner": "[data-testid=\"consent-banner-root\"]",
+        "categoryToggle": "[data-testid=\"consent-widget-switch-measurement\"]",
+        "controlledRequestPath": "/controlled/script",
+        "overlay": "[data-testid=\"consent-dialog-overlay\"], [data-testid=\"consent-banner-overlay\"]",
+        "pageAction": "#page-action",
+        "preferences": "[data-testid=\"consent-banner-customize-button\"]",
+        "preferencesPanel": "[data-testid=\"consent-dialog-root\"]",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": "[data-testid=\"consent-banner-reject-button\"]",
+        "reopen": "#reopen-preferences",
+        "save": "[data-testid=\"consent-widget-footer-save-button\"]",
+        "serverEventsUrl": "http://127.0.0.1:4310/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
+      },
+      "baseline": false,
+      "configurationHash": "aefd0cd75a05add35a24af64d2965f17121630a8ca57ab9dc6507b313580029b",
+      "deployment": {
+        "assets": "local",
+        "backend": "remote-service"
+      },
+      "framework": "script-tag",
+      "frameworkVersion": "html",
+      "id": "script-tag-c15t-inth-init",
+      "mode": "hosted",
+      "presentation": "default",
+      "product": "c15t",
+      "provenance": {
+        "artifactIntegrity": "sha512-nukxh1zzV2PIyViYlWtFCZn1DAt+JRNyE3nO8cVjoU2tRnMXnBoflg4tN3nmoXWYUHKxrT+broVDL2YNaApxew==",
+        "lockfileHash": "a05ec87e754afd764933c9892bac7c189d3b5bcdbe1b8bb70d7cf7cc209dd6e1",
+        "sourceUrl": "https://registry.npmjs.org/@c15t/browser/-/browser-3.0.0-alpha.9.tgz"
+      },
+      "revision": "3.3.0-article-v1-inth-init-matrix",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": [
+            "build"
+          ],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-script",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4310/health",
+        "start": {
+          "args": [
+            "start"
+          ],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4310/",
+      "version": "3.0.0-alpha.9"
+    }
+  ],
+  "scenarios": [
+    {
+      "action": "load",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "load",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 5000,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": [
+          "measurement",
+          "marketing"
+        ],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "accept",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "accept",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": [
+          "measurement",
+          "marketing"
+        ],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "reject",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "reject",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": [
+          "measurement",
+          "marketing"
+        ],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "save",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "save",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": [
+          "measurement",
+          "marketing"
+        ],
+        "scriptCount": 2
+      }
+    }
+  ],
+  "profile": {
+    "cpuSlowdown": 1,
+    "deviceScaleFactor": 1,
+    "hasTouch": false,
+    "id": "desktop-article-v1-browser-ua",
+    "isMobile": false,
+    "locale": "en-GB",
+    "network": {
+      "downloadBytesPerSecond": 12500000,
+      "latencyMs": 0,
+      "uploadBytesPerSecond": 12500000
+    },
+    "region": "GB",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+    "viewport": {
+      "height": 768,
+      "width": 1365
+    }
+  },
+  "iterations": 1,
+  "warmups": 0,
+  "seed": 1
+}

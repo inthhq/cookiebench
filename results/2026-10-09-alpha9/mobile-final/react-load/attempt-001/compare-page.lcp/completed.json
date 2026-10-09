@@ -1,0 +1,24 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "results/2026-10-09-alpha9/mobile-final/react-load/attempt-001/envelope.json",
+    "--candidate",
+    "results/2026-10-09-alpha9/mobile-final/react-load/attempt-001/envelope.json",
+    "--metric",
+    "page.lcp",
+    "--family",
+    "batch:4a52c142fa3aa8e2ffaac7c5820c5042c31173d0ed54d88810795b44b039d709",
+    "--family-size",
+    "36"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-09T16:12:15.532Z",
+  "startedAt": "2026-10-09T16:12:14.927Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "0d44462a460479dfcbe20f06e0a8d523f07d15e21a9451814fb89ef6b3861811"
+}

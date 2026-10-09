@@ -1,0 +1,19 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "results/2026-10-09-alpha9/desktop-serial/nextjs-load/attempt-001/envelope.json",
+    "--candidate",
+    "results/2026-10-09-alpha9/desktop-serial/nextjs-load/attempt-001/envelope.json",
+    "--metric",
+    "initial.transfer",
+    "--family",
+    "batch:99d3965b72d05223014714902b723203589e3fd43682705a69a0da94bd8d4702",
+    "--family-size",
+    "12"
+  ],
+  "cwd": ".",
+  "startedAt": "2026-10-09T14:37:45.567Z"
+}

@@ -1,0 +1,123 @@
+{
+  "status": "passed",
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "comparisons": [
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 429088,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4312/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 429088,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4312/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 140,
+        "mean": 127.19999999999997,
+        "measured": 15,
+        "median": 128,
+        "min": 112,
+        "missing": 0,
+        "p75": 132,
+        "passed": 15
+      },
+      "baselineFixtureId": "nextjs-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 172,
+        "mean": 159.73333333333332,
+        "measured": 15,
+        "median": 160,
+        "min": 140,
+        "missing": 0,
+        "p75": 166,
+        "passed": 15
+      },
+      "candidateFixtureId": "nextjs-c15t",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "local",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 48,
+          "level": 0.9993055555555556,
+          "low": 16,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 29000
+        },
+        "count": 15,
+        "medianDifference": 32,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 40,
+            "level": 0.9993055555555556,
+            "low": 20,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 29000
+          },
+          "estimate": 34
+        },
+        "pairDifferenceP75": 42
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    }
+  ],
+  "metricKey": "page.lcp",
+  "multiplicity": {
+    "comparisons": 36,
+    "family": "batch:34d36ac2b76a859041bf35cd2578fb30d87613ee9a6e7b7de61318d2ad9c2bd3",
+    "familyLevel": 0.95,
+    "intervalLevel": 0.9993055555555556,
+    "intervals": 72,
+    "method": "bonferroni"
+  },
+  "sourceRunIds": [
+    "7dd9e5bc-58e2-44a8-a8d3-fea16d18b033"
+  ]
+}

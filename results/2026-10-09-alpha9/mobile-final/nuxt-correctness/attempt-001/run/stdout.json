@@ -1,0 +1,77 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:29367040-c753-4165-b169-a3f2358f9865"
+      ],
+      "fixtureId": "nuxt-c15t",
+      "framework": "nuxt",
+      "id": "9bf3f078-1cf9-418c-b005-98cd098a1bfb",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T16:18:29.065Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:6d6d81c4-aec9-4b6b-8f6d-e9e91e55ee1e"
+      ],
+      "fixtureId": "nuxt-c15t",
+      "framework": "nuxt",
+      "id": "4e7ed002-2b33-455d-9d34-9c4873071b56",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T16:18:29.065Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:f4bd9f2f-c671-427c-a8c9-d241b48687be"
+      ],
+      "fixtureId": "nuxt-c15t",
+      "framework": "nuxt",
+      "id": "d120d0d1-4381-4111-b75a-43325789f29c",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T16:18:29.065Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:881b7bda-3185-4580-83e0-d0c022822c56"
+      ],
+      "fixtureId": "nuxt-c15t",
+      "framework": "nuxt",
+      "id": "2b7178ba-b9b3-4c5f-a5e5-39e88f523bcd",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-09T16:18:29.065Z"
+    }
+  ],
+  "failures": [
+    {
+      "sampleId": "e2bb0b89-8e7b-4b16-bb1c-fa84fa92fcfc",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: page.lcp, initial.transfer"
+    },
+    {
+      "sampleId": "5ebf6e49-04b7-465b-8411-2af2c3b5a907",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: page.lcp, initial.transfer"
+    },
+    {
+      "sampleId": "a39a6f0d-c812-401d-8f25-6108761dae78",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: page.lcp, initial.transfer"
+    }
+  ],
+  "output": "results/2026-10-09-alpha9/mobile-final/nuxt-correctness/attempt-001/envelope.json",
+  "runId": "54e9d837-90bb-4807-93e1-281885ab9329",
+  "samples": 8,
+  "status": "incomplete"
+}

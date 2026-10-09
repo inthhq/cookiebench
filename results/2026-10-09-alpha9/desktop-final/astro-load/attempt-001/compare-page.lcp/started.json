@@ -1,0 +1,19 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "results/2026-10-09-alpha9/desktop-final/astro-load/attempt-001/envelope.json",
+    "--candidate",
+    "results/2026-10-09-alpha9/desktop-final/astro-load/attempt-001/envelope.json",
+    "--metric",
+    "page.lcp",
+    "--family",
+    "batch:34d36ac2b76a859041bf35cd2578fb30d87613ee9a6e7b7de61318d2ad9c2bd3",
+    "--family-size",
+    "36"
+  ],
+  "cwd": ".",
+  "startedAt": "2026-10-09T15:37:31.205Z"
+}
