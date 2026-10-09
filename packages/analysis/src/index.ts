@@ -1,4 +1,5 @@
 import { createHash } from "node:crypto";
+import { isDeepStrictEqual } from "node:util";
 
 import { ANALYSIS_VERSION, decodeResult } from "@cookiebench/schema";
 import type {
@@ -519,11 +520,22 @@ function ensureRunCompatibility(
     }
   }
 }
+// A baseline runs no CMP, so its declared mode only names the page it stands
+// in for. When both fixtures come from the same production server, they
+// share a build and page, as every arm on a framework matrix does, and a CMP
+// in another mode can still pair with it.
+function sameServer(baseline: FixtureConfig, candidate: FixtureConfig) {
+  return (
+    baseline.server !== undefined &&
+    isDeepStrictEqual(baseline.server, candidate.server)
+  );
+}
+
 function compatibleFixture(baseline: FixtureConfig, candidate: FixtureConfig) {
   return (
     baseline.framework === candidate.framework &&
     baseline.frameworkVersion === candidate.frameworkVersion &&
-    baseline.mode === candidate.mode
+    (baseline.mode === candidate.mode || sameServer(baseline, candidate))
   );
 }
 

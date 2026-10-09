@@ -70,6 +70,14 @@ const scenario: ScenarioConfig = {
   visitor: "fresh",
   workload: { categories: ["analytics"], scriptCount: 1 },
 };
+/** One-fixture envelope with fixture overrides. */
+const served = (
+  input: ResultEnvelope,
+  overrides: Partial<FixtureConfig>
+): ResultEnvelope => ({
+  ...input,
+  fixtures: [{ ...input.fixtures[0], ...overrides } as FixtureConfig],
+});
 const envelope = (candidate = false): ResultEnvelope => ({
   artifacts: [],
   capabilities: [],
@@ -245,6 +253,40 @@ describe("deterministic aggregation", () => {
       ).toThrow(/Incompatible/u);
     }
   );
+  it("pairs a CMP in another mode only with a baseline from its own server", () => {
+    const server = {
+      cwd: "fixture",
+      readinessTimeoutMs: 1000,
+      readinessUrl: "http://localhost:3000/health",
+      start: { args: ["start"], command: "pnpm" },
+    };
+    const baseline = envelope();
+    const candidate = envelope(true);
+    expect(
+      compareResults(
+        served(baseline, { server }),
+        served(candidate, { mode: "manifest", server }),
+        "initial.requests"
+      ).comparisons
+    ).toHaveLength(1);
+    expect(() =>
+      compareResults(
+        served(baseline, { server }),
+        served(candidate, {
+          mode: "manifest",
+          server: { ...server, cwd: "other" },
+        }),
+        "initial.requests"
+      )
+    ).toThrow(/compatible baseline/u);
+    expect(() =>
+      compareResults(
+        baseline,
+        served(candidate, { mode: "manifest" }),
+        "initial.requests"
+      )
+    ).toThrow(/compatible baseline/u);
+  });
   it("rejects different windows, framework versions, profiles and methods", () => {
     const candidate = envelope(true);
     expect(() =>
