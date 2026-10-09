@@ -67,6 +67,38 @@ function correctness(file, fixtureId) {
   return Object.fromEntries(caps.map((c) => [c.capability.replace(/^consent-flow:/, ""), c.status]));
 }
 
+// Input to next paint for the one click in each consent-flow check. The browser
+// reports no Event Timing entry for interactions under 16 ms, so a missing value
+// after a click that took effect reads "below-16ms". With no evidence the click
+// landed, it reads "unknown". The followup is a page-control click made a set
+// offset after the consent click, in a separate visit.
+const tookEffect = (sample) =>
+  sample.measurements.some((m) => ["action.dismissed", "action.consent-effective"].includes(m.key) && m.status === "measured");
+function click(sample, key, landed) {
+  const m = sample?.measurements.find((x) => x.key === key);
+  if (m?.status === "measured") return { ms: m.value, status: "measured" };
+  return { ms: null, status: sample && landed ? "below-16ms" : "unknown" };
+}
+
+function interactions(file, fixtureId) {
+  const env = readJson(file);
+  if (!env) return null;
+  return Object.fromEntries(["accept", "reject", "save"].map((flow) => {
+    const s = env.samples.find((x) => x.fixtureId === fixtureId && x.scenarioId === flow);
+    const probe = s?.diagnostics?.followupProbe;
+    const first = click(s, "action.input-to-next-paint", s && tookEffect(s));
+    const followup = click(probe, "action.followup-input-to-next-paint", probe?.status === "passed");
+    return [flow, {
+      inputToNextPaint: first.ms,
+      status: first.status,
+      visit: s?.status ?? null,
+      followupInputToNextPaint: followup.ms,
+      followupStatus: followup.status,
+      followupOffsetMs: s?.diagnostics?.followupOffsetMs ?? null,
+    }];
+  }));
+}
+
 function loadEntry(profile, fw, run, suffix = "") {
   if (run === "alpha9") {
     const dir = `${repo}/results/2026-10-09-alpha9/${profile}-final`;
@@ -74,6 +106,7 @@ function loadEntry(profile, fw, run, suffix = "") {
       env: readJson(`${dir}/${fw}-load/attempt-001/envelope.json`),
       compare: (m) => readJson(`${dir}/${fw}-load/attempt-001/compare-${m}/stdout.json`),
       flows: `${dir}/${fw}-correctness/result.json`,
+      flowEnvelope: `${dir}/${fw}-correctness/attempt-001/envelope.json`,
     };
   }
   const dir = `${repo}/results/2026-10-09`;
@@ -82,11 +115,12 @@ function loadEntry(profile, fw, run, suffix = "") {
     env: readJson(`${dir}/${profile}/${entry}/attempt-001/envelope.json`),
     compare: (m) => readJson(`${dir}/${profile}-reanalysis/${entry}/compare-${m}.json`) ?? readJson(`${dir}/${profile}/${entry}/attempt-001/compare-${m}/stdout.json`),
     flows: `${dir}/${profile}/${fw}${suffix}-correctness/result.json`,
+    flowEnvelope: `${dir}/${profile}/${fw}${suffix}-correctness/attempt-001/envelope.json`,
   };
 }
 
 function rowsFor(profile, fw, run, suffix, keep) {
-  const { env, compare, flows } = loadEntry(profile, fw, run, suffix);
+  const { env, compare, flows, flowEnvelope } = loadEntry(profile, fw, run, suffix);
   if (!env) throw new Error(`missing envelope: ${profile} ${fw}${suffix} ${run}`);
   const base = env.fixtures.find((x) => x.baseline);
   const baseline = { fixtureId: base.id, ...stats(env, base.id) };
@@ -111,6 +145,7 @@ function rowsFor(profile, fw, run, suffix, keep) {
       baseline,
       paired,
       flows: correctness(flows, f.id),
+      interactions: interactions(flowEnvelope, f.id),
     };
   });
 }
@@ -122,7 +157,9 @@ const csv = [[
   "baseline_fcp_ms", "baseline_lcp_ms", "baseline_transfer_bytes",
   "lcp_added_ms", "lcp_added_low", "lcp_added_high", "lcp_conclusion",
   "transfer_added_bytes", "transfer_added_low", "transfer_added_high",
-  "flow_load", "flow_accept", "flow_reject", "flow_save", "failure_reasons",
+  "flow_load", "flow_accept", "flow_reject", "flow_save",
+  "accept_inp_ms", "accept_inp_status", "reject_inp_ms", "reject_inp_status", "save_inp_ms", "save_inp_status",
+  "failure_reasons",
 ].join(",")];
 
 for (const profile of profiles) {
@@ -134,7 +171,7 @@ for (const profile of profiles) {
     const products = [...c15t, ...competitors, ...cookieYes];
     out.frameworks[fw] = { frameworkVersion: products[0].frameworkVersion, products };
     for (const r of products) {
-      const m = r.medians, b = r.baseline.medians, lcp = r.paired["page.lcp"], tr = r.paired["initial.transfer"];
+      const m = r.medians, b = r.baseline.medians, ix = r.interactions ?? {}, lcp = r.paired["page.lcp"], tr = r.paired["initial.transfer"];
       csv.push([
         profile, fw, r.frameworkVersion, r.product, r.version, r.run, r.host, r.passed, r.visits, r.sampleBasis,
         m["banner.visible"], m["page.ttfb"], m["page.fcp"], m["page.lcp"], m["initial.long-task-blocking"], m["page.cls"],
@@ -143,6 +180,7 @@ for (const profile of profiles) {
         lcp?.medianDifference, lcp?.ci?.[0], lcp?.ci?.[1], lcp?.conclusion,
         tr?.medianDifference, tr?.ci?.[0], tr?.ci?.[1],
         r.flows?.load, r.flows?.accept, r.flows?.reject, r.flows?.save,
+        ...["accept", "reject", "save"].flatMap((flow) => [ix[flow]?.inputToNextPaint, ix[flow]?.status]),
         `"${r.failureReasons.map((f) => `${f.message} (${f.visits})`).join("; ").replaceAll("\"", "'")}"`,
       ].map((v) => (v == null ? "" : typeof v === "number" ? Math.round(v * 1000) / 1000 : v)).join(","));
     }

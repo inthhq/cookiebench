@@ -4,7 +4,7 @@ Ten CMPs on six frameworks, desktop and mobile. The c15t rows are 3.0.0-alpha.9.
 
 ## Files
 
-- `matrix-desktop.json`, `matrix-mobile.json`: one entry per framework, with one product per CMP. Each product carries its medians, its own no-CMP baseline, paired deltas against that baseline, and its consent-flow checks.
+- `matrix-desktop.json`, `matrix-mobile.json`: one entry per framework, with one product per CMP. Each product carries its medians, its own no-CMP baseline, paired deltas against that baseline, its consent-flow checks, and the click timing from each flow.
 - `matrix.csv`: the same rows flattened, both profiles in one file.
 - `build.mjs`: rebuilds the three files from `../2026-10-09` and `../2026-10-09-alpha9`. Run `node results/2026-10-09-merged/build.mjs` from the repository root.
 
@@ -74,3 +74,17 @@ The fixture proxy compressed streamed HTML at Brotli quality 11. That cost about
 - `conclusion`: `candidate-higher`, `candidate-lower` or `inconclusive`.
 
 `flows` holds `load`, `accept`, `reject` and `save`. Each is `verified`, `failed` or `unknown`.
+
+`interactions` holds `accept`, `reject` and `save`, timed in the same consent-flow checks:
+
+- `inputToNextPaint`: ms from the click on the banner button to the next paint, from the browser's Event Timing API, in 8 ms steps.
+- `status`:
+  - `measured`: there's a value.
+  - `below-16ms`: the click took effect, but the browser reported no timing. It doesn't report interactions under 16 ms, so read it as "under 16 ms", not as zero.
+  - `unknown`: nothing shows the click landed, for example because the banner never appeared.
+- `visit`: the status of the visit the click came from (`passed`, `incomplete` or `failed`). Osano's visits are all `incomplete` for the byte-accounting reason above, but their click timings still stand.
+- `followupInputToNextPaint`, `followupStatus`: the same measurement for a click on a page control `followupOffsetMs` after the consent click, in a separate visit. It shows whether the page responds right after the banner closes.
+
+The CSV carries `accept_inp_ms`, `accept_inp_status` and the same pair for reject and save.
+
+These are lab click timings, not INP. Field INP is the slowest interaction over a whole page visit. There's one click per flow per framework, so they show outliers, such as Didomi's mobile save at 104–120 ms, but can't rank CMPs that sit within 8 ms of each other. `page.lab-inp` is left out: load visits make no clicks, so the harness withholds it.

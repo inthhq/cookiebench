@@ -1,6 +1,6 @@
 {
   "profile": "mobile",
-  "generatedAt": "2026-10-09T19:02:52.266Z",
+  "generatedAt": "2026-10-09T20:33:54.559Z",
   "runs": {
     "matrix": {
       "id": "matrix-2026-10-09",
@@ -125,6 +125,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 40,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 40,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 32,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 24,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -233,6 +259,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "unknown"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "incomplete",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -341,6 +393,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 16,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 16,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 104,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -434,6 +512,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 56,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 56,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 40,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -542,6 +646,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "failed"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 32,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 16,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "failed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -640,6 +770,32 @@
             "accept": "failed",
             "reject": "failed",
             "save": "failed"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "failed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "failed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "failed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -748,6 +904,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 16,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 24,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 40,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 48,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 24,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -846,6 +1028,32 @@
             "accept": "unknown",
             "reject": "unknown",
             "save": "unknown"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 128,
+              "status": "measured",
+              "visit": "incomplete",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 88,
+              "status": "measured",
+              "visit": "incomplete",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 96,
+              "status": "measured",
+              "visit": "incomplete",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -954,6 +1162,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": null,
+              "status": "below-16ms",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": null,
+              "status": "below-16ms",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": null,
+              "status": "below-16ms",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -1062,6 +1296,32 @@
             "accept": "failed",
             "reject": "failed",
             "save": "unknown"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "failed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "failed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "incomplete",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            }
           }
         }
       ]
@@ -1172,6 +1432,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 32,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 32,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 32,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -1277,6 +1563,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "unknown"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "incomplete",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -1382,6 +1694,32 @@
             "accept": "verified",
             "reject": "failed",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "failed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 112,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -1475,6 +1813,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 56,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 64,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 40,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -1580,6 +1944,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 32,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 32,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -1678,6 +2068,32 @@
             "accept": "failed",
             "reject": "failed",
             "save": "failed"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "failed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "failed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "failed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -1783,6 +2199,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 24,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 16,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 24,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 48,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 32,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -1881,6 +2323,32 @@
             "accept": "unknown",
             "reject": "unknown",
             "save": "unknown"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 120,
+              "status": "measured",
+              "visit": "incomplete",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 88,
+              "status": "measured",
+              "visit": "incomplete",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 80,
+              "status": "measured",
+              "visit": "incomplete",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -1986,6 +2454,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": null,
+              "status": "below-16ms",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": null,
+              "status": "below-16ms",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": null,
+              "status": "below-16ms",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -2091,6 +2585,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "unknown"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 16,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 16,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "incomplete",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            }
           }
         }
       ]
@@ -2204,6 +2724,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 32,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 40,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -2312,6 +2858,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "unknown"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 16,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "incomplete",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -2420,6 +2992,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": null,
+              "status": "below-16ms",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 112,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -2513,6 +3111,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 48,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 48,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 40,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -2621,6 +3245,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 40,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -2719,6 +3369,32 @@
             "accept": "failed",
             "reject": "failed",
             "save": "failed"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "failed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "failed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "failed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -2827,6 +3503,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 16,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 24,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 24,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 40,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -2929,6 +3631,32 @@
             "accept": "unknown",
             "reject": "unknown",
             "save": "unknown"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 120,
+              "status": "measured",
+              "visit": "incomplete",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 80,
+              "status": "measured",
+              "visit": "incomplete",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 80,
+              "status": "measured",
+              "visit": "incomplete",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -3037,6 +3765,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": null,
+              "status": "below-16ms",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": null,
+              "status": "below-16ms",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -3145,6 +3899,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "unknown"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 16,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "incomplete",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            }
           }
         }
       ]
@@ -3258,6 +4038,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 48,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 40,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 40,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -3366,6 +4172,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "unknown"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "incomplete",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -3474,6 +4306,32 @@
             "accept": "verified",
             "reject": "failed",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 16,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "failed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 112,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -3567,6 +4425,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 56,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 56,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 48,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -3675,6 +4559,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 40,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 32,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 40,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -3773,6 +4683,32 @@
             "accept": "failed",
             "reject": "failed",
             "save": "failed"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "failed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "failed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "failed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -3881,6 +4817,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 16,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 40,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 24,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 24,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -3979,6 +4941,32 @@
             "accept": "unknown",
             "reject": "unknown",
             "save": "unknown"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 128,
+              "status": "measured",
+              "visit": "incomplete",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 96,
+              "status": "measured",
+              "visit": "incomplete",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 88,
+              "status": "measured",
+              "visit": "incomplete",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -4087,6 +5075,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": null,
+              "status": "below-16ms",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 16,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": null,
+              "status": "below-16ms",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -4195,6 +5209,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "unknown"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "incomplete",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            }
           }
         }
       ]
@@ -4308,6 +5348,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 40,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 24,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 32,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 40,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -4416,6 +5482,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "unknown"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "incomplete",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -4524,6 +5616,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 16,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": null,
+              "status": "below-16ms",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 120,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -4617,6 +5735,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 48,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 56,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 48,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -4715,6 +5859,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 40,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -4813,6 +5983,32 @@
             "accept": "failed",
             "reject": "failed",
             "save": "failed"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "failed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "failed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "failed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -4921,6 +6117,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 16,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 24,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 16,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 24,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 32,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 32,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -5019,6 +6241,32 @@
             "accept": "unknown",
             "reject": "unknown",
             "save": "unknown"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 128,
+              "status": "measured",
+              "visit": "incomplete",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 88,
+              "status": "measured",
+              "visit": "incomplete",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 88,
+              "status": "measured",
+              "visit": "incomplete",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -5127,6 +6375,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": null,
+              "status": "below-16ms",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": null,
+              "status": "below-16ms",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 16,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -5235,6 +6509,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "unknown"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 16,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "incomplete",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            }
           }
         }
       ]
@@ -5348,6 +6648,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 40,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 32,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 48,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -5456,6 +6782,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "unknown"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 16,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "incomplete",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -5564,6 +6916,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 16,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 16,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 112,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -5657,6 +7035,32 @@
             "accept": "verified",
             "reject": "failed",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 48,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "failed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 40,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -5755,6 +7159,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 24,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 32,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 40,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -5853,6 +7283,32 @@
             "accept": "failed",
             "reject": "failed",
             "save": "failed"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "failed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "failed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "failed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -5961,6 +7417,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 16,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 24,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 16,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 24,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 32,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 40,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -6059,6 +7541,32 @@
             "accept": "unknown",
             "reject": "unknown",
             "save": "unknown"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 128,
+              "status": "measured",
+              "visit": "incomplete",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 88,
+              "status": "measured",
+              "visit": "incomplete",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": 80,
+              "status": "measured",
+              "visit": "incomplete",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -6167,6 +7675,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "verified"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": null,
+              "status": "below-16ms",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": null,
+              "status": "below-16ms",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": null,
+              "status": "below-16ms",
+              "visit": "passed",
+              "followupInputToNextPaint": null,
+              "followupStatus": "below-16ms",
+              "followupOffsetMs": 500
+            }
           }
         },
         {
@@ -6275,6 +7809,32 @@
             "accept": "verified",
             "reject": "verified",
             "save": "unknown"
+          },
+          "interactions": {
+            "accept": {
+              "inputToNextPaint": 16,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "reject": {
+              "inputToNextPaint": 16,
+              "status": "measured",
+              "visit": "passed",
+              "followupInputToNextPaint": 16,
+              "followupStatus": "measured",
+              "followupOffsetMs": 500
+            },
+            "save": {
+              "inputToNextPaint": null,
+              "status": "unknown",
+              "visit": "incomplete",
+              "followupInputToNextPaint": null,
+              "followupStatus": "unknown",
+              "followupOffsetMs": 500
+            }
           }
         }
       ]
