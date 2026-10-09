@@ -29,9 +29,15 @@ function varyOnEncoding(headers: IncomingHttpHeaders) {
 }
 
 // Flushing each input chunk lets streamed HTML reach the browser before upstream ends.
+// Dynamic HTML differs on every visit, so it pays for compression each time.
+// Brotli's default quality 11 took about 100 ms on a 90 KB page; hosts compress
+// dynamic responses at a low quality, and 5 takes under 2 ms.
 function streamingCompressor(encoding: ContentEncoding) {
   if (encoding === "br") {
-    return createBrotliCompress({ flush: constants.BROTLI_OPERATION_FLUSH });
+    return createBrotliCompress({
+      flush: constants.BROTLI_OPERATION_FLUSH,
+      params: { [constants.BROTLI_PARAM_QUALITY]: 5 },
+    });
   }
   return encoding === "gzip"
     ? createGzip({ flush: constants.Z_SYNC_FLUSH })

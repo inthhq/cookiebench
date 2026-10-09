@@ -7,7 +7,14 @@ import type {
   ServerResponse,
 } from "node:http";
 import type { AddressInfo } from "node:net";
-import { createBrotliDecompress, createGunzip, gzipSync } from "node:zlib";
+import {
+  brotliCompressSync,
+  brotliDecompressSync,
+  constants,
+  createBrotliDecompress,
+  createGunzip,
+  gzipSync,
+} from "node:zlib";
 
 import { afterEach, describe, expect, it } from "vitest";
 
@@ -98,6 +105,48 @@ describe("production proxy HTML compression", () => {
       }
     }
   );
+  // Quality 11 took about 100 ms for a 90 KB c15t page, all of it added before
+  // the first byte; hosts compress dynamic HTML at a low quality.
+  it("compresses streamed HTML at a dynamic-response Brotli quality", async () => {
+    let state = 2_463_534_242;
+    const words: string[] = [];
+    for (let i = 0; i < 3000; i += 1) {
+      state ^= state << 13;
+      state ^= state >>> 17;
+      state ^= state << 5;
+      state >>>= 0;
+      words.push(`<span class="w${(state % 4000).toString(36)}">x</span>`);
+    }
+    const page = Buffer.from(`<html><body>${words.join("")}</body></html>`);
+    const upstreamPort = await listen((_incoming, outgoing) => {
+      outgoing.writeHead(200, { "Content-Type": "text/html" });
+      outgoing.end(page);
+    });
+    const proxyPort = await listen((incoming, outgoing) => {
+      const req = request(
+        { hostname: "127.0.0.1", port: upstreamPort },
+        (response) =>
+          forwardResponse(response, outgoing, {
+            acceptEncoding: incoming.headers["accept-encoding"],
+          })
+      );
+      req.end();
+    });
+    const response = await open(proxyPort, "br");
+    const chunks: Buffer[] = [];
+    for await (const chunk of response) {
+      chunks.push(Buffer.from(chunk));
+    }
+    const body = Buffer.concat(chunks);
+    const quality = (q: number) =>
+      brotliCompressSync(page, {
+        params: { [constants.BROTLI_PARAM_QUALITY]: q },
+      }).length;
+    expect(brotliDecompressSync(body)).toEqual(page);
+    expect(Math.abs(body.length - quality(5))).toBeLessThan(
+      Math.abs(body.length - quality(11))
+    );
+  });
   it("preserves already encoded upstream bytes and headers", async () => {
     const body = gzipSync(html + tail);
     const upstreamPort = await listen((_incoming, outgoing) => {
