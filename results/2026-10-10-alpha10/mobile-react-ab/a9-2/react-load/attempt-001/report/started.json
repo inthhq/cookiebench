@@ -1,0 +1,11 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "report",
+    "--file",
+    "../../home/kaylee/.t3/worktrees/cookiebench/t3code-cef51b81/results/2026-10-10-alpha10/mobile-react-ab/a9-2/react-load/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "startedAt": "2026-10-10T16:54:11.073Z"
+}

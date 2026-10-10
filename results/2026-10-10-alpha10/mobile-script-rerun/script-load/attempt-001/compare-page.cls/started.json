@@ -1,0 +1,19 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "results/2026-10-10-alpha10/mobile-script-rerun/script-load/attempt-001/envelope.json",
+    "--candidate",
+    "results/2026-10-10-alpha10/mobile-script-rerun/script-load/attempt-001/envelope.json",
+    "--metric",
+    "page.cls",
+    "--family",
+    "batch:aff5e4c5d1f54c65d3fab8eb889e0e0310fdb15b838f14e22be9259d03fe2f4c",
+    "--family-size",
+    "6"
+  ],
+  "cwd": ".",
+  "startedAt": "2026-10-10T16:38:01.926Z"
+}

@@ -1,0 +1,21 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "run",
+    "--config",
+    "results/2026-10-10-alpha10/configs/nextjs-desktop.json",
+    "--scenario",
+    "load",
+    "--iterations",
+    "15",
+    "--warmups",
+    "3",
+    "--seed",
+    "20261009",
+    "--output",
+    "results/2026-10-10-alpha10/desktop-nextjs-rerun/nextjs-load/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "startedAt": "2026-10-10T16:30:44.264Z"
+}

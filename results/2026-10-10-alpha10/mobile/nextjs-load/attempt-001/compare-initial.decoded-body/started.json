@@ -1,0 +1,19 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "results/2026-10-10-alpha10/mobile/nextjs-load/attempt-001/envelope.json",
+    "--candidate",
+    "results/2026-10-10-alpha10/mobile/nextjs-load/attempt-001/envelope.json",
+    "--metric",
+    "initial.decoded-body",
+    "--family",
+    "batch:4ef28f9e4b8f367af375283cc0e93ad1562c916f1127aa9d48cb91771594a8d4",
+    "--family-size",
+    "36"
+  ],
+  "cwd": ".",
+  "startedAt": "2026-10-10T16:08:11.653Z"
+}

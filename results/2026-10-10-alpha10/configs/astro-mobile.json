@@ -1,0 +1,224 @@
+{
+  "fixtures": [
+    {
+      "adapter": {
+        "accept": "[data-testid=\"consent-banner-accept-button\"]",
+        "banner": "[data-testid=\"consent-banner-root\"]",
+        "categoryToggle": "[data-testid=\"consent-widget-switch-measurement\"]",
+        "controlledRequestPath": "/controlled/script",
+        "overlay": "[data-testid=\"consent-dialog-overlay\"], [data-testid=\"consent-banner-overlay\"]",
+        "pageAction": "#page-action",
+        "preferences": "[data-testid=\"consent-banner-customize-button\"]",
+        "preferencesPanel": "[data-testid=\"consent-dialog-root\"]",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": "[data-testid=\"consent-banner-reject-button\"]",
+        "reopen": "#reopen-preferences",
+        "save": "[data-testid=\"consent-widget-footer-save-button\"]",
+        "serverEventsUrl": "http://127.0.0.1:4315/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": "[data-testid=\"consent-widget-footer-reject-button\"], [data-testid=\"consent-widget-reject-button\"]"
+      },
+      "baseline": true,
+      "configurationHash": "01bae7cf6138da32fa8ad5a4383d33c93e431f84597e205879f6bd9af534d9fa",
+      "deployment": {
+        "assets": "local",
+        "backend": "none"
+      },
+      "framework": "astro",
+      "frameworkVersion": "5.18.2",
+      "id": "astro-baseline",
+      "mode": "manifest",
+      "presentation": "default",
+      "product": "baseline",
+      "provenance": {
+        "artifactIntegrity": "sha512-TnFwLnAXty5MXKPDGuKXqK4AMBXG+FH6RUdK7Oyc3gyfNoFIthT+4eRbzOK43bdRlLaZuxgciDSjgtggZ3OtGQ==",
+        "lockfileHash": "a924fbd8f226ce74f96eb932f8f0397abdd5a640309ef37011f18e8f8a6e2294",
+        "sourceUrl": "https://registry.npmjs.org/astro/-/astro-5.18.2.tgz"
+      },
+      "revision": "3.3.0-article-v1-inth-build-manifest-matrix",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": [
+            "build"
+          ],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-astro",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4315/health",
+        "start": {
+          "args": [
+            "start"
+          ],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4315/baseline/",
+      "version": "5.18.2"
+    },
+    {
+      "adapter": {
+        "accept": "[data-testid=\"consent-banner-accept-button\"]",
+        "banner": "[data-testid=\"consent-banner-root\"]",
+        "categoryToggle": "[data-testid=\"consent-widget-switch-measurement\"]",
+        "controlledRequestPath": "/controlled/script",
+        "overlay": "[data-testid=\"consent-dialog-overlay\"], [data-testid=\"consent-banner-overlay\"]",
+        "pageAction": "#page-action",
+        "preferences": "[data-testid=\"consent-banner-customize-button\"]",
+        "preferencesPanel": "[data-testid=\"consent-dialog-root\"]",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": "[data-testid=\"consent-banner-reject-button\"]",
+        "reopen": "#reopen-preferences",
+        "save": "[data-testid=\"consent-widget-footer-save-button\"]",
+        "serverEventsUrl": "http://127.0.0.1:4315/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": "[data-testid=\"consent-widget-footer-reject-button\"], [data-testid=\"consent-widget-reject-button\"]"
+      },
+      "baseline": false,
+      "configurationHash": "8a751bac3b7a380c79781d2dfc9b526feb6db2d56b4fd25dfe47c730e0d890df",
+      "deployment": {
+        "assets": "local",
+        "backend": "remote-service"
+      },
+      "framework": "astro",
+      "frameworkVersion": "5.18.2",
+      "id": "astro-c15t",
+      "mode": "manifest",
+      "presentation": "default",
+      "product": "c15t",
+      "provenance": {
+        "artifactIntegrity": "sha512-zGX0vfr6h2RVyYzBsaW/2lmXCdkZ/eek7Dg43GmqGK53are+wwEJSd3tpxtRc+y4Yu191WrT2joykUEk/9T3/w==",
+        "lockfileHash": "a924fbd8f226ce74f96eb932f8f0397abdd5a640309ef37011f18e8f8a6e2294",
+        "sourceUrl": "https://registry.npmjs.org/@c15t/astro/-/astro-3.0.0-alpha.10.tgz"
+      },
+      "revision": "3.3.0-article-v1-inth-build-manifest-inline-styles-matrix",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": [
+            "build"
+          ],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-astro",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4315/health",
+        "start": {
+          "args": [
+            "start"
+          ],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4315/",
+      "version": "3.0.0-alpha.10"
+    }
+  ],
+  "scenarios": [
+    {
+      "action": "load",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "load",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 5000,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": [
+          "measurement",
+          "marketing"
+        ],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "accept",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "accept",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": [
+          "measurement",
+          "marketing"
+        ],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "reject",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "reject",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": [
+          "measurement",
+          "marketing"
+        ],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "save",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "save",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": [
+          "measurement",
+          "marketing"
+        ],
+        "scriptCount": 2
+      }
+    }
+  ],
+  "profile": {
+    "cpuSlowdown": 4,
+    "deviceScaleFactor": 3,
+    "hasTouch": true,
+    "id": "mobile-article-v1",
+    "isMobile": true,
+    "locale": "en-GB",
+    "network": {
+      "downloadBytesPerSecond": 200000,
+      "latencyMs": 150,
+      "uploadBytesPerSecond": 93750
+    },
+    "region": "GB",
+    "userAgent": "Mozilla/5.0 (Linux; Android 13; CookieBench Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    }
+  },
+  "iterations": 15,
+  "warmups": 3,
+  "seed": 42
+}

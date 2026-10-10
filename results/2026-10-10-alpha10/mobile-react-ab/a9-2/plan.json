@@ -1,0 +1,10 @@
+{
+  "entries": [
+    {
+      "config": "results/2026-10-09-alpha9/configs/react-mobile.json",
+      "id": "react-load",
+      "kind": "load"
+    }
+  ],
+  "seed": 20261009
+}

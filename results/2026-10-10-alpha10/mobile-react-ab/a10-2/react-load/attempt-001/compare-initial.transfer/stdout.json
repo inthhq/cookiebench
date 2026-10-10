@@ -1,0 +1,89 @@
+{
+  "status": "incomplete",
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "comparisons": [
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 551856,
+        "mean": 551856.0000000001,
+        "measured": 15,
+        "median": 551856,
+        "min": 551856,
+        "missing": 0,
+        "p75": 551856,
+        "passed": 15
+      },
+      "baselineFixtureId": "react-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 14,
+        "censoring": null,
+        "eligibilityReasons": [
+          "Metric initial.transfer is unavailable."
+        ],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 1,
+        "max": 651694,
+        "mean": 651124.5714285715,
+        "measured": 14,
+        "median": 651693,
+        "min": 647721,
+        "missing": 1,
+        "p75": 651693.75,
+        "passed": 14
+      },
+      "candidateFixtureId": "react-c15t",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "local",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Required metric measurements are missing.",
+        "Eligible metric observations do not have complete one-to-one pairing within the same run.",
+        "Fewer than 15 eligible paired metric observations."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 14,
+        "medianDifference": 99837,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": 99837.75
+        },
+        "pairDifferenceP75": 99837.75
+      },
+      "scenarioId": "load",
+      "unit": "bytes"
+    }
+  ],
+  "metricKey": "initial.transfer",
+  "multiplicity": {
+    "comparisons": 6,
+    "family": "batch:ff26dffb359ef9d6c418f83b0b6f080384d886d4f1f0265137c5effcba0e619d",
+    "familyLevel": 0.95,
+    "intervalLevel": 0.9958333333333333,
+    "intervals": 12,
+    "method": "bonferroni"
+  },
+  "sourceRunIds": [
+    "56a3221c-f1a0-413d-be59-ac0dea2ed92b"
+  ]
+}

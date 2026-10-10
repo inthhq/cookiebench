@@ -1,0 +1,16 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "report",
+    "--file",
+    "results/2026-10-10-alpha10/desktop/react-load/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-10T15:54:18.313Z",
+  "startedAt": "2026-10-10T15:54:17.878Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "4fd14ec163397749c83af5e7d62c7cabac415f3ad29816a24dd879a0c2e92443"
+}

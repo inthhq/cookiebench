@@ -1,0 +1,95 @@
+{
+  "status": "passed",
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "comparisons": [
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3188,
+        "mean": 3161.3333333333335,
+        "measured": 15,
+        "median": 3160,
+        "min": 3148,
+        "missing": 0,
+        "p75": 3166,
+        "passed": 15
+      },
+      "baselineFixtureId": "nuxt-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3684,
+        "mean": 3665.066666666667,
+        "measured": 15,
+        "median": 3664,
+        "min": 3648,
+        "missing": 0,
+        "p75": 3668,
+        "passed": 15
+      },
+      "candidateFixtureId": "nuxt-c15t",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "local",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 512,
+          "level": 0.9993055555555556,
+          "low": 492,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 29000
+        },
+        "count": 15,
+        "medianDifference": 504,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 525.8618055555489,
+            "level": 0.9993055555555556,
+            "low": 478,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 29000
+          },
+          "estimate": 502
+        },
+        "pairDifferenceP75": 510
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    }
+  ],
+  "metricKey": "page.primary-content-paint",
+  "multiplicity": {
+    "comparisons": 36,
+    "family": "batch:4ef28f9e4b8f367af375283cc0e93ad1562c916f1127aa9d48cb91771594a8d4",
+    "familyLevel": 0.95,
+    "intervalLevel": 0.9993055555555556,
+    "intervals": 72,
+    "method": "bonferroni"
+  },
+  "sourceRunIds": [
+    "3797a073-a4f7-44d6-93d1-1b12c5215c69"
+  ]
+}

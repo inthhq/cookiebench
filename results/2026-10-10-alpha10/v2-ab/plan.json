@@ -1,0 +1,15 @@
+{
+  "entries": [
+    {
+      "config": "results/2026-10-10-alpha10/v2-ab/nextjs-desktop.json",
+      "id": "nextjs-desktop-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-10-alpha10/v2-ab/nextjs-mobile.json",
+      "id": "nextjs-mobile-load",
+      "kind": "load"
+    }
+  ],
+  "seed": 20261009
+}

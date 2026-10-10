@@ -1,0 +1,21 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "run",
+    "--config",
+    "results/2026-10-09-alpha9/configs/react-mobile.json",
+    "--scenario",
+    "load",
+    "--iterations",
+    "15",
+    "--warmups",
+    "3",
+    "--seed",
+    "20261009",
+    "--output",
+    "../../home/kaylee/.t3/worktrees/cookiebench/t3code-cef51b81/results/2026-10-10-alpha10/mobile-react-ab/a9-1/react-load/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "startedAt": "2026-10-10T16:43:15.839Z"
+}

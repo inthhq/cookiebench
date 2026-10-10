@@ -1,0 +1,77 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:d4f87a34-029f-436c-9ca5-4365744547de"
+      ],
+      "fixtureId": "astro-c15t",
+      "framework": "astro",
+      "id": "af8e9e0d-b845-43c0-8936-827989697c52",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-10T16:27:31.479Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:700a0d53-49e5-4de0-94ee-27ba16ea81e3"
+      ],
+      "fixtureId": "astro-c15t",
+      "framework": "astro",
+      "id": "dd332b5f-954c-46ae-936e-bc4fd57672c9",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-10T16:27:31.479Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:6916f6f9-39ef-47a3-a663-ba12cfccd4f7"
+      ],
+      "fixtureId": "astro-c15t",
+      "framework": "astro",
+      "id": "82eed5ce-b1c0-4fcf-8416-b77a7f42417e",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-10T16:27:31.479Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:0190f1f1-687b-4139-b692-4ada72654257"
+      ],
+      "fixtureId": "astro-c15t",
+      "framework": "astro",
+      "id": "a5cfe931-c85a-4b59-ba22-601204a20113",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-10T16:27:31.479Z"
+    }
+  ],
+  "failures": [
+    {
+      "sampleId": "ca258903-0d40-4b9a-9b32-73512929e859",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: page.lcp, initial.transfer"
+    },
+    {
+      "sampleId": "76ef85d6-767d-4ed9-a0b8-7297bc0b2317",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: page.lcp, initial.transfer"
+    },
+    {
+      "sampleId": "87824cd8-1414-4f77-a72e-84c4e1de545d",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: page.lcp, initial.transfer"
+    }
+  ],
+  "output": "/home/kaylee/.t3/worktrees/cookiebench/t3code-cef51b81/results/2026-10-10-alpha10/mobile/astro-correctness/attempt-001/envelope.json",
+  "runId": "5eef269f-6e5a-48f6-9986-2ff6afdef960",
+  "samples": 8,
+  "status": "incomplete"
+}

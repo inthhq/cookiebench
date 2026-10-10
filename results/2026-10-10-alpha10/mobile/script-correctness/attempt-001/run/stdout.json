@@ -1,0 +1,77 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:25d96664-c538-4715-9d6f-adf5029bdcbb"
+      ],
+      "fixtureId": "script-tag-c15t-inth-init",
+      "framework": "script-tag",
+      "id": "ea4b31af-6b48-4d43-b0f9-c3acc2b9222e",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-10T16:30:42.741Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:50d2170c-2677-44e0-b890-43f6a530be3f"
+      ],
+      "fixtureId": "script-tag-c15t-inth-init",
+      "framework": "script-tag",
+      "id": "20191aa7-b38a-4243-a94b-3c6e4d5d5759",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-10T16:30:42.741Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:b5bd2c56-2298-407f-a3e6-fb2a46007f8b"
+      ],
+      "fixtureId": "script-tag-c15t-inth-init",
+      "framework": "script-tag",
+      "id": "211537e3-49b8-414a-a08c-cd495722e672",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-10T16:30:42.741Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:a48a007b-bc3f-47af-acdc-321aa7d2e9a5"
+      ],
+      "fixtureId": "script-tag-c15t-inth-init",
+      "framework": "script-tag",
+      "id": "cb22b319-d388-400d-9aa1-96e1d0dcc8a2",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-10T16:30:42.741Z"
+    }
+  ],
+  "failures": [
+    {
+      "sampleId": "b3b919bb-c45c-45ad-9cba-945cea725b41",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: page.lcp, initial.transfer"
+    },
+    {
+      "sampleId": "0b398d0e-b039-4902-a4fc-5449e06fb017",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: page.lcp, initial.transfer"
+    },
+    {
+      "sampleId": "e6d712c5-6a27-433b-8eb3-452d3ac5fe27",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: page.lcp, initial.transfer"
+    }
+  ],
+  "output": "/home/kaylee/.t3/worktrees/cookiebench/t3code-cef51b81/results/2026-10-10-alpha10/mobile/script-correctness/attempt-001/envelope.json",
+  "runId": "e226212a-c4a8-41d6-ace3-a132bb132bc0",
+  "samples": 8,
+  "status": "incomplete"
+}

@@ -1,0 +1,16 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "report",
+    "--file",
+    "results/2026-10-10-alpha10/mobile/astro-load/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-10T16:15:46.128Z",
+  "startedAt": "2026-10-10T16:15:45.558Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "19c35188bac8fcd304a67acaeef8dba95e7c575c0f5c7470921873b86f7a15dc"
+}

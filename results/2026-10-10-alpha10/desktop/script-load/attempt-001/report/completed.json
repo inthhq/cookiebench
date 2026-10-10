@@ -1,0 +1,16 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "report",
+    "--file",
+    "results/2026-10-10-alpha10/desktop/script-load/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-10T15:57:54.918Z",
+  "startedAt": "2026-10-10T15:57:53.472Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "31c02d45ab8080c4c9a52de12a86d384f435c3ca1f4c67f8db81b07d8ca2ed4f"
+}

@@ -1,0 +1,19 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "../../home/kaylee/.t3/worktrees/cookiebench/t3code-cef51b81/results/2026-10-10-alpha10/mobile-react-ab/a9-2/react-load/attempt-001/envelope.json",
+    "--candidate",
+    "../../home/kaylee/.t3/worktrees/cookiebench/t3code-cef51b81/results/2026-10-10-alpha10/mobile-react-ab/a9-2/react-load/attempt-001/envelope.json",
+    "--metric",
+    "initial.encoded-body",
+    "--family",
+    "batch:c5a2ef9b9784faeaa653bc26d846128ec183956ed391f062a55d797d2c435d81",
+    "--family-size",
+    "6"
+  ],
+  "cwd": ".",
+  "startedAt": "2026-10-10T16:54:14.175Z"
+}

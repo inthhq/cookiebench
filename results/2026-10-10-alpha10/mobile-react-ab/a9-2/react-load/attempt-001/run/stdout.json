@@ -1,0 +1,36 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:28ab0173-42fa-4192-8b63-d1cb4641b711",
+        "sample:853fd401-f3e8-45b5-b3ed-1b31cfe76c5c",
+        "sample:5a42fdab-9f37-4e3e-a705-66eb92749073",
+        "sample:454ed08d-c2f8-499e-bbc0-e5c6959f2594",
+        "sample:a228db88-62e0-4c8d-b131-5e315efa03a9",
+        "sample:c5b48667-d2de-4cc9-84f7-9ecec4fd4733",
+        "sample:6f6444ff-fc5c-424a-b534-867516fd5796",
+        "sample:f208dc01-a896-4176-a930-b1433c1dc0eb",
+        "sample:207fc95e-173e-4957-9a8f-0e5cef2aa4ef",
+        "sample:d26ba57e-a181-49a0-b604-def838943c2e",
+        "sample:17f9716f-9915-419d-bde0-cfd24ff1e867",
+        "sample:0cdd516c-3b79-4d94-a475-ff1be42a36e7",
+        "sample:9a8f7cdd-96bf-4834-a7ec-98bae0301ca5",
+        "sample:a0e27575-1f46-4dfa-bc28-6afcc9176a1b",
+        "sample:593fb89b-45c4-4470-b5b9-09d11d85459b"
+      ],
+      "fixtureId": "react-c15t",
+      "framework": "react",
+      "id": "030fc517-3643-473e-8507-8c1562a10bec",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-10T16:54:10.406Z"
+    }
+  ],
+  "failures": [],
+  "output": "/home/kaylee/.t3/worktrees/cookiebench/t3code-cef51b81/results/2026-10-10-alpha10/mobile-react-ab/a9-2/react-load/attempt-001/envelope.json",
+  "runId": "6c44b96d-0ce5-43be-ae8c-e9875477d6e4",
+  "samples": 30,
+  "status": "passed"
+}

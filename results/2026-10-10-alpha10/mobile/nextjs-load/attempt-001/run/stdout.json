@@ -1,0 +1,36 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:60a2825d-2558-420e-9706-f0e6bd39b53e",
+        "sample:e544a3bf-4bfa-40bd-a4a9-2cc3357a5407",
+        "sample:1039943e-2c2e-4549-924d-fab50317b69f",
+        "sample:9d94925d-4fe1-4ad1-ba39-5099ed0f8121",
+        "sample:d3055256-829b-47f7-8408-ccc807cd6117",
+        "sample:2a72fb70-9281-4e70-932a-5b5b67b2cecd",
+        "sample:4fdc6349-b1c2-45ec-a5e9-73b1922b106b",
+        "sample:8d9af3e3-c672-4edd-b3e1-54ff9e414009",
+        "sample:9255b1b5-8876-403b-816e-586ee6943a7b",
+        "sample:2624a772-14cf-456f-b466-7f828bdd22bc",
+        "sample:0ba469b0-f4e8-41bc-8ebc-a7b5aad75aeb",
+        "sample:9271f2c0-fcf0-4745-b75f-c03df145d5db",
+        "sample:60ff46e0-6e4d-41ed-bddd-e4a2c1cb39af",
+        "sample:7de97126-3b52-4f77-a464-634c2a2f4b56",
+        "sample:3d8c118f-f560-455a-bdc3-f6d4b4e3b104"
+      ],
+      "fixtureId": "nextjs-c15t",
+      "framework": "nextjs",
+      "id": "2bf2d3f8-0cbb-4f48-bc92-09b99c667b0a",
+      "mode": "manifest",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-10T16:08:06.839Z"
+    }
+  ],
+  "failures": [],
+  "output": "/home/kaylee/.t3/worktrees/cookiebench/t3code-cef51b81/results/2026-10-10-alpha10/mobile/nextjs-load/attempt-001/envelope.json",
+  "runId": "1ba46ee9-e79a-4b45-85cb-7a952f280f7a",
+  "samples": 30,
+  "status": "passed"
+}

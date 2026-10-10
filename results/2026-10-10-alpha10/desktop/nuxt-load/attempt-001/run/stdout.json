@@ -1,0 +1,42 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:bd28f955-1549-427f-a284-b42595e99539",
+        "sample:a73fedb6-3571-449f-87ab-79fb9cd63859",
+        "sample:63d7fb5f-a950-4cdd-9976-b8fd22d1eb20",
+        "sample:e2412599-0ea2-477d-b1fe-8f92510f0c81",
+        "sample:aa16745b-37a4-4aac-96bb-f16f76bff16d",
+        "sample:87920690-65cc-41c3-b55d-d965209c4f62",
+        "sample:cc47fc73-a374-45cf-8fd9-51199a3cc8ac",
+        "sample:eacf9dc1-794e-4379-8001-8f7f3bb18943",
+        "sample:7058f018-a2f8-4398-a10a-535fa684a5e6",
+        "sample:ccaca656-f9ad-4fa8-810b-353f6dbbfe8d",
+        "sample:a52d942e-a4d0-4fcb-b0db-ebf73064e40c",
+        "sample:afaf3d4f-8675-41d8-86d9-454a3cd8eab2",
+        "sample:a00de9c6-db6e-4471-81e6-dc51f5eaf35c",
+        "sample:d3623009-e099-4824-8cfb-bbe96778afee",
+        "sample:00853953-9c6e-4492-bad1-f3c3d8e22e81"
+      ],
+      "fixtureId": "nuxt-c15t",
+      "framework": "nuxt",
+      "id": "e5f7c6ef-f88b-4840-bf14-41b0e5616406",
+      "mode": "manifest",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-10T15:43:23.437Z"
+    }
+  ],
+  "failures": [
+    {
+      "sampleId": "74f9cd24-a021-4e5b-ab06-704cdd12e338",
+      "code": "sample-browser",
+      "message": "page.goto: Timeout 15000ms exceeded.\nCall log:\n  - navigating to \"http://127.0.0.1:4314/baseline/?scripts=2&token=15575f98-ed4e-466f-a514-f9f3223c4bae\", waiting until \"domcontentloaded\"\n"
+    }
+  ],
+  "output": "/home/kaylee/.t3/worktrees/cookiebench/t3code-cef51b81/results/2026-10-10-alpha10/desktop/nuxt-load/attempt-001/envelope.json",
+  "runId": "ed383821-799c-4726-b83a-52dd0f4a7615",
+  "samples": 30,
+  "status": "incomplete"
+}

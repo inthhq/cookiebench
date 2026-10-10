@@ -1,0 +1,61 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:6fec6d8e-6e97-4464-83c1-02bd5a56b357"
+      ],
+      "fixtureId": "tanstack-start-c15t",
+      "framework": "tanstack-start",
+      "id": "fb89664c-4483-4606-a524-6897911f2b2f",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-10T16:02:43.698Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:c5ad6fe2-8de8-4923-9e8b-8e7415ad6341"
+      ],
+      "fixtureId": "tanstack-start-c15t",
+      "framework": "tanstack-start",
+      "id": "6e899583-21ae-4901-9e43-ee4831a55738",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-10T16:02:43.698Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:2383a144-9dc2-4c22-9cfb-f7e3c34c192c"
+      ],
+      "fixtureId": "tanstack-start-c15t",
+      "framework": "tanstack-start",
+      "id": "d2978cb1-608a-441f-8dff-c093e6a798e6",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-10T16:02:43.698Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:2b251e21-98ef-4325-9180-b0904a0f091e"
+      ],
+      "fixtureId": "tanstack-start-c15t",
+      "framework": "tanstack-start",
+      "id": "42eacced-722a-4b01-946e-8718f05d59c0",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-10T16:02:43.698Z"
+    }
+  ],
+  "failures": [],
+  "output": "/home/kaylee/.t3/worktrees/cookiebench/t3code-cef51b81/results/2026-10-10-alpha10/desktop/tanstack-start-correctness/attempt-001/envelope.json",
+  "runId": "5f8dfa68-a29a-438c-b602-259b9ba8c25f",
+  "samples": 8,
+  "status": "passed"
+}

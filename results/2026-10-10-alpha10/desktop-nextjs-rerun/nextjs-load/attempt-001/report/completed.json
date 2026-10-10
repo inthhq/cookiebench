@@ -1,0 +1,16 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "report",
+    "--file",
+    "results/2026-10-10-alpha10/desktop-nextjs-rerun/nextjs-load/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-10T16:34:25.979Z",
+  "startedAt": "2026-10-10T16:34:25.496Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "523e42d508d853816f82f50223d8e8dac97d77ea3b0f02fbdac6819b590b2c0d"
+}

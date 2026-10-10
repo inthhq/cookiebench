@@ -1,0 +1,90 @@
+{
+  "status": "incomplete",
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "comparisons": [
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 14,
+        "censoring": null,
+        "eligibilityReasons": [
+          "Metric page.primary-content-paint is missing.",
+          "Sample failure sample-browser: page.goto: Timeout 15000ms exceeded.\nCall log:\n  - navigating to \"http://127.0.0.1:4314/baseline/?scripts=2&token=15575f98-ed4e-466f-a514-f9f3223c4bae\", waiting until \"domcontentloaded\"\n"
+        ],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 1,
+        "max": 144,
+        "mean": 115.14285714285715,
+        "measured": 14,
+        "median": 110,
+        "min": 96,
+        "missing": 1,
+        "p75": 123,
+        "passed": 14
+      },
+      "baselineFixtureId": "nuxt-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 596,
+        "mean": 221.33333333333331,
+        "measured": 15,
+        "median": 172,
+        "min": 144,
+        "missing": 0,
+        "p75": 182,
+        "passed": 15
+      },
+      "candidateFixtureId": "nuxt-c15t",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "local",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Required metric measurements are missing.",
+        "Eligible metric observations do not have complete one-to-one pairing within the same run.",
+        "Fewer than 15 eligible paired metric observations."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 14,
+        "medianDifference": 66,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": 60
+        },
+        "pairDifferenceP75": 72
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    }
+  ],
+  "metricKey": "page.primary-content-paint",
+  "multiplicity": {
+    "comparisons": 36,
+    "family": "batch:c6ff8adc8d33926362800977fafcdf4f90eacdc6cb5eca5e235bbf5f4ff6dc3d",
+    "familyLevel": 0.95,
+    "intervalLevel": 0.9993055555555556,
+    "intervals": 72,
+    "method": "bonferroni"
+  },
+  "sourceRunIds": [
+    "ed383821-799c-4726-b83a-52dd0f4a7615"
+  ]
+}

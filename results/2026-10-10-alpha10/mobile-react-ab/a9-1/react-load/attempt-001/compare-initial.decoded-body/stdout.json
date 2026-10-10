@@ -1,0 +1,95 @@
+{
+  "status": "passed",
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "comparisons": [
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 717483,
+        "mean": 717482.9999999999,
+        "measured": 15,
+        "median": 717483,
+        "min": 717483,
+        "missing": 0,
+        "p75": 717483,
+        "passed": 15
+      },
+      "baselineFixtureId": "react-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 1120519,
+        "mean": 1120518.9999999995,
+        "measured": 15,
+        "median": 1120519,
+        "min": 1120519,
+        "missing": 0,
+        "p75": 1120519,
+        "passed": 15
+      },
+      "candidateFixtureId": "react-c15t",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "local",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 403036,
+          "level": 0.9958333333333333,
+          "low": 403036,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 5000
+        },
+        "count": 15,
+        "medianDifference": 403036,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 403036,
+            "level": 0.9958333333333333,
+            "low": 403036,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 5000
+          },
+          "estimate": 403036
+        },
+        "pairDifferenceP75": 403036
+      },
+      "scenarioId": "load",
+      "unit": "bytes"
+    }
+  ],
+  "metricKey": "initial.decoded-body",
+  "multiplicity": {
+    "comparisons": 6,
+    "family": "batch:c5a2ef9b9784faeaa653bc26d846128ec183956ed391f062a55d797d2c435d81",
+    "familyLevel": 0.95,
+    "intervalLevel": 0.9958333333333333,
+    "intervals": 12,
+    "method": "bonferroni"
+  },
+  "sourceRunIds": [
+    "d1cc1280-4971-4421-aa51-b181cc67fb3e"
+  ]
+}
