@@ -8,7 +8,4 @@ const config: NextConfig = {
 };
 // The build bundles the backend's policy manifest, so the server resolves
 // each visitor without a runtime manifest or /init request.
-export default withConsentManifest(config, {
-  backendURL,
-  rootDir: import.meta.dirname,
-});
+export default withConsentManifest(config, { backendURL });

@@ -6,8 +6,8 @@ From revision `3.3.0` on October 7, 2026, every c15t fixture talks to a live Int
 | --- | --- | --- |
 | Next.js | Build-time manifest. The consent route's layout awaits `resolveConsent` inside `Suspense`, so the banner arrives in the server HTML. | `POST /subjects` on a save |
 | TanStack Start | Build-time manifest, resolved on the server | `POST /subjects` on a save |
-| Nuxt | Build-time manifest (`buildManifest: true`) from alpha.7 onward, resolved on the Nuxt server. See [Nuxt](#nuxt). | `POST /subjects` on a save |
-| Astro | Server output with `manifest()` and `buildManifest: true`; middleware resolves each request | `POST /subjects` on a save |
+| Nuxt | Build-time manifest, resolved on the Nuxt server. alpha.7 to alpha.9 needed `buildManifest: true`; from alpha.10 it's the default. See [Nuxt](#nuxt). | `POST /subjects` on a save |
+| Astro | Server output with the default `manifest()` mode and a build-time manifest; middleware resolves each request | `POST /subjects` on a save |
 | React (Vite) | Build-time manifest (`consentManifest` Vite plugin and `manifest()` mode), resolved in the browser. The policy matches on country, so the browser still asks `/init`. | `GET /init`, then `POST /subjects` on a save |
 | Script tag and headless | Browser `/init` | `GET /init`, then `POST /subjects` on a save |
 
@@ -17,7 +17,7 @@ The docs recommend a build-time manifest for every framework with a build step. 
 
 alpha.6 and Nitro 2.13.4 broke `buildManifest: true`. The c15t module stored the snapshot in private runtime config. Nitro's `provideFallbackValues` replaces every `null` in runtime config with `""` during the build, so each policy pack's `copyRevision: null` became `""`. `@c15t/schema` then rejected every pack, and every visitor got `invalid-configuration` with no banner. Revision `3.3.0-article-v1-inth-runtime-manifest` used the documented runtime alternative instead: the Nuxt server fetched `/manifest` on its first request, cached it, and the cache could expire during a long run.
 
-From alpha.7, c15t bundles the snapshot in the server instead of runtime config. From revision `3.3.1-article-v1-inth-build-manifest`, the Nuxt fixture uses `buildManifest: true` like the other server frameworks.
+From alpha.7, c15t bundles the snapshot in the server instead of runtime config. From revision `3.3.1-article-v1-inth-build-manifest`, the Nuxt fixture uses `buildManifest: true` like the other server frameworks. alpha.10 removed the option and bundles the manifest by default.
 
 ## What the build fetches
 
@@ -31,7 +31,7 @@ The fixture servers receive no CDN location headers, so server-side resolution s
 
 ## Request costs that remain
 
-- `/init` and `/subjects` cross origins. The client sends `x-c15t-version` and `x-c15t-policy-contract`, so the browser makes a CORS preflight before each one in a fresh browser context.
+- `/init` and `/subjects` cross origins. Up to alpha.9 the client sent `x-c15t-version` and `x-c15t-policy-contract` on both, so the browser made a CORS preflight before each one in a fresh browser context. From alpha.10, `GET /init` moves those values to the query string and sends no credentials, so it needs no preflight. On desktop, the React and script-tag banners show about 200 ms sooner. `POST /subjects` still sends custom headers and still preflights.
 - The manifest server adapters send a session report to `POST /sessions` after each resolution, from the server and after the response. The benchmark keeps this default. The report does not delay the page, but it does make the fixture server do network work during the observation window.
 - Consent saves take a real round trip to Vercel. Save timings now include internet latency and are noisier than the local test double's.
 

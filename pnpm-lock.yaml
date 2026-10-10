@@ -90,14 +90,14 @@ importers:
         specifier: 7.2.5
         version: 7.2.5(@types/node@24.13.3)(astro@5.18.2(@types/node@24.13.3)(db0@0.3.4)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lightningcss@1.33.0)(rollup@4.63.5)(supports-color@10.2.2)(terser@5.51.2)(typescript@6.0.3)(yaml@2.9.1))(jiti@2.7.0)(lightningcss@1.33.0)(supports-color@10.2.2)(svelte@5.57.1)(terser@5.51.2)(typescript@6.0.3)(yaml@2.9.1)
       '@c15t/astro':
-        specifier: 3.0.0-alpha.9
-        version: 3.0.0-alpha.9(ee8b57e06a88f176e70dd11c82907175)
+        specifier: 3.0.0-alpha.10
+        version: 3.0.0-alpha.10(b0fe4ff83b5c50e14ea9a842122ae108)
       '@c15t/core':
-        specifier: 3.0.0-alpha.9
-        version: 3.0.0-alpha.9(typescript@6.0.3)
+        specifier: 3.0.0-alpha.10
+        version: 3.0.0-alpha.10(typescript@6.0.3)
       '@c15t/svelte':
-        specifier: 3.0.0-alpha.9
-        version: 3.0.0-alpha.9(svelte@5.57.1)(typescript@6.0.3)
+        specifier: 3.0.0-alpha.10
+        version: 3.0.0-alpha.10(svelte@5.57.1)(typescript@6.0.3)
       '@cookiebench/fixture-support':
         specifier: workspace:*
         version: link:../../packages/fixture-support
@@ -124,8 +124,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/fixture-support
       c15t:
-        specifier: 3.0.0-alpha.9
-        version: 3.0.0-alpha.9(77ed561e741e1dbd87dac178baff9995)
+        specifier: 3.0.0-alpha.10
+        version: 3.0.0-alpha.10(77ed561e741e1dbd87dac178baff9995)
       next:
         specifier: 16.0.7
         version: 16.0.7(@babel/core@7.29.7(supports-color@10.2.2))(@opentelemetry/api@1.9.0)(@playwright/test@1.63.0)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
@@ -183,11 +183,11 @@ importers:
   benchmarks/with-c15t-nuxt:
     dependencies:
       '@c15t/core':
-        specifier: 3.0.0-alpha.9
-        version: 3.0.0-alpha.9(typescript@6.0.3)
+        specifier: 3.0.0-alpha.10
+        version: 3.0.0-alpha.10(typescript@6.0.3)
       '@c15t/vue':
-        specifier: 3.0.0-alpha.9
-        version: 3.0.0-alpha.9(magic-string@1.4.2)(magicast@0.5.5)(nuxt@4.5.2(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@oxc-project/types@0.151.0)(@types/node@24.13.3)(@vue/compiler-sfc@3.5.43)(commander@15.0.0)(db0@0.3.4)(esbuild@0.28.2)(ioredis@5.11.1(supports-color@10.2.2))(lightningcss@1.33.0)(magicast@0.5.5)(oxlint@1.81.0)(rolldown@1.2.11)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.11)(rollup@4.63.5))(rollup@4.63.5)(srvx@0.11.22)(supports-color@10.2.2)(terser@5.51.2)(typescript@6.0.3)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1))(vue-tsc@3.3.3(typescript@6.0.3))(yaml@2.9.1))(rolldown@1.2.11)(typescript@6.0.3)(unplugin@3.4.0(esbuild@0.28.2)(rolldown@1.2.11)(rollup@4.63.5)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1)))(vue@3.5.43(typescript@6.0.3))
+        specifier: 3.0.0-alpha.10
+        version: 3.0.0-alpha.10(magic-string@1.4.2)(magicast@0.5.5)(nuxt@4.5.2(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@oxc-project/types@0.151.0)(@types/node@24.13.3)(@vue/compiler-sfc@3.5.43)(commander@15.0.0)(db0@0.3.4)(esbuild@0.28.2)(ioredis@5.11.1(supports-color@10.2.2))(lightningcss@1.33.0)(magicast@0.5.5)(oxlint@1.81.0)(rolldown@1.2.11)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.11)(rollup@4.63.5))(rollup@4.63.5)(srvx@0.11.22)(supports-color@10.2.2)(terser@5.51.2)(typescript@6.0.3)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1))(vue-tsc@3.3.3(typescript@6.0.3))(yaml@2.9.1))(rolldown@1.2.11)(typescript@6.0.3)(unplugin@3.4.0(esbuild@0.28.2)(rolldown@1.2.11)(rollup@4.63.5)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1)))(vue@3.5.43(typescript@6.0.3))
       '@cookiebench/fixture-support':
         specifier: workspace:*
         version: link:../../packages/fixture-support
@@ -210,15 +210,12 @@ importers:
 
   benchmarks/with-c15t-react:
     dependencies:
-      '@c15t/browser':
-        specifier: 3.0.0-alpha.9
-        version: 3.0.0-alpha.9(typescript@6.0.3)
       '@cookiebench/fixture-support':
         specifier: workspace:*
         version: link:../../packages/fixture-support
       c15t:
-        specifier: 3.0.0-alpha.9
-        version: 3.0.0-alpha.9(ed2a312e7cbd73afd32e446128f9320c)
+        specifier: 3.0.0-alpha.10
+        version: 3.0.0-alpha.10(ed2a312e7cbd73afd32e446128f9320c)
       react:
         specifier: 19.2.1
         version: 19.2.1
@@ -248,8 +245,8 @@ importers:
   benchmarks/with-c15t-script:
     dependencies:
       '@c15t/browser':
-        specifier: 3.0.0-alpha.9
-        version: 3.0.0-alpha.9(typescript@6.0.3)
+        specifier: 3.0.0-alpha.10
+        version: 3.0.0-alpha.10(typescript@6.0.3)
       '@cookiebench/fixture-support':
         specifier: workspace:*
         version: link:../../packages/fixture-support
@@ -267,11 +264,11 @@ importers:
   benchmarks/with-c15t-tanstack-start:
     dependencies:
       '@c15t/react':
-        specifier: 3.0.0-alpha.9
-        version: 3.0.0-alpha.9(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
+        specifier: 3.0.0-alpha.10
+        version: 3.0.0-alpha.10(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
       '@c15t/tanstack-start':
-        specifier: 3.0.0-alpha.9
-        version: 3.0.0-alpha.9(@tanstack/react-router@1.170.41(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(@tanstack/react-start@1.168.60(crossws@0.4.12(srvx@0.12.4))(esbuild@0.28.2)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(rolldown@1.2.11)(rollup@4.63.5)(supports-color@10.2.2)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1)))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
+        specifier: 3.0.0-alpha.10
+        version: 3.0.0-alpha.10(@tanstack/react-router@1.170.41(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(@tanstack/react-start@1.168.60(crossws@0.4.12(srvx@0.12.4))(esbuild@0.28.2)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(rolldown@1.2.11)(rollup@4.63.5)(supports-color@10.2.2)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1)))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
       '@cookiebench/fixture-support':
         specifier: workspace:*
         version: link:../../packages/fixture-support
@@ -910,11 +907,11 @@ packages:
       commander:
         optional: true
 
-  '@c15t/astro@3.0.0-alpha.9':
-    resolution: {integrity: sha512-cIoYcs42VEf20rrOx6vukosevnSncWG7zf4oao63M0+VuHXyGqyJ0zl7EdC947Nyos0WAVESStvwz1v70tGmoQ==}
+  '@c15t/astro@3.0.0-alpha.10':
+    resolution: {integrity: sha512-zGX0vfr6h2RVyYzBsaW/2lmXCdkZ/eek7Dg43GmqGK53are+wwEJSd3tpxtRc+y4Yu191WrT2joykUEk/9T3/w==}
     peerDependencies:
-      '@c15t/react': ^3.0.0-alpha.9
-      '@c15t/vue': ^3.0.0-alpha.9
+      '@c15t/react': ^3.0.0-alpha.10
+      '@c15t/vue': ^3.0.0-alpha.10
       astro: ^5.0.0 || ^6.0.0 || ^7.0.0
       react: ^18.0.0 || ^19.0.0
       react-dom: ^18.0.0 || ^19.0.0
@@ -936,17 +933,17 @@ packages:
       vue:
         optional: true
 
-  '@c15t/browser@3.0.0-alpha.9':
-    resolution: {integrity: sha512-nukxh1zzV2PIyViYlWtFCZn1DAt+JRNyE3nO8cVjoU2tRnMXnBoflg4tN3nmoXWYUHKxrT+broVDL2YNaApxew==}
+  '@c15t/browser@3.0.0-alpha.10':
+    resolution: {integrity: sha512-VS8nGepqG3kH/ckt/lLEKpoD1e4sQ0Ogut8KPiyDveRa6P1em6eeKOqY7/aP+OSnppfXZ4Qb+uOskAQOsmWEcA==}
 
-  '@c15t/core@3.0.0-alpha.9':
-    resolution: {integrity: sha512-BZkzJQGlBJgIf8fv6705JSm/WoWhBuNceezdyOU+uApRxHZHGpL0pwoCSDFGmjO/Fymq1UpEGdQ3TLkBPrVuzg==}
+  '@c15t/core@3.0.0-alpha.10':
+    resolution: {integrity: sha512-8hzY+DObW83KcaIVOBGzi2qnJ5ZEjyPezB9luyKs8U7MhOB8cteCniL4RDgZbdXv1S41ZVEEFH+B8nAOaMl4uQ==}
 
-  '@c15t/dev-tools@3.0.0-alpha.9':
-    resolution: {integrity: sha512-Q7oic8sT1Zzrf/FiO8wO2SNN0i+ajcWEgLBCz129809Y7njt064auJCGexCfeKIcJPFXRG47TSbMOjCDtKDebg==}
+  '@c15t/dev-tools@3.0.0-alpha.10':
+    resolution: {integrity: sha512-7YyGIUuHidP00f5CkPm+MG6xC4z7p06U2MNGyrYv9IcqApIFnm5RDbOYhNTqflTNl3HqcHe/UpdkRazWrKx+7Q==}
 
-  '@c15t/iab@3.0.0-alpha.9':
-    resolution: {integrity: sha512-TtjgOY26LGuLHCdOsTDD6HQXt0568lW7sWA+7V/Ak1RI0hh8xispnkK2PNsMTTUaTlyFnXjTF4Rb5vpuMrYmtw==}
+  '@c15t/iab@3.0.0-alpha.10':
+    resolution: {integrity: sha512-CDVKs9u3w2PuP8MPMPEvxBY5GgxgSxhNaCrsGJZA+v8QJUHtYpns0tlRFiCzJtKOtoNkk4JT9HFj3sIZPerwAw==}
 
   '@c15t/nextjs@2.3.0':
     resolution: {integrity: sha512-v7Og87F4tQyfGpPUak5Hi6miZb1B1xdko3KZeQpH4LWm/lUlk3ier/hQcf+Z7HsardS/dcMBJKQc9F7flTQF0w==}
@@ -955,8 +952,8 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc
 
-  '@c15t/nextjs@3.0.0-alpha.9':
-    resolution: {integrity: sha512-KuxvxBS959FnlWgWK1pGTTfgWviIUzSaPk6xd6X0QIrWxcRdvaXUzcmalxxuhiZEfUc/e9hCLDFqelnIPKthtg==}
+  '@c15t/nextjs@3.0.0-alpha.10':
+    resolution: {integrity: sha512-nyBvtfcgvpBqxP7JMz+1fiOajCjvH7ng45GrUWocmEChUHyGXkbqmjo87wASHv1OiG/o3wioNL8Llw8BdyExOA==}
     peerDependencies:
       next: ^15.0.0 || ^16.0.0
       react: ^18.0.0 || ^19.0.0 || ^19.0.0-rc
@@ -975,8 +972,8 @@ packages:
       react: ^19.0.0 || ^19.0.0-rc || ^18.0.0 || ^17.0.0 || ^16.8.0
       react-dom: ^19.0.0 || ^19.0.0-rc || ^18.0.0 || ^17.0.0 || ^16.8.0
 
-  '@c15t/react@3.0.0-alpha.9':
-    resolution: {integrity: sha512-peyZZ3kjfoC7w/QzMlzvJCKID7Js38FdGmmUPU8J+n9+3Y9o4AcNu5+NYdxDEy+w03UhATvfvFqVEB/XeOAKNQ==}
+  '@c15t/react@3.0.0-alpha.10':
+    resolution: {integrity: sha512-UtA4eN7+EcRNEalXoi2zlB9iZuL0XbbcoceiKtvTOnD9c6wY45xKnWzKAiIPhu9GVimLgR0+Tawjz9shV03vjQ==}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0 || ^19.0.0-rc
       react-dom: ^18.0.0 || ^19.0.0 || ^19.0.0-rc
@@ -992,10 +989,13 @@ packages:
   '@c15t/schema@3.0.0-alpha.7':
     resolution: {integrity: sha512-Gh2XfguodlMYMt568rdSwYuu6qOJr/KRA0EDvWt1AgMLJLPq4Ntvg96JWdAgvwWaHnSwryxfUUSslqpunZBGvA==}
 
-  '@c15t/svelte@3.0.0-alpha.9':
-    resolution: {integrity: sha512-0ZWgnZpI40fgoWPWLK0DaJ9rzj7omBpf3XxKwOwXukQaYzXq4yhKnfSEfEXkaIHzYODC0CaUFrUEpJzdxayaLQ==}
+  '@c15t/schema@3.0.0-alpha.8':
+    resolution: {integrity: sha512-P1HI+FE+YpxM/nYpnGcHYAdOTS6cHCm1pNTMGfXtisDNAZQorNRAIW991q79CaQ0zQ5q5bvG5W7DgB76kfuMUA==}
+
+  '@c15t/svelte@3.0.0-alpha.10':
+    resolution: {integrity: sha512-sZ5zPo56deWQPbXjxr/d+97+ZlpbvHJHM3eSex64pBLynhRSZZSAIbyCBfozEW2g6cQcqo0fBE5ccIHpuZOAdQ==}
     peerDependencies:
-      '@sveltejs/kit': ^2.0.0 || ^3.0.0
+      '@sveltejs/kit': ^2.63.0 || ^3.0.0
       svelte: ^5.0.0
     peerDependenciesMeta:
       '@sveltejs/kit':
@@ -1003,8 +1003,8 @@ packages:
       svelte:
         optional: true
 
-  '@c15t/tanstack-start@3.0.0-alpha.9':
-    resolution: {integrity: sha512-5qMgT7xmGVOUt4mzDoByko/6+WGoRwR68jTReVamzKzkYblr6fzXQ+sDnpFXyXplGBZi5i6RCyL3LfZvgWSEpw==}
+  '@c15t/tanstack-start@3.0.0-alpha.10':
+    resolution: {integrity: sha512-vraBEAmOwiwO8NUjk8lxykfrGS+RStNuxRewglVQzkAezBfP5871mWGDhIXwWbB5Eb3c23UVbWD+g5Jn6WgvcA==}
     peerDependencies:
       '@tanstack/react-router': ^1.170.41
       '@tanstack/react-start': ^1.168.60
@@ -1029,11 +1029,11 @@ packages:
   '@c15t/ui@2.2.2':
     resolution: {integrity: sha512-kcdglK8pZF9/qwL8YwX3JLkxmbb65Q06r9UX95o1ETrQs8sxqvcdy4FluPzvJh7M7pE1pjZReBo2lEQO7ZvOWg==}
 
-  '@c15t/ui@3.0.0-alpha.9':
-    resolution: {integrity: sha512-f1K5MdwUcNaipZ59kgJVoSJSbBW2r2INDuE9Gr1uuTwpSlGQRg1QEqJpN2En2pzMXzcG6GHK+P6WlgZBU0RvGg==}
+  '@c15t/ui@3.0.0-alpha.10':
+    resolution: {integrity: sha512-wQxkz9Mf9hhgU0VV9BYlVDQC+YSenqMT6bh3AggcY+cEr811PL4SDaVk4gzM1X4DtmwzMf0BnrdeENJjjG2lfg==}
 
-  '@c15t/vue@3.0.0-alpha.9':
-    resolution: {integrity: sha512-ESU9seXIlhwLbj97PY64+LyOkeE3FpmtQGaA5Pd4jARCLdo6CdgKB1Uh8TOJ+rUy3mfBGY/wvv+h8mtH1qRM9g==}
+  '@c15t/vue@3.0.0-alpha.10':
+    resolution: {integrity: sha512-K6luZIW9gHwUGFNY4/bovvlfmL+aD9xjGxOQqB7lEeoXy7M/xV2PPZ9xL+dHuy66SSQu+bJMhjqShNH1zZRKQg==}
     peerDependencies:
       nuxt: ^3.0.0 || ^4.0.0
       vue: ^3.5.39 || ^3.6.0-0
@@ -3335,8 +3335,8 @@ packages:
   c15t@2.3.0:
     resolution: {integrity: sha512-+QBONCgMp2H0Yc3XVrQALasWihf0VFd9Ne+knXp8J1MyCcDM35rleHlD5ptBBnUUreMjTaEfYKxHrQ31imGiDg==}
 
-  c15t@3.0.0-alpha.9:
-    resolution: {integrity: sha512-b7WKCskDkniXnjbxUKukgo4uYH982WM3S2geSkwSdsnssxpnG24zTGR9+r12Zc/OlnlwoJl9xQ/3ze9nMJJeXQ==}
+  c15t@3.0.0-alpha.10:
+    resolution: {integrity: sha512-xKxJ0RpI5xluyQf/VfnASkgg2U+epkNZq6uahBur/HIbisKMDqgMxu/a4mHUjqpiLSiAOB1lRRfGC+wYPVtxGQ==}
 
   cac@7.0.0:
     resolution: {integrity: sha512-tixWYgm5ZoOD+3g6UTea91eow5z6AAHaho3g0V9CNSNb45gM8SmflpAc+GRd1InC4AqN/07Unrgp56Y94N9hJQ==}
@@ -6753,17 +6753,17 @@ snapshots:
       citty: 0.2.2
       commander: 15.0.0
 
-  '@c15t/astro@3.0.0-alpha.9(1313b9b2765dacdbecd5b482882afbf5)':
+  '@c15t/astro@3.0.0-alpha.10(098a092070ceddb6db5a24dee86ebeb9)':
     dependencies:
-      '@c15t/core': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/iab': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/schema': 3.0.0-alpha.7(typescript@6.0.3)
-      '@c15t/svelte': 3.0.0-alpha.9(svelte@5.57.1)(typescript@6.0.3)
+      '@c15t/core': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/iab': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/schema': 3.0.0-alpha.8(typescript@6.0.3)
+      '@c15t/svelte': 3.0.0-alpha.10(svelte@5.57.1)(typescript@6.0.3)
       '@c15t/translations': 3.0.0-alpha.6
-      '@c15t/ui': 3.0.0-alpha.9(typescript@6.0.3)
+      '@c15t/ui': 3.0.0-alpha.10(typescript@6.0.3)
     optionalDependencies:
-      '@c15t/react': 3.0.0-alpha.9(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
-      '@c15t/vue': 3.0.0-alpha.9(magicast@0.5.5)(nuxt@4.5.2(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@oxc-project/types@0.151.0)(@types/node@24.13.3)(@vue/compiler-sfc@3.5.43)(commander@15.0.0)(db0@0.3.4)(esbuild@0.28.2)(ioredis@5.11.1(supports-color@10.2.2))(lightningcss@1.33.0)(magicast@0.5.5)(oxlint@1.81.0)(rolldown@1.2.11)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.11)(rollup@4.63.5))(rollup@4.63.5)(srvx@0.12.4)(supports-color@10.2.2)(terser@5.51.2)(typescript@6.0.3)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1))(vue-tsc@3.3.3(typescript@6.0.3))(yaml@2.9.1))(rolldown@1.2.11)(typescript@6.0.3)(vue@3.5.43(typescript@6.0.3))
+      '@c15t/react': 3.0.0-alpha.10(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
+      '@c15t/vue': 3.0.0-alpha.10(magicast@0.5.5)(nuxt@4.5.2(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@oxc-project/types@0.151.0)(@types/node@24.13.3)(@vue/compiler-sfc@3.5.43)(commander@15.0.0)(db0@0.3.4)(esbuild@0.28.2)(ioredis@5.11.1(supports-color@10.2.2))(lightningcss@1.33.0)(magicast@0.5.5)(oxlint@1.81.0)(rolldown@1.2.11)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.11)(rollup@4.63.5))(rollup@4.63.5)(srvx@0.12.4)(supports-color@10.2.2)(terser@5.51.2)(typescript@6.0.3)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1))(vue-tsc@3.3.3(typescript@6.0.3))(yaml@2.9.1))(rolldown@1.2.11)(typescript@6.0.3)(vue@3.5.43(typescript@6.0.3))
       astro: 5.18.2(@types/node@24.13.3)(db0@0.3.4)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lightningcss@1.33.0)(rollup@4.63.5)(supports-color@10.2.2)(terser@5.51.2)(typescript@6.0.3)(yaml@2.9.1)
       react: 19.2.1
       react-dom: 19.2.1(react@19.2.1)
@@ -6773,17 +6773,17 @@ snapshots:
       - '@sveltejs/kit'
       - typescript
 
-  '@c15t/astro@3.0.0-alpha.9(dada5fb872fa6f886ebfb8251fb7ba43)':
+  '@c15t/astro@3.0.0-alpha.10(b0fe4ff83b5c50e14ea9a842122ae108)':
     dependencies:
-      '@c15t/core': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/iab': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/schema': 3.0.0-alpha.7(typescript@6.0.3)
-      '@c15t/svelte': 3.0.0-alpha.9(svelte@5.57.1)(typescript@6.0.3)
+      '@c15t/core': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/iab': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/schema': 3.0.0-alpha.8(typescript@6.0.3)
+      '@c15t/svelte': 3.0.0-alpha.10(svelte@5.57.1)(typescript@6.0.3)
       '@c15t/translations': 3.0.0-alpha.6
-      '@c15t/ui': 3.0.0-alpha.9(typescript@6.0.3)
+      '@c15t/ui': 3.0.0-alpha.10(typescript@6.0.3)
     optionalDependencies:
-      '@c15t/react': 3.0.0-alpha.9(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
-      '@c15t/vue': 3.0.0-alpha.9(magic-string@1.4.2)(magicast@0.5.5)(nuxt@4.5.2(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@oxc-project/types@0.151.0)(@types/node@24.13.3)(@vue/compiler-sfc@3.5.43)(commander@15.0.0)(db0@0.3.4)(esbuild@0.28.2)(ioredis@5.11.1(supports-color@10.2.2))(lightningcss@1.33.0)(magicast@0.5.5)(oxlint@1.81.0)(rolldown@1.2.11)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.11)(rollup@4.63.5))(rollup@4.63.5)(srvx@0.11.22)(supports-color@10.2.2)(terser@5.51.2)(typescript@6.0.3)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1))(vue-tsc@3.3.3(typescript@6.0.3))(yaml@2.9.1))(rolldown@1.2.11)(typescript@6.0.3)(unplugin@3.4.0(esbuild@0.28.2)(rolldown@1.2.11)(rollup@4.63.5)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1)))(vue@3.5.43(typescript@6.0.3))
+      '@c15t/react': 3.0.0-alpha.10(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
+      '@c15t/vue': 3.0.0-alpha.10(magic-string@1.4.2)(magicast@0.5.5)(nuxt@4.5.2(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@oxc-project/types@0.151.0)(@types/node@24.13.3)(@vue/compiler-sfc@3.5.43)(commander@15.0.0)(db0@0.3.4)(esbuild@0.28.2)(ioredis@5.11.1(supports-color@10.2.2))(lightningcss@1.33.0)(magicast@0.5.5)(oxlint@1.81.0)(rolldown@1.2.11)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.11)(rollup@4.63.5))(rollup@4.63.5)(srvx@0.11.22)(supports-color@10.2.2)(terser@5.51.2)(typescript@6.0.3)(vite@6.4.3(@types/node@24.13.3)(jiti@2.7.0)(lightningcss@1.33.0)(terser@5.51.2)(yaml@2.9.1))(vue-tsc@3.3.3(typescript@6.0.3))(yaml@2.9.1))(rolldown@1.2.11)(typescript@6.0.3)(unplugin@3.4.0(esbuild@0.28.2)(rolldown@1.2.11)(rollup@4.63.5)(vite@6.4.3(@types/node@24.13.3)(jiti@2.7.0)(lightningcss@1.33.0)(terser@5.51.2)(yaml@2.9.1)))(vue@3.5.43(typescript@6.0.3))
       astro: 5.18.2(@types/node@24.13.3)(db0@0.3.4)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lightningcss@1.33.0)(rollup@4.63.5)(supports-color@10.2.2)(terser@5.51.2)(typescript@6.0.3)(yaml@2.9.1)
       react: 19.2.1
       react-dom: 19.2.1(react@19.2.1)
@@ -6793,17 +6793,17 @@ snapshots:
       - '@sveltejs/kit'
       - typescript
 
-  '@c15t/astro@3.0.0-alpha.9(ee8b57e06a88f176e70dd11c82907175)':
+  '@c15t/astro@3.0.0-alpha.10(e00f83fb824336a01f0da9a57a395dd7)':
     dependencies:
-      '@c15t/core': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/iab': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/schema': 3.0.0-alpha.7(typescript@6.0.3)
-      '@c15t/svelte': 3.0.0-alpha.9(svelte@5.57.1)(typescript@6.0.3)
+      '@c15t/core': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/iab': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/schema': 3.0.0-alpha.8(typescript@6.0.3)
+      '@c15t/svelte': 3.0.0-alpha.10(svelte@5.57.1)(typescript@6.0.3)
       '@c15t/translations': 3.0.0-alpha.6
-      '@c15t/ui': 3.0.0-alpha.9(typescript@6.0.3)
+      '@c15t/ui': 3.0.0-alpha.10(typescript@6.0.3)
     optionalDependencies:
-      '@c15t/react': 3.0.0-alpha.9(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
-      '@c15t/vue': 3.0.0-alpha.9(magic-string@1.4.2)(magicast@0.5.5)(nuxt@4.5.2(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@oxc-project/types@0.151.0)(@types/node@24.13.3)(@vue/compiler-sfc@3.5.43)(commander@15.0.0)(db0@0.3.4)(esbuild@0.28.2)(ioredis@5.11.1(supports-color@10.2.2))(lightningcss@1.33.0)(magicast@0.5.5)(oxlint@1.81.0)(rolldown@1.2.11)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.11)(rollup@4.63.5))(rollup@4.63.5)(srvx@0.11.22)(supports-color@10.2.2)(terser@5.51.2)(typescript@6.0.3)(vite@6.4.3(@types/node@24.13.3)(jiti@2.7.0)(lightningcss@1.33.0)(terser@5.51.2)(yaml@2.9.1))(vue-tsc@3.3.3(typescript@6.0.3))(yaml@2.9.1))(rolldown@1.2.11)(typescript@6.0.3)(unplugin@3.4.0(esbuild@0.28.2)(rolldown@1.2.11)(rollup@4.63.5)(vite@6.4.3(@types/node@24.13.3)(jiti@2.7.0)(lightningcss@1.33.0)(terser@5.51.2)(yaml@2.9.1)))(vue@3.5.43(typescript@6.0.3))
+      '@c15t/react': 3.0.0-alpha.10(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
+      '@c15t/vue': 3.0.0-alpha.10(magic-string@1.4.2)(magicast@0.5.5)(nuxt@4.5.2(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@oxc-project/types@0.151.0)(@types/node@24.13.3)(@vue/compiler-sfc@3.5.43)(commander@15.0.0)(db0@0.3.4)(esbuild@0.28.2)(ioredis@5.11.1(supports-color@10.2.2))(lightningcss@1.33.0)(magicast@0.5.5)(oxlint@1.81.0)(rolldown@1.2.11)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.11)(rollup@4.63.5))(rollup@4.63.5)(srvx@0.11.22)(supports-color@10.2.2)(terser@5.51.2)(typescript@6.0.3)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1))(vue-tsc@3.3.3(typescript@6.0.3))(yaml@2.9.1))(rolldown@1.2.11)(typescript@6.0.3)(unplugin@3.4.0(esbuild@0.28.2)(rolldown@1.2.11)(rollup@4.63.5)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1)))(vue@3.5.43(typescript@6.0.3))
       astro: 5.18.2(@types/node@24.13.3)(db0@0.3.4)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lightningcss@1.33.0)(rollup@4.63.5)(supports-color@10.2.2)(terser@5.51.2)(typescript@6.0.3)(yaml@2.9.1)
       react: 19.2.1
       react-dom: 19.2.1(react@19.2.1)
@@ -6813,34 +6813,34 @@ snapshots:
       - '@sveltejs/kit'
       - typescript
 
-  '@c15t/browser@3.0.0-alpha.9(typescript@6.0.3)':
+  '@c15t/browser@3.0.0-alpha.10(typescript@6.0.3)':
     dependencies:
-      '@c15t/core': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/dev-tools': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/iab': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/schema': 3.0.0-alpha.7(typescript@6.0.3)
+      '@c15t/core': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/dev-tools': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/iab': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/schema': 3.0.0-alpha.8(typescript@6.0.3)
       '@c15t/translations': 3.0.0-alpha.6
-      '@c15t/ui': 3.0.0-alpha.9(typescript@6.0.3)
+      '@c15t/ui': 3.0.0-alpha.10(typescript@6.0.3)
     transitivePeerDependencies:
       - typescript
 
-  '@c15t/core@3.0.0-alpha.9(typescript@6.0.3)':
+  '@c15t/core@3.0.0-alpha.10(typescript@6.0.3)':
     dependencies:
-      '@c15t/schema': 3.0.0-alpha.7(typescript@6.0.3)
+      '@c15t/schema': 3.0.0-alpha.8(typescript@6.0.3)
       '@c15t/translations': 3.0.0-alpha.6
     transitivePeerDependencies:
       - typescript
 
-  '@c15t/dev-tools@3.0.0-alpha.9(typescript@6.0.3)':
+  '@c15t/dev-tools@3.0.0-alpha.10(typescript@6.0.3)':
     dependencies:
-      '@c15t/core': 3.0.0-alpha.9(typescript@6.0.3)
+      '@c15t/core': 3.0.0-alpha.10(typescript@6.0.3)
     transitivePeerDependencies:
       - typescript
 
-  '@c15t/iab@3.0.0-alpha.9(typescript@6.0.3)':
+  '@c15t/iab@3.0.0-alpha.10(typescript@6.0.3)':
     dependencies:
-      '@c15t/core': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/schema': 3.0.0-alpha.7(typescript@6.0.3)
+      '@c15t/core': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/schema': 3.0.0-alpha.8(typescript@6.0.3)
       '@iabtechlabtcf/core': 1.5.22
     transitivePeerDependencies:
       - typescript
@@ -6859,11 +6859,11 @@ snapshots:
       - typescript
       - use-sync-external-store
 
-  '@c15t/nextjs@3.0.0-alpha.9(next@16.0.7(@babel/core@7.29.7(supports-color@10.2.2))(@opentelemetry/api@1.9.0)(@playwright/test@1.63.0)(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)':
+  '@c15t/nextjs@3.0.0-alpha.10(next@16.0.7(@babel/core@7.29.7(supports-color@10.2.2))(@opentelemetry/api@1.9.0)(@playwright/test@1.63.0)(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)':
     dependencies:
-      '@c15t/core': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/react': 3.0.0-alpha.9(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
-      '@c15t/schema': 3.0.0-alpha.7(typescript@6.0.3)
+      '@c15t/core': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/react': 3.0.0-alpha.10(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
+      '@c15t/schema': 3.0.0-alpha.8(typescript@6.0.3)
       '@c15t/translations': 3.0.0-alpha.6
     optionalDependencies:
       next: 16.0.7(@babel/core@7.29.7(supports-color@10.2.2))(@opentelemetry/api@1.9.0)(@playwright/test@1.63.0)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
@@ -6885,14 +6885,14 @@ snapshots:
       - typescript
       - use-sync-external-store
 
-  '@c15t/react@3.0.0-alpha.9(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)':
+  '@c15t/react@3.0.0-alpha.10(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)':
     dependencies:
-      '@c15t/core': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/dev-tools': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/iab': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/schema': 3.0.0-alpha.7(typescript@6.0.3)
+      '@c15t/core': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/dev-tools': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/iab': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/schema': 3.0.0-alpha.8(typescript@6.0.3)
       '@c15t/translations': 3.0.0-alpha.6
-      '@c15t/ui': 3.0.0-alpha.9(typescript@6.0.3)
+      '@c15t/ui': 3.0.0-alpha.10(typescript@6.0.3)
       '@types/google.maps': 3.65.3
     optionalDependencies:
       react: 19.2.1
@@ -6914,14 +6914,22 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@c15t/svelte@3.0.0-alpha.9(svelte@5.57.1)(typescript@6.0.3)':
+  '@c15t/schema@3.0.0-alpha.8(typescript@6.0.3)':
     dependencies:
-      '@c15t/core': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/dev-tools': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/iab': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/schema': 3.0.0-alpha.7(typescript@6.0.3)
       '@c15t/translations': 3.0.0-alpha.6
-      '@c15t/ui': 3.0.0-alpha.9(typescript@6.0.3)
+      base-x: 5.0.1
+      valibot: 1.4.2(typescript@6.0.3)
+    transitivePeerDependencies:
+      - typescript
+
+  '@c15t/svelte@3.0.0-alpha.10(svelte@5.57.1)(typescript@6.0.3)':
+    dependencies:
+      '@c15t/core': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/dev-tools': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/iab': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/schema': 3.0.0-alpha.8(typescript@6.0.3)
+      '@c15t/translations': 3.0.0-alpha.6
+      '@c15t/ui': 3.0.0-alpha.10(typescript@6.0.3)
       clsx: 2.1.1
       esm-env: 1.2.2
     optionalDependencies:
@@ -6929,11 +6937,11 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@c15t/tanstack-start@3.0.0-alpha.9(@tanstack/react-router@1.170.41(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(@tanstack/react-start@1.168.60(crossws@0.4.12(srvx@0.11.22))(esbuild@0.28.2)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(rolldown@1.2.11)(rollup@4.63.5)(supports-color@10.2.2)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1)))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)':
+  '@c15t/tanstack-start@3.0.0-alpha.10(@tanstack/react-router@1.170.41(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(@tanstack/react-start@1.168.60(crossws@0.4.12(srvx@0.11.22))(esbuild@0.28.2)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(rolldown@1.2.11)(rollup@4.63.5)(supports-color@10.2.2)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1)))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)':
     dependencies:
-      '@c15t/core': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/react': 3.0.0-alpha.9(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
-      '@c15t/schema': 3.0.0-alpha.7(typescript@6.0.3)
+      '@c15t/core': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/react': 3.0.0-alpha.10(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
+      '@c15t/schema': 3.0.0-alpha.8(typescript@6.0.3)
       '@c15t/translations': 3.0.0-alpha.6
     optionalDependencies:
       '@tanstack/react-router': 1.170.41(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
@@ -6943,11 +6951,11 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@c15t/tanstack-start@3.0.0-alpha.9(@tanstack/react-router@1.170.41(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(@tanstack/react-start@1.168.60(crossws@0.4.12(srvx@0.12.4))(esbuild@0.28.2)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(rolldown@1.2.11)(rollup@4.63.5)(supports-color@10.2.2)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1)))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)':
+  '@c15t/tanstack-start@3.0.0-alpha.10(@tanstack/react-router@1.170.41(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(@tanstack/react-start@1.168.60(crossws@0.4.12(srvx@0.12.4))(esbuild@0.28.2)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(rolldown@1.2.11)(rollup@4.63.5)(supports-color@10.2.2)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1)))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)':
     dependencies:
-      '@c15t/core': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/react': 3.0.0-alpha.9(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
-      '@c15t/schema': 3.0.0-alpha.7(typescript@6.0.3)
+      '@c15t/core': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/react': 3.0.0-alpha.10(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
+      '@c15t/schema': 3.0.0-alpha.8(typescript@6.0.3)
       '@c15t/translations': 3.0.0-alpha.6
     optionalDependencies:
       '@tanstack/react-router': 1.170.41(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
@@ -6972,21 +6980,21 @@ snapshots:
       - typescript
       - use-sync-external-store
 
-  '@c15t/ui@3.0.0-alpha.9(typescript@6.0.3)':
+  '@c15t/ui@3.0.0-alpha.10(typescript@6.0.3)':
     dependencies:
-      '@c15t/core': 3.0.0-alpha.9(typescript@6.0.3)
+      '@c15t/core': 3.0.0-alpha.10(typescript@6.0.3)
       '@c15t/translations': 3.0.0-alpha.6
     transitivePeerDependencies:
       - typescript
 
-  '@c15t/vue@3.0.0-alpha.9(magic-string@1.4.2)(magicast@0.5.5)(nuxt@4.5.2(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@oxc-project/types@0.151.0)(@types/node@24.13.3)(@vue/compiler-sfc@3.5.43)(commander@15.0.0)(db0@0.3.4)(esbuild@0.28.2)(ioredis@5.11.1(supports-color@10.2.2))(lightningcss@1.33.0)(magicast@0.5.5)(oxlint@1.81.0)(rolldown@1.2.11)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.11)(rollup@4.63.5))(rollup@4.63.5)(srvx@0.11.22)(supports-color@10.2.2)(terser@5.51.2)(typescript@6.0.3)(vite@6.4.3(@types/node@24.13.3)(jiti@2.7.0)(lightningcss@1.33.0)(terser@5.51.2)(yaml@2.9.1))(vue-tsc@3.3.3(typescript@6.0.3))(yaml@2.9.1))(rolldown@1.2.11)(typescript@6.0.3)(unplugin@3.4.0(esbuild@0.28.2)(rolldown@1.2.11)(rollup@4.63.5)(vite@6.4.3(@types/node@24.13.3)(jiti@2.7.0)(lightningcss@1.33.0)(terser@5.51.2)(yaml@2.9.1)))(vue@3.5.43(typescript@6.0.3))':
+  '@c15t/vue@3.0.0-alpha.10(magic-string@1.4.2)(magicast@0.5.5)(nuxt@4.5.2(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@oxc-project/types@0.151.0)(@types/node@24.13.3)(@vue/compiler-sfc@3.5.43)(commander@15.0.0)(db0@0.3.4)(esbuild@0.28.2)(ioredis@5.11.1(supports-color@10.2.2))(lightningcss@1.33.0)(magicast@0.5.5)(oxlint@1.81.0)(rolldown@1.2.11)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.11)(rollup@4.63.5))(rollup@4.63.5)(srvx@0.11.22)(supports-color@10.2.2)(terser@5.51.2)(typescript@6.0.3)(vite@6.4.3(@types/node@24.13.3)(jiti@2.7.0)(lightningcss@1.33.0)(terser@5.51.2)(yaml@2.9.1))(vue-tsc@3.3.3(typescript@6.0.3))(yaml@2.9.1))(rolldown@1.2.11)(typescript@6.0.3)(unplugin@3.4.0(esbuild@0.28.2)(rolldown@1.2.11)(rollup@4.63.5)(vite@6.4.3(@types/node@24.13.3)(jiti@2.7.0)(lightningcss@1.33.0)(terser@5.51.2)(yaml@2.9.1)))(vue@3.5.43(typescript@6.0.3))':
     dependencies:
-      '@c15t/core': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/dev-tools': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/iab': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/schema': 3.0.0-alpha.7(typescript@6.0.3)
+      '@c15t/core': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/dev-tools': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/iab': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/schema': 3.0.0-alpha.8(typescript@6.0.3)
       '@c15t/translations': 3.0.0-alpha.6
-      '@c15t/ui': 3.0.0-alpha.9(typescript@6.0.3)
+      '@c15t/ui': 3.0.0-alpha.10(typescript@6.0.3)
       '@nuxt/kit': 4.5.2(magic-string@1.4.2)(magicast@0.5.5)(rolldown@1.2.11)(unplugin@3.4.0(esbuild@0.28.2)(rolldown@1.2.11)(rollup@4.63.5)(vite@6.4.3(@types/node@24.13.3)(jiti@2.7.0)(lightningcss@1.33.0)(terser@5.51.2)(yaml@2.9.1)))
       defu: 6.1.7
       ufo: 1.6.4
@@ -7002,14 +7010,14 @@ snapshots:
       - unplugin
     optional: true
 
-  '@c15t/vue@3.0.0-alpha.9(magic-string@1.4.2)(magicast@0.5.5)(nuxt@4.5.2(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@oxc-project/types@0.151.0)(@types/node@24.13.3)(@vue/compiler-sfc@3.5.43)(commander@15.0.0)(db0@0.3.4)(esbuild@0.28.2)(ioredis@5.11.1(supports-color@10.2.2))(lightningcss@1.33.0)(magicast@0.5.5)(oxlint@1.81.0)(rolldown@1.2.11)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.11)(rollup@4.63.5))(rollup@4.63.5)(srvx@0.11.22)(supports-color@10.2.2)(terser@5.51.2)(typescript@6.0.3)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1))(vue-tsc@3.3.3(typescript@6.0.3))(yaml@2.9.1))(rolldown@1.2.11)(typescript@6.0.3)(unplugin@3.4.0(esbuild@0.28.2)(rolldown@1.2.11)(rollup@4.63.5)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1)))(vue@3.5.43(typescript@6.0.3))':
+  '@c15t/vue@3.0.0-alpha.10(magic-string@1.4.2)(magicast@0.5.5)(nuxt@4.5.2(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@oxc-project/types@0.151.0)(@types/node@24.13.3)(@vue/compiler-sfc@3.5.43)(commander@15.0.0)(db0@0.3.4)(esbuild@0.28.2)(ioredis@5.11.1(supports-color@10.2.2))(lightningcss@1.33.0)(magicast@0.5.5)(oxlint@1.81.0)(rolldown@1.2.11)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.11)(rollup@4.63.5))(rollup@4.63.5)(srvx@0.11.22)(supports-color@10.2.2)(terser@5.51.2)(typescript@6.0.3)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1))(vue-tsc@3.3.3(typescript@6.0.3))(yaml@2.9.1))(rolldown@1.2.11)(typescript@6.0.3)(unplugin@3.4.0(esbuild@0.28.2)(rolldown@1.2.11)(rollup@4.63.5)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1)))(vue@3.5.43(typescript@6.0.3))':
     dependencies:
-      '@c15t/core': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/dev-tools': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/iab': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/schema': 3.0.0-alpha.7(typescript@6.0.3)
+      '@c15t/core': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/dev-tools': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/iab': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/schema': 3.0.0-alpha.8(typescript@6.0.3)
       '@c15t/translations': 3.0.0-alpha.6
-      '@c15t/ui': 3.0.0-alpha.9(typescript@6.0.3)
+      '@c15t/ui': 3.0.0-alpha.10(typescript@6.0.3)
       '@nuxt/kit': 4.5.2(magic-string@1.4.2)(magicast@0.5.5)(rolldown@1.2.11)(unplugin@3.4.0(esbuild@0.28.2)(rolldown@1.2.11)(rollup@4.63.5)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1)))
       defu: 6.1.7
       ufo: 1.6.4
@@ -7024,14 +7032,14 @@ snapshots:
       - typescript
       - unplugin
 
-  '@c15t/vue@3.0.0-alpha.9(magicast@0.5.5)(nuxt@4.5.2(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@oxc-project/types@0.151.0)(@types/node@24.13.3)(@vue/compiler-sfc@3.5.43)(commander@15.0.0)(db0@0.3.4)(esbuild@0.28.2)(ioredis@5.11.1(supports-color@10.2.2))(lightningcss@1.33.0)(magicast@0.5.5)(oxlint@1.81.0)(rolldown@1.2.11)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.11)(rollup@4.63.5))(rollup@4.63.5)(srvx@0.12.4)(supports-color@10.2.2)(terser@5.51.2)(typescript@6.0.3)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1))(vue-tsc@3.3.3(typescript@6.0.3))(yaml@2.9.1))(rolldown@1.2.11)(typescript@6.0.3)(vue@3.5.43(typescript@6.0.3))':
+  '@c15t/vue@3.0.0-alpha.10(magicast@0.5.5)(nuxt@4.5.2(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@oxc-project/types@0.151.0)(@types/node@24.13.3)(@vue/compiler-sfc@3.5.43)(commander@15.0.0)(db0@0.3.4)(esbuild@0.28.2)(ioredis@5.11.1(supports-color@10.2.2))(lightningcss@1.33.0)(magicast@0.5.5)(oxlint@1.81.0)(rolldown@1.2.11)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.11)(rollup@4.63.5))(rollup@4.63.5)(srvx@0.12.4)(supports-color@10.2.2)(terser@5.51.2)(typescript@6.0.3)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1))(vue-tsc@3.3.3(typescript@6.0.3))(yaml@2.9.1))(rolldown@1.2.11)(typescript@6.0.3)(vue@3.5.43(typescript@6.0.3))':
     dependencies:
-      '@c15t/core': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/dev-tools': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/iab': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/schema': 3.0.0-alpha.7(typescript@6.0.3)
+      '@c15t/core': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/dev-tools': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/iab': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/schema': 3.0.0-alpha.8(typescript@6.0.3)
       '@c15t/translations': 3.0.0-alpha.6
-      '@c15t/ui': 3.0.0-alpha.9(typescript@6.0.3)
+      '@c15t/ui': 3.0.0-alpha.10(typescript@6.0.3)
       '@nuxt/kit': 4.5.2(magicast@0.5.5)(rolldown@1.2.11)
       defu: 6.1.7
       ufo: 1.6.4
@@ -9964,15 +9972,15 @@ snapshots:
       - typescript
       - use-sync-external-store
 
-  c15t@3.0.0-alpha.9(77ed561e741e1dbd87dac178baff9995):
+  c15t@3.0.0-alpha.10(77ed561e741e1dbd87dac178baff9995):
     dependencies:
-      '@c15t/astro': 3.0.0-alpha.9(dada5fb872fa6f886ebfb8251fb7ba43)
-      '@c15t/core': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/nextjs': 3.0.0-alpha.9(next@16.0.7(@babel/core@7.29.7(supports-color@10.2.2))(@opentelemetry/api@1.9.0)(@playwright/test@1.63.0)(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
-      '@c15t/react': 3.0.0-alpha.9(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
-      '@c15t/tanstack-start': 3.0.0-alpha.9(@tanstack/react-router@1.170.41(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(@tanstack/react-start@1.168.60(crossws@0.4.12(srvx@0.11.22))(esbuild@0.28.2)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(rolldown@1.2.11)(rollup@4.63.5)(supports-color@10.2.2)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1)))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
-      '@c15t/ui': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/vue': 3.0.0-alpha.9(magic-string@1.4.2)(magicast@0.5.5)(nuxt@4.5.2(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@oxc-project/types@0.151.0)(@types/node@24.13.3)(@vue/compiler-sfc@3.5.43)(commander@15.0.0)(db0@0.3.4)(esbuild@0.28.2)(ioredis@5.11.1(supports-color@10.2.2))(lightningcss@1.33.0)(magicast@0.5.5)(oxlint@1.81.0)(rolldown@1.2.11)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.11)(rollup@4.63.5))(rollup@4.63.5)(srvx@0.11.22)(supports-color@10.2.2)(terser@5.51.2)(typescript@6.0.3)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1))(vue-tsc@3.3.3(typescript@6.0.3))(yaml@2.9.1))(rolldown@1.2.11)(typescript@6.0.3)(unplugin@3.4.0(esbuild@0.28.2)(rolldown@1.2.11)(rollup@4.63.5)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1)))(vue@3.5.43(typescript@6.0.3))
+      '@c15t/astro': 3.0.0-alpha.10(e00f83fb824336a01f0da9a57a395dd7)
+      '@c15t/core': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/nextjs': 3.0.0-alpha.10(next@16.0.7(@babel/core@7.29.7(supports-color@10.2.2))(@opentelemetry/api@1.9.0)(@playwright/test@1.63.0)(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
+      '@c15t/react': 3.0.0-alpha.10(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
+      '@c15t/tanstack-start': 3.0.0-alpha.10(@tanstack/react-router@1.170.41(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(@tanstack/react-start@1.168.60(crossws@0.4.12(srvx@0.11.22))(esbuild@0.28.2)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(rolldown@1.2.11)(rollup@4.63.5)(supports-color@10.2.2)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1)))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
+      '@c15t/ui': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/vue': 3.0.0-alpha.10(magic-string@1.4.2)(magicast@0.5.5)(nuxt@4.5.2(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@oxc-project/types@0.151.0)(@types/node@24.13.3)(@vue/compiler-sfc@3.5.43)(commander@15.0.0)(db0@0.3.4)(esbuild@0.28.2)(ioredis@5.11.1(supports-color@10.2.2))(lightningcss@1.33.0)(magicast@0.5.5)(oxlint@1.81.0)(rolldown@1.2.11)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.11)(rollup@4.63.5))(rollup@4.63.5)(srvx@0.11.22)(supports-color@10.2.2)(terser@5.51.2)(typescript@6.0.3)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1))(vue-tsc@3.3.3(typescript@6.0.3))(yaml@2.9.1))(rolldown@1.2.11)(typescript@6.0.3)(unplugin@3.4.0(esbuild@0.28.2)(rolldown@1.2.11)(rollup@4.63.5)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1)))(vue@3.5.43(typescript@6.0.3))
     transitivePeerDependencies:
       - '@sveltejs/kit'
       - '@tanstack/react-router'
@@ -9991,15 +9999,15 @@ snapshots:
       - unplugin
       - vue
 
-  c15t@3.0.0-alpha.9(ed2a312e7cbd73afd32e446128f9320c):
+  c15t@3.0.0-alpha.10(ed2a312e7cbd73afd32e446128f9320c):
     dependencies:
-      '@c15t/astro': 3.0.0-alpha.9(1313b9b2765dacdbecd5b482882afbf5)
-      '@c15t/core': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/nextjs': 3.0.0-alpha.9(next@16.0.7(@babel/core@7.29.7(supports-color@10.2.2))(@opentelemetry/api@1.9.0)(@playwright/test@1.63.0)(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
-      '@c15t/react': 3.0.0-alpha.9(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
-      '@c15t/tanstack-start': 3.0.0-alpha.9(@tanstack/react-router@1.170.41(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(@tanstack/react-start@1.168.60(crossws@0.4.12(srvx@0.12.4))(esbuild@0.28.2)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(rolldown@1.2.11)(rollup@4.63.5)(supports-color@10.2.2)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1)))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
-      '@c15t/ui': 3.0.0-alpha.9(typescript@6.0.3)
-      '@c15t/vue': 3.0.0-alpha.9(magicast@0.5.5)(nuxt@4.5.2(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@oxc-project/types@0.151.0)(@types/node@24.13.3)(@vue/compiler-sfc@3.5.43)(commander@15.0.0)(db0@0.3.4)(esbuild@0.28.2)(ioredis@5.11.1(supports-color@10.2.2))(lightningcss@1.33.0)(magicast@0.5.5)(oxlint@1.81.0)(rolldown@1.2.11)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.11)(rollup@4.63.5))(rollup@4.63.5)(srvx@0.12.4)(supports-color@10.2.2)(terser@5.51.2)(typescript@6.0.3)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1))(vue-tsc@3.3.3(typescript@6.0.3))(yaml@2.9.1))(rolldown@1.2.11)(typescript@6.0.3)(vue@3.5.43(typescript@6.0.3))
+      '@c15t/astro': 3.0.0-alpha.10(098a092070ceddb6db5a24dee86ebeb9)
+      '@c15t/core': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/nextjs': 3.0.0-alpha.10(next@16.0.7(@babel/core@7.29.7(supports-color@10.2.2))(@opentelemetry/api@1.9.0)(@playwright/test@1.63.0)(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
+      '@c15t/react': 3.0.0-alpha.10(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
+      '@c15t/tanstack-start': 3.0.0-alpha.10(@tanstack/react-router@1.170.41(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(@tanstack/react-start@1.168.60(crossws@0.4.12(srvx@0.12.4))(esbuild@0.28.2)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(rolldown@1.2.11)(rollup@4.63.5)(supports-color@10.2.2)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1)))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@6.0.3)
+      '@c15t/ui': 3.0.0-alpha.10(typescript@6.0.3)
+      '@c15t/vue': 3.0.0-alpha.10(magicast@0.5.5)(nuxt@4.5.2(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@oxc-project/types@0.151.0)(@types/node@24.13.3)(@vue/compiler-sfc@3.5.43)(commander@15.0.0)(db0@0.3.4)(esbuild@0.28.2)(ioredis@5.11.1(supports-color@10.2.2))(lightningcss@1.33.0)(magicast@0.5.5)(oxlint@1.81.0)(rolldown@1.2.11)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.11)(rollup@4.63.5))(rollup@4.63.5)(srvx@0.12.4)(supports-color@10.2.2)(terser@5.51.2)(typescript@6.0.3)(vite@8.3.1(@types/node@24.13.3)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.1))(vue-tsc@3.3.3(typescript@6.0.3))(yaml@2.9.1))(rolldown@1.2.11)(typescript@6.0.3)(vue@3.5.43(typescript@6.0.3))
     transitivePeerDependencies:
       - '@sveltejs/kit'
       - '@tanstack/react-router'

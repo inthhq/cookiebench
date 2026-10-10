@@ -1,4 +1,4 @@
-import { init } from "@c15t/browser/headless";
+import { hosted, init } from "@c15t/browser/headless";
 import {
   controlledScript,
   initializeBridge,
@@ -18,9 +18,8 @@ const banner = requiredElement<HTMLElement>("#banner");
 const choices = requiredElement<HTMLFormElement>("#choices");
 const feedback = requiredElement<HTMLElement>("#feedback");
 const client = init({
-  backendURL: "https://benchmarks-inth.inth.app",
   consentCategories: ["necessary", "measurement", "marketing"],
-  mode: "hosted",
+  mode: hosted({ backendURL: "https://benchmarks-inth.inth.app" }),
   scripts: Array.from(
     { length: Number(new URL(location.href).searchParams.get("scripts") ?? 2) },
     (_, index) => {

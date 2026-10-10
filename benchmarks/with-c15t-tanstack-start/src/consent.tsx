@@ -10,7 +10,6 @@ import type { ConsentRootProps } from "@c15t/tanstack-start";
 import { controlledWorkload, updateBridge } from "@cookiebench/fixture-support";
 import { useEffect, useState } from "react";
 
-import { backendURL } from "./consent-backend";
 import { Page } from "./page";
 
 function Probe() {
@@ -39,8 +38,6 @@ function Probe() {
 export function ConsentPage({ state }: { state: ConsentRootProps["state"] }) {
   return (
     <ConsentRoot
-      backendURL={backendURL}
-      initRoute={false}
       state={state}
       options={{ consentCategories: ["necessary", "measurement", "marketing"] }}
     >

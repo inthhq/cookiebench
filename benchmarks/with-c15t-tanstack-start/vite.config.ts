@@ -7,10 +7,7 @@ import { backendURL } from "./src/consent-backend";
 
 export default defineConfig({
   plugins: [
-    consentManifest({
-      backendURL,
-      importSource: "@c15t/tanstack-start/static",
-    }),
+    consentManifest({ backendURL }),
     tanstackStart(),
     react(),
   ],

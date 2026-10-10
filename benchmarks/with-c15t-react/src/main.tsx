@@ -1,4 +1,3 @@
-import { manifest } from "@c15t/browser/headless";
 import {
   controlledScript,
   initializeBridge,
@@ -12,11 +11,11 @@ import {
   useSetActiveUI,
   useSaveConsents,
   useScriptLoader,
+  manifest,
 } from "c15t/react";
 import { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 
-import { consentManifest } from "./c15t-manifest";
 import { Page } from "./page.tsx";
 
 initializeBridge();
@@ -73,12 +72,7 @@ createRoot(root).render(
   <ConsentProvider
     options={{
       consentCategories: ["necessary", "measurement", "marketing"],
-      // The bundled policy matches on country, which a browser-only app
-      // doesn't know, so this still asks the backend's /init.
-      mode: manifest({
-        backendURL: "https://benchmarks-inth.inth.app",
-        manifest: consentManifest,
-      }),
+      mode: manifest(),
     }}
   >
     <Page />

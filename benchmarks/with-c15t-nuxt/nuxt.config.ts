@@ -13,9 +13,9 @@ export default defineNuxtConfig({
   app: { baseURL: baseline ? "/baseline/" : "/" },
   buildDir: baseline ? ".nuxt-baseline" : ".nuxt",
   c15t: {
+    // The default manifest() mode bundles the backend's policy at build time
+    // and resolves each visitor on the server.
     backendURL: "https://benchmarks-inth.inth.app",
-    // Embeds the backend's manifest at build time and serves it from the server.
-    buildManifest: true,
     consentCategories: ["necessary", "measurement", "marketing"],
   },
   compatibilityDate: "2026-09-27",

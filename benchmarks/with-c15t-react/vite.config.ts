@@ -10,7 +10,7 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    // Downloads the policy and writes src/c15t-manifest.ts, as the React
+    // Downloads the policy and serves it as c15t/generated, as the React
     // quickstart does.
     consentManifest({ backendURL: "https://benchmarks-inth.inth.app" }),
   ],

@@ -17,7 +17,6 @@ import type { ConsentRootProps } from "c15t/next";
 import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 
-import { consentConfig } from "../c15t.config.ts";
 import { Interaction } from "./interaction.tsx";
 
 function Probe() {
@@ -77,7 +76,6 @@ export function ConsentFixture({
 }) {
   return (
     <ConsentRoot
-      config={consentConfig}
       options={{ consentCategories: ["necessary", "measurement", "marketing"] }}
       state={state}
     >

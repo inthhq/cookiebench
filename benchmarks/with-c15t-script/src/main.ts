@@ -1,4 +1,4 @@
-import type { ConsentClient, ConsentClientOptions } from "@c15t/browser";
+import type { ConsentClient, ScriptTagClientOptions } from "@c15t/browser";
 import {
   controlledScript,
   initializeBridge,
@@ -10,7 +10,7 @@ import { initializePage } from "./page.ts";
 
 declare global {
   interface Window {
-    c15t: { init: (options: ConsentClientOptions) => ConsentClient };
+    c15t: { init: (options: ScriptTagClientOptions) => ConsentClient };
   }
 }
 initializePage();

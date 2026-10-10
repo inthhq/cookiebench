@@ -12,8 +12,6 @@
     "app/**/*.tsx",
     "next.config.ts",
     "c15t.config.ts",
-    "c15t.server.ts",
-    "c15t-manifest.ts",
     ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
