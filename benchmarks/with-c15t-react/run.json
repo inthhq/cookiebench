@@ -20,7 +20,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "48b3eb0e7a5b0d15fdad716d0919d09f75499c176b15aae5f433cf8dd8ff0b86",
+      "configurationHash": "f73179b1c2bd55dc4990dbe5dd1028fd76a51e2e07fd31301f223c3befeb3c98",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -33,10 +33,10 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "fixture-source-only",
-        "lockfileHash": "a924fbd8f226ce74f96eb932f8f0397abdd5a640309ef37011f18e8f8a6e2294",
+        "lockfileHash": "d1004f44cc3bf1e8a4a98f8ed2db6e272ee3552e1651466a7df2563c81b53b79",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
-      "revision": "3.4.0-article-v1-inth-build-manifest",
+      "revision": "3.4.0-article-v1-inth-hosted-prefetch",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -74,7 +74,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "031ac33717449120a3b01a158d0ec2df0d03efbd7a95f7e94f80d9b84fe02e6e",
+      "configurationHash": "923f8a5eca34e382ab7ac6dfd83329ff33df95cca248d7f44d3bf3274011b434",
       "deployment": {
         "assets": "local",
         "backend": "remote-service"
@@ -86,11 +86,11 @@
       "presentation": "default",
       "product": "c15t",
       "provenance": {
-        "artifactIntegrity": "sha512-xKxJ0RpI5xluyQf/VfnASkgg2U+epkNZq6uahBur/HIbisKMDqgMxu/a4mHUjqpiLSiAOB1lRRfGC+wYPVtxGQ==",
-        "lockfileHash": "a924fbd8f226ce74f96eb932f8f0397abdd5a640309ef37011f18e8f8a6e2294",
-        "sourceUrl": "https://registry.npmjs.org/c15t/-/c15t-3.0.0-alpha.10.tgz"
+        "artifactIntegrity": "sha512-WPx+fB431xk7GPUdITnmcG8SVUn8UP+h4j335ivDtpuOjbdLAFYZ31qG8tprNPAvQaZcmqNdFvbWpHTsCDjMEw==",
+        "lockfileHash": "d1004f44cc3bf1e8a4a98f8ed2db6e272ee3552e1651466a7df2563c81b53b79",
+        "sourceUrl": "https://registry.npmjs.org/c15t/-/c15t-3.0.0-alpha.11.tgz"
       },
-      "revision": "3.4.0-article-v1-inth-build-manifest-inline-styles",
+      "revision": "3.4.0-article-v1-inth-hosted-prefetch-inline-styles",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -106,7 +106,7 @@
         }
       },
       "url": "http://127.0.0.1:4311/",
-      "version": "3.0.0-alpha.10"
+      "version": "3.0.0-alpha.11"
     }
   ],
   "scenarios": [

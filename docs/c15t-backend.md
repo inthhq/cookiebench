@@ -8,10 +8,16 @@ From revision `3.3.0` on October 7, 2026, every c15t fixture talks to a live Int
 | TanStack Start | Build-time manifest, resolved on the server | `POST /subjects` on a save |
 | Nuxt | Build-time manifest, resolved on the Nuxt server. alpha.7 to alpha.9 needed `buildManifest: true`; from alpha.10 it's the default. See [Nuxt](#nuxt). | `POST /subjects` on a save |
 | Astro | Server output with the default `manifest()` mode and a build-time manifest; middleware resolves each request | `POST /subjects` on a save |
-| React (Vite) | Build-time manifest (`consentManifest` Vite plugin and `manifest()` mode), resolved in the browser. The policy matches on country, so the browser still asks `/init`. | `GET /init`, then `POST /subjects` on a save |
+| React (Vite) | Browser `/init` (`hosted()` mode), prefetched by an inline `<head>` script. See [React](#react). | `GET /init`, then `POST /subjects` on a save |
 | Script tag and headless | Browser `/init` | `GET /init`, then `POST /subjects` on a save |
 
-The docs recommend a build-time manifest for every framework with a build step. From revision `3.4.0-article-v1-inth-build-manifest`, React follows the React quickstart and bundles the manifest. Without a server it can't know the visitor's country, and the Inth policy matches on country, so the browser still calls `/init`. The script tag has no build step, so it keeps `/init`. Manifest fixtures and their baselines declare `mode: "manifest"`; the `/init` fixtures keep `mode: "hosted"`. Every c15t candidate declares `deployment.backend: "remote-service"`, the same as the competitor fixtures.
+The docs recommend a build-time manifest for every framework with a build step, unless the browser resolves a policy that depends on location. The script tag has no build step, so it keeps `/init`. Manifest fixtures and their baselines declare `mode: "manifest"`; the `/init` fixtures keep `mode: "hosted"`. Every c15t candidate declares `deployment.backend: "remote-service"`, the same as the competitor fixtures.
+
+## React
+
+Revision `3.4.0-article-v1-inth-build-manifest` followed the React quickstart: the `consentManifest` Vite plugin bundled the policy and `manifest()` resolved it in the browser. The Inth policy matches on country, which a browser-only app doesn't know, so every first visit still called `/init`. The bundled policy added about 3 KB of initial JS (Brotli) and saved no request. The build warns about this and suggests `hosted()`, and from revision `3.4.0-article-v1-inth-hosted` the fixture uses it.
+
+From revision `3.4.0-article-v1-inth-hosted-prefetch` (alpha.11), the fixture follows the new React quickstart. The `consentManifest` Vite plugin is back, but only to pass the backend URL to `hosted()` and to add an inline script to the `<head>` of `index.html`. That script sends `/init` while the JavaScript downloads, and `hosted()` uses its response. A `hosted()` build doesn't download the policy. The plugin adds the script to every HTML entry, so the Vite config strips it from `baseline.html`, which must not send `/init`.
 
 ## Nuxt
 

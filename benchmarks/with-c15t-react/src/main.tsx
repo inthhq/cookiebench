@@ -11,7 +11,7 @@ import {
   useSetActiveUI,
   useSaveConsents,
   useScriptLoader,
-  manifest,
+  hosted,
 } from "c15t/react";
 import { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
@@ -72,7 +72,9 @@ createRoot(root).render(
   <ConsentProvider
     options={{
       consentCategories: ["necessary", "measurement", "marketing"],
-      mode: manifest(),
+      // Reads the backend URL from consentManifest in vite.config.ts and
+      // uses the /init response that index.html prefetched.
+      mode: hosted(),
     }}
   >
     <Page />
