@@ -1,0 +1,95 @@
+{
+  "status": "passed",
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "comparisons": [
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 76,
+        "mean": 65.59999999999998,
+        "measured": 15,
+        "median": 72,
+        "min": 44,
+        "missing": 0,
+        "p75": 74,
+        "passed": 15
+      },
+      "baselineFixtureId": "tanstack-start-baseline-registered-host",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 76,
+        "mean": 64.26666666666667,
+        "measured": 15,
+        "median": 68,
+        "min": 48,
+        "missing": 0,
+        "p75": 68,
+        "passed": 15
+      },
+      "candidateFixtureId": "tanstack-start-cookie-yes",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 20,
+          "level": 0.9997916666666666,
+          "low": -20,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": -4,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 14,
+            "level": 0.9997916666666666,
+            "low": -16,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": -6
+        },
+        "pairDifferenceP75": 6
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    }
+  ],
+  "metricKey": "page.fcp",
+  "multiplicity": {
+    "comparisons": 120,
+    "family": "merged-2026-10-11:desktop:ttfb-fcp",
+    "familyLevel": 0.95,
+    "intervalLevel": 0.9997916666666666,
+    "intervals": 240,
+    "method": "bonferroni"
+  },
+  "sourceRunIds": [
+    "de68793f-558c-4ea7-9027-86642b3ebf98"
+  ]
+}

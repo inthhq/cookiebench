@@ -1,0 +1,95 @@
+{
+  "status": "passed",
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "comparisons": [
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 5.600000001490116,
+        "mean": 4.486666666467984,
+        "measured": 15,
+        "median": 4.5,
+        "min": 2.699999999254942,
+        "missing": 0,
+        "p75": 5,
+        "passed": 15
+      },
+      "baselineFixtureId": "react-baseline-registered-host",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 5.300000000745058,
+        "mean": 4.093333333233993,
+        "measured": 15,
+        "median": 4.300000000745058,
+        "min": 2.900000002235174,
+        "missing": 0,
+        "p75": 4.599999999627471,
+        "passed": 15
+      },
+      "candidateFixtureId": "react-cookie-yes",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 0.6999999992549419,
+          "level": 0.9997916666666666,
+          "low": -1.3999999947845936,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": -0.19999999925494194,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 0.6999999992549419,
+            "level": 0.9997916666666666,
+            "low": -1.8499999977648258,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": -0.40000000037252903
+        },
+        "pairDifferenceP75": 0.29999999701976776
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    }
+  ],
+  "metricKey": "page.ttfb",
+  "multiplicity": {
+    "comparisons": 120,
+    "family": "merged-2026-10-11:mobile:ttfb-fcp",
+    "familyLevel": 0.95,
+    "intervalLevel": 0.9997916666666666,
+    "intervals": 240,
+    "method": "bonferroni"
+  },
+  "sourceRunIds": [
+    "c4f20ead-11c1-41e1-af39-a8f654b713df"
+  ]
+}

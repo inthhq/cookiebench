@@ -1,0 +1,95 @@
+{
+  "status": "passed",
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "comparisons": [
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 740,
+        "mean": 732.2666666666665,
+        "measured": 15,
+        "median": 732,
+        "min": 724,
+        "missing": 0,
+        "p75": 736,
+        "passed": 15
+      },
+      "baselineFixtureId": "react-baseline-registered-host",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 804,
+        "mean": 780.5333333333335,
+        "measured": 15,
+        "median": 776,
+        "min": 768,
+        "missing": 0,
+        "p75": 784,
+        "passed": 15
+      },
+      "candidateFixtureId": "react-cookie-yes",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 64,
+          "level": 0.9997916666666666,
+          "low": 40,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 44,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 74,
+            "level": 0.9997916666666666,
+            "low": 40,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": 48
+        },
+        "pairDifferenceP75": 52
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    }
+  ],
+  "metricKey": "page.fcp",
+  "multiplicity": {
+    "comparisons": 120,
+    "family": "merged-2026-10-11:mobile:ttfb-fcp",
+    "familyLevel": 0.95,
+    "intervalLevel": 0.9997916666666666,
+    "intervals": 240,
+    "method": "bonferroni"
+  },
+  "sourceRunIds": [
+    "c4f20ead-11c1-41e1-af39-a8f654b713df"
+  ]
+}

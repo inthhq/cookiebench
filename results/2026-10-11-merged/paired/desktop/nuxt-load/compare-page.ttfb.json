@@ -1,0 +1,688 @@
+{
+  "status": "incomplete",
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "comparisons": [
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.099999999627471,
+        "mean": 4.86666666654249,
+        "measured": 15,
+        "median": 4.800000000745058,
+        "min": 3.200000001117587,
+        "missing": 0,
+        "p75": 5.749999999068677,
+        "passed": 15
+      },
+      "baselineFixtureId": "nuxt-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 27,
+        "mean": 16.980000000136595,
+        "measured": 15,
+        "median": 17.40000000037253,
+        "min": 10.199999999254942,
+        "missing": 0,
+        "p75": 19.5,
+        "passed": 15
+      },
+      "candidateFixtureId": "nuxt-c15t",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "local",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 20.90000000037253,
+          "level": 0.9997916666666666,
+          "low": 6.200000001117587,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 11.800000000745058,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 21.09999999962747,
+            "level": 0.9997916666666666,
+            "low": 6.200000001117587,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": 13.750000000931323
+        },
+        "pairDifferenceP75": 15.5
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.099999999627471,
+        "mean": 4.86666666654249,
+        "measured": 15,
+        "median": 4.800000000745058,
+        "min": 3.200000001117587,
+        "missing": 0,
+        "p75": 5.749999999068677,
+        "passed": 15
+      },
+      "baselineFixtureId": "nuxt-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.799999998882413,
+        "mean": 5.200000000124176,
+        "measured": 15,
+        "median": 5.099999999627471,
+        "min": 3.599999999627471,
+        "missing": 0,
+        "p75": 5.8500000005587935,
+        "passed": 15
+      },
+      "candidateFixtureId": "nuxt-cookie-control",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 2.599999999627471,
+          "level": 0.9997916666666666,
+          "low": -2.400000000372529,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 0.5000000018626451,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 2.300000000745058,
+            "level": 0.9997916666666666,
+            "low": -1.299999998882413,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": 0.10000000149011612
+        },
+        "pairDifferenceP75": 1.7000000001862645
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.099999999627471,
+        "mean": 4.86666666654249,
+        "measured": 15,
+        "median": 4.800000000745058,
+        "min": 3.200000001117587,
+        "missing": 0,
+        "p75": 5.749999999068677,
+        "passed": 15
+      },
+      "baselineFixtureId": "nuxt-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 7.5,
+        "mean": 5.566666666790843,
+        "measured": 15,
+        "median": 5.5,
+        "min": 4.300000000745058,
+        "missing": 0,
+        "p75": 6.099999999627471,
+        "passed": 15
+      },
+      "candidateFixtureId": "nuxt-didomi",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 2.5,
+          "level": 0.9997916666666666,
+          "low": -1.200000001117587,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 0.900000000372529,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 1.950000001117587,
+            "level": 0.9997916666666666,
+            "low": -0.7499999990686774,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": 0.35000000055879354
+        },
+        "pairDifferenceP75": 1.7000000001862645
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.099999999627471,
+        "mean": 4.86666666654249,
+        "measured": 15,
+        "median": 4.800000000745058,
+        "min": 3.200000001117587,
+        "missing": 0,
+        "p75": 5.749999999068677,
+        "passed": 15
+      },
+      "baselineFixtureId": "nuxt-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.899999998509884,
+        "mean": 5.173333333308498,
+        "measured": 15,
+        "median": 5.200000001117587,
+        "min": 3.5,
+        "missing": 0,
+        "p75": 6.099999999627471,
+        "passed": 15
+      },
+      "candidateFixtureId": "nuxt-enzuzo",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Observed remote script/style/config URL or decoded-body digest changed within this comparison cell; artifact identity remains provisional."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 15,
+        "medianDifference": 0.2000000011175871,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": 0.35000000055879354
+        },
+        "pairDifferenceP75": 1.5
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.099999999627471,
+        "mean": 4.86666666654249,
+        "measured": 15,
+        "median": 4.800000000745058,
+        "min": 3.200000001117587,
+        "missing": 0,
+        "p75": 5.749999999068677,
+        "passed": 15
+      },
+      "baselineFixtureId": "nuxt-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 8.599999999627471,
+        "mean": 5.320000000049672,
+        "measured": 15,
+        "median": 5.699999999254942,
+        "min": 3.5,
+        "missing": 0,
+        "p75": 5.800000000745058,
+        "passed": 15
+      },
+      "candidateFixtureId": "nuxt-iubenda",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 1.700000001117587,
+          "level": 0.9997916666666666,
+          "low": -1.3999999985098839,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 0.2999999988824129,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 4.000010415735654,
+            "level": 0.9997916666666666,
+            "low": -1.3499999986961484,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": 0.050000001676380634
+        },
+        "pairDifferenceP75": 1.1499999994412065
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.099999999627471,
+        "mean": 4.86666666654249,
+        "measured": 15,
+        "median": 4.800000000745058,
+        "min": 3.200000001117587,
+        "missing": 0,
+        "p75": 5.749999999068677,
+        "passed": 15
+      },
+      "baselineFixtureId": "nuxt-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 10.200000001117587,
+        "mean": 6.11333333340784,
+        "measured": 15,
+        "median": 5.699999999254942,
+        "min": 3.599999999627471,
+        "missing": 0,
+        "p75": 6.650000000372529,
+        "passed": 15
+      },
+      "candidateFixtureId": "nuxt-ketch",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Observed remote script/style/config URL or decoded-body digest changed within this comparison cell; artifact identity remains provisional."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 15,
+        "medianDifference": 0.5,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": 0.9000000013038516
+        },
+        "pairDifferenceP75": 2.25
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.099999999627471,
+        "mean": 4.86666666654249,
+        "measured": 15,
+        "median": 4.800000000745058,
+        "min": 3.200000001117587,
+        "missing": 0,
+        "p75": 5.749999999068677,
+        "passed": 15
+      },
+      "baselineFixtureId": "nuxt-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 7.2000000001862645,
+        "mean": 5.266666666480402,
+        "measured": 15,
+        "median": 5.400000000372529,
+        "min": 3.799999998882413,
+        "missing": 0,
+        "p75": 5.8500000005587935,
+        "passed": 15
+      },
+      "candidateFixtureId": "nuxt-onetrust",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 1.699999999254942,
+          "level": 0.9997916666666666,
+          "low": -1.700000001117587,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 0.900000000372529,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 1.699999999254942,
+            "level": 0.9997916666666666,
+            "low": -1.400000000372529,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": 0.10000000149011612
+        },
+        "pairDifferenceP75": 1.4499999997206032
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.099999999627471,
+        "mean": 4.86666666654249,
+        "measured": 15,
+        "median": 4.800000000745058,
+        "min": 3.200000001117587,
+        "missing": 0,
+        "p75": 5.749999999068677,
+        "passed": 15
+      },
+      "baselineFixtureId": "nuxt-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 14,
+        "censoring": null,
+        "eligibilityReasons": [
+          "Metric page.ttfb is missing.",
+          "Sample failure sample-browser: page.goto: Timeout 15000ms exceeded.\nCall log:\n  - navigating to \"http://127.0.0.1:4314/baseline/?cmp=osano&scripts=2&token=765c2122-9190-4ded-a104-f21eb2359de2\", waiting until \"domcontentloaded\"\n"
+        ],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 1,
+        "max": 6.5,
+        "mean": 5.278571428598037,
+        "measured": 14,
+        "median": 5.3999999994412065,
+        "min": 3.900000000372529,
+        "missing": 1,
+        "p75": 5.875,
+        "passed": 14
+      },
+      "candidateFixtureId": "nuxt-osano",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Remote artifact identity covers captured page-target response bodies only; network coverage is missing or incomplete, so unseen frame or worker assets cannot be qualified.",
+        "Measured remote script/style/config response identity is missing or incomplete in one or more attempts.",
+        "Required metric measurements are missing.",
+        "Eligible metric observations do not have complete one-to-one pairing within the same run.",
+        "Fewer than 15 eligible paired metric observations."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 14,
+        "medianDifference": 0.20000000018626451,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": 0.05000000121071935
+        },
+        "pairDifferenceP75": 0.6749999993480742
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.099999999627471,
+        "mean": 4.86666666654249,
+        "measured": 15,
+        "median": 4.800000000745058,
+        "min": 3.200000001117587,
+        "missing": 0,
+        "p75": 5.749999999068677,
+        "passed": 15
+      },
+      "baselineFixtureId": "nuxt-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 8.699999999254942,
+        "mean": 5.8200000004221994,
+        "measured": 15,
+        "median": 5.800000000745058,
+        "min": 3.800000000745058,
+        "missing": 0,
+        "p75": 6.400000000372529,
+        "passed": 15
+      },
+      "candidateFixtureId": "nuxt-usercentrics",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 3.700000001117587,
+          "level": 0.9997916666666666,
+          "low": -0.2999999988824129,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 0.6000000014901161,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 4.099999998696148,
+            "level": 0.9997916666666666,
+            "low": -0.7500052074019132,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": 0.6500000013038516
+        },
+        "pairDifferenceP75": 1.1000000005587935
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    }
+  ],
+  "metricKey": "page.ttfb",
+  "multiplicity": {
+    "comparisons": 120,
+    "family": "merged-2026-10-11:desktop:ttfb-fcp",
+    "familyLevel": 0.95,
+    "intervalLevel": 0.9997916666666666,
+    "intervals": 240,
+    "method": "bonferroni"
+  },
+  "sourceRunIds": [
+    "09d6f12d-6ff0-4be2-b1b0-96f09dda6041"
+  ]
+}
