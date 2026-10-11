@@ -1,0 +1,87 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:08869d82-bac6-4293-ada1-329be6218d2d"
+      ],
+      "fixtureId": "nextjs-cookie-yes",
+      "framework": "nextjs",
+      "id": "56c621a4-d2f1-4a36-b8e9-1c70b3dee724",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-11T09:56:37.054Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:06a67d81-85a8-4261-afb3-7f24e0abdcc6"
+      ],
+      "fixtureId": "nextjs-cookie-yes",
+      "framework": "nextjs",
+      "id": "e9966d7b-0f0d-41cf-969a-4fb12b73fc39",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-11T09:56:37.054Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:cb4d0dd7-7117-4f5a-a8e1-c73004ae0ff5"
+      ],
+      "fixtureId": "nextjs-cookie-yes",
+      "framework": "nextjs",
+      "id": "e16e60a8-8674-412f-ad59-e5d7c8a401eb",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-11T09:56:37.054Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:04a8b6a5-f0ab-43de-a29c-cb50fd5d9b03"
+      ],
+      "fixtureId": "nextjs-cookie-yes",
+      "framework": "nextjs",
+      "id": "57690726-6775-495c-8043-9f2ed7bec7c3",
+      "mode": "hosted",
+      "reason": "0/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "unknown",
+      "verifiedAt": "2026-10-11T09:56:37.054Z"
+    }
+  ],
+  "failures": [
+    {
+      "sampleId": "0b4f081b-9ad9-4296-90b1-dfe22f15380a",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: page.lcp, initial.transfer"
+    },
+    {
+      "sampleId": "afd7f420-df9a-4eed-b7f1-ce52af1677ef",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: page.lcp, initial.transfer"
+    },
+    {
+      "sampleId": "a1551360-19ed-42ff-906d-601cd4cb6cef",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: page.lcp, initial.transfer"
+    },
+    {
+      "sampleId": "04a8b6a5-f0ab-43de-a29c-cb50fd5d9b03",
+      "code": "unsupported-action",
+      "message": "Adapter does not declare the save action"
+    },
+    {
+      "sampleId": "04a8b6a5-f0ab-43de-a29c-cb50fd5d9b03",
+      "code": "followup:unsupported-action",
+      "message": "Adapter does not declare the save action"
+    }
+  ],
+  "output": "/home/kaylee/.t3/worktrees/cookiebench/t3code-cef51b81/results/2026-10-11-cookie-yes-hydration/mobile/nextjs-cookie-yes-correctness/attempt-001/envelope.json",
+  "runId": "2c7544e3-801c-433d-adcb-919e97058aee",
+  "samples": 8,
+  "status": "incomplete"
+}

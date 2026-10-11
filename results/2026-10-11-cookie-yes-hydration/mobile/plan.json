@@ -1,0 +1,15 @@
+{
+  "seed": 20261009,
+  "entries": [
+    {
+      "config": "results/2026-10-11-cookie-yes-hydration/configs/nextjs-cookie-yes-mobile.json",
+      "id": "nextjs-cookie-yes-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-11-cookie-yes-hydration/configs/nextjs-cookie-yes-mobile.json",
+      "id": "nextjs-cookie-yes-correctness",
+      "kind": "flows"
+    }
+  ]
+}
