@@ -62,12 +62,45 @@ const profiles = {
   mobile: read("benchmarks/profiles/mobile.json"),
 } as const;
 
+/**
+ * Mobile visits get 10 s where desktop gets 5 s. On the throttled connection
+ * Ketch's 340 KB SDK lands at about 4.2 s and its banner after 5 s, so the
+ * load window ended first and the flows gave up waiting to click. c15t React
+ * fetches its deferred writer chunk at about 4.95 s, which left some visits
+ * with a request in flight at the cutoff. The load window sets which requests
+ * count as initial and how long blocking is summed, so it widens for every
+ * arm alike. Flow windows after the click stay as the framework sets them.
+ */
+const MOBILE_WINDOW_MS = 10_000;
+function forProfile(profileName: string, scenarios: Json[]): Json[] {
+  if (profileName !== "mobile") {
+    return scenarios;
+  }
+  return scenarios.map((scenario) => ({
+    ...scenario,
+    actionDeadlineMs: Math.max(scenario.actionDeadlineMs, MOBILE_WINDOW_MS),
+    ...(scenario.action === "load"
+      ? { observationMs: Math.max(scenario.observationMs, MOBILE_WINDOW_MS) }
+      : {}),
+  }));
+}
+
 const placement = (marker: string, side: string) =>
   ({
     "</body>:before": "body-end",
     "</head>:before": "head-end",
     "<head>:after": "head-start",
   })[`${marker}:${side}`];
+
+/**
+ * On Next.js, CookieYes waits for hydration, as the standalone fixture's
+ * client effect does. From the start of <head>, banner.js inserts its markup
+ * into <body> before React hydrates on the throttled mobile connection; React
+ * then reports a hydration mismatch (#418) and the banner never accepts input.
+ */
+const afterHydration: Partial<Record<string, ReadonlySet<string>>> = {
+  "with-c15t-nextjs": new Set(["cookie-yes"]),
+};
 
 /** Serve one framework over HTTPS on the registered host. */
 function matrixServer(directory: string, server: Json) {
@@ -77,7 +110,16 @@ function matrixServer(directory: string, server: Json) {
   const portIndex = args.indexOf("--port");
   const port = Number(args[portIndex + 1]);
   const tlsPort = port + 300;
-  args.splice(portIndex + 2, 0, "--tls-port", String(tlsPort));
+  args.splice(
+    portIndex + 2,
+    0,
+    "--tls-port",
+    String(tlsPort),
+    ...[...(afterHydration[directory] ?? [])].flatMap((name) => [
+      "--after-hydration",
+      name,
+    ])
+  );
   return {
     origin: `https://${host}:${tlsPort}`,
     server: { ...server, start: { args, command } },
@@ -124,7 +166,7 @@ function matrix(directory: string): { local: Json; registered: Json } {
       frameworkVersion: baseline.frameworkVersion,
       id: `${baseline.id.replace(/-baseline.*$/u, "")}-${name}`,
       name,
-      revision: `3.4.0-matrix-article-v1-${placement(bootstrap.marker, bootstrap.side)}`,
+      revision: `3.4.0-matrix-article-v1-${placement(bootstrap.marker, bootstrap.side)}${afterHydration[directory]?.has(name) ? "-after-hydration" : ""}`,
       server: baseline.server,
       url: `${baseline.url}?cmp=${name}`,
     };
@@ -212,7 +254,11 @@ for (const [profileName, profile] of Object.entries(profiles)) {
       ["-cookie-yes", configs.registered],
     ] as const) {
       const name = `${framework}${suffix}`;
-      const file = write(`${name}-${profileName}`, { ...config, profile });
+      const file = write(`${name}-${profileName}`, {
+        ...config,
+        profile,
+        scenarios: forProfile(profileName, config.scenarios),
+      });
       entries.push(
         { config: file, id: `${name}-load`, kind: "load" },
         { config: file, id: `${name}-correctness`, kind: "flows" }

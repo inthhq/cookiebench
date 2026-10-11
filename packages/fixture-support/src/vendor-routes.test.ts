@@ -132,6 +132,32 @@ describe.each([
   });
 
   it.runIf(mode === "static")(
+    "defers only the vendors named by --after-hydration",
+    async () => {
+      const deferred = await start([
+        "--static",
+        directory as string,
+        "--after-hydration",
+        "cookie-yes",
+      ]);
+      try {
+        const timing = async (name: string) => {
+          const response = await fetch(
+            `http://127.0.0.1:${deferred.port}/baseline?cmp=${name}`
+          );
+          const html = await response.text();
+          return html.includes('data-cookiebench-timing="after-hydration"');
+        };
+        expect(await timing("cookie-yes")).toBe(true);
+        expect(await timing("ketch")).toBe(false);
+      } finally {
+        await stop(deferred.child);
+      }
+    },
+    30_000
+  );
+
+  it.runIf(mode === "static")(
     "encodes every vendor document before the first visit",
     async () => {
       await fetch(`http://127.0.0.1:${port}/baseline?cmp=osano`);

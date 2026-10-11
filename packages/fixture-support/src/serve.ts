@@ -22,6 +22,7 @@ import { createStaticResponder } from "./static-response.ts";
 const { values, positionals } = parseArgs({
   allowPositionals: true,
   options: {
+    "after-hydration": { multiple: true, type: "string" },
     "backend-delay-ms": { type: "string" },
     "baseline-entry": { type: "string" },
     "baseline-upstream-port": { type: "string" },
@@ -36,9 +37,22 @@ const backendDelayMs = parseBackendDelay(values["backend-delay-ms"]);
 const port = Number(values.port);
 const bootstrap = competitorBootstrap(values.competitor);
 // The baseline document with ?cmp=<vendor> carries that vendor's bootstrap, so
-// every CMP runs on one page, build and server per framework.
+// every CMP runs on one page, build and server per framework. Vendors named
+// by --after-hydration install once the page has hydrated.
+const afterHydration = new Set(values["after-hydration"]);
+for (const name of afterHydration) {
+  if (!competitors.includes(name as never)) {
+    throw new Error(`Unknown CMP ${name} in --after-hydration.`);
+  }
+}
 const vendorBootstraps = new Map(
-  competitors.map((name) => [name, competitorBootstrap(name)] as const)
+  competitors.map(
+    (name) =>
+      [
+        name,
+        competitorBootstrap(name, { afterHydration: afterHydration.has(name) }),
+      ] as const
+  )
 );
 if (!Number.isSafeInteger(port) || port < 1 || port > 65_535) {
   throw new Error("Expected --port between 1 and 65535.");

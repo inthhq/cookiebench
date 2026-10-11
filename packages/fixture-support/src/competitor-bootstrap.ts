@@ -4,7 +4,8 @@ import type { Competitor } from "./competitor.ts";
 
 // CookieYes, Ketch, Osano and Usercentrics load from a client effect in their
 // Next.js fixtures. On other frameworks they use their generic snippet, which
-// each vendor places at the start of <head>.
+// each vendor places at the start of <head>. With `afterHydration`, the snippet
+// still sits in the document but installs once the page has hydrated.
 const placements = {
   "cookie-control": {
     exported: "installCookieControl",
@@ -38,7 +39,10 @@ export type CompetitorInjection = NonNullable<
 
 export const competitors = Object.keys(placements) as Competitor[];
 
-export function competitorBootstrap(name: string | undefined) {
+export function competitorBootstrap(
+  name: string | undefined,
+  { afterHydration = false } = {}
+) {
   if (!name || !(name in placements)) {
     return;
   }
@@ -50,7 +54,9 @@ export function competitorBootstrap(name: string | undefined) {
     minify: true,
     platform: "browser",
     stdin: {
-      contents: `import { ${placement.exported} } from './competitor.ts'; ${placement.exported}();`,
+      contents: afterHydration
+        ? `import { ${placement.exported} } from './competitor.ts'; import { afterHydration } from './hydration.ts'; afterHydration(${placement.exported});`
+        : `import { ${placement.exported} } from './competitor.ts'; ${placement.exported}();`,
       loader: "ts",
       resolveDir: import.meta.dirname,
       sourcefile: `cookiebench-${name}-bootstrap.ts`,
@@ -64,6 +70,7 @@ export function competitorBootstrap(name: string | undefined) {
   }
   return {
     ...placement,
-    html: `<script data-cookiebench-bootstrap="${name}">${source.replaceAll("</script", "<\\/script")}</script>`,
+    afterHydration,
+    html: `<script data-cookiebench-bootstrap="${name}"${afterHydration ? ' data-cookiebench-timing="after-hydration"' : ""}>${source.replaceAll("</script", "<\\/script")}</script>`,
   };
 }
