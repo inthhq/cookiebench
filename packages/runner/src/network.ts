@@ -1,9 +1,10 @@
 import { createHash } from "node:crypto";
+import { setTimeout as delay } from "node:timers/promises";
 
 import type { CDPSession, Page } from "playwright";
 
 import { attachChildTargets } from "./targets.ts";
-import type { ProtocolSession } from "./targets.ts";
+import type { ChildTarget, ProtocolSession } from "./targets.ts";
 
 export interface NetworkRequest {
   id: string;
@@ -248,20 +249,69 @@ function settleCancelled(row: NetworkRequest, headerBytes?: number) {
   row.decodedBodyBytes ??= 0;
 }
 
+// Chromium's default Resource Timing buffer. A full buffer drops later entries.
+const RESOURCE_TIMING_BUFFER = 250;
+const WORKER_AUDIT_TIMEOUT_MS = 2000;
+const WORKER_ENTRY_BINDING = "__cookiebenchResourceEntry";
+// Runs in each worker before it resumes, so a worker that exits before the
+// snapshot has still reported every entry whose observer callback ran.
+const WORKER_OBSERVER = `new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) ${WORKER_ENTRY_BINDING}(entry.name);
+}).observe({ buffered: true, type: "resource" })`;
+const DETACHED = /Target detached|No session with given id/u;
+const UNVERIFIED_WORKER =
+  "Worker traffic can start before its target's network events are enabled";
+
+const withoutFragment = (url: string) => url.split("#", 1)[0] ?? url;
+
+/**
+ * Resource Timing entries a worker reported that no row from its own target
+ * accounts for. The browser adds an entry when a response ends, after the
+ * request's start event, so every entry read after the window must have a row.
+ * Each row accounts for one entry with its URL.
+ */
+export function unaccountedWorkerEntries(
+  entries: readonly string[],
+  rowUrls: readonly string[]
+): string[] {
+  const available = new Map<string, number>();
+  for (const url of rowUrls) {
+    const key = withoutFragment(url);
+    available.set(key, (available.get(key) ?? 0) + 1);
+  }
+  const missing: string[] = [];
+  for (const entry of entries) {
+    if (!/^https?:/u.test(entry)) {
+      continue;
+    }
+    const key = withoutFragment(entry);
+    const count = available.get(key) ?? 0;
+    if (count === 0) {
+      missing.push(entry);
+    } else {
+      available.set(key, count - 1);
+    }
+  }
+  return missing;
+}
+
 export async function collectNetwork(page: Page, pageUrl: string) {
   const session: CDPSession = await page.context().newCDPSession(page);
   const gaps = new Set<string>();
   // Child frames wait for this collector before running. A dedicated worker's
   // fetch has been observed without requestWillBeSent even though Network.enable
-  // on the worker target completed before the worker resumed.
-  const workerGap = () =>
-    gaps.add(
-      "Worker traffic can start before its target's network events are enabled"
-    );
-  page.on("worker", workerGap);
-  if (page.workers().length) {
-    workerGap();
-  }
+  // on the worker target completed before the worker resumed, so a worker keeps
+  // coverage incomplete until its own Resource Timing entries all match rows.
+  const workerTargets: ChildTarget[] = [];
+  // Entries each worker's observer reported, once its observer is installed.
+  const workerEntries = new Map<ChildTarget, string[]>();
+  let playwrightWorkers = page.workers().length;
+  let workerVerification: string | undefined =
+    playwrightWorkers > 0 ? UNVERIFIED_WORKER : undefined;
+  page.on("worker", () => {
+    playwrightWorkers += 1;
+    workerVerification = UNVERIFIED_WORKER;
+  });
   const serviceWorkerGap = () =>
     gaps.add("Service-worker traffic is outside the attached page CDP targets");
   page.context().on("serviceworker", serviceWorkerGap);
@@ -301,6 +351,8 @@ export async function collectNetwork(page: Page, pageUrl: string) {
   }
   const requests: NetworkRequest[] = [];
   const active = new Map<string, NetworkRequest>();
+  // The sessions that announced each row, to match a worker's own requests.
+  const announcers = new Map<string, Set<ProtocolSession>>();
   const requestIds = new Map<string, string>();
   // Body reads go to the target that delivered the response.
   const bodySessions = new Map<string, ProtocolSession>();
@@ -366,6 +418,7 @@ export async function collectNetwork(page: Page, pageUrl: string) {
         existing.url === event.request.url
       ) {
         // Another target announced the same request.
+        announcers.get(existing.id)?.add(source);
         return;
       }
       const row: NetworkRequest = {
@@ -386,6 +439,7 @@ export async function collectNetwork(page: Page, pageUrl: string) {
         wallTimeMs: event.wallTime * 1000,
       };
       requestIds.set(row.id, event.requestId);
+      announcers.set(row.id, new Set([source]));
       active.set(event.requestId, row);
       requests.push(row);
       const raw = pendingRaw.get(event.requestId)?.shift();
@@ -479,23 +533,54 @@ export async function collectNetwork(page: Page, pageUrl: string) {
       record(row, event.timestamp);
     });
   };
+  const observeWorker = async (target: ChildTarget) => {
+    const entries: string[] = [];
+    target.session.on("Runtime.bindingCalled", (event) => {
+      if (event.name === WORKER_ENTRY_BINDING) {
+        entries.push(event.payload);
+      }
+    });
+    try {
+      await target.session.send("Runtime.addBinding", {
+        name: WORKER_ENTRY_BINDING,
+      });
+      const installed = await target.session.send("Runtime.evaluate", {
+        expression: WORKER_OBSERVER,
+      });
+      if (!installed.exceptionDetails) {
+        workerEntries.set(target, entries);
+      }
+    } catch (error) {
+      // Preparation finishes before the worker resumes, so one that detached
+      // here never ran and sent nothing.
+      if (DETACHED.test(String(error))) {
+        workerEntries.set(target, entries);
+      }
+    }
+  };
   listen(session);
   await session.send("Network.enable");
   const targets = await attachChildTargets(session);
   await targets.prepare(async (target) => {
-    if (target.type !== "iframe") {
-      workerGap();
+    if (target.type === "worker") {
+      workerTargets.push(target);
+      workerVerification = UNVERIFIED_WORKER;
+    } else if (target.type !== "iframe") {
+      gaps.add(`${target.type} traffic cannot be verified`);
     }
     listen(target.session);
     try {
       await target.session.send("Network.enable");
     } catch (error) {
       // A target detached before resuming never ran, so it sent no requests.
-      if (!/Target detached|No session with given id/u.test(String(error))) {
+      if (!DETACHED.test(String(error))) {
         gaps.add(
           `Network events were unavailable for a ${target.type} target: ${String(error)}`
         );
       }
+    }
+    if (target.type === "worker") {
+      await observeWorker(target);
     }
   });
   /** Settle a frozen row's byte fields; true when its body was never read. */
@@ -524,7 +609,72 @@ export async function collectNetwork(page: Page, pageUrl: string) {
     }
     return undelivered;
   };
+  /** A running worker's Resource Timing buffer, unless it has exited or filled. */
+  const readWorkerBuffer = async (
+    target: ChildTarget
+  ): Promise<string[] | undefined> => {
+    const expiry = new AbortController();
+    const expire = async () => {
+      await delay(WORKER_AUDIT_TIMEOUT_MS, undefined, {
+        signal: expiry.signal,
+      });
+      throw new Error("timed out");
+    };
+    try {
+      const response = await Promise.race([
+        target.session.send("Runtime.evaluate", {
+          expression:
+            "performance.getEntriesByType('resource').map((entry) => entry.name)",
+          returnByValue: true,
+        }),
+        expire(),
+      ]);
+      const entries: unknown = response.result?.value;
+      return Array.isArray(entries) && entries.length < RESOURCE_TIMING_BUFFER
+        ? (entries as string[])
+        : undefined;
+    } catch {
+      // The worker has exited, or didn't answer in time.
+    } finally {
+      expiry.abort();
+    }
+  };
+  /**
+   * Match a worker's Resource Timing entries to the rows its target announced.
+   * A running worker's buffer is read directly. A worker that has exited is
+   * checked against what its observer reported, which can miss an entry whose
+   * callback had not run when the worker stopped. Requests still in flight, and
+   * failures the browser gives no entry, aren't covered by this check.
+   */
+  const auditWorker = async (
+    target: ChildTarget
+  ): Promise<string | undefined> => {
+    const entries =
+      (await readWorkerBuffer(target)) ?? workerEntries.get(target);
+    if (!entries) {
+      return `Worker ${target.url} could not be checked: it stopped before reporting its requests`;
+    }
+    const own = requests
+      .filter((row) => announcers.get(row.id)?.has(target.session))
+      .map((row) => row.url);
+    const missing = unaccountedWorkerEntries(entries, own);
+    return missing.length
+      ? `Worker requests had no network events: ${missing.join(", ")}`
+      : undefined;
+  };
+  const auditWorkers = async () => {
+    if (workerVerification === undefined) {
+      return;
+    }
+    if (playwrightWorkers > workerTargets.length) {
+      workerVerification = "A worker started without an attached target";
+      return;
+    }
+    const reasons = await Promise.all(workerTargets.map(auditWorker));
+    workerVerification = reasons.find((reason) => reason !== undefined);
+  };
   const snapshot = async (deadlineEpochMs?: number) => {
+    await auditWorkers();
     const frozen =
       deadlineEpochMs === undefined
         ? requests.map((request) => ({ ...request }))
@@ -574,11 +724,17 @@ export async function collectNetwork(page: Page, pageUrl: string) {
     return frozen;
   };
   return {
-    coverage: (): NetworkCoverage => ({
-      complete: gaps.size === 0,
-      reasons: [...gaps].toSorted(),
-      scope: "page-tree",
-    }),
+    coverage: (): NetworkCoverage => {
+      const reasons = [...gaps];
+      if (workerVerification !== undefined) {
+        reasons.push(workerVerification);
+      }
+      return {
+        complete: reasons.length === 0,
+        reasons: reasons.toSorted(),
+        scope: "page-tree",
+      };
+    },
     requests,
     session,
     snapshot,

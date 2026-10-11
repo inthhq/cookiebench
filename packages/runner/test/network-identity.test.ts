@@ -1,11 +1,12 @@
 /* oxlint-disable unicorn/prefer-event-target -- Playwright page/CDP APIs use Node EventEmitter semantics. */
 import { createHash } from "node:crypto";
 import { EventEmitter } from "node:events";
+import { setImmediate } from "node:timers/promises";
 
 import type { Page } from "playwright";
 import { expect, test } from "vitest";
 
-import { collectNetwork } from "../src/network.ts";
+import { collectNetwork, unaccountedWorkerEntries } from "../src/network.ts";
 
 const url = "https://vendor.test/config.json";
 const body = Buffer.from('{"measurement":true}');
@@ -14,8 +15,15 @@ const digest = createHash("sha256").update(body).digest("hex");
 async function collector(bodies = new Map<string, Buffer | Error>()) {
   const session = new EventEmitter();
   const bodyIds: string[] = [];
+  const detached = new Set<string>();
   Object.assign(session, {
-    send(method: string, params?: { requestId: string }) {
+    send(method: string, params?: { requestId?: string; sessionId?: string }) {
+      if (
+        method === "Target.sendMessageToTarget" &&
+        detached.has(params?.sessionId ?? "")
+      ) {
+        return Promise.reject(new Error("No session with given id"));
+      }
       if (method === "Target.getTargetInfo") {
         return Promise.resolve({
           targetInfo: { browserContextId: "test-context" },
@@ -107,6 +115,7 @@ async function collector(bodies = new Map<string, Buffer | Error>()) {
     browserRequest,
     context,
     data,
+    detached,
     finish,
     network,
     page,
@@ -170,6 +179,34 @@ test("unsupported execution targets keep missing network coverage explicit", asy
   expect(c.network.coverage().reasons.join(" ")).toContain(
     "start was not observed"
   );
+});
+
+test("a worker that detached before resuming leaves coverage complete", async () => {
+  const c = await collector();
+  c.session.emit("Target.attachedToTarget", {
+    sessionId: "worker",
+    targetInfo: { type: "worker", url: "https://shop.test/worker.js" },
+    waitingForDebugger: true,
+  });
+  c.page.emit("worker", {});
+  c.detached.add("worker");
+  c.session.emit("Target.detachedFromTarget", { sessionId: "worker" });
+  await setImmediate();
+  await c.network.snapshot();
+  expect(c.network.coverage()).toMatchObject({ complete: true, reasons: [] });
+});
+
+test("worker timing entries need a row from the worker's own requests", () => {
+  const api = "https://cdn.example/api";
+  expect(
+    unaccountedWorkerEntries(
+      [`${api}#v=1`, "blob:https://site.example/1", "data:text/plain,x"],
+      [api]
+    )
+  ).toStrictEqual([]);
+  // Two fetches of one URL need two rows.
+  expect(unaccountedWorkerEntries([api, api], [api])).toStrictEqual([api]);
+  expect(unaccountedWorkerEntries([api], [])).toStrictEqual([api]);
 });
 
 test("redirect hops keep their own transfer bytes and an unread body", async () => {

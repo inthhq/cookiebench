@@ -236,24 +236,25 @@ test("text body identity records its encoding separately from original response 
   expect(row?.decodedBodySha256).toBe(hash(expectedBody));
 });
 
-test("worker fetches reach the server without qualifying network totals", async ({
-  page,
-}, testInfo) => {
-  const network = await collectNetwork(page, origin);
-  await page.goto(origin);
-  const url = `${remote}/scope-worker-body.json`;
+async function workerFetch(
+  page: Page,
+  url: string,
+  { delayMs = 0, terminate = false } = {}
+) {
   await page.evaluate(
-    (target) =>
+    ([target, delay, stop]) =>
       // eslint-disable-next-line promise/avoid-new -- Bridge a worker message from the browser realm.
       new Promise<void>((resolve, reject) => {
-        const source = `fetch(${JSON.stringify(target)}).then(r => r.text()).then(() => postMessage("fetched"))`;
+        const source = `setTimeout(() => fetch(${JSON.stringify(target)}).then(r => r.text()).then(() => postMessage("fetched")), ${delay})`;
         const worker = new Worker(
           URL.createObjectURL(new Blob([source], { type: "text/javascript" }))
         );
         worker.addEventListener(
           "message",
           () => {
-            worker.terminate();
+            if (stop) {
+              worker.terminate();
+            }
             resolve();
           },
           { once: true }
@@ -264,22 +265,70 @@ test("worker fetches reach the server without qualifying network totals", async 
           { once: true }
         );
       }),
-    url
+    [url, delayMs, terminate] as const
   );
+}
+
+test("a running worker's fetches are checked against its own timing entries", async ({
+  page,
+}) => {
+  const network = await collectNetwork(page, origin);
+  await page.goto(origin);
+  const url = `${remote}/scope-worker-body.json`;
+  // A fetch at the worker's first instruction can lose its start event, which
+  // the timing check reports. This one starts after Network.enable has landed.
+  await workerFetch(page, url, { delayMs: 200 });
+  expect(network.coverage().complete).toBe(false);
+  const rows = await network.snapshot();
   expect(requestedUrls).toContain("/scope-worker-body.json");
-  expect(network.coverage()).toMatchObject({
-    complete: false,
-    scope: "page-tree",
+  expect(rows.find((row) => row.url === url)).toMatchObject({
+    finished: true,
+    status: 200,
   });
-  expect(network.coverage().reasons.join(" ")).toContain("Worker traffic");
-  await testInfo.attach("worker-coverage", {
-    body: JSON.stringify({
-      collectorObserved: network.requests.some((row) => row.url === url),
-      coverage: network.coverage(),
-      serverObserved: true,
-    }),
-    contentType: "application/json",
+  expect(network.coverage()).toMatchObject({ complete: true, reasons: [] });
+});
+
+test("a worker fetch without a start event never passes the timing check", async ({
+  browser,
+}) => {
+  const url = `${remote}/scope-worker-body.json`;
+  const visit = async (terminate: boolean) => {
+    const page = await browser.newPage();
+    const network = await collectNetwork(page, origin);
+    await page.goto(origin);
+    await workerFetch(page, url, { terminate });
+    const rows = await network.snapshot();
+    await page.close();
+    return {
+      complete: network.coverage().complete,
+      row: rows.find((request) => request.url === url),
+    };
+  };
+  for (let index = 0; index < 6; index += 1) {
+    // oxlint-disable-next-line no-await-in-loop -- Each visit needs a quiet browser.
+    const { complete, row } = await visit(index % 2 === 1);
+    if (complete) {
+      expect(row).toMatchObject({ finished: true, status: 200 });
+    } else {
+      expect(row).toBeUndefined();
+    }
+  }
+});
+
+test("a terminated worker's fetches are checked against what its observer reported", async ({
+  page,
+}) => {
+  const network = await collectNetwork(page, origin);
+  await page.goto(origin);
+  const url = `${remote}/scope-worker-body.json`;
+  await workerFetch(page, url, { delayMs: 200, terminate: true });
+  const rows = await network.snapshot();
+  expect(requestedUrls).toContain("/scope-worker-body.json");
+  expect(rows.find((row) => row.url === url)).toMatchObject({
+    finished: true,
+    status: 200,
   });
+  expect(network.coverage()).toMatchObject({ complete: true, reasons: [] });
 });
 
 async function frameTraffic(page: Page) {

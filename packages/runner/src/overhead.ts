@@ -295,6 +295,11 @@ const auditSample = Effect.fn("instrumentation.auditSample")(
           })),
         ...errors.map((message) => ({ code: "audit-page-error", message })),
       ];
+      // The snapshot checks worker traffic, so coverage is read after it.
+      const requests = network
+        ? await network.snapshot(raw.timeOrigin + scenario.observationMs)
+        : undefined;
+      const networkCoverage = network?.coverage();
       return {
         attempt: 1,
         diagnostics: {
@@ -306,13 +311,11 @@ const auditSample = Effect.fn("instrumentation.auditSample")(
             userAgent: raw.userAgent,
           },
           documentEvidence,
-          networkCoverage: network?.coverage(),
+          networkCoverage,
           performanceAfter: after,
           performanceBefore: before,
           ...raw,
-          requests: network
-            ? await network.snapshot(raw.timeOrigin + scenario.observationMs)
-            : undefined,
+          requests,
         },
         failures,
         fixtureId: fixture.id,
