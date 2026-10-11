@@ -39,6 +39,11 @@ describe("fixture backend HTTP delay", () => {
   beforeAll(async () => {
     directory = await mkdtemp(path.join(tmpdir(), "cookiebench-delay-"));
     await writeFile(path.join(directory, "app.js"), "window.loaded = true;");
+    // The server injects every vendor's bootstrap into the baseline page.
+    await writeFile(
+      path.join(directory, "baseline.html"),
+      "<html><head></head><body></body></html>"
+    );
     const reservation = createServer();
     reservation.listen(0, "127.0.0.1");
     await once(reservation, "listening");
