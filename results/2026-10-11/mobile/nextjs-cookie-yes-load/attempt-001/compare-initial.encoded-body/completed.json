@@ -1,0 +1,24 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "results/2026-10-11/mobile/nextjs-cookie-yes-load/attempt-001/envelope.json",
+    "--candidate",
+    "results/2026-10-11/mobile/nextjs-cookie-yes-load/attempt-001/envelope.json",
+    "--metric",
+    "initial.encoded-body",
+    "--family",
+    "batch:d238a6ac9c6328f754add2c78eb03ac10bd29da005524f4c6009d639b0c85afe",
+    "--family-size",
+    "365"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-11T04:21:16.469Z",
+  "startedAt": "2026-10-11T04:21:16.026Z",
+  "exitCode": 2,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "1ac292a9c0fce4f4cee59b73b2c1101a2d586132a4b1119d4327aaa9a0ba6c1a"
+}

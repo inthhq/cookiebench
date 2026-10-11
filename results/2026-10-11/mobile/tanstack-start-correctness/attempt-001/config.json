@@ -1,0 +1,719 @@
+{
+  "fixtures": [
+    {
+      "adapter": {
+        "accept": "[data-testid=\"consent-banner-accept-button\"]",
+        "banner": "[data-testid=\"consent-banner-root\"]",
+        "categoryToggle": "[data-testid=\"consent-widget-switch-measurement\"]",
+        "controlledRequestPath": "/controlled/script",
+        "overlay": "[data-testid=\"consent-dialog-overlay\"], [data-testid=\"consent-banner-overlay\"]",
+        "pageAction": "#page-action",
+        "preferences": "[data-testid=\"consent-banner-customize-button\"]",
+        "preferencesPanel": "[data-testid=\"consent-dialog-root\"]",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": "[data-testid=\"consent-banner-reject-button\"]",
+        "reopen": "#reopen-preferences",
+        "save": "[data-testid=\"consent-widget-footer-save-button\"]",
+        "serverEventsUrl": "http://127.0.0.1:4316/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
+      },
+      "baseline": true,
+      "configurationHash": "5f04af2a7c9ba8788fbc78fb6f888b14d96e212cd8e003686d00a1e012f32db1",
+      "deployment": {
+        "assets": "local",
+        "backend": "none"
+      },
+      "framework": "tanstack-start",
+      "frameworkVersion": "1.168.60",
+      "id": "tanstack-start-baseline",
+      "mode": "manifest",
+      "presentation": "default",
+      "product": "baseline",
+      "provenance": {
+        "artifactIntegrity": "sha512-WMOM0Xlh2lPbVlbjYM6uOxOpiaWRPvODm/dwkLsGKq5tjyHOHZmKckJgwlrZl7OQUqFlOZHYj8bKUTgoeg8cUQ==",
+        "lockfileHash": "a924fbd8f226ce74f96eb932f8f0397abdd5a640309ef37011f18e8f8a6e2294",
+        "sourceUrl": "https://registry.npmjs.org/@tanstack/react-start/-/react-start-1.168.60.tgz"
+      },
+      "revision": "3.3.0-article-v1-inth-build-manifest-matrix",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": [
+            "build"
+          ],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-tanstack-start",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4316/health",
+        "start": {
+          "args": [
+            "start"
+          ],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4316/baseline",
+      "version": "1.168.60"
+    },
+    {
+      "adapter": {
+        "accept": "[data-testid=\"consent-banner-accept-button\"]",
+        "banner": "[data-testid=\"consent-banner-root\"]",
+        "categoryToggle": "[data-testid=\"consent-widget-switch-measurement\"]",
+        "controlledRequestPath": "/controlled/script",
+        "overlay": "[data-testid=\"consent-dialog-overlay\"], [data-testid=\"consent-banner-overlay\"]",
+        "pageAction": "#page-action",
+        "preferences": "[data-testid=\"consent-banner-customize-button\"]",
+        "preferencesPanel": "[data-testid=\"consent-dialog-root\"]",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": "[data-testid=\"consent-banner-reject-button\"]",
+        "reopen": "#reopen-preferences",
+        "save": "[data-testid=\"consent-widget-footer-save-button\"]",
+        "serverEventsUrl": "http://127.0.0.1:4316/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
+      },
+      "baseline": false,
+      "configurationHash": "f27e42f46e7f654097ebe961e92477836e64fb90130b66e127d3b9c2bc5e217a",
+      "deployment": {
+        "assets": "local",
+        "backend": "remote-service"
+      },
+      "framework": "tanstack-start",
+      "frameworkVersion": "1.168.60",
+      "id": "tanstack-start-c15t",
+      "mode": "manifest",
+      "presentation": "default",
+      "product": "c15t",
+      "provenance": {
+        "artifactIntegrity": "sha512-vraBEAmOwiwO8NUjk8lxykfrGS+RStNuxRewglVQzkAezBfP5871mWGDhIXwWbB5Eb3c23UVbWD+g5Jn6WgvcA==",
+        "lockfileHash": "a924fbd8f226ce74f96eb932f8f0397abdd5a640309ef37011f18e8f8a6e2294",
+        "sourceUrl": "https://registry.npmjs.org/@c15t/tanstack-start/-/tanstack-start-3.0.0-alpha.10.tgz"
+      },
+      "revision": "3.3.0-article-v1-inth-build-manifest-inline-styles-matrix",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": [
+            "build"
+          ],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-tanstack-start",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4316/health",
+        "start": {
+          "args": [
+            "start"
+          ],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4316/",
+      "version": "3.0.0-alpha.10"
+    },
+    {
+      "adapter": {
+        "accept": "#ccc-recommended-settings",
+        "banner": ".ccc-module--slideout",
+        "controlledRequestPath": "/controlled/script",
+        "pageAction": "#page-action",
+        "preferencesPanel": ".ccc-module--slideout",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": "#ccc-reject-settings",
+        "reopen": "#reopen-preferences",
+        "serverEventsUrl": "http://127.0.0.1:4316/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": "#ccc-reject-settings"
+      },
+      "artifactPolicy": "mutable-network",
+      "baseline": false,
+      "configurationHash": "f4a941b647dcfc2385c602efd5e4456adb041d91de7783b21e57c8357397d1a1",
+      "deployment": {
+        "assets": "mixed",
+        "backend": "remote-service"
+      },
+      "framework": "tanstack-start",
+      "frameworkVersion": "1.168.60",
+      "id": "tanstack-start-cookie-control",
+      "mode": "hosted",
+      "presentation": "default",
+      "product": "cookie-control",
+      "provenance": {
+        "artifactIntegrity": "sha256-b1b5932fd0694de0bd9444b66c520d3647fdb493d9c51fcc2e7dc581e95319c0",
+        "lockfileHash": "a924fbd8f226ce74f96eb932f8f0397abdd5a640309ef37011f18e8f8a6e2294",
+        "sourceUrl": "https://cc.cdn.civiccomputing.com/9/cookieControl-9.10.1.min.js"
+      },
+      "revision": "3.4.0-matrix-article-v1-body-end",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": [
+            "build"
+          ],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-tanstack-start",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4316/health",
+        "start": {
+          "args": [
+            "start"
+          ],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4316/baseline?cmp=cookie-control",
+      "version": "remote-capture-b1b5932fd069"
+    },
+    {
+      "adapter": {
+        "accept": "#didomi-notice-agree-button",
+        "banner": ".didomi-popup-notice",
+        "controlledRequestPath": "/controlled/script",
+        "pageAction": "#page-action",
+        "preferences": "#didomi-notice-learn-more-button",
+        "preferencesPanel": ".didomi-consent-popup-preferences",
+        "primaryContent": "#primary-content",
+        "readinessSource": "public-state",
+        "reject": "#didomi-notice-disagree-button",
+        "reopen": "#reopen-preferences",
+        "save": "#btn-toggle-save",
+        "savePreparation": [
+          "button[aria-describedby=\"didomi-popup-purposes-all\"]:has(span:text-is(\"Disagree\"))",
+          "button[aria-describedby=\"didomi-purpose-analytics\"]:has(span:text-is(\"Agree\"))"
+        ],
+        "serverEventsUrl": "http://127.0.0.1:4316/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": "#btn-toggle-save",
+        "withdrawPreparation": [
+          "button[aria-describedby=\"didomi-popup-purposes-all\"]:has(span:text-is(\"Disagree\"))"
+        ]
+      },
+      "artifactPolicy": "mutable-network",
+      "baseline": false,
+      "configurationHash": "1d856680b6045d56b1efacdc0ac1cf6803a6e7de35b20dc57dedca4059eb2cd5",
+      "deployment": {
+        "assets": "mixed",
+        "backend": "remote-service"
+      },
+      "framework": "tanstack-start",
+      "frameworkVersion": "1.168.60",
+      "id": "tanstack-start-didomi",
+      "mode": "hosted",
+      "presentation": "default",
+      "product": "didomi",
+      "provenance": {
+        "artifactIntegrity": "sha256-cc92b467085d5f8ba06c3ef54c5a38c4f0c7fc30421a003dde26d1bb692972f4",
+        "lockfileHash": "a924fbd8f226ce74f96eb932f8f0397abdd5a640309ef37011f18e8f8a6e2294",
+        "sourceUrl": "https://sdk.privacy-center.org/7dd8ec4e-746c-455e-a610-99121b4148df/loader.js?target=127.0.0.1"
+      },
+      "revision": "3.4.0-matrix-article-v1-head-start",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": [
+            "build"
+          ],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-tanstack-start",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4316/health",
+        "start": {
+          "args": [
+            "start"
+          ],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4316/baseline?cmp=didomi",
+      "version": "remote-capture-cc92b467085d"
+    },
+    {
+      "adapter": {
+        "accept": "#ez-cookie-notification__accept",
+        "banner": "#ez-cookie-notification",
+        "controlledRequestPath": "/controlled/script",
+        "pageAction": "#page-action",
+        "preferences": "#notificationManagerLink",
+        "preferencesPanel": ".enzuzo-cookie-modal",
+        "primaryContent": "#primary-content",
+        "readinessSource": "public-state",
+        "reject": "#ez-cookie-notification__decline",
+        "reopen": "#reopen-preferences",
+        "save": "#ez-confirm-modal",
+        "savePreparation": [
+          "label[for=\"ez-cookie-preferences--analytics\"]"
+        ],
+        "serverEventsUrl": "http://127.0.0.1:4316/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": "#ez-reject-modal"
+      },
+      "artifactPolicy": "mutable-network",
+      "baseline": false,
+      "configurationHash": "6baf77e193936196de7fabcab41f99b5ed794bb39d9ca49909d1c7f89a626f33",
+      "deployment": {
+        "assets": "mixed",
+        "backend": "remote-service"
+      },
+      "framework": "tanstack-start",
+      "frameworkVersion": "1.168.60",
+      "id": "tanstack-start-enzuzo",
+      "mode": "hosted",
+      "presentation": "default",
+      "product": "enzuzo",
+      "provenance": {
+        "artifactIntegrity": "sha256-7b87a37178266792cc9793eac8d6c3a35854c39ac825f9ad77ada7d449bfb0ff",
+        "lockfileHash": "a924fbd8f226ce74f96eb932f8f0397abdd5a640309ef37011f18e8f8a6e2294",
+        "sourceUrl": "https://app.enzuzo.com/scripts/cookiebar/ede431e2-968b-11eb-9cc0-2358d2c9e564"
+      },
+      "revision": "3.4.0-matrix-article-v1-head-start",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": [
+            "build"
+          ],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-tanstack-start",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4316/health",
+        "start": {
+          "args": [
+            "start"
+          ],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4316/baseline?cmp=enzuzo",
+      "version": "remote-capture-7b87a3717826"
+    },
+    {
+      "adapter": {
+        "accept": ".iubenda-cs-accept-btn",
+        "banner": "#iubenda-cs-banner",
+        "categoryToggle": "#purpose-4",
+        "controlledRequestPath": "/controlled/script",
+        "pageAction": "#page-action",
+        "preferences": ".iubenda-cs-customize-btn",
+        "preferencesPanel": "#iubenda-iframe-popup",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": ".iubenda-cs-reject-btn",
+        "reopen": "#reopen-preferences",
+        "save": "#iubFooterBtn",
+        "serverEventsUrl": "http://127.0.0.1:4316/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": "#iubFooterBtn",
+        "withdrawPreparation": [
+          ".iub-btn-reject"
+        ]
+      },
+      "artifactPolicy": "mutable-network",
+      "baseline": false,
+      "configurationHash": "cf67d3c355d7923f1c3c53ad737907a8aa3841d6dd784bbb36c805f566325b4d",
+      "deployment": {
+        "assets": "mixed",
+        "backend": "remote-service"
+      },
+      "framework": "tanstack-start",
+      "frameworkVersion": "1.168.60",
+      "id": "tanstack-start-iubenda",
+      "mode": "hosted",
+      "presentation": "default",
+      "product": "iubenda",
+      "provenance": {
+        "artifactIntegrity": "sha256-cc2e4ae530879bf564ba3cc7002ab8f20736ef518371c1a3073585473fa055ee",
+        "lockfileHash": "a924fbd8f226ce74f96eb932f8f0397abdd5a640309ef37011f18e8f8a6e2294",
+        "sourceUrl": "https://cdn.iubenda.com/cs/iubenda_cs.js"
+      },
+      "revision": "3.4.0-matrix-article-v1-head-end",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": [
+            "build"
+          ],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-tanstack-start",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4316/health",
+        "start": {
+          "args": [
+            "start"
+          ],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4316/baseline?cmp=iubenda",
+      "version": "remote-capture-cc2e4ae53087"
+    },
+    {
+      "adapter": {
+        "accept": "button[aria-label=\"Save choices\"]",
+        "acceptPreparation": [
+          "button[aria-label=\"Accept All\"]"
+        ],
+        "banner": "#ketch-purposes-modal",
+        "controlledRequestPath": "/controlled/script",
+        "pageAction": "#page-action",
+        "preferencesPanel": "#ketch-preference-panel, #ketch-purposes-modal",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": "button[aria-label=\"Save choices\"]",
+        "rejectPreparation": [
+          "button[aria-label=\"Reject All\"]"
+        ],
+        "reopen": "#reopen-preferences",
+        "save": "button[aria-label=\"Save choices\"]",
+        "savePreparation": [
+          "label[for=\"bizsiteanalytics\"]"
+        ],
+        "serverEventsUrl": "http://127.0.0.1:4316/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": "button[aria-label=\"Save\"]",
+        "withdrawPreparation": [
+          "#ketch-preferences-navigation-purposes-tab",
+          "button[aria-label=\"Reject All\"]"
+        ]
+      },
+      "artifactPolicy": "mutable-network",
+      "baseline": false,
+      "configurationHash": "0db7d5ee9fd5448280bf5b744dff249eb72dcc7a81eb2f6afa9b0aafc34486c0",
+      "deployment": {
+        "assets": "mixed",
+        "backend": "remote-service"
+      },
+      "framework": "tanstack-start",
+      "frameworkVersion": "1.168.60",
+      "id": "tanstack-start-ketch",
+      "mode": "hosted",
+      "presentation": "default",
+      "product": "ketch",
+      "provenance": {
+        "artifactIntegrity": "sha256-5cba221e280e14de6e556d340c3a2cb3320484afd6e7b1cb755acb66207e45c5",
+        "lockfileHash": "a924fbd8f226ce74f96eb932f8f0397abdd5a640309ef37011f18e8f8a6e2294",
+        "sourceUrl": "https://global.ketchcdn.com/web/v3/config/switchbitcorp/switchbit/boot.js"
+      },
+      "revision": "3.4.0-matrix-article-v1-head-start",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": [
+            "build"
+          ],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-tanstack-start",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4316/health",
+        "start": {
+          "args": [
+            "start"
+          ],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4316/baseline?cmp=ketch",
+      "version": "remote-capture-5cba221e280e"
+    },
+    {
+      "adapter": {
+        "accept": "#onetrust-accept-btn-handler",
+        "banner": "#onetrust-banner-sdk",
+        "controlledRequestPath": "/controlled/script",
+        "pageAction": "#page-action",
+        "preferences": "#onetrust-pc-btn-handler",
+        "preferencesPanel": "#onetrust-pc-sdk",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": "#onetrust-reject-all-handler",
+        "reopen": "#reopen-preferences",
+        "save": ".save-preference-btn-handler",
+        "savePreparation": [
+          "#ot-header-id-2",
+          "label[for=\"ot-group-id-2\"]"
+        ],
+        "serverEventsUrl": "http://127.0.0.1:4316/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": ".ot-pc-refuse-all-handler"
+      },
+      "artifactPolicy": "mutable-network",
+      "baseline": false,
+      "configurationHash": "74bf6eb56b8a24d6d7bb4afeb388d093f4b82d99215ca0e10d56399db2c8de9b",
+      "deployment": {
+        "assets": "mixed",
+        "backend": "remote-service"
+      },
+      "framework": "tanstack-start",
+      "frameworkVersion": "1.168.60",
+      "id": "tanstack-start-onetrust",
+      "mode": "hosted",
+      "presentation": "default",
+      "product": "onetrust",
+      "provenance": {
+        "artifactIntegrity": "sha256-3258940d51f736d6d58b6b98af4617a0450545f16e307c3e72d308c7ff6b3d8e",
+        "lockfileHash": "a924fbd8f226ce74f96eb932f8f0397abdd5a640309ef37011f18e8f8a6e2294",
+        "sourceUrl": "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
+      },
+      "revision": "3.4.0-matrix-article-v1-head-start",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": [
+            "build"
+          ],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-tanstack-start",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4316/health",
+        "start": {
+          "args": [
+            "start"
+          ],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4316/baseline?cmp=onetrust",
+      "version": "202602.1.0-test"
+    },
+    {
+      "adapter": {
+        "accept": ".osano-cm-accept-all",
+        "banner": ".osano-cm-dialog",
+        "controlledRequestPath": "/controlled/script",
+        "pageAction": "#page-action",
+        "preferences": ".osano-cm-link--type_manage",
+        "preferencesPanel": ".osano-cm-info-dialog",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": ".osano-cm-denyAll",
+        "reopen": "#reopen-preferences",
+        "save": ".osano-cm-info-dialog .osano-cm-save",
+        "savePreparation": [
+          "label[for=\"osano-cm-drawer-toggle--category_ANALYTICS\"]"
+        ],
+        "serverEventsUrl": "http://127.0.0.1:4316/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": ".osano-cm-info-dialog .osano-cm-save",
+        "withdrawPreparation": [
+          "label[for=\"osano-cm-drawer-toggle--category_MARKETING\"]",
+          "label[for=\"osano-cm-drawer-toggle--category_PERSONALIZATION\"]",
+          "label[for=\"osano-cm-drawer-toggle--category_ANALYTICS\"]"
+        ]
+      },
+      "artifactPolicy": "mutable-network",
+      "baseline": false,
+      "configurationHash": "c1e29718cb1a557b874149a697edf9305a5e36061216bafcad60020f7385fee8",
+      "deployment": {
+        "assets": "mixed",
+        "backend": "remote-service"
+      },
+      "framework": "tanstack-start",
+      "frameworkVersion": "1.168.60",
+      "id": "tanstack-start-osano",
+      "mode": "hosted",
+      "presentation": "default",
+      "product": "osano",
+      "provenance": {
+        "artifactIntegrity": "sha256-ee7e8d0309f66bef0de741b405b5023dd54c0d5aa12d11faf4dd3ffa8d4013a8",
+        "lockfileHash": "a924fbd8f226ce74f96eb932f8f0397abdd5a640309ef37011f18e8f8a6e2294",
+        "sourceUrl": "https://cmp.osano.com/2sUBzx7wRdAfu6J2kkS/8e547744-886f-4a9b-a90f-7e96a47aa604/osano.js"
+      },
+      "revision": "3.4.0-matrix-article-v1-head-start",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": [
+            "build"
+          ],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-tanstack-start",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4316/health",
+        "start": {
+          "args": [
+            "start"
+          ],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4316/baseline?cmp=osano",
+      "version": "remote-capture-ee7e8d0309f6"
+    },
+    {
+      "adapter": {
+        "accept": ".uc-accept-button",
+        "banner": "#uc-main-dialog.cmp",
+        "controlledRequestPath": "/controlled/script",
+        "pageAction": "#page-action",
+        "preferences": "#uc-more-link",
+        "preferencesPanel": "#uc-categories-list",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": ".uc-deny-button",
+        "reopen": "#reopen-preferences",
+        "save": ".uc-save-button",
+        "savePreparation": [
+          "#uc-category-customcategory-a3477a96-6545-4452-b3d7-93e442abd337-toggle"
+        ],
+        "serverEventsUrl": "http://127.0.0.1:4316/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": ".uc-deny-button"
+      },
+      "artifactPolicy": "mutable-network",
+      "baseline": false,
+      "configurationHash": "01dbb959d89747ba1dd54f085f4a4d2361e60c13dab33427e0387876da3b69c0",
+      "deployment": {
+        "assets": "mixed",
+        "backend": "remote-service"
+      },
+      "framework": "tanstack-start",
+      "frameworkVersion": "1.168.60",
+      "id": "tanstack-start-usercentrics",
+      "mode": "hosted",
+      "presentation": "default",
+      "product": "usercentrics",
+      "provenance": {
+        "artifactIntegrity": "sha256-5e623d7e48e52c797830315066b5cfae5f46e334c3833809c2ccb417744646f1",
+        "lockfileHash": "a924fbd8f226ce74f96eb932f8f0397abdd5a640309ef37011f18e8f8a6e2294",
+        "sourceUrl": "https://web.cmp.usercentrics.eu/ui/loader.js"
+      },
+      "revision": "3.4.0-matrix-article-v1-head-start",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": [
+            "build"
+          ],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-tanstack-start",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4316/health",
+        "start": {
+          "args": [
+            "start"
+          ],
+          "command": "pnpm"
+        }
+      },
+      "url": "http://127.0.0.1:4316/baseline?cmp=usercentrics",
+      "version": "remote-capture-5e623d7e48e5"
+    }
+  ],
+  "scenarios": [
+    {
+      "action": "load",
+      "actionDeadlineMs": 10000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "load",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 10000,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": [
+          "measurement",
+          "marketing"
+        ],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "accept",
+      "actionDeadlineMs": 10000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "accept",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": [
+          "measurement",
+          "marketing"
+        ],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "reject",
+      "actionDeadlineMs": 10000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "reject",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": [
+          "measurement",
+          "marketing"
+        ],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "save",
+      "actionDeadlineMs": 10000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "save",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": [
+          "measurement",
+          "marketing"
+        ],
+        "scriptCount": 2
+      }
+    }
+  ],
+  "profile": {
+    "cpuSlowdown": 4,
+    "deviceScaleFactor": 3,
+    "hasTouch": true,
+    "id": "mobile-article-v1",
+    "isMobile": true,
+    "locale": "en-GB",
+    "network": {
+      "downloadBytesPerSecond": 200000,
+      "latencyMs": 150,
+      "uploadBytesPerSecond": 93750
+    },
+    "region": "GB",
+    "userAgent": "Mozilla/5.0 (Linux; Android 13; CookieBench Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    }
+  },
+  "iterations": 1,
+  "warmups": 0,
+  "seed": 1
+}

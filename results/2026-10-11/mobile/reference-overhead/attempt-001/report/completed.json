@@ -1,0 +1,16 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "report",
+    "--file",
+    "results/2026-10-11/mobile/reference-overhead/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-11T07:05:22.404Z",
+  "startedAt": "2026-10-11T07:05:21.996Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "d7dfe047f2dc7776a8fa1e50ad1fe263bd381a15a95b1cd54bf631fb824d9a96"
+}

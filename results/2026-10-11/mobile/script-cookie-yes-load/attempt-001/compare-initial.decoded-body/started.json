@@ -1,0 +1,19 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "results/2026-10-11/mobile/script-cookie-yes-load/attempt-001/envelope.json",
+    "--candidate",
+    "results/2026-10-11/mobile/script-cookie-yes-load/attempt-001/envelope.json",
+    "--metric",
+    "initial.decoded-body",
+    "--family",
+    "batch:d238a6ac9c6328f754add2c78eb03ac10bd29da005524f4c6009d639b0c85afe",
+    "--family-size",
+    "365"
+  ],
+  "cwd": ".",
+  "startedAt": "2026-10-11T02:35:03.427Z"
+}

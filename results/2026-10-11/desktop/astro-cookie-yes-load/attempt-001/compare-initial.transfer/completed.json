@@ -1,0 +1,24 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "results/2026-10-11/desktop/astro-cookie-yes-load/attempt-001/envelope.json",
+    "--candidate",
+    "results/2026-10-11/desktop/astro-cookie-yes-load/attempt-001/envelope.json",
+    "--metric",
+    "initial.transfer",
+    "--family",
+    "batch:933ea4d5f06ed2eeb83eb08002ee19e29c7eb892bf641e923c11c2fd34d15650",
+    "--family-size",
+    "365"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-11T01:13:07.990Z",
+  "startedAt": "2026-10-11T01:13:06.496Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "192c5c03e29b2fea78b342922ac537ea73d0e4d22acdda762bd40c73e0fafa91"
+}

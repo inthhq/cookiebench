@@ -1,0 +1,87 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:baa538bf-88b4-4ac4-872a-92b6940e6fe2"
+      ],
+      "fixtureId": "react-cookie-yes",
+      "framework": "react",
+      "id": "ced85c93-73a9-48bf-8e66-17ba57832330",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-11T03:28:58.805Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:05e09284-c485-4124-a62c-5aadf6396d79"
+      ],
+      "fixtureId": "react-cookie-yes",
+      "framework": "react",
+      "id": "3161408f-8584-463a-a4e0-825657787aab",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-11T03:28:58.805Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:01a59035-ae4b-4177-bf34-996e84f1dba9"
+      ],
+      "fixtureId": "react-cookie-yes",
+      "framework": "react",
+      "id": "cfacfe51-6a10-474c-9b5b-f325fa4d3a99",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-11T03:28:58.805Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:3a7dca82-5039-44b9-a50d-fcc6e80780f7"
+      ],
+      "fixtureId": "react-cookie-yes",
+      "framework": "react",
+      "id": "ed94ddb6-88d0-42c7-ae58-698d9565fc1f",
+      "mode": "hosted",
+      "reason": "0/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "unknown",
+      "verifiedAt": "2026-10-11T03:28:58.806Z"
+    }
+  ],
+  "failures": [
+    {
+      "sampleId": "917458e0-b382-453b-a20d-0100b8832207",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: page.lcp, initial.transfer"
+    },
+    {
+      "sampleId": "a7a6345c-c7ae-443c-ae7a-57cf66052a73",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: page.lcp, initial.transfer"
+    },
+    {
+      "sampleId": "d611aae2-74c1-4a69-9f10-42a459314ad3",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: page.lcp, initial.transfer"
+    },
+    {
+      "sampleId": "3a7dca82-5039-44b9-a50d-fcc6e80780f7",
+      "code": "unsupported-action",
+      "message": "Adapter does not declare the save action"
+    },
+    {
+      "sampleId": "3a7dca82-5039-44b9-a50d-fcc6e80780f7",
+      "code": "followup:unsupported-action",
+      "message": "Adapter does not declare the save action"
+    }
+  ],
+  "output": "/home/kaylee/.t3/worktrees/cookiebench/t3code-cef51b81/results/2026-10-11/mobile/react-cookie-yes-correctness/attempt-001/envelope.json",
+  "runId": "417d9480-141f-4828-b237-8e7c202960d4",
+  "samples": 8,
+  "status": "incomplete"
+}

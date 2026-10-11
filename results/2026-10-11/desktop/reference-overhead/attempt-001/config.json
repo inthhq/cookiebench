@@ -1,0 +1,102 @@
+{
+  "fixtures": [
+    {
+      "schemaVersion": 3,
+      "id": "reference-baseline",
+      "revision": "3.0.0",
+      "product": "Controlled reference",
+      "version": "3.0.0",
+      "framework": "script-tag",
+      "frameworkVersion": "html",
+      "mode": "local-only",
+      "deployment": {
+        "assets": "local",
+        "backend": "none"
+      },
+      "baseline": true,
+      "presentation": "default",
+      "configurationHash": "449ca00c36871fe9be7834f2019dd72d8df70f3eb066c3452c2f4f0d794c6b86",
+      "url": "http://127.0.0.1:4173/?variant=baseline",
+      "server": {
+        "build": {
+          "args": [
+            "build.mjs"
+          ],
+          "command": "/home/kaylee/.cache/nub/node/24.21.0/bin/node"
+        },
+        "cwd": "/home/kaylee/.t3/worktrees/cookiebench/t3code-cef51b81/fixtures/reference",
+        "readinessTimeoutMs": 5000,
+        "readinessUrl": "http://127.0.0.1:4173/health",
+        "start": {
+          "args": [
+            "server.mjs",
+            "4173"
+          ],
+          "command": "/home/kaylee/.cache/nub/node/24.21.0/bin/node"
+        }
+      },
+      "adapter": {
+        "accept": "#accept",
+        "acknowledgement": "#feedback",
+        "banner": "#banner",
+        "categoryToggle": "#analytics",
+        "controlledRequestPath": "/controlled.js",
+        "overlay": "#overlay",
+        "pageAction": "#page-action",
+        "preferences": "#preferences",
+        "preferencesPanel": "#choices",
+        "primaryContent": "[data-primary-content]",
+        "ready": "html[data-ready=\"true\"]",
+        "reject": "#reject",
+        "reopen": "#reopen",
+        "save": "#save",
+        "serverEventsUrl": "http://127.0.0.1:4173/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": "#withdraw"
+      }
+    }
+  ],
+  "iterations": 1,
+  "profile": {
+    "cpuSlowdown": 1,
+    "deviceScaleFactor": 1,
+    "hasTouch": false,
+    "id": "desktop-article-v1-browser-ua",
+    "isMobile": false,
+    "locale": "en-GB",
+    "network": {
+      "downloadBytesPerSecond": 12500000,
+      "latencyMs": 0,
+      "uploadBytesPerSecond": 12500000
+    },
+    "region": "GB",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+    "viewport": {
+      "height": 768,
+      "width": 1365
+    }
+  },
+  "scenarios": [
+    {
+      "action": "load",
+      "actionDeadlineMs": 1200,
+      "cache": "cold",
+      "expectedBanner": false,
+      "followupOffsetMs": 100,
+      "id": "load",
+      "input": "pointer",
+      "navigationTimeoutMs": 5000,
+      "observationMs": 1000,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": [
+          "analytics",
+          "marketing"
+        ],
+        "scriptCount": 2
+      }
+    }
+  ],
+  "seed": 1
+}

@@ -1,0 +1,72 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:686b8038-6e40-4122-8073-17992b618102"
+      ],
+      "fixtureId": "nextjs-cookie-yes",
+      "framework": "nextjs",
+      "id": "6946743a-406b-4dff-bed8-38bf1dea9633",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-11T00:16:16.255Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:a2df8f7b-96c8-47e0-91ec-3f1754d1ca9d"
+      ],
+      "fixtureId": "nextjs-cookie-yes",
+      "framework": "nextjs",
+      "id": "83a1e946-eb21-4c00-9bad-c05dccf82caa",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-11T00:16:16.255Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:39a74477-0e01-487c-ad16-e4d3de63b6d1"
+      ],
+      "fixtureId": "nextjs-cookie-yes",
+      "framework": "nextjs",
+      "id": "41d1cb63-8593-44d4-be49-b16dc7178a8f",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-11T00:16:16.255Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:5242a478-c2b4-4507-a910-8838ed0b115a"
+      ],
+      "fixtureId": "nextjs-cookie-yes",
+      "framework": "nextjs",
+      "id": "9e3db8dd-de9e-40b1-8171-9a3defdc1449",
+      "mode": "hosted",
+      "reason": "0/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "unknown",
+      "verifiedAt": "2026-10-11T00:16:16.255Z"
+    }
+  ],
+  "failures": [
+    {
+      "sampleId": "5242a478-c2b4-4507-a910-8838ed0b115a",
+      "code": "unsupported-action",
+      "message": "Adapter does not declare the save action"
+    },
+    {
+      "sampleId": "5242a478-c2b4-4507-a910-8838ed0b115a",
+      "code": "followup:unsupported-action",
+      "message": "Adapter does not declare the save action"
+    }
+  ],
+  "output": "/home/kaylee/.t3/worktrees/cookiebench/t3code-cef51b81/results/2026-10-11/desktop/nextjs-cookie-yes-correctness/attempt-001/envelope.json",
+  "runId": "6dced271-cbff-495b-9385-e9dab8c6ad97",
+  "samples": 8,
+  "status": "incomplete"
+}

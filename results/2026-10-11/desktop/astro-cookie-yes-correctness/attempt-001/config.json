@@ -1,0 +1,250 @@
+{
+  "fixtures": [
+    {
+      "adapter": {
+        "accept": "[data-testid=\"consent-banner-accept-button\"]",
+        "banner": "[data-testid=\"consent-banner-root\"]",
+        "categoryToggle": "[data-testid=\"consent-widget-switch-measurement\"]",
+        "controlledRequestPath": "/controlled/script",
+        "overlay": "[data-testid=\"consent-dialog-overlay\"], [data-testid=\"consent-banner-overlay\"]",
+        "pageAction": "#page-action",
+        "preferences": "[data-testid=\"consent-banner-customize-button\"]",
+        "preferencesPanel": "[data-testid=\"consent-dialog-root\"]",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": "[data-testid=\"consent-banner-reject-button\"]",
+        "reopen": "#reopen-preferences",
+        "save": "[data-testid=\"consent-widget-footer-save-button\"]",
+        "serverEventsUrl": "http://127.0.0.1:4315/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": "[data-testid=\"consent-widget-footer-reject-button\"], [data-testid=\"consent-widget-reject-button\"]"
+      },
+      "baseline": true,
+      "configurationHash": "c5478516f6db57cc0a0c1677f157831b16cfe2841becbe4f5af079cbfe042573",
+      "deployment": {
+        "assets": "local",
+        "backend": "none"
+      },
+      "framework": "astro",
+      "frameworkVersion": "5.18.2",
+      "id": "astro-baseline-registered-host",
+      "mode": "manifest",
+      "presentation": "default",
+      "product": "baseline",
+      "provenance": {
+        "artifactIntegrity": "sha512-TnFwLnAXty5MXKPDGuKXqK4AMBXG+FH6RUdK7Oyc3gyfNoFIthT+4eRbzOK43bdRlLaZuxgciDSjgtggZ3OtGQ==",
+        "lockfileHash": "a924fbd8f226ce74f96eb932f8f0397abdd5a640309ef37011f18e8f8a6e2294",
+        "sourceUrl": "https://registry.npmjs.org/astro/-/astro-5.18.2.tgz"
+      },
+      "revision": "3.3.0-article-v1-inth-build-manifest-matrix",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": [
+            "build"
+          ],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-astro",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4315/health",
+        "start": {
+          "args": [
+            "../../packages/fixture-support/src/serve.ts",
+            "--port",
+            "4315",
+            "--tls-port",
+            "4615",
+            "--upstream-port",
+            "4415",
+            "--baseline-upstream-port",
+            "4515",
+            "--baseline-entry",
+            "dist-baseline/server/entry.mjs",
+            "--",
+            "node",
+            "dist/server/entry.mjs"
+          ],
+          "command": "node"
+        }
+      },
+      "url": "https://benchmarks-with-cookie-yes.vercel.app:4615/baseline/",
+      "version": "5.18.2",
+      "resolveHost": "127.0.0.1"
+    },
+    {
+      "adapter": {
+        "accept": ".cky-btn-accept",
+        "banner": ".cky-consent-container",
+        "controlledRequestPath": "/controlled/script",
+        "pageAction": "#page-action",
+        "preferences": ".cky-btn-customize",
+        "preferencesPanel": ".cky-preference-center",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": ".cky-btn-reject",
+        "reopen": "#reopen-preferences",
+        "serverEventsUrl": "http://127.0.0.1:4315/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": ".cky-preference-center .cky-btn-reject"
+      },
+      "artifactPolicy": "mutable-network",
+      "baseline": false,
+      "configurationHash": "39ff9bcce259488f23c02e3524da1cf2d6f7f8b6590688118780222c30706807",
+      "deployment": {
+        "assets": "mixed",
+        "backend": "remote-service"
+      },
+      "framework": "astro",
+      "frameworkVersion": "5.18.2",
+      "id": "astro-cookie-yes",
+      "mode": "hosted",
+      "presentation": "default",
+      "product": "cookie-yes",
+      "provenance": {
+        "artifactIntegrity": "sha256-05cf90780dacf59471ada113ee918e4618892702311c289a10f09d77f3d3407e",
+        "lockfileHash": "a924fbd8f226ce74f96eb932f8f0397abdd5a640309ef37011f18e8f8a6e2294",
+        "sourceUrl": "https://cdn-cookieyes.com/client_data/830009093fab466a1ff5d9a1/script.js"
+      },
+      "resolveHost": "127.0.0.1",
+      "revision": "3.4.0-matrix-article-v1-head-start",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": [
+            "build"
+          ],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-astro",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4315/health",
+        "start": {
+          "args": [
+            "../../packages/fixture-support/src/serve.ts",
+            "--port",
+            "4315",
+            "--tls-port",
+            "4615",
+            "--upstream-port",
+            "4415",
+            "--baseline-upstream-port",
+            "4515",
+            "--baseline-entry",
+            "dist-baseline/server/entry.mjs",
+            "--",
+            "node",
+            "dist/server/entry.mjs"
+          ],
+          "command": "node"
+        }
+      },
+      "url": "https://benchmarks-with-cookie-yes.vercel.app:4615/baseline/?cmp=cookie-yes",
+      "version": "remote-capture-05cf90780dac"
+    }
+  ],
+  "scenarios": [
+    {
+      "action": "load",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "load",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 5000,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": [
+          "measurement",
+          "marketing"
+        ],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "accept",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "accept",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": [
+          "measurement",
+          "marketing"
+        ],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "reject",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "reject",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": [
+          "measurement",
+          "marketing"
+        ],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "save",
+      "actionDeadlineMs": 5000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "save",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": [
+          "measurement",
+          "marketing"
+        ],
+        "scriptCount": 2
+      }
+    }
+  ],
+  "profile": {
+    "cpuSlowdown": 1,
+    "deviceScaleFactor": 1,
+    "hasTouch": false,
+    "id": "desktop-article-v1-browser-ua",
+    "isMobile": false,
+    "locale": "en-GB",
+    "network": {
+      "downloadBytesPerSecond": 12500000,
+      "latencyMs": 0,
+      "uploadBytesPerSecond": 12500000
+    },
+    "region": "GB",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+    "viewport": {
+      "height": 768,
+      "width": 1365
+    }
+  },
+  "iterations": 15,
+  "warmups": 3,
+  "seed": 42
+}

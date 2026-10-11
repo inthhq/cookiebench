@@ -1,0 +1,24 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "results/2026-10-11/desktop/tanstack-start-cookie-yes-load/attempt-001/envelope.json",
+    "--candidate",
+    "results/2026-10-11/desktop/tanstack-start-cookie-yes-load/attempt-001/envelope.json",
+    "--metric",
+    "initial.encoded-body",
+    "--family",
+    "batch:933ea4d5f06ed2eeb83eb08002ee19e29c7eb892bf641e923c11c2fd34d15650",
+    "--family-size",
+    "365"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-11T01:42:01.732Z",
+  "startedAt": "2026-10-11T01:42:01.225Z",
+  "exitCode": 2,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "5c6231c39a626a6c245e6823619fa01da0f4e3a0e8ec733e273a27a180c2329e"
+}
