@@ -23,7 +23,11 @@ test("serves a fixture under a mapped HTTPS hostname with a pinned certificate",
   try {
     await writeFile(
       path.join(directory, "index.html"),
-      "<!doctype html><title>mapped</title><p>mapped fixture</p>"
+      "<!doctype html><html><head><title>mapped</title></head><body><p>mapped fixture</p></body></html>"
+    );
+    await writeFile(
+      path.join(directory, "baseline.html"),
+      "<!doctype html><html><head><title>baseline</title></head><body><p>baseline fixture</p></body></html>"
     );
     const fixture = {
       id: "mapped",

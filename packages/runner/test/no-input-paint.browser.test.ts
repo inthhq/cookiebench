@@ -58,6 +58,55 @@ test.afterAll(async () => {
   await closed;
 });
 
+test("an action baseline keeps the declared load window for late content", async () => {
+  const result = await runBenchmarkPromise({
+    ...referenceRunConfig(),
+    fixtures: [
+      {
+        ...referenceFixture({ server: false, variant: "baseline" }),
+        adapter: {
+          accept: "#accept",
+          banner: "#banner",
+          primaryContent: "#hero",
+          reject: "#reject",
+          stateGlobal: "__cookiebench",
+        },
+        url: `${origin}/baseline`,
+      },
+    ],
+    scenarios: [
+      referenceScenario({
+        action: "load",
+        id: "load",
+        observationMs: 800,
+        workload: { categories: [], scriptCount: 0 },
+      }),
+      referenceScenario({
+        action: "accept",
+        id: "accept",
+        observationMs: 50,
+        workload: { categories: [], scriptCount: 0 },
+      }),
+    ],
+  });
+  expect(result.samples).toHaveLength(2);
+  for (const sample of result.samples) {
+    expect(sample.failures).toEqual([]);
+    expect(
+      sample.measurements.find((metric) => metric.key === "page.lcp")
+    ).toMatchObject({ status: "measured", value: expect.any(Number) });
+  }
+  const baseline = result.samples.find(
+    (sample) => sample.scenarioId === "accept"
+  );
+  const lcp = baseline?.measurements.find(
+    (metric) => metric.key === "page.lcp"
+  );
+  if (lcp?.status === "measured") {
+    expect(lcp.value).toBeGreaterThan(50);
+  }
+});
+
 /* oxlint-disable no-loop-func -- Tests read the server origin only after beforeAll initializes it. */
 for (const [variant, action, failure] of [
   ["missing", "accept", "banner-missing"],

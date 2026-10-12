@@ -607,6 +607,18 @@ test("a 304 revalidation keeps its small transfer without a received-body claim"
     }
   }, remote);
 
+  await expect
+    .poll(
+      () =>
+        network.requests.filter(
+          (row) =>
+            row.url.endsWith("/revalidate.json") &&
+            row.method === "GET" &&
+            row.finished
+        ).length
+    )
+    .toBe(2);
+
   // A deadline snapshot reads frozen revisions, which timestampless
   // responseReceivedExtraInfo events do not create.
   const snapshot = await network.snapshot(Date.now());

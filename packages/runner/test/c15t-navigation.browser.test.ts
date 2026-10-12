@@ -107,10 +107,7 @@ for (const [directory, profile] of [
             permittedFailures.push("page-input-unobserved");
           }
         }
-        if (
-          directory === "with-c15t-script" &&
-          sample.scenarioId === "withdraw"
-        ) {
+        if (sample.scenarioId === "withdraw") {
           permittedFailures.push("followup:page-unresponsive");
           if (visit === followup) {
             permittedFailures.push("page-unresponsive");

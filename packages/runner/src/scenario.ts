@@ -349,6 +349,7 @@ export async function prime(
   }
 }
 export function runSample(options: {
+  baselineLoadObservationMs?: number;
   browser: Browser;
   fixture: FixtureConfig;
   scenario: ScenarioConfig;
@@ -367,6 +368,14 @@ export function runSample(options: {
             ...options.scenario,
             action: "load",
             expectedBanner: false,
+            // A baseline has no input to start the post-action window.
+            observationMs:
+              options.scenario.action === "load"
+                ? options.scenario.observationMs
+                : Math.max(
+                    options.scenario.observationMs,
+                    options.baselineLoadObservationMs ?? 0
+                  ),
             visitor: "fresh",
           }
         : options.scenario;
@@ -619,16 +628,18 @@ export function runSample(options: {
                     },
                     { timeout: scenario.actionDeadlineMs }
                   );
-                  await page.evaluate(
-                    ({ origin, target }) => {
-                      if (performance.timeOrigin !== origin) {
-                        window.__bench.arm(target, "preferences");
+                  await acrossNavigation(page, () =>
+                    page.evaluate(
+                      ({ origin, target }) => {
+                        if (performance.timeOrigin !== origin) {
+                          window.__bench.arm(target, "preferences");
+                        }
+                      },
+                      {
+                        origin: initialTimeOrigin,
+                        target: fixture.adapter.pageAction ?? "body",
                       }
-                    },
-                    {
-                      origin: initialTimeOrigin,
-                      target: fixture.adapter.pageAction ?? "body",
-                    }
+                    )
                   );
                   await act(
                     page,

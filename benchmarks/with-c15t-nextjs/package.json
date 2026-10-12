@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "next build",
-    "start": "node ../../packages/fixture-support/src/serve.ts --port 4312 --upstream-port 4412 -- pnpm exec next start --port 4412",
+    "start": "node ../../packages/fixture-support/src/serve.ts --port 4322 --upstream-port 4412 -- pnpm exec next start --port 4412",
     "typecheck": "next typegen && tsc --noEmit"
   },
   "dependencies": {

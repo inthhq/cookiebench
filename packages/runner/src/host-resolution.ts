@@ -58,6 +58,9 @@ async function certificate(directory: string, hosts: readonly string[]) {
     "ec",
     "-pkeyopt",
     "ec_paramgen_curve:P-256",
+    // LibreSSL otherwise emits explicit EC parameters, which Chromium rejects.
+    "-pkeyopt",
+    "ec_param_enc:named_curve",
     "-nodes",
     "-keyout",
     keyPath,

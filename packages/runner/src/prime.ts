@@ -112,7 +112,7 @@ export async function primeFixture(
     }
     // Some CMPs load their preferences dialog as a separate chunk on first
     // open; open it here so a measured save cannot be the first request.
-    const { preferences } = fixture.adapter;
+    const { preferences, reopen, save } = fixture.adapter;
     if (!fixture.baseline && preferences) {
       try {
         await page.locator(preferences).first().click({ timeout: 10_000 });
@@ -120,6 +120,28 @@ export async function primeFixture(
         /* Best effort, as above. */
       }
       await settle();
+      // A save can load a separate writer chunk that opening the dialog does
+      // not fetch. Commit in this disposable context before measurements.
+      if (save && (await page.locator(save).first().isVisible())) {
+        try {
+          await page.locator(save).first().click({ timeout: 10_000 });
+        } catch {
+          /* The measured visit still checks the action and cold-encoding log. */
+        }
+        await settle();
+        // Returning visitors can open preferences without the server-rendered
+        // banner's styles. Prime those deferred sheets in the saved context.
+        if (reopen) {
+          await page.goto(url.href, { timeout: 60_000, waitUntil: "load" });
+          await settle();
+          try {
+            await page.locator(reopen).first().click({ timeout: 10_000 });
+          } catch {
+            /* The measured visit still checks the action and encoding log. */
+          }
+          await settle();
+        }
+      }
     }
   } finally {
     await context.close();

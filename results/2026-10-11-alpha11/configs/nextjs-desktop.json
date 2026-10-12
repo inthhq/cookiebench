@@ -15,12 +15,12 @@
         "reject": "[data-testid=\"consent-banner-reject-button\"]",
         "reopen": "#reopen-preferences",
         "save": "[data-testid=\"consent-widget-footer-save-button\"]",
-        "serverEventsUrl": "http://127.0.0.1:4312/controlled/events",
+        "serverEventsUrl": "http://127.0.0.1:4322/controlled/events",
         "stateGlobal": "__cookiebench",
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "20d01133bff1e1d9cf2652c039d90b758641082a5b218f3ade31ecbe8c48a894",
+      "configurationHash": "57b40894d37b5e7340bb74eff842622532fb2d31c3b9bfe61c515f71c908aee0",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -47,7 +47,7 @@
         },
         "cwd": "benchmarks/with-c15t-nextjs",
         "readinessTimeoutMs": 120000,
-        "readinessUrl": "http://127.0.0.1:4312/health",
+        "readinessUrl": "http://127.0.0.1:4322/health",
         "start": {
           "args": [
             "start"
@@ -55,7 +55,7 @@
           "command": "pnpm"
         }
       },
-      "url": "http://127.0.0.1:4312/baseline",
+      "url": "http://127.0.0.1:4322/baseline",
       "version": "16.0.7"
     },
     {
@@ -73,12 +73,12 @@
         "reject": "[data-testid=\"consent-banner-reject-button\"]",
         "reopen": "#reopen-preferences",
         "save": "[data-testid=\"consent-widget-footer-save-button\"]",
-        "serverEventsUrl": "http://127.0.0.1:4312/controlled/events",
+        "serverEventsUrl": "http://127.0.0.1:4322/controlled/events",
         "stateGlobal": "__cookiebench",
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "28527d291d1b43d61c35416db3295b270a06c29f5fab90bc5d9401b019f0db9f",
+      "configurationHash": "454b63e1ad984d3b8264c0ab1f29b699c6b22c912369d3f09e3a6ab33497e363",
       "deployment": {
         "assets": "local",
         "backend": "remote-service"
@@ -105,7 +105,7 @@
         },
         "cwd": "benchmarks/with-c15t-nextjs",
         "readinessTimeoutMs": 120000,
-        "readinessUrl": "http://127.0.0.1:4312/health",
+        "readinessUrl": "http://127.0.0.1:4322/health",
         "start": {
           "args": [
             "start"
@@ -113,7 +113,7 @@
           "command": "pnpm"
         }
       },
-      "url": "http://127.0.0.1:4312/",
+      "url": "http://127.0.0.1:4322/",
       "version": "3.0.0-alpha.11"
     }
   ],

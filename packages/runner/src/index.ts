@@ -162,6 +162,12 @@ export const runBenchmark = (input: RunConfig) =>
           "utf-8"
         )
       );
+      const baselineLoadObservationMs = Math.max(
+        0,
+        ...config.scenarios
+          .filter((scenario) => scenario.action === "load")
+          .map((scenario) => scenario.observationMs)
+      );
       const execute = (
         fixture: typeof FixtureConfig.Type,
         scenario: typeof ScenarioConfig.Type,
@@ -169,6 +175,7 @@ export const runBenchmark = (input: RunConfig) =>
       ) =>
         Effect.gen(function* sampleScope() {
           const options = {
+            baselineLoadObservationMs,
             browser,
             fixture,
             iteration,
