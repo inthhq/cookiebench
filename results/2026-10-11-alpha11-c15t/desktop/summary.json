@@ -1,0 +1,376 @@
+{
+  "phase": "desktop",
+  "complete": true,
+  "completedAt": "2026-10-11T22:24:38.484Z",
+  "measurementConditions": {
+    "collectorSourceHash": "c2520e37a4b74af246fe893d06281c9b40aa24bfe76c475664f16aed8363623a",
+    "cpuCalibration": null,
+    "cpuSlowdown": 1,
+    "host": {
+      "cpu": "Apple M1 Pro",
+      "platform": "darwin",
+      "release": "25.6.0"
+    },
+    "versions": {
+      "browser": "153.0.8010.12",
+      "effect": "4.0.0-rc.117",
+      "node": "v24.21.0",
+      "playwright": "1.63.0",
+      "web-vitals": "6.2.2"
+    }
+  },
+  "comparisonFamily": {
+    "comparisons": 36,
+    "id": "batch:ba632d05c6c24ce1c77b5d5189a313dc33453ba4179d90b3a47c747fe6557aaa"
+  },
+  "rows": [
+    {
+      "framework": "react",
+      "samples": 15,
+      "loadPassed": 15,
+      "baselineLcpMs": 80,
+      "lcpMs": 100,
+      "lcpPairedDeltaMs": 16,
+      "lcpInterval": {
+        "high": 20,
+        "level": 0.9993055555555556,
+        "low": 16,
+        "method": "paired-percentile-bootstrap",
+        "resamples": 29000
+      },
+      "lcpEligible": true,
+      "lcpEligibilityReasons": [],
+      "primaryContentPaintMs": 100,
+      "bannerVisibleMs": 223.40000009536743,
+      "ttfbMs": 1.4000000953674316,
+      "cls": 0,
+      "transferBytes": 649267,
+      "transferPairedDeltaBytes": 97407,
+      "decodedBodyPairedDeltaBytes": 387921,
+      "correctness": [
+        {
+          "scenario": "load",
+          "attempts": 1,
+          "passed": 1,
+          "failed": 0,
+          "incomplete": 0,
+          "failures": []
+        },
+        {
+          "scenario": "accept",
+          "attempts": 1,
+          "passed": 1,
+          "failed": 0,
+          "incomplete": 0,
+          "failures": []
+        },
+        {
+          "scenario": "reject",
+          "attempts": 1,
+          "passed": 1,
+          "failed": 0,
+          "incomplete": 0,
+          "failures": []
+        },
+        {
+          "scenario": "save",
+          "attempts": 1,
+          "passed": 1,
+          "failed": 0,
+          "incomplete": 0,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "framework": "nuxt",
+      "samples": 15,
+      "loadPassed": 15,
+      "baselineLcpMs": 84,
+      "lcpMs": 104,
+      "lcpPairedDeltaMs": 20,
+      "lcpInterval": {
+        "high": 24,
+        "level": 0.9993055555555556,
+        "low": 8,
+        "method": "paired-percentile-bootstrap",
+        "resamples": 29000
+      },
+      "lcpEligible": true,
+      "lcpEligibilityReasons": [],
+      "primaryContentPaintMs": 104,
+      "bannerVisibleMs": 17,
+      "ttfbMs": 7,
+      "cls": 0,
+      "transferBytes": 665544,
+      "transferPairedDeltaBytes": 112569,
+      "decodedBodyPairedDeltaBytes": null,
+      "correctness": [
+        {
+          "scenario": "load",
+          "attempts": 1,
+          "passed": 1,
+          "failed": 0,
+          "incomplete": 0,
+          "failures": []
+        },
+        {
+          "scenario": "accept",
+          "attempts": 1,
+          "passed": 1,
+          "failed": 0,
+          "incomplete": 0,
+          "failures": []
+        },
+        {
+          "scenario": "reject",
+          "attempts": 1,
+          "passed": 1,
+          "failed": 0,
+          "incomplete": 0,
+          "failures": []
+        },
+        {
+          "scenario": "save",
+          "attempts": 1,
+          "passed": 1,
+          "failed": 0,
+          "incomplete": 0,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "framework": "nextjs",
+      "samples": 15,
+      "loadPassed": 15,
+      "baselineLcpMs": 84,
+      "lcpMs": 92,
+      "lcpPairedDeltaMs": 8,
+      "lcpInterval": {
+        "high": 16,
+        "level": 0.9993055555555556,
+        "low": 8,
+        "method": "paired-percentile-bootstrap",
+        "resamples": 29000
+      },
+      "lcpEligible": true,
+      "lcpEligibilityReasons": [],
+      "primaryContentPaintMs": 92,
+      "bannerVisibleMs": 26.5,
+      "ttfbMs": 8.799999713897705,
+      "cls": 0,
+      "transferBytes": 716973,
+      "transferPairedDeltaBytes": 103933,
+      "decodedBodyPairedDeltaBytes": 403135,
+      "correctness": [
+        {
+          "scenario": "load",
+          "attempts": 1,
+          "passed": 1,
+          "failed": 0,
+          "incomplete": 0,
+          "failures": []
+        },
+        {
+          "scenario": "accept",
+          "attempts": 1,
+          "passed": 1,
+          "failed": 0,
+          "incomplete": 0,
+          "failures": []
+        },
+        {
+          "scenario": "reject",
+          "attempts": 1,
+          "passed": 1,
+          "failed": 0,
+          "incomplete": 0,
+          "failures": []
+        },
+        {
+          "scenario": "save",
+          "attempts": 1,
+          "passed": 1,
+          "failed": 0,
+          "incomplete": 0,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "framework": "tanstack-start",
+      "samples": 15,
+      "loadPassed": 15,
+      "baselineLcpMs": 84,
+      "lcpMs": 92,
+      "lcpPairedDeltaMs": 20,
+      "lcpInterval": {
+        "high": 20,
+        "level": 0.9993055555555556,
+        "low": 8,
+        "method": "paired-percentile-bootstrap",
+        "resamples": 29000
+      },
+      "lcpEligible": true,
+      "lcpEligibilityReasons": [],
+      "primaryContentPaintMs": 92,
+      "bannerVisibleMs": 25.09999990463257,
+      "ttfbMs": 7.099999904632568,
+      "cls": 0,
+      "transferBytes": 699759,
+      "transferPairedDeltaBytes": 109933,
+      "decodedBodyPairedDeltaBytes": 460039,
+      "correctness": [
+        {
+          "scenario": "load",
+          "attempts": 1,
+          "passed": 1,
+          "failed": 0,
+          "incomplete": 0,
+          "failures": []
+        },
+        {
+          "scenario": "accept",
+          "attempts": 1,
+          "passed": 1,
+          "failed": 0,
+          "incomplete": 0,
+          "failures": []
+        },
+        {
+          "scenario": "reject",
+          "attempts": 1,
+          "passed": 1,
+          "failed": 0,
+          "incomplete": 0,
+          "failures": []
+        },
+        {
+          "scenario": "save",
+          "attempts": 1,
+          "passed": 1,
+          "failed": 0,
+          "incomplete": 0,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "framework": "astro",
+      "samples": 15,
+      "loadPassed": 15,
+      "baselineLcpMs": 76,
+      "lcpMs": 84,
+      "lcpPairedDeltaMs": 8,
+      "lcpInterval": {
+        "high": 16,
+        "level": 0.9993055555555556,
+        "low": 4,
+        "method": "paired-percentile-bootstrap",
+        "resamples": 29000
+      },
+      "lcpEligible": true,
+      "lcpEligibilityReasons": [],
+      "primaryContentPaintMs": 84,
+      "bannerVisibleMs": 14.599999904632568,
+      "ttfbMs": 5.099999904632568,
+      "cls": 0,
+      "transferBytes": 568941,
+      "transferPairedDeltaBytes": 70993,
+      "decodedBodyPairedDeltaBytes": 268545,
+      "correctness": [
+        {
+          "scenario": "load",
+          "attempts": 1,
+          "passed": 1,
+          "failed": 0,
+          "incomplete": 0,
+          "failures": []
+        },
+        {
+          "scenario": "accept",
+          "attempts": 1,
+          "passed": 1,
+          "failed": 0,
+          "incomplete": 0,
+          "failures": []
+        },
+        {
+          "scenario": "reject",
+          "attempts": 1,
+          "passed": 1,
+          "failed": 0,
+          "incomplete": 0,
+          "failures": []
+        },
+        {
+          "scenario": "save",
+          "attempts": 1,
+          "passed": 1,
+          "failed": 0,
+          "incomplete": 0,
+          "failures": []
+        }
+      ]
+    },
+    {
+      "framework": "script",
+      "samples": 15,
+      "loadPassed": 15,
+      "baselineLcpMs": 76,
+      "lcpMs": 80,
+      "lcpPairedDeltaMs": 4,
+      "lcpInterval": {
+        "high": 8,
+        "level": 0.9993055555555556,
+        "low": 4,
+        "method": "paired-percentile-bootstrap",
+        "resamples": 29000
+      },
+      "lcpEligible": true,
+      "lcpEligibilityReasons": [],
+      "primaryContentPaintMs": 80,
+      "bannerVisibleMs": 240.2000002861023,
+      "ttfbMs": 1.5,
+      "cls": 0,
+      "transferBytes": 583349,
+      "transferPairedDeltaBytes": 83957,
+      "decodedBodyPairedDeltaBytes": 359132,
+      "correctness": [
+        {
+          "scenario": "load",
+          "attempts": 1,
+          "passed": 1,
+          "failed": 0,
+          "incomplete": 0,
+          "failures": []
+        },
+        {
+          "scenario": "accept",
+          "attempts": 1,
+          "passed": 1,
+          "failed": 0,
+          "incomplete": 0,
+          "failures": []
+        },
+        {
+          "scenario": "reject",
+          "attempts": 1,
+          "passed": 1,
+          "failed": 0,
+          "incomplete": 0,
+          "failures": []
+        },
+        {
+          "scenario": "save",
+          "attempts": 1,
+          "passed": 1,
+          "failed": 0,
+          "incomplete": 0,
+          "failures": []
+        }
+      ]
+    }
+  ]
+}

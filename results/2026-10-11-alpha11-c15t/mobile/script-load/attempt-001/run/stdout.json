@@ -1,0 +1,36 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:21a159e7-7671-4752-a8cd-951687626b6f",
+        "sample:4e3449ad-7596-4b64-afd0-da8968bc4039",
+        "sample:019f22a6-66cf-489c-bfd4-ffc6397559e6",
+        "sample:4afb7e90-3d53-4c96-b740-8af79b0bf5f9",
+        "sample:131d089c-81c6-403a-b610-a02d133c7c33",
+        "sample:2755e5cc-eea0-4733-b9e1-47fbd0169b8f",
+        "sample:707b4940-c8b5-4c1d-bd45-6d1f7432f703",
+        "sample:fe4b7199-5e82-40cb-9bf3-f21fdeb916c4",
+        "sample:5ee6a0d7-7f81-4aac-87d5-6b2a0bd57048",
+        "sample:c6f9d935-421e-48f4-b084-1d5dc4440fbc",
+        "sample:9b96daf3-ef5e-4634-aad8-945cdd15a952",
+        "sample:79c1df77-1b10-4fc4-8bc4-4501092de13e",
+        "sample:b63afdbf-139e-4d07-a1b9-70781e531543",
+        "sample:0fd3af93-058d-4f18-bd50-e25292053067",
+        "sample:0eeaac57-499c-4467-aa85-065b996f2763"
+      ],
+      "fixtureId": "script-tag-c15t-inth-init",
+      "framework": "script-tag",
+      "id": "f0a55441-02cb-4d8d-bb80-db06a341bf67",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-11T23:15:02.476Z"
+    }
+  ],
+  "failures": [],
+  "output": "/Users/kayleewilliams/.t3/worktrees/cookiebench/t3code-c83c4dc6/results/2026-10-11-alpha11-c15t/mobile/script-load/attempt-001/envelope.json",
+  "runId": "7c620a6a-7d1a-4de7-af09-d954d98b556a",
+  "samples": 30,
+  "status": "passed"
+}

@@ -1,0 +1,77 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:8d9c43a2-2920-4012-b00b-c164b419eb75"
+      ],
+      "fixtureId": "tanstack-start-c15t",
+      "framework": "tanstack-start",
+      "id": "0f6a997d-9b1c-41bb-b802-1326475f2ee1",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-11T23:00:05.928Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:a0d8fac8-d8aa-4e43-b3c9-9fadb3caf478"
+      ],
+      "fixtureId": "tanstack-start-c15t",
+      "framework": "tanstack-start",
+      "id": "031fe243-f77b-4026-abe8-a969560ef851",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-11T23:00:05.928Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:72eca5d0-bb86-419a-a3ef-206a8a2df766"
+      ],
+      "fixtureId": "tanstack-start-c15t",
+      "framework": "tanstack-start",
+      "id": "f69afe9e-eafa-4893-83a8-09a1e823b8d3",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-11T23:00:05.928Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:433f0a1d-445e-4de0-b03d-ef8d140c8f58"
+      ],
+      "fixtureId": "tanstack-start-c15t",
+      "framework": "tanstack-start",
+      "id": "3c9adb01-6aa4-4258-a4f7-6cad6399aab6",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-11T23:00:05.928Z"
+    }
+  ],
+  "failures": [
+    {
+      "sampleId": "02234af4-8a41-4119-ab56-687cdca28c8e",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: page.lcp, initial.transfer"
+    },
+    {
+      "sampleId": "7cb561f5-81ae-42df-af7d-9985d0fab413",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: page.lcp, initial.transfer"
+    },
+    {
+      "sampleId": "92730c12-a0fd-4611-818f-1207609e5a8d",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: page.lcp, initial.transfer"
+    }
+  ],
+  "output": "/Users/kayleewilliams/.t3/worktrees/cookiebench/t3code-c83c4dc6/results/2026-10-11-alpha11-c15t/mobile/tanstack-start-correctness/attempt-001/envelope.json",
+  "runId": "52e67a8b-e6a8-4720-8ba5-d4ea19b4b51c",
+  "samples": 8,
+  "status": "incomplete"
+}

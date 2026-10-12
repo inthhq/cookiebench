@@ -1,0 +1,529 @@
+{
+  "validatedAt": "2026-10-11T23:37:30.065Z",
+  "originalIndexSha256": "01870c5527bc671c737b644abe81e53a82d5bba772868709192f36cf67f301e5",
+  "original": {
+    "primaryAttempts": 228,
+    "passed": 210,
+    "failed": 0,
+    "incomplete": 18,
+    "followupAttempts": 18,
+    "followupPassed": 18,
+    "networkCoverageIncomplete": 0,
+    "browserErrors": 0,
+    "coldEncodings": 0,
+    "manifestsValidated": 12,
+    "cellsValidated": 60,
+    "collectorSourceHash": "c2520e37a4b74af246fe893d06281c9b40aa24bfe76c475664f16aed8363623a",
+    "completedAt": "2026-10-11T23:16:23.322Z"
+  },
+  "retry": {
+    "primaryAttempts": 48,
+    "passed": 48,
+    "failed": 0,
+    "incomplete": 0,
+    "followupAttempts": 18,
+    "followupPassed": 18,
+    "networkCoverageIncomplete": 0,
+    "browserErrors": 0,
+    "coldEncodings": 0,
+    "manifestsValidated": 6,
+    "cellsValidated": 48,
+    "collectorSourceHash": "f359851e4f7b15d549e882d641cd3205f71af1a18aebd8f02f4fc5b2eb21eb1d",
+    "completedAt": "2026-10-11T23:34:32.180Z"
+  },
+  "comparisons": [
+    {
+      "entry": "react-load",
+      "metric": "page.lcp",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "react-load",
+      "metric": "page.primary-content-paint",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "react-load",
+      "metric": "page.cls",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "react-load",
+      "metric": "initial.transfer",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "react-load",
+      "metric": "initial.encoded-body",
+      "eligible": false,
+      "pairedCount": 0,
+      "reasons": [
+        "Required metric measurements are missing.",
+        "Eligible metric observations do not have complete one-to-one pairing within the same run.",
+        "Fewer than 15 eligible paired metric observations."
+      ]
+    },
+    {
+      "entry": "react-load",
+      "metric": "initial.decoded-body",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "nuxt-load",
+      "metric": "page.lcp",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "nuxt-load",
+      "metric": "page.primary-content-paint",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "nuxt-load",
+      "metric": "page.cls",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "nuxt-load",
+      "metric": "initial.transfer",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "nuxt-load",
+      "metric": "initial.encoded-body",
+      "eligible": false,
+      "pairedCount": 0,
+      "reasons": [
+        "Required metric measurements are missing.",
+        "Fewer than 15 eligible paired metric observations."
+      ]
+    },
+    {
+      "entry": "nuxt-load",
+      "metric": "initial.decoded-body",
+      "eligible": false,
+      "pairedCount": 0,
+      "reasons": [
+        "Required metric measurements are missing.",
+        "Fewer than 15 eligible paired metric observations."
+      ]
+    },
+    {
+      "entry": "nextjs-load",
+      "metric": "page.lcp",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "nextjs-load",
+      "metric": "page.primary-content-paint",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "nextjs-load",
+      "metric": "page.cls",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "nextjs-load",
+      "metric": "initial.transfer",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "nextjs-load",
+      "metric": "initial.encoded-body",
+      "eligible": false,
+      "pairedCount": 0,
+      "reasons": [
+        "Required metric measurements are missing.",
+        "Fewer than 15 eligible paired metric observations."
+      ]
+    },
+    {
+      "entry": "nextjs-load",
+      "metric": "initial.decoded-body",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "tanstack-start-load",
+      "metric": "page.lcp",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "tanstack-start-load",
+      "metric": "page.primary-content-paint",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "tanstack-start-load",
+      "metric": "page.cls",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "tanstack-start-load",
+      "metric": "initial.transfer",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "tanstack-start-load",
+      "metric": "initial.encoded-body",
+      "eligible": false,
+      "pairedCount": 0,
+      "reasons": [
+        "Required metric measurements are missing.",
+        "Fewer than 15 eligible paired metric observations."
+      ]
+    },
+    {
+      "entry": "tanstack-start-load",
+      "metric": "initial.decoded-body",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "astro-load",
+      "metric": "page.lcp",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "astro-load",
+      "metric": "page.primary-content-paint",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "astro-load",
+      "metric": "page.cls",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "astro-load",
+      "metric": "initial.transfer",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "astro-load",
+      "metric": "initial.encoded-body",
+      "eligible": false,
+      "pairedCount": 0,
+      "reasons": [
+        "Required metric measurements are missing.",
+        "Fewer than 15 eligible paired metric observations."
+      ]
+    },
+    {
+      "entry": "astro-load",
+      "metric": "initial.decoded-body",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "script-load",
+      "metric": "page.lcp",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "script-load",
+      "metric": "page.primary-content-paint",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "script-load",
+      "metric": "page.cls",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "script-load",
+      "metric": "initial.transfer",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    },
+    {
+      "entry": "script-load",
+      "metric": "initial.encoded-body",
+      "eligible": false,
+      "pairedCount": 0,
+      "reasons": [
+        "Required metric measurements are missing.",
+        "Eligible metric observations do not have complete one-to-one pairing within the same run.",
+        "Fewer than 15 eligible paired metric observations."
+      ]
+    },
+    {
+      "entry": "script-load",
+      "metric": "initial.decoded-body",
+      "eligible": true,
+      "pairedCount": 15,
+      "reasons": []
+    }
+  ],
+  "originalIncomplete": [
+    {
+      "entry": "react-correctness",
+      "sampleId": "7d37d4a4-eb8d-4ee1-8d91-31f2f33dbc86",
+      "fixtureId": "react-baseline",
+      "scenario": "accept",
+      "failures": [
+        {
+          "code": "required-measurement-unavailable",
+          "message": "Required observations unavailable: page.lcp, initial.transfer"
+        }
+      ]
+    },
+    {
+      "entry": "react-correctness",
+      "sampleId": "bb6afb22-78a0-4934-b52f-cafe374b3abe",
+      "fixtureId": "react-baseline",
+      "scenario": "reject",
+      "failures": [
+        {
+          "code": "required-measurement-unavailable",
+          "message": "Required observations unavailable: page.lcp, initial.transfer"
+        }
+      ]
+    },
+    {
+      "entry": "react-correctness",
+      "sampleId": "8f882d85-8ab3-49b0-88b9-08d36cfc5184",
+      "fixtureId": "react-baseline",
+      "scenario": "save",
+      "failures": [
+        {
+          "code": "required-measurement-unavailable",
+          "message": "Required observations unavailable: page.lcp, initial.transfer"
+        }
+      ]
+    },
+    {
+      "entry": "nuxt-correctness",
+      "sampleId": "40005168-5863-4153-8d11-1de0f3ed50b4",
+      "fixtureId": "nuxt-baseline",
+      "scenario": "accept",
+      "failures": [
+        {
+          "code": "required-measurement-unavailable",
+          "message": "Required observations unavailable: page.lcp, initial.transfer"
+        }
+      ]
+    },
+    {
+      "entry": "nuxt-correctness",
+      "sampleId": "84dff18f-8c04-417e-a16f-18e105cfaf1a",
+      "fixtureId": "nuxt-baseline",
+      "scenario": "reject",
+      "failures": [
+        {
+          "code": "required-measurement-unavailable",
+          "message": "Required observations unavailable: page.lcp, initial.transfer"
+        }
+      ]
+    },
+    {
+      "entry": "nuxt-correctness",
+      "sampleId": "8e6392ee-0c3f-4168-bccd-4261f703e30b",
+      "fixtureId": "nuxt-baseline",
+      "scenario": "save",
+      "failures": [
+        {
+          "code": "required-measurement-unavailable",
+          "message": "Required observations unavailable: page.lcp, initial.transfer"
+        }
+      ]
+    },
+    {
+      "entry": "nextjs-correctness",
+      "sampleId": "399e39c4-1f59-496d-babb-41c93c326f06",
+      "fixtureId": "nextjs-baseline",
+      "scenario": "accept",
+      "failures": [
+        {
+          "code": "required-measurement-unavailable",
+          "message": "Required observations unavailable: page.lcp, initial.transfer"
+        }
+      ]
+    },
+    {
+      "entry": "nextjs-correctness",
+      "sampleId": "ba11ce39-302c-45c8-a314-208235522dbd",
+      "fixtureId": "nextjs-baseline",
+      "scenario": "reject",
+      "failures": [
+        {
+          "code": "required-measurement-unavailable",
+          "message": "Required observations unavailable: page.lcp, initial.transfer"
+        }
+      ]
+    },
+    {
+      "entry": "nextjs-correctness",
+      "sampleId": "87110b56-3b54-491b-b52b-70b3d0362740",
+      "fixtureId": "nextjs-baseline",
+      "scenario": "save",
+      "failures": [
+        {
+          "code": "required-measurement-unavailable",
+          "message": "Required observations unavailable: page.lcp, initial.transfer"
+        }
+      ]
+    },
+    {
+      "entry": "tanstack-start-correctness",
+      "sampleId": "02234af4-8a41-4119-ab56-687cdca28c8e",
+      "fixtureId": "tanstack-start-baseline",
+      "scenario": "accept",
+      "failures": [
+        {
+          "code": "required-measurement-unavailable",
+          "message": "Required observations unavailable: page.lcp, initial.transfer"
+        }
+      ]
+    },
+    {
+      "entry": "tanstack-start-correctness",
+      "sampleId": "7cb561f5-81ae-42df-af7d-9985d0fab413",
+      "fixtureId": "tanstack-start-baseline",
+      "scenario": "reject",
+      "failures": [
+        {
+          "code": "required-measurement-unavailable",
+          "message": "Required observations unavailable: page.lcp, initial.transfer"
+        }
+      ]
+    },
+    {
+      "entry": "tanstack-start-correctness",
+      "sampleId": "92730c12-a0fd-4611-818f-1207609e5a8d",
+      "fixtureId": "tanstack-start-baseline",
+      "scenario": "save",
+      "failures": [
+        {
+          "code": "required-measurement-unavailable",
+          "message": "Required observations unavailable: page.lcp, initial.transfer"
+        }
+      ]
+    },
+    {
+      "entry": "astro-correctness",
+      "sampleId": "de724c19-11a6-4ceb-82de-ed3ad7c584c2",
+      "fixtureId": "astro-baseline",
+      "scenario": "accept",
+      "failures": [
+        {
+          "code": "required-measurement-unavailable",
+          "message": "Required observations unavailable: page.lcp, initial.transfer"
+        }
+      ]
+    },
+    {
+      "entry": "astro-correctness",
+      "sampleId": "4e6486a4-7a5b-4c61-831e-27d5c8910583",
+      "fixtureId": "astro-baseline",
+      "scenario": "reject",
+      "failures": [
+        {
+          "code": "required-measurement-unavailable",
+          "message": "Required observations unavailable: page.lcp, initial.transfer"
+        }
+      ]
+    },
+    {
+      "entry": "astro-correctness",
+      "sampleId": "66ed0837-521b-4ff7-9bfb-992a439c6e79",
+      "fixtureId": "astro-baseline",
+      "scenario": "save",
+      "failures": [
+        {
+          "code": "required-measurement-unavailable",
+          "message": "Required observations unavailable: page.lcp, initial.transfer"
+        }
+      ]
+    },
+    {
+      "entry": "script-correctness",
+      "sampleId": "0d062eab-58bf-4fd1-a5da-07e293c44324",
+      "fixtureId": "script-tag-baseline-inth-init",
+      "scenario": "accept",
+      "failures": [
+        {
+          "code": "required-measurement-unavailable",
+          "message": "Required observations unavailable: page.lcp, initial.transfer"
+        }
+      ]
+    },
+    {
+      "entry": "script-correctness",
+      "sampleId": "49fd6952-28ba-42f8-965b-5f3748010acf",
+      "fixtureId": "script-tag-baseline-inth-init",
+      "scenario": "reject",
+      "failures": [
+        {
+          "code": "required-measurement-unavailable",
+          "message": "Required observations unavailable: page.lcp, initial.transfer"
+        }
+      ]
+    },
+    {
+      "entry": "script-correctness",
+      "sampleId": "b78f876e-0920-426f-9329-978112f635d6",
+      "fixtureId": "script-tag-baseline-inth-init",
+      "scenario": "save",
+      "failures": [
+        {
+          "code": "required-measurement-unavailable",
+          "message": "Required observations unavailable: page.lcp, initial.transfer"
+        }
+      ]
+    }
+  ]
+}

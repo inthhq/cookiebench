@@ -1,0 +1,77 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:f43506fc-7581-4ff2-8d32-230d0c4c137a"
+      ],
+      "fixtureId": "nextjs-c15t",
+      "framework": "nextjs",
+      "id": "d23788e5-bcf4-46ed-b2c5-793651592b7b",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-11T22:52:01.055Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:1cf32fd9-e324-4454-8414-7abeb0ca0d08"
+      ],
+      "fixtureId": "nextjs-c15t",
+      "framework": "nextjs",
+      "id": "e96a9e68-538f-4b48-9ba5-31f046f49a12",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-11T22:52:01.055Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:8f607c6e-f25a-4e78-b12e-01abb6838d97"
+      ],
+      "fixtureId": "nextjs-c15t",
+      "framework": "nextjs",
+      "id": "27492d99-cfee-4234-8173-e498f57b64e6",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-11T22:52:01.055Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:57149e6d-8190-40ca-ba4c-e8ce2ee20b60"
+      ],
+      "fixtureId": "nextjs-c15t",
+      "framework": "nextjs",
+      "id": "88050442-f70f-495b-b997-7f7478773638",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-11T22:52:01.055Z"
+    }
+  ],
+  "failures": [
+    {
+      "sampleId": "399e39c4-1f59-496d-babb-41c93c326f06",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: page.lcp, initial.transfer"
+    },
+    {
+      "sampleId": "ba11ce39-302c-45c8-a314-208235522dbd",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: page.lcp, initial.transfer"
+    },
+    {
+      "sampleId": "87110b56-3b54-491b-b52b-70b3d0362740",
+      "code": "required-measurement-unavailable",
+      "message": "Required observations unavailable: page.lcp, initial.transfer"
+    }
+  ],
+  "output": "/Users/kayleewilliams/.t3/worktrees/cookiebench/t3code-c83c4dc6/results/2026-10-11-alpha11-c15t/mobile/nextjs-correctness/attempt-001/envelope.json",
+  "runId": "d4609157-15fe-47ed-be55-c44744c4619a",
+  "samples": 8,
+  "status": "incomplete"
+}

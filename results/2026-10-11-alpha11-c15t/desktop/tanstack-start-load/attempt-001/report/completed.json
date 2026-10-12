@@ -1,0 +1,16 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "report",
+    "--file",
+    "results/2026-10-11-alpha11-c15t/desktop/tanstack-start-load/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-11T22:15:02.938Z",
+  "startedAt": "2026-10-11T22:15:02.639Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "e757156c96bcfbda14079d35341cb935785cb1cbdf82ecbd2c4ac1b656af41d1"
+}

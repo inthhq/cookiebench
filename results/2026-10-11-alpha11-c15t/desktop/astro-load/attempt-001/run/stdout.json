@@ -1,0 +1,36 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:ca05d583-cf97-4222-bfad-0f5f327cc40b",
+        "sample:c86888fc-c00b-441c-bdf6-239ed1f67fd7",
+        "sample:bcb673fe-4a7c-45b4-b74a-841c81abc01b",
+        "sample:262ced7f-b571-4150-b96f-68c50bae6892",
+        "sample:3f83759b-9e41-4f81-81a7-50cd257d37ac",
+        "sample:6f0068ae-f2e9-4425-83b0-d2a6eadde127",
+        "sample:52a4efd6-8882-44a1-b547-7cc363443063",
+        "sample:ce247cd6-a441-4d68-900a-1b986b7e87e4",
+        "sample:b7ad342c-4a36-4332-b81d-826e3edc61fb",
+        "sample:05062223-ee97-4816-8fe4-4c22228f378d",
+        "sample:4f481fce-ee1c-4857-bfb7-273fce9c3499",
+        "sample:9179b16d-b26c-49b3-802c-b55eba580e73",
+        "sample:ac247c69-a0a8-48cf-96e9-eb7ac963005b",
+        "sample:36455d21-03f9-4537-b285-5cba9f7a8e98",
+        "sample:46c99dd8-5dc5-41bb-aa72-d49ea25a205b"
+      ],
+      "fixtureId": "astro-c15t",
+      "framework": "astro",
+      "id": "ebbd3864-3a6a-451f-a219-cefa2940ec90",
+      "mode": "manifest",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-11T22:19:25.336Z"
+    }
+  ],
+  "failures": [],
+  "output": "/Users/kayleewilliams/.t3/worktrees/cookiebench/t3code-c83c4dc6/results/2026-10-11-alpha11-c15t/desktop/astro-load/attempt-001/envelope.json",
+  "runId": "9ad71a4f-be70-445a-9338-d3a2e84bff4d",
+  "samples": 30,
+  "status": "passed"
+}

@@ -1,0 +1,16 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "report",
+    "--file",
+    "results/2026-10-11-alpha11-c15t/mobile-correctness-retry/react-correctness/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-11T23:25:07.898Z",
+  "startedAt": "2026-10-11T23:25:07.599Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "25bc312945613d942128acb1b5cced8cce1fb51b6dad8738f45bb6dd3df7620c"
+}

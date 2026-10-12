@@ -1,0 +1,16 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "report",
+    "--file",
+    "results/2026-10-11-alpha11-c15t/mobile-correctness-retry/tanstack-start-correctness/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-11T23:30:51.411Z",
+  "startedAt": "2026-10-11T23:30:51.119Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "5cada540f0a9a949510dd4620823598d85dc923fceca5b20d556b45329fe2bb2"
+}

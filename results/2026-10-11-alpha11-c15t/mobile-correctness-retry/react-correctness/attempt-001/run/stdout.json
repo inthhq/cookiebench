@@ -1,0 +1,61 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:4388d498-2903-421c-8269-772f96d77e15"
+      ],
+      "fixtureId": "react-c15t",
+      "framework": "react",
+      "id": "e2d43cca-9a07-4bd8-a05b-d62b017b4fbc",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-11T23:25:07.016Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:81b80f9b-be09-49cc-974f-aefc0eec36a4"
+      ],
+      "fixtureId": "react-c15t",
+      "framework": "react",
+      "id": "c979d6a7-14e1-47c5-91d9-d55d394f6573",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-11T23:25:07.016Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:a72723f3-5047-4240-af7d-06764663d80a"
+      ],
+      "fixtureId": "react-c15t",
+      "framework": "react",
+      "id": "40af6d2a-11bb-48c5-bc3e-b5a877100982",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-11T23:25:07.016Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:3ccf2750-a220-4b1b-a221-fd61e28b7612"
+      ],
+      "fixtureId": "react-c15t",
+      "framework": "react",
+      "id": "4ad0cb78-9c18-42f6-9cea-415a346c3689",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-11T23:25:07.016Z"
+    }
+  ],
+  "failures": [],
+  "output": "/Users/kayleewilliams/.t3/worktrees/cookiebench/t3code-c83c4dc6/results/2026-10-11-alpha11-c15t/mobile-correctness-retry/react-correctness/attempt-001/envelope.json",
+  "runId": "d94f42de-1be3-4c98-9648-b720068b3c1b",
+  "samples": 8,
+  "status": "passed"
+}

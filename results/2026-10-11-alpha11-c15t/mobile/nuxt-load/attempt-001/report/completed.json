@@ -1,0 +1,16 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "report",
+    "--file",
+    "results/2026-10-11-alpha11-c15t/mobile/nuxt-load/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-11T22:42:07.482Z",
+  "startedAt": "2026-10-11T22:42:07.172Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "b0bb8db929402b2c70aeaf1a37e2eb76b1c8cb88f5d5cf97ebb4a2ee1659cfe5"
+}

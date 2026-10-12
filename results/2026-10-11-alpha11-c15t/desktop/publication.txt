@@ -1,0 +1,7 @@
+c15t 3.0.0-alpha.11 desktop benchmark, measured October 11, 2026.
+
+In our Next.js production fixture, the consent banner was visible at a median 26.5 ms from navigation. Median LCP was 92 ms against 84 ms for the no-CMP page. The paired median LCP overhead was +8 ms, with a multiplicity-adjusted bootstrap confidence interval of 8 to 16 ms. Median FCP was 44 ms, CLS was 0, and initial long-task blocking was 0 ms.
+
+The Next.js consent interaction checks recorded 40 ms for Accept, 40 ms for Reject and 16 ms for Save preferences. These are native input-to-next-paint timings from one attempt per action, not finalized INP scores. Paired initial transfer overhead was 103,933 bytes, including headers and fixture assets.
+
+Load results use 15 cold-browser pairs and three warmups per arm on an Apple M1 Pro with Chromium 153, CPU 1x, local production page assets and a 5-second observation window. The network preset was 12,500,000 bytes/s with 0 ms added latency. These are desktop lab measurements, not field percentile results. The confidence interval uses Bonferroni adjustment across 36 comparisons and two estimators. All 228 measured desktop attempts and 18 follow-up visits across six integrations passed.

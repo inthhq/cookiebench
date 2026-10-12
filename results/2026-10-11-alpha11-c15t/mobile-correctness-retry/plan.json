@@ -1,0 +1,35 @@
+{
+  "entries": [
+    {
+      "config": "results/2026-10-11-alpha11-c15t/configs/react-mobile.json",
+      "id": "react-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-11-alpha11-c15t/configs/nuxt-mobile.json",
+      "id": "nuxt-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-11-alpha11-c15t/configs/nextjs-mobile.json",
+      "id": "nextjs-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-11-alpha11-c15t/configs/tanstack-start-mobile.json",
+      "id": "tanstack-start-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-11-alpha11-c15t/configs/astro-mobile.json",
+      "id": "astro-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-11-alpha11-c15t/configs/script-mobile.json",
+      "id": "script-correctness",
+      "kind": "flows"
+    }
+  ],
+  "seed": 20261009
+}

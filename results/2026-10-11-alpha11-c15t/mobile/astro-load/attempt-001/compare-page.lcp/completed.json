@@ -1,0 +1,24 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "results/2026-10-11-alpha11-c15t/mobile/astro-load/attempt-001/envelope.json",
+    "--candidate",
+    "results/2026-10-11-alpha11-c15t/mobile/astro-load/attempt-001/envelope.json",
+    "--metric",
+    "page.lcp",
+    "--family",
+    "batch:c65a0b63b6af51bea075500c673825fbf9549ab5bc9c7b4f49d2b33cf62b03df",
+    "--family-size",
+    "36"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-11T23:06:51.235Z",
+  "startedAt": "2026-10-11T23:06:50.907Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "76fe6b8ad4c8858d8791b2746dae3a4fd846bbbba9872871f88842ad161d22f8"
+}

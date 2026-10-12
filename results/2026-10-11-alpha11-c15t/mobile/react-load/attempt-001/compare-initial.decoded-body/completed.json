@@ -1,0 +1,24 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "results/2026-10-11-alpha11-c15t/mobile/react-load/attempt-001/envelope.json",
+    "--candidate",
+    "results/2026-10-11-alpha11-c15t/mobile/react-load/attempt-001/envelope.json",
+    "--metric",
+    "initial.decoded-body",
+    "--family",
+    "batch:c65a0b63b6af51bea075500c673825fbf9549ab5bc9c7b4f49d2b33cf62b03df",
+    "--family-size",
+    "36"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-11T22:34:01.641Z",
+  "startedAt": "2026-10-11T22:34:01.354Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "06f9bdab7dba7721ef8c6f5819a72147d728a3fb9ea1b56264324c215d3e42a5"
+}
