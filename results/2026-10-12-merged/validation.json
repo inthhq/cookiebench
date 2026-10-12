@@ -1,0 +1,25 @@
+{
+  "validatedAt": "2026-10-12T08:32:22.873Z",
+  "profiles": {
+    "desktop": {
+      "c15tCorrectnessAttempts": 48,
+      "c15tFollowups": 18,
+      "c15tLoadAttempts": 180,
+      "competitorIncompleteActionBaselines": 0,
+      "rows": 60,
+      "withheldLcpIntervals": 13
+    },
+    "mobile": {
+      "c15tCorrectnessAttempts": 48,
+      "c15tFollowups": 18,
+      "c15tLoadAttempts": 180,
+      "competitorIncompleteActionBaselines": 36,
+      "rows": 60,
+      "withheldLcpIntervals": 12
+    }
+  },
+  "rawHashesChecked": 72,
+  "retainedCompetitorRows": 108,
+  "updatedC15tRows": 12,
+  "originalMobileIncompleteBaselines": 18
+}
