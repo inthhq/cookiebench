@@ -1,6 +1,6 @@
 # c15t 3.0.0, desktop and mobile, October 14 2026
 
-The six c15t fixtures (React, Next.js, TanStack Start, Nuxt, Astro and Script) rerun on the stable `3.0.0` release. Plans, profiles, scenarios and seed match [the alpha.11 run](../2026-10-11-alpha11-c15t/). Only the c15t version, tarball, integrity and lockfile hash changed in each configuration.
+The six c15t fixtures (React, Next.js, TanStack Start, Nuxt, Astro and Script) rerun on the stable `3.0.0` release. Plans, profiles, scenarios and seed match the alpha.11 run, recorded in commit `b3e4b4e` under `results/2026-10-11-alpha11-c15t/`. Only the c15t version, tarball, integrity and lockfile hash changed in each configuration.
 
 Both runs used the same Apple M1 Pro (macOS 25.6.0), Chromium `153.0.8010.12` and Node `v24.21.0`. Collector hash `f359851e4f7b15d549e882d641cd3205f71af1a18aebd8f02f4fc5b2eb21eb1d` covers every 3.0.0 entry. The alpha.11 load envelopes used `c2520e37…`, before the runner fix that changed action windows and pre-run priming. Each version is paired with its own same-run baseline.
 
@@ -35,4 +35,4 @@ Intervals overlap for every framework and profile, so this run shows no clear LC
 node results/2026-10-14-v3-c15t/compare.mjs '{"v3-desktop":{"load":"results/2026-10-14-v3-c15t/desktop","flows":"results/2026-10-14-v3-c15t/desktop"}}'
 ```
 
-`compare.mjs` reads the recorded reports and comparisons only. `comparison.json` holds its output for both alpha.11 profiles, both 3.0.0 profiles and the Nuxt retry.
+`compare.mjs` reads the recorded reports and comparisons only. `comparison.json` holds its output for both alpha.11 profiles (extracted before those raw files left the tree), both 3.0.0 profiles and the Nuxt retry.
