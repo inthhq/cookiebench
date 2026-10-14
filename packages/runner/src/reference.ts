@@ -47,7 +47,9 @@ export function referenceFixture(
     variant?: string;
     port?: number;
     query?: Record<string, string>;
-    server?: boolean;
+    // `portable` starts the server with `node` from the repository root, for
+    // configurations written to disk and run on another host.
+    server?: boolean | "portable";
   } = {}
 ): FixtureConfig {
   const variant = options.variant ?? "correct";
@@ -57,6 +59,7 @@ export function referenceFixture(
   const port = options.port ?? 4173;
   const params = new URLSearchParams({ variant, ...options.query });
   const url = `http://127.0.0.1:${port}/?${params}`;
+  const node = options.server === "portable" ? "node" : process.execPath;
   // oxlint-disable-next-line sort-keys -- The optional server spread separates identity from lifecycle configuration.
   return {
     schemaVersion: 3,
@@ -79,15 +82,18 @@ export function referenceFixture(
       ? {}
       : {
           server: {
-            build: { args: ["build.mjs"], command: process.execPath },
-            cwd: fileURLToPath(
-              new URL("../../../fixtures/reference", import.meta.url)
-            ),
+            build: { args: ["build.mjs"], command: node },
+            cwd:
+              options.server === "portable"
+                ? "fixtures/reference"
+                : fileURLToPath(
+                    new URL("../../../fixtures/reference", import.meta.url)
+                  ),
             readinessTimeoutMs: 5000,
             readinessUrl: `http://127.0.0.1:${port}/health`,
             start: {
               args: ["server.mjs", String(port)],
-              command: process.execPath,
+              command: node,
             },
           },
         }),
@@ -132,7 +138,12 @@ export function referenceScenario(
   };
 }
 export function referenceRunConfig(
-  options: { iterations?: number; variant?: string; port?: number } = {}
+  options: {
+    iterations?: number;
+    variant?: string;
+    port?: number;
+    server?: "portable";
+  } = {}
 ): RunConfig {
   return {
     fixtures: [referenceFixture(options)],

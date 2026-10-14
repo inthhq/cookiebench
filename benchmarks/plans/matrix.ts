@@ -231,7 +231,7 @@ function referenceAudit(profileName: string, profile: Json): string {
     `reference-overhead-${profileName}.json`
   );
   const config = {
-    ...referenceRunConfig({ variant: "baseline" }),
+    ...referenceRunConfig({ server: "portable", variant: "baseline" }),
     profile,
     scenarios: [
       referenceScenario({
