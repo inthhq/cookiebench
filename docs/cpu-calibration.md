@@ -21,7 +21,9 @@ Reuse the same artifact for every compared fixture. Do not recalibrate between a
 
 Calibration changes only CPU slowdown. Viewport, pixel density, touch, user agent and network settings remain those in the run configuration. The example above retains that configuration's desktop layout and network. A configured 150 ms CDP latency is a request-level approximation, not a measured mobile connection. Existing manual profiles and historical envelopes remain readable and retain their original meaning.
 
-The batch helper accepts existing run configurations. Prepare new configuration copies that embed the same artifact before starting a batch:
+A batch plan can calibrate each entry on the host that measures it. Set `cpuCalibration: { "tier": "mid" }` in the plan, described in [measurement batches](measurement-batches.md). Each entry retries calibration until the tier passes, then measures every arm at that one rate. Rates differ between entries and hosts, so this suits plans whose comparisons stay within an entry.
+
+To hold one artifact across a whole batch on one machine instead, prepare configuration copies that embed it before starting the batch:
 
 ```ts
 import { readFile, writeFile } from "node:fs/promises";

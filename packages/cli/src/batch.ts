@@ -5,7 +5,7 @@ import { mkdir, open, readFile, readdir, writeFile } from "node:fs/promises";
 import { cpus, platform, release } from "node:os";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
-import { isDeepStrictEqual } from "node:util";
+import { isDeepStrictEqual, parseArgs } from "node:util";
 
 import {
   MINIMUM_PAIRS,
@@ -15,7 +15,11 @@ import {
   summarizeLcpAttribution,
   measurementValidity,
 } from "@cookiebench/analysis";
-import { decodeResult } from "@cookiebench/schema";
+import {
+  CpuCalibrationTier,
+  decodeCpuCalibrationArtifact,
+  decodeResult,
+} from "@cookiebench/schema";
 import type {
   FixtureConfig,
   ResultEnvelope,
@@ -32,9 +36,14 @@ interface BatchEntry {
   excludedReason?: string;
   blockedReason?: string;
 }
+/** Calibrate on the measuring host inside each entry, then run at that tier. */
+interface BatchCalibration {
+  tier: CpuCalibrationTier;
+}
 interface BatchPlan {
   seed: number;
   entries: BatchEntry[];
+  cpuCalibration?: BatchCalibration;
 }
 
 interface BatchState {
@@ -71,8 +80,14 @@ const FlowIterations = Schema.Number.check(
   Schema.isLessThanOrEqualTo(10_000)
 );
 const decodeFlowIterations = Schema.decodeUnknownSync(FlowIterations);
+const decodeBatchCalibration = Schema.decodeUnknownSync(
+  Schema.Struct({ tier: CpuCalibrationTier })
+);
+// Chrome's calibration misses its own error limit on some hosts, so an entry
+// retries on the same host before it gives up.
+const CALIBRATION_TRIES = 5;
 
-const skippedReason = (entry: BatchEntry) =>
+export const skippedReason = (entry: BatchEntry) =>
   entry.excludedReason ??
   (entry.kind === "load" ? entry.blockedReason : undefined);
 
@@ -256,6 +271,17 @@ export function decodePlan(value: unknown): BatchPlan {
     }
     ids.add(entry.id);
   }
+  if (plan.cpuCalibration !== undefined) {
+    decodeBatchCalibration(plan.cpuCalibration);
+    const uncalibrated = plan.entries.find(
+      (entry) => !skippedReason(entry) && !entry.config
+    );
+    if (uncalibrated) {
+      throw new Error(
+        `CPU calibration needs a config for every measured entry: ${uncalibrated.id}`
+      );
+    }
+  }
   return plan;
 }
 
@@ -337,18 +363,25 @@ const hostConditions = () => ({
  * Conditions every envelope in one batch must share, so paired results from
  * different entries stay comparable. Fixture-specific fields such as the
  * device profile and lockfile are covered by each entry's configuration hash.
+ * A calibrated entry measures its own throttle rate on its own host, so the
+ * batch shares the calibration method and tier rather than one rate; every
+ * pair still runs under a single rate inside its entry.
  */
 function measurementConditions(envelope: ResultEnvelope) {
   const { environment, profile, versions } = envelope.manifest;
+  const calibration = profile.cpuCalibration;
   return {
     collectorSourceHash: environment.collectorSourceHash ?? null,
-    cpuCalibration: profile.cpuCalibration
+    cpuCalibration: calibration
       ? {
-          id: profile.cpuCalibration.artifact.id,
-          tier: profile.cpuCalibration.tier,
+          method: calibration.artifact.method,
+          policy: calibration.artifact.validation.policy,
+          sourceRevision: calibration.artifact.sourceRevision,
+          sourceSha256: calibration.artifact.sourceSha256,
+          tier: calibration.tier,
         }
       : null,
-    cpuSlowdown: profile.cpuSlowdown,
+    cpuSlowdown: calibration ? null : profile.cpuSlowdown,
     host: {
       cpu: environment.cpu ?? null,
       platform: environment.platform ?? null,
@@ -441,7 +474,15 @@ const repositoryPath = (file: string) =>
   path.relative(process.cwd(), path.resolve(file)) || ".";
 const recordedNode = "node";
 
-function batchArguments(entry: BatchEntry, seed: number, envelopeFile: string) {
+const calibrationFile = (attemptDirectory: string) =>
+  path.join(attemptDirectory, "cpu-calibration.json");
+
+function batchArguments(
+  entry: BatchEntry,
+  seed: number,
+  envelopeFile: string,
+  calibration?: BatchCalibration
+) {
   let input: string[] = [];
   if (entry.config) {
     input = ["--config", repositoryPath(entry.config)];
@@ -458,6 +499,14 @@ function batchArguments(entry: BatchEntry, seed: number, envelopeFile: string) {
     entry.kind === "flows" ? "0" : "3",
     "--seed",
     String(seed),
+    ...(calibration
+      ? [
+          "--cpu-calibration",
+          calibrationFile(path.dirname(envelopeFile)),
+          "--cpu-tier",
+          calibration.tier,
+        ]
+      : []),
     "--output",
     envelopeFile,
   ];
@@ -492,12 +541,31 @@ const decodeSavedEntry = Schema.decodeUnknownSync(
   })
 );
 
+/** A calibrated envelope must have run at the plan's tier with its attempt's saved artifact. */
+async function usedSavedCalibration(
+  envelope: ResultEnvelope,
+  attemptDirectory: string,
+  calibration: BatchCalibration | undefined
+) {
+  const recorded = envelope.manifest.profile.cpuCalibration;
+  if (!calibration) {
+    return recorded === undefined;
+  }
+  const saved = decodeCpuCalibrationArtifact(
+    JSON.parse(await readFile(calibrationFile(attemptDirectory), "utf-8"))
+  );
+  return (
+    recorded?.tier === calibration.tier && recorded.artifact.id === saved.id
+  );
+}
+
 async function verifySavedEvidence(
   entry: BatchEntry,
   seed: number,
   entryDirectory: string,
   input: unknown,
-  saved: ReturnType<typeof decodeSavedEntry>
+  saved: ReturnType<typeof decodeSavedEntry>,
+  calibration: BatchCalibration | undefined
 ) {
   if (
     saved.configSha256 !== (entry.config ? await fileHash(entry.config) : null)
@@ -528,7 +596,7 @@ async function verifySavedEvidence(
   const expectedCommand = [
     recordedNode,
     "packages/cli/src/index.ts",
-    ...batchArguments(entry, seed, saved.envelopeFile),
+    ...batchArguments(entry, seed, saved.envelopeFile, calibration),
   ];
   if (!isDeepStrictEqual(saved.execution.command, expectedCommand)) {
     throw new Error(
@@ -561,7 +629,8 @@ async function verifySavedEvidence(
     );
     if (
       saved.details?.manifest.id !== envelope.manifest.id ||
-      envelope.manifest.seed !== seed
+      envelope.manifest.seed !== seed ||
+      !(await usedSavedCalibration(envelope, attemptDirectory, calibration))
     ) {
       throw new Error(
         `Cannot resume after envelope identity changed: ${entry.id}`
@@ -575,7 +644,8 @@ export async function verifySavedBatchEntry(
   entry: BatchEntry,
   seed: number,
   entryDirectory: string,
-  input: unknown
+  input: unknown,
+  calibration?: BatchCalibration
 ) {
   const saved = decodeSavedEntry(input);
   for (const key of [
@@ -608,7 +678,14 @@ export async function verifySavedBatchEntry(
     }
     return;
   }
-  await verifySavedEvidence(entry, seed, entryDirectory, input, saved);
+  await verifySavedEvidence(
+    entry,
+    seed,
+    entryDirectory,
+    input,
+    saved,
+    calibration
+  );
 }
 
 export async function runCommand(directory: string, args: string[]) {
@@ -684,14 +761,60 @@ async function trackedCommand(
   return record;
 }
 
+/**
+ * Calibrate on this host until the plan's tier passes validation, keeping
+ * every try. The passing artifact becomes the attempt's `cpu-calibration.json`.
+ */
+async function calibrateEntry(
+  state: BatchState,
+  config: string,
+  directory: string,
+  tier: CpuCalibrationTier
+) {
+  const tries = path.join(directory, "calibration");
+  await mkdir(tries);
+  for (let attempt = 1; attempt <= CALIBRATION_TRIES; attempt += 1) {
+    const name = `try-${String(attempt).padStart(2, "0")}`;
+    const output = path.join(tries, `${name}.json`);
+    await trackedCommand(state, path.join(tries, name), [
+      "cpu",
+      "calibrate",
+      "--config",
+      repositoryPath(config),
+      "--output",
+      output,
+    ]);
+    if (state.interruptionExitCode) {
+      return false;
+    }
+    if (await fileHash(output)) {
+      const bytes = await readFile(output);
+      const artifact = decodeCpuCalibrationArtifact(
+        JSON.parse(bytes.toString("utf-8"))
+      );
+      if (artifact.validation[tier].eligible) {
+        await writeFile(calibrationFile(directory), bytes, { flag: "wx" });
+        return true;
+      }
+    }
+  }
+  throw new Error(
+    `CPU calibration did not pass the ${tier} tier after ${CALIBRATION_TRIES} tries: ${tries}`
+  );
+}
+
 // eslint-disable-next-line complexity -- Each recorded terminal state and interruption must keep its own recovery path.
 async function executeBatch(
   planFile: string,
   outputDirectory: string,
-  state: BatchState
+  state: BatchState,
+  only: string | undefined
 ) {
   const bytes = await readFile(planFile);
   const plan = decodePlan(JSON.parse(bytes.toString("utf-8")));
+  if (only && !plan.entries.some((entry) => entry.id === only)) {
+    throw new Error(`The plan has no entry ${only}.`);
+  }
   const output = repositoryPath(outputDirectory);
   await mkdir(path.dirname(output), { recursive: true });
   await mkdir(output, { recursive: true });
@@ -727,11 +850,20 @@ async function executeBatch(
     if (state.interruptionExitCode) {
       break;
     }
+    if (only && entry.id !== only) {
+      continue;
+    }
     const entryDirectory = path.join(output, entry.id);
     const resultFile = path.join(entryDirectory, "result.json");
     if (await fileHash(resultFile)) {
       const previous = JSON.parse(await readFile(resultFile, "utf-8"));
-      await verifySavedBatchEntry(entry, plan.seed, entryDirectory, previous);
+      await verifySavedBatchEntry(
+        entry,
+        plan.seed,
+        entryDirectory,
+        previous,
+        plan.cpuCalibration
+      );
       if (previous.envelopeSha256) {
         conditions = requireBatchConditions(
           conditions,
@@ -777,8 +909,25 @@ async function executeBatch(
     }
     launched = true;
     const envelopeFile = path.join(directory, "envelope.json");
-    const args = batchArguments(entry, plan.seed, envelopeFile);
     process.stdout.write(`${new Date().toISOString()} ${entry.id}\n`);
+    if (
+      plan.cpuCalibration &&
+      entry.config &&
+      !(await calibrateEntry(
+        state,
+        entry.config,
+        directory,
+        plan.cpuCalibration.tier
+      ))
+    ) {
+      break;
+    }
+    const args = batchArguments(
+      entry,
+      plan.seed,
+      envelopeFile,
+      plan.cpuCalibration
+    );
     const execution = await trackedCommand(
       state,
       path.join(directory, "run"),
@@ -888,7 +1037,12 @@ async function executeBatch(
   return index;
 }
 
-export async function runBatch(planFile: string, outputDirectory: string) {
+/** Run or resume a plan; `entry` measures only that entry and never completes the batch. */
+export async function runBatch(
+  planFile: string,
+  outputDirectory: string,
+  options: { entry?: string } = {}
+) {
   const state: BatchState = { interruptionExitCode: 0 };
   const interrupt = () => {
     state.interruptionExitCode = 130;
@@ -899,7 +1053,7 @@ export async function runBatch(planFile: string, outputDirectory: string) {
   process.on("SIGINT", interrupt);
   process.on("SIGTERM", terminate);
   try {
-    return await executeBatch(planFile, outputDirectory, state);
+    return await executeBatch(planFile, outputDirectory, state, options.entry);
   } finally {
     process.removeListener("SIGINT", interrupt);
     process.removeListener("SIGTERM", terminate);
@@ -910,20 +1064,26 @@ if (
   process.argv[1] &&
   import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href
 ) {
-  const [planFile, output, mode] = process.argv.slice(2);
-  if (!planFile || !output) {
+  const { positionals, values } = parseArgs({
+    allowPositionals: true,
+    options: { "dry-run": { type: "boolean" }, entry: { type: "string" } },
+  });
+  const [planFile, output] = positionals;
+  if (!planFile || !output || positionals.length > 2) {
     process.stderr.write(
-      "Usage: node packages/cli/src/batch.ts PLAN.json OUTPUT_DIRECTORY [--dry-run]\n"
+      "Usage: node packages/cli/src/batch.ts PLAN.json OUTPUT_DIRECTORY [--dry-run | --entry ID]\n"
     );
     process.exitCode = 1;
   } else {
     try {
-      if (mode === "--dry-run") {
+      if (values["dry-run"]) {
         process.stdout.write(
           `${JSON.stringify(await describePlan(planFile), null, 2)}\n`
         );
       } else {
-        const result = await runBatch(planFile, output);
+        const result = await runBatch(planFile, output, {
+          entry: values.entry,
+        });
         process.exitCode = result.interruptionExitCode;
       }
     } catch (error) {

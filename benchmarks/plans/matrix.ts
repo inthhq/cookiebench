@@ -11,6 +11,9 @@
  * own baseline serve over HTTPS on that host, and every other arm shares the
  * plain local origin the standalone fixtures use.
  *
+ * The mobile plan calibrates each entry to Chrome's mid-tier phone on the host
+ * that measures it, replacing the profile's fixed 4x CPU slowdown.
+ *
  *   node benchmarks/plans/matrix.ts results/2026-10-09
  *   node packages/cli/src/batch.ts results/2026-10-09/plan-desktop.json results/2026-10-09/desktop
  */
@@ -272,6 +275,16 @@ for (const [profileName, profile] of Object.entries(profiles)) {
   });
   writeFileSync(
     path.join(output, `plan-${profileName}.json`),
-    `${JSON.stringify({ entries, seed }, null, 2)}\n`
+    `${JSON.stringify(
+      {
+        ...(profileName === "mobile"
+          ? { cpuCalibration: { tier: "mid" } }
+          : {}),
+        entries,
+        seed,
+      },
+      null,
+      2
+    )}\n`
   );
 }

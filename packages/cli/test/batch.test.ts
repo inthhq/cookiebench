@@ -14,6 +14,7 @@ import {
 import type { ResultEnvelope, Sample } from "@cookiebench/schema";
 import { expect, test, vi } from "vitest";
 
+import { calibrationArtifact } from "../../schema/test/cpu-calibration-fixture.ts";
 import {
   decodePlan,
   describePlan,
@@ -228,6 +229,177 @@ test("resume rejects changed envelope bytes and forged result identity before re
   await expect(
     verifySavedBatchEntry(entry, 1, entryDirectory, record)
   ).rejects.toThrow("execution log changed");
+});
+
+test("calibrated plans need a valid tier and a config for every measured entry", () => {
+  const entries = [
+    { config: "run.json", id: "measured", kind: "load" },
+    { excludedReason: "User request", id: "skipped", kind: "load" },
+  ];
+  expect(
+    decodePlan({ cpuCalibration: { tier: "mid" }, entries, seed: 1 })
+      .cpuCalibration
+  ).toEqual({ tier: "mid" });
+  expect(() =>
+    decodePlan({ cpuCalibration: { tier: "high" }, entries, seed: 1 })
+  ).toThrow();
+  expect(() =>
+    decodePlan({
+      cpuCalibration: { tier: "mid" },
+      entries: [{ id: "reference", kind: "flows", reference: "correct" }],
+      seed: 1,
+    })
+  ).toThrow("needs a config for every measured entry: reference");
+});
+
+/** A calibrated batch whose host passes the mid tier on the listed tries. */
+async function calibratedBatch(entryIds: string[]) {
+  const directory = await mkdtemp(path.join(tmpdir(), "cookiebench-cpu-"));
+  const config = path.join(directory, "run.json");
+  const plan = path.join(directory, "plan.json");
+  await writeFile(config, JSON.stringify(referenceRunConfig()));
+  await writeFile(
+    plan,
+    JSON.stringify({
+      cpuCalibration: { tier: "mid" },
+      entries: entryIds.map((id) => ({ config, id, kind: "flows" })),
+      seed: 1,
+    })
+  );
+  return { output: path.join(directory, "output"), plan };
+}
+
+/** Mock calibrations that fail mid validation until `passOn`, then runs at the saved rate. */
+function calibratedHost(passOn: number, rate = 2.4) {
+  let tries = 0;
+  return async (argv: string[]) => {
+    if (argv[2] === "calibrate") {
+      tries += 1;
+      const eligible = tries >= passOn;
+      // Scores 40% off the mid target fail validation.
+      const scores = eligible ? [1000, 1001, 999] : [1400, 1401, 1399];
+      await writeFile(
+        argv[argv.indexOf("--output") + 1],
+        JSON.stringify({
+          ...calibrationArtifact,
+          id: `11111111-1111-4111-8111-${String(tries).padStart(12, "0")}`,
+          results: { ...calibrationArtifact.results, mid: rate },
+          samples: [
+            ...calibrationArtifact.samples.filter(
+              (sample) => sample.tier !== "mid"
+            ),
+            ...scores.map((score) => ({
+              phase: "tier-validation",
+              rate,
+              score,
+              tier: "mid",
+            })),
+          ],
+          validation: {
+            ...calibrationArtifact.validation,
+            mid: { eligible, reasons: eligible ? [] : ["off target"], scores },
+          },
+        })
+      );
+      return eligible ? 0 : 2;
+    }
+    if (argv[1] === "run") {
+      const artifact = JSON.parse(
+        await readFile(argv[argv.indexOf("--cpu-calibration") + 1], "utf-8")
+      );
+      const envelope = result();
+      const tier = argv[argv.indexOf("--cpu-tier") + 1];
+      await writeFile(
+        argv[argv.indexOf("--output") + 1],
+        JSON.stringify({
+          ...envelope,
+          manifest: {
+            ...envelope.manifest,
+            profile: {
+              ...envelope.manifest.profile,
+              cpuCalibration: { artifact, tier },
+              cpuSlowdown: artifact.results[tier],
+            },
+          },
+        })
+      );
+    }
+    return 0;
+  };
+}
+
+test("a calibrated entry retries calibration on its host and runs at the passing tier", async () => {
+  const batch = await calibratedBatch(["phone"]);
+  const attempt = path.join(batch.output, "phone", "attempt-001");
+  await withMockedCli(calibratedHost(2), async (commands) => {
+    expect(await runBatch(batch.plan, batch.output)).toMatchObject({
+      complete: true,
+      measurementConditions: {
+        cpuCalibration: { method: "chrome-devtools", tier: "mid" },
+        cpuSlowdown: null,
+      },
+    });
+    expect(commands.map((args) => args.slice(1, 3))).toEqual([
+      ["cpu", "calibrate"],
+      ["cpu", "calibrate"],
+      ["run", "--config"],
+      ["report", "--file"],
+    ]);
+    const run = commands.find((args) => args[1] === "run") ?? [];
+    expect(run.slice(run.indexOf("--cpu-calibration"), -2)).toEqual([
+      "--cpu-calibration",
+      path.relative(process.cwd(), path.join(attempt, "cpu-calibration.json")),
+      "--cpu-tier",
+      "mid",
+    ]);
+  });
+  expect(await readFile(path.join(attempt, "cpu-calibration.json"))).toEqual(
+    await readFile(path.join(attempt, "calibration", "try-02.json"))
+  );
+  // Resume rebuilds the calibrated command and launches nothing.
+  await withMockedCli(calibratedHost(1), async (commands) => {
+    await expect(runBatch(batch.plan, batch.output)).resolves.toMatchObject({
+      complete: true,
+    });
+    expect(commands).toEqual([]);
+  });
+});
+
+test("an entry whose host never passes calibration stops before measuring", async () => {
+  const batch = await calibratedBatch(["phone"]);
+  await withMockedCli(calibratedHost(99), async (commands) => {
+    await expect(runBatch(batch.plan, batch.output)).rejects.toThrow(
+      /did not pass the mid tier after 5 tries/u
+    );
+    expect(commands.filter((args) => args[1] === "run")).toEqual([]);
+  });
+  expect(await readdir(path.join(batch.output, "phone"))).toEqual([
+    "attempt-001",
+  ]);
+});
+
+test("single-entry runs on separate hosts merge into one calibrated batch", async () => {
+  const batch = await calibratedBatch(["first", "second"]);
+  // Each host calibrates to its own rate.
+  await withMockedCli(calibratedHost(1, 2.2), async () => {
+    expect(
+      await runBatch(batch.plan, batch.output, { entry: "second" })
+    ).toMatchObject({ complete: false, results: [{ id: "second" }] });
+  });
+  expect(await readdir(batch.output)).not.toContain("index.json");
+  await withMockedCli(calibratedHost(1, 2.6), async (commands) => {
+    await runBatch(batch.plan, batch.output, { entry: "first" });
+    expect(commands.map((args) => args[1])).toEqual(["cpu", "run", "report"]);
+  });
+  await withMockedCli(calibratedHost(1), async (commands) => {
+    const index = await runBatch(batch.plan, batch.output);
+    expect(commands).toEqual([]);
+    expect(index).toMatchObject({ complete: true });
+    expect(index.results.map((entry) => entry.id)).toEqual(["first", "second"]);
+  });
+  await expect(
+    runBatch(batch.plan, batch.output, { entry: "missing" })
+  ).rejects.toThrow("no entry missing");
 });
 
 test("early diagnostic failure stays separate from required flows and keeps missing metrics", () => {
