@@ -9,7 +9,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@c15t/browser": "3.0.0-alpha.11",
+    "@c15t/browser": "3.0.0",
     "@cookiebench/fixture-support": "workspace:*"
   },
   "devDependencies": {

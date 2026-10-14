@@ -18,6 +18,7 @@
     "@cookiebench/db": "workspace:*",
     "@cookiebench/runner": "workspace:*",
     "@cookiebench/schema": "workspace:*",
+    "@vercel/sandbox": "catalog:",
     "effect": "catalog:"
   },
   "devDependencies": {
