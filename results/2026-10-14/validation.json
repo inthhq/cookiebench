@@ -1,0 +1,56 @@
+{
+  "checks": [
+    "desktop: index complete, every load and flow entry recorded (the main-batch reference-overhead audit is replaced by desktop-reference), every envelope hash and collector hash match the index",
+    "mobile: index complete, every load and flow entry recorded (the main-batch reference-overhead audit is replaced by mobile-reference), every envelope hash and collector hash match the index"
+  ],
+  "profiles": {
+    "desktop": {
+      "c15tCorrectnessVerified": "24/24",
+      "c15tLoadPassed": "90/90",
+      "cpuSlowdowns": [
+        1
+      ],
+      "entries": 25,
+      "executionErrors": [
+        "reference-overhead"
+      ],
+      "index": {
+        "file": "results/2026-10-14/desktop/index.json",
+        "sha256": "d768c9ca0d2f351590d67b47c1b97838e7c002a397f1978c6a9091263ddb36ba"
+      },
+      "referenceCpuSlowdown": 1,
+      "rows": 60
+    },
+    "mobile": {
+      "c15tCorrectnessVerified": "24/24",
+      "c15tLoadPassed": "90/90",
+      "cpuSlowdowns": [
+        2.29,
+        2.34,
+        2.35,
+        2.37,
+        2.42,
+        2.46,
+        2.47,
+        2.48,
+        2.5,
+        2.51,
+        2.52,
+        2.53,
+        2.54,
+        2.55,
+        2.58
+      ],
+      "entries": 25,
+      "executionErrors": [
+        "reference-overhead"
+      ],
+      "index": {
+        "file": "results/2026-10-14/mobile/index.json",
+        "sha256": "05f22ba03022d66969612c144ed75ae70d8c98859891bad0f58fb04342e238b9"
+      },
+      "referenceCpuSlowdown": 2.26,
+      "rows": 60
+    }
+  }
+}

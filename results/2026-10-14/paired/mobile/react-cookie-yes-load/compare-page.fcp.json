@@ -1,0 +1,95 @@
+{
+  "status": "passed",
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "comparisons": [
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 712,
+        "mean": 691.9999999999999,
+        "measured": 15,
+        "median": 688,
+        "min": 680,
+        "missing": 0,
+        "p75": 700,
+        "passed": 15
+      },
+      "baselineFixtureId": "react-baseline-registered-host",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 812,
+        "mean": 795.7333333333333,
+        "measured": 15,
+        "median": 796,
+        "min": 784,
+        "missing": 0,
+        "p75": 796,
+        "passed": 15
+      },
+      "candidateFixtureId": "react-cookie-yes",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 116,
+          "level": 0.9997916666666666,
+          "low": 92,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 104,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 120,
+            "level": 0.9997916666666666,
+            "low": 84,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": 96
+        },
+        "pairDifferenceP75": 108
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    }
+  ],
+  "metricKey": "page.fcp",
+  "multiplicity": {
+    "comparisons": 120,
+    "family": "sandbox-2026-10-14:mobile:ttfb-fcp",
+    "familyLevel": 0.95,
+    "intervalLevel": 0.9997916666666666,
+    "intervals": 240,
+    "method": "bonferroni"
+  },
+  "sourceRunIds": [
+    "db07a3f0-2be9-4b75-a1c8-216413d111fc"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:c337eac6-3e38-4766-8bdf-ec50a59ddccc",
+        "sample:1dd8e2ed-a7eb-4da3-b15a-92ca31b032eb",
+        "sample:711c92af-8266-434a-bd2a-c2547c2a38c9",
+        "sample:e14169b8-2e0e-4e9e-92ed-c082139b7a8c",
+        "sample:9da51b71-89d3-4d1f-8370-991c88c88cb0",
+        "sample:2a8b0362-8fe3-4566-bdcd-67fe6829b5ac",
+        "sample:23d01b0d-6457-4b9a-95cc-1c68e67ecdc1",
+        "sample:2e5778d2-bd34-40e6-8203-29c38a27a866",
+        "sample:1c281b4c-2fc0-4c43-8e16-e90a1b80b090",
+        "sample:d56290fa-f7dc-4a90-9378-49720bf2984d",
+        "sample:59ffe887-2c83-4a1d-8483-767fb5938ac9",
+        "sample:33113cf4-ad23-41d2-bdc7-71e34b5df8a9",
+        "sample:77408d08-1edf-489f-bbeb-920a38a22b05",
+        "sample:65a5ce1a-8eec-4ee4-960f-d436a856e0ef",
+        "sample:ab53233d-8801-4744-9f81-0194a980ebeb"
+      ],
+      "fixtureId": "tanstack-start-cookie-yes",
+      "framework": "tanstack-start",
+      "id": "e871fa56-bccc-4a5e-9576-9d7b7114046e",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:01:00.377Z"
+    }
+  ],
+  "failures": [],
+  "output": "/vercel/cookiebench/results/2026-10-14/desktop/tanstack-start-cookie-yes-load/attempt-001/envelope.json",
+  "runId": "f7c15ffa-87ed-4b54-86e3-58159e6f4e5a",
+  "samples": 30,
+  "status": "passed"
+}

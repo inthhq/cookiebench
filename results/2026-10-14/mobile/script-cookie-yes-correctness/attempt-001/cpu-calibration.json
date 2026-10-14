@@ -1,0 +1,206 @@
+{
+  "browser": {
+    "headless": true,
+    "jsVersion": "15.3.76.4",
+    "launchExecutable": "playwright:chromium:default-headless",
+    "product": "HeadlessChrome/153.0.8010.12",
+    "revision": "@971a7443b0c9b0a9b2860529b33331b76077ec62",
+    "version": "153.0.8010.12"
+  },
+  "createdAt": "2026-10-14T18:58:03.471Z",
+  "host": {
+    "arch": "x64",
+    "cpuModel": "Intel(R) Xeon(R) Processor @ 2.90GHz",
+    "hostname": "01d050a6-5f6",
+    "logicalCpus": 8,
+    "memoryBytes": 17451950080,
+    "platform": "linux",
+    "release": "6.18.49"
+  },
+  "id": "cc6b86e0-a2c0-4596-a572-28716b6e6a9e",
+  "method": "chrome-devtools",
+  "results": {
+    "low": 8.13,
+    "mid": 2.46
+  },
+  "samples": [
+    {
+      "phase": "warmup",
+      "rate": 1,
+      "score": 2289
+    },
+    {
+      "phase": "calibration",
+      "rate": 1,
+      "score": 2422
+    },
+    {
+      "phase": "calibration",
+      "rate": 13.761363636363637,
+      "score": 155.5
+    },
+    {
+      "phase": "calibration",
+      "rate": 7.38,
+      "score": 297.5
+    },
+    {
+      "phase": "calibration",
+      "rate": 10.57,
+      "score": 201.5
+    },
+    {
+      "phase": "calibration",
+      "rate": 8.97,
+      "score": 245
+    },
+    {
+      "phase": "calibration",
+      "rate": 8.18,
+      "score": 172.5
+    },
+    {
+      "phase": "calibration",
+      "rate": 7.78,
+      "score": 298
+    },
+    {
+      "phase": "calibration",
+      "rate": 7.98,
+      "score": 289.5
+    },
+    {
+      "phase": "calibration",
+      "rate": 8.08,
+      "score": 288.5
+    },
+    {
+      "phase": "calibration",
+      "rate": 8.13,
+      "score": 297.5
+    },
+    {
+      "phase": "calibration",
+      "rate": 1.6097400000000002,
+      "score": 1566
+    },
+    {
+      "phase": "calibration",
+      "rate": 2.6829,
+      "score": 923.5
+    },
+    {
+      "phase": "calibration",
+      "rate": 2.15,
+      "score": 1155
+    },
+    {
+      "phase": "calibration",
+      "rate": 2.42,
+      "score": 1029.5
+    },
+    {
+      "phase": "calibration",
+      "rate": 2.55,
+      "score": 937
+    },
+    {
+      "phase": "calibration",
+      "rate": 2.48,
+      "score": 968
+    },
+    {
+      "phase": "calibration",
+      "rate": 2.45,
+      "score": 1050
+    },
+    {
+      "phase": "calibration",
+      "rate": 2.46,
+      "score": 981
+    },
+    {
+      "phase": "baseline-validation",
+      "rate": 1,
+      "score": 2493
+    },
+    {
+      "phase": "baseline-validation",
+      "rate": 1,
+      "score": 2529
+    },
+    {
+      "phase": "baseline-validation",
+      "rate": 1,
+      "score": 2384.5
+    },
+    {
+      "phase": "tier-validation",
+      "rate": 8.13,
+      "score": 280.5,
+      "tier": "low"
+    },
+    {
+      "phase": "tier-validation",
+      "rate": 8.13,
+      "score": 279,
+      "tier": "low"
+    },
+    {
+      "phase": "tier-validation",
+      "rate": 8.13,
+      "score": 298.5,
+      "tier": "low"
+    },
+    {
+      "phase": "tier-validation",
+      "rate": 2.46,
+      "score": 1039,
+      "tier": "mid"
+    },
+    {
+      "phase": "tier-validation",
+      "rate": 2.46,
+      "score": 1011,
+      "tier": "mid"
+    },
+    {
+      "phase": "tier-validation",
+      "rate": 2.46,
+      "score": 941,
+      "tier": "mid"
+    }
+  ],
+  "schemaVersion": 1,
+  "sourceRevision": "933872b3f8520add8c43e30adf00c32622f6bdf4",
+  "sourceSha256": "f3835db080555d9850e2d058f8792eb6b74586d91545fbc88eefad0439cb7836",
+  "validation": {
+    "baselineScores": [
+      2493,
+      2529,
+      2384.5
+    ],
+    "baselineStable": true,
+    "low": {
+      "eligible": true,
+      "reasons": [],
+      "scores": [
+        280.5,
+        279,
+        298.5
+      ]
+    },
+    "maxRelativeError": 0.15,
+    "maxRelativeSpread": 0.15,
+    "mid": {
+      "eligible": true,
+      "reasons": [],
+      "scores": [
+        1039,
+        1011,
+        941
+      ]
+    },
+    "policy": "cookiebench-cpu-validation-v1"
+  }
+}

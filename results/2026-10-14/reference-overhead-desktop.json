@@ -1,0 +1,124 @@
+{
+  "audit": {
+    "custom.audit.task-duration": {
+      "file": "results/2026-10-14/desktop-reference/reference-overhead/attempt-001/compare-custom.audit.task-duration/stdout.json",
+      "full": 29.363999999999997,
+      "minimal": 13.998,
+      "paired": {
+        "ci": [
+          12.816999999999998,
+          18.807
+        ],
+        "ciLevel": 0.995,
+        "conclusion": "candidate-higher",
+        "medianDifference": 15.498,
+        "pairs": 15
+      },
+      "sha256": "84680d1c5c2a7a18e8b7293bc338d5c91e9e41dd20817ff812adc4ace56d4ce3"
+    },
+    "custom.audit.script-duration": {
+      "file": "results/2026-10-14/desktop-reference/reference-overhead/attempt-001/compare-custom.audit.script-duration/stdout.json",
+      "full": 6.667,
+      "minimal": 1.209,
+      "paired": {
+        "ci": [
+          4.801,
+          6.057
+        ],
+        "ciLevel": 0.995,
+        "conclusion": "candidate-higher",
+        "medianDifference": 5.486000000000001,
+        "pairs": 15
+      },
+      "sha256": "909fdd4339915029594dbe8672d4847d3b2aadec75e5ed8ca809b8c6e184c08c"
+    },
+    "custom.audit.layout-duration": {
+      "file": "results/2026-10-14/desktop-reference/reference-overhead/attempt-001/compare-custom.audit.layout-duration/stdout.json",
+      "full": 1.609,
+      "minimal": 1.778,
+      "paired": {
+        "ci": [
+          -0.8429999999999997,
+          0.03499999999999992
+        ],
+        "ciLevel": 0.995,
+        "conclusion": "inconclusive",
+        "medianDifference": -0.18100000000000005,
+        "pairs": 15
+      },
+      "sha256": "22a6c92df784afae360acb197be706b1304fbe295c4b5ec46e45683234b16224"
+    },
+    "custom.audit.lcp": {
+      "file": "results/2026-10-14/desktop-reference/reference-overhead/attempt-001/compare-custom.audit.lcp/stdout.json",
+      "full": 28,
+      "minimal": 32,
+      "paired": {
+        "ci": [
+          -8,
+          4
+        ],
+        "ciLevel": 0.995,
+        "conclusion": "inconclusive",
+        "medianDifference": -4,
+        "pairs": 15
+      },
+      "sha256": "6fd2e88d586b088ae68e5f386fcbc213d190f65133ec5da68812ce70b7836920"
+    },
+    "custom.audit.observed-window": {
+      "file": "results/2026-10-14/desktop-reference/reference-overhead/attempt-001/compare-custom.audit.observed-window/stdout.json",
+      "full": 1002.7000000000116,
+      "minimal": 1002.6999999999825,
+      "paired": {
+        "ci": [
+          -0.5999999999767169,
+          1.0000000000291038
+        ],
+        "ciLevel": 0.995,
+        "conclusion": "inconclusive",
+        "medianDifference": 0.29999999998835847,
+        "pairs": 15
+      },
+      "sha256": "db2c80b482648423e77ff30e0a9db98b1b5728024fd50fcca00f828cc3be4985"
+    }
+  },
+  "cpuSlowdown": 1,
+  "note": "Minimal versus full collector on the reference page without a CMP. Report separately; do not subtract it from CMP timings.",
+  "provenance": {
+    "collectorVersion": "cookiebench-instrumentation-audit-1.2.0",
+    "cpuSlowdown": 1,
+    "createdAt": "2026-10-14T19:03:09.312Z",
+    "entryId": "reference-overhead",
+    "envelopeFile": "results/2026-10-14/desktop-reference/reference-overhead/attempt-001/envelope.json",
+    "envelopeSha256": "355f9bde3ca1ea163d4a944eac1d0db07492479324f916124019189556aedb18",
+    "indexFile": "results/2026-10-14/desktop-reference/index.json",
+    "indexSha256": "a6cfbfca6a33c4de8f54e6f0ca3f642589309f13aff4f8bac130a1477a80c885",
+    "manifestId": "74ae23d4-bc3f-4ca6-81e0-efbb769e3d20",
+    "measurementConditions": {
+      "collectorSourceHash": "06fa46f4a5ad9d604051d5ba686f86511a4dda272a8b4be4bfa869153ef12ebc",
+      "cpuCalibration": null,
+      "cpuSlowdown": 1,
+      "host": {
+        "cpu": "Intel(R) Xeon(R) Processor @ 2.90GHz",
+        "platform": "linux",
+        "release": "6.18.49"
+      },
+      "versions": {
+        "browser": "153.0.8010.12",
+        "effect": "4.0.0-rc.117",
+        "node": "v24.21.0",
+        "playwright": "1.63.0",
+        "web-vitals": "6.2.2"
+      }
+    },
+    "methodologyVersion": "cookiebench-instrumentation-overhead-v1",
+    "profile": "desktop-article-v1-browser-ua",
+    "run": "sandbox-matrix-2026-10-14",
+    "scenarios": [
+      {
+        "action": "load",
+        "id": "load",
+        "observationMs": 1000
+      }
+    ]
+  }
+}

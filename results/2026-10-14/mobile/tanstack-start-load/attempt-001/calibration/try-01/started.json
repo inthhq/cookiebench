@@ -1,0 +1,14 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "cpu",
+    "calibrate",
+    "--config",
+    "results/2026-10-14/configs/tanstack-start-mobile.json",
+    "--output",
+    "results/2026-10-14/mobile/tanstack-start-load/attempt-001/calibration/try-01.json"
+  ],
+  "cwd": ".",
+  "startedAt": "2026-10-14T18:58:40.535Z"
+}

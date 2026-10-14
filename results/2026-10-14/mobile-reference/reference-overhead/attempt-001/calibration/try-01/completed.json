@@ -1,0 +1,19 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "cpu",
+    "calibrate",
+    "--config",
+    "results/2026-10-14/configs/reference-overhead-mobile-portable.json",
+    "--output",
+    "results/2026-10-14/mobile-reference/reference-overhead/attempt-001/calibration/try-01.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-14T19:02:31.818Z",
+  "startedAt": "2026-10-14T19:02:23.031Z",
+  "exitCode": 2,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "da6fb1075460c2d4d8b7b10e8e71c20c26a358923778ad71a8cd60747544982a"
+}

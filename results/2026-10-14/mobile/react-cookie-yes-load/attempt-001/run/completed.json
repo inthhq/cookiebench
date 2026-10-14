@@ -1,0 +1,30 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "run",
+    "--config",
+    "results/2026-10-14/configs/react-cookie-yes-mobile.json",
+    "--scenario",
+    "load",
+    "--iterations",
+    "15",
+    "--warmups",
+    "3",
+    "--seed",
+    "20261009",
+    "--cpu-calibration",
+    "results/2026-10-14/mobile/react-cookie-yes-load/attempt-001/cpu-calibration.json",
+    "--cpu-tier",
+    "mid",
+    "--output",
+    "results/2026-10-14/mobile/react-cookie-yes-load/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-14T19:04:42.392Z",
+  "startedAt": "2026-10-14T18:58:05.132Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "4c105e1c2bb1142a6960bc3cb48b8eb1a8b417eefd69be25922f21ad6bee8b1c"
+}

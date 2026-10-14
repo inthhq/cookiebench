@@ -1,0 +1,19 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "cpu",
+    "calibrate",
+    "--config",
+    "results/2026-10-14/configs/tanstack-start-cookie-yes-mobile.json",
+    "--output",
+    "results/2026-10-14/mobile/tanstack-start-cookie-yes-correctness/attempt-001/calibration/try-01.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-14T18:58:57.489Z",
+  "startedAt": "2026-10-14T18:58:49.402Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "5bb17d4095518f9c26c61a339d2c26e2a50c050f28837b4f86918e29b93fefb4"
+}

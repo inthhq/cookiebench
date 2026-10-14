@@ -1,0 +1,19 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "cpu",
+    "calibrate",
+    "--config",
+    "results/2026-10-14/configs/script-mobile.json",
+    "--output",
+    "results/2026-10-14/mobile/script-correctness/attempt-001/calibration/try-01.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-14T18:57:51.442Z",
+  "startedAt": "2026-10-14T18:57:43.805Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "e37a8165fde03505d0215e361719c04db9c514547acd43fac1322154ec0e1804"
+}

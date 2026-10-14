@@ -1,0 +1,36 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:ebb782e8-3513-4178-a2ca-de47086d43be",
+        "sample:63bc96fb-03ce-4a57-8ee5-6ee3480b1b6c",
+        "sample:10d17ee2-6932-43de-b1d6-525b856fee5e",
+        "sample:bb4f595e-ef15-4308-a3cc-6ab30573037b",
+        "sample:f1362191-8f2b-4d05-b47d-47101b9d8b4c",
+        "sample:795ada6b-fc36-44b2-b61a-a84713b78f9a",
+        "sample:f093e424-86d4-401f-8200-e918ab8577e3",
+        "sample:5f1b0680-b9eb-4fa9-9d0e-3003d6153976",
+        "sample:a9719624-5009-4923-b1f5-8c75a86591a9",
+        "sample:929c8443-8f8f-4134-b15f-bd3e7eaa3a70",
+        "sample:7ec599b8-45ad-4292-9ef6-086d4579aea3",
+        "sample:ce7661f6-b8ec-4356-855c-31f5b19c6f61",
+        "sample:2139f683-6a26-4501-94a4-6373655d5ddb",
+        "sample:1a3afd09-e58e-4540-99e8-f70940f8a616",
+        "sample:6497abde-7963-468a-a42a-16f00948c8b9"
+      ],
+      "fixtureId": "nuxt-cookie-yes",
+      "framework": "nuxt",
+      "id": "0a5920d6-3742-446c-a375-4dcf148ead84",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:05:20.577Z"
+    }
+  ],
+  "failures": [],
+  "output": "/vercel/cookiebench/results/2026-10-14/mobile/nuxt-cookie-yes-load/attempt-001/envelope.json",
+  "runId": "be79d19a-a0bb-44ac-b784-cb35c4167a89",
+  "samples": 30,
+  "status": "passed"
+}

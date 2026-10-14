@@ -1,0 +1,95 @@
+{
+  "status": "passed",
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "comparisons": [
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 92,
+        "mean": 83.73333333333332,
+        "measured": 15,
+        "median": 84,
+        "min": 80,
+        "missing": 0,
+        "p75": 86,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init-registered-host",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 92,
+        "mean": 85.06666666666665,
+        "measured": 15,
+        "median": 84,
+        "min": 80,
+        "missing": 0,
+        "p75": 86,
+        "passed": 15
+      },
+      "candidateFixtureId": "script-tag-cookie-yes",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 4,
+          "level": 0.9999315068493151,
+          "low": -4,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 0,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 8,
+            "level": 0.9999315068493151,
+            "low": -8,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 0
+        },
+        "pairDifferenceP75": 4
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    }
+  ],
+  "metricKey": "page.primary-content-paint",
+  "multiplicity": {
+    "comparisons": 365,
+    "family": "batch:cafebacd92a7e92d766b9d3bb257a56512ec004f9a9c5e2e1fac781fcfbc1dde",
+    "familyLevel": 0.95,
+    "intervalLevel": 0.9999315068493151,
+    "intervals": 730,
+    "method": "bonferroni"
+  },
+  "sourceRunIds": [
+    "64af2664-1841-4f51-950c-cbfdef551b7e"
+  ]
+}

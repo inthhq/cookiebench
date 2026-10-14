@@ -1,0 +1,38 @@
+{
+  "calibrationId": "da21001b-53d8-47e1-9f93-3be6ff33648d",
+  "output": "/vercel/cookiebench/results/2026-10-14/mobile/astro-correctness/attempt-001/calibration/try-01.json",
+  "results": {
+    "low": 9.38,
+    "mid": 2.55
+  },
+  "status": "passed",
+  "validation": {
+    "baselineScores": [
+      2535,
+      2680.5,
+      2667.5
+    ],
+    "baselineStable": true,
+    "low": {
+      "eligible": true,
+      "reasons": [],
+      "scores": [
+        271,
+        268.5,
+        269
+      ]
+    },
+    "maxRelativeError": 0.15,
+    "maxRelativeSpread": 0.15,
+    "mid": {
+      "eligible": true,
+      "reasons": [],
+      "scores": [
+        1025.5,
+        1029.5,
+        1023
+      ]
+    },
+    "policy": "cookiebench-cpu-validation-v1"
+  }
+}

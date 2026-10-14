@@ -1,0 +1,19 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "cpu",
+    "calibrate",
+    "--config",
+    "results/2026-10-14/configs/astro-mobile.json",
+    "--output",
+    "results/2026-10-14/mobile/astro-correctness/attempt-001/calibration/try-01.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-14T18:58:38.242Z",
+  "startedAt": "2026-10-14T18:58:31.563Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "27447f7336e7f1a651125bd3ae48c0ad523a010ae9253562459d8075cef28575"
+}

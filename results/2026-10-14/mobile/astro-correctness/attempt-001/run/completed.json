@@ -1,0 +1,28 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "run",
+    "--config",
+    "results/2026-10-14/configs/astro-mobile.json",
+    "--iterations",
+    "1",
+    "--warmups",
+    "0",
+    "--seed",
+    "20261009",
+    "--cpu-calibration",
+    "results/2026-10-14/mobile/astro-correctness/attempt-001/cpu-calibration.json",
+    "--cpu-tier",
+    "mid",
+    "--output",
+    "results/2026-10-14/mobile/astro-correctness/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-14T19:09:39.749Z",
+  "startedAt": "2026-10-14T18:58:38.246Z",
+  "exitCode": 2,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "9f89badda64faf02271b8c229dd7d39d83b55f42a45065c2b409763695e4bcea"
+}

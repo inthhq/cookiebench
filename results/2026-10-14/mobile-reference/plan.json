@@ -1,0 +1,13 @@
+{
+  "cpuCalibration": {
+    "tier": "mid"
+  },
+  "seed": 20261009,
+  "entries": [
+    {
+      "config": "results/2026-10-14/configs/reference-overhead-mobile-portable.json",
+      "id": "reference-overhead",
+      "kind": "audit"
+    }
+  ]
+}

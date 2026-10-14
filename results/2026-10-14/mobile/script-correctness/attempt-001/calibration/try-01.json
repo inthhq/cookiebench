@@ -1,0 +1,186 @@
+{
+  "browser": {
+    "headless": true,
+    "jsVersion": "15.3.76.4",
+    "launchExecutable": "playwright:chromium:default-headless",
+    "product": "HeadlessChrome/153.0.8010.12",
+    "revision": "@971a7443b0c9b0a9b2860529b33331b76077ec62",
+    "version": "153.0.8010.12"
+  },
+  "createdAt": "2026-10-14T18:57:44.939Z",
+  "host": {
+    "arch": "x64",
+    "cpuModel": "Intel(R) Xeon(R) Processor @ 2.90GHz",
+    "hostname": "9fda0658-1e3",
+    "logicalCpus": 8,
+    "memoryBytes": 17451950080,
+    "platform": "linux",
+    "release": "6.18.49"
+  },
+  "id": "143d9726-6c1f-4de2-b6c7-e4e71027595a",
+  "method": "chrome-devtools",
+  "results": {
+    "low": 9.44,
+    "mid": 2.52
+  },
+  "samples": [
+    {
+      "phase": "warmup",
+      "rate": 1,
+      "score": 2365.5
+    },
+    {
+      "phase": "calibration",
+      "rate": 1,
+      "score": 2553.5
+    },
+    {
+      "phase": "calibration",
+      "rate": 14.508522727272727,
+      "score": 154.5
+    },
+    {
+      "phase": "calibration",
+      "rate": 7.75,
+      "score": 326.5
+    },
+    {
+      "phase": "calibration",
+      "rate": 11.13,
+      "score": 216
+    },
+    {
+      "phase": "calibration",
+      "rate": 9.44,
+      "score": 256
+    },
+    {
+      "phase": "calibration",
+      "rate": 1.8691199999999997,
+      "score": 1385
+    },
+    {
+      "phase": "calibration",
+      "rate": 3.1151999999999997,
+      "score": 819
+    },
+    {
+      "phase": "calibration",
+      "rate": 2.49,
+      "score": 1025
+    },
+    {
+      "phase": "calibration",
+      "rate": 2.8,
+      "score": 909.5
+    },
+    {
+      "phase": "calibration",
+      "rate": 2.65,
+      "score": 982
+    },
+    {
+      "phase": "calibration",
+      "rate": 2.57,
+      "score": 933.5
+    },
+    {
+      "phase": "calibration",
+      "rate": 2.53,
+      "score": 972
+    },
+    {
+      "phase": "calibration",
+      "rate": 2.51,
+      "score": 1023.5
+    },
+    {
+      "phase": "calibration",
+      "rate": 2.52,
+      "score": 992
+    },
+    {
+      "phase": "baseline-validation",
+      "rate": 1,
+      "score": 2548
+    },
+    {
+      "phase": "baseline-validation",
+      "rate": 1,
+      "score": 2648.5
+    },
+    {
+      "phase": "baseline-validation",
+      "rate": 1,
+      "score": 2669.5
+    },
+    {
+      "phase": "tier-validation",
+      "rate": 9.44,
+      "score": 270,
+      "tier": "low"
+    },
+    {
+      "phase": "tier-validation",
+      "rate": 9.44,
+      "score": 244,
+      "tier": "low"
+    },
+    {
+      "phase": "tier-validation",
+      "rate": 9.44,
+      "score": 239,
+      "tier": "low"
+    },
+    {
+      "phase": "tier-validation",
+      "rate": 2.52,
+      "score": 1012,
+      "tier": "mid"
+    },
+    {
+      "phase": "tier-validation",
+      "rate": 2.52,
+      "score": 952,
+      "tier": "mid"
+    },
+    {
+      "phase": "tier-validation",
+      "rate": 2.52,
+      "score": 958,
+      "tier": "mid"
+    }
+  ],
+  "schemaVersion": 1,
+  "sourceRevision": "933872b3f8520add8c43e30adf00c32622f6bdf4",
+  "sourceSha256": "f3835db080555d9850e2d058f8792eb6b74586d91545fbc88eefad0439cb7836",
+  "validation": {
+    "baselineScores": [
+      2548,
+      2648.5,
+      2669.5
+    ],
+    "baselineStable": true,
+    "low": {
+      "eligible": true,
+      "reasons": [],
+      "scores": [
+        270,
+        244,
+        239
+      ]
+    },
+    "maxRelativeError": 0.15,
+    "maxRelativeSpread": 0.15,
+    "mid": {
+      "eligible": true,
+      "reasons": [],
+      "scores": [
+        1012,
+        952,
+        958
+      ]
+    },
+    "policy": "cookiebench-cpu-validation-v1"
+  }
+}

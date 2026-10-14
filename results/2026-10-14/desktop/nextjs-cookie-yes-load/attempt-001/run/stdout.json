@@ -1,0 +1,36 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:6b2c6c1a-bd1a-4659-b4a0-2fcbff620975",
+        "sample:9cbc87d4-f159-4a66-b8cd-f3c1608d770e",
+        "sample:57b6fa31-1589-4439-9596-b86ad4df76b7",
+        "sample:65396210-c5c2-4fac-97d8-b621213fc909",
+        "sample:1cc8660a-9473-4454-98fa-1d7a19dcce96",
+        "sample:c03e7054-be00-4159-89a8-b0ebe26cc841",
+        "sample:f54e7395-9179-43f2-bc12-97c5d5d50dd5",
+        "sample:ccd7b0e6-6f09-4483-bd96-edc8c6edde2f",
+        "sample:15f5e814-c7fc-45a5-a4b5-defffe964ed3",
+        "sample:37b698ff-4785-4d98-9f4b-9afc8e908487",
+        "sample:e74b0df2-b599-43a9-b7f6-65e9a901c441",
+        "sample:81c2ae10-e568-4a45-9eae-2948966e1c5b",
+        "sample:1369c976-3ebd-4bd0-a4db-d93cd5941a9a",
+        "sample:b38f648c-5b32-4d3c-993c-49be3c22c161",
+        "sample:2559f72e-114d-4e64-b862-2f134f7be36c"
+      ],
+      "fixtureId": "nextjs-cookie-yes",
+      "framework": "nextjs",
+      "id": "884f7da2-0f39-4a5d-85e4-179880b1e64b",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:00:32.557Z"
+    }
+  ],
+  "failures": [],
+  "output": "/vercel/cookiebench/results/2026-10-14/desktop/nextjs-cookie-yes-load/attempt-001/envelope.json",
+  "runId": "28580bf5-bb6a-4918-95fb-6b086a44f19c",
+  "samples": 30,
+  "status": "passed"
+}

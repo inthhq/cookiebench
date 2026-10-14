@@ -1,0 +1,691 @@
+{
+  "status": "incomplete",
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "comparisons": [
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 1.8000000000465661,
+        "mean": 1.4866666666930544,
+        "measured": 15,
+        "median": 1.4000000001396984,
+        "min": 1.3000000000465661,
+        "missing": 0,
+        "p75": 1.650000000023283,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 1.7000000001862645,
+        "mean": 1.38666666666201,
+        "measured": 15,
+        "median": 1.3000000000465661,
+        "min": 1.1999999999534339,
+        "missing": 0,
+        "p75": 1.3999999999650754,
+        "passed": 15
+      },
+      "candidateFixtureId": "script-tag-c15t-inth-init",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "local",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 0.39999999990686774,
+          "level": 0.9997916666666666,
+          "low": -0.5,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": -0.09999999997671694,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 0.39999999990686774,
+            "level": 0.9997916666666666,
+            "low": -0.5,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": -0.25000000005820766
+        },
+        "pairDifferenceP75": 0.04999999993015081
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 1.8000000000465661,
+        "mean": 1.4866666666930544,
+        "measured": 15,
+        "median": 1.4000000001396984,
+        "min": 1.3000000000465661,
+        "missing": 0,
+        "p75": 1.650000000023283,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 2,
+        "mean": 1.5133333333535122,
+        "measured": 15,
+        "median": 1.5,
+        "min": 1.3000000000465661,
+        "missing": 0,
+        "p75": 1.5999999999185093,
+        "passed": 15
+      },
+      "candidateFixtureId": "script-tag-cookie-control",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 0.30000000004656613,
+          "level": 0.9997916666666666,
+          "low": -0.30000000004656613,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 0.09999999986030161,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 0.5,
+            "level": 0.9997916666666666,
+            "low": -0.30000000004656613,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": -0.05000000010477379
+        },
+        "pairDifferenceP75": 0.15000000008149073
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 1.8000000000465661,
+        "mean": 1.4866666666930544,
+        "measured": 15,
+        "median": 1.4000000001396984,
+        "min": 1.3000000000465661,
+        "missing": 0,
+        "p75": 1.650000000023283,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 1.8000000000465661,
+        "mean": 1.459999999993791,
+        "measured": 15,
+        "median": 1.3999999999068677,
+        "min": 1.2999999999301508,
+        "missing": 0,
+        "p75": 1.5500000000465661,
+        "passed": 15
+      },
+      "candidateFixtureId": "script-tag-didomi",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 0.19999999995343387,
+          "level": 0.9997916666666666,
+          "low": -0.30000000004656613,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 0,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 0.2500000001164153,
+            "level": 0.9997916666666666,
+            "low": -0.4000000001396984,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": -0.09999999997671694
+        },
+        "pairDifferenceP75": 0.09999999991850927
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 1.8000000000465661,
+        "mean": 1.4866666666930544,
+        "measured": 15,
+        "median": 1.4000000001396984,
+        "min": 1.3000000000465661,
+        "missing": 0,
+        "p75": 1.650000000023283,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 1.6000000000931323,
+        "mean": 1.4199999999953432,
+        "measured": 15,
+        "median": 1.400000000023283,
+        "min": 1.2999999998137355,
+        "missing": 0,
+        "p75": 1.4500000000698492,
+        "passed": 15
+      },
+      "candidateFixtureId": "script-tag-enzuzo",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Observed remote script/style/config URL or decoded-body digest changed within this comparison cell; artifact identity remains provisional."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 15,
+        "medianDifference": 0,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": -0.19999999995343387
+        },
+        "pairDifferenceP75": 0.09999999986030161
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 1.8000000000465661,
+        "mean": 1.4866666666930544,
+        "measured": 15,
+        "median": 1.4000000001396984,
+        "min": 1.3000000000465661,
+        "missing": 0,
+        "p75": 1.650000000023283,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 2.0999999998603016,
+        "mean": 1.560000000009313,
+        "measured": 15,
+        "median": 1.5,
+        "min": 1.2999999998137355,
+        "missing": 0,
+        "p75": 1.7000000000698492,
+        "passed": 15
+      },
+      "candidateFixtureId": "script-tag-iubenda",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 0.30000000004656613,
+          "level": 0.9997916666666666,
+          "low": -0.2999999998137355,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 0.10000000009313226,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 0.3500000002095476,
+            "level": 0.9997916666666666,
+            "low": -0.39999999990686774,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": 0.05000000004656613
+        },
+        "pairDifferenceP75": 0.19999999995343387
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 1.8000000000465661,
+        "mean": 1.4866666666930544,
+        "measured": 15,
+        "median": 1.4000000001396984,
+        "min": 1.3000000000465661,
+        "missing": 0,
+        "p75": 1.650000000023283,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 1.7000000001862645,
+        "mean": 1.5000000000232834,
+        "measured": 15,
+        "median": 1.5,
+        "min": 1.1999999999534339,
+        "missing": 0,
+        "p75": 1.599999999976717,
+        "passed": 15
+      },
+      "candidateFixtureId": "script-tag-ketch",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Observed remote script/style/config URL or decoded-body digest changed within this comparison cell; artifact identity remains provisional."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 15,
+        "medianDifference": 0.09999999997671694,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": -0.05000000004656613
+        },
+        "pairDifferenceP75": 0.10000000009313226
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 1.8000000000465661,
+        "mean": 1.4866666666930544,
+        "measured": 15,
+        "median": 1.4000000001396984,
+        "min": 1.3000000000465661,
+        "missing": 0,
+        "p75": 1.650000000023283,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 1.8000000000465661,
+        "mean": 1.5333333333255723,
+        "measured": 15,
+        "median": 1.5,
+        "min": 1.3000000000465661,
+        "missing": 0,
+        "p75": 1.6499999999650754,
+        "passed": 15
+      },
+      "candidateFixtureId": "script-tag-onetrust",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 0.5,
+          "level": 0.9997916666666666,
+          "low": -0.10000000009313226,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 0,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 0.5,
+            "level": 0.9997916666666666,
+            "low": -0.40000000002328306,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": -5.820766091346741e-11
+        },
+        "pairDifferenceP75": 0.09999999986030161
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 1.8000000000465661,
+        "mean": 1.4866666666930544,
+        "measured": 15,
+        "median": 1.4000000001396984,
+        "min": 1.3000000000465661,
+        "missing": 0,
+        "p75": 1.650000000023283,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 1.6999999999534339,
+        "mean": 1.4333333333721385,
+        "measured": 15,
+        "median": 1.4000000001396984,
+        "min": 1.2000000000698492,
+        "missing": 0,
+        "p75": 1.5,
+        "passed": 15
+      },
+      "candidateFixtureId": "script-tag-osano",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 0.19999999995343387,
+          "level": 0.9997916666666666,
+          "low": -0.4000000001396984,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 0,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 0.19999999995343387,
+            "level": 0.9997916666666666,
+            "low": -0.4000000001396984,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": -0.15000000002328306
+        },
+        "pairDifferenceP75": 0.15000000002328306
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 1.8000000000465661,
+        "mean": 1.4866666666930544,
+        "measured": 15,
+        "median": 1.4000000001396984,
+        "min": 1.3000000000465661,
+        "missing": 0,
+        "p75": 1.650000000023283,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 1.8000000000465661,
+        "mean": 1.5199999999953435,
+        "measured": 15,
+        "median": 1.5,
+        "min": 1.3000000000465661,
+        "missing": 0,
+        "p75": 1.599999999976717,
+        "passed": 15
+      },
+      "candidateFixtureId": "script-tag-usercentrics",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 0.30000000004656613,
+          "level": 0.9997916666666666,
+          "low": -0.20000000018626451,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 0.09999999986030161,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 0.30000000004656613,
+            "level": 0.9997916666666666,
+            "low": -0.20000000018626451,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": -0.05000000004656613
+        },
+        "pairDifferenceP75": 0.10000000009313226
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    }
+  ],
+  "metricKey": "page.ttfb",
+  "multiplicity": {
+    "comparisons": 120,
+    "family": "sandbox-2026-10-14:mobile:ttfb-fcp",
+    "familyLevel": 0.95,
+    "intervalLevel": 0.9997916666666666,
+    "intervals": 240,
+    "method": "bonferroni"
+  },
+  "sourceRunIds": [
+    "cd0cbac3-629a-4bd7-95c1-92e2e14e6b2f"
+  ]
+}

@@ -1,0 +1,1355 @@
+{
+  "comparisonFamily": {
+    "comparisons": 5,
+    "id": "batch:afd2d31c462cb24f619a156d5043c7501761049c35418527290334c98f32416c"
+  },
+  "complete": true,
+  "completedAt": "2026-10-14T19:03:28.887Z",
+  "interruptionExitCode": 0,
+  "measurementConditions": {
+    "collectorSourceHash": "06fa46f4a5ad9d604051d5ba686f86511a4dda272a8b4be4bfa869153ef12ebc",
+    "cpuCalibration": {
+      "method": "chrome-devtools",
+      "policy": "cookiebench-cpu-validation-v1",
+      "sourceRevision": "933872b3f8520add8c43e30adf00c32622f6bdf4",
+      "sourceSha256": "f3835db080555d9850e2d058f8792eb6b74586d91545fbc88eefad0439cb7836",
+      "tier": "mid"
+    },
+    "cpuSlowdown": null,
+    "host": {
+      "cpu": "Intel(R) Xeon(R) Processor @ 2.90GHz",
+      "platform": "linux",
+      "release": "6.18.49"
+    },
+    "versions": {
+      "browser": "153.0.8010.12",
+      "effect": "4.0.0-rc.117",
+      "node": "v24.21.0",
+      "playwright": "1.63.0",
+      "web-vitals": "6.2.2"
+    }
+  },
+  "planSha256": "afd2d31c462cb24f619a156d5043c7501761049c35418527290334c98f32416c",
+  "results": [
+    {
+      "config": "results/2026-10-14/configs/reference-overhead-mobile-portable.json",
+      "id": "reference-overhead",
+      "kind": "audit",
+      "analyses": [
+        {
+          "analysisVersion": "cookiebench-analysis-v3.4.0",
+          "comparisons": [
+            {
+              "baseline": {
+                "attempts": 15,
+                "available": 15,
+                "censoring": null,
+                "eligibilityReasons": [],
+                "excluded": 0,
+                "failed": 0,
+                "includedIncomplete": 0,
+                "incomplete": 0,
+                "max": 47.562,
+                "mean": 37.7298,
+                "measured": 15,
+                "median": 37.059,
+                "min": 32.234,
+                "missing": 0,
+                "p75": 39.4495,
+                "passed": 15
+              },
+              "baselineFixtureId": "reference-baseline-minimal",
+              "candidate": {
+                "attempts": 15,
+                "available": 15,
+                "censoring": null,
+                "eligibilityReasons": [],
+                "excluded": 0,
+                "failed": 0,
+                "includedIncomplete": 0,
+                "incomplete": 0,
+                "max": 76.37200000000001,
+                "mean": 66.16646666666666,
+                "measured": 15,
+                "median": 63.404,
+                "min": 59.589999999999996,
+                "missing": 0,
+                "p75": 69.25050000000002,
+                "passed": 15
+              },
+              "candidateFixtureId": "reference-baseline-full",
+              "deployment": {
+                "baseline": {
+                  "assets": "local",
+                  "backend": "none"
+                },
+                "candidate": {
+                  "assets": "local",
+                  "backend": "none"
+                }
+              },
+              "eligibilityReasons": [],
+              "eligible": true,
+              "paired": {
+                "conclusion": "candidate-higher",
+                "confidenceInterval": {
+                  "high": 36.02200000000001,
+                  "level": 0.995,
+                  "low": 21.457000000000008,
+                  "method": "paired-percentile-bootstrap",
+                  "resamples": 4000
+                },
+                "count": 15,
+                "medianDifference": 26.18399999999999,
+                "p75Delta": {
+                  "confidenceInterval": {
+                    "high": 38.80236625,
+                    "level": 0.995,
+                    "low": 18.978,
+                    "method": "paired-percentile-bootstrap",
+                    "resamples": 4000
+                  },
+                  "estimate": 29.801000000000016
+                },
+                "pairDifferenceP75": 33.939499999999995
+              },
+              "scenarioId": "load",
+              "unit": "ms"
+            }
+          ],
+          "metricKey": "custom.audit.task-duration",
+          "multiplicity": {
+            "comparisons": 5,
+            "family": "batch:afd2d31c462cb24f619a156d5043c7501761049c35418527290334c98f32416c",
+            "familyLevel": 0.95,
+            "intervalLevel": 0.995,
+            "intervals": 10,
+            "method": "bonferroni"
+          },
+          "sourceRunIds": [
+            "2663ed70-5886-4db8-9812-118f0f14868b"
+          ],
+          "execution": {
+            "command": [
+              "node",
+              "packages/cli/src/index.ts",
+              "compare",
+              "--baseline",
+              "results/2026-10-14/mobile-reference/reference-overhead/attempt-001/envelope.json",
+              "--candidate",
+              "results/2026-10-14/mobile-reference/reference-overhead/attempt-001/envelope.json",
+              "--metric",
+              "custom.audit.task-duration",
+              "--family",
+              "batch:afd2d31c462cb24f619a156d5043c7501761049c35418527290334c98f32416c",
+              "--family-size",
+              "5"
+            ],
+            "cwd": ".",
+            "endedAt": "2026-10-14T19:03:20.765Z",
+            "startedAt": "2026-10-14T19:03:20.351Z",
+            "exitCode": 0,
+            "signal": null,
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdoutSha256": "78aed8d57f42a626e9958b8cd5ba37bda459234c8557851bfd748c83ad318e0a"
+          }
+        },
+        {
+          "analysisVersion": "cookiebench-analysis-v3.4.0",
+          "comparisons": [
+            {
+              "baseline": {
+                "attempts": 15,
+                "available": 15,
+                "censoring": null,
+                "eligibilityReasons": [],
+                "excluded": 0,
+                "failed": 0,
+                "includedIncomplete": 0,
+                "incomplete": 0,
+                "max": 3.837,
+                "mean": 2.969933333333333,
+                "measured": 15,
+                "median": 2.927,
+                "min": 2.518,
+                "missing": 0,
+                "p75": 3.0835,
+                "passed": 15
+              },
+              "baselineFixtureId": "reference-baseline-minimal",
+              "candidate": {
+                "attempts": 15,
+                "available": 15,
+                "censoring": null,
+                "eligibilityReasons": [],
+                "excluded": 0,
+                "failed": 0,
+                "includedIncomplete": 0,
+                "incomplete": 0,
+                "max": 16.955000000000002,
+                "mean": 14.2434,
+                "measured": 15,
+                "median": 14.001,
+                "min": 12.116999999999999,
+                "missing": 0,
+                "p75": 15.100999999999999,
+                "passed": 15
+              },
+              "candidateFixtureId": "reference-baseline-full",
+              "deployment": {
+                "baseline": {
+                  "assets": "local",
+                  "backend": "none"
+                },
+                "candidate": {
+                  "assets": "local",
+                  "backend": "none"
+                }
+              },
+              "eligibilityReasons": [],
+              "eligible": true,
+              "paired": {
+                "conclusion": "candidate-higher",
+                "confidenceInterval": {
+                  "high": 12.468,
+                  "level": 0.995,
+                  "low": 9.686,
+                  "method": "paired-percentile-bootstrap",
+                  "resamples": 4000
+                },
+                "count": 15,
+                "medianDifference": 11.105,
+                "p75Delta": {
+                  "confidenceInterval": {
+                    "high": 13.37654,
+                    "level": 0.995,
+                    "low": 10.235439999999999,
+                    "method": "paired-percentile-bootstrap",
+                    "resamples": 4000
+                  },
+                  "estimate": 12.017499999999998
+                },
+                "pairDifferenceP75": 12.135
+              },
+              "scenarioId": "load",
+              "unit": "ms"
+            }
+          ],
+          "metricKey": "custom.audit.script-duration",
+          "multiplicity": {
+            "comparisons": 5,
+            "family": "batch:afd2d31c462cb24f619a156d5043c7501761049c35418527290334c98f32416c",
+            "familyLevel": 0.95,
+            "intervalLevel": 0.995,
+            "intervals": 10,
+            "method": "bonferroni"
+          },
+          "sourceRunIds": [
+            "2663ed70-5886-4db8-9812-118f0f14868b"
+          ],
+          "execution": {
+            "command": [
+              "node",
+              "packages/cli/src/index.ts",
+              "compare",
+              "--baseline",
+              "results/2026-10-14/mobile-reference/reference-overhead/attempt-001/envelope.json",
+              "--candidate",
+              "results/2026-10-14/mobile-reference/reference-overhead/attempt-001/envelope.json",
+              "--metric",
+              "custom.audit.script-duration",
+              "--family",
+              "batch:afd2d31c462cb24f619a156d5043c7501761049c35418527290334c98f32416c",
+              "--family-size",
+              "5"
+            ],
+            "cwd": ".",
+            "endedAt": "2026-10-14T19:03:21.202Z",
+            "startedAt": "2026-10-14T19:03:20.802Z",
+            "exitCode": 0,
+            "signal": null,
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdoutSha256": "eff896fdf716c483f3d9d5d03f855f5647895da870107e4b06203786ad0bac43"
+          }
+        },
+        {
+          "analysisVersion": "cookiebench-analysis-v3.4.0",
+          "comparisons": [
+            {
+              "baseline": {
+                "attempts": 15,
+                "available": 15,
+                "censoring": null,
+                "eligibilityReasons": [],
+                "excluded": 0,
+                "failed": 0,
+                "includedIncomplete": 0,
+                "incomplete": 0,
+                "max": 12.94,
+                "mean": 6.395133333333334,
+                "measured": 15,
+                "median": 5.798,
+                "min": 4.688999999999999,
+                "missing": 0,
+                "p75": 6.339,
+                "passed": 15
+              },
+              "baselineFixtureId": "reference-baseline-minimal",
+              "candidate": {
+                "attempts": 15,
+                "available": 15,
+                "censoring": null,
+                "eligibilityReasons": [],
+                "excluded": 0,
+                "failed": 0,
+                "includedIncomplete": 0,
+                "incomplete": 0,
+                "max": 8.866000000000001,
+                "mean": 5.9116,
+                "measured": 15,
+                "median": 5.6,
+                "min": 4.8549999999999995,
+                "missing": 0,
+                "p75": 6.19,
+                "passed": 15
+              },
+              "candidateFixtureId": "reference-baseline-full",
+              "deployment": {
+                "baseline": {
+                  "assets": "local",
+                  "backend": "none"
+                },
+                "candidate": {
+                  "assets": "local",
+                  "backend": "none"
+                }
+              },
+              "eligibilityReasons": [],
+              "eligible": true,
+              "paired": {
+                "conclusion": "inconclusive",
+                "confidenceInterval": {
+                  "high": 0.9339999999999993,
+                  "level": 0.995,
+                  "low": -1.7060000000000004,
+                  "method": "paired-percentile-bootstrap",
+                  "resamples": 4000
+                },
+                "count": 15,
+                "medianDifference": -0.5019999999999998,
+                "p75Delta": {
+                  "confidenceInterval": {
+                    "high": 2.561605000000003,
+                    "level": 0.995,
+                    "low": -4.479999999999999,
+                    "method": "paired-percentile-bootstrap",
+                    "resamples": 4000
+                  },
+                  "estimate": -0.14900000000000002
+                },
+                "pairDifferenceP75": 0.6745000000000005
+              },
+              "scenarioId": "load",
+              "unit": "ms"
+            }
+          ],
+          "metricKey": "custom.audit.layout-duration",
+          "multiplicity": {
+            "comparisons": 5,
+            "family": "batch:afd2d31c462cb24f619a156d5043c7501761049c35418527290334c98f32416c",
+            "familyLevel": 0.95,
+            "intervalLevel": 0.995,
+            "intervals": 10,
+            "method": "bonferroni"
+          },
+          "sourceRunIds": [
+            "2663ed70-5886-4db8-9812-118f0f14868b"
+          ],
+          "execution": {
+            "command": [
+              "node",
+              "packages/cli/src/index.ts",
+              "compare",
+              "--baseline",
+              "results/2026-10-14/mobile-reference/reference-overhead/attempt-001/envelope.json",
+              "--candidate",
+              "results/2026-10-14/mobile-reference/reference-overhead/attempt-001/envelope.json",
+              "--metric",
+              "custom.audit.layout-duration",
+              "--family",
+              "batch:afd2d31c462cb24f619a156d5043c7501761049c35418527290334c98f32416c",
+              "--family-size",
+              "5"
+            ],
+            "cwd": ".",
+            "endedAt": "2026-10-14T19:03:21.611Z",
+            "startedAt": "2026-10-14T19:03:21.218Z",
+            "exitCode": 0,
+            "signal": null,
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdoutSha256": "19a7084cd2b0243c81dbafbca8b0037c04323c8ca963557660232035aae91a59"
+          }
+        },
+        {
+          "analysisVersion": "cookiebench-analysis-v3.4.0",
+          "comparisons": [
+            {
+              "baseline": {
+                "attempts": 15,
+                "available": 15,
+                "censoring": null,
+                "eligibilityReasons": [],
+                "excluded": 0,
+                "failed": 0,
+                "includedIncomplete": 0,
+                "incomplete": 0,
+                "max": 364,
+                "mean": 356,
+                "measured": 15,
+                "median": 356,
+                "min": 348,
+                "missing": 0,
+                "p75": 360,
+                "passed": 15
+              },
+              "baselineFixtureId": "reference-baseline-minimal",
+              "candidate": {
+                "attempts": 15,
+                "available": 15,
+                "censoring": null,
+                "eligibilityReasons": [],
+                "excluded": 0,
+                "failed": 0,
+                "includedIncomplete": 0,
+                "incomplete": 0,
+                "max": 380,
+                "mean": 366.13333333333327,
+                "measured": 15,
+                "median": 364,
+                "min": 356,
+                "missing": 0,
+                "p75": 368,
+                "passed": 15
+              },
+              "candidateFixtureId": "reference-baseline-full",
+              "deployment": {
+                "baseline": {
+                  "assets": "local",
+                  "backend": "none"
+                },
+                "candidate": {
+                  "assets": "local",
+                  "backend": "none"
+                }
+              },
+              "eligibilityReasons": [],
+              "eligible": true,
+              "paired": {
+                "conclusion": "inconclusive",
+                "confidenceInterval": {
+                  "high": 16,
+                  "level": 0.995,
+                  "low": 0,
+                  "method": "paired-percentile-bootstrap",
+                  "resamples": 4000
+                },
+                "count": 15,
+                "medianDifference": 8,
+                "p75Delta": {
+                  "confidenceInterval": {
+                    "high": 22,
+                    "level": 0.995,
+                    "low": 2,
+                    "method": "paired-percentile-bootstrap",
+                    "resamples": 4000
+                  },
+                  "estimate": 8
+                },
+                "pairDifferenceP75": 16
+              },
+              "scenarioId": "load",
+              "unit": "ms"
+            }
+          ],
+          "metricKey": "custom.audit.lcp",
+          "multiplicity": {
+            "comparisons": 5,
+            "family": "batch:afd2d31c462cb24f619a156d5043c7501761049c35418527290334c98f32416c",
+            "familyLevel": 0.95,
+            "intervalLevel": 0.995,
+            "intervals": 10,
+            "method": "bonferroni"
+          },
+          "sourceRunIds": [
+            "2663ed70-5886-4db8-9812-118f0f14868b"
+          ],
+          "execution": {
+            "command": [
+              "node",
+              "packages/cli/src/index.ts",
+              "compare",
+              "--baseline",
+              "results/2026-10-14/mobile-reference/reference-overhead/attempt-001/envelope.json",
+              "--candidate",
+              "results/2026-10-14/mobile-reference/reference-overhead/attempt-001/envelope.json",
+              "--metric",
+              "custom.audit.lcp",
+              "--family",
+              "batch:afd2d31c462cb24f619a156d5043c7501761049c35418527290334c98f32416c",
+              "--family-size",
+              "5"
+            ],
+            "cwd": ".",
+            "endedAt": "2026-10-14T19:03:22.018Z",
+            "startedAt": "2026-10-14T19:03:21.627Z",
+            "exitCode": 0,
+            "signal": null,
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdoutSha256": "e5221018f3f9c858a7dcc9637d40b7cc9f8001549ba4678e14df233bddbeae0f"
+          }
+        },
+        {
+          "analysisVersion": "cookiebench-analysis-v3.4.0",
+          "comparisons": [
+            {
+              "baseline": {
+                "attempts": 15,
+                "available": 15,
+                "censoring": null,
+                "eligibilityReasons": [],
+                "excluded": 0,
+                "failed": 0,
+                "includedIncomplete": 0,
+                "incomplete": 0,
+                "max": 1006.8000000000466,
+                "mean": 1003.5599999999996,
+                "measured": 15,
+                "median": 1003.2000000000116,
+                "min": 1002.2999999999884,
+                "missing": 0,
+                "p75": 1003.8999999999942,
+                "passed": 15
+              },
+              "baselineFixtureId": "reference-baseline-minimal",
+              "candidate": {
+                "attempts": 15,
+                "available": 15,
+                "censoring": null,
+                "eligibilityReasons": [],
+                "excluded": 0,
+                "failed": 0,
+                "includedIncomplete": 0,
+                "incomplete": 0,
+                "max": 1004.3999999999942,
+                "mean": 1003.2599999999995,
+                "measured": 15,
+                "median": 1003.1000000000349,
+                "min": 1002.5,
+                "missing": 0,
+                "p75": 1003.5,
+                "passed": 15
+              },
+              "candidateFixtureId": "reference-baseline-full",
+              "deployment": {
+                "baseline": {
+                  "assets": "local",
+                  "backend": "none"
+                },
+                "candidate": {
+                  "assets": "local",
+                  "backend": "none"
+                }
+              },
+              "eligibilityReasons": [],
+              "eligible": true,
+              "paired": {
+                "conclusion": "inconclusive",
+                "confidenceInterval": {
+                  "high": 0.7999999999883585,
+                  "level": 0.995,
+                  "low": -0.6000000000349246,
+                  "method": "paired-percentile-bootstrap",
+                  "resamples": 4000
+                },
+                "count": 15,
+                "medianDifference": -0.20000000001164153,
+                "p75Delta": {
+                  "confidenceInterval": {
+                    "high": 0.6499999999941792,
+                    "level": 0.995,
+                    "low": -2.150000000008731,
+                    "method": "paired-percentile-bootstrap",
+                    "resamples": 4000
+                  },
+                  "estimate": -0.39999999999417923
+                },
+                "pairDifferenceP75": 0.09999999999126885
+              },
+              "scenarioId": "load",
+              "unit": "ms"
+            }
+          ],
+          "metricKey": "custom.audit.observed-window",
+          "multiplicity": {
+            "comparisons": 5,
+            "family": "batch:afd2d31c462cb24f619a156d5043c7501761049c35418527290334c98f32416c",
+            "familyLevel": 0.95,
+            "intervalLevel": 0.995,
+            "intervals": 10,
+            "method": "bonferroni"
+          },
+          "sourceRunIds": [
+            "2663ed70-5886-4db8-9812-118f0f14868b"
+          ],
+          "execution": {
+            "command": [
+              "node",
+              "packages/cli/src/index.ts",
+              "compare",
+              "--baseline",
+              "results/2026-10-14/mobile-reference/reference-overhead/attempt-001/envelope.json",
+              "--candidate",
+              "results/2026-10-14/mobile-reference/reference-overhead/attempt-001/envelope.json",
+              "--metric",
+              "custom.audit.observed-window",
+              "--family",
+              "batch:afd2d31c462cb24f619a156d5043c7501761049c35418527290334c98f32416c",
+              "--family-size",
+              "5"
+            ],
+            "cwd": ".",
+            "endedAt": "2026-10-14T19:03:22.417Z",
+            "startedAt": "2026-10-14T19:03:22.036Z",
+            "exitCode": 0,
+            "signal": null,
+            "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdoutSha256": "4813bb852dc76301ce26bd1a508a71e21a3b1f5305c1b7f80aa8e724a2354c31"
+          }
+        }
+      ],
+      "configSha256": "03051f730cd43377eb9e8b2d15086336c3948adbf14d46e8b5d5654318f7416a",
+      "details": {
+        "capabilities": [],
+        "cells": [
+          {
+            "attempts": 15,
+            "baseline": true,
+            "correctness": {
+              "attempts": 15,
+              "failed": 0,
+              "reasons": [
+                "The collector did not establish completion of all required correctness checks."
+              ],
+              "unknown": 15,
+              "verified": 0
+            },
+            "diagnostic": false,
+            "failed": 0,
+            "failures": [],
+            "fixtureId": "reference-baseline-minimal",
+            "followupProbes": 0,
+            "incomplete": 0,
+            "lcpAttribution": {
+              "elements": [],
+              "missing": 0
+            },
+            "metrics": {
+              "custom.audit.fcp": {
+                "attempts": 15,
+                "available": 15,
+                "censoring": null,
+                "eligibilityReasons": [],
+                "excluded": 0,
+                "failed": 0,
+                "includedIncomplete": 0,
+                "incomplete": 0,
+                "max": 364,
+                "mean": 356,
+                "measured": 15,
+                "median": 356,
+                "min": 348,
+                "missing": 0,
+                "p75": 360,
+                "passed": 15,
+                "unit": "ms",
+                "validityWarnings": []
+              },
+              "custom.audit.layout-duration": {
+                "attempts": 15,
+                "available": 15,
+                "censoring": null,
+                "eligibilityReasons": [],
+                "excluded": 0,
+                "failed": 0,
+                "includedIncomplete": 0,
+                "incomplete": 0,
+                "max": 12.94,
+                "mean": 6.395133333333334,
+                "measured": 15,
+                "median": 5.798,
+                "min": 4.688999999999999,
+                "missing": 0,
+                "p75": 6.339,
+                "passed": 15,
+                "unit": "ms",
+                "validityWarnings": []
+              },
+              "custom.audit.lcp": {
+                "attempts": 15,
+                "available": 15,
+                "censoring": null,
+                "eligibilityReasons": [],
+                "excluded": 0,
+                "failed": 0,
+                "includedIncomplete": 0,
+                "incomplete": 0,
+                "max": 364,
+                "mean": 356,
+                "measured": 15,
+                "median": 356,
+                "min": 348,
+                "missing": 0,
+                "p75": 360,
+                "passed": 15,
+                "unit": "ms",
+                "validityWarnings": []
+              },
+              "custom.audit.observed-window": {
+                "attempts": 15,
+                "available": 15,
+                "censoring": null,
+                "eligibilityReasons": [],
+                "excluded": 0,
+                "failed": 0,
+                "includedIncomplete": 0,
+                "incomplete": 0,
+                "max": 1006.8000000000466,
+                "mean": 1003.5599999999996,
+                "measured": 15,
+                "median": 1003.2000000000116,
+                "min": 1002.2999999999884,
+                "missing": 0,
+                "p75": 1003.8999999999942,
+                "passed": 15,
+                "unit": "ms",
+                "validityWarnings": []
+              },
+              "custom.audit.script-duration": {
+                "attempts": 15,
+                "available": 15,
+                "censoring": null,
+                "eligibilityReasons": [],
+                "excluded": 0,
+                "failed": 0,
+                "includedIncomplete": 0,
+                "incomplete": 0,
+                "max": 3.837,
+                "mean": 2.969933333333333,
+                "measured": 15,
+                "median": 2.927,
+                "min": 2.518,
+                "missing": 0,
+                "p75": 3.0835,
+                "passed": 15,
+                "unit": "ms",
+                "validityWarnings": []
+              },
+              "custom.audit.task-duration": {
+                "attempts": 15,
+                "available": 15,
+                "censoring": null,
+                "eligibilityReasons": [],
+                "excluded": 0,
+                "failed": 0,
+                "includedIncomplete": 0,
+                "incomplete": 0,
+                "max": 47.562,
+                "mean": 37.7298,
+                "measured": 15,
+                "median": 37.059,
+                "min": 32.234,
+                "missing": 0,
+                "p75": 39.4495,
+                "passed": 15,
+                "unit": "ms",
+                "validityWarnings": []
+              }
+            },
+            "passed": 15,
+            "scenarioId": "load"
+          },
+          {
+            "attempts": 15,
+            "baseline": false,
+            "correctness": {
+              "attempts": 15,
+              "failed": 0,
+              "reasons": [
+                "The collector did not establish completion of all required correctness checks."
+              ],
+              "unknown": 15,
+              "verified": 0
+            },
+            "diagnostic": false,
+            "failed": 0,
+            "failures": [],
+            "fixtureId": "reference-baseline-full",
+            "followupProbes": 0,
+            "incomplete": 0,
+            "lcpAttribution": {
+              "elements": [],
+              "missing": 0
+            },
+            "metrics": {
+              "custom.audit.fcp": {
+                "attempts": 15,
+                "available": 15,
+                "censoring": null,
+                "eligibilityReasons": [],
+                "excluded": 0,
+                "failed": 0,
+                "includedIncomplete": 0,
+                "incomplete": 0,
+                "max": 380,
+                "mean": 366.13333333333327,
+                "measured": 15,
+                "median": 364,
+                "min": 356,
+                "missing": 0,
+                "p75": 368,
+                "passed": 15,
+                "unit": "ms",
+                "validityWarnings": []
+              },
+              "custom.audit.layout-duration": {
+                "attempts": 15,
+                "available": 15,
+                "censoring": null,
+                "eligibilityReasons": [],
+                "excluded": 0,
+                "failed": 0,
+                "includedIncomplete": 0,
+                "incomplete": 0,
+                "max": 8.866000000000001,
+                "mean": 5.9116,
+                "measured": 15,
+                "median": 5.6,
+                "min": 4.8549999999999995,
+                "missing": 0,
+                "p75": 6.19,
+                "passed": 15,
+                "unit": "ms",
+                "validityWarnings": []
+              },
+              "custom.audit.lcp": {
+                "attempts": 15,
+                "available": 15,
+                "censoring": null,
+                "eligibilityReasons": [],
+                "excluded": 0,
+                "failed": 0,
+                "includedIncomplete": 0,
+                "incomplete": 0,
+                "max": 380,
+                "mean": 366.13333333333327,
+                "measured": 15,
+                "median": 364,
+                "min": 356,
+                "missing": 0,
+                "p75": 368,
+                "passed": 15,
+                "unit": "ms",
+                "validityWarnings": []
+              },
+              "custom.audit.observed-window": {
+                "attempts": 15,
+                "available": 15,
+                "censoring": null,
+                "eligibilityReasons": [],
+                "excluded": 0,
+                "failed": 0,
+                "includedIncomplete": 0,
+                "incomplete": 0,
+                "max": 1004.3999999999942,
+                "mean": 1003.2599999999995,
+                "measured": 15,
+                "median": 1003.1000000000349,
+                "min": 1002.5,
+                "missing": 0,
+                "p75": 1003.5,
+                "passed": 15,
+                "unit": "ms",
+                "validityWarnings": []
+              },
+              "custom.audit.script-duration": {
+                "attempts": 15,
+                "available": 15,
+                "censoring": null,
+                "eligibilityReasons": [],
+                "excluded": 0,
+                "failed": 0,
+                "includedIncomplete": 0,
+                "incomplete": 0,
+                "max": 16.955000000000002,
+                "mean": 14.2434,
+                "measured": 15,
+                "median": 14.001,
+                "min": 12.116999999999999,
+                "missing": 0,
+                "p75": 15.100999999999999,
+                "passed": 15,
+                "unit": "ms",
+                "validityWarnings": []
+              },
+              "custom.audit.task-duration": {
+                "attempts": 15,
+                "available": 15,
+                "censoring": null,
+                "eligibilityReasons": [],
+                "excluded": 0,
+                "failed": 0,
+                "includedIncomplete": 0,
+                "incomplete": 0,
+                "max": 76.37200000000001,
+                "mean": 66.16646666666666,
+                "measured": 15,
+                "median": 63.404,
+                "min": 59.589999999999996,
+                "missing": 0,
+                "p75": 69.25050000000002,
+                "passed": 15,
+                "unit": "ms",
+                "validityWarnings": []
+              }
+            },
+            "passed": 15,
+            "scenarioId": "load"
+          }
+        ],
+        "correctness": {
+          "attempts": 15,
+          "failed": 0,
+          "reasons": [
+            "The collector did not establish completion of all required correctness checks."
+          ],
+          "unknown": 15,
+          "verified": 0
+        },
+        "diagnosticFlowsPassed": null,
+        "fixtures": [
+          {
+            "adapter": {
+              "accept": "#accept",
+              "acknowledgement": "#feedback",
+              "banner": "#banner",
+              "categoryToggle": "#analytics",
+              "controlledRequestPath": "/controlled.js",
+              "overlay": "#overlay",
+              "pageAction": "#page-action",
+              "preferences": "#preferences",
+              "preferencesPanel": "#choices",
+              "primaryContent": "[data-primary-content]",
+              "ready": "html[data-ready=\"true\"]",
+              "reject": "#reject",
+              "reopen": "#reopen",
+              "save": "#save",
+              "serverEventsUrl": "http://127.0.0.1:4173/events",
+              "stateGlobal": "__cookiebench",
+              "withdraw": "#withdraw"
+            },
+            "baseline": true,
+            "configurationHash": "449ca00c36871fe9be7834f2019dd72d8df70f3eb066c3452c2f4f0d794c6b86",
+            "deployment": {
+              "assets": "local",
+              "backend": "none"
+            },
+            "framework": "script-tag",
+            "frameworkVersion": "html",
+            "id": "reference-baseline-minimal",
+            "mode": "local-only",
+            "presentation": "default",
+            "product": "Controlled reference",
+            "revision": "3.0.0-audit-minimal",
+            "schemaVersion": 3,
+            "server": {
+              "build": {
+                "args": [
+                  "build.mjs"
+                ],
+                "command": "node"
+              },
+              "cwd": "fixtures/reference",
+              "readinessTimeoutMs": 5000,
+              "readinessUrl": "http://127.0.0.1:4173/health",
+              "start": {
+                "args": [
+                  "server.mjs",
+                  "4173"
+                ],
+                "command": "node"
+              }
+            },
+            "url": "http://127.0.0.1:4173/?variant=baseline",
+            "version": "3.0.0"
+          },
+          {
+            "adapter": {
+              "accept": "#accept",
+              "acknowledgement": "#feedback",
+              "banner": "#banner",
+              "categoryToggle": "#analytics",
+              "controlledRequestPath": "/controlled.js",
+              "overlay": "#overlay",
+              "pageAction": "#page-action",
+              "preferences": "#preferences",
+              "preferencesPanel": "#choices",
+              "primaryContent": "[data-primary-content]",
+              "ready": "html[data-ready=\"true\"]",
+              "reject": "#reject",
+              "reopen": "#reopen",
+              "save": "#save",
+              "serverEventsUrl": "http://127.0.0.1:4173/events",
+              "stateGlobal": "__cookiebench",
+              "withdraw": "#withdraw"
+            },
+            "baseline": false,
+            "configurationHash": "449ca00c36871fe9be7834f2019dd72d8df70f3eb066c3452c2f4f0d794c6b86",
+            "deployment": {
+              "assets": "local",
+              "backend": "none"
+            },
+            "framework": "script-tag",
+            "frameworkVersion": "html",
+            "id": "reference-baseline-full",
+            "mode": "local-only",
+            "presentation": "default",
+            "product": "Controlled reference",
+            "revision": "3.0.0-audit-full",
+            "schemaVersion": 3,
+            "server": {
+              "build": {
+                "args": [
+                  "build.mjs"
+                ],
+                "command": "node"
+              },
+              "cwd": "fixtures/reference",
+              "readinessTimeoutMs": 5000,
+              "readinessUrl": "http://127.0.0.1:4173/health",
+              "start": {
+                "args": [
+                  "server.mjs",
+                  "4173"
+                ],
+                "command": "node"
+              }
+            },
+            "url": "http://127.0.0.1:4173/?variant=baseline",
+            "version": "3.0.0"
+          }
+        ],
+        "freshLoadPassed": true,
+        "manifest": {
+          "collectorVersion": "cookiebench-instrumentation-audit-1.2.0",
+          "createdAt": "2026-10-14T19:03:19.401Z",
+          "environment": {
+            "collectorSourceHash": "06fa46f4a5ad9d604051d5ba686f86511a4dda272a8b4be4bfa869153ef12ebc",
+            "cpu": "Intel(R) Xeon(R) Processor @ 2.90GHz",
+            "cpuWindow": "before navigation through first CDP snapshot after observation deadline; raw endpoints retained; no normalization or subtraction",
+            "fixtureSourceHash": "configuration:449ca00c36871fe9be7834f2019dd72d8df70f3eb066c3452c2f4f0d794c6b86;revision:3.0.0",
+            "fullArm": "minimal arm plus production DOM observer, owned bounded main-document native vitals/Element Timing observers, unfinalized web-vitals diagnostic observers, passive network collector and production navigation capture listeners with native CDP binding",
+            "inputSnapshotCost": "not calibrated: load-only visits do not arm a consent action, dispatch trusted input or serialize input/unload snapshots; no overhead correction is applied",
+            "lockfileHash": "ce5aa4f21c131cf81328e63c5b99e27a52b41fadd783dc3fdcedb78da3ce2170",
+            "minimalArm": "main-document native paint/LCP observer with timer and snapshot queue drain after a 250 ms presentation grace, shared CDP emulation and Performance domain; no DOM polling, web-vitals or network listeners",
+            "order": "[[\"full\",\"minimal\"],[\"full\",\"minimal\"],[\"full\",\"minimal\"],[\"minimal\",\"full\"],[\"full\",\"minimal\"],[\"full\",\"minimal\"],[\"minimal\",\"full\"],[\"full\",\"minimal\"],[\"full\",\"minimal\"],[\"full\",\"minimal\"],[\"full\",\"minimal\"],[\"full\",\"minimal\"],[\"minimal\",\"full\"],[\"full\",\"minimal\"],[\"minimal\",\"full\"],[\"full\",\"minimal\"],[\"minimal\",\"full\"],[\"minimal\",\"full\"]]",
+            "platform": "linux",
+            "release": "6.18.49",
+            "warmups": "3"
+          },
+          "id": "2663ed70-5886-4db8-9812-118f0f14868b",
+          "methodologyVersion": "cookiebench-instrumentation-overhead-v1",
+          "profile": {
+            "cpuCalibration": {
+              "artifact": {
+                "browser": {
+                  "headless": true,
+                  "jsVersion": "15.3.76.4",
+                  "launchExecutable": "playwright:chromium:default-headless",
+                  "product": "HeadlessChrome/153.0.8010.12",
+                  "revision": "@971a7443b0c9b0a9b2860529b33331b76077ec62",
+                  "version": "153.0.8010.12"
+                },
+                "createdAt": "2026-10-14T19:02:24.139Z",
+                "host": {
+                  "arch": "x64",
+                  "cpuModel": "Intel(R) Xeon(R) Processor @ 2.90GHz",
+                  "hostname": "a30618a3-81e",
+                  "logicalCpus": 8,
+                  "memoryBytes": 17451950080,
+                  "platform": "linux",
+                  "release": "6.18.49"
+                },
+                "id": "7ca6e71a-f2e4-4b34-a6c3-1b4c5beeb45a",
+                "method": "chrome-devtools",
+                "results": {
+                  "low": 7.65,
+                  "mid": 2.26
+                },
+                "samples": [
+                  {
+                    "phase": "warmup",
+                    "rate": 1,
+                    "score": 2319.5
+                  },
+                  {
+                    "phase": "calibration",
+                    "rate": 1,
+                    "score": 2534.5
+                  },
+                  {
+                    "phase": "calibration",
+                    "rate": 14.40056818181818,
+                    "score": 120
+                  },
+                  {
+                    "phase": "calibration",
+                    "rate": 7.7,
+                    "score": 235
+                  },
+                  {
+                    "phase": "calibration",
+                    "rate": 4.35,
+                    "score": 501
+                  },
+                  {
+                    "phase": "calibration",
+                    "rate": 6.03,
+                    "score": 402.5
+                  },
+                  {
+                    "phase": "calibration",
+                    "rate": 6.87,
+                    "score": 344
+                  },
+                  {
+                    "phase": "calibration",
+                    "rate": 7.29,
+                    "score": 318.5
+                  },
+                  {
+                    "phase": "calibration",
+                    "rate": 7.5,
+                    "score": 315
+                  },
+                  {
+                    "phase": "calibration",
+                    "rate": 7.6,
+                    "score": 310
+                  },
+                  {
+                    "phase": "calibration",
+                    "rate": 7.65,
+                    "score": 321.5
+                  },
+                  {
+                    "phase": "calibration",
+                    "rate": 1.5147,
+                    "score": 1715
+                  },
+                  {
+                    "phase": "calibration",
+                    "rate": 2.5245,
+                    "score": 1003
+                  },
+                  {
+                    "phase": "calibration",
+                    "rate": 2.02,
+                    "score": 1267
+                  },
+                  {
+                    "phase": "calibration",
+                    "rate": 2.27,
+                    "score": 990
+                  },
+                  {
+                    "phase": "calibration",
+                    "rate": 2.15,
+                    "score": 1215
+                  },
+                  {
+                    "phase": "calibration",
+                    "rate": 2.21,
+                    "score": 1189.5
+                  },
+                  {
+                    "phase": "calibration",
+                    "rate": 2.24,
+                    "score": 1167.5
+                  },
+                  {
+                    "phase": "calibration",
+                    "rate": 2.25,
+                    "score": 1161
+                  },
+                  {
+                    "phase": "calibration",
+                    "rate": 2.26,
+                    "score": 1167.5
+                  },
+                  {
+                    "phase": "baseline-validation",
+                    "rate": 1,
+                    "score": 2597.5
+                  },
+                  {
+                    "phase": "baseline-validation",
+                    "rate": 1,
+                    "score": 2617.5
+                  },
+                  {
+                    "phase": "baseline-validation",
+                    "rate": 1,
+                    "score": 2540.5
+                  },
+                  {
+                    "phase": "tier-validation",
+                    "rate": 7.65,
+                    "score": 328.5,
+                    "tier": "low"
+                  },
+                  {
+                    "phase": "tier-validation",
+                    "rate": 7.65,
+                    "score": 330.5,
+                    "tier": "low"
+                  },
+                  {
+                    "phase": "tier-validation",
+                    "rate": 7.65,
+                    "score": 326,
+                    "tier": "low"
+                  },
+                  {
+                    "phase": "tier-validation",
+                    "rate": 2.26,
+                    "score": 1127.5,
+                    "tier": "mid"
+                  },
+                  {
+                    "phase": "tier-validation",
+                    "rate": 2.26,
+                    "score": 1137,
+                    "tier": "mid"
+                  },
+                  {
+                    "phase": "tier-validation",
+                    "rate": 2.26,
+                    "score": 1155.5,
+                    "tier": "mid"
+                  }
+                ],
+                "schemaVersion": 1,
+                "sourceRevision": "933872b3f8520add8c43e30adf00c32622f6bdf4",
+                "sourceSha256": "f3835db080555d9850e2d058f8792eb6b74586d91545fbc88eefad0439cb7836",
+                "validation": {
+                  "baselineScores": [
+                    2597.5,
+                    2617.5,
+                    2540.5
+                  ],
+                  "baselineStable": true,
+                  "low": {
+                    "eligible": false,
+                    "reasons": [
+                      "Validation median missed Chrome's target score by more than 15%."
+                    ],
+                    "scores": [
+                      328.5,
+                      330.5,
+                      326
+                    ]
+                  },
+                  "maxRelativeError": 0.15,
+                  "maxRelativeSpread": 0.15,
+                  "mid": {
+                    "eligible": true,
+                    "reasons": [],
+                    "scores": [
+                      1127.5,
+                      1137,
+                      1155.5
+                    ]
+                  },
+                  "policy": "cookiebench-cpu-validation-v1"
+                }
+              },
+              "tier": "mid"
+            },
+            "cpuSlowdown": 2.26,
+            "deviceScaleFactor": 3,
+            "hasTouch": true,
+            "id": "mobile-article-v1",
+            "isMobile": true,
+            "locale": "en-GB",
+            "network": {
+              "downloadBytesPerSecond": 200000,
+              "latencyMs": 150,
+              "uploadBytesPerSecond": 93750
+            },
+            "region": "GB",
+            "userAgent": "Mozilla/5.0 (Linux; Android 13; CookieBench Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+            "viewport": {
+              "height": 844,
+              "width": 390
+            }
+          },
+          "seed": 20261009,
+          "versions": {
+            "browser": "153.0.8010.12",
+            "effect": "4.0.0-rc.117",
+            "node": "v24.21.0",
+            "playwright": "1.63.0",
+            "web-vitals": "6.2.2"
+          }
+        },
+        "requiredFlowsPassed": true,
+        "status": "passed"
+      },
+      "envelopeFile": "results/2026-10-14/mobile-reference/reference-overhead/attempt-001/envelope.json",
+      "envelopeSha256": "beb40e0a57c9883e020785e0dfb0aa3b72942446f17e970340c6dde58751ae98",
+      "execution": {
+        "command": [
+          "node",
+          "packages/cli/src/index.ts",
+          "instrumentation",
+          "audit",
+          "--config",
+          "results/2026-10-14/configs/reference-overhead-mobile-portable.json",
+          "--scenario",
+          "load",
+          "--iterations",
+          "15",
+          "--warmups",
+          "3",
+          "--seed",
+          "20261009",
+          "--cpu-calibration",
+          "results/2026-10-14/mobile-reference/reference-overhead/attempt-001/cpu-calibration.json",
+          "--cpu-tier",
+          "mid",
+          "--output",
+          "results/2026-10-14/mobile-reference/reference-overhead/attempt-001/envelope.json"
+        ],
+        "cwd": ".",
+        "endedAt": "2026-10-14T19:03:19.970Z",
+        "startedAt": "2026-10-14T19:02:31.824Z",
+        "exitCode": 0,
+        "signal": null,
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdoutSha256": "4f865a24db50eae07f92dd4a6fa651b97fb5b388aeb4cd0506d71ad74d1df08e"
+      },
+      "status": "recorded"
+    }
+  ],
+  "schemaVersion": 1
+}

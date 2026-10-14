@@ -1,0 +1,508 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:1a88f62c-2ce4-4fe6-9a57-340a24999c4b"
+      ],
+      "fixtureId": "tanstack-start-c15t",
+      "framework": "tanstack-start",
+      "id": "6ef9c314-edac-4bb4-9bd7-9b222e512e81",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:b1b382c2-29f3-4b9c-a895-582257b2fad6"
+      ],
+      "fixtureId": "tanstack-start-c15t",
+      "framework": "tanstack-start",
+      "id": "07fa81ad-4f89-438f-9adf-8615e88552bd",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:ed03f020-78d9-40e8-add7-a2ee84d693c4"
+      ],
+      "fixtureId": "tanstack-start-c15t",
+      "framework": "tanstack-start",
+      "id": "5286fea2-34e7-4d02-893a-c602068174e6",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:bf11a907-91dd-445a-88de-23cca558034c"
+      ],
+      "fixtureId": "tanstack-start-c15t",
+      "framework": "tanstack-start",
+      "id": "a24d0581-ca91-46a4-8fd9-b328d9b9fdae",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:abb50f49-78b8-456e-9d8c-90d804da2d08"
+      ],
+      "fixtureId": "tanstack-start-cookie-control",
+      "framework": "tanstack-start",
+      "id": "58b102cf-2bc2-4c39-abf4-56d2bf2271ea",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:bb9d92a1-538e-48f6-93d4-c4bf38489461"
+      ],
+      "fixtureId": "tanstack-start-cookie-control",
+      "framework": "tanstack-start",
+      "id": "a002246d-a16c-4e6b-bef9-a90ee7daad68",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:67e9e249-a6f7-4545-96fb-eb161cc0caa3"
+      ],
+      "fixtureId": "tanstack-start-cookie-control",
+      "framework": "tanstack-start",
+      "id": "ecfaa243-5945-4591-87fa-dab6b747e260",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:3f81ea9b-5cc5-466f-a811-60d60c7cdfe7"
+      ],
+      "fixtureId": "tanstack-start-cookie-control",
+      "framework": "tanstack-start",
+      "id": "a0b3bf42-219d-4e72-a4d6-3824abe346a6",
+      "mode": "hosted",
+      "reason": "0/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "unknown",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:6f85dc1f-f912-4b3e-a98c-497d3d52fd4a"
+      ],
+      "fixtureId": "tanstack-start-didomi",
+      "framework": "tanstack-start",
+      "id": "202b6d5f-4a80-4a96-aa3a-116d8c1671ed",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:73960186-3a3f-4b40-9274-4d6adeb94f18"
+      ],
+      "fixtureId": "tanstack-start-didomi",
+      "framework": "tanstack-start",
+      "id": "15d988d2-c546-482d-bd43-48930d70c580",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:66ec1065-4d6e-4b53-9c02-416a972be630"
+      ],
+      "fixtureId": "tanstack-start-didomi",
+      "framework": "tanstack-start",
+      "id": "167b5c21-6ddb-472b-a8a7-e699a40c1fc9",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:27659e79-d965-4641-8a23-616ee945d13d"
+      ],
+      "fixtureId": "tanstack-start-didomi",
+      "framework": "tanstack-start",
+      "id": "dca69017-aec1-4374-8ba2-187081866616",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:2f09f406-a95c-4aa3-a474-6567f9cdea95"
+      ],
+      "fixtureId": "tanstack-start-enzuzo",
+      "framework": "tanstack-start",
+      "id": "8a998d72-7ba7-4ec4-972f-398818e2c92c",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:0d165ad4-8f6b-4029-af49-686b440234de"
+      ],
+      "fixtureId": "tanstack-start-enzuzo",
+      "framework": "tanstack-start",
+      "id": "059217b5-732b-4d87-8871-0496b5458616",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:7eaee6bc-507b-44bc-aee3-03dcdb7886fc"
+      ],
+      "fixtureId": "tanstack-start-enzuzo",
+      "framework": "tanstack-start",
+      "id": "fa8d4c6e-6ca8-455f-a4bf-b3469e135006",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:b750f902-88d5-4dab-93d4-597a3cd80049"
+      ],
+      "fixtureId": "tanstack-start-enzuzo",
+      "framework": "tanstack-start",
+      "id": "f082e6a8-5206-4720-956d-3b82c3496ff6",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:8439628c-b744-439e-9eaa-631da7d4df93"
+      ],
+      "fixtureId": "tanstack-start-iubenda",
+      "framework": "tanstack-start",
+      "id": "bcce2564-85ca-4f02-98c1-2e13cc24f917",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:d8847044-136d-4c8f-8719-729a9452ceb1"
+      ],
+      "fixtureId": "tanstack-start-iubenda",
+      "framework": "tanstack-start",
+      "id": "b9a4c3d3-ec4b-4280-8340-53087140c2a1",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:7f51a931-a9aa-40c0-838c-99c09fcabb31"
+      ],
+      "fixtureId": "tanstack-start-iubenda",
+      "framework": "tanstack-start",
+      "id": "e33b1209-ab52-4e5b-9bec-d3fb58ecca52",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:d7437d5a-2e4e-4cef-8d8b-a36cabf0e4b1"
+      ],
+      "fixtureId": "tanstack-start-iubenda",
+      "framework": "tanstack-start",
+      "id": "fa9f2f07-d46d-43ca-9778-8c4dbbf2a08c",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:b64d3d37-e047-4b0e-b7c2-192dbc7983ad"
+      ],
+      "fixtureId": "tanstack-start-ketch",
+      "framework": "tanstack-start",
+      "id": "4bbc95b9-26d3-4123-83c9-aff26f27a167",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:dfa876b3-5bcc-416b-96a3-453b2b21c5f9"
+      ],
+      "fixtureId": "tanstack-start-ketch",
+      "framework": "tanstack-start",
+      "id": "57baea3c-8f79-4a66-bb32-7a81a16ef701",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:a43b0ab9-23fa-469d-8a0a-fe70bf899fe9"
+      ],
+      "fixtureId": "tanstack-start-ketch",
+      "framework": "tanstack-start",
+      "id": "2cc1f025-41fb-4f20-babe-d126ff411356",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:0ed32e11-82ae-4776-a6bb-892911562309"
+      ],
+      "fixtureId": "tanstack-start-ketch",
+      "framework": "tanstack-start",
+      "id": "84e3f97d-648f-43f7-b35d-7475cde6c878",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:fd07114c-d02f-4147-b15c-2852fb8cd4dc"
+      ],
+      "fixtureId": "tanstack-start-onetrust",
+      "framework": "tanstack-start",
+      "id": "6e5a64ab-83c0-47a5-b602-58b7129a5958",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:70e46fd9-5e91-41dd-b2da-b1313ffa5d0d"
+      ],
+      "fixtureId": "tanstack-start-onetrust",
+      "framework": "tanstack-start",
+      "id": "647524d9-39e7-4d5b-968d-06c16639e443",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:295ec68f-40d0-4c9e-b9b1-855959d6eb64"
+      ],
+      "fixtureId": "tanstack-start-onetrust",
+      "framework": "tanstack-start",
+      "id": "943651da-83f4-488d-8016-65afc62cf0d4",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:52a67a36-7ca3-4e89-9865-70b40cf7fe12"
+      ],
+      "fixtureId": "tanstack-start-onetrust",
+      "framework": "tanstack-start",
+      "id": "4dc6d4c9-9cdb-4b0d-9dd1-ce85402d6b23",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:0c96a8f2-9434-4848-ba54-b1447b208998"
+      ],
+      "fixtureId": "tanstack-start-osano",
+      "framework": "tanstack-start",
+      "id": "1356b34d-3894-428d-98e2-69185ae78e47",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:911e4b2f-d610-446a-a56d-57719722f877"
+      ],
+      "fixtureId": "tanstack-start-osano",
+      "framework": "tanstack-start",
+      "id": "e6ff82da-8b0f-4a38-9605-82be3e818234",
+      "mode": "hosted",
+      "reason": "0/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "unknown",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:df1c710c-1b76-49ed-af97-959497431b62"
+      ],
+      "fixtureId": "tanstack-start-osano",
+      "framework": "tanstack-start",
+      "id": "3fa23969-d407-4468-85d3-c2870e658d7d",
+      "mode": "hosted",
+      "reason": "0/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "unknown",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:1175ae75-c93e-4d2f-9599-f7cac21c3434"
+      ],
+      "fixtureId": "tanstack-start-osano",
+      "framework": "tanstack-start",
+      "id": "284d6bcc-6a6d-4ffd-9604-803781a0cdf7",
+      "mode": "hosted",
+      "reason": "0/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "unknown",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:be621d4a-f011-42dc-9a1c-c9b820a0332d"
+      ],
+      "fixtureId": "tanstack-start-usercentrics",
+      "framework": "tanstack-start",
+      "id": "f8e33bbc-a8a1-4874-b18a-c84563030037",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:75c66729-58d9-49aa-8a7c-63d45b067e74"
+      ],
+      "fixtureId": "tanstack-start-usercentrics",
+      "framework": "tanstack-start",
+      "id": "fcdad81f-0e87-4a7e-924f-32fe286c6a58",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:31e6e996-53a6-46e6-8c14-c1ca6df3a69f"
+      ],
+      "fixtureId": "tanstack-start-usercentrics",
+      "framework": "tanstack-start",
+      "id": "9b4a3fe7-b25b-4323-ab12-29281fb5442f",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:02c142aa-b028-4b94-9d1f-d1450e52f1e0"
+      ],
+      "fixtureId": "tanstack-start-usercentrics",
+      "framework": "tanstack-start",
+      "id": "5e14dcbd-df86-4217-9329-a0bc6df76743",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:50.260Z"
+    }
+  ],
+  "failures": [
+    {
+      "sampleId": "911e4b2f-d610-446a-a56d-57719722f877",
+      "code": "restoration-not-ready",
+      "message": "Public consent restoration failed: public-state-not-ready"
+    },
+    {
+      "sampleId": "df1c710c-1b76-49ed-af97-959497431b62",
+      "code": "restoration-not-ready",
+      "message": "Public consent restoration failed: public-state-not-ready"
+    },
+    {
+      "sampleId": "1175ae75-c93e-4d2f-9599-f7cac21c3434",
+      "code": "restoration-not-ready",
+      "message": "Public consent restoration failed: public-state-not-ready"
+    },
+    {
+      "sampleId": "1175ae75-c93e-4d2f-9599-f7cac21c3434",
+      "code": "followup:restoration-not-ready",
+      "message": "Public consent restoration failed: public-state-not-ready"
+    },
+    {
+      "sampleId": "3f81ea9b-5cc5-466f-a811-60d60c7cdfe7",
+      "code": "unsupported-action",
+      "message": "Adapter does not declare the save action"
+    },
+    {
+      "sampleId": "3f81ea9b-5cc5-466f-a811-60d60c7cdfe7",
+      "code": "followup:unsupported-action",
+      "message": "Adapter does not declare the save action"
+    }
+  ],
+  "output": "/vercel/cookiebench/results/2026-10-14/desktop/tanstack-start-correctness/attempt-001/envelope.json",
+  "runId": "0a465e5d-8904-4650-8ea1-07d103374d4c",
+  "samples": 40,
+  "status": "incomplete"
+}

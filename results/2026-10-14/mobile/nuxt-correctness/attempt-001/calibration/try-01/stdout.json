@@ -1,0 +1,38 @@
+{
+  "calibrationId": "cb074435-4a66-46eb-946b-ae4303fe0bfb",
+  "output": "/vercel/cookiebench/results/2026-10-14/mobile/nuxt-correctness/attempt-001/calibration/try-01.json",
+  "results": {
+    "low": 9.19,
+    "mid": 2.34
+  },
+  "status": "passed",
+  "validation": {
+    "baselineScores": [
+      2697,
+      2684,
+      2681.5
+    ],
+    "baselineStable": true,
+    "low": {
+      "eligible": true,
+      "reasons": [],
+      "scores": [
+        275.5,
+        274.5,
+        273
+      ]
+    },
+    "maxRelativeError": 0.15,
+    "maxRelativeSpread": 0.15,
+    "mid": {
+      "eligible": true,
+      "reasons": [],
+      "scores": [
+        1119,
+        995,
+        1074
+      ]
+    },
+    "policy": "cookiebench-cpu-validation-v1"
+  }
+}

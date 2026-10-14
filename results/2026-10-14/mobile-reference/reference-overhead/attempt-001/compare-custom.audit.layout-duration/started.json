@@ -1,0 +1,19 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "results/2026-10-14/mobile-reference/reference-overhead/attempt-001/envelope.json",
+    "--candidate",
+    "results/2026-10-14/mobile-reference/reference-overhead/attempt-001/envelope.json",
+    "--metric",
+    "custom.audit.layout-duration",
+    "--family",
+    "batch:afd2d31c462cb24f619a156d5043c7501761049c35418527290334c98f32416c",
+    "--family-size",
+    "5"
+  ],
+  "cwd": ".",
+  "startedAt": "2026-10-14T19:03:21.218Z"
+}

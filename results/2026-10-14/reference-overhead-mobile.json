@@ -1,0 +1,130 @@
+{
+  "audit": {
+    "custom.audit.task-duration": {
+      "file": "results/2026-10-14/mobile-reference/reference-overhead/attempt-001/compare-custom.audit.task-duration/stdout.json",
+      "full": 63.404,
+      "minimal": 37.059,
+      "paired": {
+        "ci": [
+          21.457000000000008,
+          36.02200000000001
+        ],
+        "ciLevel": 0.995,
+        "conclusion": "candidate-higher",
+        "medianDifference": 26.18399999999999,
+        "pairs": 15
+      },
+      "sha256": "78aed8d57f42a626e9958b8cd5ba37bda459234c8557851bfd748c83ad318e0a"
+    },
+    "custom.audit.script-duration": {
+      "file": "results/2026-10-14/mobile-reference/reference-overhead/attempt-001/compare-custom.audit.script-duration/stdout.json",
+      "full": 14.001,
+      "minimal": 2.927,
+      "paired": {
+        "ci": [
+          9.686,
+          12.468
+        ],
+        "ciLevel": 0.995,
+        "conclusion": "candidate-higher",
+        "medianDifference": 11.105,
+        "pairs": 15
+      },
+      "sha256": "eff896fdf716c483f3d9d5d03f855f5647895da870107e4b06203786ad0bac43"
+    },
+    "custom.audit.layout-duration": {
+      "file": "results/2026-10-14/mobile-reference/reference-overhead/attempt-001/compare-custom.audit.layout-duration/stdout.json",
+      "full": 5.6,
+      "minimal": 5.798,
+      "paired": {
+        "ci": [
+          -1.7060000000000004,
+          0.9339999999999993
+        ],
+        "ciLevel": 0.995,
+        "conclusion": "inconclusive",
+        "medianDifference": -0.5019999999999998,
+        "pairs": 15
+      },
+      "sha256": "19a7084cd2b0243c81dbafbca8b0037c04323c8ca963557660232035aae91a59"
+    },
+    "custom.audit.lcp": {
+      "file": "results/2026-10-14/mobile-reference/reference-overhead/attempt-001/compare-custom.audit.lcp/stdout.json",
+      "full": 364,
+      "minimal": 356,
+      "paired": {
+        "ci": [
+          0,
+          16
+        ],
+        "ciLevel": 0.995,
+        "conclusion": "inconclusive",
+        "medianDifference": 8,
+        "pairs": 15
+      },
+      "sha256": "e5221018f3f9c858a7dcc9637d40b7cc9f8001549ba4678e14df233bddbeae0f"
+    },
+    "custom.audit.observed-window": {
+      "file": "results/2026-10-14/mobile-reference/reference-overhead/attempt-001/compare-custom.audit.observed-window/stdout.json",
+      "full": 1003.1000000000349,
+      "minimal": 1003.2000000000116,
+      "paired": {
+        "ci": [
+          -0.6000000000349246,
+          0.7999999999883585
+        ],
+        "ciLevel": 0.995,
+        "conclusion": "inconclusive",
+        "medianDifference": -0.20000000001164153,
+        "pairs": 15
+      },
+      "sha256": "4813bb852dc76301ce26bd1a508a71e21a3b1f5305c1b7f80aa8e724a2354c31"
+    }
+  },
+  "cpuSlowdown": 2.26,
+  "note": "Minimal versus full collector on the reference page without a CMP. Report separately; do not subtract it from CMP timings.",
+  "provenance": {
+    "collectorVersion": "cookiebench-instrumentation-audit-1.2.0",
+    "cpuSlowdown": 2.26,
+    "createdAt": "2026-10-14T19:03:19.401Z",
+    "entryId": "reference-overhead",
+    "envelopeFile": "results/2026-10-14/mobile-reference/reference-overhead/attempt-001/envelope.json",
+    "envelopeSha256": "beb40e0a57c9883e020785e0dfb0aa3b72942446f17e970340c6dde58751ae98",
+    "indexFile": "results/2026-10-14/mobile-reference/index.json",
+    "indexSha256": "7fb13a9a387bbc468b45181f3730e38a96f1238d5da21266ab20b1587afe7bdb",
+    "manifestId": "2663ed70-5886-4db8-9812-118f0f14868b",
+    "measurementConditions": {
+      "collectorSourceHash": "06fa46f4a5ad9d604051d5ba686f86511a4dda272a8b4be4bfa869153ef12ebc",
+      "cpuCalibration": {
+        "method": "chrome-devtools",
+        "policy": "cookiebench-cpu-validation-v1",
+        "sourceRevision": "933872b3f8520add8c43e30adf00c32622f6bdf4",
+        "sourceSha256": "f3835db080555d9850e2d058f8792eb6b74586d91545fbc88eefad0439cb7836",
+        "tier": "mid"
+      },
+      "cpuSlowdown": null,
+      "host": {
+        "cpu": "Intel(R) Xeon(R) Processor @ 2.90GHz",
+        "platform": "linux",
+        "release": "6.18.49"
+      },
+      "versions": {
+        "browser": "153.0.8010.12",
+        "effect": "4.0.0-rc.117",
+        "node": "v24.21.0",
+        "playwright": "1.63.0",
+        "web-vitals": "6.2.2"
+      }
+    },
+    "methodologyVersion": "cookiebench-instrumentation-overhead-v1",
+    "profile": "mobile-article-v1",
+    "run": "sandbox-matrix-2026-10-14",
+    "scenarios": [
+      {
+        "action": "load",
+        "id": "load",
+        "observationMs": 1000
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "results/2026-10-14/mobile/tanstack-start-load/attempt-001/envelope.json",
+    "--candidate",
+    "results/2026-10-14/mobile/tanstack-start-load/attempt-001/envelope.json",
+    "--metric",
+    "initial.transfer",
+    "--family",
+    "batch:8c513d0fa20a2cb66d00a47fcd29744bd50b7776f92ca9489935fe46cc560fa6",
+    "--family-size",
+    "365"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-14T19:34:32.368Z",
+  "startedAt": "2026-10-14T19:34:23.088Z",
+  "exitCode": 2,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "4f5fee45ac6f80ed7bbf03e46548f21fd3ff9bfb3b2a6b9b5e2b76902e4ce98d"
+}

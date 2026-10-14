@@ -1,0 +1,38 @@
+{
+  "calibrationId": "0500c3ef-75ad-4918-a808-eba5c7bc7611",
+  "output": "/vercel/cookiebench/results/2026-10-14/mobile/tanstack-start-cookie-yes-load/attempt-001/calibration/try-02.json",
+  "results": {
+    "low": 9.18,
+    "mid": 2.5
+  },
+  "status": "passed",
+  "validation": {
+    "baselineScores": [
+      2426,
+      2471.5,
+      2656
+    ],
+    "baselineStable": true,
+    "low": {
+      "eligible": true,
+      "reasons": [],
+      "scores": [
+        269.5,
+        269.5,
+        270
+      ]
+    },
+    "maxRelativeError": 0.15,
+    "maxRelativeSpread": 0.15,
+    "mid": {
+      "eligible": true,
+      "reasons": [],
+      "scores": [
+        1025.5,
+        1041,
+        986
+      ]
+    },
+    "policy": "cookiebench-cpu-validation-v1"
+  }
+}

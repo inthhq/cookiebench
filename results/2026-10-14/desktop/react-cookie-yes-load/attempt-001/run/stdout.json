@@ -1,0 +1,36 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:7d21903b-6e04-4178-ac4a-4ed451fd6f88",
+        "sample:c4cd3cac-2d3c-421c-83c7-a6bd4ea0e26e",
+        "sample:9028f419-56b5-4bc8-b47d-4b1612c407e5",
+        "sample:8e8e8c2c-5304-4024-a6b5-14a3b61eefc7",
+        "sample:50fbd312-7d39-4ee3-87df-c8bc06d81272",
+        "sample:c429eddd-0a42-4751-b939-e81782c39464",
+        "sample:0c9d736b-739f-4b34-adac-ae099df87516",
+        "sample:416586ea-272c-4b90-94b8-a798b6dd1820",
+        "sample:2e1b201c-e9cd-49f8-9e42-b15d5d6e07a0",
+        "sample:702a50b0-2265-4741-91e1-6d30fce2a54b",
+        "sample:56c01629-35a3-43d5-84ad-05fbc29e26c2",
+        "sample:d25d2954-4465-469e-8523-57bbac477e6c",
+        "sample:b083815c-da13-46f7-8547-246765d7ef73",
+        "sample:a9b6419e-a33d-4c7b-82c1-72670d73d425",
+        "sample:a048208e-f49f-4f20-94f4-2a3f0aa46b74"
+      ],
+      "fixtureId": "react-cookie-yes",
+      "framework": "react",
+      "id": "117b22da-21ca-4d9e-a722-15759610ea8d",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:00:10.406Z"
+    }
+  ],
+  "failures": [],
+  "output": "/vercel/cookiebench/results/2026-10-14/desktop/react-cookie-yes-load/attempt-001/envelope.json",
+  "runId": "d844daa6-bfd6-4a34-9195-d0f02c4d6d5f",
+  "samples": 30,
+  "status": "passed"
+}

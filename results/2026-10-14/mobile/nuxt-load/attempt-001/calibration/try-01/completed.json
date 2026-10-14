@@ -1,0 +1,19 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "cpu",
+    "calibrate",
+    "--config",
+    "results/2026-10-14/configs/nuxt-mobile.json",
+    "--output",
+    "results/2026-10-14/mobile/nuxt-load/attempt-001/calibration/try-01.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-14T18:58:23.474Z",
+  "startedAt": "2026-10-14T18:58:16.611Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "bcb864ee0a1385cb80bb551ac0819c9d242f6d9f917f4932c05b3f5ea2001a1c"
+}

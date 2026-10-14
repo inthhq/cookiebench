@@ -1,0 +1,19 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "cpu",
+    "calibrate",
+    "--config",
+    "results/2026-10-14/configs/tanstack-start-mobile.json",
+    "--output",
+    "results/2026-10-14/mobile/tanstack-start-correctness/attempt-001/calibration/try-01.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-14T18:58:51.155Z",
+  "startedAt": "2026-10-14T18:58:43.609Z",
+  "exitCode": 2,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "4ddb7c3ec7c451fade3cedc5fa295d2181061dd3fc0d0918acd094aa1dd6d5e1"
+}

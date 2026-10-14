@@ -1,0 +1,38 @@
+{
+  "calibrationId": "500e3352-4278-4c46-9d88-c3c2ba8db4d1",
+  "output": "/vercel/cookiebench/results/2026-10-14/mobile/nextjs-cookie-yes-load/attempt-001/calibration/try-01.json",
+  "results": {
+    "low": 8.93,
+    "mid": 2.54
+  },
+  "status": "passed",
+  "validation": {
+    "baselineScores": [
+      2654,
+      2622,
+      2616
+    ],
+    "baselineStable": true,
+    "low": {
+      "eligible": true,
+      "reasons": [],
+      "scores": [
+        281.5,
+        278.5,
+        271.5
+      ]
+    },
+    "maxRelativeError": 0.15,
+    "maxRelativeSpread": 0.15,
+    "mid": {
+      "eligible": true,
+      "reasons": [],
+      "scores": [
+        1006,
+        1017.5,
+        963
+      ]
+    },
+    "policy": "cookiebench-cpu-validation-v1"
+  }
+}

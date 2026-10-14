@@ -1,0 +1,488 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:22209109-9179-4fb7-bcd1-373b4900608e"
+      ],
+      "fixtureId": "astro-c15t",
+      "framework": "astro",
+      "id": "fbb8b39c-7b0d-4275-a152-61abd53e55d3",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:6ed7bbf1-4c53-4f97-b92d-03a7dc1a93af"
+      ],
+      "fixtureId": "astro-c15t",
+      "framework": "astro",
+      "id": "a71af610-c785-410a-bbba-1e25d0839936",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:49e154c8-5da9-4d0f-9607-12b945c7b2db"
+      ],
+      "fixtureId": "astro-c15t",
+      "framework": "astro",
+      "id": "31e1f090-8d01-4db5-8b05-34297b56cd54",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:c24a8f13-2a1c-4a1c-a32a-c698dcc8df47"
+      ],
+      "fixtureId": "astro-c15t",
+      "framework": "astro",
+      "id": "4f2ef10e-1ba3-4991-9247-3f746fde59e4",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:057b8f07-eccc-4592-b32d-b47d0a3b40a1"
+      ],
+      "fixtureId": "astro-cookie-control",
+      "framework": "astro",
+      "id": "521cebba-ea0c-452f-862b-a741c976299e",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:ea0112dd-a5a4-42dd-9556-668b763f840f"
+      ],
+      "fixtureId": "astro-cookie-control",
+      "framework": "astro",
+      "id": "619deb85-35a4-47cf-954b-0d5119fd2d28",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:296ed18c-f642-4f51-85a5-893df728091f"
+      ],
+      "fixtureId": "astro-cookie-control",
+      "framework": "astro",
+      "id": "33c0028f-640d-4f26-8c88-9b11e724aebb",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:5d1542c1-b43e-489e-8642-029eb4ac166c"
+      ],
+      "fixtureId": "astro-cookie-control",
+      "framework": "astro",
+      "id": "fa5e8be5-8194-4a22-86b2-d695add423ee",
+      "mode": "hosted",
+      "reason": "0/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "unknown",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:2946de54-0319-4900-b79b-8cbe9ad380c8"
+      ],
+      "fixtureId": "astro-didomi",
+      "framework": "astro",
+      "id": "2f5ebeed-1608-4961-8bc5-6479f185f517",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:a93ddd9c-8788-4066-9a34-c8b330721486"
+      ],
+      "fixtureId": "astro-didomi",
+      "framework": "astro",
+      "id": "18159733-7b48-4c2d-8cbf-1bf0216950d6",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:f8915826-fb2d-4f3c-b4f4-4bcba8fa36cb"
+      ],
+      "fixtureId": "astro-didomi",
+      "framework": "astro",
+      "id": "d63e21a1-4eae-4530-9716-c42ff4d9fba4",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:91614f24-5086-45cd-adb2-611c0b824f53"
+      ],
+      "fixtureId": "astro-didomi",
+      "framework": "astro",
+      "id": "e3f5ce49-b003-4564-bdbd-7b5d28dc87b9",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:2cf149d3-9175-43d8-9fa2-a47ce3259374"
+      ],
+      "fixtureId": "astro-enzuzo",
+      "framework": "astro",
+      "id": "0037f240-8380-406e-8631-65ed2979595a",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:9f64e7af-f1d8-4899-ac06-20cade6db9ce"
+      ],
+      "fixtureId": "astro-enzuzo",
+      "framework": "astro",
+      "id": "b7d00458-8064-4303-be65-c72696f5ba74",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:ee34014e-6540-487a-83da-12de8dc58802"
+      ],
+      "fixtureId": "astro-enzuzo",
+      "framework": "astro",
+      "id": "ff2fffd1-01b0-4347-a2a5-d50b0e3c8b0d",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:dc16e42e-3b79-46b4-a593-13d85deda550"
+      ],
+      "fixtureId": "astro-enzuzo",
+      "framework": "astro",
+      "id": "9fc1ec0b-0875-4d28-b54b-83abf7f5008c",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:6c3557df-6696-439b-9d90-716c30d6ff6b"
+      ],
+      "fixtureId": "astro-iubenda",
+      "framework": "astro",
+      "id": "14c83af2-d3ac-4c12-bcf4-1e017e2a5fb8",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:e3d48e5b-d008-40a5-82d7-4f0389e6b28a"
+      ],
+      "fixtureId": "astro-iubenda",
+      "framework": "astro",
+      "id": "c1940f25-99d2-4dba-b48f-7771590265b0",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:7a9130bc-e112-4a4a-963c-4e267ae654d9"
+      ],
+      "fixtureId": "astro-iubenda",
+      "framework": "astro",
+      "id": "2f676e30-1616-412a-839b-65303a2cbb4f",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:d2e5d2fa-6fd1-45b8-a4b9-bcbc14545e53"
+      ],
+      "fixtureId": "astro-iubenda",
+      "framework": "astro",
+      "id": "13eadfdf-91cd-4d3a-83f0-9e5da6e1e830",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:fdfb0d0a-1e12-4e8e-933c-9a675eee6441"
+      ],
+      "fixtureId": "astro-ketch",
+      "framework": "astro",
+      "id": "8f68b7f9-00fd-4a51-a712-7a0457a89a47",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:87a2a81e-2253-42cd-917a-8ffcd40dac23"
+      ],
+      "fixtureId": "astro-ketch",
+      "framework": "astro",
+      "id": "ed775b46-6b55-4d7a-9fb1-99c38c3d7cc8",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:b57184d2-f779-4839-a00b-74c6473d03e4"
+      ],
+      "fixtureId": "astro-ketch",
+      "framework": "astro",
+      "id": "df318cd5-6790-4627-aa18-830057f3a996",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:3f8fcb61-acc1-4043-8cf8-36f3d1a003ff"
+      ],
+      "fixtureId": "astro-ketch",
+      "framework": "astro",
+      "id": "4fd4faff-e5bd-4463-8ba9-37df95b37fd1",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:731b94f8-fcae-486c-9c00-d000ff742887"
+      ],
+      "fixtureId": "astro-onetrust",
+      "framework": "astro",
+      "id": "22c72d95-004f-43ee-9e98-773ed75a7b5f",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:119a68ca-3f0e-4755-a264-f1fc94fe5fbd"
+      ],
+      "fixtureId": "astro-onetrust",
+      "framework": "astro",
+      "id": "e7d1c5f1-8c59-461f-bd9d-e2809fce49b3",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:fe28196e-21fe-431b-8932-54451f870c70"
+      ],
+      "fixtureId": "astro-onetrust",
+      "framework": "astro",
+      "id": "6187a804-8897-4b3b-bff0-c7c18c7e2386",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:38f5f9ee-e997-431a-8bb9-d8aff5610b02"
+      ],
+      "fixtureId": "astro-onetrust",
+      "framework": "astro",
+      "id": "b90d894e-d44b-4861-b2f9-e2a1aca85ce6",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:77259909-d207-450e-98e3-0399173619b6"
+      ],
+      "fixtureId": "astro-osano",
+      "framework": "astro",
+      "id": "812d22b2-bde1-4e91-ac5b-f0e16ab2cb44",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:e600d97f-b7cd-4a46-9725-a27b9fea7a94"
+      ],
+      "fixtureId": "astro-osano",
+      "framework": "astro",
+      "id": "c5e0cd42-e9dc-48d3-be83-3b9b8cfd6f18",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:8bd6d624-84b5-481f-a6a5-72ebacdd84f7"
+      ],
+      "fixtureId": "astro-osano",
+      "framework": "astro",
+      "id": "8ba38e9d-bf1b-43f5-82d6-1e8dfb0e1283",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:87ed7556-c5b3-4057-b81e-6d34b7f5877f"
+      ],
+      "fixtureId": "astro-osano",
+      "framework": "astro",
+      "id": "7df7e454-f809-4a2d-a1a0-fa00dd0b26ec",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:36ed4e29-7ae6-4908-902a-54424d8d5b4a"
+      ],
+      "fixtureId": "astro-usercentrics",
+      "framework": "astro",
+      "id": "234f87d6-069d-439b-b091-b41eec216839",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:212ca246-479b-492a-92e9-5e84aacef17d"
+      ],
+      "fixtureId": "astro-usercentrics",
+      "framework": "astro",
+      "id": "c70130d8-55ff-43a0-88e0-6cacdcd3c50d",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:ba279d9f-89ac-4421-a22a-0c441d18a576"
+      ],
+      "fixtureId": "astro-usercentrics",
+      "framework": "astro",
+      "id": "77884935-8104-441d-a8e3-2f8f00b44620",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:70fcb582-a8bd-4a04-8432-1959edee829e"
+      ],
+      "fixtureId": "astro-usercentrics",
+      "framework": "astro",
+      "id": "9d62ae61-437e-405c-a110-614fa7eb8410",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:03:21.805Z"
+    }
+  ],
+  "failures": [
+    {
+      "sampleId": "5d1542c1-b43e-489e-8642-029eb4ac166c",
+      "code": "unsupported-action",
+      "message": "Adapter does not declare the save action"
+    },
+    {
+      "sampleId": "5d1542c1-b43e-489e-8642-029eb4ac166c",
+      "code": "followup:unsupported-action",
+      "message": "Adapter does not declare the save action"
+    }
+  ],
+  "output": "/vercel/cookiebench/results/2026-10-14/desktop/astro-correctness/attempt-001/envelope.json",
+  "runId": "57c4e04f-ec86-40b6-882a-42681806b806",
+  "samples": 40,
+  "status": "incomplete"
+}

@@ -1,0 +1,95 @@
+{
+  "status": "passed",
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "comparisons": [
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.600000000005821,
+        "mean": 5.546666666667443,
+        "measured": 15,
+        "median": 5.5,
+        "min": 4.7000000000116415,
+        "missing": 0,
+        "p75": 6.05000000000291,
+        "passed": 15
+      },
+      "baselineFixtureId": "astro-baseline-registered-host",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 7.69999999999709,
+        "mean": 5.633333333332363,
+        "measured": 15,
+        "median": 5.2000000000116415,
+        "min": 4.7999999999883585,
+        "missing": 0,
+        "p75": 6.150000000008731,
+        "passed": 15
+      },
+      "candidateFixtureId": "astro-cookie-yes",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 1.6999999999970896,
+          "level": 0.9997916666666666,
+          "low": -1.2000000000116415,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": -0.39999999999417923,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 2.3999999999941792,
+            "level": 0.9997916666666666,
+            "low": -1.5000052083332556,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": 0.10000000000582077
+        },
+        "pairDifferenceP75": 0.8499999999912689
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    }
+  ],
+  "metricKey": "page.ttfb",
+  "multiplicity": {
+    "comparisons": 120,
+    "family": "sandbox-2026-10-14:desktop:ttfb-fcp",
+    "familyLevel": 0.95,
+    "intervalLevel": 0.9997916666666666,
+    "intervals": 240,
+    "method": "bonferroni"
+  },
+  "sourceRunIds": [
+    "ce7e8c74-8222-4f32-9e94-addfe705e981"
+  ]
+}

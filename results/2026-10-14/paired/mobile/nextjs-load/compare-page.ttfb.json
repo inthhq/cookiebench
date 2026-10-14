@@ -1,0 +1,691 @@
+{
+  "status": "incomplete",
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "comparisons": [
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 5.100000000093132,
+        "mean": 4.193333333311602,
+        "measured": 15,
+        "median": 4.300000000046566,
+        "min": 3.699999999953434,
+        "missing": 0,
+        "p75": 4.4500000000116415,
+        "passed": 15
+      },
+      "baselineFixtureId": "nextjs-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 19.099999999976717,
+        "mean": 14.480000000004656,
+        "measured": 15,
+        "median": 14.20000000006985,
+        "min": 12.400000000139698,
+        "missing": 0,
+        "p75": 15.249999999941792,
+        "passed": 15
+      },
+      "candidateFixtureId": "nextjs-c15t",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "local",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 11.899999999906868,
+          "level": 0.9997916666666666,
+          "low": 7.800000000279397,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 10.200000000186265,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 14.599999999976717,
+            "level": 0.9997916666666666,
+            "low": 8.65000000002327,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": 10.79999999993015
+        },
+        "pairDifferenceP75": 11.350000000093132
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 5.100000000093132,
+        "mean": 4.193333333311602,
+        "measured": 15,
+        "median": 4.300000000046566,
+        "min": 3.699999999953434,
+        "missing": 0,
+        "p75": 4.4500000000116415,
+        "passed": 15
+      },
+      "baselineFixtureId": "nextjs-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 4.899999999906868,
+        "mean": 4.466666666651145,
+        "measured": 15,
+        "median": 4.399999999906868,
+        "min": 3.900000000023283,
+        "missing": 0,
+        "p75": 4.749999999941792,
+        "passed": 15
+      },
+      "candidateFixtureId": "nextjs-cookie-control",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 0.7000000001862645,
+          "level": 0.9997916666666666,
+          "low": -0.5,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 0.4000000001396984,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 0.9499999998370185,
+            "level": 0.9997916666666666,
+            "low": -0.8000000001629815,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": 0.2999999999301508
+        },
+        "pairDifferenceP75": 0.6499999999068677
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 5.100000000093132,
+        "mean": 4.193333333311602,
+        "measured": 15,
+        "median": 4.300000000046566,
+        "min": 3.699999999953434,
+        "missing": 0,
+        "p75": 4.4500000000116415,
+        "passed": 15
+      },
+      "baselineFixtureId": "nextjs-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 5.099999999976717,
+        "mean": 4.459999999986031,
+        "measured": 15,
+        "median": 4.300000000046566,
+        "min": 4,
+        "missing": 0,
+        "p75": 4.649999999906868,
+        "passed": 15
+      },
+      "candidateFixtureId": "nextjs-didomi",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 0.6000000000931323,
+          "level": 0.9997916666666666,
+          "low": -0.30000000004656613,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 0.40000000002328306,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 0.6999999999534339,
+            "level": 0.9997916666666666,
+            "low": -0.8000000000465661,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": 0.1999999998952262
+        },
+        "pairDifferenceP75": 0.5500000001047738
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 5.100000000093132,
+        "mean": 4.193333333311602,
+        "measured": 15,
+        "median": 4.300000000046566,
+        "min": 3.699999999953434,
+        "missing": 0,
+        "p75": 4.4500000000116415,
+        "passed": 15
+      },
+      "baselineFixtureId": "nextjs-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 4.900000000023283,
+        "mean": 4.433333333333334,
+        "measured": 15,
+        "median": 4.5,
+        "min": 3.800000000046566,
+        "missing": 0,
+        "p75": 4.600000000034925,
+        "passed": 15
+      },
+      "candidateFixtureId": "nextjs-enzuzo",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Observed remote script/style/config URL or decoded-body digest changed within this comparison cell; artifact identity remains provisional."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 15,
+        "medianDifference": 0.2999999999301508,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": 0.15000000002328306
+        },
+        "pairDifferenceP75": 0.5500000000465661
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 5.100000000093132,
+        "mean": 4.193333333311602,
+        "measured": 15,
+        "median": 4.300000000046566,
+        "min": 3.699999999953434,
+        "missing": 0,
+        "p75": 4.4500000000116415,
+        "passed": 15
+      },
+      "baselineFixtureId": "nextjs-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 4.900000000023283,
+        "mean": 4.246666666640279,
+        "measured": 15,
+        "median": 4.199999999953434,
+        "min": 3.8999999999068677,
+        "missing": 0,
+        "p75": 4.549999999930151,
+        "passed": 15
+      },
+      "candidateFixtureId": "nextjs-iubenda",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 0.8000000000465661,
+          "level": 0.9997916666666666,
+          "low": -0.5999999998603016,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 0.09999999986030161,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 0.7999999999301508,
+            "level": 0.9997916666666666,
+            "low": -1.0000000001164275,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": 0.09999999991850927
+        },
+        "pairDifferenceP75": 0.49999999994179234
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 5.100000000093132,
+        "mean": 4.193333333311602,
+        "measured": 15,
+        "median": 4.300000000046566,
+        "min": 3.699999999953434,
+        "missing": 0,
+        "p75": 4.4500000000116415,
+        "passed": 15
+      },
+      "baselineFixtureId": "nextjs-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 5.799999999930151,
+        "mean": 4.533333333333333,
+        "measured": 15,
+        "median": 4.399999999906868,
+        "min": 3.8999999999068677,
+        "missing": 0,
+        "p75": 4.75,
+        "passed": 15
+      },
+      "candidateFixtureId": "nextjs-ketch",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Observed remote script/style/config URL or decoded-body digest changed within this comparison cell; artifact identity remains provisional."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 15,
+        "medianDifference": 0.5,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": 0.29999999998835847
+        },
+        "pairDifferenceP75": 0.8500000000931323
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 5.100000000093132,
+        "mean": 4.193333333311602,
+        "measured": 15,
+        "median": 4.300000000046566,
+        "min": 3.699999999953434,
+        "missing": 0,
+        "p75": 4.4500000000116415,
+        "passed": 15
+      },
+      "baselineFixtureId": "nextjs-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 5.100000000093132,
+        "mean": 4.506666666680636,
+        "measured": 15,
+        "median": 4.5,
+        "min": 3.9000000001396984,
+        "missing": 0,
+        "p75": 4.75,
+        "passed": 15
+      },
+      "candidateFixtureId": "nextjs-onetrust",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 0.900000000372529,
+          "level": 0.9997916666666666,
+          "low": -0.19999999995343387,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 0.2999999998137355,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 1.2000052085197046,
+            "level": 0.9997916666666666,
+            "low": -0.6000000000931323,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": 0.29999999998835847
+        },
+        "pairDifferenceP75": 0.5000000001164153
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 5.100000000093132,
+        "mean": 4.193333333311602,
+        "measured": 15,
+        "median": 4.300000000046566,
+        "min": 3.699999999953434,
+        "missing": 0,
+        "p75": 4.4500000000116415,
+        "passed": 15
+      },
+      "baselineFixtureId": "nextjs-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 4.900000000023283,
+        "mean": 4.35999999998603,
+        "measured": 15,
+        "median": 4.5,
+        "min": 3.8999999999068677,
+        "missing": 0,
+        "p75": 4.650000000023283,
+        "passed": 15
+      },
+      "candidateFixtureId": "nextjs-osano",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 0.7000000001862645,
+          "level": 0.9997916666666666,
+          "low": -0.5000000001164153,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 0.30000000004656613,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 0.6999999999534339,
+            "level": 0.9997916666666666,
+            "low": -0.5,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": 0.20000000001164153
+        },
+        "pairDifferenceP75": 0.5
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 5.100000000093132,
+        "mean": 4.193333333311602,
+        "measured": 15,
+        "median": 4.300000000046566,
+        "min": 3.699999999953434,
+        "missing": 0,
+        "p75": 4.4500000000116415,
+        "passed": 15
+      },
+      "baselineFixtureId": "nextjs-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.300000000046566,
+        "mean": 4.5533333333519606,
+        "measured": 15,
+        "median": 4.5,
+        "min": 3.9000000001396984,
+        "missing": 0,
+        "p75": 4.600000000093132,
+        "passed": 15
+      },
+      "candidateFixtureId": "nextjs-usercentrics",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 0.8000000002793968,
+          "level": 0.9997916666666666,
+          "low": -0.19999999972060323,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 0.2999999998137355,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 2,
+            "level": 0.9997916666666666,
+            "low": -0.39999999990686774,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": 0.15000000008149073
+        },
+        "pairDifferenceP75": 0.5
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    }
+  ],
+  "metricKey": "page.ttfb",
+  "multiplicity": {
+    "comparisons": 120,
+    "family": "sandbox-2026-10-14:mobile:ttfb-fcp",
+    "familyLevel": 0.95,
+    "intervalLevel": 0.9997916666666666,
+    "intervals": 240,
+    "method": "bonferroni"
+  },
+  "sourceRunIds": [
+    "744d5e87-2029-4fa3-995f-067485175bb2"
+  ]
+}

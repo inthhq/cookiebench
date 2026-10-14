@@ -1,0 +1,44 @@
+{
+  "calibrationId": "deb84dfd-8284-4267-9343-7e7269bd3d9e",
+  "output": "/vercel/cookiebench/results/2026-10-14/mobile/tanstack-start-correctness/attempt-001/calibration/try-01.json",
+  "results": {
+    "low": 8.91,
+    "mid": 2.42
+  },
+  "status": "incomplete",
+  "validation": {
+    "baselineScores": [
+      1599,
+      1624.5,
+      2197
+    ],
+    "baselineStable": false,
+    "low": {
+      "eligible": false,
+      "reasons": [
+        "Unthrottled scores varied by more than 15% of their median.",
+        "Validation scores varied by more than 15% of their median."
+      ],
+      "scores": [
+        277.5,
+        273.5,
+        165
+      ]
+    },
+    "maxRelativeError": 0.15,
+    "maxRelativeSpread": 0.15,
+    "mid": {
+      "eligible": false,
+      "reasons": [
+        "Unthrottled scores varied by more than 15% of their median.",
+        "Validation scores varied by more than 15% of their median."
+      ],
+      "scores": [
+        896,
+        1049,
+        1079
+      ]
+    },
+    "policy": "cookiebench-cpu-validation-v1"
+  }
+}

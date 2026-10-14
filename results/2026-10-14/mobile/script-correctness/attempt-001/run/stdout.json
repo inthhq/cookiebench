@@ -1,0 +1,498 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:7ffbddab-e984-4a95-a096-8546adedca8e"
+      ],
+      "fixtureId": "script-tag-c15t-inth-init",
+      "framework": "script-tag",
+      "id": "9b2a2f5a-cf63-4568-bbd7-bb27cfa80efa",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.465Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:ffe97409-0573-4efb-9a26-1659ca07460d"
+      ],
+      "fixtureId": "script-tag-c15t-inth-init",
+      "framework": "script-tag",
+      "id": "58eaeeca-e0b0-4890-b6d9-a0e7cbc1a426",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.465Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:66d59a0c-8411-4e81-9b7d-1b87139c4283"
+      ],
+      "fixtureId": "script-tag-c15t-inth-init",
+      "framework": "script-tag",
+      "id": "88ee7705-6b56-4191-b1ff-80f9ac8a380a",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.465Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:c9ffb33d-59e5-4b39-bdbc-1bf8f4720fd2"
+      ],
+      "fixtureId": "script-tag-c15t-inth-init",
+      "framework": "script-tag",
+      "id": "61f94abd-413d-4e70-b790-a5d3c98d0df1",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.465Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:b6091d07-7d0e-484d-a097-40319ab4f100"
+      ],
+      "fixtureId": "script-tag-cookie-control",
+      "framework": "script-tag",
+      "id": "8bc2cad3-b0f5-4f1d-bac3-4b3babdd2164",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.465Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:8232fa84-49ba-4b34-b1b8-49079c076f1d"
+      ],
+      "fixtureId": "script-tag-cookie-control",
+      "framework": "script-tag",
+      "id": "6b27ef3b-c780-4010-aaa6-5a7ec0f23e06",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.465Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:a21ad653-ca89-4bda-99d3-a2996f2e27ca"
+      ],
+      "fixtureId": "script-tag-cookie-control",
+      "framework": "script-tag",
+      "id": "b775985d-dc24-48d0-8d38-4a7ea400f928",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.465Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:339081f0-ec7e-493f-a64f-27ec58b7d641"
+      ],
+      "fixtureId": "script-tag-cookie-control",
+      "framework": "script-tag",
+      "id": "cc427d0f-2951-4703-a97d-45f531bddc6b",
+      "mode": "hosted",
+      "reason": "0/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "unknown",
+      "verifiedAt": "2026-10-14T19:08:34.465Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:c56ba796-6ec6-4d4e-a72d-cf6d04373b48"
+      ],
+      "fixtureId": "script-tag-didomi",
+      "framework": "script-tag",
+      "id": "781bd21a-d998-4e30-87df-7d1eed8670e9",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.465Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:b0a6b38a-214e-4073-8cfc-db77eeb0c917"
+      ],
+      "fixtureId": "script-tag-didomi",
+      "framework": "script-tag",
+      "id": "afd81ae2-4753-4809-b179-0b3229aee746",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:77bb094f-2ab9-4178-9ee8-f0d47a7e3465"
+      ],
+      "fixtureId": "script-tag-didomi",
+      "framework": "script-tag",
+      "id": "d358def2-8daf-435e-9c17-9d1958152c1f",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:8a29353b-e590-482e-bacc-0d6a56072b91"
+      ],
+      "fixtureId": "script-tag-didomi",
+      "framework": "script-tag",
+      "id": "f4d3c826-beb5-4c6f-8bdc-533a24d2a2fa",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:e8311aed-39f6-4e62-b311-ca2c4d901ea7"
+      ],
+      "fixtureId": "script-tag-enzuzo",
+      "framework": "script-tag",
+      "id": "c5ef685d-8501-48cd-8a65-21c660be3c70",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:84dc77ca-559a-4728-8051-4f52e51f3bab"
+      ],
+      "fixtureId": "script-tag-enzuzo",
+      "framework": "script-tag",
+      "id": "1292e9e8-85ec-40c5-818a-0a8513bf066e",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:4bf8487e-c0da-47d5-b9a1-729041243fbb"
+      ],
+      "fixtureId": "script-tag-enzuzo",
+      "framework": "script-tag",
+      "id": "472fe69f-b158-4e76-9677-2a94d07187e8",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:bb8ffc74-1a11-4e23-9a0a-16e6e857d6ba"
+      ],
+      "fixtureId": "script-tag-enzuzo",
+      "framework": "script-tag",
+      "id": "52dad96c-dd86-4d88-9d62-b7b78fe63ff9",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:915469b6-bfe2-402c-98a9-4816d39572f0"
+      ],
+      "fixtureId": "script-tag-iubenda",
+      "framework": "script-tag",
+      "id": "8040d5bf-d149-416b-b32e-9bf294630a52",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:274f93d1-53f1-48fb-93e0-908b56be797f"
+      ],
+      "fixtureId": "script-tag-iubenda",
+      "framework": "script-tag",
+      "id": "3b15b339-fae5-4de0-bde8-2846745ab147",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:0c18e76d-675c-4713-bbe7-484745f0ffc7"
+      ],
+      "fixtureId": "script-tag-iubenda",
+      "framework": "script-tag",
+      "id": "a6b75e2a-882a-4f05-a977-26f38b131b80",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:d3281609-f0a2-4d2e-b251-23992828e281"
+      ],
+      "fixtureId": "script-tag-iubenda",
+      "framework": "script-tag",
+      "id": "272a4164-f4ad-46da-bc61-115d2f38e409",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:45064761-9cc7-485c-b3ff-f9ded328b250"
+      ],
+      "fixtureId": "script-tag-ketch",
+      "framework": "script-tag",
+      "id": "58b9e5d9-c64e-4180-81bc-6f45191d0dd3",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:193ead48-75e6-4488-b508-89b5ebb4db75"
+      ],
+      "fixtureId": "script-tag-ketch",
+      "framework": "script-tag",
+      "id": "d034adaa-ce55-4e80-8f10-b761b902834c",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:5d512f78-be1b-4f41-bb33-80ac77d29ca3"
+      ],
+      "fixtureId": "script-tag-ketch",
+      "framework": "script-tag",
+      "id": "e6ada427-a2e7-4b8d-9381-816fcfd5f0bc",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:a91c84b4-d559-45fe-b536-83379662005f"
+      ],
+      "fixtureId": "script-tag-ketch",
+      "framework": "script-tag",
+      "id": "fddb635a-e64d-4769-b790-4566c0cf6d8b",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:909d2d01-3d4f-4a5d-be43-11d2080f1247"
+      ],
+      "fixtureId": "script-tag-onetrust",
+      "framework": "script-tag",
+      "id": "3145d924-5aac-4b02-8374-76b7b95d0d51",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:7092b2fb-5dc3-4721-bd76-a211fb1383a1"
+      ],
+      "fixtureId": "script-tag-onetrust",
+      "framework": "script-tag",
+      "id": "70951c41-0e75-42ce-8bc9-c1f594eb9a86",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:f1efee28-3802-420f-a8e5-ba1fcdfcd694"
+      ],
+      "fixtureId": "script-tag-onetrust",
+      "framework": "script-tag",
+      "id": "32c79814-2ab6-4fb3-9065-c6324afcb19f",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:88c10241-9127-4f69-91fa-83c2bc9c2a1c"
+      ],
+      "fixtureId": "script-tag-onetrust",
+      "framework": "script-tag",
+      "id": "904eccba-49c5-42ea-9b6e-4a8aff6abef2",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:9e1c29f3-3072-4f40-b0f9-40abb8932c22"
+      ],
+      "fixtureId": "script-tag-osano",
+      "framework": "script-tag",
+      "id": "3a6c7bab-f0df-485f-b7fd-71c7253fc515",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:f3da0c21-f360-459e-bd09-3d931a98d7c7"
+      ],
+      "fixtureId": "script-tag-osano",
+      "framework": "script-tag",
+      "id": "f023771f-5ece-4881-a72f-5156c2ef63ca",
+      "mode": "hosted",
+      "reason": "0/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "failed",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:f7363c11-8fb5-4171-89a2-234744bccc87"
+      ],
+      "fixtureId": "script-tag-osano",
+      "framework": "script-tag",
+      "id": "1ee8f3df-aa6a-4c71-8835-29c49cf72b73",
+      "mode": "hosted",
+      "reason": "0/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "failed",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:841c2143-5178-490b-9b23-ac529037a43b"
+      ],
+      "fixtureId": "script-tag-osano",
+      "framework": "script-tag",
+      "id": "3c56694e-5a09-4efb-824a-ac3e079d1da2",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:867a2010-211f-4eb0-9302-7d05a7e558f9"
+      ],
+      "fixtureId": "script-tag-usercentrics",
+      "framework": "script-tag",
+      "id": "c440319d-cd60-4cb8-9ec7-1033a05c14a3",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:c284826a-77a7-4846-9a75-22e8ac58af33"
+      ],
+      "fixtureId": "script-tag-usercentrics",
+      "framework": "script-tag",
+      "id": "5b853190-4318-4ad4-a10e-e311c93005dc",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:886ecafb-4b36-4396-8125-6e290d35e0e7"
+      ],
+      "fixtureId": "script-tag-usercentrics",
+      "framework": "script-tag",
+      "id": "3fd21298-793d-45e7-80aa-4b762cc3b3dd",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:2aee6eb9-07ec-401c-bb24-1df876e9d04b"
+      ],
+      "fixtureId": "script-tag-usercentrics",
+      "framework": "script-tag",
+      "id": "9a85e8f0-5200-403c-b59a-922c4e27f7f2",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:08:34.466Z"
+    }
+  ],
+  "failures": [
+    {
+      "sampleId": "f3da0c21-f360-459e-bd09-3d931a98d7c7",
+      "code": "followup:page-unresponsive",
+      "message": "Page control did not respond after the consent action"
+    },
+    {
+      "sampleId": "f7363c11-8fb5-4171-89a2-234744bccc87",
+      "code": "followup:page-unresponsive",
+      "message": "Page control did not respond after the consent action"
+    },
+    {
+      "sampleId": "339081f0-ec7e-493f-a64f-27ec58b7d641",
+      "code": "unsupported-action",
+      "message": "Adapter does not declare the save action"
+    },
+    {
+      "sampleId": "339081f0-ec7e-493f-a64f-27ec58b7d641",
+      "code": "followup:unsupported-action",
+      "message": "Adapter does not declare the save action"
+    }
+  ],
+  "output": "/vercel/cookiebench/results/2026-10-14/mobile/script-correctness/attempt-001/envelope.json",
+  "runId": "46a43f84-507d-4231-8491-147ca7a13121",
+  "samples": 40,
+  "status": "incomplete"
+}

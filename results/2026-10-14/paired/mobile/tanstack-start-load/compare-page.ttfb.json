@@ -1,0 +1,691 @@
+{
+  "status": "incomplete",
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "comparisons": [
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.099999999860302,
+        "mean": 5.146666666648039,
+        "measured": 15,
+        "median": 5.099999999976717,
+        "min": 4.599999999860302,
+        "missing": 0,
+        "p75": 5.349999999976717,
+        "passed": 15
+      },
+      "baselineFixtureId": "tanstack-start-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 14.5,
+        "mean": 11.013333333330229,
+        "measured": 15,
+        "median": 10.899999999906868,
+        "min": 9.599999999860302,
+        "missing": 0,
+        "p75": 11.200000000011642,
+        "passed": 15
+      },
+      "candidateFixtureId": "tanstack-start-c15t",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "local",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 7.5,
+          "level": 0.9997916666666666,
+          "low": 4.7000000001862645,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 5.800000000046566,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 8.400000000139698,
+            "level": 0.9997916666666666,
+            "low": 4.900000000023283,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": 5.850000000034925
+        },
+        "pairDifferenceP75": 6.2000000000116415
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.099999999860302,
+        "mean": 5.146666666648039,
+        "measured": 15,
+        "median": 5.099999999976717,
+        "min": 4.599999999860302,
+        "missing": 0,
+        "p75": 5.349999999976717,
+        "passed": 15
+      },
+      "baselineFixtureId": "tanstack-start-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.800000000046566,
+        "mean": 5.593333333342646,
+        "measured": 15,
+        "median": 5.5,
+        "min": 4.799999999930151,
+        "missing": 0,
+        "p75": 5.900000000023283,
+        "passed": 15
+      },
+      "candidateFixtureId": "tanstack-start-cookie-control",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 1.5,
+          "level": 0.9997916666666666,
+          "low": -0.10000000009313226,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 0.30000000004656613,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 1.8999999999068677,
+            "level": 0.9997916666666666,
+            "low": -0.2999999999301508,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": 0.5500000000465661
+        },
+        "pairDifferenceP75": 0.6000000000931323
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.099999999860302,
+        "mean": 5.146666666648039,
+        "measured": 15,
+        "median": 5.099999999976717,
+        "min": 4.599999999860302,
+        "missing": 0,
+        "p75": 5.349999999976717,
+        "passed": 15
+      },
+      "baselineFixtureId": "tanstack-start-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 5.900000000023283,
+        "mean": 5.400000000015521,
+        "measured": 15,
+        "median": 5.300000000046566,
+        "min": 4.900000000139698,
+        "missing": 0,
+        "p75": 5.650000000023283,
+        "passed": 15
+      },
+      "candidateFixtureId": "tanstack-start-didomi",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 1.0000000002328306,
+          "level": 0.9997916666666666,
+          "low": -0.49999999976716936,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 0.2000000000698492,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 0.9999999998835847,
+            "level": 0.9997916666666666,
+            "low": -0.7999999998137355,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": 0.30000000004656613
+        },
+        "pairDifferenceP75": 0.6999999998370185
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.099999999860302,
+        "mean": 5.146666666648039,
+        "measured": 15,
+        "median": 5.099999999976717,
+        "min": 4.599999999860302,
+        "missing": 0,
+        "p75": 5.349999999976717,
+        "passed": 15
+      },
+      "baselineFixtureId": "tanstack-start-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.100000000093132,
+        "mean": 5.486666666669771,
+        "measured": 15,
+        "median": 5.599999999860302,
+        "min": 4.900000000139698,
+        "missing": 0,
+        "p75": 5.650000000023283,
+        "passed": 15
+      },
+      "candidateFixtureId": "tanstack-start-enzuzo",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Observed remote script/style/config URL or decoded-body digest changed within this comparison cell; artifact identity remains provisional."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 15,
+        "medianDifference": 0.39999999990686774,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": 0.30000000004656613
+        },
+        "pairDifferenceP75": 0.6999999999534339
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.099999999860302,
+        "mean": 5.146666666648039,
+        "measured": 15,
+        "median": 5.099999999976717,
+        "min": 4.599999999860302,
+        "missing": 0,
+        "p75": 5.349999999976717,
+        "passed": 15
+      },
+      "baselineFixtureId": "tanstack-start-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.699999999953434,
+        "mean": 5.386666666654249,
+        "measured": 15,
+        "median": 5.300000000046566,
+        "min": 4.5,
+        "missing": 0,
+        "p75": 5.599999999918509,
+        "passed": 15
+      },
+      "candidateFixtureId": "tanstack-start-iubenda",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 1.7000000001862645,
+          "level": 0.9997916666666666,
+          "low": -0.40000000002328306,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 0.19999999995343387,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 1.7500052082752444,
+            "level": 0.9997916666666666,
+            "low": -0.9999999997671694,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": 0.24999999994179234
+        },
+        "pairDifferenceP75": 0.40000000002328306
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.099999999860302,
+        "mean": 5.146666666648039,
+        "measured": 15,
+        "median": 5.099999999976717,
+        "min": 4.599999999860302,
+        "missing": 0,
+        "p75": 5.349999999976717,
+        "passed": 15
+      },
+      "baselineFixtureId": "tanstack-start-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.400000000139698,
+        "mean": 5.646666666686845,
+        "measured": 15,
+        "median": 5.599999999976717,
+        "min": 5.099999999976717,
+        "missing": 0,
+        "p75": 5.900000000081491,
+        "passed": 15
+      },
+      "candidateFixtureId": "tanstack-start-ketch",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Observed remote script/style/config URL or decoded-body digest changed within this comparison cell; artifact identity remains provisional."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 15,
+        "medianDifference": 0.40000000002328306,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": 0.5500000001047738
+        },
+        "pairDifferenceP75": 0.6999999999534339
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.099999999860302,
+        "mean": 5.146666666648039,
+        "measured": 15,
+        "median": 5.099999999976717,
+        "min": 4.599999999860302,
+        "missing": 0,
+        "p75": 5.349999999976717,
+        "passed": 15
+      },
+      "baselineFixtureId": "tanstack-start-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 7,
+        "mean": 5.573333333331782,
+        "measured": 15,
+        "median": 5.400000000023283,
+        "min": 4.899999999906868,
+        "missing": 0,
+        "p75": 5.950000000069849,
+        "passed": 15
+      },
+      "candidateFixtureId": "tanstack-start-onetrust",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 1.3000000002793968,
+          "level": 0.9997916666666666,
+          "low": -0.19999999995343387,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 0.30000000004656613,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 1.8999999999068677,
+            "level": 0.9997916666666666,
+            "low": -0.19999999995343387,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": 0.6000000000931323
+        },
+        "pairDifferenceP75": 0.7000000000116415
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.099999999860302,
+        "mean": 5.146666666648039,
+        "measured": 15,
+        "median": 5.099999999976717,
+        "min": 4.599999999860302,
+        "missing": 0,
+        "p75": 5.349999999976717,
+        "passed": 15
+      },
+      "baselineFixtureId": "tanstack-start-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 7.100000000093132,
+        "mean": 5.759999999978269,
+        "measured": 15,
+        "median": 5.5,
+        "min": 5,
+        "missing": 0,
+        "p75": 6.099999999976717,
+        "passed": 15
+      },
+      "candidateFixtureId": "tanstack-start-osano",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 1.8000000000465661,
+          "level": 0.9997916666666666,
+          "low": -0.39999999990686774,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 0.4999999998835847,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 2.150000000023283,
+            "level": 0.9997916666666666,
+            "low": -0.6999999999534339,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": 0.75
+        },
+        "pairDifferenceP75": 1.0000000001164153
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.099999999860302,
+        "mean": 5.146666666648039,
+        "measured": 15,
+        "median": 5.099999999976717,
+        "min": 4.599999999860302,
+        "missing": 0,
+        "p75": 5.349999999976717,
+        "passed": 15
+      },
+      "baselineFixtureId": "tanstack-start-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 6.699999999953434,
+        "mean": 5.633333333348855,
+        "measured": 15,
+        "median": 5.400000000139698,
+        "min": 5,
+        "missing": 0,
+        "p75": 5.900000000023283,
+        "passed": 15
+      },
+      "candidateFixtureId": "tanstack-start-usercentrics",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 1.5,
+          "level": 0.9997916666666666,
+          "low": -0.19999999995343387,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 96000
+        },
+        "count": 15,
+        "medianDifference": 0.4000000001396984,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 1.7000052083450876,
+            "level": 0.9997916666666666,
+            "low": -0.7499999997671694,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 96000
+          },
+          "estimate": 0.5500000000465661
+        },
+        "pairDifferenceP75": 0.7000000001280569
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    }
+  ],
+  "metricKey": "page.ttfb",
+  "multiplicity": {
+    "comparisons": 120,
+    "family": "sandbox-2026-10-14:mobile:ttfb-fcp",
+    "familyLevel": 0.95,
+    "intervalLevel": 0.9997916666666666,
+    "intervals": 240,
+    "method": "bonferroni"
+  },
+  "sourceRunIds": [
+    "f38a25f8-ed69-4e7a-9fe2-c0b9e638dce5"
+  ]
+}

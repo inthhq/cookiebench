@@ -1,0 +1,31 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "instrumentation",
+    "audit",
+    "--config",
+    "results/2026-10-14/configs/reference-overhead-mobile.json",
+    "--scenario",
+    "load",
+    "--iterations",
+    "15",
+    "--warmups",
+    "3",
+    "--seed",
+    "20261009",
+    "--cpu-calibration",
+    "results/2026-10-14/mobile/reference-overhead/attempt-001/cpu-calibration.json",
+    "--cpu-tier",
+    "mid",
+    "--output",
+    "results/2026-10-14/mobile/reference-overhead/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-14T18:59:00.513Z",
+  "startedAt": "2026-10-14T18:58:59.877Z",
+  "exitCode": 1,
+  "signal": null,
+  "stderrSha256": "a1ff80181d0174bcddbdbfd40f3d1e57985c7c42a0bd75a6b709e14a782fe3d3",
+  "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

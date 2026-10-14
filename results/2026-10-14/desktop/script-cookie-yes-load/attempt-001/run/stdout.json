@@ -1,0 +1,36 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:52550b42-d625-40db-b892-1611052a1b2f",
+        "sample:73bf36ef-87ca-4f1c-90b5-37b768f3d4b9",
+        "sample:83d06b1f-ef68-4e2e-bd5f-a78558d73a97",
+        "sample:ab812fe8-41d1-429a-b847-a64f8794a958",
+        "sample:ace94c38-8312-4e5e-b147-4ea1d97834f4",
+        "sample:6760f7dd-81b4-421c-864d-c39380d26621",
+        "sample:22de7b0b-b16c-4b08-9acf-fac404508af2",
+        "sample:e791d438-7f0f-4a89-ae1f-da4d6981b295",
+        "sample:a8eda2e9-b03f-4871-9543-f29b0956b28d",
+        "sample:c9f1319e-885c-4ccb-875c-41e6bf91c2d8",
+        "sample:c55e8006-5662-4ce3-8626-fb5912d309c5",
+        "sample:5c9b6145-2628-47a8-925b-a0ff8291d56e",
+        "sample:37690dcc-7b2d-433d-afb9-413fad75c4eb",
+        "sample:48c1f65e-3cb7-495b-a654-4616f82e772e",
+        "sample:ccf5ac01-8922-415b-94f7-4117cf662394"
+      ],
+      "fixtureId": "script-tag-cookie-yes",
+      "framework": "script-tag",
+      "id": "e2ff1460-12a4-49e6-bfb4-ac7f4cf09998",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T18:59:59.602Z"
+    }
+  ],
+  "failures": [],
+  "output": "/vercel/cookiebench/results/2026-10-14/desktop/script-cookie-yes-load/attempt-001/envelope.json",
+  "runId": "64af2664-1841-4f51-950c-cbfdef551b7e",
+  "samples": 30,
+  "status": "passed"
+}

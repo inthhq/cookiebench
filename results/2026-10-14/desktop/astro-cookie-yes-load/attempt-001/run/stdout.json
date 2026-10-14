@@ -1,0 +1,36 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:213f4902-8f70-4419-a0c2-a7fa31d4be5f",
+        "sample:f4e53a22-9ea4-443a-9d82-dc9543f55282",
+        "sample:08330ac4-ba90-4876-9056-1f0fc63ac5bb",
+        "sample:69f78b6b-e421-44f4-b021-2754747672ab",
+        "sample:25cf87b1-34de-4a1b-999e-3e06b020fde8",
+        "sample:253c89be-c56a-43cc-af6b-2cc9008395f5",
+        "sample:5ae97f57-e0d3-4433-b083-93d1091f09a2",
+        "sample:31c49731-87b4-45ea-b3b6-2452d88e318a",
+        "sample:e8a60114-aaaf-4e1f-910c-1623f4644c3b",
+        "sample:3a0824a7-88fb-4450-8033-33ccd454427f",
+        "sample:35f31890-0e6a-4f78-bfa1-dad929e57b1c",
+        "sample:1a49ccaf-45e2-435d-b8ca-1fd6f57692bf",
+        "sample:c11dad09-f30e-40bc-a35b-10755d8471ac",
+        "sample:7e9a1668-e1c1-4c33-8b38-4f2a6951dbb2",
+        "sample:8f5d4c52-f0b2-48f3-8729-e26f206e53e9"
+      ],
+      "fixtureId": "astro-cookie-yes",
+      "framework": "astro",
+      "id": "66b80577-4770-49c8-938a-f08ed1dd0069",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T19:00:54.200Z"
+    }
+  ],
+  "failures": [],
+  "output": "/vercel/cookiebench/results/2026-10-14/desktop/astro-cookie-yes-load/attempt-001/envelope.json",
+  "runId": "ce7e8c74-8222-4f32-9e94-addfe705e981",
+  "samples": 30,
+  "status": "passed"
+}
