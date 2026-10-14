@@ -1,0 +1,67 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:104c5d21-6bbb-4d76-8301-a9d95c274b58"
+      ],
+      "fixtureId": "nuxt-c15t",
+      "framework": "nuxt",
+      "id": "810e58b3-9d07-412d-83cb-1c1bc9a26d2d",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T21:02:29.173Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:d9cb2c63-ad1c-4fc4-b001-efb3033a4c54"
+      ],
+      "fixtureId": "nuxt-c15t",
+      "framework": "nuxt",
+      "id": "8b618fa2-26a7-4fed-a188-86fead6d0538",
+      "mode": "manifest",
+      "reason": "0/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "unknown",
+      "verifiedAt": "2026-10-14T21:02:29.173Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:11288683-d4b8-4a8f-8109-2e57c85aab58"
+      ],
+      "fixtureId": "nuxt-c15t",
+      "framework": "nuxt",
+      "id": "8c9226b6-cb17-47d7-b7d1-c72274b097bb",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T21:02:29.173Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:3fea92dc-c19b-437d-a81a-227f52ddd6c3"
+      ],
+      "fixtureId": "nuxt-c15t",
+      "framework": "nuxt",
+      "id": "3c0847b1-310d-4f16-a4fc-f64e24256d98",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T21:02:29.173Z"
+    }
+  ],
+  "failures": [
+    {
+      "sampleId": "d9cb2c63-ad1c-4fc4-b001-efb3033a4c54",
+      "code": "server-cold-encoding",
+      "message": "The fixture server compressed 1 uncached representation(s) during this sample: /_nuxt/u1uK5oeJ.js (9 ms)"
+    }
+  ],
+  "output": "/Users/kayleewilliams/.t3/worktrees/cookiebench/t3-9310a3fd/results/2026-10-14-v3-c15t/desktop/nuxt-correctness/attempt-001/envelope.json",
+  "runId": "918193ce-dbd0-4c62-99a7-06e8410e6a09",
+  "samples": 8,
+  "status": "incomplete"
+}

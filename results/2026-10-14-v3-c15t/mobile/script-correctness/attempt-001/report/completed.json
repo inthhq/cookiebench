@@ -1,0 +1,16 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "report",
+    "--file",
+    "results/2026-10-14-v3-c15t/mobile/script-correctness/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-14T22:13:19.747Z",
+  "startedAt": "2026-10-14T22:13:19.529Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "09917c83cba45d84897179ccaa79f4517f34612f6dc941e5207b74e6bbd3c85b"
+}

@@ -1,0 +1,36 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:c5d86f6d-9631-4ea2-ac22-32d7bbf97313",
+        "sample:0fa89f8f-2293-41ee-b0c3-05b3858ac972",
+        "sample:a87530f7-2f3f-4e57-9382-9efebf0e12dd",
+        "sample:42f014df-0233-481e-9f29-366b2babfd5a",
+        "sample:d27351f9-0aa4-480d-97c8-112e37e00df4",
+        "sample:4015293a-0cd5-45e8-834e-ff70f3828e15",
+        "sample:a848413c-2951-43e4-b2f8-06b251c4a953",
+        "sample:4610e63d-7b62-4c7c-95fd-d356bae6a761",
+        "sample:78213df7-fdfc-4fa1-8932-10140d507e55",
+        "sample:083c174e-41fd-4753-b307-a13dcf5e8e01",
+        "sample:ed2208e6-82f2-4ca9-81ce-382e8acaf0a0",
+        "sample:03f29218-9f89-453c-9b2d-b9fc761c0a8e",
+        "sample:51612ac0-aa90-40a4-9e62-6272d871bbc9",
+        "sample:cbd8c089-aa88-4dad-bf9c-abb0c20ed26c",
+        "sample:1e62d6e3-9d5d-4354-a3b5-7dfd33eca7a4"
+      ],
+      "fixtureId": "astro-c15t",
+      "framework": "astro",
+      "id": "598502ab-12f5-4867-bc48-6a433a251e66",
+      "mode": "manifest",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T22:02:47.111Z"
+    }
+  ],
+  "failures": [],
+  "output": "/Users/kayleewilliams/.t3/worktrees/cookiebench/t3-9310a3fd/results/2026-10-14-v3-c15t/mobile/astro-load/attempt-001/envelope.json",
+  "runId": "22dc1024-16f8-409a-9b22-a7ba966d108a",
+  "samples": 30,
+  "status": "passed"
+}

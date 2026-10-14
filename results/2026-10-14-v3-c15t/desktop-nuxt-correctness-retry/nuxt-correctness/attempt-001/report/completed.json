@@ -1,0 +1,16 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "report",
+    "--file",
+    "results/2026-10-14-v3-c15t/desktop-nuxt-correctness-retry/nuxt-correctness/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-14T22:17:44.658Z",
+  "startedAt": "2026-10-14T22:17:44.443Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "1fb139454aaecb3b89a92f056e428213b5eff9bd1bb13feec6af48bd1e44955a"
+}

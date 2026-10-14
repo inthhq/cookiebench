@@ -1,0 +1,24 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "results/2026-10-14-v3-c15t/desktop/script-load/attempt-001/envelope.json",
+    "--candidate",
+    "results/2026-10-14-v3-c15t/desktop/script-load/attempt-001/envelope.json",
+    "--metric",
+    "initial.decoded-body",
+    "--family",
+    "batch:3231889dd6c7c74b9cf9fc2b1a281ecb3b28e48e83dabfb7b55996196fac0750",
+    "--family-size",
+    "36"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-14T21:20:07.064Z",
+  "startedAt": "2026-10-14T21:20:06.784Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "021d73338f887805bef26d49b02e4aebfb8632a7d351a2731e039446054ca3a9"
+}

@@ -1,0 +1,2115 @@
+{
+  "alpha11-desktop": {
+    "conditions": {
+      "complete": true,
+      "completedAt": "2026-10-11T22:24:38.484Z",
+      "collectorSourceHash": "c2520e37a4b74af246fe893d06281c9b40aa24bfe76c475664f16aed8363623a",
+      "cpuCalibration": null,
+      "cpuSlowdown": 1,
+      "host": {
+        "cpu": "Apple M1 Pro",
+        "platform": "darwin",
+        "release": "25.6.0"
+      },
+      "versions": {
+        "browser": "153.0.8010.12",
+        "effect": "4.0.0-rc.117",
+        "node": "v24.21.0",
+        "playwright": "1.63.0",
+        "web-vitals": "6.2.2"
+      }
+    },
+    "frameworks": {
+      "react": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 80,
+            "page.fcp": 40,
+            "page.ttfb": 1.5,
+            "page.primary-content-paint": 80,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 551860,
+            "initial.requests": 7,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 100,
+            "page.fcp": 56,
+            "page.ttfb": 1.4000000953674316,
+            "page.primary-content-paint": 100,
+            "page.cls": 0,
+            "banner.visible": 223.40000009536743,
+            "initial.transfer": 649267,
+            "initial.requests": 14,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 16,
+            "low": 16,
+            "high": 20,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 97407,
+            "low": 97406,
+            "high": 97407,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": {
+          "passed": 4,
+          "attempts": 4,
+          "baselinePassed": 4,
+          "baselineAttempts": 4,
+          "inp": {
+            "accept": 32,
+            "reject": 40,
+            "save": 16
+          }
+        }
+      },
+      "nextjs": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 84,
+            "page.fcp": 32,
+            "page.ttfb": 3.3000001907348633,
+            "page.primary-content-paint": 84,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 613040,
+            "initial.requests": 10,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 92,
+            "page.fcp": 44,
+            "page.ttfb": 8.799999713897705,
+            "page.primary-content-paint": 92,
+            "page.cls": 0,
+            "banner.visible": 26.5,
+            "initial.transfer": 716973,
+            "initial.requests": 16,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 8,
+            "low": 8,
+            "high": 16,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 103933,
+            "low": 103927,
+            "high": 103982,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": {
+          "passed": 4,
+          "attempts": 4,
+          "baselinePassed": 4,
+          "baselineAttempts": 4,
+          "inp": {
+            "accept": 40,
+            "reject": 40,
+            "save": 16
+          }
+        }
+      },
+      "tanstack-start": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 84,
+            "page.fcp": 32,
+            "page.ttfb": 3.8000001907348633,
+            "page.primary-content-paint": 84,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 589826,
+            "initial.requests": 7,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 92,
+            "page.fcp": 40,
+            "page.ttfb": 7.099999904632568,
+            "page.primary-content-paint": 92,
+            "page.cls": 0,
+            "banner.visible": 25.09999990463257,
+            "initial.transfer": 699759,
+            "initial.requests": 18,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 20,
+            "low": 8,
+            "high": 20,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 109933,
+            "low": 109931,
+            "high": 109945,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": {
+          "passed": 4,
+          "attempts": 4,
+          "baselinePassed": 4,
+          "baselineAttempts": 4,
+          "inp": {
+            "accept": 32,
+            "reject": 48,
+            "save": 16
+          }
+        }
+      },
+      "nuxt": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 84,
+            "page.fcp": 28,
+            "page.ttfb": 2.9000000953674316,
+            "page.primary-content-paint": 84,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 552975,
+            "initial.requests": 9,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 104,
+            "page.fcp": 36,
+            "page.ttfb": 7,
+            "page.primary-content-paint": 104,
+            "page.cls": 0,
+            "banner.visible": 17,
+            "initial.transfer": 665544,
+            "initial.requests": 36,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 20,
+            "low": 8,
+            "high": 24,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 112569,
+            "low": 112568,
+            "high": 112597,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": {
+          "passed": 4,
+          "attempts": 4,
+          "baselinePassed": 4,
+          "baselineAttempts": 4,
+          "inp": {
+            "accept": 40,
+            "reject": 32,
+            "save": 16
+          }
+        }
+      },
+      "astro": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 76,
+            "page.fcp": 28,
+            "page.ttfb": 3,
+            "page.primary-content-paint": 76,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 497948,
+            "initial.requests": 4,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 84,
+            "page.fcp": 36,
+            "page.ttfb": 5.099999904632568,
+            "page.primary-content-paint": 84,
+            "page.cls": 0,
+            "banner.visible": 14.599999904632568,
+            "initial.transfer": 568941,
+            "initial.requests": 11,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 8,
+            "low": 4,
+            "high": 16,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 70993,
+            "low": 70992,
+            "high": 71039,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": {
+          "passed": 4,
+          "attempts": 4,
+          "baselinePassed": 4,
+          "baselineAttempts": 4,
+          "inp": {
+            "accept": 40,
+            "reject": 40,
+            "save": 16
+          }
+        }
+      },
+      "script": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 76,
+            "page.fcp": 28,
+            "page.ttfb": 1.5,
+            "page.primary-content-paint": 76,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 499392,
+            "initial.requests": 6,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 80,
+            "page.fcp": 28,
+            "page.ttfb": 1.5,
+            "page.primary-content-paint": 80,
+            "page.cls": 0,
+            "banner.visible": 240.2000002861023,
+            "initial.transfer": 583349,
+            "initial.requests": 9,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 4,
+            "low": 4,
+            "high": 8,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 83957,
+            "low": 83948,
+            "high": 83958,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": {
+          "passed": 4,
+          "attempts": 4,
+          "baselinePassed": 4,
+          "baselineAttempts": 4,
+          "inp": {
+            "accept": 48,
+            "reject": 48,
+            "save": 32
+          }
+        }
+      }
+    }
+  },
+  "alpha11-mobile": {
+    "conditions": {
+      "complete": true,
+      "completedAt": "2026-10-11T23:16:23.322Z",
+      "collectorSourceHash": "c2520e37a4b74af246fe893d06281c9b40aa24bfe76c475664f16aed8363623a",
+      "cpuCalibration": null,
+      "cpuSlowdown": 4,
+      "host": {
+        "cpu": "Apple M1 Pro",
+        "platform": "darwin",
+        "release": "25.6.0"
+      },
+      "versions": {
+        "browser": "153.0.8010.12",
+        "effect": "4.0.0-rc.117",
+        "node": "v24.21.0",
+        "playwright": "1.63.0",
+        "web-vitals": "6.2.2"
+      }
+    },
+    "flowConditions": {
+      "complete": true,
+      "completedAt": "2026-10-11T23:34:32.180Z",
+      "collectorSourceHash": "f359851e4f7b15d549e882d641cd3205f71af1a18aebd8f02f4fc5b2eb21eb1d",
+      "cpuCalibration": null,
+      "cpuSlowdown": 4,
+      "host": {
+        "cpu": "Apple M1 Pro",
+        "platform": "darwin",
+        "release": "25.6.0"
+      },
+      "versions": {
+        "browser": "153.0.8010.12",
+        "effect": "4.0.0-rc.117",
+        "node": "v24.21.0",
+        "playwright": "1.63.0",
+        "web-vitals": "6.2.2"
+      }
+    },
+    "frameworks": {
+      "react": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 3324,
+            "page.fcp": 700,
+            "page.ttfb": 1.4000000953674316,
+            "page.primary-content-paint": 3324,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 551860,
+            "initial.requests": 7,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 3856,
+            "page.fcp": 1100,
+            "page.ttfb": 1.4000000953674316,
+            "page.primary-content-paint": 3856,
+            "page.cls": 0,
+            "banner.visible": 1131.2999997138977,
+            "initial.transfer": 649267,
+            "initial.requests": 14,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 532,
+            "low": 520,
+            "high": 552,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 97407,
+            "low": 97406,
+            "high": 97407,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": {
+          "passed": 4,
+          "attempts": 4,
+          "baselinePassed": 4,
+          "baselineAttempts": 4,
+          "inp": {
+            "accept": 56,
+            "reject": 48,
+            "save": 24
+          }
+        }
+      },
+      "nextjs": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 3424,
+            "page.fcp": 224,
+            "page.ttfb": 3.4000000953674316,
+            "page.primary-content-paint": 3424,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 613042,
+            "initial.requests": 10,
+            "initial.long-task-blocking": 17
+          },
+          "c15t": {
+            "page.lcp": 3824,
+            "page.fcp": 236,
+            "page.ttfb": 8.400000095367432,
+            "page.primary-content-paint": 3824,
+            "page.cls": 0,
+            "banner.visible": 239.7000002861023,
+            "initial.transfer": 716976,
+            "initial.requests": 16,
+            "initial.long-task-blocking": 17
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 400,
+            "low": 396,
+            "high": 400,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 103934,
+            "low": 103929,
+            "high": 103979,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": {
+          "passed": 4,
+          "attempts": 4,
+          "baselinePassed": 4,
+          "baselineAttempts": 4,
+          "inp": {
+            "accept": 64,
+            "reject": 48,
+            "save": 32
+          }
+        }
+      },
+      "tanstack-start": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 3308,
+            "page.fcp": 228,
+            "page.ttfb": 3.9000000953674316,
+            "page.primary-content-paint": 3308,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 589826,
+            "initial.requests": 7,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 3740,
+            "page.fcp": 252,
+            "page.ttfb": 6.800000190734863,
+            "page.primary-content-paint": 3740,
+            "page.cls": 0,
+            "banner.visible": 261,
+            "initial.transfer": 699759,
+            "initial.requests": 18,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 432,
+            "low": 428,
+            "high": 447.72361111109785,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 109933,
+            "low": 109931,
+            "high": 109935,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": {
+          "passed": 4,
+          "attempts": 4,
+          "baselinePassed": 4,
+          "baselineAttempts": 4,
+          "inp": {
+            "accept": 56,
+            "reject": 48,
+            "save": 24
+          }
+        }
+      },
+      "nuxt": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 3140,
+            "page.fcp": 228,
+            "page.ttfb": 3.200000286102295,
+            "page.primary-content-paint": 3140,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 552975,
+            "initial.requests": 9,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 3660,
+            "page.fcp": 244,
+            "page.ttfb": 7.5,
+            "page.primary-content-paint": 3660,
+            "page.cls": 0,
+            "banner.visible": 240.80000019073486,
+            "initial.transfer": 665570,
+            "initial.requests": 36,
+            "initial.long-task-blocking": 20
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 520,
+            "low": 504,
+            "high": 524,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 112595,
+            "low": 112568,
+            "high": 112599,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": {
+          "passed": 4,
+          "attempts": 4,
+          "baselinePassed": 4,
+          "baselineAttempts": 4,
+          "inp": {
+            "accept": 48,
+            "reject": 48,
+            "save": 16
+          }
+        }
+      },
+      "astro": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 2840,
+            "page.fcp": 228,
+            "page.ttfb": 3.4000000953674316,
+            "page.primary-content-paint": 2840,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 497948,
+            "initial.requests": 4,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 3176,
+            "page.fcp": 260,
+            "page.ttfb": 5.400000095367432,
+            "page.primary-content-paint": 3176,
+            "page.cls": 0,
+            "banner.visible": 260.2999997138977,
+            "initial.transfer": 568941,
+            "initial.requests": 11,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 336,
+            "low": 324,
+            "high": 340,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 70993,
+            "low": 70993,
+            "high": 71038,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": {
+          "passed": 4,
+          "attempts": 4,
+          "baselinePassed": 4,
+          "baselineAttempts": 4,
+          "inp": {
+            "accept": 48,
+            "reject": 48,
+            "save": 16
+          }
+        }
+      },
+      "script": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 2856,
+            "page.fcp": 224,
+            "page.ttfb": 1.5,
+            "page.primary-content-paint": 2856,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 499392,
+            "initial.requests": 6,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 3292,
+            "page.fcp": 224,
+            "page.ttfb": 1.5,
+            "page.primary-content-paint": 3292,
+            "page.cls": 0,
+            "banner.visible": 1504.8000001907349,
+            "initial.transfer": 583269,
+            "initial.requests": 9,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 436,
+            "low": 428,
+            "high": 448,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 83877,
+            "low": 83877,
+            "high": 83878,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": {
+          "passed": 4,
+          "attempts": 4,
+          "baselinePassed": 4,
+          "baselineAttempts": 4,
+          "inp": {
+            "accept": 64,
+            "reject": 40,
+            "save": 16
+          }
+        }
+      }
+    }
+  },
+  "v3-desktop": {
+    "conditions": {
+      "complete": true,
+      "completedAt": "2026-10-14T21:21:08.004Z",
+      "collectorSourceHash": "f359851e4f7b15d549e882d641cd3205f71af1a18aebd8f02f4fc5b2eb21eb1d",
+      "cpuCalibration": null,
+      "cpuSlowdown": 1,
+      "host": {
+        "cpu": "Apple M1 Pro",
+        "platform": "darwin",
+        "release": "25.6.0"
+      },
+      "versions": {
+        "browser": "153.0.8010.12",
+        "effect": "4.0.0-rc.117",
+        "node": "v24.21.0",
+        "playwright": "1.63.0",
+        "web-vitals": "6.2.2"
+      }
+    },
+    "frameworks": {
+      "react": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 80,
+            "page.fcp": 40,
+            "page.ttfb": 1.5,
+            "page.primary-content-paint": 80,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 551860,
+            "initial.requests": 7,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 96,
+            "page.fcp": 56,
+            "page.ttfb": 1.3999996185302734,
+            "page.primary-content-paint": 96,
+            "page.cls": 0,
+            "banner.visible": 240.39999961853027,
+            "initial.transfer": 649322,
+            "initial.requests": 14,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 16,
+            "low": 16,
+            "high": 20,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 97462,
+            "low": 97462,
+            "high": 97463,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": {
+          "passed": 4,
+          "attempts": 4,
+          "baselinePassed": 4,
+          "baselineAttempts": 4,
+          "inp": {
+            "accept": 48,
+            "reject": 48,
+            "save": 16
+          }
+        }
+      },
+      "nextjs": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 72,
+            "page.fcp": 28,
+            "page.ttfb": 3.1999998092651367,
+            "page.primary-content-paint": 72,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 613071,
+            "initial.requests": 10,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 92,
+            "page.fcp": 40,
+            "page.ttfb": 8.300000190734863,
+            "page.primary-content-paint": 92,
+            "page.cls": 0,
+            "banner.visible": 25.40000057220459,
+            "initial.transfer": 717150,
+            "initial.requests": 16,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 16,
+            "low": 8,
+            "high": 24,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 104079,
+            "low": 104031,
+            "high": 104083,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": {
+          "passed": 4,
+          "attempts": 4,
+          "baselinePassed": 4,
+          "baselineAttempts": 4,
+          "inp": {
+            "accept": 40,
+            "reject": 32,
+            "save": 16
+          }
+        }
+      },
+      "tanstack-start": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 84,
+            "page.fcp": 28,
+            "page.ttfb": 3.6000003814697266,
+            "page.primary-content-paint": 84,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 589853,
+            "initial.requests": 7,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 88,
+            "page.fcp": 40,
+            "page.ttfb": 6.799999237060547,
+            "page.primary-content-paint": 88,
+            "page.cls": 0,
+            "banner.visible": 24.100000381469727,
+            "initial.transfer": 699967,
+            "initial.requests": 18,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 4,
+            "low": -4,
+            "high": 8,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 110114,
+            "low": 110113,
+            "high": 110115,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": {
+          "passed": 4,
+          "attempts": 4,
+          "baselinePassed": 4,
+          "baselineAttempts": 4,
+          "inp": {
+            "accept": 32,
+            "reject": 32,
+            "save": 16
+          }
+        }
+      },
+      "nuxt": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 80,
+            "page.fcp": 28,
+            "page.ttfb": 2.8000001907348633,
+            "page.primary-content-paint": 80,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 552976,
+            "initial.requests": 9,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 88,
+            "page.fcp": 36,
+            "page.ttfb": 6.300000190734863,
+            "page.primary-content-paint": 88,
+            "page.cls": 0,
+            "banner.visible": 15.800000190734863,
+            "initial.transfer": 665665,
+            "initial.requests": 36,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 12,
+            "low": 4,
+            "high": 24,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 112688,
+            "low": 112684,
+            "high": 112692,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": {
+          "passed": 3,
+          "attempts": 4,
+          "baselinePassed": 4,
+          "baselineAttempts": 4,
+          "inp": {
+            "accept": null,
+            "reject": 40,
+            "save": 16
+          }
+        }
+      },
+      "astro": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 68,
+            "page.fcp": 28,
+            "page.ttfb": 2.8000001907348633,
+            "page.primary-content-paint": 68,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 497948,
+            "initial.requests": 4,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 68,
+            "page.fcp": 36,
+            "page.ttfb": 5,
+            "page.primary-content-paint": 68,
+            "page.cls": 0,
+            "banner.visible": 14.299999237060547,
+            "initial.transfer": 569018,
+            "initial.requests": 11,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 4,
+            "low": -8,
+            "high": 16,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 71070,
+            "low": 71069,
+            "high": 71071,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": {
+          "passed": 4,
+          "attempts": 4,
+          "baselinePassed": 4,
+          "baselineAttempts": 4,
+          "inp": {
+            "accept": 24,
+            "reject": 32,
+            "save": 16
+          }
+        }
+      },
+      "script": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 76,
+            "page.fcp": 28,
+            "page.ttfb": 1.3999996185302734,
+            "page.primary-content-paint": 76,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 499392,
+            "initial.requests": 6,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 80,
+            "page.fcp": 28,
+            "page.ttfb": 1.3999996185302734,
+            "page.primary-content-paint": 80,
+            "page.cls": 0,
+            "banner.visible": 256.69999980926514,
+            "initial.transfer": 583369,
+            "initial.requests": 9,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 4,
+            "low": 4,
+            "high": 4,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 83977,
+            "low": 83969,
+            "high": 83977,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": {
+          "passed": 4,
+          "attempts": 4,
+          "baselinePassed": 4,
+          "baselineAttempts": 4,
+          "inp": {
+            "accept": 48,
+            "reject": 40,
+            "save": 16
+          }
+        }
+      }
+    }
+  },
+  "v3-mobile": {
+    "conditions": {
+      "complete": true,
+      "completedAt": "2026-10-14T22:13:19.754Z",
+      "collectorSourceHash": "f359851e4f7b15d549e882d641cd3205f71af1a18aebd8f02f4fc5b2eb21eb1d",
+      "cpuCalibration": null,
+      "cpuSlowdown": 4,
+      "host": {
+        "cpu": "Apple M1 Pro",
+        "platform": "darwin",
+        "release": "25.6.0"
+      },
+      "versions": {
+        "browser": "153.0.8010.12",
+        "effect": "4.0.0-rc.117",
+        "node": "v24.21.0",
+        "playwright": "1.63.0",
+        "web-vitals": "6.2.2"
+      }
+    },
+    "frameworks": {
+      "react": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 3316,
+            "page.fcp": 692,
+            "page.ttfb": 1.5,
+            "page.primary-content-paint": 3316,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 551860,
+            "initial.requests": 7,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 3840,
+            "page.fcp": 1084,
+            "page.ttfb": 1.4000005722045898,
+            "page.primary-content-paint": 3840,
+            "page.cls": 0,
+            "banner.visible": 1113.7999992370605,
+            "initial.transfer": 649403,
+            "initial.requests": 14,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 532,
+            "low": 508,
+            "high": 548,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 97543,
+            "low": 97543,
+            "high": 97544,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": {
+          "passed": 4,
+          "attempts": 4,
+          "baselinePassed": 4,
+          "baselineAttempts": 4,
+          "inp": {
+            "accept": 48,
+            "reject": 48,
+            "save": 24
+          }
+        }
+      },
+      "nextjs": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 3424,
+            "page.fcp": 224,
+            "page.ttfb": 3.200000762939453,
+            "page.primary-content-paint": 3424,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 613073,
+            "initial.requests": 10,
+            "initial.long-task-blocking": 11
+          },
+          "c15t": {
+            "page.lcp": 3824,
+            "page.fcp": 236,
+            "page.ttfb": 8.300000190734863,
+            "page.primary-content-paint": 3824,
+            "page.cls": 0,
+            "banner.visible": 253.0999994277954,
+            "initial.transfer": 717105,
+            "initial.requests": 16,
+            "initial.long-task-blocking": 11
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 400,
+            "low": 392,
+            "high": 404,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 104032,
+            "low": 104030,
+            "high": 104074.37430555542,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": {
+          "passed": 4,
+          "attempts": 4,
+          "baselinePassed": 4,
+          "baselineAttempts": 4,
+          "inp": {
+            "accept": 48,
+            "reject": 48,
+            "save": 24
+          }
+        }
+      },
+      "tanstack-start": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 3308,
+            "page.fcp": 224,
+            "page.ttfb": 3.8000001907348633,
+            "page.primary-content-paint": 3308,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 589853,
+            "initial.requests": 7,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 3740,
+            "page.fcp": 252,
+            "page.ttfb": 7.40000057220459,
+            "page.primary-content-paint": 3740,
+            "page.cls": 0,
+            "banner.visible": 261.30000019073486,
+            "initial.transfer": 699968,
+            "initial.requests": 18,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 440,
+            "low": 424,
+            "high": 448,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 110115,
+            "low": 110114,
+            "high": 110125,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": {
+          "passed": 4,
+          "attempts": 4,
+          "baselinePassed": 4,
+          "baselineAttempts": 4,
+          "inp": {
+            "accept": 56,
+            "reject": 48,
+            "save": 24
+          }
+        }
+      },
+      "nuxt": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 3124,
+            "page.fcp": 220,
+            "page.ttfb": 3,
+            "page.primary-content-paint": 3124,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 552975,
+            "initial.requests": 9,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 3656,
+            "page.fcp": 236,
+            "page.ttfb": 6.59999942779541,
+            "page.primary-content-paint": 3656,
+            "page.cls": 0,
+            "banner.visible": 236.89999961853027,
+            "initial.transfer": 665664,
+            "initial.requests": 36,
+            "initial.long-task-blocking": 15
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 532,
+            "low": 516,
+            "high": 552,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 112688,
+            "low": 112684,
+            "high": 112692,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": {
+          "passed": 4,
+          "attempts": 4,
+          "baselinePassed": 4,
+          "baselineAttempts": 4,
+          "inp": {
+            "accept": 48,
+            "reject": 48,
+            "save": 16
+          }
+        }
+      },
+      "astro": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 2840,
+            "page.fcp": 220,
+            "page.ttfb": 3.09999942779541,
+            "page.primary-content-paint": 2840,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 497948,
+            "initial.requests": 4,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 3176,
+            "page.fcp": 248,
+            "page.ttfb": 5.300000190734863,
+            "page.primary-content-paint": 3176,
+            "page.cls": 0,
+            "banner.visible": 253.60000038146973,
+            "initial.transfer": 569018,
+            "initial.requests": 11,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 332,
+            "low": 328,
+            "high": 336,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 71070,
+            "low": 71070,
+            "high": 71071,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": {
+          "passed": 4,
+          "attempts": 4,
+          "baselinePassed": 4,
+          "baselineAttempts": 4,
+          "inp": {
+            "accept": 48,
+            "reject": 40,
+            "save": 16
+          }
+        }
+      },
+      "script": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 2860,
+            "page.fcp": 220,
+            "page.ttfb": 1.4000005722045898,
+            "page.primary-content-paint": 2860,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 499392,
+            "initial.requests": 6,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 3292,
+            "page.fcp": 220,
+            "page.ttfb": 1.3999996185302734,
+            "page.primary-content-paint": 3292,
+            "page.cls": 0,
+            "banner.visible": 1505,
+            "initial.transfer": 583368,
+            "initial.requests": 9,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 432,
+            "low": 428,
+            "high": 436,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 83976,
+            "low": 83967,
+            "high": 83977,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": {
+          "passed": 4,
+          "attempts": 4,
+          "baselinePassed": 4,
+          "baselineAttempts": 4,
+          "inp": {
+            "accept": 64,
+            "reject": 56,
+            "save": 16
+          }
+        }
+      }
+    }
+  },
+  "v3-desktop-nuxt-retry": {
+    "conditions": {
+      "complete": true,
+      "completedAt": "2026-10-14T21:21:08.004Z",
+      "collectorSourceHash": "f359851e4f7b15d549e882d641cd3205f71af1a18aebd8f02f4fc5b2eb21eb1d",
+      "cpuCalibration": null,
+      "cpuSlowdown": 1,
+      "host": {
+        "cpu": "Apple M1 Pro",
+        "platform": "darwin",
+        "release": "25.6.0"
+      },
+      "versions": {
+        "browser": "153.0.8010.12",
+        "effect": "4.0.0-rc.117",
+        "node": "v24.21.0",
+        "playwright": "1.63.0",
+        "web-vitals": "6.2.2"
+      }
+    },
+    "flowConditions": {
+      "complete": true,
+      "completedAt": "2026-10-14T22:17:44.660Z",
+      "collectorSourceHash": "f359851e4f7b15d549e882d641cd3205f71af1a18aebd8f02f4fc5b2eb21eb1d",
+      "cpuCalibration": null,
+      "cpuSlowdown": 1,
+      "host": {
+        "cpu": "Apple M1 Pro",
+        "platform": "darwin",
+        "release": "25.6.0"
+      },
+      "versions": {
+        "browser": "153.0.8010.12",
+        "effect": "4.0.0-rc.117",
+        "node": "v24.21.0",
+        "playwright": "1.63.0",
+        "web-vitals": "6.2.2"
+      }
+    },
+    "frameworks": {
+      "react": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 80,
+            "page.fcp": 40,
+            "page.ttfb": 1.5,
+            "page.primary-content-paint": 80,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 551860,
+            "initial.requests": 7,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 96,
+            "page.fcp": 56,
+            "page.ttfb": 1.3999996185302734,
+            "page.primary-content-paint": 96,
+            "page.cls": 0,
+            "banner.visible": 240.39999961853027,
+            "initial.transfer": 649322,
+            "initial.requests": 14,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 16,
+            "low": 16,
+            "high": 20,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 97462,
+            "low": 97462,
+            "high": 97463,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": null
+      },
+      "nextjs": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 72,
+            "page.fcp": 28,
+            "page.ttfb": 3.1999998092651367,
+            "page.primary-content-paint": 72,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 613071,
+            "initial.requests": 10,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 92,
+            "page.fcp": 40,
+            "page.ttfb": 8.300000190734863,
+            "page.primary-content-paint": 92,
+            "page.cls": 0,
+            "banner.visible": 25.40000057220459,
+            "initial.transfer": 717150,
+            "initial.requests": 16,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 16,
+            "low": 8,
+            "high": 24,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 104079,
+            "low": 104031,
+            "high": 104083,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": null
+      },
+      "tanstack-start": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 84,
+            "page.fcp": 28,
+            "page.ttfb": 3.6000003814697266,
+            "page.primary-content-paint": 84,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 589853,
+            "initial.requests": 7,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 88,
+            "page.fcp": 40,
+            "page.ttfb": 6.799999237060547,
+            "page.primary-content-paint": 88,
+            "page.cls": 0,
+            "banner.visible": 24.100000381469727,
+            "initial.transfer": 699967,
+            "initial.requests": 18,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 4,
+            "low": -4,
+            "high": 8,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 110114,
+            "low": 110113,
+            "high": 110115,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": null
+      },
+      "nuxt": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 80,
+            "page.fcp": 28,
+            "page.ttfb": 2.8000001907348633,
+            "page.primary-content-paint": 80,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 552976,
+            "initial.requests": 9,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 88,
+            "page.fcp": 36,
+            "page.ttfb": 6.300000190734863,
+            "page.primary-content-paint": 88,
+            "page.cls": 0,
+            "banner.visible": 15.800000190734863,
+            "initial.transfer": 665665,
+            "initial.requests": 36,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 12,
+            "low": 4,
+            "high": 24,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 112688,
+            "low": 112684,
+            "high": 112692,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": {
+          "passed": 4,
+          "attempts": 4,
+          "baselinePassed": 4,
+          "baselineAttempts": 4,
+          "inp": {
+            "accept": 32,
+            "reject": 32,
+            "save": 16
+          }
+        }
+      },
+      "astro": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 68,
+            "page.fcp": 28,
+            "page.ttfb": 2.8000001907348633,
+            "page.primary-content-paint": 68,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 497948,
+            "initial.requests": 4,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 68,
+            "page.fcp": 36,
+            "page.ttfb": 5,
+            "page.primary-content-paint": 68,
+            "page.cls": 0,
+            "banner.visible": 14.299999237060547,
+            "initial.transfer": 569018,
+            "initial.requests": 11,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 4,
+            "low": -8,
+            "high": 16,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 71070,
+            "low": 71069,
+            "high": 71071,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": null
+      },
+      "script": {
+        "load": {
+          "passed": 15,
+          "attempts": 15,
+          "baselinePassed": 15,
+          "baseline": {
+            "page.lcp": 76,
+            "page.fcp": 28,
+            "page.ttfb": 1.3999996185302734,
+            "page.primary-content-paint": 76,
+            "page.cls": 0,
+            "banner.visible": null,
+            "initial.transfer": 499392,
+            "initial.requests": 6,
+            "initial.long-task-blocking": 0
+          },
+          "c15t": {
+            "page.lcp": 80,
+            "page.fcp": 28,
+            "page.ttfb": 1.3999996185302734,
+            "page.primary-content-paint": 80,
+            "page.cls": 0,
+            "banner.visible": 256.69999980926514,
+            "initial.transfer": 583369,
+            "initial.requests": 9,
+            "initial.long-task-blocking": 0
+          },
+          "lcp": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 4,
+            "low": 4,
+            "high": 4,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "transfer": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 83977,
+            "low": 83969,
+            "high": 83977,
+            "conclusion": "candidate-higher",
+            "pairs": 15
+          },
+          "cls": {
+            "eligible": true,
+            "reasons": [],
+            "delta": 0,
+            "low": 0,
+            "high": 0,
+            "conclusion": "inconclusive",
+            "pairs": 15
+          }
+        },
+        "flows": null
+      }
+    }
+  }
+}

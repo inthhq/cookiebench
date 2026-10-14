@@ -1,0 +1,61 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:bbd68ac8-204c-4d2f-9a2f-5916d49b0d9d"
+      ],
+      "fixtureId": "astro-c15t",
+      "framework": "astro",
+      "id": "e9481e40-691c-419a-ab7e-4a33a1889dc5",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T21:16:32.278Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:91eddb3b-e321-4ac3-87dc-f09703459212"
+      ],
+      "fixtureId": "astro-c15t",
+      "framework": "astro",
+      "id": "9507dbfd-a0bd-4333-9a7e-aaf81b719bfa",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T21:16:32.278Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:9b94017f-ec5d-4052-849b-6c921e993da9"
+      ],
+      "fixtureId": "astro-c15t",
+      "framework": "astro",
+      "id": "2f40208a-68bf-4a1a-bf81-c0b3afc0297f",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T21:16:32.278Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:9c0ca3e3-d11f-4db2-a5cb-4200ee25b62a"
+      ],
+      "fixtureId": "astro-c15t",
+      "framework": "astro",
+      "id": "c2207a0d-7f44-4c4d-a633-d9f390210ecf",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T21:16:32.278Z"
+    }
+  ],
+  "failures": [],
+  "output": "/Users/kayleewilliams/.t3/worktrees/cookiebench/t3-9310a3fd/results/2026-10-14-v3-c15t/desktop/astro-correctness/attempt-001/envelope.json",
+  "runId": "bfd47226-9793-4ae5-a705-8125cda76fc2",
+  "samples": 8,
+  "status": "passed"
+}

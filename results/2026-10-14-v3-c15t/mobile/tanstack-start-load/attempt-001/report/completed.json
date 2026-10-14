@@ -1,0 +1,16 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "report",
+    "--file",
+    "results/2026-10-14-v3-c15t/mobile/tanstack-start-load/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-14T21:54:09.197Z",
+  "startedAt": "2026-10-14T21:54:08.884Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "59d869e07ca1342ed7a4e143da8b5bee01bb09d9baa0a1d6dec5d3107ec789f5"
+}

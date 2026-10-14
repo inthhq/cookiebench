@@ -1,0 +1,36 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:a2378c4d-7406-44ad-8d87-fec1e021a3b1",
+        "sample:a7f518f4-fd58-4de3-8a04-aab00632dc72",
+        "sample:9ae6893b-ee8e-4c30-a4c5-4db6ac26f79f",
+        "sample:46ac1137-bd93-4470-b1f5-7a331cffa58f",
+        "sample:0899a3f6-0d72-45f4-bd2c-40fa3a4db4d1",
+        "sample:4d8b9616-d540-4719-b7be-bb0a04f6988d",
+        "sample:2fe8f7de-e369-4201-9ef8-fd0b73f58c79",
+        "sample:b7c28fed-8a23-4680-9863-c8ba52cf7632",
+        "sample:dca07b9b-75c2-4108-a889-3c750ad6c91c",
+        "sample:ccc785e9-9c7a-4b7a-8f45-6fa5e5e221c2",
+        "sample:94eb3651-4cce-461c-be15-a80f1711918b",
+        "sample:51691f61-2fc5-4639-86a3-ea7d56c0393e",
+        "sample:deb37e10-ec93-408b-9397-0dde696acc43",
+        "sample:1d2fcbb3-8177-45cc-afd5-c5d75bd4e738",
+        "sample:43491620-12ce-4879-b236-963be95f280d"
+      ],
+      "fixtureId": "tanstack-start-c15t",
+      "framework": "tanstack-start",
+      "id": "883691b7-a26e-4f5f-8b37-5eb5e3348b0c",
+      "mode": "manifest",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T21:10:49.018Z"
+    }
+  ],
+  "failures": [],
+  "output": "/Users/kayleewilliams/.t3/worktrees/cookiebench/t3-9310a3fd/results/2026-10-14-v3-c15t/desktop/tanstack-start-load/attempt-001/envelope.json",
+  "runId": "2e660f69-1d06-42b1-8fb6-59663a59dd5a",
+  "samples": 30,
+  "status": "passed"
+}

@@ -1,0 +1,19 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "results/2026-10-14-v3-c15t/mobile/nuxt-load/attempt-001/envelope.json",
+    "--candidate",
+    "results/2026-10-14-v3-c15t/mobile/nuxt-load/attempt-001/envelope.json",
+    "--metric",
+    "page.cls",
+    "--family",
+    "batch:614eeb7fc4a3dda70c65a3f0913b83e8e9d95c98f4116f8c02a39857776d614d",
+    "--family-size",
+    "36"
+  ],
+  "cwd": ".",
+  "startedAt": "2026-10-14T21:36:30.022Z"
+}

@@ -1,0 +1,61 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:484bbef6-4d27-451e-940b-ab0e0cef0c2c"
+      ],
+      "fixtureId": "script-tag-c15t-inth-init",
+      "framework": "script-tag",
+      "id": "8353a777-60b1-453c-bc79-3adde511e166",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T22:13:18.970Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:26f2b094-193d-4bf4-8b45-658736523801"
+      ],
+      "fixtureId": "script-tag-c15t-inth-init",
+      "framework": "script-tag",
+      "id": "ffa50b10-93d5-4fcd-a89c-8c49d7a3a269",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T22:13:18.970Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:00613c28-413a-4188-816f-eb746055cfdd"
+      ],
+      "fixtureId": "script-tag-c15t-inth-init",
+      "framework": "script-tag",
+      "id": "cb2a0390-14cd-4e68-b7a9-165523e8e64e",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T22:13:18.970Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:eb0ff74e-a68e-432d-856e-474ec10cd64e"
+      ],
+      "fixtureId": "script-tag-c15t-inth-init",
+      "framework": "script-tag",
+      "id": "24745112-48dc-4ea9-a728-63d1fa0e99e3",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T22:13:18.970Z"
+    }
+  ],
+  "failures": [],
+  "output": "/Users/kayleewilliams/.t3/worktrees/cookiebench/t3-9310a3fd/results/2026-10-14-v3-c15t/mobile/script-correctness/attempt-001/envelope.json",
+  "runId": "20eabd20-1302-4a8d-a4b4-b4297fd27cbf",
+  "samples": 8,
+  "status": "passed"
+}

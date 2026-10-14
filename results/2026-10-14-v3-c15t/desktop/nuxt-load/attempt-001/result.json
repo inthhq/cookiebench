@@ -1,0 +1,2583 @@
+{
+  "config": "results/2026-10-14-v3-c15t/configs/nuxt-desktop.json",
+  "id": "nuxt-load",
+  "kind": "load",
+  "analyses": [
+    {
+      "analysisVersion": "cookiebench-analysis-v3.4.0",
+      "comparisons": [
+        {
+          "lcpAttribution": {
+            "baseline": {
+              "elements": [
+                {
+                  "id": "primary-content",
+                  "role": "content",
+                  "size": 433136,
+                  "tag": "IMG",
+                  "url": "http://127.0.0.1:4314/page-assets/courtyard.png",
+                  "samples": 15
+                }
+              ],
+              "missing": 0
+            },
+            "candidate": {
+              "elements": [
+                {
+                  "id": "primary-content",
+                  "role": "content",
+                  "size": 433136,
+                  "tag": "IMG",
+                  "url": "http://127.0.0.1:4314/page-assets/courtyard.png",
+                  "samples": 15
+                }
+              ],
+              "missing": 0
+            }
+          },
+          "baseline": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 84,
+            "mean": 81.06666666666666,
+            "measured": 15,
+            "median": 80,
+            "min": 76,
+            "missing": 0,
+            "p75": 84,
+            "passed": 15
+          },
+          "baselineFixtureId": "nuxt-baseline",
+          "candidate": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 104,
+            "mean": 94.13333333333334,
+            "measured": 15,
+            "median": 88,
+            "min": 84,
+            "missing": 0,
+            "p75": 104,
+            "passed": 15
+          },
+          "candidateFixtureId": "nuxt-c15t",
+          "deployment": {
+            "baseline": {
+              "assets": "local",
+              "backend": "none"
+            },
+            "candidate": {
+              "assets": "local",
+              "backend": "remote-service"
+            }
+          },
+          "eligibilityReasons": [],
+          "eligible": true,
+          "paired": {
+            "conclusion": "candidate-higher",
+            "confidenceInterval": {
+              "high": 24,
+              "level": 0.9993055555555556,
+              "low": 4,
+              "method": "paired-percentile-bootstrap",
+              "resamples": 29000
+            },
+            "count": 15,
+            "medianDifference": 12,
+            "p75Delta": {
+              "confidenceInterval": {
+                "high": 24,
+                "level": 0.9993055555555556,
+                "low": 4,
+                "method": "paired-percentile-bootstrap",
+                "resamples": 29000
+              },
+              "estimate": 20
+            },
+            "pairDifferenceP75": 20
+          },
+          "scenarioId": "load",
+          "unit": "ms"
+        }
+      ],
+      "metricKey": "page.lcp",
+      "multiplicity": {
+        "comparisons": 36,
+        "family": "batch:3231889dd6c7c74b9cf9fc2b1a281ecb3b28e48e83dabfb7b55996196fac0750",
+        "familyLevel": 0.95,
+        "intervalLevel": 0.9993055555555556,
+        "intervals": 72,
+        "method": "bonferroni"
+      },
+      "sourceRunIds": [
+        "72683c6a-2df4-47c0-a111-550cabfad364"
+      ],
+      "execution": {
+        "command": [
+          "node",
+          "packages/cli/src/index.ts",
+          "compare",
+          "--baseline",
+          "results/2026-10-14-v3-c15t/desktop/nuxt-load/attempt-001/envelope.json",
+          "--candidate",
+          "results/2026-10-14-v3-c15t/desktop/nuxt-load/attempt-001/envelope.json",
+          "--metric",
+          "page.lcp",
+          "--family",
+          "batch:3231889dd6c7c74b9cf9fc2b1a281ecb3b28e48e83dabfb7b55996196fac0750",
+          "--family-size",
+          "36"
+        ],
+        "cwd": ".",
+        "endedAt": "2026-10-14T21:01:21.275Z",
+        "startedAt": "2026-10-14T21:01:20.969Z",
+        "exitCode": 0,
+        "signal": null,
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdoutSha256": "1914c57f849d6834e2220ad665a952c525deaeb9e360187c97ad7369e5afbb49"
+      }
+    },
+    {
+      "analysisVersion": "cookiebench-analysis-v3.4.0",
+      "comparisons": [
+        {
+          "baseline": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 84,
+            "mean": 81.06666666666666,
+            "measured": 15,
+            "median": 80,
+            "min": 76,
+            "missing": 0,
+            "p75": 84,
+            "passed": 15
+          },
+          "baselineFixtureId": "nuxt-baseline",
+          "candidate": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 104,
+            "mean": 94.13333333333334,
+            "measured": 15,
+            "median": 88,
+            "min": 84,
+            "missing": 0,
+            "p75": 104,
+            "passed": 15
+          },
+          "candidateFixtureId": "nuxt-c15t",
+          "deployment": {
+            "baseline": {
+              "assets": "local",
+              "backend": "none"
+            },
+            "candidate": {
+              "assets": "local",
+              "backend": "remote-service"
+            }
+          },
+          "eligibilityReasons": [],
+          "eligible": true,
+          "paired": {
+            "conclusion": "candidate-higher",
+            "confidenceInterval": {
+              "high": 24,
+              "level": 0.9993055555555556,
+              "low": 4,
+              "method": "paired-percentile-bootstrap",
+              "resamples": 29000
+            },
+            "count": 15,
+            "medianDifference": 12,
+            "p75Delta": {
+              "confidenceInterval": {
+                "high": 24,
+                "level": 0.9993055555555556,
+                "low": 4,
+                "method": "paired-percentile-bootstrap",
+                "resamples": 29000
+              },
+              "estimate": 20
+            },
+            "pairDifferenceP75": 20
+          },
+          "scenarioId": "load",
+          "unit": "ms"
+        }
+      ],
+      "metricKey": "page.primary-content-paint",
+      "multiplicity": {
+        "comparisons": 36,
+        "family": "batch:3231889dd6c7c74b9cf9fc2b1a281ecb3b28e48e83dabfb7b55996196fac0750",
+        "familyLevel": 0.95,
+        "intervalLevel": 0.9993055555555556,
+        "intervals": 72,
+        "method": "bonferroni"
+      },
+      "sourceRunIds": [
+        "72683c6a-2df4-47c0-a111-550cabfad364"
+      ],
+      "execution": {
+        "command": [
+          "node",
+          "packages/cli/src/index.ts",
+          "compare",
+          "--baseline",
+          "results/2026-10-14-v3-c15t/desktop/nuxt-load/attempt-001/envelope.json",
+          "--candidate",
+          "results/2026-10-14-v3-c15t/desktop/nuxt-load/attempt-001/envelope.json",
+          "--metric",
+          "page.primary-content-paint",
+          "--family",
+          "batch:3231889dd6c7c74b9cf9fc2b1a281ecb3b28e48e83dabfb7b55996196fac0750",
+          "--family-size",
+          "36"
+        ],
+        "cwd": ".",
+        "endedAt": "2026-10-14T21:01:21.642Z",
+        "startedAt": "2026-10-14T21:01:21.338Z",
+        "exitCode": 0,
+        "signal": null,
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdoutSha256": "28581d450e6fb7bfc6d5101922ba53bd5bc02084b6a9f5097e7c0894a13d0708"
+      }
+    },
+    {
+      "analysisVersion": "cookiebench-analysis-v3.4.0",
+      "comparisons": [
+        {
+          "baseline": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 0,
+            "mean": 0,
+            "measured": 15,
+            "median": 0,
+            "min": 0,
+            "missing": 0,
+            "p75": 0,
+            "passed": 15
+          },
+          "baselineFixtureId": "nuxt-baseline",
+          "candidate": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 0,
+            "mean": 0,
+            "measured": 15,
+            "median": 0,
+            "min": 0,
+            "missing": 0,
+            "p75": 0,
+            "passed": 15
+          },
+          "candidateFixtureId": "nuxt-c15t",
+          "deployment": {
+            "baseline": {
+              "assets": "local",
+              "backend": "none"
+            },
+            "candidate": {
+              "assets": "local",
+              "backend": "remote-service"
+            }
+          },
+          "eligibilityReasons": [],
+          "eligible": true,
+          "paired": {
+            "conclusion": "inconclusive",
+            "confidenceInterval": {
+              "high": 0,
+              "level": 0.9993055555555556,
+              "low": 0,
+              "method": "paired-percentile-bootstrap",
+              "resamples": 29000
+            },
+            "count": 15,
+            "medianDifference": 0,
+            "p75Delta": {
+              "confidenceInterval": {
+                "high": 0,
+                "level": 0.9993055555555556,
+                "low": 0,
+                "method": "paired-percentile-bootstrap",
+                "resamples": 29000
+              },
+              "estimate": 0
+            },
+            "pairDifferenceP75": 0
+          },
+          "scenarioId": "load",
+          "unit": "score"
+        }
+      ],
+      "metricKey": "page.cls",
+      "multiplicity": {
+        "comparisons": 36,
+        "family": "batch:3231889dd6c7c74b9cf9fc2b1a281ecb3b28e48e83dabfb7b55996196fac0750",
+        "familyLevel": 0.95,
+        "intervalLevel": 0.9993055555555556,
+        "intervals": 72,
+        "method": "bonferroni"
+      },
+      "sourceRunIds": [
+        "72683c6a-2df4-47c0-a111-550cabfad364"
+      ],
+      "execution": {
+        "command": [
+          "node",
+          "packages/cli/src/index.ts",
+          "compare",
+          "--baseline",
+          "results/2026-10-14-v3-c15t/desktop/nuxt-load/attempt-001/envelope.json",
+          "--candidate",
+          "results/2026-10-14-v3-c15t/desktop/nuxt-load/attempt-001/envelope.json",
+          "--metric",
+          "page.cls",
+          "--family",
+          "batch:3231889dd6c7c74b9cf9fc2b1a281ecb3b28e48e83dabfb7b55996196fac0750",
+          "--family-size",
+          "36"
+        ],
+        "cwd": ".",
+        "endedAt": "2026-10-14T21:01:21.997Z",
+        "startedAt": "2026-10-14T21:01:21.704Z",
+        "exitCode": 0,
+        "signal": null,
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdoutSha256": "51428debd98652758fccf2f99af9c5b8e7be827e67d697194d8ac0ec0bd45bbc"
+      }
+    },
+    {
+      "analysisVersion": "cookiebench-analysis-v3.4.0",
+      "comparisons": [
+        {
+          "baseline": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 552979,
+            "mean": 552975.8666666666,
+            "measured": 15,
+            "median": 552976,
+            "min": 552974,
+            "missing": 0,
+            "p75": 552977,
+            "passed": 15
+          },
+          "baselineFixtureId": "nuxt-baseline",
+          "candidate": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 665669,
+            "mean": 665663.6666666666,
+            "measured": 15,
+            "median": 665665,
+            "min": 665659,
+            "missing": 0,
+            "p75": 665666.5,
+            "passed": 15
+          },
+          "candidateFixtureId": "nuxt-c15t",
+          "deployment": {
+            "baseline": {
+              "assets": "local",
+              "backend": "none"
+            },
+            "candidate": {
+              "assets": "local",
+              "backend": "remote-service"
+            }
+          },
+          "eligibilityReasons": [],
+          "eligible": true,
+          "paired": {
+            "conclusion": "candidate-higher",
+            "confidenceInterval": {
+              "high": 112692,
+              "level": 0.9993055555555556,
+              "low": 112684,
+              "method": "paired-percentile-bootstrap",
+              "resamples": 29000
+            },
+            "count": 15,
+            "medianDifference": 112688,
+            "p75Delta": {
+              "confidenceInterval": {
+                "high": 112693.5,
+                "level": 0.9993055555555556,
+                "low": 112683,
+                "method": "paired-percentile-bootstrap",
+                "resamples": 29000
+              },
+              "estimate": 112689.5
+            },
+            "pairDifferenceP75": 112691
+          },
+          "scenarioId": "load",
+          "unit": "bytes"
+        }
+      ],
+      "metricKey": "initial.transfer",
+      "multiplicity": {
+        "comparisons": 36,
+        "family": "batch:3231889dd6c7c74b9cf9fc2b1a281ecb3b28e48e83dabfb7b55996196fac0750",
+        "familyLevel": 0.95,
+        "intervalLevel": 0.9993055555555556,
+        "intervals": 72,
+        "method": "bonferroni"
+      },
+      "sourceRunIds": [
+        "72683c6a-2df4-47c0-a111-550cabfad364"
+      ],
+      "execution": {
+        "command": [
+          "node",
+          "packages/cli/src/index.ts",
+          "compare",
+          "--baseline",
+          "results/2026-10-14-v3-c15t/desktop/nuxt-load/attempt-001/envelope.json",
+          "--candidate",
+          "results/2026-10-14-v3-c15t/desktop/nuxt-load/attempt-001/envelope.json",
+          "--metric",
+          "initial.transfer",
+          "--family",
+          "batch:3231889dd6c7c74b9cf9fc2b1a281ecb3b28e48e83dabfb7b55996196fac0750",
+          "--family-size",
+          "36"
+        ],
+        "cwd": ".",
+        "endedAt": "2026-10-14T21:01:22.348Z",
+        "startedAt": "2026-10-14T21:01:22.046Z",
+        "exitCode": 0,
+        "signal": null,
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdoutSha256": "559bcd447aaf92ce3caf114766218c87aa3d461b976d2ea414a93af310a4a9c6"
+      }
+    },
+    {
+      "analysisVersion": "cookiebench-analysis-v3.4.0",
+      "comparisons": [
+        {
+          "baseline": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric initial.encoded-body is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15
+          },
+          "baselineFixtureId": "nuxt-baseline",
+          "candidate": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric initial.encoded-body is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15
+          },
+          "candidateFixtureId": "nuxt-c15t",
+          "deployment": {
+            "baseline": {
+              "assets": "local",
+              "backend": "none"
+            },
+            "candidate": {
+              "assets": "local",
+              "backend": "remote-service"
+            }
+          },
+          "eligibilityReasons": [
+            "Required metric measurements are missing.",
+            "Fewer than 15 eligible paired metric observations."
+          ],
+          "eligible": false,
+          "paired": {
+            "conclusion": "inconclusive",
+            "confidenceInterval": null,
+            "count": 0,
+            "medianDifference": null,
+            "p75Delta": {
+              "confidenceInterval": null,
+              "estimate": null
+            },
+            "pairDifferenceP75": null
+          },
+          "scenarioId": "load",
+          "unit": "bytes"
+        }
+      ],
+      "metricKey": "initial.encoded-body",
+      "multiplicity": {
+        "comparisons": 36,
+        "family": "batch:3231889dd6c7c74b9cf9fc2b1a281ecb3b28e48e83dabfb7b55996196fac0750",
+        "familyLevel": 0.95,
+        "intervalLevel": 0.9993055555555556,
+        "intervals": 72,
+        "method": "bonferroni"
+      },
+      "sourceRunIds": [
+        "72683c6a-2df4-47c0-a111-550cabfad364"
+      ],
+      "execution": {
+        "command": [
+          "node",
+          "packages/cli/src/index.ts",
+          "compare",
+          "--baseline",
+          "results/2026-10-14-v3-c15t/desktop/nuxt-load/attempt-001/envelope.json",
+          "--candidate",
+          "results/2026-10-14-v3-c15t/desktop/nuxt-load/attempt-001/envelope.json",
+          "--metric",
+          "initial.encoded-body",
+          "--family",
+          "batch:3231889dd6c7c74b9cf9fc2b1a281ecb3b28e48e83dabfb7b55996196fac0750",
+          "--family-size",
+          "36"
+        ],
+        "cwd": ".",
+        "endedAt": "2026-10-14T21:01:22.647Z",
+        "startedAt": "2026-10-14T21:01:22.410Z",
+        "exitCode": 2,
+        "signal": null,
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdoutSha256": "58d92c4c103fe5db3e326b63898e82e194edc59844cb1f785070c28e4c7f9c5a"
+      }
+    },
+    {
+      "analysisVersion": "cookiebench-analysis-v3.4.0",
+      "comparisons": [
+        {
+          "baseline": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric initial.decoded-body is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15
+          },
+          "baselineFixtureId": "nuxt-baseline",
+          "candidate": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric initial.decoded-body is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15
+          },
+          "candidateFixtureId": "nuxt-c15t",
+          "deployment": {
+            "baseline": {
+              "assets": "local",
+              "backend": "none"
+            },
+            "candidate": {
+              "assets": "local",
+              "backend": "remote-service"
+            }
+          },
+          "eligibilityReasons": [
+            "Required metric measurements are missing.",
+            "Fewer than 15 eligible paired metric observations."
+          ],
+          "eligible": false,
+          "paired": {
+            "conclusion": "inconclusive",
+            "confidenceInterval": null,
+            "count": 0,
+            "medianDifference": null,
+            "p75Delta": {
+              "confidenceInterval": null,
+              "estimate": null
+            },
+            "pairDifferenceP75": null
+          },
+          "scenarioId": "load",
+          "unit": "bytes"
+        }
+      ],
+      "metricKey": "initial.decoded-body",
+      "multiplicity": {
+        "comparisons": 36,
+        "family": "batch:3231889dd6c7c74b9cf9fc2b1a281ecb3b28e48e83dabfb7b55996196fac0750",
+        "familyLevel": 0.95,
+        "intervalLevel": 0.9993055555555556,
+        "intervals": 72,
+        "method": "bonferroni"
+      },
+      "sourceRunIds": [
+        "72683c6a-2df4-47c0-a111-550cabfad364"
+      ],
+      "execution": {
+        "command": [
+          "node",
+          "packages/cli/src/index.ts",
+          "compare",
+          "--baseline",
+          "results/2026-10-14-v3-c15t/desktop/nuxt-load/attempt-001/envelope.json",
+          "--candidate",
+          "results/2026-10-14-v3-c15t/desktop/nuxt-load/attempt-001/envelope.json",
+          "--metric",
+          "initial.decoded-body",
+          "--family",
+          "batch:3231889dd6c7c74b9cf9fc2b1a281ecb3b28e48e83dabfb7b55996196fac0750",
+          "--family-size",
+          "36"
+        ],
+        "cwd": ".",
+        "endedAt": "2026-10-14T21:01:22.884Z",
+        "startedAt": "2026-10-14T21:01:22.651Z",
+        "exitCode": 2,
+        "signal": null,
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdoutSha256": "5dd6e9a752ccfa85f3bb57f2aea212d7ec0b2896a1c8a7328cbeb95dbd7ae01e"
+      }
+    }
+  ],
+  "configSha256": "ba31a919775f59edc2d75bb5feb65059e35d4c435bbd87ea96138c593405a536",
+  "details": {
+    "capabilities": [
+      {
+        "capability": "consent-flow:load",
+        "evidence": [
+          "sample:2b9c2ef1-f01c-453f-864e-be2dfdcb3b95",
+          "sample:80b1dfea-d017-4b54-a9a1-ad553a0cba41",
+          "sample:d3400118-5af2-436a-aa87-f51495d41a71",
+          "sample:d77516f0-db67-4263-a56c-b2094b3e1e83",
+          "sample:4006f187-f9de-4551-9b41-223e7adbe627",
+          "sample:56e57082-259c-4bfd-bc9d-a950ad1ae15a",
+          "sample:a974c405-fc96-421b-b880-2aff2b2148d3",
+          "sample:41b6a566-ed59-4cef-b1f7-44d0a9a40a54",
+          "sample:fbad0361-ebfc-4d03-8771-a7fee0935597",
+          "sample:4b45e2fb-ed3c-42e3-996b-d6c0d06b9ec8",
+          "sample:12331e5e-a7c0-4fb0-b87c-833c1297ca57",
+          "sample:e087561d-9525-4cc0-a636-10d15076081b",
+          "sample:4c2c8634-df11-4c85-a47c-586845b71894",
+          "sample:b1031241-aabe-4ce5-b5cf-62b38f16441d",
+          "sample:7c28d3aa-3ccd-408d-9281-6487d7490792"
+        ],
+        "fixtureId": "nuxt-c15t",
+        "framework": "nuxt",
+        "id": "4782dc41-84ae-450a-b0e0-c93270d98262",
+        "mode": "manifest",
+        "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+        "status": "verified",
+        "verifiedAt": "2026-10-14T21:01:20.148Z"
+      }
+    ],
+    "cells": [
+      {
+        "attempts": 15,
+        "baseline": true,
+        "correctness": {
+          "attempts": 15,
+          "failed": 0,
+          "reasons": [],
+          "unknown": 0,
+          "verified": 15
+        },
+        "diagnostic": false,
+        "failed": 0,
+        "failures": [],
+        "fixtureId": "nuxt-baseline",
+        "followupProbes": 0,
+        "incomplete": 0,
+        "lcpAttribution": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 433136,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4314/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "metrics": {
+          "action.acknowledgement": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric action.acknowledgement is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "action.consent-effective": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric action.consent-effective is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "action.dismissal-started": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric action.dismissal-started is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "action.dismissed": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric action.dismissed is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "action.followup-input-to-next-paint": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric action.followup-input-to-next-paint is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "action.input-to-next-paint": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric action.input-to-next-paint is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "action.local-persisted": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric action.local-persisted is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "action.long-task-blocking": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric action.long-task-blocking is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "action.preferences-visible": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric action.preferences-visible is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "action.remote-persisted": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric action.remote-persisted is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "action.scripts-complete": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric action.scripts-complete is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "banner.coverage": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric banner.coverage is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ratio",
+            "validityWarnings": []
+          },
+          "banner.visible": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric banner.visible is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "consent.resolution": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric consent.resolution is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "deferred.decoded-body": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 0,
+            "mean": 0,
+            "measured": 15,
+            "median": 0,
+            "min": 0,
+            "missing": 0,
+            "p75": 0,
+            "passed": 15,
+            "unit": "bytes",
+            "validityWarnings": []
+          },
+          "deferred.encoded-body": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 0,
+            "mean": 0,
+            "measured": 15,
+            "median": 0,
+            "min": 0,
+            "missing": 0,
+            "p75": 0,
+            "passed": 15,
+            "unit": "bytes",
+            "validityWarnings": []
+          },
+          "deferred.requests": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 0,
+            "mean": 0,
+            "measured": 15,
+            "median": 0,
+            "min": 0,
+            "missing": 0,
+            "p75": 0,
+            "passed": 15,
+            "unit": "count",
+            "validityWarnings": []
+          },
+          "deferred.third-party-requests": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 0,
+            "mean": 0,
+            "measured": 15,
+            "median": 0,
+            "min": 0,
+            "missing": 0,
+            "p75": 0,
+            "passed": 15,
+            "unit": "count",
+            "validityWarnings": []
+          },
+          "deferred.transfer": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 0,
+            "mean": 0,
+            "measured": 15,
+            "median": 0,
+            "min": 0,
+            "missing": 0,
+            "p75": 0,
+            "passed": 15,
+            "unit": "bytes",
+            "validityWarnings": []
+          },
+          "initial.decoded-body": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric initial.decoded-body is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "bytes",
+            "validityWarnings": []
+          },
+          "initial.encoded-body": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric initial.encoded-body is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "bytes",
+            "validityWarnings": []
+          },
+          "initial.long-task-blocking": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 0,
+            "mean": 0,
+            "measured": 15,
+            "median": 0,
+            "min": 0,
+            "missing": 0,
+            "p75": 0,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "initial.requests": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 9,
+            "mean": 8.999999999999998,
+            "measured": 15,
+            "median": 9,
+            "min": 9,
+            "missing": 0,
+            "p75": 9,
+            "passed": 15,
+            "unit": "count",
+            "validityWarnings": []
+          },
+          "initial.third-party-requests": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 0,
+            "mean": 0,
+            "measured": 15,
+            "median": 0,
+            "min": 0,
+            "missing": 0,
+            "p75": 0,
+            "passed": 15,
+            "unit": "count",
+            "validityWarnings": []
+          },
+          "initial.transfer": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 552979,
+            "mean": 552975.8666666666,
+            "measured": 15,
+            "median": 552976,
+            "min": 552974,
+            "missing": 0,
+            "p75": 552977,
+            "passed": 15,
+            "unit": "bytes",
+            "validityWarnings": []
+          },
+          "observation.callback-time": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 15.300003051757812,
+            "mean": 13.79333311716715,
+            "measured": 15,
+            "median": 14.09999942779541,
+            "min": 11.399998664855957,
+            "missing": 0,
+            "p75": 14.549998760223389,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "observation.callbacks": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 300,
+            "mean": 299.8666666666667,
+            "measured": 15,
+            "median": 300,
+            "min": 299,
+            "missing": 0,
+            "p75": 300,
+            "passed": 15,
+            "unit": "count",
+            "validityWarnings": []
+          },
+          "observation.frame-interval": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 33.40000000000009,
+            "mean": 19.0133333333335,
+            "measured": 15,
+            "median": 16.800000000000182,
+            "min": 16.800000000000182,
+            "missing": 0,
+            "p75": 16.800000000000182,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "page.cls": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 0,
+            "mean": 0,
+            "measured": 15,
+            "median": 0,
+            "min": 0,
+            "missing": 0,
+            "p75": 0,
+            "passed": 15,
+            "unit": "score",
+            "validityWarnings": []
+          },
+          "page.fcp": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 28,
+            "mean": 27.733333333333338,
+            "measured": 15,
+            "median": 28,
+            "min": 24,
+            "missing": 0,
+            "p75": 28,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "page.lab-inp": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric page.lab-inp is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "page.lcp": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 84,
+            "mean": 81.06666666666666,
+            "measured": 15,
+            "median": 80,
+            "min": 76,
+            "missing": 0,
+            "p75": 84,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "page.primary-content-paint": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 84,
+            "mean": 81.06666666666666,
+            "measured": 15,
+            "median": 80,
+            "min": 76,
+            "missing": 0,
+            "p75": 84,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "page.primary-visible": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 10.5,
+            "mean": 10.000000127156573,
+            "measured": 15,
+            "median": 10,
+            "min": 9.600000381469727,
+            "missing": 0,
+            "p75": 10.100000381469727,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "page.ttfb": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 3.1000003814697266,
+            "mean": 2.8266667683919278,
+            "measured": 15,
+            "median": 2.8000001907348633,
+            "min": 2.6000003814697266,
+            "missing": 0,
+            "p75": 2.9499998092651367,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "scripts.duplicates": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 0,
+            "mean": 0,
+            "measured": 15,
+            "median": 0,
+            "min": 0,
+            "missing": 0,
+            "p75": 0,
+            "passed": 15,
+            "unit": "count",
+            "validityWarnings": []
+          },
+          "scripts.executions": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 0,
+            "mean": 0,
+            "measured": 15,
+            "median": 0,
+            "min": 0,
+            "missing": 0,
+            "p75": 0,
+            "passed": 15,
+            "unit": "count",
+            "validityWarnings": []
+          }
+        },
+        "passed": 15,
+        "scenarioId": "load"
+      },
+      {
+        "attempts": 15,
+        "baseline": false,
+        "correctness": {
+          "attempts": 15,
+          "failed": 0,
+          "reasons": [],
+          "unknown": 0,
+          "verified": 15
+        },
+        "diagnostic": false,
+        "failed": 0,
+        "failures": [],
+        "fixtureId": "nuxt-c15t",
+        "followupProbes": 0,
+        "incomplete": 0,
+        "lcpAttribution": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 433136,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4314/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "metrics": {
+          "action.acknowledgement": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric action.acknowledgement is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "action.consent-effective": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric action.consent-effective is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "action.dismissal-started": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric action.dismissal-started is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "action.dismissed": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric action.dismissed is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "action.followup-input-to-next-paint": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric action.followup-input-to-next-paint is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "action.input-to-next-paint": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric action.input-to-next-paint is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "action.local-persisted": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric action.local-persisted is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "action.long-task-blocking": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric action.long-task-blocking is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "action.preferences-visible": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric action.preferences-visible is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "action.remote-persisted": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric action.remote-persisted is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "action.scripts-complete": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric action.scripts-complete is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "banner.coverage": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 0.13034188034188035,
+            "mean": 0.13034188034188038,
+            "measured": 15,
+            "median": 0.13034188034188035,
+            "min": 0.13034188034188035,
+            "missing": 0,
+            "p75": 0.13034188034188035,
+            "passed": 15,
+            "unit": "ratio",
+            "validityWarnings": []
+          },
+          "banner.visible": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 17.100000381469727,
+            "mean": 16.079999923706055,
+            "measured": 15,
+            "median": 15.800000190734863,
+            "min": 15.399999618530273,
+            "missing": 0,
+            "p75": 16.25,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "consent.resolution": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 43.80000019073486,
+            "mean": 41.13333339691162,
+            "measured": 15,
+            "median": 40.90000057220459,
+            "min": 39.09999942779541,
+            "missing": 0,
+            "p75": 42.450000286102295,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "deferred.decoded-body": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 0,
+            "mean": 0,
+            "measured": 15,
+            "median": 0,
+            "min": 0,
+            "missing": 0,
+            "p75": 0,
+            "passed": 15,
+            "unit": "bytes",
+            "validityWarnings": []
+          },
+          "deferred.encoded-body": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 0,
+            "mean": 0,
+            "measured": 15,
+            "median": 0,
+            "min": 0,
+            "missing": 0,
+            "p75": 0,
+            "passed": 15,
+            "unit": "bytes",
+            "validityWarnings": []
+          },
+          "deferred.requests": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 0,
+            "mean": 0,
+            "measured": 15,
+            "median": 0,
+            "min": 0,
+            "missing": 0,
+            "p75": 0,
+            "passed": 15,
+            "unit": "count",
+            "validityWarnings": []
+          },
+          "deferred.third-party-requests": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 0,
+            "mean": 0,
+            "measured": 15,
+            "median": 0,
+            "min": 0,
+            "missing": 0,
+            "p75": 0,
+            "passed": 15,
+            "unit": "count",
+            "validityWarnings": []
+          },
+          "deferred.transfer": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 0,
+            "mean": 0,
+            "measured": 15,
+            "median": 0,
+            "min": 0,
+            "missing": 0,
+            "p75": 0,
+            "passed": 15,
+            "unit": "bytes",
+            "validityWarnings": []
+          },
+          "initial.decoded-body": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric initial.decoded-body is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "bytes",
+            "validityWarnings": []
+          },
+          "initial.encoded-body": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric initial.encoded-body is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "bytes",
+            "validityWarnings": []
+          },
+          "initial.long-task-blocking": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 0,
+            "mean": 0,
+            "measured": 15,
+            "median": 0,
+            "min": 0,
+            "missing": 0,
+            "p75": 0,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "initial.requests": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 36,
+            "mean": 35.99999999999999,
+            "measured": 15,
+            "median": 36,
+            "min": 36,
+            "missing": 0,
+            "p75": 36,
+            "passed": 15,
+            "unit": "count",
+            "validityWarnings": []
+          },
+          "initial.third-party-requests": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 0,
+            "mean": 0,
+            "measured": 15,
+            "median": 0,
+            "min": 0,
+            "missing": 0,
+            "p75": 0,
+            "passed": 15,
+            "unit": "count",
+            "validityWarnings": []
+          },
+          "initial.transfer": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 665669,
+            "mean": 665663.6666666666,
+            "measured": 15,
+            "median": 665665,
+            "min": 665659,
+            "missing": 0,
+            "p75": 665666.5,
+            "passed": 15,
+            "unit": "bytes",
+            "validityWarnings": []
+          },
+          "observation.callback-time": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 17.59999656677246,
+            "mean": 15.53999964396159,
+            "measured": 15,
+            "median": 15.499999046325684,
+            "min": 14.09999942779541,
+            "missing": 0,
+            "p75": 16.25000286102295,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "observation.callbacks": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 300,
+            "mean": 299.93333333333334,
+            "measured": 15,
+            "median": 300,
+            "min": 299,
+            "missing": 0,
+            "p75": 300,
+            "passed": 15,
+            "unit": "count",
+            "validityWarnings": []
+          },
+          "observation.frame-interval": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 33.399999999999636,
+            "mean": 17.90666666666681,
+            "measured": 15,
+            "median": 16.800000000000182,
+            "min": 16.800000000000182,
+            "missing": 0,
+            "p75": 16.800000000000182,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "page.cls": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 0,
+            "mean": 0,
+            "measured": 15,
+            "median": 0,
+            "min": 0,
+            "missing": 0,
+            "p75": 0,
+            "passed": 15,
+            "unit": "score",
+            "validityWarnings": []
+          },
+          "page.fcp": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 36,
+            "mean": 35.99999999999999,
+            "measured": 15,
+            "median": 36,
+            "min": 36,
+            "missing": 0,
+            "p75": 36,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "page.lab-inp": {
+            "attempts": 15,
+            "available": 0,
+            "censoring": null,
+            "eligibilityReasons": [
+              "Metric page.lab-inp is unavailable."
+            ],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": null,
+            "mean": null,
+            "measured": 0,
+            "median": null,
+            "min": null,
+            "missing": 15,
+            "p75": null,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "page.lcp": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 104,
+            "mean": 94.13333333333334,
+            "measured": 15,
+            "median": 88,
+            "min": 84,
+            "missing": 0,
+            "p75": 104,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "page.primary-content-paint": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 104,
+            "mean": 94.13333333333334,
+            "measured": 15,
+            "median": 88,
+            "min": 84,
+            "missing": 0,
+            "p75": 104,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "page.primary-visible": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 17.100000381469727,
+            "mean": 16.079999923706055,
+            "measured": 15,
+            "median": 15.800000190734863,
+            "min": 15.399999618530273,
+            "missing": 0,
+            "p75": 16.25,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "page.ttfb": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 7.5,
+            "mean": 6.459999974568684,
+            "measured": 15,
+            "median": 6.300000190734863,
+            "min": 6,
+            "missing": 0,
+            "p75": 6.550000190734863,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "scripts.duplicates": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 0,
+            "mean": 0,
+            "measured": 15,
+            "median": 0,
+            "min": 0,
+            "missing": 0,
+            "p75": 0,
+            "passed": 15,
+            "unit": "count",
+            "validityWarnings": []
+          },
+          "scripts.executions": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 0,
+            "mean": 0,
+            "measured": 15,
+            "median": 0,
+            "min": 0,
+            "missing": 0,
+            "p75": 0,
+            "passed": 15,
+            "unit": "count",
+            "validityWarnings": []
+          }
+        },
+        "passed": 15,
+        "scenarioId": "load"
+      }
+    ],
+    "correctness": {
+      "attempts": 15,
+      "failed": 0,
+      "reasons": [],
+      "unknown": 0,
+      "verified": 15
+    },
+    "diagnosticFlowsPassed": null,
+    "fixtures": [
+      {
+        "adapter": {
+          "accept": "[data-testid=\"consent-banner-accept-button\"]",
+          "banner": "[data-testid=\"consent-banner-root\"]",
+          "categoryToggle": "[data-testid=\"consent-widget-switch-measurement\"]",
+          "controlledRequestPath": "/controlled/script",
+          "overlay": "[data-testid=\"consent-dialog-overlay\"], [data-testid=\"consent-banner-overlay\"]",
+          "pageAction": "#page-action",
+          "preferences": "[data-testid=\"consent-banner-customize-button\"]",
+          "preferencesPanel": "[data-testid=\"consent-dialog-root\"]",
+          "primaryContent": "#primary-content",
+          "ready": "html[data-consent-ready=\"true\"]",
+          "reject": "[data-testid=\"consent-banner-reject-button\"]",
+          "reopen": "#reopen-preferences",
+          "save": "[data-testid=\"consent-widget-footer-save-button\"]",
+          "serverEventsUrl": "http://127.0.0.1:4314/controlled/events",
+          "stateGlobal": "__cookiebench",
+          "withdraw": "[data-testid=\"consent-widget-footer-reject-button\"], [data-testid=\"consent-widget-reject-button\"]"
+        },
+        "baseline": true,
+        "configurationHash": "cf3893a0c5bba83a00667b47331cbf29b63401a1e2f2c14627329513b4addb48",
+        "deployment": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "framework": "nuxt",
+        "frameworkVersion": "4.5.2",
+        "id": "nuxt-baseline",
+        "mode": "manifest",
+        "presentation": "default",
+        "product": "baseline",
+        "provenance": {
+          "artifactIntegrity": "sha512-tR3fcqeHlHmmkLMpIg3V7Y+1ltr302lW8djMw/iy+myfo7QSSz+BVJDuQhg5j73b9oteSyBfOKTDYTgvMtj6TA==",
+          "lockfileHash": "b88c320b796eb3cdb271e3696e4a817d98738c05ad207098c87022b55b06c678",
+          "sourceUrl": "https://registry.npmjs.org/nuxt/-/nuxt-4.5.2.tgz"
+        },
+        "revision": "3.3.1-article-v1-inth-build-manifest-matrix",
+        "schemaVersion": 3,
+        "server": {
+          "build": {
+            "args": [
+              "build"
+            ],
+            "command": "pnpm"
+          },
+          "cwd": "benchmarks/with-c15t-nuxt",
+          "readinessTimeoutMs": 120000,
+          "readinessUrl": "http://127.0.0.1:4314/health",
+          "start": {
+            "args": [
+              "start"
+            ],
+            "command": "pnpm"
+          }
+        },
+        "url": "http://127.0.0.1:4314/baseline/",
+        "version": "4.5.2"
+      },
+      {
+        "adapter": {
+          "accept": "[data-testid=\"consent-banner-accept-button\"]",
+          "banner": "[data-testid=\"consent-banner-root\"]",
+          "categoryToggle": "[data-testid=\"consent-widget-switch-measurement\"]",
+          "controlledRequestPath": "/controlled/script",
+          "overlay": "[data-testid=\"consent-dialog-overlay\"], [data-testid=\"consent-banner-overlay\"]",
+          "pageAction": "#page-action",
+          "preferences": "[data-testid=\"consent-banner-customize-button\"]",
+          "preferencesPanel": "[data-testid=\"consent-dialog-root\"]",
+          "primaryContent": "#primary-content",
+          "ready": "html[data-consent-ready=\"true\"]",
+          "reject": "[data-testid=\"consent-banner-reject-button\"]",
+          "reopen": "#reopen-preferences",
+          "save": "[data-testid=\"consent-widget-footer-save-button\"]",
+          "serverEventsUrl": "http://127.0.0.1:4314/controlled/events",
+          "stateGlobal": "__cookiebench",
+          "withdraw": "[data-testid=\"consent-widget-footer-reject-button\"], [data-testid=\"consent-widget-reject-button\"]"
+        },
+        "baseline": false,
+        "configurationHash": "65402753dfb57c0db0c16cc22d38958681ded747610d00fa6da0629795b04bd8",
+        "deployment": {
+          "assets": "local",
+          "backend": "remote-service"
+        },
+        "framework": "nuxt",
+        "frameworkVersion": "4.5.2",
+        "id": "nuxt-c15t",
+        "mode": "manifest",
+        "presentation": "default",
+        "product": "c15t",
+        "provenance": {
+          "artifactIntegrity": "sha512-oAWUg9+7EfXAxdld35ORsauctCoeA0K4B1nM17NbnQTvReZ2QO35kpf3XCuDEmEzPbczx7AJnlSiZsF/am/sJA==",
+          "lockfileHash": "b88c320b796eb3cdb271e3696e4a817d98738c05ad207098c87022b55b06c678",
+          "sourceUrl": "https://registry.npmjs.org/@c15t/vue/-/vue-3.0.0.tgz"
+        },
+        "revision": "3.3.1-article-v1-inth-build-manifest-matrix",
+        "schemaVersion": 3,
+        "server": {
+          "build": {
+            "args": [
+              "build"
+            ],
+            "command": "pnpm"
+          },
+          "cwd": "benchmarks/with-c15t-nuxt",
+          "readinessTimeoutMs": 120000,
+          "readinessUrl": "http://127.0.0.1:4314/health",
+          "start": {
+            "args": [
+              "start"
+            ],
+            "command": "pnpm"
+          }
+        },
+        "url": "http://127.0.0.1:4314/",
+        "version": "3.0.0"
+      }
+    ],
+    "freshLoadPassed": true,
+    "manifest": {
+      "collectorVersion": "cookiebench-runner-3.2.4",
+      "createdAt": "2026-10-14T20:57:41.260Z",
+      "environment": {
+        "collectorSourceHash": "f359851e4f7b15d549e882d641cd3205f71af1a18aebd8f02f4fc5b2eb21eb1d",
+        "cpu": "Apple M1 Pro",
+        "lockfileHash": "b88c320b796eb3cdb271e3696e4a817d98738c05ad207098c87022b55b06c678",
+        "logicalCpus": "8",
+        "memoryBytes": "17179869184",
+        "order": "continuous LCG32 Fisher-Yates using full fractional draws; seeded fixture permutation within scenario and iteration",
+        "platform": "darwin",
+        "region": "GB",
+        "regionMethod": "declared label only; no geolocation or egress-region emulation",
+        "release": "25.6.0",
+        "serverCache": "production server shared for run; browser cache declared per scenario",
+        "serverPrime": "{\"method\":\"one unmeasured load visit per local fixture URL whose server logs on-demand encoding, after readiness and before warmups, held open for the longest observation window and opening preferences on CMP fixtures; samples overlapping on-demand server encoding are incomplete\",\"visits\":[{\"coldEncodings\":5,\"primed\":true,\"url\":\"http://127.0.0.1:4314/baseline/\"},{\"coldEncodings\":31,\"primed\":true,\"url\":\"http://127.0.0.1:4314/\"}]}",
+        "warmups": "3"
+      },
+      "id": "72683c6a-2df4-47c0-a111-550cabfad364",
+      "methodologyVersion": "cookiebench-v3.2.4",
+      "profile": {
+        "cpuSlowdown": 1,
+        "deviceScaleFactor": 1,
+        "hasTouch": false,
+        "id": "desktop-article-v1-browser-ua",
+        "isMobile": false,
+        "locale": "en-GB",
+        "network": {
+          "downloadBytesPerSecond": 12500000,
+          "latencyMs": 0,
+          "uploadBytesPerSecond": 12500000
+        },
+        "region": "GB",
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+        "viewport": {
+          "height": 768,
+          "width": 1365
+        }
+      },
+      "seed": 20261009,
+      "versions": {
+        "browser": "153.0.8010.12",
+        "effect": "4.0.0-rc.117",
+        "node": "v24.21.0",
+        "playwright": "1.63.0",
+        "web-vitals": "6.2.2"
+      }
+    },
+    "requiredFlowsPassed": true,
+    "status": "passed"
+  },
+  "envelopeFile": "results/2026-10-14-v3-c15t/desktop/nuxt-load/attempt-001/envelope.json",
+  "envelopeSha256": "406a14a73ba7074345ea3d34073a0cba6b31237ab3db6b90197215f14a96d8a6",
+  "execution": {
+    "command": [
+      "node",
+      "packages/cli/src/index.ts",
+      "run",
+      "--config",
+      "results/2026-10-14-v3-c15t/configs/nuxt-desktop.json",
+      "--scenario",
+      "load",
+      "--iterations",
+      "15",
+      "--warmups",
+      "3",
+      "--seed",
+      "20261009",
+      "--output",
+      "results/2026-10-14-v3-c15t/desktop/nuxt-load/attempt-001/envelope.json"
+    ],
+    "cwd": ".",
+    "endedAt": "2026-10-14T21:01:20.721Z",
+    "startedAt": "2026-10-14T20:57:40.908Z",
+    "exitCode": 0,
+    "signal": null,
+    "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdoutSha256": "92938c7e912b79e86f0188f397fc1514b965cb30252feeb79108cb7d1fb1a6fd"
+  },
+  "status": "recorded"
+}

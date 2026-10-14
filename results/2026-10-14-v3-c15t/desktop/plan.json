@@ -1,0 +1,65 @@
+{
+  "entries": [
+    {
+      "config": "results/2026-10-14-v3-c15t/configs/react-desktop.json",
+      "id": "react-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-14-v3-c15t/configs/react-desktop.json",
+      "id": "react-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-14-v3-c15t/configs/nuxt-desktop.json",
+      "id": "nuxt-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-14-v3-c15t/configs/nuxt-desktop.json",
+      "id": "nuxt-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-14-v3-c15t/configs/nextjs-desktop.json",
+      "id": "nextjs-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-14-v3-c15t/configs/nextjs-desktop.json",
+      "id": "nextjs-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-14-v3-c15t/configs/tanstack-start-desktop.json",
+      "id": "tanstack-start-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-14-v3-c15t/configs/tanstack-start-desktop.json",
+      "id": "tanstack-start-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-14-v3-c15t/configs/astro-desktop.json",
+      "id": "astro-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-14-v3-c15t/configs/astro-desktop.json",
+      "id": "astro-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-14-v3-c15t/configs/script-desktop.json",
+      "id": "script-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-14-v3-c15t/configs/script-desktop.json",
+      "id": "script-correctness",
+      "kind": "flows"
+    }
+  ],
+  "seed": 20261009
+}

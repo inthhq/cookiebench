@@ -1,0 +1,61 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:095cd3ef-8d24-4f2c-b110-922a6b026ac7"
+      ],
+      "fixtureId": "nuxt-c15t",
+      "framework": "nuxt",
+      "id": "09bf0cb8-e1cc-464f-ae6d-e064ffb47f46",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T22:17:43.848Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:75d8ef59-4db7-4cbb-8a16-d77f0c061b7c"
+      ],
+      "fixtureId": "nuxt-c15t",
+      "framework": "nuxt",
+      "id": "826bb671-4d99-4d90-b6f2-bb95710f1f57",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T22:17:43.848Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:96a42df9-4251-4ea3-adeb-c0942360dbeb"
+      ],
+      "fixtureId": "nuxt-c15t",
+      "framework": "nuxt",
+      "id": "157293e3-8599-44c8-a44e-a5d4fe0dcbae",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T22:17:43.848Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:b7eb90bf-11fc-44ef-abac-e1ad09cdd873"
+      ],
+      "fixtureId": "nuxt-c15t",
+      "framework": "nuxt",
+      "id": "596dad0b-9d32-4e0b-a83a-182e5cda2f14",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T22:17:43.848Z"
+    }
+  ],
+  "failures": [],
+  "output": "/Users/kayleewilliams/.t3/worktrees/cookiebench/t3-9310a3fd/results/2026-10-14-v3-c15t/desktop-nuxt-correctness-retry/nuxt-correctness/attempt-001/envelope.json",
+  "runId": "d06cdb06-790d-438e-817c-781aa3374703",
+  "samples": 8,
+  "status": "passed"
+}

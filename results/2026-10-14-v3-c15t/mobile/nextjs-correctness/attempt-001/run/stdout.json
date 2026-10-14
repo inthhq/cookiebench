@@ -1,0 +1,61 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:482cf64f-7a58-41a5-b638-0bb50623d25b"
+      ],
+      "fixtureId": "nextjs-c15t",
+      "framework": "nextjs",
+      "id": "6dee8bbc-bd34-4520-aaa0-dfe5f3584129",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T21:47:19.472Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:0b7552dd-844f-4386-b418-0a3f6ba28785"
+      ],
+      "fixtureId": "nextjs-c15t",
+      "framework": "nextjs",
+      "id": "22218a1a-fc0c-48a6-9182-9c8e721b9aa1",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T21:47:19.472Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:3a9ba067-4163-4332-ab8f-c537728b7c69"
+      ],
+      "fixtureId": "nextjs-c15t",
+      "framework": "nextjs",
+      "id": "40b255d6-c434-4c80-abd8-d4ebd59b8f9b",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T21:47:19.472Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:8fb06b9d-75eb-468b-b454-560b5aefad39"
+      ],
+      "fixtureId": "nextjs-c15t",
+      "framework": "nextjs",
+      "id": "93959952-1351-4e10-95c6-6b771e90e137",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-14T21:47:19.472Z"
+    }
+  ],
+  "failures": [],
+  "output": "/Users/kayleewilliams/.t3/worktrees/cookiebench/t3-9310a3fd/results/2026-10-14-v3-c15t/mobile/nextjs-correctness/attempt-001/envelope.json",
+  "runId": "25f6cae5-82e3-44be-975f-dbadf75c8365",
+  "samples": 8,
+  "status": "passed"
+}

@@ -1,0 +1,19 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "results/2026-10-14-v3-c15t/desktop/tanstack-start-load/attempt-001/envelope.json",
+    "--candidate",
+    "results/2026-10-14-v3-c15t/desktop/tanstack-start-load/attempt-001/envelope.json",
+    "--metric",
+    "initial.encoded-body",
+    "--family",
+    "batch:3231889dd6c7c74b9cf9fc2b1a281ecb3b28e48e83dabfb7b55996196fac0750",
+    "--family-size",
+    "36"
+  ],
+  "cwd": ".",
+  "startedAt": "2026-10-14T21:10:51.220Z"
+}
