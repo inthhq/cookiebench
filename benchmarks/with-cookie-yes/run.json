@@ -20,7 +20,7 @@
       },
       "artifactPolicy": "immutable-release",
       "baseline": true,
-      "configurationHash": "f7966ef2b0eead3b1434813b67f87975bb9ca2ba176a3239cbaf4672aa000a08",
+      "configurationHash": "d74e872051eee6aedf17fcbddd5d604e3f186d39ac31a8370e0be60c564d6a5d",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -33,7 +33,7 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "fixture-source-only",
-        "lockfileHash": "a924fbd8f226ce74f96eb932f8f0397abdd5a640309ef37011f18e8f8a6e2294",
+        "lockfileHash": "b88c320b796eb3cdb271e3696e4a817d98738c05ad207098c87022b55b06c678",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
       "resolveHost": "127.0.0.1",
@@ -73,7 +73,7 @@
       },
       "artifactPolicy": "mutable-network",
       "baseline": false,
-      "configurationHash": "03d16ce003a1a4f48d1d391680c322ea6e841a25593e9ce8b3ac5ebff50e8ef1",
+      "configurationHash": "da905045e6e678e2eaedfee02ece278db1e977e9f7de0a97fa0e0482893defec",
       "deployment": {
         "assets": "mixed",
         "backend": "remote-service"
@@ -86,7 +86,7 @@
       "product": "cookie-yes",
       "provenance": {
         "artifactIntegrity": "sha256-05cf90780dacf59471ada113ee918e4618892702311c289a10f09d77f3d3407e",
-        "lockfileHash": "a924fbd8f226ce74f96eb932f8f0397abdd5a640309ef37011f18e8f8a6e2294",
+        "lockfileHash": "b88c320b796eb3cdb271e3696e4a817d98738c05ad207098c87022b55b06c678",
         "sourceUrl": "https://cdn-cookieyes.com/client_data/830009093fab466a1ff5d9a1/script.js"
       },
       "resolveHost": "127.0.0.1",

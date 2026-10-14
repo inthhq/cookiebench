@@ -20,7 +20,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "ecefcbe5c708fe73b10dc329e0abf34bc04bc0db720b48bcd582eb1aa38195d2",
+      "configurationHash": "2947e56552057b1302f67ef5a2c9b8632b52d0c3bf3ccc8d2e476686b138cab4",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -33,7 +33,7 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "fixture-source-only",
-        "lockfileHash": "d1004f44cc3bf1e8a4a98f8ed2db6e272ee3552e1651466a7df2563c81b53b79",
+        "lockfileHash": "b88c320b796eb3cdb271e3696e4a817d98738c05ad207098c87022b55b06c678",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
       "resolveHost": "127.0.0.1",
@@ -75,7 +75,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "b05c0e4d3e60affb9e454fd7e149f9798c706b2a0a97513ff87de3159e3bda32",
+      "configurationHash": "09b41cd0ce288f1212209e97127ee9b55c83bba1b7b4e9ff441e43a94346a4c6",
       "deployment": {
         "assets": "local",
         "backend": "remote-service"
@@ -87,9 +87,9 @@
       "presentation": "default",
       "product": "c15t",
       "provenance": {
-        "artifactIntegrity": "sha512-odzqTOy0MPCikhZQ7214Pd2kMwMx4bSTGIfL3yPbvywGkCtKfZ/HHVks9o05FAiasQ1EE89jZh0X2EhKaC39nQ==",
-        "lockfileHash": "d1004f44cc3bf1e8a4a98f8ed2db6e272ee3552e1651466a7df2563c81b53b79",
-        "sourceUrl": "https://registry.npmjs.org/@c15t/browser/-/browser-3.0.0-alpha.11.tgz"
+        "artifactIntegrity": "sha512-h8yKwuOn1xPuK4EFmMyvZrIxJUBCoDno3Yyunonnlvzc5oIrqyNn0aI14XRMmkmeRG8H6gE04ua+AsuVP0ikyw==",
+        "lockfileHash": "b88c320b796eb3cdb271e3696e4a817d98738c05ad207098c87022b55b06c678",
+        "sourceUrl": "https://registry.npmjs.org/@c15t/browser/-/browser-3.0.0.tgz"
       },
       "resolveHost": "127.0.0.1",
       "revision": "3.3.0-article-v1-inth-init-registered-host",
@@ -108,7 +108,7 @@
         }
       },
       "url": "https://benchmarks-with-cookie-yes.vercel.app:4410/",
-      "version": "3.0.0-alpha.11"
+      "version": "3.0.0"
     },
     {
       "adapter": {
@@ -128,7 +128,7 @@
       },
       "artifactPolicy": "mutable-network",
       "baseline": false,
-      "configurationHash": "3a47ce62643d825e41acc9734ef41eabcf8672bee580a3caa130c01b85fe6dd6",
+      "configurationHash": "546c669bf28f1139a967217de09ac111c3786a7d4b85bcc60ae91dc1955a466c",
       "deployment": {
         "assets": "remote",
         "backend": "remote-service"
@@ -141,7 +141,7 @@
       "product": "cookie-yes",
       "provenance": {
         "artifactIntegrity": "remote-unpinned",
-        "lockfileHash": "d1004f44cc3bf1e8a4a98f8ed2db6e272ee3552e1651466a7df2563c81b53b79",
+        "lockfileHash": "b88c320b796eb3cdb271e3696e4a817d98738c05ad207098c87022b55b06c678",
         "sourceUrl": "https://cdn-cookieyes.com/client_data/830009093fab466a1ff5d9a1/script.js"
       },
       "resolveHost": "127.0.0.1",

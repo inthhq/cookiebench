@@ -20,7 +20,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "f73179b1c2bd55dc4990dbe5dd1028fd76a51e2e07fd31301f223c3befeb3c98",
+      "configurationHash": "4cb03cb525218e2aad058a2837f2e1e69de1396cda4f22cca0b077e3c7910f0f",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -33,7 +33,7 @@
       "product": "baseline",
       "provenance": {
         "artifactIntegrity": "fixture-source-only",
-        "lockfileHash": "d1004f44cc3bf1e8a4a98f8ed2db6e272ee3552e1651466a7df2563c81b53b79",
+        "lockfileHash": "b88c320b796eb3cdb271e3696e4a817d98738c05ad207098c87022b55b06c678",
         "sourceUrl": "https://github.com/inthhq/cookiebench"
       },
       "revision": "3.4.0-article-v1-inth-hosted-prefetch",
@@ -74,7 +74,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "923f8a5eca34e382ab7ac6dfd83329ff33df95cca248d7f44d3bf3274011b434",
+      "configurationHash": "4fad2b2ed4983b508a9d6c9331a8c01fd083243bf371a3259514132705a4e55d",
       "deployment": {
         "assets": "local",
         "backend": "remote-service"
@@ -86,9 +86,9 @@
       "presentation": "default",
       "product": "c15t",
       "provenance": {
-        "artifactIntegrity": "sha512-WPx+fB431xk7GPUdITnmcG8SVUn8UP+h4j335ivDtpuOjbdLAFYZ31qG8tprNPAvQaZcmqNdFvbWpHTsCDjMEw==",
-        "lockfileHash": "d1004f44cc3bf1e8a4a98f8ed2db6e272ee3552e1651466a7df2563c81b53b79",
-        "sourceUrl": "https://registry.npmjs.org/c15t/-/c15t-3.0.0-alpha.11.tgz"
+        "artifactIntegrity": "sha512-nNMAzXVGZ5IurgE+mUCraaDnfTdcNz5aD/Sf/rBXGpFfi68hB/HyQWw2bV29+OIT4xVjuKSv4m83YNqBeKx1Kg==",
+        "lockfileHash": "b88c320b796eb3cdb271e3696e4a817d98738c05ad207098c87022b55b06c678",
+        "sourceUrl": "https://registry.npmjs.org/c15t/-/c15t-3.0.0.tgz"
       },
       "revision": "3.4.0-article-v1-inth-hosted-prefetch-inline-styles",
       "schemaVersion": 3,
@@ -106,7 +106,7 @@
         }
       },
       "url": "http://127.0.0.1:4311/",
-      "version": "3.0.0-alpha.11"
+      "version": "3.0.0"
     }
   ],
   "scenarios": [
