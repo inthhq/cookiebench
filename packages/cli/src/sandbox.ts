@@ -245,7 +245,12 @@ class SandboxRun {
       url: repository,
     });
     try {
-      const { cwd } = sandbox;
+      // A git source clones into a directory named after the repository,
+      // under the session's home directory.
+      const cwd = path.posix.join(
+        sandbox.cwd,
+        path.posix.basename(repository, ".git")
+      );
       if (
         (await shell(sandbox, cwd, "git rev-parse HEAD", signal)) !== revision
       ) {
