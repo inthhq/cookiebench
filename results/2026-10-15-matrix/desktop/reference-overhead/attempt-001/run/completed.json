@@ -1,0 +1,27 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "instrumentation",
+    "audit",
+    "--config",
+    "results/2026-10-15-matrix/configs/reference-overhead-desktop.json",
+    "--scenario",
+    "load",
+    "--iterations",
+    "15",
+    "--warmups",
+    "3",
+    "--seed",
+    "20261009",
+    "--output",
+    "results/2026-10-15-matrix/desktop/reference-overhead/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-15T05:31:45.129Z",
+  "startedAt": "2026-10-15T05:30:56.444Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "55806dcd51269117f6da6b8002e74b1dd0386a8d287fcdd90c635e031769c712"
+}

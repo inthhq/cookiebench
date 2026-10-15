@@ -1,0 +1,19 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "results/2026-10-15-matrix/mobile/tanstack-start-cookie-yes-load/attempt-001/envelope.json",
+    "--candidate",
+    "results/2026-10-15-matrix/mobile/tanstack-start-cookie-yes-load/attempt-001/envelope.json",
+    "--metric",
+    "initial.decoded-body",
+    "--family",
+    "batch:14cf80bbbbd8e37616311cd9c7c4d5e24e38f4ce88753c9901fd6f805601e822",
+    "--family-size",
+    "365"
+  ],
+  "cwd": ".",
+  "startedAt": "2026-10-15T11:01:02.268Z"
+}

@@ -1,0 +1,1099 @@
+{
+  "config": "results/2026-10-15-matrix/configs/reference-overhead-mobile.json",
+  "id": "reference-overhead",
+  "kind": "audit",
+  "analyses": [
+    {
+      "analysisVersion": "cookiebench-analysis-v3.4.0",
+      "comparisons": [
+        {
+          "baseline": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 50.439,
+            "mean": 48.352066666666666,
+            "measured": 15,
+            "median": 48.819,
+            "min": 44.541,
+            "missing": 0,
+            "p75": 49.2325,
+            "passed": 15
+          },
+          "baselineFixtureId": "reference-baseline-minimal",
+          "candidate": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 69.19699999999999,
+            "mean": 61.409,
+            "measured": 15,
+            "median": 61.143,
+            "min": 58.412,
+            "missing": 0,
+            "p75": 62.758,
+            "passed": 15
+          },
+          "candidateFixtureId": "reference-baseline-full",
+          "deployment": {
+            "baseline": {
+              "assets": "local",
+              "backend": "none"
+            },
+            "candidate": {
+              "assets": "local",
+              "backend": "none"
+            }
+          },
+          "eligibilityReasons": [],
+          "eligible": true,
+          "paired": {
+            "conclusion": "candidate-higher",
+            "confidenceInterval": {
+              "high": 18.041000000000004,
+              "level": 0.9999315068493151,
+              "low": 9.535999999999994,
+              "method": "paired-percentile-bootstrap",
+              "resamples": 293000
+            },
+            "count": 15,
+            "medianDifference": 12.811,
+            "p75Delta": {
+              "confidenceInterval": {
+                "high": 20.502999999999986,
+                "level": 0.9999315068493151,
+                "low": 9.878,
+                "method": "paired-percentile-bootstrap",
+                "resamples": 293000
+              },
+              "estimate": 13.525500000000001
+            },
+            "pairDifferenceP75": 15.003000000000007
+          },
+          "scenarioId": "load",
+          "unit": "ms"
+        }
+      ],
+      "metricKey": "custom.audit.task-duration",
+      "multiplicity": {
+        "comparisons": 365,
+        "family": "batch:14cf80bbbbd8e37616311cd9c7c4d5e24e38f4ce88753c9901fd6f805601e822",
+        "familyLevel": 0.95,
+        "intervalLevel": 0.9999315068493151,
+        "intervals": 730,
+        "method": "bonferroni"
+      },
+      "sourceRunIds": [
+        "8b682e63-f852-41fb-843f-fa5474c53eda"
+      ],
+      "execution": {
+        "command": [
+          "node",
+          "packages/cli/src/index.ts",
+          "compare",
+          "--baseline",
+          "results/2026-10-15-matrix/mobile/reference-overhead/attempt-001/envelope.json",
+          "--candidate",
+          "results/2026-10-15-matrix/mobile/reference-overhead/attempt-001/envelope.json",
+          "--metric",
+          "custom.audit.task-duration",
+          "--family",
+          "batch:14cf80bbbbd8e37616311cd9c7c4d5e24e38f4ce88753c9901fd6f805601e822",
+          "--family-size",
+          "365"
+        ],
+        "cwd": ".",
+        "endedAt": "2026-10-15T11:03:35.291Z",
+        "startedAt": "2026-10-15T11:03:34.465Z",
+        "exitCode": 0,
+        "signal": null,
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdoutSha256": "ccbf1a82083997a0bf835adbdecc2c29c5f7995037742d962cf9b52ab133e9a0"
+      }
+    },
+    {
+      "analysisVersion": "cookiebench-analysis-v3.4.0",
+      "comparisons": [
+        {
+          "baseline": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 4.447,
+            "mean": 3.255266666666667,
+            "measured": 15,
+            "median": 3.105,
+            "min": 1.843,
+            "missing": 0,
+            "p75": 4.1795,
+            "passed": 15
+          },
+          "baselineFixtureId": "reference-baseline-minimal",
+          "candidate": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 11.466000000000001,
+            "mean": 9.187133333333334,
+            "measured": 15,
+            "median": 9.223,
+            "min": 6.688000000000001,
+            "missing": 0,
+            "p75": 9.979500000000002,
+            "passed": 15
+          },
+          "candidateFixtureId": "reference-baseline-full",
+          "deployment": {
+            "baseline": {
+              "assets": "local",
+              "backend": "none"
+            },
+            "candidate": {
+              "assets": "local",
+              "backend": "none"
+            }
+          },
+          "eligibilityReasons": [],
+          "eligible": true,
+          "paired": {
+            "conclusion": "candidate-higher",
+            "confidenceInterval": {
+              "high": 7.789,
+              "level": 0.9999315068493151,
+              "low": 3.655999999999999,
+              "method": "paired-percentile-bootstrap",
+              "resamples": 293000
+            },
+            "count": 15,
+            "medianDifference": 5.833,
+            "p75Delta": {
+              "confidenceInterval": {
+                "high": 8.361,
+                "level": 0.9999315068493151,
+                "low": 4.4719999999999995,
+                "method": "paired-percentile-bootstrap",
+                "resamples": 293000
+              },
+              "estimate": 5.800000000000002
+            },
+            "pairDifferenceP75": 6.8835
+          },
+          "scenarioId": "load",
+          "unit": "ms"
+        }
+      ],
+      "metricKey": "custom.audit.script-duration",
+      "multiplicity": {
+        "comparisons": 365,
+        "family": "batch:14cf80bbbbd8e37616311cd9c7c4d5e24e38f4ce88753c9901fd6f805601e822",
+        "familyLevel": 0.95,
+        "intervalLevel": 0.9999315068493151,
+        "intervals": 730,
+        "method": "bonferroni"
+      },
+      "sourceRunIds": [
+        "8b682e63-f852-41fb-843f-fa5474c53eda"
+      ],
+      "execution": {
+        "command": [
+          "node",
+          "packages/cli/src/index.ts",
+          "compare",
+          "--baseline",
+          "results/2026-10-15-matrix/mobile/reference-overhead/attempt-001/envelope.json",
+          "--candidate",
+          "results/2026-10-15-matrix/mobile/reference-overhead/attempt-001/envelope.json",
+          "--metric",
+          "custom.audit.script-duration",
+          "--family",
+          "batch:14cf80bbbbd8e37616311cd9c7c4d5e24e38f4ce88753c9901fd6f805601e822",
+          "--family-size",
+          "365"
+        ],
+        "cwd": ".",
+        "endedAt": "2026-10-15T11:03:36.714Z",
+        "startedAt": "2026-10-15T11:03:35.891Z",
+        "exitCode": 0,
+        "signal": null,
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdoutSha256": "62cd7398a9d5337a3b4a2c2485c608b5915b3197cc0969de0f370641ebf87530"
+      }
+    },
+    {
+      "analysisVersion": "cookiebench-analysis-v3.4.0",
+      "comparisons": [
+        {
+          "baseline": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 19.95,
+            "mean": 17.56386666666667,
+            "measured": 15,
+            "median": 17.342,
+            "min": 16.63,
+            "missing": 0,
+            "p75": 17.787499999999998,
+            "passed": 15
+          },
+          "baselineFixtureId": "reference-baseline-minimal",
+          "candidate": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 18.959,
+            "mean": 17.594333333333335,
+            "measured": 15,
+            "median": 17.61,
+            "min": 16.602,
+            "missing": 0,
+            "p75": 18.019,
+            "passed": 15
+          },
+          "candidateFixtureId": "reference-baseline-full",
+          "deployment": {
+            "baseline": {
+              "assets": "local",
+              "backend": "none"
+            },
+            "candidate": {
+              "assets": "local",
+              "backend": "none"
+            }
+          },
+          "eligibilityReasons": [],
+          "eligible": true,
+          "paired": {
+            "conclusion": "inconclusive",
+            "confidenceInterval": {
+              "high": 0.786999999999999,
+              "level": 0.9999315068493151,
+              "low": -0.4609999999999985,
+              "method": "paired-percentile-bootstrap",
+              "resamples": 293000
+            },
+            "count": 15,
+            "medianDifference": -0.027999999999998693,
+            "p75Delta": {
+              "confidenceInterval": {
+                "high": 1.7469999999999999,
+                "level": 0.9999315068493151,
+                "low": -2.821499999999997,
+                "method": "paired-percentile-bootstrap",
+                "resamples": 293000
+              },
+              "estimate": 0.23150000000000048
+            },
+            "pairDifferenceP75": 0.5055000000000014
+          },
+          "scenarioId": "load",
+          "unit": "ms"
+        }
+      ],
+      "metricKey": "custom.audit.layout-duration",
+      "multiplicity": {
+        "comparisons": 365,
+        "family": "batch:14cf80bbbbd8e37616311cd9c7c4d5e24e38f4ce88753c9901fd6f805601e822",
+        "familyLevel": 0.95,
+        "intervalLevel": 0.9999315068493151,
+        "intervals": 730,
+        "method": "bonferroni"
+      },
+      "sourceRunIds": [
+        "8b682e63-f852-41fb-843f-fa5474c53eda"
+      ],
+      "execution": {
+        "command": [
+          "node",
+          "packages/cli/src/index.ts",
+          "compare",
+          "--baseline",
+          "results/2026-10-15-matrix/mobile/reference-overhead/attempt-001/envelope.json",
+          "--candidate",
+          "results/2026-10-15-matrix/mobile/reference-overhead/attempt-001/envelope.json",
+          "--metric",
+          "custom.audit.layout-duration",
+          "--family",
+          "batch:14cf80bbbbd8e37616311cd9c7c4d5e24e38f4ce88753c9901fd6f805601e822",
+          "--family-size",
+          "365"
+        ],
+        "cwd": ".",
+        "endedAt": "2026-10-15T11:03:38.153Z",
+        "startedAt": "2026-10-15T11:03:37.314Z",
+        "exitCode": 0,
+        "signal": null,
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdoutSha256": "4677fac60c913c87b0640cda1c43f15dea320a0619d696bde7d6ade6380b7336"
+      }
+    },
+    {
+      "analysisVersion": "cookiebench-analysis-v3.4.0",
+      "comparisons": [
+        {
+          "baseline": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 376,
+            "mean": 365.86666666666673,
+            "measured": 15,
+            "median": 364,
+            "min": 356,
+            "missing": 0,
+            "p75": 372,
+            "passed": 15
+          },
+          "baselineFixtureId": "reference-baseline-minimal",
+          "candidate": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 396,
+            "mean": 382.6666666666667,
+            "measured": 15,
+            "median": 380,
+            "min": 372,
+            "missing": 0,
+            "p75": 388,
+            "passed": 15
+          },
+          "candidateFixtureId": "reference-baseline-full",
+          "deployment": {
+            "baseline": {
+              "assets": "local",
+              "backend": "none"
+            },
+            "candidate": {
+              "assets": "local",
+              "backend": "none"
+            }
+          },
+          "eligibilityReasons": [],
+          "eligible": true,
+          "paired": {
+            "conclusion": "candidate-higher",
+            "confidenceInterval": {
+              "high": 24,
+              "level": 0.9999315068493151,
+              "low": 8,
+              "method": "paired-percentile-bootstrap",
+              "resamples": 293000
+            },
+            "count": 15,
+            "medianDifference": 16,
+            "p75Delta": {
+              "confidenceInterval": {
+                "high": 28,
+                "level": 0.9999315068493151,
+                "low": 4,
+                "method": "paired-percentile-bootstrap",
+                "resamples": 293000
+              },
+              "estimate": 16
+            },
+            "pairDifferenceP75": 24
+          },
+          "scenarioId": "load",
+          "unit": "ms"
+        }
+      ],
+      "metricKey": "custom.audit.lcp",
+      "multiplicity": {
+        "comparisons": 365,
+        "family": "batch:14cf80bbbbd8e37616311cd9c7c4d5e24e38f4ce88753c9901fd6f805601e822",
+        "familyLevel": 0.95,
+        "intervalLevel": 0.9999315068493151,
+        "intervals": 730,
+        "method": "bonferroni"
+      },
+      "sourceRunIds": [
+        "8b682e63-f852-41fb-843f-fa5474c53eda"
+      ],
+      "execution": {
+        "command": [
+          "node",
+          "packages/cli/src/index.ts",
+          "compare",
+          "--baseline",
+          "results/2026-10-15-matrix/mobile/reference-overhead/attempt-001/envelope.json",
+          "--candidate",
+          "results/2026-10-15-matrix/mobile/reference-overhead/attempt-001/envelope.json",
+          "--metric",
+          "custom.audit.lcp",
+          "--family",
+          "batch:14cf80bbbbd8e37616311cd9c7c4d5e24e38f4ce88753c9901fd6f805601e822",
+          "--family-size",
+          "365"
+        ],
+        "cwd": ".",
+        "endedAt": "2026-10-15T11:03:39.545Z",
+        "startedAt": "2026-10-15T11:03:38.752Z",
+        "exitCode": 0,
+        "signal": null,
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdoutSha256": "66b19e870c9cf5856e19dd97cb34386e93f269b079f2c4b6d5352ec554c215a1"
+      }
+    },
+    {
+      "analysisVersion": "cookiebench-analysis-v3.4.0",
+      "comparisons": [
+        {
+          "baseline": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 1005.3999996185303,
+            "mean": 1003.1666664123536,
+            "measured": 15,
+            "median": 1003.1999998092651,
+            "min": 1001.5999994277954,
+            "missing": 0,
+            "p75": 1003.4999995231628,
+            "passed": 15
+          },
+          "baselineFixtureId": "reference-baseline-minimal",
+          "candidate": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 1006,
+            "mean": 1003.1133335113526,
+            "measured": 15,
+            "median": 1003,
+            "min": 1001.1000003814697,
+            "missing": 0,
+            "p75": 1003.8500003814697,
+            "passed": 15
+          },
+          "candidateFixtureId": "reference-baseline-full",
+          "deployment": {
+            "baseline": {
+              "assets": "local",
+              "backend": "none"
+            },
+            "candidate": {
+              "assets": "local",
+              "backend": "none"
+            }
+          },
+          "eligibilityReasons": [],
+          "eligible": true,
+          "paired": {
+            "conclusion": "inconclusive",
+            "confidenceInterval": {
+              "high": 1.4000005722045898,
+              "level": 0.9999315068493151,
+              "low": -2,
+              "method": "paired-percentile-bootstrap",
+              "resamples": 293000
+            },
+            "count": 15,
+            "medianDifference": -0.09999942779541016,
+            "p75Delta": {
+              "confidenceInterval": {
+                "high": 1.4000005722045898,
+                "level": 0.9999315068493151,
+                "low": -2.09999942779541,
+                "method": "paired-percentile-bootstrap",
+                "resamples": 293000
+              },
+              "estimate": 0.35000085830688477
+            },
+            "pairDifferenceP75": 0.9500002861022949
+          },
+          "scenarioId": "load",
+          "unit": "ms"
+        }
+      ],
+      "metricKey": "custom.audit.observed-window",
+      "multiplicity": {
+        "comparisons": 365,
+        "family": "batch:14cf80bbbbd8e37616311cd9c7c4d5e24e38f4ce88753c9901fd6f805601e822",
+        "familyLevel": 0.95,
+        "intervalLevel": 0.9999315068493151,
+        "intervals": 730,
+        "method": "bonferroni"
+      },
+      "sourceRunIds": [
+        "8b682e63-f852-41fb-843f-fa5474c53eda"
+      ],
+      "execution": {
+        "command": [
+          "node",
+          "packages/cli/src/index.ts",
+          "compare",
+          "--baseline",
+          "results/2026-10-15-matrix/mobile/reference-overhead/attempt-001/envelope.json",
+          "--candidate",
+          "results/2026-10-15-matrix/mobile/reference-overhead/attempt-001/envelope.json",
+          "--metric",
+          "custom.audit.observed-window",
+          "--family",
+          "batch:14cf80bbbbd8e37616311cd9c7c4d5e24e38f4ce88753c9901fd6f805601e822",
+          "--family-size",
+          "365"
+        ],
+        "cwd": ".",
+        "endedAt": "2026-10-15T11:03:40.932Z",
+        "startedAt": "2026-10-15T11:03:40.109Z",
+        "exitCode": 0,
+        "signal": null,
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdoutSha256": "e6a240fc8ea676b5441eef9a70c3017896cb42c487eb2219b673774f7381dce6"
+      }
+    }
+  ],
+  "configSha256": "90034d8ab00ecef437dc169080bfc8fc2d3660371253df3a8177c01515a5d9aa",
+  "details": {
+    "capabilities": [],
+    "cells": [
+      {
+        "attempts": 15,
+        "baseline": true,
+        "correctness": {
+          "attempts": 15,
+          "failed": 0,
+          "reasons": [
+            "The collector did not establish completion of all required correctness checks."
+          ],
+          "unknown": 15,
+          "verified": 0
+        },
+        "diagnostic": false,
+        "failed": 0,
+        "failures": [],
+        "fixtureId": "reference-baseline-minimal",
+        "followupProbes": 0,
+        "incomplete": 0,
+        "lcpAttribution": {
+          "elements": [],
+          "missing": 0
+        },
+        "metrics": {
+          "custom.audit.fcp": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 376,
+            "mean": 365.86666666666673,
+            "measured": 15,
+            "median": 364,
+            "min": 356,
+            "missing": 0,
+            "p75": 372,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "custom.audit.layout-duration": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 19.95,
+            "mean": 17.56386666666667,
+            "measured": 15,
+            "median": 17.342,
+            "min": 16.63,
+            "missing": 0,
+            "p75": 17.787499999999998,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "custom.audit.lcp": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 376,
+            "mean": 365.86666666666673,
+            "measured": 15,
+            "median": 364,
+            "min": 356,
+            "missing": 0,
+            "p75": 372,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "custom.audit.observed-window": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 1005.3999996185303,
+            "mean": 1003.1666664123536,
+            "measured": 15,
+            "median": 1003.1999998092651,
+            "min": 1001.5999994277954,
+            "missing": 0,
+            "p75": 1003.4999995231628,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "custom.audit.script-duration": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 4.447,
+            "mean": 3.255266666666667,
+            "measured": 15,
+            "median": 3.105,
+            "min": 1.843,
+            "missing": 0,
+            "p75": 4.1795,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "custom.audit.task-duration": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 50.439,
+            "mean": 48.352066666666666,
+            "measured": 15,
+            "median": 48.819,
+            "min": 44.541,
+            "missing": 0,
+            "p75": 49.2325,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          }
+        },
+        "passed": 15,
+        "scenarioId": "load"
+      },
+      {
+        "attempts": 15,
+        "baseline": false,
+        "correctness": {
+          "attempts": 15,
+          "failed": 0,
+          "reasons": [
+            "The collector did not establish completion of all required correctness checks."
+          ],
+          "unknown": 15,
+          "verified": 0
+        },
+        "diagnostic": false,
+        "failed": 0,
+        "failures": [],
+        "fixtureId": "reference-baseline-full",
+        "followupProbes": 0,
+        "incomplete": 0,
+        "lcpAttribution": {
+          "elements": [],
+          "missing": 0
+        },
+        "metrics": {
+          "custom.audit.fcp": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 396,
+            "mean": 382.6666666666667,
+            "measured": 15,
+            "median": 380,
+            "min": 372,
+            "missing": 0,
+            "p75": 388,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "custom.audit.layout-duration": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 18.959,
+            "mean": 17.594333333333335,
+            "measured": 15,
+            "median": 17.61,
+            "min": 16.602,
+            "missing": 0,
+            "p75": 18.019,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "custom.audit.lcp": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 396,
+            "mean": 382.6666666666667,
+            "measured": 15,
+            "median": 380,
+            "min": 372,
+            "missing": 0,
+            "p75": 388,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "custom.audit.observed-window": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 1006,
+            "mean": 1003.1133335113526,
+            "measured": 15,
+            "median": 1003,
+            "min": 1001.1000003814697,
+            "missing": 0,
+            "p75": 1003.8500003814697,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "custom.audit.script-duration": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 11.466000000000001,
+            "mean": 9.187133333333334,
+            "measured": 15,
+            "median": 9.223,
+            "min": 6.688000000000001,
+            "missing": 0,
+            "p75": 9.979500000000002,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          },
+          "custom.audit.task-duration": {
+            "attempts": 15,
+            "available": 15,
+            "censoring": null,
+            "eligibilityReasons": [],
+            "excluded": 0,
+            "failed": 0,
+            "includedIncomplete": 0,
+            "incomplete": 0,
+            "max": 69.19699999999999,
+            "mean": 61.409,
+            "measured": 15,
+            "median": 61.143,
+            "min": 58.412,
+            "missing": 0,
+            "p75": 62.758,
+            "passed": 15,
+            "unit": "ms",
+            "validityWarnings": []
+          }
+        },
+        "passed": 15,
+        "scenarioId": "load"
+      }
+    ],
+    "correctness": {
+      "attempts": 15,
+      "failed": 0,
+      "reasons": [
+        "The collector did not establish completion of all required correctness checks."
+      ],
+      "unknown": 15,
+      "verified": 0
+    },
+    "diagnosticFlowsPassed": null,
+    "fixtures": [
+      {
+        "adapter": {
+          "accept": "#accept",
+          "acknowledgement": "#feedback",
+          "banner": "#banner",
+          "categoryToggle": "#analytics",
+          "controlledRequestPath": "/controlled.js",
+          "overlay": "#overlay",
+          "pageAction": "#page-action",
+          "preferences": "#preferences",
+          "preferencesPanel": "#choices",
+          "primaryContent": "[data-primary-content]",
+          "ready": "html[data-ready=\"true\"]",
+          "reject": "#reject",
+          "reopen": "#reopen",
+          "save": "#save",
+          "serverEventsUrl": "http://127.0.0.1:4173/events",
+          "stateGlobal": "__cookiebench",
+          "withdraw": "#withdraw"
+        },
+        "baseline": true,
+        "configurationHash": "449ca00c36871fe9be7834f2019dd72d8df70f3eb066c3452c2f4f0d794c6b86",
+        "deployment": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "framework": "script-tag",
+        "frameworkVersion": "html",
+        "id": "reference-baseline-minimal",
+        "mode": "local-only",
+        "presentation": "default",
+        "product": "Controlled reference",
+        "revision": "3.0.0-audit-minimal",
+        "schemaVersion": 3,
+        "server": {
+          "build": {
+            "args": [
+              "build.mjs"
+            ],
+            "command": "/Users/kayleewilliams/.local/share/fnm/node-versions/v24.21.0/installation/bin/node"
+          },
+          "cwd": "/Users/kayleewilliams/.t3/worktrees/cookiebench/t3-9310a3fd/fixtures/reference",
+          "readinessTimeoutMs": 5000,
+          "readinessUrl": "http://127.0.0.1:4173/health",
+          "start": {
+            "args": [
+              "server.mjs",
+              "4173"
+            ],
+            "command": "/Users/kayleewilliams/.local/share/fnm/node-versions/v24.21.0/installation/bin/node"
+          }
+        },
+        "url": "http://127.0.0.1:4173/?variant=baseline",
+        "version": "3.0.0"
+      },
+      {
+        "adapter": {
+          "accept": "#accept",
+          "acknowledgement": "#feedback",
+          "banner": "#banner",
+          "categoryToggle": "#analytics",
+          "controlledRequestPath": "/controlled.js",
+          "overlay": "#overlay",
+          "pageAction": "#page-action",
+          "preferences": "#preferences",
+          "preferencesPanel": "#choices",
+          "primaryContent": "[data-primary-content]",
+          "ready": "html[data-ready=\"true\"]",
+          "reject": "#reject",
+          "reopen": "#reopen",
+          "save": "#save",
+          "serverEventsUrl": "http://127.0.0.1:4173/events",
+          "stateGlobal": "__cookiebench",
+          "withdraw": "#withdraw"
+        },
+        "baseline": false,
+        "configurationHash": "449ca00c36871fe9be7834f2019dd72d8df70f3eb066c3452c2f4f0d794c6b86",
+        "deployment": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "framework": "script-tag",
+        "frameworkVersion": "html",
+        "id": "reference-baseline-full",
+        "mode": "local-only",
+        "presentation": "default",
+        "product": "Controlled reference",
+        "revision": "3.0.0-audit-full",
+        "schemaVersion": 3,
+        "server": {
+          "build": {
+            "args": [
+              "build.mjs"
+            ],
+            "command": "/Users/kayleewilliams/.local/share/fnm/node-versions/v24.21.0/installation/bin/node"
+          },
+          "cwd": "/Users/kayleewilliams/.t3/worktrees/cookiebench/t3-9310a3fd/fixtures/reference",
+          "readinessTimeoutMs": 5000,
+          "readinessUrl": "http://127.0.0.1:4173/health",
+          "start": {
+            "args": [
+              "server.mjs",
+              "4173"
+            ],
+            "command": "/Users/kayleewilliams/.local/share/fnm/node-versions/v24.21.0/installation/bin/node"
+          }
+        },
+        "url": "http://127.0.0.1:4173/?variant=baseline",
+        "version": "3.0.0"
+      }
+    ],
+    "freshLoadPassed": true,
+    "manifest": {
+      "collectorVersion": "cookiebench-instrumentation-audit-1.2.0",
+      "createdAt": "2026-10-15T11:03:33.645Z",
+      "environment": {
+        "collectorSourceHash": "f359851e4f7b15d549e882d641cd3205f71af1a18aebd8f02f4fc5b2eb21eb1d",
+        "cpu": "Apple M1 Pro",
+        "cpuWindow": "before navigation through first CDP snapshot after observation deadline; raw endpoints retained; no normalization or subtraction",
+        "fixtureSourceHash": "configuration:449ca00c36871fe9be7834f2019dd72d8df70f3eb066c3452c2f4f0d794c6b86;revision:3.0.0",
+        "fullArm": "minimal arm plus production DOM observer, owned bounded main-document native vitals/Element Timing observers, unfinalized web-vitals diagnostic observers, passive network collector and production navigation capture listeners with native CDP binding",
+        "inputSnapshotCost": "not calibrated: load-only visits do not arm a consent action, dispatch trusted input or serialize input/unload snapshots; no overhead correction is applied",
+        "lockfileHash": "b88c320b796eb3cdb271e3696e4a817d98738c05ad207098c87022b55b06c678",
+        "minimalArm": "main-document native paint/LCP observer with timer and snapshot queue drain after a 250 ms presentation grace, shared CDP emulation and Performance domain; no DOM polling, web-vitals or network listeners",
+        "order": "[[\"full\",\"minimal\"],[\"full\",\"minimal\"],[\"full\",\"minimal\"],[\"minimal\",\"full\"],[\"full\",\"minimal\"],[\"full\",\"minimal\"],[\"minimal\",\"full\"],[\"full\",\"minimal\"],[\"full\",\"minimal\"],[\"full\",\"minimal\"],[\"full\",\"minimal\"],[\"full\",\"minimal\"],[\"minimal\",\"full\"],[\"full\",\"minimal\"],[\"minimal\",\"full\"],[\"full\",\"minimal\"],[\"minimal\",\"full\"],[\"minimal\",\"full\"]]",
+        "platform": "darwin",
+        "release": "25.6.0",
+        "warmups": "3"
+      },
+      "id": "8b682e63-f852-41fb-843f-fa5474c53eda",
+      "methodologyVersion": "cookiebench-instrumentation-overhead-v1",
+      "profile": {
+        "cpuSlowdown": 4,
+        "deviceScaleFactor": 3,
+        "hasTouch": true,
+        "id": "mobile-article-v1",
+        "isMobile": true,
+        "locale": "en-GB",
+        "network": {
+          "downloadBytesPerSecond": 200000,
+          "latencyMs": 150,
+          "uploadBytesPerSecond": 93750
+        },
+        "region": "GB",
+        "userAgent": "Mozilla/5.0 (Linux; Android 13; CookieBench Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+        "viewport": {
+          "height": 844,
+          "width": 390
+        }
+      },
+      "seed": 20261009,
+      "versions": {
+        "browser": "153.0.8010.12",
+        "effect": "4.0.0-rc.117",
+        "node": "v24.21.0",
+        "playwright": "1.63.0",
+        "web-vitals": "6.2.2"
+      }
+    },
+    "requiredFlowsPassed": true,
+    "status": "passed"
+  },
+  "envelopeFile": "results/2026-10-15-matrix/mobile/reference-overhead/attempt-001/envelope.json",
+  "envelopeSha256": "98103470b8bd3a9d3315b09f8f341af98c5b6627c16e42a8c83e32a55ddd85ab",
+  "execution": {
+    "command": [
+      "node",
+      "packages/cli/src/index.ts",
+      "instrumentation",
+      "audit",
+      "--config",
+      "results/2026-10-15-matrix/configs/reference-overhead-mobile.json",
+      "--scenario",
+      "load",
+      "--iterations",
+      "15",
+      "--warmups",
+      "3",
+      "--seed",
+      "20261009",
+      "--output",
+      "results/2026-10-15-matrix/mobile/reference-overhead/attempt-001/envelope.json"
+    ],
+    "cwd": ".",
+    "endedAt": "2026-10-15T11:03:34.220Z",
+    "startedAt": "2026-10-15T11:02:46.126Z",
+    "exitCode": 0,
+    "signal": null,
+    "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdoutSha256": "05e5e38fd05427b007c8ec85131d5f6c434b7b461967275c99d1235a0594112e"
+  },
+  "status": "recorded"
+}

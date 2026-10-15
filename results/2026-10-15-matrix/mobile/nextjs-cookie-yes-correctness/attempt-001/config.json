@@ -1,0 +1,254 @@
+{
+  "fixtures": [
+    {
+      "adapter": {
+        "accept": "[data-testid=\"consent-banner-accept-button\"]",
+        "banner": "[data-testid=\"consent-banner-root\"]",
+        "categoryToggle": "[data-testid=\"consent-widget-switch-measurement\"]",
+        "controlledRequestPath": "/controlled/script",
+        "overlay": "[data-testid=\"consent-dialog-overlay\"], [data-testid=\"consent-banner-overlay\"]",
+        "pageAction": "#page-action",
+        "preferences": "[data-testid=\"consent-banner-customize-button\"]",
+        "preferencesPanel": "[data-testid=\"consent-dialog-root\"]",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": "[data-testid=\"consent-banner-reject-button\"]",
+        "reopen": "#reopen-preferences",
+        "save": "[data-testid=\"consent-widget-footer-save-button\"]",
+        "serverEventsUrl": "http://127.0.0.1:4322/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
+      },
+      "baseline": true,
+      "configurationHash": "2422307775ed81a5500d86e7f4eb53c4779cfe6d4dfc2d7d866bc7a86838bbbe",
+      "deployment": {
+        "assets": "local",
+        "backend": "none"
+      },
+      "framework": "nextjs",
+      "frameworkVersion": "16.0.7",
+      "id": "nextjs-baseline-registered-host",
+      "mode": "manifest",
+      "presentation": "default",
+      "product": "baseline",
+      "provenance": {
+        "artifactIntegrity": "fixture-source-only",
+        "lockfileHash": "b88c320b796eb3cdb271e3696e4a817d98738c05ad207098c87022b55b06c678",
+        "sourceUrl": "https://github.com/inthhq/cookiebench"
+      },
+      "revision": "3.3.1-article-v1-inth-build-manifest-server-banner-matrix",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": [
+            "build"
+          ],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-nextjs",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4322/health",
+        "start": {
+          "args": [
+            "../../packages/fixture-support/src/serve.ts",
+            "--port",
+            "4322",
+            "--tls-port",
+            "4622",
+            "--after-hydration",
+            "cookie-yes",
+            "--upstream-port",
+            "4412",
+            "--",
+            "pnpm",
+            "exec",
+            "next",
+            "start",
+            "--port",
+            "4412"
+          ],
+          "command": "node"
+        }
+      },
+      "url": "https://benchmarks-with-cookie-yes.vercel.app:4622/baseline",
+      "version": "16.0.7",
+      "resolveHost": "127.0.0.1"
+    },
+    {
+      "adapter": {
+        "accept": ".cky-btn-accept",
+        "banner": ".cky-consent-container",
+        "controlledRequestPath": "/controlled/script",
+        "pageAction": "#page-action",
+        "preferences": ".cky-btn-customize",
+        "preferencesPanel": ".cky-preference-center",
+        "primaryContent": "#primary-content",
+        "ready": "html[data-consent-ready=\"true\"]",
+        "reject": ".cky-btn-reject",
+        "reopen": "#reopen-preferences",
+        "serverEventsUrl": "http://127.0.0.1:4322/controlled/events",
+        "stateGlobal": "__cookiebench",
+        "withdraw": ".cky-preference-center .cky-btn-reject"
+      },
+      "artifactPolicy": "mutable-network",
+      "baseline": false,
+      "configurationHash": "864d50fd5629728eaa942f5b6a2d0da2e831cf0a9a435bfc61fcad3bc366290d",
+      "deployment": {
+        "assets": "mixed",
+        "backend": "remote-service"
+      },
+      "framework": "nextjs",
+      "frameworkVersion": "16.0.7",
+      "id": "nextjs-cookie-yes",
+      "mode": "hosted",
+      "presentation": "default",
+      "product": "cookie-yes",
+      "provenance": {
+        "artifactIntegrity": "sha256-05cf90780dacf59471ada113ee918e4618892702311c289a10f09d77f3d3407e",
+        "lockfileHash": "b88c320b796eb3cdb271e3696e4a817d98738c05ad207098c87022b55b06c678",
+        "sourceUrl": "https://cdn-cookieyes.com/client_data/830009093fab466a1ff5d9a1/script.js"
+      },
+      "resolveHost": "127.0.0.1",
+      "revision": "3.4.0-matrix-article-v1-head-start-after-hydration",
+      "schemaVersion": 3,
+      "server": {
+        "build": {
+          "args": [
+            "build"
+          ],
+          "command": "pnpm"
+        },
+        "cwd": "benchmarks/with-c15t-nextjs",
+        "readinessTimeoutMs": 120000,
+        "readinessUrl": "http://127.0.0.1:4322/health",
+        "start": {
+          "args": [
+            "../../packages/fixture-support/src/serve.ts",
+            "--port",
+            "4322",
+            "--tls-port",
+            "4622",
+            "--after-hydration",
+            "cookie-yes",
+            "--upstream-port",
+            "4412",
+            "--",
+            "pnpm",
+            "exec",
+            "next",
+            "start",
+            "--port",
+            "4412"
+          ],
+          "command": "node"
+        }
+      },
+      "url": "https://benchmarks-with-cookie-yes.vercel.app:4622/baseline?cmp=cookie-yes",
+      "version": "remote-capture-05cf90780dac"
+    }
+  ],
+  "scenarios": [
+    {
+      "action": "load",
+      "actionDeadlineMs": 10000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "load",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 10000,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": [
+          "measurement",
+          "marketing"
+        ],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "accept",
+      "actionDeadlineMs": 10000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "accept",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": [
+          "measurement",
+          "marketing"
+        ],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "reject",
+      "actionDeadlineMs": 10000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "reject",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": [
+          "measurement",
+          "marketing"
+        ],
+        "scriptCount": 2
+      }
+    },
+    {
+      "action": "save",
+      "actionDeadlineMs": 10000,
+      "cache": "cold",
+      "expectedBanner": true,
+      "followupOffsetMs": 500,
+      "id": "save",
+      "input": "pointer",
+      "navigationTimeoutMs": 15000,
+      "observationMs": 1500,
+      "readiness": "ready",
+      "visitor": "fresh",
+      "workload": {
+        "categories": [
+          "measurement",
+          "marketing"
+        ],
+        "scriptCount": 2
+      }
+    }
+  ],
+  "profile": {
+    "cpuSlowdown": 4,
+    "deviceScaleFactor": 3,
+    "hasTouch": true,
+    "id": "mobile-article-v1",
+    "isMobile": true,
+    "locale": "en-GB",
+    "network": {
+      "downloadBytesPerSecond": 200000,
+      "latencyMs": 150,
+      "uploadBytesPerSecond": 93750
+    },
+    "region": "GB",
+    "userAgent": "Mozilla/5.0 (Linux; Android 13; CookieBench Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    }
+  },
+  "iterations": 1,
+  "warmups": 0,
+  "seed": 1
+}

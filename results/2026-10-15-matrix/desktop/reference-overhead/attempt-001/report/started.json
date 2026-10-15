@@ -1,0 +1,11 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "report",
+    "--file",
+    "results/2026-10-15-matrix/desktop/reference-overhead/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "startedAt": "2026-10-15T05:31:45.137Z"
+}

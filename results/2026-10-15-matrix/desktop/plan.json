@@ -1,0 +1,130 @@
+{
+  "entries": [
+    {
+      "config": "results/2026-10-15-matrix/configs/script-desktop.json",
+      "id": "script-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-15-matrix/configs/script-desktop.json",
+      "id": "script-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-15-matrix/configs/script-cookie-yes-desktop.json",
+      "id": "script-cookie-yes-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-15-matrix/configs/script-cookie-yes-desktop.json",
+      "id": "script-cookie-yes-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-15-matrix/configs/react-desktop.json",
+      "id": "react-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-15-matrix/configs/react-desktop.json",
+      "id": "react-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-15-matrix/configs/react-cookie-yes-desktop.json",
+      "id": "react-cookie-yes-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-15-matrix/configs/react-cookie-yes-desktop.json",
+      "id": "react-cookie-yes-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-15-matrix/configs/nextjs-desktop.json",
+      "id": "nextjs-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-15-matrix/configs/nextjs-desktop.json",
+      "id": "nextjs-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-15-matrix/configs/nextjs-cookie-yes-desktop.json",
+      "id": "nextjs-cookie-yes-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-15-matrix/configs/nextjs-cookie-yes-desktop.json",
+      "id": "nextjs-cookie-yes-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-15-matrix/configs/nuxt-desktop.json",
+      "id": "nuxt-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-15-matrix/configs/nuxt-desktop.json",
+      "id": "nuxt-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-15-matrix/configs/nuxt-cookie-yes-desktop.json",
+      "id": "nuxt-cookie-yes-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-15-matrix/configs/nuxt-cookie-yes-desktop.json",
+      "id": "nuxt-cookie-yes-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-15-matrix/configs/astro-desktop.json",
+      "id": "astro-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-15-matrix/configs/astro-desktop.json",
+      "id": "astro-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-15-matrix/configs/astro-cookie-yes-desktop.json",
+      "id": "astro-cookie-yes-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-15-matrix/configs/astro-cookie-yes-desktop.json",
+      "id": "astro-cookie-yes-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-15-matrix/configs/tanstack-start-desktop.json",
+      "id": "tanstack-start-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-15-matrix/configs/tanstack-start-desktop.json",
+      "id": "tanstack-start-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-15-matrix/configs/tanstack-start-cookie-yes-desktop.json",
+      "id": "tanstack-start-cookie-yes-load",
+      "kind": "load"
+    },
+    {
+      "config": "results/2026-10-15-matrix/configs/tanstack-start-cookie-yes-desktop.json",
+      "id": "tanstack-start-cookie-yes-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-15-matrix/configs/reference-overhead-desktop.json",
+      "id": "reference-overhead",
+      "kind": "audit"
+    }
+  ],
+  "seed": 20261009
+}

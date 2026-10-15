@@ -1,0 +1,488 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:2f4ddfa3-8faf-4d70-a373-77b358e7c898"
+      ],
+      "fixtureId": "nextjs-c15t",
+      "framework": "nextjs",
+      "id": "06f5f140-86bd-4243-abbe-04ae6c37c681",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:70c022e5-d509-4f6f-bda0-f236fcfc8a95"
+      ],
+      "fixtureId": "nextjs-c15t",
+      "framework": "nextjs",
+      "id": "7ca03721-6e79-4c0d-85b0-7f01106ba4d7",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:4e4b0ba9-94d1-41b7-9cab-baee6ec2276c"
+      ],
+      "fixtureId": "nextjs-c15t",
+      "framework": "nextjs",
+      "id": "0e76e674-cc79-4d2d-8562-da53ed883be7",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:677822a9-a702-4d85-b2bc-c4fbce451f82"
+      ],
+      "fixtureId": "nextjs-c15t",
+      "framework": "nextjs",
+      "id": "266407f5-9f93-48d5-8324-3befd01ecc4a",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:b2377f25-4bf5-41be-a3df-b094dd43ae3f"
+      ],
+      "fixtureId": "nextjs-cookie-control",
+      "framework": "nextjs",
+      "id": "d9392d38-fd53-403f-abd8-aa0b8066345b",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:1b12e1ef-0089-420c-a163-7b52aa9f363a"
+      ],
+      "fixtureId": "nextjs-cookie-control",
+      "framework": "nextjs",
+      "id": "7f624aa5-4d73-4b34-b882-bf2c29f215b6",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:fbcded03-b3fe-4b1e-974b-efb97828b3a6"
+      ],
+      "fixtureId": "nextjs-cookie-control",
+      "framework": "nextjs",
+      "id": "364fe8a2-69ec-486d-b67b-cab43a70a00f",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:05f69a14-b235-49ad-86a8-7869acf3fc9c"
+      ],
+      "fixtureId": "nextjs-cookie-control",
+      "framework": "nextjs",
+      "id": "86a96875-6b53-4638-8dfe-de6a4fb902cb",
+      "mode": "hosted",
+      "reason": "0/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "unknown",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:45ed9427-90e3-4329-adc9-65c1690a4b6e"
+      ],
+      "fixtureId": "nextjs-didomi",
+      "framework": "nextjs",
+      "id": "26b7c90a-5bd8-45af-9a52-342b7e2fbcc4",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:5ef73bde-4b4f-4ede-8abf-e889be202bf3"
+      ],
+      "fixtureId": "nextjs-didomi",
+      "framework": "nextjs",
+      "id": "4ee8b5e3-d69d-4d53-b042-359ce490a6f4",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:5921b9e2-6a59-488e-a1e4-61cb7f5c606d"
+      ],
+      "fixtureId": "nextjs-didomi",
+      "framework": "nextjs",
+      "id": "c58cb677-7f19-4907-a018-16f5eda4f9f2",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:22bb5444-d4e3-4e85-948a-c123b7dcf7c1"
+      ],
+      "fixtureId": "nextjs-didomi",
+      "framework": "nextjs",
+      "id": "e13d3363-bab5-4912-adf9-0368f1152d13",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:d284e311-d10f-44c0-9c1f-12d348454c6e"
+      ],
+      "fixtureId": "nextjs-enzuzo",
+      "framework": "nextjs",
+      "id": "3a4f5591-6aec-4a61-88c7-ed5a9f89e331",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:bcf9ef86-c11e-4136-b6c8-45b29ec53106"
+      ],
+      "fixtureId": "nextjs-enzuzo",
+      "framework": "nextjs",
+      "id": "0a891b1f-d0e7-45d6-a920-ae5a040813a4",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:a56f128c-0156-4283-9f8a-6517113b19be"
+      ],
+      "fixtureId": "nextjs-enzuzo",
+      "framework": "nextjs",
+      "id": "29fd15c1-2406-47d7-a119-59ba10c1b3ff",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:a3a273f1-96fc-4def-b628-ada924e48670"
+      ],
+      "fixtureId": "nextjs-enzuzo",
+      "framework": "nextjs",
+      "id": "eef00569-eb3f-4016-835d-dbebe051aa81",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:09584eee-d0f7-4943-a0e9-e965d30ffae7"
+      ],
+      "fixtureId": "nextjs-iubenda",
+      "framework": "nextjs",
+      "id": "8f52bb40-fc2c-4c61-b7c0-e80e17bf8499",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:ccfacc6e-c4ca-47d4-ad96-898fc57f50b1"
+      ],
+      "fixtureId": "nextjs-iubenda",
+      "framework": "nextjs",
+      "id": "26c7f362-24fa-44be-b158-8dfaf92d9406",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:0ad8f2ac-3e75-4637-b90a-e38e4ade8f3a"
+      ],
+      "fixtureId": "nextjs-iubenda",
+      "framework": "nextjs",
+      "id": "9725a1dc-239d-48aa-a82a-0ad79808fc0b",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:db3f212b-5629-4769-9ab1-5c9f9a7f3deb"
+      ],
+      "fixtureId": "nextjs-iubenda",
+      "framework": "nextjs",
+      "id": "6bb49508-f927-427a-bb26-896d1a1aa90b",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:9a30bb52-7787-47a2-ab2f-aa8486c6a0c4"
+      ],
+      "fixtureId": "nextjs-ketch",
+      "framework": "nextjs",
+      "id": "a7272f5c-55dd-4de1-9c4a-54756c5383ce",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:7d868dba-f1a1-4f4e-ae70-06607d1aee4a"
+      ],
+      "fixtureId": "nextjs-ketch",
+      "framework": "nextjs",
+      "id": "d50892dd-47ea-4089-85b7-4ab43e429675",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:2e69063e-ac0a-4791-98c7-24b63e3b0d28"
+      ],
+      "fixtureId": "nextjs-ketch",
+      "framework": "nextjs",
+      "id": "5aba8937-aa87-4892-aa97-ac5cef6d6660",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:251ae5cd-7719-41fe-b062-2df2b06eee5b"
+      ],
+      "fixtureId": "nextjs-ketch",
+      "framework": "nextjs",
+      "id": "c922b99b-7d3f-412d-abc7-34e827be911e",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:41f13d4d-e454-4010-98a5-b29f3073a1e0"
+      ],
+      "fixtureId": "nextjs-onetrust",
+      "framework": "nextjs",
+      "id": "4df68065-b6a2-4f19-ba62-180572077970",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:5c46d1b6-af3c-487c-b671-c67a3c67a5dc"
+      ],
+      "fixtureId": "nextjs-onetrust",
+      "framework": "nextjs",
+      "id": "19eab724-41be-42f1-876e-a616ce282569",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:cbf6c940-846f-43b0-9692-061ab5016e34"
+      ],
+      "fixtureId": "nextjs-onetrust",
+      "framework": "nextjs",
+      "id": "2856ac97-cf34-456d-805e-ec227a07d7ff",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:15d444d3-adef-4d84-a9ed-dac6c6201ddf"
+      ],
+      "fixtureId": "nextjs-onetrust",
+      "framework": "nextjs",
+      "id": "6943398e-f1d8-4398-b28a-980029046269",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:fbded659-c49e-42e1-afb8-2b96f2a6b504"
+      ],
+      "fixtureId": "nextjs-osano",
+      "framework": "nextjs",
+      "id": "c0d60cc7-4210-40f2-b35d-fb0ced3d4b75",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:4e455d80-028f-47a8-a623-d1685ef0b6b7"
+      ],
+      "fixtureId": "nextjs-osano",
+      "framework": "nextjs",
+      "id": "f9321497-8b81-41e7-8034-bf4bf9e377b6",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:a30a9627-a134-4588-a422-422c349a838a"
+      ],
+      "fixtureId": "nextjs-osano",
+      "framework": "nextjs",
+      "id": "baca2121-75db-4018-9e93-eb7d59da969c",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:2124b094-f94b-4414-90f5-54e1b41bc828"
+      ],
+      "fixtureId": "nextjs-osano",
+      "framework": "nextjs",
+      "id": "d2253180-73b3-4143-898a-92301a35a225",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:fc79a66f-273d-4e23-9805-16a98a2232f2"
+      ],
+      "fixtureId": "nextjs-usercentrics",
+      "framework": "nextjs",
+      "id": "becd57e0-af23-4bf0-8eb6-956346a9432f",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:fb5d2ff5-e1c9-40c8-ad6b-d089910e9593"
+      ],
+      "fixtureId": "nextjs-usercentrics",
+      "framework": "nextjs",
+      "id": "b5cff703-28e0-4c63-a4ee-f0aeeebabe21",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:fe757466-c7f6-4d91-b968-e66478d8461e"
+      ],
+      "fixtureId": "nextjs-usercentrics",
+      "framework": "nextjs",
+      "id": "b9a51f3c-7724-4da6-a2cd-e714a84eb8a0",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:58951526-652e-4ebb-b85b-cb817f89af33"
+      ],
+      "fixtureId": "nextjs-usercentrics",
+      "framework": "nextjs",
+      "id": "ff494efa-e815-4836-bd23-6f809899afd2",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T03:55:08.673Z"
+    }
+  ],
+  "failures": [
+    {
+      "sampleId": "05f69a14-b235-49ad-86a8-7869acf3fc9c",
+      "code": "unsupported-action",
+      "message": "Adapter does not declare the save action"
+    },
+    {
+      "sampleId": "05f69a14-b235-49ad-86a8-7869acf3fc9c",
+      "code": "followup:unsupported-action",
+      "message": "Adapter does not declare the save action"
+    }
+  ],
+  "output": "/Users/kayleewilliams/.t3/worktrees/cookiebench/t3-9310a3fd/results/2026-10-15-matrix/desktop/nextjs-correctness/attempt-001/envelope.json",
+  "runId": "16998273-a83d-4850-80b0-32db46ea8855",
+  "samples": 40,
+  "status": "incomplete"
+}

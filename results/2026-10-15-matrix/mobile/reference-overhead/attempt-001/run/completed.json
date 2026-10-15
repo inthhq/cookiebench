@@ -1,0 +1,27 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "instrumentation",
+    "audit",
+    "--config",
+    "results/2026-10-15-matrix/configs/reference-overhead-mobile.json",
+    "--scenario",
+    "load",
+    "--iterations",
+    "15",
+    "--warmups",
+    "3",
+    "--seed",
+    "20261009",
+    "--output",
+    "results/2026-10-15-matrix/mobile/reference-overhead/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-15T11:03:34.220Z",
+  "startedAt": "2026-10-15T11:02:46.126Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "05e5e38fd05427b007c8ec85131d5f6c434b7b461967275c99d1235a0594112e"
+}

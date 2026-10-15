@@ -1,0 +1,72 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:802454aa-11b7-4b18-af3d-d3fb3da6ba26"
+      ],
+      "fixtureId": "nuxt-cookie-yes",
+      "framework": "nuxt",
+      "id": "d13258f3-c3b8-4ad8-8fc9-00685770d808",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T09:12:18.735Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:239f8171-5c2d-46b5-b811-82fd6b3fc24d"
+      ],
+      "fixtureId": "nuxt-cookie-yes",
+      "framework": "nuxt",
+      "id": "0554dd18-0588-45c4-9044-c48d20b0d975",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T09:12:18.735Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:61e61f73-4cf9-4238-b03f-f681fefd595c"
+      ],
+      "fixtureId": "nuxt-cookie-yes",
+      "framework": "nuxt",
+      "id": "f805fbc6-4391-4953-ac4a-09bfd9163352",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T09:12:18.735Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:790eeae8-58c2-4459-9b7c-4eb745e33f21"
+      ],
+      "fixtureId": "nuxt-cookie-yes",
+      "framework": "nuxt",
+      "id": "4bcb50b5-0a49-4b59-8232-5f3eaea4712d",
+      "mode": "hosted",
+      "reason": "0/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "unknown",
+      "verifiedAt": "2026-10-15T09:12:18.735Z"
+    }
+  ],
+  "failures": [
+    {
+      "sampleId": "790eeae8-58c2-4459-9b7c-4eb745e33f21",
+      "code": "unsupported-action",
+      "message": "Adapter does not declare the save action"
+    },
+    {
+      "sampleId": "790eeae8-58c2-4459-9b7c-4eb745e33f21",
+      "code": "followup:unsupported-action",
+      "message": "Adapter does not declare the save action"
+    }
+  ],
+  "output": "/Users/kayleewilliams/.t3/worktrees/cookiebench/t3-9310a3fd/results/2026-10-15-matrix/mobile/nuxt-cookie-yes-correctness/attempt-001/envelope.json",
+  "runId": "307093f9-7447-46b9-977d-96403d9979c0",
+  "samples": 8,
+  "status": "incomplete"
+}

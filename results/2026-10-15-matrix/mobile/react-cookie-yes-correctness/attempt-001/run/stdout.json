@@ -1,0 +1,72 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:a187519e-e5f9-4c23-8cce-f91a0135aabb"
+      ],
+      "fixtureId": "react-cookie-yes",
+      "framework": "react",
+      "id": "24d9169e-b8d8-46ca-9d4c-0ac01e4e77aa",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T07:20:48.193Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:61bad282-e5c8-40fa-8f8f-26eb47a52136"
+      ],
+      "fixtureId": "react-cookie-yes",
+      "framework": "react",
+      "id": "53290d9c-e784-4139-982e-08451b5701f9",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T07:20:48.193Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:3475bb50-32d8-4941-b7cb-33a37b55f331"
+      ],
+      "fixtureId": "react-cookie-yes",
+      "framework": "react",
+      "id": "462e0fd4-c005-4f23-a98b-601935d7d8ff",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T07:20:48.193Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:e2543e12-8a63-439d-a019-bb9ae80767aa"
+      ],
+      "fixtureId": "react-cookie-yes",
+      "framework": "react",
+      "id": "5a78ec43-6786-4d69-b1d7-a777db6f10af",
+      "mode": "hosted",
+      "reason": "0/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "unknown",
+      "verifiedAt": "2026-10-15T07:20:48.193Z"
+    }
+  ],
+  "failures": [
+    {
+      "sampleId": "e2543e12-8a63-439d-a019-bb9ae80767aa",
+      "code": "unsupported-action",
+      "message": "Adapter does not declare the save action"
+    },
+    {
+      "sampleId": "e2543e12-8a63-439d-a019-bb9ae80767aa",
+      "code": "followup:unsupported-action",
+      "message": "Adapter does not declare the save action"
+    }
+  ],
+  "output": "/Users/kayleewilliams/.t3/worktrees/cookiebench/t3-9310a3fd/results/2026-10-15-matrix/mobile/react-cookie-yes-correctness/attempt-001/envelope.json",
+  "runId": "779df111-45fe-4fb4-bc2f-0c1f674d73b1",
+  "samples": 8,
+  "status": "incomplete"
+}

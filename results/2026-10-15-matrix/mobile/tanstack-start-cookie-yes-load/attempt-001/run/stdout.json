@@ -1,0 +1,36 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:51aaaf0e-ce5d-43e9-9679-d37c6391da7a",
+        "sample:c8bb61a3-6441-4529-b843-93c952fd218e",
+        "sample:95c4dc65-52bc-4bd8-8f0c-2274e92625c0",
+        "sample:7903dcc2-6652-4393-8a6e-4dd6c13df978",
+        "sample:507ed495-529e-4fb7-89f7-33d4c4429e66",
+        "sample:40e73f88-7768-4c8d-8516-4916dcd2f050",
+        "sample:688f2ee1-7786-4809-a881-7214bfe91f03",
+        "sample:2c51ee0c-cad1-4d72-a7ee-f754ec88056c",
+        "sample:1e8098b3-387c-4ffd-930e-af2c5ae25676",
+        "sample:f559f45a-7bc9-430b-a5a8-fa50db29ac6b",
+        "sample:3a0c46da-7442-4b06-9938-0e436f97ddb9",
+        "sample:d7872522-a028-4f65-a766-12e6e7ec80b3",
+        "sample:90c62caf-841d-407f-ac6d-d9c1845a4211",
+        "sample:7a77786f-54a3-4a62-806e-a02114ae9ba2",
+        "sample:73716993-95a5-4438-8942-0821218e2bc9"
+      ],
+      "fixtureId": "tanstack-start-cookie-yes",
+      "framework": "tanstack-start",
+      "id": "2bc00485-d711-47f5-8d06-bf699e5feb2f",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T11:00:56.006Z"
+    }
+  ],
+  "failures": [],
+  "output": "/Users/kayleewilliams/.t3/worktrees/cookiebench/t3-9310a3fd/results/2026-10-15-matrix/mobile/tanstack-start-cookie-yes-load/attempt-001/envelope.json",
+  "runId": "83a63cf6-3bd6-459a-8c23-c3c898e43927",
+  "samples": 30,
+  "status": "passed"
+}

@@ -1,0 +1,72 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:7700f2df-0c13-4130-9b19-9deeabb3bbf7"
+      ],
+      "fixtureId": "astro-cookie-yes",
+      "framework": "astro",
+      "id": "39dd8d2d-8203-41f2-9268-a5e51e6afd84",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T05:00:49.956Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:78bdbafb-18c4-424b-a43a-cda3ae5e2e1b"
+      ],
+      "fixtureId": "astro-cookie-yes",
+      "framework": "astro",
+      "id": "4bfac276-9242-458f-981c-2a9a6a82f2a4",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T05:00:49.956Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:36c6a327-0936-45aa-86fc-66420c573bfb"
+      ],
+      "fixtureId": "astro-cookie-yes",
+      "framework": "astro",
+      "id": "72f75176-5bc1-4844-907f-a4f4676129a7",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T05:00:49.956Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:abcaef94-fa2d-4bbe-841b-e8a290b8a134"
+      ],
+      "fixtureId": "astro-cookie-yes",
+      "framework": "astro",
+      "id": "8fba05d2-1a25-4a08-91c1-aa2c8f646470",
+      "mode": "hosted",
+      "reason": "0/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "unknown",
+      "verifiedAt": "2026-10-15T05:00:49.956Z"
+    }
+  ],
+  "failures": [
+    {
+      "sampleId": "abcaef94-fa2d-4bbe-841b-e8a290b8a134",
+      "code": "unsupported-action",
+      "message": "Adapter does not declare the save action"
+    },
+    {
+      "sampleId": "abcaef94-fa2d-4bbe-841b-e8a290b8a134",
+      "code": "followup:unsupported-action",
+      "message": "Adapter does not declare the save action"
+    }
+  ],
+  "output": "/Users/kayleewilliams/.t3/worktrees/cookiebench/t3-9310a3fd/results/2026-10-15-matrix/desktop/astro-cookie-yes-correctness/attempt-001/envelope.json",
+  "runId": "a859e61f-7270-4d82-84e4-6968f012461e",
+  "samples": 8,
+  "status": "incomplete"
+}

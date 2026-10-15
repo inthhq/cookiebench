@@ -1,0 +1,72 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:76aedfd5-03d0-4d2d-9b0b-21394962ff4b"
+      ],
+      "fixtureId": "script-tag-cookie-yes",
+      "framework": "script-tag",
+      "id": "fbfab34f-54ad-4bcb-9ae3-a6fcc1422f55",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T02:59:29.230Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:3ea050b5-7d43-423d-bea2-7cf25bde5f39"
+      ],
+      "fixtureId": "script-tag-cookie-yes",
+      "framework": "script-tag",
+      "id": "b4cde9d1-2c94-499a-b728-1b5826d2526f",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T02:59:29.230Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:13c0ce16-629d-4d37-a021-4d3b57d4671e"
+      ],
+      "fixtureId": "script-tag-cookie-yes",
+      "framework": "script-tag",
+      "id": "bb5135e5-4578-4529-85c7-aebfabe05e6e",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T02:59:29.230Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:64379973-2238-4dc3-a50d-81232a6038c9"
+      ],
+      "fixtureId": "script-tag-cookie-yes",
+      "framework": "script-tag",
+      "id": "2f85bd64-edf4-444c-a216-7b34ff022558",
+      "mode": "hosted",
+      "reason": "0/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "unknown",
+      "verifiedAt": "2026-10-15T02:59:29.230Z"
+    }
+  ],
+  "failures": [
+    {
+      "sampleId": "64379973-2238-4dc3-a50d-81232a6038c9",
+      "code": "unsupported-action",
+      "message": "Adapter does not declare the save action"
+    },
+    {
+      "sampleId": "64379973-2238-4dc3-a50d-81232a6038c9",
+      "code": "followup:unsupported-action",
+      "message": "Adapter does not declare the save action"
+    }
+  ],
+  "output": "/Users/kayleewilliams/.t3/worktrees/cookiebench/t3-9310a3fd/results/2026-10-15-matrix/desktop/script-cookie-yes-correctness/attempt-001/envelope.json",
+  "runId": "474d1942-ae5c-4a07-8dc9-276544a1d3d5",
+  "samples": 8,
+  "status": "incomplete"
+}
