@@ -1,0 +1,24 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "run",
+    "--config",
+    "results/2026-10-15-matrix-rerun/configs/nextjs-mobile.json",
+    "--iterations",
+    "1",
+    "--warmups",
+    "0",
+    "--seed",
+    "20261009",
+    "--output",
+    "results/2026-10-15-matrix-rerun/mobile/nextjs-correctness/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-15T19:25:58.692Z",
+  "startedAt": "2026-10-15T19:14:39.566Z",
+  "exitCode": 2,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "4efff348c8c5d7dbf9cea36d532506f30f38bfdc73b54ab5bbc5a38080183ed4"
+}

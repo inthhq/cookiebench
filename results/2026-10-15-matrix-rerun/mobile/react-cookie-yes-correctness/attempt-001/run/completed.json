@@ -1,0 +1,24 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "run",
+    "--config",
+    "results/2026-10-15-matrix-rerun/configs/react-cookie-yes-mobile.json",
+    "--iterations",
+    "1",
+    "--warmups",
+    "0",
+    "--seed",
+    "20261009",
+    "--output",
+    "results/2026-10-15-matrix-rerun/mobile/react-cookie-yes-correctness/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-15T18:39:18.244Z",
+  "startedAt": "2026-10-15T18:37:37.772Z",
+  "exitCode": 2,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "283e3a08f1080b651d5bfcab22a3d9e29a5b9f2fe1f32b0be05bab8fe2fd48f8"
+}

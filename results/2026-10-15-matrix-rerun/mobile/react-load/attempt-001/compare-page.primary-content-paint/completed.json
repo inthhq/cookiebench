@@ -1,0 +1,24 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "results/2026-10-15-matrix-rerun/mobile/react-load/attempt-001/envelope.json",
+    "--candidate",
+    "results/2026-10-15-matrix-rerun/mobile/react-load/attempt-001/envelope.json",
+    "--metric",
+    "page.primary-content-paint",
+    "--family",
+    "batch:88d57f2d6e496f9392ae7b1939574f835ace3126823c323ad7a560e29f9fb017",
+    "--family-size",
+    "365"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-15T18:19:39.579Z",
+  "startedAt": "2026-10-15T18:19:35.266Z",
+  "exitCode": 2,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "29d77cae39ca7d4756931fd3261d1628cf4d544bbe7e6f72776ff7791f9a2f6e"
+}

@@ -1,0 +1,16 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "report",
+    "--file",
+    "results/2026-10-15-matrix-rerun/desktop/nuxt-load/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-15T15:37:22.576Z",
+  "startedAt": "2026-10-15T15:37:22.245Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "85492e909f7e91bbdeab8909ab2486574ab1ae123f0aba5faa5593a3ccfe0241"
+}

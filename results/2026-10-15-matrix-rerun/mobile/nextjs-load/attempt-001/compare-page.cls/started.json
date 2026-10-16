@@ -1,0 +1,19 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "results/2026-10-15-matrix-rerun/mobile/nextjs-load/attempt-001/envelope.json",
+    "--candidate",
+    "results/2026-10-15-matrix-rerun/mobile/nextjs-load/attempt-001/envelope.json",
+    "--metric",
+    "page.cls",
+    "--family",
+    "batch:88d57f2d6e496f9392ae7b1939574f835ace3126823c323ad7a560e29f9fb017",
+    "--family-size",
+    "365"
+  ],
+  "cwd": ".",
+  "startedAt": "2026-10-15T19:14:18.641Z"
+}

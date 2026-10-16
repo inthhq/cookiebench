@@ -1,0 +1,95 @@
+{
+  "status": "passed",
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "comparisons": [
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 50.736,
+        "mean": 47.55753333333333,
+        "measured": 15,
+        "median": 47.327999999999996,
+        "min": 45.82899999999999,
+        "missing": 0,
+        "p75": 48.0775,
+        "passed": 15
+      },
+      "baselineFixtureId": "reference-baseline-minimal",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 63.153,
+        "mean": 60.54886666666667,
+        "measured": 15,
+        "median": 60.881,
+        "min": 55.89,
+        "missing": 0,
+        "p75": 62.062,
+        "passed": 15
+      },
+      "candidateFixtureId": "reference-baseline-full",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "local",
+          "backend": "none"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 15.983000000000004,
+          "level": 0.9999315068493151,
+          "low": 9.219000000000001,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 13.101000000000006,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 16.19086315068486,
+            "level": 0.9999315068493151,
+            "low": 10.527999999999999,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 13.984499999999997
+        },
+        "pairDifferenceP75": 14.6965
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    }
+  ],
+  "metricKey": "custom.audit.task-duration",
+  "multiplicity": {
+    "comparisons": 365,
+    "family": "batch:88d57f2d6e496f9392ae7b1939574f835ace3126823c323ad7a560e29f9fb017",
+    "familyLevel": 0.95,
+    "intervalLevel": 0.9999315068493151,
+    "intervals": 730,
+    "method": "bonferroni"
+  },
+  "sourceRunIds": [
+    "b5e0b9f4-e57a-4aa4-95d4-e9d3aefb9639"
+  ]
+}

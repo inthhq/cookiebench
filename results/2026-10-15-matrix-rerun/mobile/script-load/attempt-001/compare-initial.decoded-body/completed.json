@@ -1,0 +1,24 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "results/2026-10-15-matrix-rerun/mobile/script-load/attempt-001/envelope.json",
+    "--candidate",
+    "results/2026-10-15-matrix-rerun/mobile/script-load/attempt-001/envelope.json",
+    "--metric",
+    "initial.decoded-body",
+    "--family",
+    "batch:88d57f2d6e496f9392ae7b1939574f835ace3126823c323ad7a560e29f9fb017",
+    "--family-size",
+    "365"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-15T17:25:32.769Z",
+  "startedAt": "2026-10-15T17:25:29.420Z",
+  "exitCode": 2,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "f47ff05d3c790ef502b3878143c47f739aa783c6c80aee2caeb34db29aca760a"
+}

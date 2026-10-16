@@ -1,0 +1,24 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "run",
+    "--config",
+    "results/2026-10-15-matrix-rerun/configs/tanstack-start-cookie-yes-mobile.json",
+    "--iterations",
+    "1",
+    "--warmups",
+    "0",
+    "--seed",
+    "20261009",
+    "--output",
+    "results/2026-10-15-matrix-rerun/mobile/tanstack-start-cookie-yes-correctness/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-15T22:20:37.522Z",
+  "startedAt": "2026-10-15T22:18:55.536Z",
+  "exitCode": 2,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "ef53f84740dc01aa248c086f192cb4c9248631231524ea21092f9e530eabed11"
+}

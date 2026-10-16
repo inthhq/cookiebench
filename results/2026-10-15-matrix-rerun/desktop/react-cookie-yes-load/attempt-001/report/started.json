@@ -1,0 +1,11 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "report",
+    "--file",
+    "results/2026-10-15-matrix-rerun/desktop/react-cookie-yes-load/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "startedAt": "2026-10-15T14:47:09.442Z"
+}

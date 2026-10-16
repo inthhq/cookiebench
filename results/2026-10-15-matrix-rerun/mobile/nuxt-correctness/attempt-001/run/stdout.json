@@ -1,0 +1,508 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:f717812a-de2f-44bf-9c47-bc0c929a0ca1"
+      ],
+      "fixtureId": "nuxt-c15t",
+      "framework": "nuxt",
+      "id": "74df5073-edb9-4ba7-9cfd-d1afa25f54df",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:d69d4e76-fc2c-4ac7-9760-7096746680b8"
+      ],
+      "fixtureId": "nuxt-c15t",
+      "framework": "nuxt",
+      "id": "35db5626-b2d0-4dbb-b107-2dad4177e303",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:59f0ec5d-6e86-4b2a-8bb5-213e168221b0"
+      ],
+      "fixtureId": "nuxt-c15t",
+      "framework": "nuxt",
+      "id": "efcffe1a-b706-4fc2-9009-0c12e7b5ec22",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:19d03612-e247-42c8-b6e2-edeba54d961f"
+      ],
+      "fixtureId": "nuxt-c15t",
+      "framework": "nuxt",
+      "id": "bd6be171-1f4f-4c51-a590-1b234b5b5cd1",
+      "mode": "manifest",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:e3e4fa24-a19d-44d7-978e-ed2de781430d"
+      ],
+      "fixtureId": "nuxt-cookie-control",
+      "framework": "nuxt",
+      "id": "d23f6bc8-fdd3-486e-86fe-86924cd11a63",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:a722c255-ffce-4ddb-b97f-757562f0a802"
+      ],
+      "fixtureId": "nuxt-cookie-control",
+      "framework": "nuxt",
+      "id": "d189b453-a0e1-4006-b8a6-86f217ec5241",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:4cfc2a4e-bec7-4876-8810-3fce7aaed64f"
+      ],
+      "fixtureId": "nuxt-cookie-control",
+      "framework": "nuxt",
+      "id": "7728d35c-e700-4688-be65-0792f0c9aff1",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:f6c78485-c491-4439-8361-44d2e6e0f547"
+      ],
+      "fixtureId": "nuxt-cookie-control",
+      "framework": "nuxt",
+      "id": "972319cf-7931-4f0d-9030-72354f0ad2d8",
+      "mode": "hosted",
+      "reason": "0/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "unknown",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:987d2096-7de3-4006-bbc0-c5001933fc91"
+      ],
+      "fixtureId": "nuxt-didomi",
+      "framework": "nuxt",
+      "id": "3d83a1e1-7988-408f-8c96-9494de321b44",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:ed5f0acb-4e0c-4566-b427-1c0ac8762b03"
+      ],
+      "fixtureId": "nuxt-didomi",
+      "framework": "nuxt",
+      "id": "2c59afb9-9a4f-4bb0-94c0-edb194521f74",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:9ea57877-64cd-4397-9d6f-b33ed6edae8e"
+      ],
+      "fixtureId": "nuxt-didomi",
+      "framework": "nuxt",
+      "id": "cdd3449b-336f-4dca-a6c9-6c10e6426ca6",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:6a5bfa15-f19e-4595-8405-6ce2a44dcd43"
+      ],
+      "fixtureId": "nuxt-didomi",
+      "framework": "nuxt",
+      "id": "7d7c5085-4977-4a19-bf39-43f7c677457b",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:70913394-af01-4347-8edc-6c2c36f068f0"
+      ],
+      "fixtureId": "nuxt-enzuzo",
+      "framework": "nuxt",
+      "id": "2da3799e-2e2c-4211-98f9-5bb0e30bb1e4",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:a758c132-2645-4fc1-9409-b819883d0b7c"
+      ],
+      "fixtureId": "nuxt-enzuzo",
+      "framework": "nuxt",
+      "id": "ee2ed6a9-47f1-408e-ae74-3b84393c82df",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:1e6e3f61-f076-483f-901c-76b72c91bec3"
+      ],
+      "fixtureId": "nuxt-enzuzo",
+      "framework": "nuxt",
+      "id": "8a09625d-05b6-4f84-86f4-c342afe59600",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:0b0a20aa-1cc4-4927-ae1f-f2b3c2734af0"
+      ],
+      "fixtureId": "nuxt-enzuzo",
+      "framework": "nuxt",
+      "id": "f796577a-e5db-40da-b158-d0bd7161460c",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:158cb2e9-b055-4156-ad26-d3eabea5bdd1"
+      ],
+      "fixtureId": "nuxt-iubenda",
+      "framework": "nuxt",
+      "id": "facf54b8-837c-40a1-be03-3c6dc56fcc7f",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:66d7a00d-776a-4366-8b78-57ff6b4f9cf8"
+      ],
+      "fixtureId": "nuxt-iubenda",
+      "framework": "nuxt",
+      "id": "41b6dc33-91c3-4375-82eb-2be2efbf9acb",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:66e13b8c-1757-4a3d-ad69-146880e53de4"
+      ],
+      "fixtureId": "nuxt-iubenda",
+      "framework": "nuxt",
+      "id": "09b5619d-86d4-422d-b338-26eb888df2e4",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:663b7a29-662e-47ef-b391-8471e31f6778"
+      ],
+      "fixtureId": "nuxt-iubenda",
+      "framework": "nuxt",
+      "id": "3355816d-6a2f-4246-95d6-2332c97ead9b",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:564d5b1d-f91d-44e3-8f50-6065bc92da64"
+      ],
+      "fixtureId": "nuxt-ketch",
+      "framework": "nuxt",
+      "id": "1fe55d3d-4f3b-48b1-bb8b-18ff4c9d27b2",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:4c594971-d659-42f5-8432-29242a089e69"
+      ],
+      "fixtureId": "nuxt-ketch",
+      "framework": "nuxt",
+      "id": "62a75820-8438-476d-b06b-a051b2cdde97",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:02c87672-3594-4e37-8033-9bb941885c22"
+      ],
+      "fixtureId": "nuxt-ketch",
+      "framework": "nuxt",
+      "id": "82359976-7daa-470c-93c2-88fdc8157736",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:b0f8371d-9f17-48b4-8cfd-04d724cce3c2"
+      ],
+      "fixtureId": "nuxt-ketch",
+      "framework": "nuxt",
+      "id": "5981e04b-c78a-4955-8dcb-ccaadc59fb38",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:9d2c98ee-708b-4cf3-973e-a11724a2e10b"
+      ],
+      "fixtureId": "nuxt-onetrust",
+      "framework": "nuxt",
+      "id": "e4ffc11a-a062-4304-8105-817fb1767df0",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:5ed9f29f-d6f8-4276-8174-61801623ea7e"
+      ],
+      "fixtureId": "nuxt-onetrust",
+      "framework": "nuxt",
+      "id": "ff8f78e1-8c88-489e-9e0a-43d2d805ce44",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:ca6f5cca-82d5-4029-bf93-13a6d00203a4"
+      ],
+      "fixtureId": "nuxt-onetrust",
+      "framework": "nuxt",
+      "id": "98141d1a-84af-4f50-aad2-68d4d77cd7b9",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:8dec4b30-924d-47eb-a53f-bebafbbc0864"
+      ],
+      "fixtureId": "nuxt-onetrust",
+      "framework": "nuxt",
+      "id": "e28672de-5380-4cdd-8670-5b047c097e28",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:723d0c43-759d-40b3-b0cf-e34a980e01b3"
+      ],
+      "fixtureId": "nuxt-osano",
+      "framework": "nuxt",
+      "id": "929c8fe8-4a66-47b0-be37-b5c41fef0383",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:b304362a-5bf6-4477-a4da-79387216b70b"
+      ],
+      "fixtureId": "nuxt-osano",
+      "framework": "nuxt",
+      "id": "efa59860-67cd-4b02-84a4-b6c56dd3e9a6",
+      "mode": "hosted",
+      "reason": "0/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "failed",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:eb8ed108-bf43-4bdb-993e-b77e19170a96"
+      ],
+      "fixtureId": "nuxt-osano",
+      "framework": "nuxt",
+      "id": "beeaccf0-b40f-49b1-9cfc-5db090c08be8",
+      "mode": "hosted",
+      "reason": "0/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "failed",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:9566fb73-ab18-4f0b-a4a6-57d9630fc1ae"
+      ],
+      "fixtureId": "nuxt-osano",
+      "framework": "nuxt",
+      "id": "1cd36ae9-ecfd-46e6-a9da-bf270c1767e5",
+      "mode": "hosted",
+      "reason": "0/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "unknown",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:953a9e10-78ab-495d-aab1-7a81104297d0"
+      ],
+      "fixtureId": "nuxt-usercentrics",
+      "framework": "nuxt",
+      "id": "96b1ca4a-4c2b-439e-b08f-fc75410ddbea",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:503febc0-1caf-4fe0-a0f2-9e526559783a"
+      ],
+      "fixtureId": "nuxt-usercentrics",
+      "framework": "nuxt",
+      "id": "1d3a6bb5-7d83-47f0-aa42-c75d389e89d6",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:28b303fe-8ec3-42aa-a1fd-281c86603fe7"
+      ],
+      "fixtureId": "nuxt-usercentrics",
+      "framework": "nuxt",
+      "id": "5b263ecb-1b6f-4bfb-8227-34f6cbf2a4b0",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:013e29cb-c6d4-4253-b8e0-a54e54ba6e29"
+      ],
+      "fixtureId": "nuxt-usercentrics",
+      "framework": "nuxt",
+      "id": "f63f80d9-912d-419c-ae73-25d13643d929",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T20:21:33.945Z"
+    }
+  ],
+  "failures": [
+    {
+      "sampleId": "b304362a-5bf6-4477-a4da-79387216b70b",
+      "code": "followup:page-unresponsive",
+      "message": "Page control did not respond after the consent action"
+    },
+    {
+      "sampleId": "eb8ed108-bf43-4bdb-993e-b77e19170a96",
+      "code": "followup:page-unresponsive",
+      "message": "Page control did not respond after the consent action"
+    },
+    {
+      "sampleId": "9566fb73-ab18-4f0b-a4a6-57d9630fc1ae",
+      "code": "restoration-not-ready",
+      "message": "Public consent restoration failed: public-state-unavailable"
+    },
+    {
+      "sampleId": "9566fb73-ab18-4f0b-a4a6-57d9630fc1ae",
+      "code": "followup:restoration-not-ready",
+      "message": "Public consent restoration failed: public-state-unavailable"
+    },
+    {
+      "sampleId": "f6c78485-c491-4439-8361-44d2e6e0f547",
+      "code": "unsupported-action",
+      "message": "Adapter does not declare the save action"
+    },
+    {
+      "sampleId": "f6c78485-c491-4439-8361-44d2e6e0f547",
+      "code": "followup:unsupported-action",
+      "message": "Adapter does not declare the save action"
+    }
+  ],
+  "output": "/Users/kayleewilliams/.t3/worktrees/cookiebench/t3-9310a3fd/results/2026-10-15-matrix-rerun/mobile/nuxt-correctness/attempt-001/envelope.json",
+  "runId": "983c0053-cfbc-4b53-a935-c36a42500cfe",
+  "samples": 40,
+  "status": "incomplete"
+}

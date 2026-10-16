@@ -1,0 +1,19 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "run",
+    "--config",
+    "results/2026-10-15-matrix-rerun/configs/nextjs-desktop.json",
+    "--iterations",
+    "1",
+    "--warmups",
+    "0",
+    "--seed",
+    "20261009",
+    "--output",
+    "results/2026-10-15-matrix-rerun/desktop-correctness-retry/nextjs-correctness/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "startedAt": "2026-10-16T21:31:31.967Z"
+}

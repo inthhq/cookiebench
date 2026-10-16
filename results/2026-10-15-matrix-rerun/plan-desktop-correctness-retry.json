@@ -1,0 +1,15 @@
+{
+  "entries": [
+    {
+      "config": "results/2026-10-15-matrix-rerun/configs/nextjs-desktop.json",
+      "id": "nextjs-correctness",
+      "kind": "flows"
+    },
+    {
+      "config": "results/2026-10-15-matrix-rerun/configs/nuxt-desktop.json",
+      "id": "nuxt-correctness",
+      "kind": "flows"
+    }
+  ],
+  "seed": 20261009
+}

@@ -1,0 +1,16 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "report",
+    "--file",
+    "results/2026-10-15-matrix-rerun/mobile/script-load/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-15T17:24:58.179Z",
+  "startedAt": "2026-10-15T17:24:57.889Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "c4dfd895a22ed4f684dbc7c6c6fecf20d2d770cbe108499c8e1eb896d1e31536"
+}

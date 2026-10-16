@@ -1,0 +1,11 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "report",
+    "--file",
+    "results/2026-10-15-matrix-rerun/mobile/astro-cookie-yes-load/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "startedAt": "2026-10-15T21:23:12.736Z"
+}

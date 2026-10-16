@@ -1,0 +1,943 @@
+{
+  "status": "incomplete",
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "comparisons": [
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4314/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4314/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3140,
+        "mean": 3126.666666666668,
+        "measured": 15,
+        "median": 3124,
+        "min": 3116,
+        "missing": 0,
+        "p75": 3132,
+        "passed": 15
+      },
+      "baselineFixtureId": "nuxt-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3684,
+        "mean": 3655.7333333333327,
+        "measured": 15,
+        "median": 3656,
+        "min": 3636,
+        "missing": 0,
+        "p75": 3662,
+        "passed": 15
+      },
+      "candidateFixtureId": "nuxt-c15t",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "local",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 544,
+          "level": 0.9999315068493151,
+          "low": 508,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 532,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 560,
+            "level": 0.9999315068493151,
+            "low": 512,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 530
+        },
+        "pairDifferenceP75": 532
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4314/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4314/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3140,
+        "mean": 3126.666666666668,
+        "measured": 15,
+        "median": 3124,
+        "min": 3116,
+        "missing": 0,
+        "p75": 3132,
+        "passed": 15
+      },
+      "baselineFixtureId": "nuxt-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3632,
+        "mean": 3624.533333333333,
+        "measured": 15,
+        "median": 3624,
+        "min": 3616,
+        "missing": 0,
+        "p75": 3626,
+        "passed": 15
+      },
+      "candidateFixtureId": "nuxt-cookie-control",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 508,
+          "level": 0.9999315068493151,
+          "low": 484,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 500,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 508,
+            "level": 0.9999315068493151,
+            "low": 484,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 494
+        },
+        "pairDifferenceP75": 500
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4314/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4314/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3140,
+        "mean": 3126.666666666668,
+        "measured": 15,
+        "median": 3124,
+        "min": 3116,
+        "missing": 0,
+        "p75": 3132,
+        "passed": 15
+      },
+      "baselineFixtureId": "nuxt-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 4508,
+        "mean": 4449.866666666667,
+        "measured": 15,
+        "median": 4432,
+        "min": 4400,
+        "missing": 0,
+        "p75": 4488,
+        "passed": 15
+      },
+      "candidateFixtureId": "nuxt-didomi",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 1372,
+          "level": 0.9999315068493151,
+          "low": 1284,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 1300,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 1384,
+            "level": 0.9999315068493151,
+            "low": 1276,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 1356
+        },
+        "pairDifferenceP75": 1364
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4314/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4314/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3140,
+        "mean": 3126.666666666668,
+        "measured": 15,
+        "median": 3124,
+        "min": 3116,
+        "missing": 0,
+        "p75": 3132,
+        "passed": 15
+      },
+      "baselineFixtureId": "nuxt-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3908,
+        "mean": 3898.1333333333328,
+        "measured": 15,
+        "median": 3900,
+        "min": 3888,
+        "missing": 0,
+        "p75": 3904,
+        "passed": 15
+      },
+      "candidateFixtureId": "nuxt-enzuzo",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Observed remote script/style/config URL or decoded-body digest changed within this comparison cell; artifact identity remains provisional."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 15,
+        "medianDifference": 768,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": 772
+        },
+        "pairDifferenceP75": 778
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4314/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4314/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3140,
+        "mean": 3126.666666666668,
+        "measured": 15,
+        "median": 3124,
+        "min": 3116,
+        "missing": 0,
+        "p75": 3132,
+        "passed": 15
+      },
+      "baselineFixtureId": "nuxt-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3764,
+        "mean": 3755.466666666667,
+        "measured": 15,
+        "median": 3756,
+        "min": 3740,
+        "missing": 0,
+        "p75": 3758,
+        "passed": 15
+      },
+      "candidateFixtureId": "nuxt-iubenda",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 632,
+          "level": 0.9999315068493151,
+          "low": 620,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 632,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 640,
+            "level": 0.9999315068493151,
+            "low": 620,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 626
+        },
+        "pairDifferenceP75": 632
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4314/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4314/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3140,
+        "mean": 3126.666666666668,
+        "measured": 15,
+        "median": 3124,
+        "min": 3116,
+        "missing": 0,
+        "p75": 3132,
+        "passed": 15
+      },
+      "baselineFixtureId": "nuxt-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 4900,
+        "mean": 4891.466666666667,
+        "measured": 15,
+        "median": 4892,
+        "min": 4884,
+        "missing": 0,
+        "p75": 4894,
+        "passed": 15
+      },
+      "candidateFixtureId": "nuxt-ketch",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Observed remote script/style/config URL or decoded-body digest changed within this comparison cell; artifact identity remains provisional."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 15,
+        "medianDifference": 1768,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": 1762
+        },
+        "pairDifferenceP75": 1768
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4314/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "onetrust-policy-text",
+              "role": "banner",
+              "size": 93766,
+              "tag": "DIV",
+              "url": null,
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3140,
+        "mean": 3126.666666666668,
+        "measured": 15,
+        "median": 3124,
+        "min": 3116,
+        "missing": 0,
+        "p75": 3132,
+        "passed": 15
+      },
+      "baselineFixtureId": "nuxt-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3792,
+        "mean": 3708.266666666667,
+        "measured": 15,
+        "median": 3696,
+        "min": 3648,
+        "missing": 0,
+        "p75": 3734,
+        "passed": 15
+      },
+      "candidateFixtureId": "nuxt-onetrust",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 660,
+          "level": 0.9999315068493151,
+          "low": 540,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 568,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 668,
+            "level": 0.9999315068493151,
+            "low": 540,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 602
+        },
+        "pairDifferenceP75": 606
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4314/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4314/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3140,
+        "mean": 3126.666666666668,
+        "measured": 15,
+        "median": 3124,
+        "min": 3116,
+        "missing": 0,
+        "p75": 3132,
+        "passed": 15
+      },
+      "baselineFixtureId": "nuxt-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3580,
+        "mean": 3563.2,
+        "measured": 15,
+        "median": 3560,
+        "min": 3548,
+        "missing": 0,
+        "p75": 3568,
+        "passed": 15
+      },
+      "candidateFixtureId": "nuxt-osano",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 456,
+          "level": 0.9999315068493151,
+          "low": 424,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 436,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 456,
+            "level": 0.9999315068493151,
+            "low": 424,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 436
+        },
+        "pairDifferenceP75": 446
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4314/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4314/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3140,
+        "mean": 3126.666666666668,
+        "measured": 15,
+        "median": 3124,
+        "min": 3116,
+        "missing": 0,
+        "p75": 3132,
+        "passed": 15
+      },
+      "baselineFixtureId": "nuxt-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3992,
+        "mean": 3974.933333333333,
+        "measured": 15,
+        "median": 3976,
+        "min": 3964,
+        "missing": 0,
+        "p75": 3976,
+        "passed": 15
+      },
+      "candidateFixtureId": "nuxt-usercentrics",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 860,
+          "level": 0.9999315068493151,
+          "low": 840,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 848,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 868,
+            "level": 0.9999315068493151,
+            "low": 836,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 844
+        },
+        "pairDifferenceP75": 852
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    }
+  ],
+  "metricKey": "page.lcp",
+  "multiplicity": {
+    "comparisons": 365,
+    "family": "batch:88d57f2d6e496f9392ae7b1939574f835ace3126823c323ad7a560e29f9fb017",
+    "familyLevel": 0.95,
+    "intervalLevel": 0.9999315068493151,
+    "intervals": 730,
+    "method": "bonferroni"
+  },
+  "sourceRunIds": [
+    "09face58-349b-4c8d-a84f-280571e0f2ed"
+  ]
+}

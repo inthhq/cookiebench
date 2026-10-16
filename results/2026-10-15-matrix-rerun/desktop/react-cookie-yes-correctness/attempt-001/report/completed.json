@@ -1,0 +1,16 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "report",
+    "--file",
+    "results/2026-10-15-matrix-rerun/desktop/react-cookie-yes-correctness/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-15T14:48:12.514Z",
+  "startedAt": "2026-10-15T14:48:12.292Z",
+  "exitCode": 2,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "37f787ab0762d18ca1da2e563e968264352dd47bcedbc7cef4b87e65e628d71a"
+}

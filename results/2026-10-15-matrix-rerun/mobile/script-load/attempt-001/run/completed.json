@@ -1,0 +1,26 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "run",
+    "--config",
+    "results/2026-10-15-matrix-rerun/configs/script-mobile.json",
+    "--scenario",
+    "load",
+    "--iterations",
+    "15",
+    "--warmups",
+    "3",
+    "--seed",
+    "20261009",
+    "--output",
+    "results/2026-10-15-matrix-rerun/mobile/script-load/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-15T17:24:57.814Z",
+  "startedAt": "2026-10-15T16:50:22.325Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "1b55153582c54ef4331643648f1845b5fafb1b6bcc1ceb7cf91bb2761e35a2f4"
+}

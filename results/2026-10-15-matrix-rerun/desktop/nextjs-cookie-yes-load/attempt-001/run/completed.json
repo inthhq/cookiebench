@@ -1,0 +1,26 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "run",
+    "--config",
+    "results/2026-10-15-matrix-rerun/configs/nextjs-cookie-yes-desktop.json",
+    "--scenario",
+    "load",
+    "--iterations",
+    "15",
+    "--warmups",
+    "3",
+    "--seed",
+    "20261009",
+    "--output",
+    "results/2026-10-15-matrix-rerun/desktop/nextjs-cookie-yes-load/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-15T15:17:25.723Z",
+  "startedAt": "2026-10-15T15:13:51.099Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "cb687e5cef6d291f7aec6ccd92a885585c7c9fe4295a30846d5b5080dcbcd81e"
+}

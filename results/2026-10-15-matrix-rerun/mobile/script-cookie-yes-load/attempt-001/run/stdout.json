@@ -1,0 +1,36 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:5d10b298-6def-455a-adeb-6625833b84c2",
+        "sample:462ed14e-dec5-4fed-8f13-e1d383d92614",
+        "sample:cc0c2a43-8652-4543-a964-1ebbc0b396ac",
+        "sample:15f2a175-c257-4a60-ae65-b3a45e2d2979",
+        "sample:99cb3a2b-182e-48fd-bf01-bc9173915a7b",
+        "sample:90858bfb-4ad5-4996-8506-d75f3dba2d36",
+        "sample:7e34ae47-382d-426b-a499-321629f4a20b",
+        "sample:c491d4f0-1ff6-4959-9b57-a1adda328abc",
+        "sample:02883e52-9a65-49dc-b81b-ed64b41cb492",
+        "sample:1c8e7351-fd99-4571-b145-a89730ce4b79",
+        "sample:97b96b9c-0651-474b-979e-f87af5c957ef",
+        "sample:c7e38e5a-4afb-4599-9b1c-97da09d15763",
+        "sample:897be860-da84-4b77-88a4-6a2eb67f2805",
+        "sample:37aa67dd-ddf7-4315-94a0-022900ce1192",
+        "sample:15ea2b6d-9387-48bb-bf6c-bd35a35b734b"
+      ],
+      "fixtureId": "script-tag-cookie-yes",
+      "framework": "script-tag",
+      "id": "6384b03a-36ce-4002-840b-d3256cd01262",
+      "mode": "hosted",
+      "reason": "15/15 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T17:43:02.592Z"
+    }
+  ],
+  "failures": [],
+  "output": "/Users/kayleewilliams/.t3/worktrees/cookiebench/t3-9310a3fd/results/2026-10-15-matrix-rerun/mobile/script-cookie-yes-load/attempt-001/envelope.json",
+  "runId": "1c58e618-a2b1-4f9f-accb-270f443a90b4",
+  "samples": 30,
+  "status": "passed"
+}

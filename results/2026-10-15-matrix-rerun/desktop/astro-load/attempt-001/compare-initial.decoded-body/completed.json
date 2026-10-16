@@ -1,0 +1,24 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "compare",
+    "--baseline",
+    "results/2026-10-15-matrix-rerun/desktop/astro-load/attempt-001/envelope.json",
+    "--candidate",
+    "results/2026-10-15-matrix-rerun/desktop/astro-load/attempt-001/envelope.json",
+    "--metric",
+    "initial.decoded-body",
+    "--family",
+    "batch:3d85f409eeb59e8a84859320ad4fb61e3ee18ec404f191d45af49a1616d8bc28",
+    "--family-size",
+    "365"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-15T16:08:26.955Z",
+  "startedAt": "2026-10-15T16:08:23.610Z",
+  "exitCode": 2,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "e5773b0fa37c7941b0c292ddd2f30a307b6b8817b41c92f2e889ce908a0977dc"
+}

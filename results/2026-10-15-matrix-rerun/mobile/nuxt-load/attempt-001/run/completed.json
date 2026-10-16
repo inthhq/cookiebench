@@ -1,0 +1,26 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "run",
+    "--config",
+    "results/2026-10-15-matrix-rerun/configs/nuxt-mobile.json",
+    "--scenario",
+    "load",
+    "--iterations",
+    "15",
+    "--warmups",
+    "3",
+    "--seed",
+    "20261009",
+    "--output",
+    "results/2026-10-15-matrix-rerun/mobile/nuxt-load/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-15T20:09:29.718Z",
+  "startedAt": "2026-10-15T19:34:45.224Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "7bcff427ad9cb86c5f9a4ff10f84bcd45a52365ae01378f79cd196bfc83221e5"
+}

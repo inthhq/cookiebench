@@ -1,0 +1,691 @@
+{
+  "status": "incomplete",
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "comparisons": [
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 525065,
+        "mean": 525064.9999999999,
+        "measured": 15,
+        "median": 525065,
+        "min": 525065,
+        "missing": 0,
+        "p75": 525065,
+        "passed": 15
+      },
+      "baselineFixtureId": "astro-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 794053,
+        "mean": 794053.0000000003,
+        "measured": 15,
+        "median": 794053,
+        "min": 794053,
+        "missing": 0,
+        "p75": 794053,
+        "passed": 15
+      },
+      "candidateFixtureId": "astro-c15t",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "local",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 268988,
+          "level": 0.9999315068493151,
+          "low": 268988,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 268988,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 268988,
+            "level": 0.9999315068493151,
+            "low": 268988,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 268988
+        },
+        "pairDifferenceP75": 268988
+      },
+      "scenarioId": "load",
+      "unit": "bytes"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 525065,
+        "mean": 525064.9999999999,
+        "measured": 15,
+        "median": 525065,
+        "min": 525065,
+        "missing": 0,
+        "p75": 525065,
+        "passed": 15
+      },
+      "baselineFixtureId": "astro-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 871009,
+        "mean": 871009.0000000003,
+        "measured": 15,
+        "median": 871009,
+        "min": 871009,
+        "missing": 0,
+        "p75": 871009,
+        "passed": 15
+      },
+      "candidateFixtureId": "astro-cookie-control",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 345944,
+          "level": 0.9999315068493151,
+          "low": 345944,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 345944,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 345944,
+            "level": 0.9999315068493151,
+            "low": 345944,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 345944
+        },
+        "pairDifferenceP75": 345944
+      },
+      "scenarioId": "load",
+      "unit": "bytes"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 525065,
+        "mean": 525064.9999999999,
+        "measured": 15,
+        "median": 525065,
+        "min": 525065,
+        "missing": 0,
+        "p75": 525065,
+        "passed": 15
+      },
+      "baselineFixtureId": "astro-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 1525480,
+        "mean": 1525480.0000000002,
+        "measured": 15,
+        "median": 1525480,
+        "min": 1525480,
+        "missing": 0,
+        "p75": 1525480,
+        "passed": 15
+      },
+      "candidateFixtureId": "astro-didomi",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 1000415,
+          "level": 0.9999315068493151,
+          "low": 1000415,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 1000415,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 1000415,
+            "level": 0.9999315068493151,
+            "low": 1000415,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 1000415
+        },
+        "pairDifferenceP75": 1000415
+      },
+      "scenarioId": "load",
+      "unit": "bytes"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 525065,
+        "mean": 525064.9999999999,
+        "measured": 15,
+        "median": 525065,
+        "min": 525065,
+        "missing": 0,
+        "p75": 525065,
+        "passed": 15
+      },
+      "baselineFixtureId": "astro-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 1117638,
+        "mean": 1117637.9999999998,
+        "measured": 15,
+        "median": 1117638,
+        "min": 1117638,
+        "missing": 0,
+        "p75": 1117638,
+        "passed": 15
+      },
+      "candidateFixtureId": "astro-enzuzo",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Observed remote script/style/config URL or decoded-body digest changed within this comparison cell; artifact identity remains provisional."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 15,
+        "medianDifference": 592573,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": 592573
+        },
+        "pairDifferenceP75": 592573
+      },
+      "scenarioId": "load",
+      "unit": "bytes"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 525065,
+        "mean": 525064.9999999999,
+        "measured": 15,
+        "median": 525065,
+        "min": 525065,
+        "missing": 0,
+        "p75": 525065,
+        "passed": 15
+      },
+      "baselineFixtureId": "astro-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 984092,
+        "mean": 984091.9999999997,
+        "measured": 15,
+        "median": 984092,
+        "min": 984092,
+        "missing": 0,
+        "p75": 984092,
+        "passed": 15
+      },
+      "candidateFixtureId": "astro-iubenda",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 459027,
+          "level": 0.9999315068493151,
+          "low": 459027,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 459027,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 459027,
+            "level": 0.9999315068493151,
+            "low": 459027,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 459027
+        },
+        "pairDifferenceP75": 459027
+      },
+      "scenarioId": "load",
+      "unit": "bytes"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 525065,
+        "mean": 525064.9999999999,
+        "measured": 15,
+        "median": 525065,
+        "min": 525065,
+        "missing": 0,
+        "p75": 525065,
+        "passed": 15
+      },
+      "baselineFixtureId": "astro-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 7740125,
+        "mean": 7740124.999999998,
+        "measured": 15,
+        "median": 7740125,
+        "min": 7740125,
+        "missing": 0,
+        "p75": 7740125,
+        "passed": 15
+      },
+      "candidateFixtureId": "astro-ketch",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Observed remote script/style/config URL or decoded-body digest changed within this comparison cell; artifact identity remains provisional."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 15,
+        "medianDifference": 7215060,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": 7215060
+        },
+        "pairDifferenceP75": 7215060
+      },
+      "scenarioId": "load",
+      "unit": "bytes"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 525065,
+        "mean": 525064.9999999999,
+        "measured": 15,
+        "median": 525065,
+        "min": 525065,
+        "missing": 0,
+        "p75": 525065,
+        "passed": 15
+      },
+      "baselineFixtureId": "astro-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 1380557,
+        "mean": 1380556.9999999998,
+        "measured": 15,
+        "median": 1380557,
+        "min": 1380557,
+        "missing": 0,
+        "p75": 1380557,
+        "passed": 15
+      },
+      "candidateFixtureId": "astro-onetrust",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 855492,
+          "level": 0.9999315068493151,
+          "low": 855492,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 855492,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 855492,
+            "level": 0.9999315068493151,
+            "low": 855492,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 855492
+        },
+        "pairDifferenceP75": 855492
+      },
+      "scenarioId": "load",
+      "unit": "bytes"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 525065,
+        "mean": 525064.9999999999,
+        "measured": 15,
+        "median": 525065,
+        "min": 525065,
+        "missing": 0,
+        "p75": 525065,
+        "passed": 15
+      },
+      "baselineFixtureId": "astro-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 872720,
+        "mean": 872720.0000000001,
+        "measured": 15,
+        "median": 872720,
+        "min": 872720,
+        "missing": 0,
+        "p75": 872720,
+        "passed": 15
+      },
+      "candidateFixtureId": "astro-osano",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 347655,
+          "level": 0.9999315068493151,
+          "low": 347655,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 347655,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 347655,
+            "level": 0.9999315068493151,
+            "low": 347655,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 347655
+        },
+        "pairDifferenceP75": 347655
+      },
+      "scenarioId": "load",
+      "unit": "bytes"
+    },
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 525065,
+        "mean": 525064.9999999999,
+        "measured": 15,
+        "median": 525065,
+        "min": 525065,
+        "missing": 0,
+        "p75": 525065,
+        "passed": 15
+      },
+      "baselineFixtureId": "astro-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 1237422,
+        "mean": 1237422.0000000002,
+        "measured": 15,
+        "median": 1237422,
+        "min": 1237422,
+        "missing": 0,
+        "p75": 1237422,
+        "passed": 15
+      },
+      "candidateFixtureId": "astro-usercentrics",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 712357,
+          "level": 0.9999315068493151,
+          "low": 712357,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 712357,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 712357,
+            "level": 0.9999315068493151,
+            "low": 712357,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 712357
+        },
+        "pairDifferenceP75": 712357
+      },
+      "scenarioId": "load",
+      "unit": "bytes"
+    }
+  ],
+  "metricKey": "initial.decoded-body",
+  "multiplicity": {
+    "comparisons": 365,
+    "family": "batch:3d85f409eeb59e8a84859320ad4fb61e3ee18ec404f191d45af49a1616d8bc28",
+    "familyLevel": 0.95,
+    "intervalLevel": 0.9999315068493151,
+    "intervals": 730,
+    "method": "bonferroni"
+  },
+  "sourceRunIds": [
+    "025d1ec0-d8e0-4385-b261-51e451c492de"
+  ]
+}

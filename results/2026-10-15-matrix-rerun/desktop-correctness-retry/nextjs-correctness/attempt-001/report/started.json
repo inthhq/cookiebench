@@ -1,0 +1,11 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "report",
+    "--file",
+    "results/2026-10-15-matrix-rerun/desktop-correctness-retry/nextjs-correctness/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "startedAt": "2026-10-16T21:37:50.207Z"
+}

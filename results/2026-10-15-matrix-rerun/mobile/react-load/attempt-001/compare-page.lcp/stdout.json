@@ -1,0 +1,943 @@
+{
+  "status": "incomplete",
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "comparisons": [
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4311/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4311/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3332,
+        "mean": 3314.6666666666665,
+        "measured": 15,
+        "median": 3308,
+        "min": 3308,
+        "missing": 0,
+        "p75": 3324,
+        "passed": 15
+      },
+      "baselineFixtureId": "react-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3864,
+        "mean": 3846.4,
+        "measured": 15,
+        "median": 3844,
+        "min": 3824,
+        "missing": 0,
+        "p75": 3856,
+        "passed": 15
+      },
+      "candidateFixtureId": "react-c15t",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "local",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 548,
+          "level": 0.9999315068493151,
+          "low": 508,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 536,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 552,
+            "level": 0.9999315068493151,
+            "low": 510,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 532
+        },
+        "pairDifferenceP75": 540
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4311/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4311/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3332,
+        "mean": 3314.6666666666665,
+        "measured": 15,
+        "median": 3308,
+        "min": 3308,
+        "missing": 0,
+        "p75": 3324,
+        "passed": 15
+      },
+      "baselineFixtureId": "react-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3632,
+        "mean": 3623.7333333333327,
+        "measured": 15,
+        "median": 3624,
+        "min": 3616,
+        "missing": 0,
+        "p75": 3624,
+        "passed": 15
+      },
+      "candidateFixtureId": "react-cookie-control",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 324,
+          "level": 0.9999315068493151,
+          "low": 292,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 316,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 324,
+            "level": 0.9999315068493151,
+            "low": 292,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 300
+        },
+        "pairDifferenceP75": 316
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4311/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4311/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3332,
+        "mean": 3314.6666666666665,
+        "measured": 15,
+        "median": 3308,
+        "min": 3308,
+        "missing": 0,
+        "p75": 3324,
+        "passed": 15
+      },
+      "baselineFixtureId": "react-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 4440,
+        "mean": 4417.333333333333,
+        "measured": 15,
+        "median": 4416,
+        "min": 4408,
+        "missing": 0,
+        "p75": 4424,
+        "passed": 15
+      },
+      "candidateFixtureId": "react-didomi",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 1116,
+          "level": 0.9999315068493151,
+          "low": 1084,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 1100,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 1124,
+            "level": 0.9999315068493151,
+            "low": 1076,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 1100
+        },
+        "pairDifferenceP75": 1112
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4311/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4311/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3332,
+        "mean": 3314.6666666666665,
+        "measured": 15,
+        "median": 3308,
+        "min": 3308,
+        "missing": 0,
+        "p75": 3324,
+        "passed": 15
+      },
+      "baselineFixtureId": "react-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 4060,
+        "mean": 3943.7333333333327,
+        "measured": 15,
+        "median": 3908,
+        "min": 3888,
+        "missing": 0,
+        "p75": 3988,
+        "passed": 15
+      },
+      "candidateFixtureId": "react-enzuzo",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Observed remote script/style/config URL or decoded-body digest changed within this comparison cell; artifact identity remains provisional."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 15,
+        "medianDifference": 600,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": 664
+        },
+        "pairDifferenceP75": 666
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4311/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4311/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3332,
+        "mean": 3314.6666666666665,
+        "measured": 15,
+        "median": 3308,
+        "min": 3308,
+        "missing": 0,
+        "p75": 3324,
+        "passed": 15
+      },
+      "baselineFixtureId": "react-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3860,
+        "mean": 3786.1333333333337,
+        "measured": 15,
+        "median": 3776,
+        "min": 3748,
+        "missing": 0,
+        "p75": 3812,
+        "passed": 15
+      },
+      "candidateFixtureId": "react-iubenda",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 528,
+          "level": 0.9999315068493151,
+          "low": 440,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 456,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 536,
+            "level": 0.9999315068493151,
+            "low": 434,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 488
+        },
+        "pairDifferenceP75": 490
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4311/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4311/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3332,
+        "mean": 3314.6666666666665,
+        "measured": 15,
+        "median": 3308,
+        "min": 3308,
+        "missing": 0,
+        "p75": 3324,
+        "passed": 15
+      },
+      "baselineFixtureId": "react-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 5196,
+        "mean": 5167.199999999999,
+        "measured": 15,
+        "median": 5164,
+        "min": 5140,
+        "missing": 0,
+        "p75": 5182,
+        "passed": 15
+      },
+      "candidateFixtureId": "react-ketch",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Observed remote script/style/config URL or decoded-body digest changed within this comparison cell; artifact identity remains provisional."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 15,
+        "medianDifference": 1848,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": 1858
+        },
+        "pairDifferenceP75": 1866
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4311/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "onetrust-policy-text",
+              "role": "banner",
+              "size": 93766,
+              "tag": "DIV",
+              "url": null,
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3332,
+        "mean": 3314.6666666666665,
+        "measured": 15,
+        "median": 3308,
+        "min": 3308,
+        "missing": 0,
+        "p75": 3324,
+        "passed": 15
+      },
+      "baselineFixtureId": "react-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3732,
+        "mean": 3571.7333333333336,
+        "measured": 15,
+        "median": 3552,
+        "min": 3464,
+        "missing": 0,
+        "p75": 3612,
+        "passed": 15
+      },
+      "candidateFixtureId": "react-onetrust",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 344,
+          "level": 0.9999315068493151,
+          "low": 188,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 244,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 400,
+            "level": 0.9999315068493151,
+            "low": 192,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 288
+        },
+        "pairDifferenceP75": 292
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4311/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4311/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3332,
+        "mean": 3314.6666666666665,
+        "measured": 15,
+        "median": 3308,
+        "min": 3308,
+        "missing": 0,
+        "p75": 3324,
+        "passed": 15
+      },
+      "baselineFixtureId": "react-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3760,
+        "mean": 3678.9333333333334,
+        "measured": 15,
+        "median": 3692,
+        "min": 3592,
+        "missing": 0,
+        "p75": 3704,
+        "passed": 15
+      },
+      "candidateFixtureId": "react-osano",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 432,
+          "level": 0.9999315068493151,
+          "low": 272,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 376,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 452,
+            "level": 0.9999315068493151,
+            "low": 308.27369863011387,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 380
+        },
+        "pairDifferenceP75": 396
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4311/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4311/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3332,
+        "mean": 3314.6666666666665,
+        "measured": 15,
+        "median": 3308,
+        "min": 3308,
+        "missing": 0,
+        "p75": 3324,
+        "passed": 15
+      },
+      "baselineFixtureId": "react-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 4172,
+        "mean": 4074.133333333334,
+        "measured": 15,
+        "median": 4072,
+        "min": 4032,
+        "missing": 0,
+        "p75": 4076,
+        "passed": 15
+      },
+      "candidateFixtureId": "react-usercentrics",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 848,
+          "level": 0.9999315068493151,
+          "low": 724,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 748,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 864,
+            "level": 0.9999315068493151,
+            "low": 718.0684246575285,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 752
+        },
+        "pairDifferenceP75": 766
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    }
+  ],
+  "metricKey": "page.lcp",
+  "multiplicity": {
+    "comparisons": 365,
+    "family": "batch:88d57f2d6e496f9392ae7b1939574f835ace3126823c323ad7a560e29f9fb017",
+    "familyLevel": 0.95,
+    "intervalLevel": 0.9999315068493151,
+    "intervals": 730,
+    "method": "bonferroni"
+  },
+  "sourceRunIds": [
+    "156d766c-df31-4684-9eff-e02c01dbec42"
+  ]
+}

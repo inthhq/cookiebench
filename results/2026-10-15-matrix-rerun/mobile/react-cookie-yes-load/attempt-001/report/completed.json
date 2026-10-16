@@ -1,0 +1,16 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "report",
+    "--file",
+    "results/2026-10-15-matrix-rerun/mobile/react-cookie-yes-load/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "endedAt": "2026-10-15T18:37:31.147Z",
+  "startedAt": "2026-10-15T18:37:30.857Z",
+  "exitCode": 0,
+  "signal": null,
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdoutSha256": "0c07ae101d1055ca7b42993d605c9588fe517ac140e79f9a60ce6c68d2bfa22e"
+}

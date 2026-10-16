@@ -1,0 +1,943 @@
+{
+  "status": "incomplete",
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "comparisons": [
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4310/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4310/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 2868,
+        "mean": 2858.9333333333334,
+        "measured": 15,
+        "median": 2860,
+        "min": 2844,
+        "missing": 0,
+        "p75": 2864,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3300,
+        "mean": 3291.9999999999995,
+        "measured": 15,
+        "median": 3292,
+        "min": 3284,
+        "missing": 0,
+        "p75": 3294,
+        "passed": 15
+      },
+      "candidateFixtureId": "script-tag-c15t-inth-init",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "local",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 444,
+          "level": 0.9999315068493151,
+          "low": 424,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 432,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 444,
+            "level": 0.9999315068493151,
+            "low": 424,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 430
+        },
+        "pairDifferenceP75": 442
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4310/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4310/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 2868,
+        "mean": 2858.9333333333334,
+        "measured": 15,
+        "median": 2860,
+        "min": 2844,
+        "missing": 0,
+        "p75": 2864,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3368,
+        "mean": 3347.9999999999995,
+        "measured": 15,
+        "median": 3344,
+        "min": 3340,
+        "missing": 0,
+        "p75": 3352,
+        "passed": 15
+      },
+      "candidateFixtureId": "script-tag-cookie-control",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 504,
+          "level": 0.9999315068493151,
+          "low": 480,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 488,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 512,
+            "level": 0.9999315068493151,
+            "low": 474,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 488
+        },
+        "pairDifferenceP75": 490
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4310/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4310/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 2868,
+        "mean": 2858.9333333333334,
+        "measured": 15,
+        "median": 2860,
+        "min": 2844,
+        "missing": 0,
+        "p75": 2864,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 4148,
+        "mean": 4141.066666666667,
+        "measured": 15,
+        "median": 4140,
+        "min": 4132,
+        "missing": 0,
+        "p75": 4144,
+        "passed": 15
+      },
+      "candidateFixtureId": "script-tag-didomi",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 1288,
+          "level": 0.9999315068493151,
+          "low": 1276,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 1280,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 1288,
+            "level": 0.9999315068493151,
+            "low": 1272,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 1280
+        },
+        "pairDifferenceP75": 1286
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4310/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4310/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 2868,
+        "mean": 2858.9333333333334,
+        "measured": 15,
+        "median": 2860,
+        "min": 2844,
+        "missing": 0,
+        "p75": 2864,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3632,
+        "mean": 3616.7999999999993,
+        "measured": 15,
+        "median": 3616,
+        "min": 3608,
+        "missing": 0,
+        "p75": 3624,
+        "passed": 15
+      },
+      "candidateFixtureId": "script-tag-enzuzo",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Observed remote script/style/config URL or decoded-body digest changed within this comparison cell; artifact identity remains provisional."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 15,
+        "medianDifference": 756,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": 760
+        },
+        "pairDifferenceP75": 768
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4310/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4310/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 2868,
+        "mean": 2858.9333333333334,
+        "measured": 15,
+        "median": 2860,
+        "min": 2844,
+        "missing": 0,
+        "p75": 2864,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3484,
+        "mean": 3475.9999999999995,
+        "measured": 15,
+        "median": 3476,
+        "min": 3464,
+        "missing": 0,
+        "p75": 3480,
+        "passed": 15
+      },
+      "candidateFixtureId": "script-tag-iubenda",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 628,
+          "level": 0.9999315068493151,
+          "low": 608,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 616,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 628,
+            "level": 0.9999315068493151,
+            "low": 608,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 616
+        },
+        "pairDifferenceP75": 626
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4310/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4310/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 2868,
+        "mean": 2858.9333333333334,
+        "measured": 15,
+        "median": 2860,
+        "min": 2844,
+        "missing": 0,
+        "p75": 2864,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 4616,
+        "mean": 4610.9333333333325,
+        "measured": 15,
+        "median": 4612,
+        "min": 4596,
+        "missing": 0,
+        "p75": 4616,
+        "passed": 15
+      },
+      "candidateFixtureId": "script-tag-ketch",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Observed remote script/style/config URL or decoded-body digest changed within this comparison cell; artifact identity remains provisional."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 15,
+        "medianDifference": 1752,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": 1752
+        },
+        "pairDifferenceP75": 1758
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4310/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "onetrust-policy-text",
+              "role": "banner",
+              "size": 93766,
+              "tag": "DIV",
+              "url": null,
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 2868,
+        "mean": 2858.9333333333334,
+        "measured": 15,
+        "median": 2860,
+        "min": 2844,
+        "missing": 0,
+        "p75": 2864,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3628,
+        "mean": 3544.2666666666673,
+        "measured": 15,
+        "median": 3544,
+        "min": 3484,
+        "missing": 0,
+        "p75": 3576,
+        "passed": 15
+      },
+      "candidateFixtureId": "script-tag-onetrust",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 752,
+          "level": 0.9999315068493151,
+          "low": 624,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 688,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 772,
+            "level": 0.9999315068493151,
+            "low": 640.0684246575285,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 712
+        },
+        "pairDifferenceP75": 712
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4310/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4310/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 2868,
+        "mean": 2858.9333333333334,
+        "measured": 15,
+        "median": 2860,
+        "min": 2844,
+        "missing": 0,
+        "p75": 2864,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3300,
+        "mean": 3291.733333333333,
+        "measured": 15,
+        "median": 3292,
+        "min": 3280,
+        "missing": 0,
+        "p75": 3294,
+        "passed": 15
+      },
+      "candidateFixtureId": "script-tag-osano",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 440,
+          "level": 0.9999315068493151,
+          "low": 428,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 432,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 440,
+            "level": 0.9999315068493151,
+            "low": 422,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 430
+        },
+        "pairDifferenceP75": 438
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4310/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4310/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 2868,
+        "mean": 2858.9333333333334,
+        "measured": 15,
+        "median": 2860,
+        "min": 2844,
+        "missing": 0,
+        "p75": 2864,
+        "passed": 15
+      },
+      "baselineFixtureId": "script-tag-baseline-inth-init",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3720,
+        "mean": 3702.6666666666656,
+        "measured": 15,
+        "median": 3708,
+        "min": 3692,
+        "missing": 0,
+        "p75": 3708,
+        "passed": 15
+      },
+      "candidateFixtureId": "script-tag-usercentrics",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 860,
+          "level": 0.9999315068493151,
+          "low": 832,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 844,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 860,
+            "level": 0.9999315068493151,
+            "low": 832,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 844
+        },
+        "pairDifferenceP75": 848
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    }
+  ],
+  "metricKey": "page.lcp",
+  "multiplicity": {
+    "comparisons": 365,
+    "family": "batch:88d57f2d6e496f9392ae7b1939574f835ace3126823c323ad7a560e29f9fb017",
+    "familyLevel": 0.95,
+    "intervalLevel": 0.9999315068493151,
+    "intervals": 730,
+    "method": "bonferroni"
+  },
+  "sourceRunIds": [
+    "f25bf54e-e00b-4ebf-8144-58b3c891a3ae"
+  ]
+}

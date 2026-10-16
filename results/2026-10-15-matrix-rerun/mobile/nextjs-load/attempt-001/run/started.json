@@ -1,0 +1,21 @@
+{
+  "command": [
+    "node",
+    "packages/cli/src/index.ts",
+    "run",
+    "--config",
+    "results/2026-10-15-matrix-rerun/configs/nextjs-mobile.json",
+    "--scenario",
+    "load",
+    "--iterations",
+    "15",
+    "--warmups",
+    "3",
+    "--seed",
+    "20261009",
+    "--output",
+    "results/2026-10-15-matrix-rerun/mobile/nextjs-load/attempt-001/envelope.json"
+  ],
+  "cwd": ".",
+  "startedAt": "2026-10-15T18:39:18.482Z"
+}

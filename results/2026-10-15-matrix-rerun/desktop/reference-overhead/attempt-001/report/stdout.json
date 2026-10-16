@@ -1,0 +1,333 @@
+{
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "artifacts": [],
+  "capabilities": [],
+  "groups": [
+    {
+      "baseline": true,
+      "correctness": {
+        "attempts": 15,
+        "failed": 0,
+        "reasons": [
+          "The collector did not establish completion of all required correctness checks."
+        ],
+        "unknown": 15,
+        "verified": 0
+      },
+      "deployment": {
+        "assets": "local",
+        "backend": "none"
+      },
+      "failures": [],
+      "fixtureId": "reference-baseline-minimal",
+      "lcpAttribution": {
+        "elements": [],
+        "missing": 0
+      },
+      "metrics": {
+        "custom.audit.fcp": {
+          "attempts": 15,
+          "available": 15,
+          "censoring": null,
+          "eligibilityReasons": [],
+          "excluded": 0,
+          "failed": 0,
+          "includedIncomplete": 0,
+          "incomplete": 0,
+          "max": 20,
+          "mean": 19.999999999999996,
+          "measured": 15,
+          "median": 20,
+          "min": 20,
+          "missing": 0,
+          "p75": 20,
+          "passed": 15,
+          "validityWarnings": []
+        },
+        "custom.audit.layout-duration": {
+          "attempts": 15,
+          "available": 15,
+          "censoring": null,
+          "eligibilityReasons": [],
+          "excluded": 0,
+          "failed": 0,
+          "includedIncomplete": 0,
+          "incomplete": 0,
+          "max": 4.287,
+          "mean": 4.154333333333334,
+          "measured": 15,
+          "median": 4.161,
+          "min": 4.002000000000001,
+          "missing": 0,
+          "p75": 4.1965,
+          "passed": 15,
+          "validityWarnings": []
+        },
+        "custom.audit.lcp": {
+          "attempts": 15,
+          "available": 15,
+          "censoring": null,
+          "eligibilityReasons": [],
+          "excluded": 0,
+          "failed": 0,
+          "includedIncomplete": 0,
+          "incomplete": 0,
+          "max": 20,
+          "mean": 19.999999999999996,
+          "measured": 15,
+          "median": 20,
+          "min": 20,
+          "missing": 0,
+          "p75": 20,
+          "passed": 15,
+          "validityWarnings": []
+        },
+        "custom.audit.observed-window": {
+          "attempts": 15,
+          "available": 15,
+          "censoring": null,
+          "eligibilityReasons": [],
+          "excluded": 0,
+          "failed": 0,
+          "includedIncomplete": 0,
+          "incomplete": 0,
+          "max": 1009.2000007629395,
+          "mean": 1007.6933333079022,
+          "measured": 15,
+          "median": 1007.8000001907349,
+          "min": 1004.3000001907349,
+          "missing": 0,
+          "p75": 1008.5499997138977,
+          "passed": 15,
+          "validityWarnings": []
+        },
+        "custom.audit.script-duration": {
+          "attempts": 15,
+          "available": 15,
+          "censoring": null,
+          "eligibilityReasons": [],
+          "excluded": 0,
+          "failed": 0,
+          "includedIncomplete": 0,
+          "incomplete": 0,
+          "max": 1.323,
+          "mean": 1.1764666666666663,
+          "measured": 15,
+          "median": 1.1869999999999998,
+          "min": 0.746,
+          "missing": 0,
+          "p75": 1.2770000000000001,
+          "passed": 15,
+          "validityWarnings": []
+        },
+        "custom.audit.task-duration": {
+          "attempts": 15,
+          "available": 15,
+          "censoring": null,
+          "eligibilityReasons": [],
+          "excluded": 0,
+          "failed": 0,
+          "includedIncomplete": 0,
+          "incomplete": 0,
+          "max": 12.726,
+          "mean": 12.141333333333334,
+          "measured": 15,
+          "median": 12.128,
+          "min": 10.767000000000001,
+          "missing": 0,
+          "p75": 12.358,
+          "passed": 15,
+          "validityWarnings": []
+        }
+      },
+      "scenarioId": "load"
+    },
+    {
+      "baseline": false,
+      "correctness": {
+        "attempts": 15,
+        "failed": 0,
+        "reasons": [
+          "The collector did not establish completion of all required correctness checks."
+        ],
+        "unknown": 15,
+        "verified": 0
+      },
+      "deployment": {
+        "assets": "local",
+        "backend": "none"
+      },
+      "failures": [],
+      "fixtureId": "reference-baseline-full",
+      "lcpAttribution": {
+        "elements": [],
+        "missing": 0
+      },
+      "metrics": {
+        "custom.audit.fcp": {
+          "attempts": 15,
+          "available": 15,
+          "censoring": null,
+          "eligibilityReasons": [],
+          "excluded": 0,
+          "failed": 0,
+          "includedIncomplete": 0,
+          "incomplete": 0,
+          "max": 24,
+          "mean": 22.66666666666666,
+          "measured": 15,
+          "median": 24,
+          "min": 20,
+          "missing": 0,
+          "p75": 24,
+          "passed": 15,
+          "validityWarnings": []
+        },
+        "custom.audit.layout-duration": {
+          "attempts": 15,
+          "available": 15,
+          "censoring": null,
+          "eligibilityReasons": [],
+          "excluded": 0,
+          "failed": 0,
+          "includedIncomplete": 0,
+          "incomplete": 0,
+          "max": 4.244999999999999,
+          "mean": 4.007333333333333,
+          "measured": 15,
+          "median": 3.9909999999999997,
+          "min": 3.823,
+          "missing": 0,
+          "p75": 4.085000000000001,
+          "passed": 15,
+          "validityWarnings": []
+        },
+        "custom.audit.lcp": {
+          "attempts": 15,
+          "available": 15,
+          "censoring": null,
+          "eligibilityReasons": [],
+          "excluded": 0,
+          "failed": 0,
+          "includedIncomplete": 0,
+          "incomplete": 0,
+          "max": 24,
+          "mean": 22.66666666666666,
+          "measured": 15,
+          "median": 24,
+          "min": 20,
+          "missing": 0,
+          "p75": 24,
+          "passed": 15,
+          "validityWarnings": []
+        },
+        "custom.audit.observed-window": {
+          "attempts": 15,
+          "available": 15,
+          "censoring": null,
+          "eligibilityReasons": [],
+          "excluded": 0,
+          "failed": 0,
+          "includedIncomplete": 0,
+          "incomplete": 0,
+          "max": 1009.8000001907349,
+          "mean": 1007.5333332697551,
+          "measured": 15,
+          "median": 1007.6000003814697,
+          "min": 1004.5,
+          "missing": 0,
+          "p75": 1007.9499998092651,
+          "passed": 15,
+          "validityWarnings": []
+        },
+        "custom.audit.script-duration": {
+          "attempts": 15,
+          "available": 15,
+          "censoring": null,
+          "eligibilityReasons": [],
+          "excluded": 0,
+          "failed": 0,
+          "includedIncomplete": 0,
+          "incomplete": 0,
+          "max": 6.8069999999999995,
+          "mean": 6.061933333333333,
+          "measured": 15,
+          "median": 6.167,
+          "min": 5.053,
+          "missing": 0,
+          "p75": 6.364,
+          "passed": 15,
+          "validityWarnings": []
+        },
+        "custom.audit.task-duration": {
+          "attempts": 15,
+          "available": 15,
+          "censoring": null,
+          "eligibilityReasons": [],
+          "excluded": 0,
+          "failed": 0,
+          "includedIncomplete": 0,
+          "incomplete": 0,
+          "max": 29.622,
+          "mean": 27.21453333333333,
+          "measured": 15,
+          "median": 27.882,
+          "min": 23.894000000000002,
+          "missing": 0,
+          "p75": 28.391000000000002,
+          "passed": 15,
+          "validityWarnings": []
+        }
+      },
+      "scenarioId": "load"
+    }
+  ],
+  "manifest": {
+    "collectorVersion": "cookiebench-instrumentation-audit-1.2.0",
+    "createdAt": "2026-10-15T16:50:14.397Z",
+    "environment": {
+      "collectorSourceHash": "f359851e4f7b15d549e882d641cd3205f71af1a18aebd8f02f4fc5b2eb21eb1d",
+      "cpu": "Apple M1 Pro",
+      "cpuWindow": "before navigation through first CDP snapshot after observation deadline; raw endpoints retained; no normalization or subtraction",
+      "fixtureSourceHash": "configuration:449ca00c36871fe9be7834f2019dd72d8df70f3eb066c3452c2f4f0d794c6b86;revision:3.0.0",
+      "fullArm": "minimal arm plus production DOM observer, owned bounded main-document native vitals/Element Timing observers, unfinalized web-vitals diagnostic observers, passive network collector and production navigation capture listeners with native CDP binding",
+      "inputSnapshotCost": "not calibrated: load-only visits do not arm a consent action, dispatch trusted input or serialize input/unload snapshots; no overhead correction is applied",
+      "lockfileHash": "b88c320b796eb3cdb271e3696e4a817d98738c05ad207098c87022b55b06c678",
+      "minimalArm": "main-document native paint/LCP observer with timer and snapshot queue drain after a 250 ms presentation grace, shared CDP emulation and Performance domain; no DOM polling, web-vitals or network listeners",
+      "order": "[[\"full\",\"minimal\"],[\"full\",\"minimal\"],[\"full\",\"minimal\"],[\"minimal\",\"full\"],[\"full\",\"minimal\"],[\"full\",\"minimal\"],[\"minimal\",\"full\"],[\"full\",\"minimal\"],[\"full\",\"minimal\"],[\"full\",\"minimal\"],[\"full\",\"minimal\"],[\"full\",\"minimal\"],[\"minimal\",\"full\"],[\"full\",\"minimal\"],[\"minimal\",\"full\"],[\"full\",\"minimal\"],[\"minimal\",\"full\"],[\"minimal\",\"full\"]]",
+      "platform": "darwin",
+      "release": "25.6.0",
+      "warmups": "3"
+    },
+    "id": "d0f8e5e8-2e52-4226-8215-b85a0b673cb6",
+    "methodologyVersion": "cookiebench-instrumentation-overhead-v1",
+    "profile": {
+      "cpuSlowdown": 1,
+      "deviceScaleFactor": 1,
+      "hasTouch": false,
+      "id": "desktop-article-v1-browser-ua",
+      "isMobile": false,
+      "locale": "en-GB",
+      "network": {
+        "downloadBytesPerSecond": 12500000,
+        "latencyMs": 0,
+        "uploadBytesPerSecond": 12500000
+      },
+      "region": "GB",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+      "viewport": {
+        "height": 768,
+        "width": 1365
+      }
+    },
+    "seed": 20261009,
+    "versions": {
+      "browser": "153.0.8010.12",
+      "effect": "4.0.0-rc.117",
+      "node": "v24.21.0",
+      "playwright": "1.63.0",
+      "web-vitals": "6.2.2"
+    }
+  },
+  "status": "passed"
+}

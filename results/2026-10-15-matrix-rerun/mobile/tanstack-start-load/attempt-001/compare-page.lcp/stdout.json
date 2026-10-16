@@ -1,0 +1,943 @@
+{
+  "status": "incomplete",
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "comparisons": [
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4316/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4316/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3316,
+        "mean": 3308.5333333333333,
+        "measured": 15,
+        "median": 3308,
+        "min": 3296,
+        "missing": 0,
+        "p75": 3314,
+        "passed": 15
+      },
+      "baselineFixtureId": "tanstack-start-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3748,
+        "mean": 3742.133333333334,
+        "measured": 15,
+        "median": 3740,
+        "min": 3732,
+        "missing": 0,
+        "p75": 3748,
+        "passed": 15
+      },
+      "candidateFixtureId": "tanstack-start-c15t",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "local",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 444,
+          "level": 0.9999315068493151,
+          "low": 424,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 432,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 440,
+            "level": 0.9999315068493151,
+            "low": 424,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 434
+        },
+        "pairDifferenceP75": 440
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4316/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4316/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3316,
+        "mean": 3308.5333333333333,
+        "measured": 15,
+        "median": 3308,
+        "min": 3296,
+        "missing": 0,
+        "p75": 3314,
+        "passed": 15
+      },
+      "baselineFixtureId": "tanstack-start-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3816,
+        "mean": 3794.9333333333343,
+        "measured": 15,
+        "median": 3792,
+        "min": 3784,
+        "missing": 0,
+        "p75": 3800,
+        "passed": 15
+      },
+      "candidateFixtureId": "tanstack-start-cookie-control",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 500,
+          "level": 0.9999315068493151,
+          "low": 476,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 488,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 500,
+            "level": 0.9999315068493151,
+            "low": 474,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 486
+        },
+        "pairDifferenceP75": 494
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4316/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4316/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3316,
+        "mean": 3308.5333333333333,
+        "measured": 15,
+        "median": 3308,
+        "min": 3296,
+        "missing": 0,
+        "p75": 3314,
+        "passed": 15
+      },
+      "baselineFixtureId": "tanstack-start-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 4612,
+        "mean": 4587.2,
+        "measured": 15,
+        "median": 4588,
+        "min": 4572,
+        "missing": 0,
+        "p75": 4592,
+        "passed": 15
+      },
+      "candidateFixtureId": "tanstack-start-didomi",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 1292,
+          "level": 0.9999315068493151,
+          "low": 1264,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 1276,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 1304,
+            "level": 0.9999315068493151,
+            "low": 1270,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 1278
+        },
+        "pairDifferenceP75": 1282
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4316/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4316/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3316,
+        "mean": 3308.5333333333333,
+        "measured": 15,
+        "median": 3308,
+        "min": 3296,
+        "missing": 0,
+        "p75": 3314,
+        "passed": 15
+      },
+      "baselineFixtureId": "tanstack-start-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 4084,
+        "mean": 4072.266666666667,
+        "measured": 15,
+        "median": 4076,
+        "min": 4060,
+        "missing": 0,
+        "p75": 4076,
+        "passed": 15
+      },
+      "candidateFixtureId": "tanstack-start-enzuzo",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Observed remote script/style/config URL or decoded-body digest changed within this comparison cell; artifact identity remains provisional."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 15,
+        "medianDifference": 764,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": 762
+        },
+        "pairDifferenceP75": 770
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4316/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4316/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3316,
+        "mean": 3308.5333333333333,
+        "measured": 15,
+        "median": 3308,
+        "min": 3296,
+        "missing": 0,
+        "p75": 3314,
+        "passed": 15
+      },
+      "baselineFixtureId": "tanstack-start-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3940,
+        "mean": 3925.8666666666663,
+        "measured": 15,
+        "median": 3924,
+        "min": 3916,
+        "missing": 0,
+        "p75": 3928,
+        "passed": 15
+      },
+      "candidateFixtureId": "tanstack-start-iubenda",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 632,
+          "level": 0.9999315068493151,
+          "low": 608,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 620,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 632,
+            "level": 0.9999315068493151,
+            "low": 608,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 614
+        },
+        "pairDifferenceP75": 624
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4316/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4316/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3316,
+        "mean": 3308.5333333333333,
+        "measured": 15,
+        "median": 3308,
+        "min": 3296,
+        "missing": 0,
+        "p75": 3314,
+        "passed": 15
+      },
+      "baselineFixtureId": "tanstack-start-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 1,
+        "incomplete": 1,
+        "max": 5080,
+        "mean": 5061.333333333332,
+        "measured": 15,
+        "median": 5060,
+        "min": 5048,
+        "missing": 0,
+        "p75": 5064,
+        "passed": 14
+      },
+      "candidateFixtureId": "tanstack-start-ketch",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [
+        "Observed remote script/style/config URL or decoded-body digest changed within this comparison cell; artifact identity remains provisional."
+      ],
+      "eligible": false,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": null,
+        "count": 15,
+        "medianDifference": 1752,
+        "p75Delta": {
+          "confidenceInterval": null,
+          "estimate": 1750
+        },
+        "pairDifferenceP75": 1758
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4316/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "onetrust-policy-text",
+              "role": "banner",
+              "size": 93766,
+              "tag": "DIV",
+              "url": null,
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3316,
+        "mean": 3308.5333333333333,
+        "measured": 15,
+        "median": 3308,
+        "min": 3296,
+        "missing": 0,
+        "p75": 3314,
+        "passed": 15
+      },
+      "baselineFixtureId": "tanstack-start-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3748,
+        "mean": 3676.2666666666673,
+        "measured": 15,
+        "median": 3668,
+        "min": 3628,
+        "missing": 0,
+        "p75": 3692,
+        "passed": 15
+      },
+      "candidateFixtureId": "tanstack-start-onetrust",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 432,
+          "level": 0.9999315068493151,
+          "low": 320,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 360,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 440,
+            "level": 0.9999315068493151,
+            "low": 336,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 378
+        },
+        "pairDifferenceP75": 390
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4316/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4316/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3316,
+        "mean": 3308.5333333333333,
+        "measured": 15,
+        "median": 3308,
+        "min": 3296,
+        "missing": 0,
+        "p75": 3314,
+        "passed": 15
+      },
+      "baselineFixtureId": "tanstack-start-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3752,
+        "mean": 3744,
+        "measured": 15,
+        "median": 3744,
+        "min": 3732,
+        "missing": 0,
+        "p75": 3748,
+        "passed": 15
+      },
+      "candidateFixtureId": "tanstack-start-osano",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 452,
+          "level": 0.9999315068493151,
+          "low": 424,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 432,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 444,
+            "level": 0.9999315068493151,
+            "low": 424,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 434
+        },
+        "pairDifferenceP75": 440
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    },
+    {
+      "lcpAttribution": {
+        "baseline": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4316/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        },
+        "candidate": {
+          "elements": [
+            {
+              "id": "primary-content",
+              "role": "content",
+              "size": 62586,
+              "tag": "IMG",
+              "url": "http://127.0.0.1:4316/page-assets/courtyard.png",
+              "samples": 15
+            }
+          ],
+          "missing": 0
+        }
+      },
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 3316,
+        "mean": 3308.5333333333333,
+        "measured": 15,
+        "median": 3308,
+        "min": 3296,
+        "missing": 0,
+        "p75": 3314,
+        "passed": 15
+      },
+      "baselineFixtureId": "tanstack-start-baseline",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 4192,
+        "mean": 4172.266666666666,
+        "measured": 15,
+        "median": 4180,
+        "min": 4136,
+        "missing": 0,
+        "p75": 4190,
+        "passed": 15
+      },
+      "candidateFixtureId": "tanstack-start-usercentrics",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "mixed",
+          "backend": "remote-service"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "candidate-higher",
+        "confidenceInterval": {
+          "high": 884,
+          "level": 0.9999315068493151,
+          "low": 832,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 872,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 884,
+            "level": 0.9999315068493151,
+            "low": 844,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 876
+        },
+        "pairDifferenceP75": 884
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    }
+  ],
+  "metricKey": "page.lcp",
+  "multiplicity": {
+    "comparisons": 365,
+    "family": "batch:88d57f2d6e496f9392ae7b1939574f835ace3126823c323ad7a560e29f9fb017",
+    "familyLevel": 0.95,
+    "intervalLevel": 0.9999315068493151,
+    "intervals": 730,
+    "method": "bonferroni"
+  },
+  "sourceRunIds": [
+    "dfde3a08-673d-4724-bd90-a5606524f15b"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:2e247ba3-5d2c-41ac-a4cb-de10dd0a2d27"
+      ],
+      "fixtureId": "tanstack-start-cookie-yes",
+      "framework": "tanstack-start",
+      "id": "b38b9cb7-eb1b-4493-8012-e62e1d75e394",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T16:49:25.295Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:669b31e8-4c22-441c-9052-08c26e758b46"
+      ],
+      "fixtureId": "tanstack-start-cookie-yes",
+      "framework": "tanstack-start",
+      "id": "ed41537a-2e29-4ed5-bbce-97f7438cf88e",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T16:49:25.295Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:2bff0df3-422c-45ef-96af-a82af28fc96e"
+      ],
+      "fixtureId": "tanstack-start-cookie-yes",
+      "framework": "tanstack-start",
+      "id": "03c8dd74-4fd3-4850-aa28-fbf0d8388c84",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T16:49:25.295Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:b4dbec07-d2fd-4029-ab33-0e7595aea8f2"
+      ],
+      "fixtureId": "tanstack-start-cookie-yes",
+      "framework": "tanstack-start",
+      "id": "8a8f967b-4147-4d4b-aa35-632227986065",
+      "mode": "hosted",
+      "reason": "0/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "unknown",
+      "verifiedAt": "2026-10-15T16:49:25.295Z"
+    }
+  ],
+  "failures": [
+    {
+      "sampleId": "b4dbec07-d2fd-4029-ab33-0e7595aea8f2",
+      "code": "unsupported-action",
+      "message": "Adapter does not declare the save action"
+    },
+    {
+      "sampleId": "b4dbec07-d2fd-4029-ab33-0e7595aea8f2",
+      "code": "followup:unsupported-action",
+      "message": "Adapter does not declare the save action"
+    }
+  ],
+  "output": "/Users/kayleewilliams/.t3/worktrees/cookiebench/t3-9310a3fd/results/2026-10-15-matrix-rerun/desktop/tanstack-start-cookie-yes-correctness/attempt-001/envelope.json",
+  "runId": "6ae6e7ab-9cb7-4c08-9a2d-a92667cb5aed",
+  "samples": 8,
+  "status": "incomplete"
+}

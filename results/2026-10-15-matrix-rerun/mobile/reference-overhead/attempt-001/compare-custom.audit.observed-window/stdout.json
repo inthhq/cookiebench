@@ -1,0 +1,95 @@
+{
+  "status": "passed",
+  "analysisVersion": "cookiebench-analysis-v3.4.0",
+  "comparisons": [
+    {
+      "baseline": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 1003.6000003814697,
+        "mean": 1002.3933331807455,
+        "measured": 15,
+        "median": 1002.4000005722046,
+        "min": 1001.3999996185303,
+        "missing": 0,
+        "p75": 1002.75,
+        "passed": 15
+      },
+      "baselineFixtureId": "reference-baseline-minimal",
+      "candidate": {
+        "attempts": 15,
+        "available": 15,
+        "censoring": null,
+        "eligibilityReasons": [],
+        "excluded": 0,
+        "failed": 0,
+        "includedIncomplete": 0,
+        "incomplete": 0,
+        "max": 1004.3999996185303,
+        "mean": 1003.0999998092652,
+        "measured": 15,
+        "median": 1003.1999998092651,
+        "min": 1001.5,
+        "missing": 0,
+        "p75": 1003.6999998092651,
+        "passed": 15
+      },
+      "candidateFixtureId": "reference-baseline-full",
+      "deployment": {
+        "baseline": {
+          "assets": "local",
+          "backend": "none"
+        },
+        "candidate": {
+          "assets": "local",
+          "backend": "none"
+        }
+      },
+      "eligibilityReasons": [],
+      "eligible": true,
+      "paired": {
+        "conclusion": "inconclusive",
+        "confidenceInterval": {
+          "high": 2.1999998092651367,
+          "level": 0.9999315068493151,
+          "low": -0.600001335144043,
+          "method": "paired-percentile-bootstrap",
+          "resamples": 293000
+        },
+        "count": 15,
+        "medianDifference": 0.6999998092651367,
+        "p75Delta": {
+          "confidenceInterval": {
+            "high": 2.1000003814697266,
+            "level": 0.9999315068493151,
+            "low": -0.4999990463256836,
+            "method": "paired-percentile-bootstrap",
+            "resamples": 293000
+          },
+          "estimate": 0.9499998092651367
+        },
+        "pairDifferenceP75": 1.5500001907348633
+      },
+      "scenarioId": "load",
+      "unit": "ms"
+    }
+  ],
+  "metricKey": "custom.audit.observed-window",
+  "multiplicity": {
+    "comparisons": 365,
+    "family": "batch:88d57f2d6e496f9392ae7b1939574f835ace3126823c323ad7a560e29f9fb017",
+    "familyLevel": 0.95,
+    "intervalLevel": 0.9999315068493151,
+    "intervals": 730,
+    "method": "bonferroni"
+  },
+  "sourceRunIds": [
+    "b5e0b9f4-e57a-4aa4-95d4-e9d3aefb9639"
+  ]
+}

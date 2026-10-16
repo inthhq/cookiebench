@@ -1,0 +1,488 @@
+{
+  "capabilities": [
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:9cb0676c-b7ab-4569-a5bd-36c5f7ce5657"
+      ],
+      "fixtureId": "react-c15t",
+      "framework": "react",
+      "id": "ae45f460-7e04-4bec-9769-41fa5cb56ab4",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:5ce893b0-d66f-40f6-befb-18cbd804a322"
+      ],
+      "fixtureId": "react-c15t",
+      "framework": "react",
+      "id": "f0446cd9-3e5d-48a1-8bc1-c7eb4f147b7d",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:95ed0c39-c466-4465-9969-eab26aab9094"
+      ],
+      "fixtureId": "react-c15t",
+      "framework": "react",
+      "id": "7e884258-c79e-4da5-94fc-b721777e309c",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:301dfadb-0040-4770-abae-1aae8ff32603"
+      ],
+      "fixtureId": "react-c15t",
+      "framework": "react",
+      "id": "62c2bb35-ef8a-466b-9a2e-1fa0be844621",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:0b1f2384-0a4d-44d1-9b97-4a03f44765bf"
+      ],
+      "fixtureId": "react-cookie-control",
+      "framework": "react",
+      "id": "569482e3-8b16-4a0c-aafb-1c8b3feb72b5",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:d43f6fbe-e263-45ad-b5b2-3ab95cbb8ae6"
+      ],
+      "fixtureId": "react-cookie-control",
+      "framework": "react",
+      "id": "a0f2755a-6fa2-4a31-ac95-0b856fe84c8f",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:c97fd67b-3184-4627-81c2-be24681cf882"
+      ],
+      "fixtureId": "react-cookie-control",
+      "framework": "react",
+      "id": "ce352f7f-aca5-4b10-8fea-decf6cae0bc3",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:c1179d1b-6956-4383-abf4-f776624773ea"
+      ],
+      "fixtureId": "react-cookie-control",
+      "framework": "react",
+      "id": "65f11a78-0331-4b2a-be02-aa46c0c861c0",
+      "mode": "hosted",
+      "reason": "0/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "unknown",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:5b0d9bd5-f4de-4107-8249-746bbe2f9a23"
+      ],
+      "fixtureId": "react-didomi",
+      "framework": "react",
+      "id": "a4e42049-8ce8-4287-a2f7-7a44e20975d7",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:bebded14-c5ba-4f2d-a170-6c6f67b9a9a4"
+      ],
+      "fixtureId": "react-didomi",
+      "framework": "react",
+      "id": "bc554403-1bab-4db0-9399-fe6ddfcc3cdd",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:acce2277-31d8-4e43-9be1-e666adbfa455"
+      ],
+      "fixtureId": "react-didomi",
+      "framework": "react",
+      "id": "3e9977fe-cc33-4c72-80f4-4a7bc9ccb355",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:ce800257-c2b3-44f3-9371-1cb17b81f7b4"
+      ],
+      "fixtureId": "react-didomi",
+      "framework": "react",
+      "id": "f4869bba-aeac-4129-ad83-1f5c6791b7aa",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:d151ac99-be3a-40de-8eda-b44c0ccb4b4a"
+      ],
+      "fixtureId": "react-enzuzo",
+      "framework": "react",
+      "id": "94b5d676-6991-4ae9-a826-6c6d04889351",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:3be5250c-2411-42df-906d-a836342ed216"
+      ],
+      "fixtureId": "react-enzuzo",
+      "framework": "react",
+      "id": "ba46703a-b326-4913-81da-0d62414b70d0",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:50def91f-7218-4fe4-b1fd-d5afec504bd3"
+      ],
+      "fixtureId": "react-enzuzo",
+      "framework": "react",
+      "id": "28001cf1-28be-4082-849b-29a9f5ffc9d8",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:d8c63c0b-f987-4cae-8350-144513c18f04"
+      ],
+      "fixtureId": "react-enzuzo",
+      "framework": "react",
+      "id": "184af33a-1e0f-4925-8a00-1014154383ee",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:9518f4d7-bbab-4520-82aa-769b87abba6d"
+      ],
+      "fixtureId": "react-iubenda",
+      "framework": "react",
+      "id": "7bcacde0-5174-44d8-8677-2631becbfee1",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:2cf98214-3eea-487d-b586-1285288e81cf"
+      ],
+      "fixtureId": "react-iubenda",
+      "framework": "react",
+      "id": "2bc9ff70-f9e6-42eb-8669-80af0c4deb0a",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:b335ccd8-8bc8-4b1c-b9ed-93ad5fd83ec4"
+      ],
+      "fixtureId": "react-iubenda",
+      "framework": "react",
+      "id": "90c0863e-cb63-4f6c-bde0-56013ca0d2b7",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:c36a7a37-30b0-4f98-a589-935c4ed469bc"
+      ],
+      "fixtureId": "react-iubenda",
+      "framework": "react",
+      "id": "87ac44c9-253b-4108-9792-1ce754d53ce7",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:fef9caa8-8e93-4165-a880-0600a8c63b98"
+      ],
+      "fixtureId": "react-ketch",
+      "framework": "react",
+      "id": "ed30f021-f851-4514-9c34-86886e320b6e",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:ef8d0475-c24e-45cd-87f8-931cef38063e"
+      ],
+      "fixtureId": "react-ketch",
+      "framework": "react",
+      "id": "4ec2ff30-6bdc-4bd4-99f4-d9728509de0c",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:981e90e5-06e2-4691-b133-915f822410fd"
+      ],
+      "fixtureId": "react-ketch",
+      "framework": "react",
+      "id": "bcce2d8e-1377-4175-8564-9170847bea30",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:1c602af0-304c-4806-bcb9-28128d1b6854"
+      ],
+      "fixtureId": "react-ketch",
+      "framework": "react",
+      "id": "60229378-a668-427c-add6-4dd61ddfa277",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:9acea1df-9204-43c6-8850-aa3397f0cb57"
+      ],
+      "fixtureId": "react-onetrust",
+      "framework": "react",
+      "id": "17255a07-208f-4a5e-ab63-bb0e035b5ea8",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:84cfe248-f75c-4ea8-adb0-e147e914a391"
+      ],
+      "fixtureId": "react-onetrust",
+      "framework": "react",
+      "id": "dc183813-81ff-4e51-be52-af3a6d58916b",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:66696c79-f28e-4361-8bc9-b6c5156d1d45"
+      ],
+      "fixtureId": "react-onetrust",
+      "framework": "react",
+      "id": "8796ec6c-8022-4c71-b2c2-a5f1fec3c6e5",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:64048c14-86bc-4a65-9f44-d91ed522a9ac"
+      ],
+      "fixtureId": "react-onetrust",
+      "framework": "react",
+      "id": "03d0ff5f-d689-4a0a-8e6b-6fbd4f164aed",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:2c178e5d-e4ca-4974-83ed-5136c321eab6"
+      ],
+      "fixtureId": "react-osano",
+      "framework": "react",
+      "id": "3939c500-80bf-4dad-a273-b4950839ff87",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:5b804429-c2ae-4c13-a0b7-e72fc4ea63b3"
+      ],
+      "fixtureId": "react-osano",
+      "framework": "react",
+      "id": "e7d934ed-51cd-4b7e-aa67-2af1273b7628",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:1f8272c1-caf2-4add-8c69-a12e23ce2e2a"
+      ],
+      "fixtureId": "react-osano",
+      "framework": "react",
+      "id": "5386460f-a95d-47d9-9497-b47ea585f13a",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:a98b02d0-a7d9-40c0-872b-6842bb29f441"
+      ],
+      "fixtureId": "react-osano",
+      "framework": "react",
+      "id": "60561e3b-6f9a-4652-87b5-cb233a76de72",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:load",
+      "evidence": [
+        "sample:5e6fa8b8-4c48-431f-9a70-deb337d06fe1"
+      ],
+      "fixtureId": "react-usercentrics",
+      "framework": "react",
+      "id": "6779829c-d65a-4f55-8210-c9bf5e36d9b4",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:accept",
+      "evidence": [
+        "sample:a84f0488-ff26-4b81-81d7-4c9db0d0633d"
+      ],
+      "fixtureId": "react-usercentrics",
+      "framework": "react",
+      "id": "2476372f-e01e-4633-a191-72e6a8e8f001",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:reject",
+      "evidence": [
+        "sample:3b019780-bd6d-41b3-a6d1-1af8197c2904"
+      ],
+      "fixtureId": "react-usercentrics",
+      "framework": "react",
+      "id": "c8e598b7-0d1c-4597-ac1a-bbc632055c98",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    },
+    {
+      "capability": "consent-flow:save",
+      "evidence": [
+        "sample:f5e61085-bb25-4f37-9f75-19de2b1a332c"
+      ],
+      "fixtureId": "react-usercentrics",
+      "framework": "react",
+      "id": "335819a6-b3ef-4598-9526-866486fb9c64",
+      "mode": "hosted",
+      "reason": "1/1 declared scenario attempts passed; this check covers only the recorded action, state, workload and profile",
+      "status": "verified",
+      "verifiedAt": "2026-10-15T14:43:40.878Z"
+    }
+  ],
+  "failures": [
+    {
+      "sampleId": "c1179d1b-6956-4383-abf4-f776624773ea",
+      "code": "unsupported-action",
+      "message": "Adapter does not declare the save action"
+    },
+    {
+      "sampleId": "c1179d1b-6956-4383-abf4-f776624773ea",
+      "code": "followup:unsupported-action",
+      "message": "Adapter does not declare the save action"
+    }
+  ],
+  "output": "/Users/kayleewilliams/.t3/worktrees/cookiebench/t3-9310a3fd/results/2026-10-15-matrix-rerun/desktop/react-correctness/attempt-001/envelope.json",
+  "runId": "21e12bfb-ff69-4bd9-bfab-bd4e0477a896",
+  "samples": 40,
+  "status": "incomplete"
+}
