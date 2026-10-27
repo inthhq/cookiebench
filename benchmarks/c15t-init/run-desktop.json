@@ -264,7 +264,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "2066cdff377e3ab83c8f4f2d4a9d869470a8c724a843adfc29b75f46f7ada56a",
+      "configurationHash": "7fba4e3ae4c5680d5a614bb5df6634d93039bd9992bfe8d4f6286edb7b3a4486",
       "deployment": {
         "assets": "local",
         "backend": "controlled-local"
@@ -276,9 +276,10 @@
       "presentation": "default",
       "product": "c15t",
       "provenance": {
-        "artifactIntegrity": "sha512-h8yKwuOn1xPuK4EFmMyvZrIxJUBCoDno3Yyunonnlvzc5oIrqyNn0aI14XRMmkmeRG8H6gE04ua+AsuVP0ikyw==",
+        "artifactIntegrity": "fixture-source-only",
         "lockfileHash": "b88c320b796eb3cdb271e3696e4a817d98738c05ad207098c87022b55b06c678",
-        "sourceUrl": "https://registry.npmjs.org/@c15t/browser/-/browser-3.0.0.tgz"
+        "sourceUrl": "https://github.com/c15t/c15t/tree/d5db584e7c783c16e54d1a364f0443914b05fa0e",
+        "sourceCommit": "d5db584e7c783c16e54d1a364f0443914b05fa0e"
       },
       "revision": "3.2.0-canary.0-backend-script-before",
       "schemaVersion": 3,
@@ -304,7 +305,7 @@
         }
       },
       "url": "https://benchmarks-with-cookie-yes.vercel.app:4610/backend-before",
-      "version": "3.0.0",
+      "version": "3.2.0-canary.0",
       "resolveHost": "127.0.0.1"
     },
     {
@@ -327,7 +328,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "ec0d060d0e80685ac3f15b3c8fa57bda51dc5cf21b54a7f13a98e46ee25e762d",
+      "configurationHash": "9a2fc67321e5d839dcb71bb8ebb1a9e8997438ac853d66a8148602f5ffef86fb",
       "deployment": {
         "assets": "local",
         "backend": "controlled-local"
@@ -339,9 +340,10 @@
       "presentation": "default",
       "product": "c15t",
       "provenance": {
-        "artifactIntegrity": "sha512-h8yKwuOn1xPuK4EFmMyvZrIxJUBCoDno3Yyunonnlvzc5oIrqyNn0aI14XRMmkmeRG8H6gE04ua+AsuVP0ikyw==",
+        "artifactIntegrity": "fixture-source-only",
         "lockfileHash": "b88c320b796eb3cdb271e3696e4a817d98738c05ad207098c87022b55b06c678",
-        "sourceUrl": "https://registry.npmjs.org/@c15t/browser/-/browser-3.0.0.tgz"
+        "sourceUrl": "https://github.com/c15t/c15t/tree/d5db584e7c783c16e54d1a364f0443914b05fa0e",
+        "sourceCommit": "d5db584e7c783c16e54d1a364f0443914b05fa0e"
       },
       "revision": "3.2.0-canary.0-backend-script-early-init",
       "schemaVersion": 3,
@@ -367,7 +369,7 @@
         }
       },
       "url": "https://benchmarks-with-cookie-yes.vercel.app:4610/backend-after",
-      "version": "3.0.0",
+      "version": "3.2.0-canary.0",
       "resolveHost": "127.0.0.1"
     },
     {
@@ -390,7 +392,7 @@
         "withdraw": "[data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "837858d33f16a0040d57d855795cbdd2824d4e08fd95649bf47314b171dcd5e5",
+      "configurationHash": "8836bc6f5a6e831332dd86f2187ee141176973a09655a979e4664b19f391ffea",
       "deployment": {
         "assets": "local",
         "backend": "controlled-local"
@@ -402,9 +404,10 @@
       "presentation": "default",
       "product": "c15t",
       "provenance": {
-        "artifactIntegrity": "sha512-h8yKwuOn1xPuK4EFmMyvZrIxJUBCoDno3Yyunonnlvzc5oIrqyNn0aI14XRMmkmeRG8H6gE04ua+AsuVP0ikyw==",
+        "artifactIntegrity": "fixture-source-only",
         "lockfileHash": "b88c320b796eb3cdb271e3696e4a817d98738c05ad207098c87022b55b06c678",
-        "sourceUrl": "https://registry.npmjs.org/@c15t/browser/-/browser-3.0.0.tgz"
+        "sourceUrl": "https://github.com/c15t/c15t/tree/d5db584e7c783c16e54d1a364f0443914b05fa0e",
+        "sourceCommit": "d5db584e7c783c16e54d1a364f0443914b05fa0e"
       },
       "revision": "3.2.0-canary.0-backend-script-early-init-async-tag",
       "schemaVersion": 3,
@@ -430,7 +433,7 @@
         }
       },
       "url": "https://benchmarks-with-cookie-yes.vercel.app:4610/backend-after-init",
-      "version": "3.0.0",
+      "version": "3.2.0-canary.0",
       "resolveHost": "127.0.0.1"
     }
   ]
