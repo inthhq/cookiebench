@@ -49,7 +49,7 @@ Medians in milliseconds, from `report.json`. Transfer is the initial page's byte
 | Backend, after | 187 | 154 | 128 | 108 | 5.1 KB |
 | Backend, after + `c15t.init.js` | 158 | 149 | 128 | 106 | 7.2 KB |
 
-- **The change:** on a cold visit, adding `c15t.init.js` shows the banner 46 ms sooner. The change alone gives 17 ms, which is below the noise threshold in "Known gaps", so this run doesn't confirm that part. The order matches the emulated-mobile runs, where both gaps are larger.
+- **The change:** on a cold visit, early `/init` and `c15t.init.js` together show the banner 46 ms sooner than before (204 to 158 ms). Early `/init` alone gives 17 ms, which is below the noise threshold in "Known gaps", so this run doesn't confirm it. Adding the tag on top gives a further 29 ms. The order matches the emulated-mobile runs, where the gaps are larger.
 - **Against CookieYes:** compare CookieYes with c15t 3.0.0 + Inth. Both reach real services over the internet. c15t shows the banner 59 ms sooner cold and 30 ms later warm. The `backend-*` rows use a server on the same machine with only the fixed 80 ms delay, so they are not a fair comparison with CookieYes.
 - **Warm cache:** CookieYes sends `max-age=0, must-revalidate`, so a warm visit still checks script.js, banner.js and its config files one after another, each answered with a 304. That halves its banner time. c15t's `/init` depends on the visitor and is never cached, so every c15t visit waits for one `/init` round trip. In the c15t 3.0.0 fixture, `c15t.js` comes from the fixture server with `max-age=3600` and is not revalidated.
 - **LCP:** CookieYes adds 12 ms on a cold visit and c15t adds 24 to 32 ms. Neither changes LCP much on this profile.
