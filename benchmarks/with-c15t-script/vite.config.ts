@@ -5,6 +5,9 @@ export default defineConfig({
   build: {
     rolldownOptions: {
       input: {
+        "backend-after": "backend-after.html",
+        "backend-after-init": "backend-after-init.html",
+        "backend-before": "backend-before.html",
         baseline: "baseline.html",
         cmp: "index.html",
         cookieyes: "cookieyes.html",

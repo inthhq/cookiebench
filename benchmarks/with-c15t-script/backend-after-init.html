@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CookieBench script consent fixture</title>
+    <script src="http://localhost:4812/api/c15t/c15t.init.js" async></script>
+    <script>
+      window.c15t = window.c15t || [];
+      (function () {
+        var url = new URL(location.href);
+        var token =
+          url.searchParams.get("token") ||
+          url.searchParams.get("cbToken") ||
+          "fixture";
+        var count = Number(url.searchParams.get("scripts") || 2);
+        var scripts = [];
+        for (var i = 0; i < count; i++) {
+          var category = i % 2 === 0 ? "measurement" : "marketing";
+          var query = new URLSearchParams({
+            category: category,
+            id: "script-" + i,
+          });
+          query.set("token", token);
+          scripts.push({
+            category: category,
+            id: "script-" + i,
+            src: "/controlled/script?" + query,
+          });
+        }
+        window.c15t.push([
+          "config",
+          {
+            consentCategories: ["necessary", "measurement", "marketing"],
+            scripts: scripts,
+          },
+        ]);
+      })();
+    </script>
+    <script src="http://localhost:4812/api/c15t/c15t.js" defer></script>
+  </head>
+  <body>
+    <div id="content"></div>
+    <button id="reopen-preferences" type="button">Privacy preferences</button
+    ><button id="withdraw-consent" type="button">
+      Withdraw optional consent
+    </button>
+    <script type="module" src="/src/backend-tag.ts"></script>
+  </body>
+</html>
