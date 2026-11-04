@@ -16,6 +16,9 @@ const excluded = new Set([
   "dist-baseline",
   ".turbo",
   ".tanstack",
+  ".svelte-kit",
+  "build",
+  "build-baseline",
 ]);
 export function sourceHash(directory: string): string {
   const hash = createHash("sha256");

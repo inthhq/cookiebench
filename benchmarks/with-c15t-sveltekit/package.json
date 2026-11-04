@@ -1,0 +1,28 @@
+{
+  "name": "with-c15t-sveltekit",
+  "version": "3.0.0",
+  "private": true,
+  "type": "module",
+  "imports": {
+    "#lib/*": "./src/lib/*"
+  },
+  "scripts": {
+    "build": "COOKIEBENCH_BASELINE=1 vite build && vite build",
+    "typecheck": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "start": "node ../../packages/fixture-support/src/serve.ts --port 4317 --upstream-port 4417 --baseline-upstream-port 4517 --baseline-entry build-baseline/index.js -- node build/index.js"
+  },
+  "dependencies": {
+    "@c15t/svelte": "3.2.2",
+    "@cookiebench/fixture-support": "workspace:*",
+    "@sveltejs/adapter-node": "6.0.1",
+    "@sveltejs/kit": "3.1.1",
+    "@sveltejs/vite-plugin-svelte": "7.3.1",
+    "svelte": "5.57.1",
+    "vite": "8.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "svelte-check": "4.7.6",
+    "typescript": "catalog:"
+  }
+}

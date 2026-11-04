@@ -36,6 +36,7 @@ const fixtureDirectories = [
   "nuxt",
   "astro",
   "tanstack-start",
+  "sveltekit",
 ].map((name) => `benchmarks/with-c15t-${name}`);
 const snapshotDirectories = [
   ...fixtureDirectories,
@@ -663,6 +664,7 @@ function createConsumer(): void {
           astro: "@c15t/astro",
           nuxt: "@c15t/vue",
           "script-tag": "@c15t/browser",
+          sveltekit: "@c15t/svelte",
           "tanstack-start": "@c15t/tanstack-start",
         };
         const packageName = packageNames[fixture.framework] ?? "c15t";

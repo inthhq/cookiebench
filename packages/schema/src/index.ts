@@ -28,6 +28,7 @@ export const Framework = Schema.Literals([
   "nuxt",
   "astro",
   "tanstack-start",
+  "sveltekit",
 ]);
 export type Framework = typeof Framework.Type;
 export const DeploymentMode = Schema.Literals([

@@ -15,6 +15,7 @@ const cells = [
   ["nuxt", "with-c15t-nuxt", "run.json"],
   ["astro", "with-c15t-astro", "run.json"],
   ["tanstack-start", "with-c15t-tanstack-start", "run.json"],
+  ["sveltekit", "with-c15t-sveltekit", "run.json"],
 ] as const;
 
 const builtDirectories = new Set<string>();
