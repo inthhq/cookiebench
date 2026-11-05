@@ -1,0 +1,3 @@
+cy-mobile-load cy-mobile.json load 15 3
+c15t-mobile-accept c15t-canary-mobile.json accept 10 3
+cy-mobile-accept cy-mobile.json accept 10 3

@@ -104,3 +104,15 @@ of `reports/nuxt.md`, with the scorecard first. Write it after the first
 kept `load` run and update it in place. The final message to the parent is
 the full report text, not a summary, because the parent cannot read this
 machine's files.
+
+## Outcome
+
+All four measurement lanes (astro, tanstack, script, sveltekit) completed on 2026-11-05.
+
+- Final reports: `round8/reports/m1/frameworks-<lane>.md`. Shared setup notes: `round8/reports/m1/SETUP-m1.md`.
+- Lane scripts and run configs: `round8/m1-lanes/<lane>/{bin,configs}/`. The shared runner wrapper and environment: `round8/m1-lanes/tools/{cb-run.sh,env.sh}`.
+
+Two shared-tooling findings from the lanes:
+
+1. When two runners poll at once, the stale-lock recovery in `packages/runner/src/lifecycle.ts` throws a raw `EEXIST` on `cookiebench-v3-measurement.lock.recovery` instead of reporting "Another measured workload is active". The shared `cb-run.sh` retries only on that message, so the run fails rather than waits.
+2. The CookieYes adapter declares no `save` action, so every CookieYes `save` run fails with `unsupported-action`.

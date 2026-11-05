@@ -1,0 +1,371 @@
+{
+ "fixtures": [
+  {
+   "adapter": {
+    "accept": "[data-testid=\"consent-banner-accept-button\"]",
+    "banner": "[data-testid=\"consent-banner-root\"]",
+    "categoryToggle": "[data-testid=\"consent-widget-switch-measurement\"]",
+    "controlledRequestPath": "/controlled/script",
+    "overlay": "[data-testid=\"consent-dialog-overlay\"], [data-testid=\"consent-banner-overlay\"]",
+    "pageAction": "#page-action",
+    "preferences": "[data-testid=\"consent-banner-customize-button\"]",
+    "preferencesPanel": "[data-testid=\"consent-dialog-root\"]",
+    "primaryContent": "#primary-content",
+    "ready": "html[data-consent-ready=\"true\"]",
+    "reject": "[data-testid=\"consent-banner-reject-button\"]",
+    "reopen": "#reopen-preferences",
+    "save": "[data-testid=\"consent-widget-footer-save-button\"]",
+    "serverEventsUrl": "http://127.0.0.1:4317/controlled/events",
+    "stateGlobal": "__cookiebench",
+    "withdraw": "[data-testid=\"consent-widget-footer-reject-button\"], [data-testid=\"consent-widget-reject-button\"]"
+   },
+   "baseline": true,
+   "configurationHash": "8a25ed379e1d7a8156446076dc3c41d8736235bad68f37b6c222955d2254b201",
+   "deployment": {
+    "assets": "local",
+    "backend": "none"
+   },
+   "framework": "sveltekit",
+   "frameworkVersion": "3.1.1",
+   "id": "sveltekit-baseline",
+   "mode": "manifest",
+   "presentation": "default",
+   "product": "baseline",
+   "provenance": {
+    "artifactIntegrity": "sha512-BiEMvekYXE9Gu/YhWJ/yJ0WDLH1PX/dmjuAeFp5rrtdmgdzkjt7DvimlSP+/U4tgposl7pkE20luHpcnc6BgRw==",
+    "lockfileHash": "5bd90039479fc25aa31da1ffc87c79d77e87359849539f608828185086c4251d",
+    "sourceUrl": "https://registry.npmjs.org/@sveltejs/kit/-/kit-3.1.1.tgz"
+   },
+   "revision": "3.3.0-article-v1-inth-build-manifest",
+   "schemaVersion": 3,
+   "server": {
+    "cwd": "/Users/kayleewilliams/.t3/scratch/lcp-fleet/cookiebench/benchmarks/with-c15t-sveltekit",
+    "readinessTimeoutMs": 120000,
+    "readinessUrl": "http://127.0.0.1:4317/health",
+    "start": {
+     "args": [
+      "start"
+     ],
+     "command": "pnpm"
+    }
+   },
+   "url": "http://127.0.0.1:4317/baseline/",
+   "version": "3.1.1"
+  },
+  {
+   "adapter": {
+    "accept": "[data-testid=\"consent-banner-accept-button\"]",
+    "banner": "[data-testid=\"consent-banner-root\"]",
+    "categoryToggle": "[data-testid=\"consent-widget-switch-measurement\"]",
+    "controlledRequestPath": "/controlled/script",
+    "overlay": "[data-testid=\"consent-dialog-overlay\"], [data-testid=\"consent-banner-overlay\"]",
+    "pageAction": "#page-action",
+    "preferences": "[data-testid=\"consent-banner-customize-button\"]",
+    "preferencesPanel": "[data-testid=\"consent-dialog-root\"]",
+    "primaryContent": "#primary-content",
+    "ready": "html[data-consent-ready=\"true\"]",
+    "reject": "[data-testid=\"consent-banner-reject-button\"]",
+    "reopen": "#reopen-preferences",
+    "save": "[data-testid=\"consent-widget-footer-save-button\"]",
+    "serverEventsUrl": "http://127.0.0.1:4317/controlled/events",
+    "stateGlobal": "__cookiebench",
+    "withdraw": "[data-testid=\"consent-widget-footer-reject-button\"], [data-testid=\"consent-widget-reject-button\"]"
+   },
+   "baseline": false,
+   "configurationHash": "20c6b656c537a8741b38cf758f0dee1dd3819a417b9fc519ad145cedd330c225",
+   "deployment": {
+    "assets": "local",
+    "backend": "remote-service"
+   },
+   "framework": "sveltekit",
+   "frameworkVersion": "3.1.1",
+   "id": "sveltekit-c15t",
+   "mode": "manifest",
+   "presentation": "default",
+   "product": "c15t",
+   "provenance": {
+    "artifactIntegrity": "sha512-WIM7JC63q27InzldRfVz0OJj2/bFxrnAdcBjufNySYBEVjgrtohUmiJk4r+cvEQpHRF3sfiOH4ZPlZb0BNkbAg==",
+    "lockfileHash": "5bd90039479fc25aa31da1ffc87c79d77e87359849539f608828185086c4251d",
+    "sourceUrl": "https://registry.npmjs.org/@c15t/svelte/-/svelte-3.2.2.tgz"
+   },
+   "revision": "3.3.0-article-v1-inth-build-manifest-inline-styles",
+   "schemaVersion": 3,
+   "server": {
+    "cwd": "/Users/kayleewilliams/.t3/scratch/lcp-fleet/cookiebench/benchmarks/with-c15t-sveltekit",
+    "readinessTimeoutMs": 120000,
+    "readinessUrl": "http://127.0.0.1:4317/health",
+    "start": {
+     "args": [
+      "start"
+     ],
+     "command": "pnpm"
+    }
+   },
+   "url": "http://127.0.0.1:4317/",
+   "version": "3.2.2"
+  }
+ ],
+ "scenarios": [
+  {
+   "action": "load",
+   "actionDeadlineMs": 5000,
+   "cache": "cold",
+   "expectedBanner": true,
+   "followupOffsetMs": 500,
+   "id": "load",
+   "input": "pointer",
+   "navigationTimeoutMs": 15000,
+   "observationMs": 5000,
+   "readiness": "ready",
+   "visitor": "fresh",
+   "workload": {
+    "categories": [
+     "measurement",
+     "marketing"
+    ],
+    "scriptCount": 2
+   }
+  },
+  {
+   "action": "accept",
+   "actionDeadlineMs": 5000,
+   "cache": "cold",
+   "expectedBanner": true,
+   "followupOffsetMs": 500,
+   "id": "accept",
+   "input": "pointer",
+   "navigationTimeoutMs": 15000,
+   "observationMs": 1500,
+   "readiness": "ready",
+   "visitor": "fresh",
+   "workload": {
+    "categories": [
+     "measurement",
+     "marketing"
+    ],
+    "scriptCount": 2
+   }
+  },
+  {
+   "action": "accept",
+   "actionDeadlineMs": 5000,
+   "cache": "cold",
+   "expectedBanner": true,
+   "followupOffsetMs": 500,
+   "id": "accept-early",
+   "input": "pointer",
+   "navigationTimeoutMs": 15000,
+   "observationMs": 1500,
+   "readiness": "early",
+   "visitor": "fresh",
+   "workload": {
+    "categories": [
+     "measurement",
+     "marketing"
+    ],
+    "scriptCount": 2
+   }
+  },
+  {
+   "action": "accept",
+   "actionDeadlineMs": 5000,
+   "cache": "cold",
+   "expectedBanner": true,
+   "followupOffsetMs": 500,
+   "id": "accept-large",
+   "input": "pointer",
+   "navigationTimeoutMs": 15000,
+   "observationMs": 1500,
+   "readiness": "ready",
+   "visitor": "fresh",
+   "workload": {
+    "scriptCount": 20,
+    "categories": [
+     "measurement",
+     "marketing"
+    ]
+   }
+  },
+  {
+   "action": "reject",
+   "actionDeadlineMs": 5000,
+   "cache": "cold",
+   "expectedBanner": true,
+   "followupOffsetMs": 500,
+   "id": "reject",
+   "input": "pointer",
+   "navigationTimeoutMs": 15000,
+   "observationMs": 1500,
+   "readiness": "ready",
+   "visitor": "fresh",
+   "workload": {
+    "categories": [
+     "measurement",
+     "marketing"
+    ],
+    "scriptCount": 2
+   }
+  },
+  {
+   "action": "save",
+   "actionDeadlineMs": 5000,
+   "cache": "cold",
+   "expectedBanner": true,
+   "followupOffsetMs": 500,
+   "id": "save",
+   "input": "pointer",
+   "navigationTimeoutMs": 15000,
+   "observationMs": 1500,
+   "readiness": "ready",
+   "visitor": "fresh",
+   "workload": {
+    "categories": [
+     "measurement",
+     "marketing"
+    ],
+    "scriptCount": 2
+   }
+  },
+  {
+   "action": "preferences",
+   "actionDeadlineMs": 5000,
+   "cache": "cold",
+   "expectedBanner": true,
+   "followupOffsetMs": 500,
+   "id": "preferences",
+   "input": "pointer",
+   "navigationTimeoutMs": 15000,
+   "observationMs": 1500,
+   "readiness": "ready",
+   "visitor": "fresh",
+   "workload": {
+    "categories": [
+     "measurement",
+     "marketing"
+    ],
+    "scriptCount": 2
+   }
+  },
+  {
+   "action": "withdraw",
+   "actionDeadlineMs": 5000,
+   "cache": "warm",
+   "expectedBanner": false,
+   "followupOffsetMs": 500,
+   "id": "withdraw",
+   "input": "pointer",
+   "navigationTimeoutMs": 15000,
+   "observationMs": 1500,
+   "readiness": "ready",
+   "visitor": "returning-accepted",
+   "workload": {
+    "categories": [
+     "measurement",
+     "marketing"
+    ],
+    "scriptCount": 2
+   }
+  },
+  {
+   "action": "load",
+   "actionDeadlineMs": 5000,
+   "cache": "warm",
+   "expectedBanner": false,
+   "followupOffsetMs": 500,
+   "id": "returning-accepted",
+   "input": "pointer",
+   "navigationTimeoutMs": 15000,
+   "observationMs": 5000,
+   "readiness": "ready",
+   "visitor": "returning-accepted",
+   "workload": {
+    "categories": [
+     "measurement",
+     "marketing"
+    ],
+    "scriptCount": 2
+   }
+  },
+  {
+   "action": "load",
+   "actionDeadlineMs": 5000,
+   "cache": "warm",
+   "expectedBanner": false,
+   "followupOffsetMs": 500,
+   "id": "returning-rejected",
+   "input": "pointer",
+   "navigationTimeoutMs": 15000,
+   "observationMs": 5000,
+   "readiness": "ready",
+   "visitor": "returning-rejected",
+   "workload": {
+    "categories": [
+     "measurement",
+     "marketing"
+    ],
+    "scriptCount": 2
+   }
+  },
+  {
+   "action": "reject",
+   "actionDeadlineMs": 5000,
+   "cache": "cold",
+   "expectedBanner": true,
+   "followupOffsetMs": 500,
+   "id": "reject-keyboard",
+   "input": "keyboard",
+   "navigationTimeoutMs": 15000,
+   "observationMs": 1500,
+   "readiness": "ready",
+   "visitor": "fresh",
+   "workload": {
+    "categories": [
+     "measurement",
+     "marketing"
+    ],
+    "scriptCount": 2
+   }
+  },
+  {
+   "action": "save",
+   "actionDeadlineMs": 5000,
+   "cache": "cold",
+   "expectedBanner": true,
+   "followupOffsetMs": 100,
+   "id": "save-page-probe-100ms",
+   "input": "pointer",
+   "navigationTimeoutMs": 15000,
+   "observationMs": 1500,
+   "readiness": "ready",
+   "visitor": "fresh",
+   "workload": {
+    "categories": [
+     "measurement",
+     "marketing"
+    ],
+    "scriptCount": 2
+   }
+  }
+ ],
+ "profile": {
+  "cpuSlowdown": 1,
+  "deviceScaleFactor": 1,
+  "hasTouch": false,
+  "id": "desktop-article-v1",
+  "isMobile": false,
+  "locale": "en-GB",
+  "network": {
+   "downloadBytesPerSecond": 12500000,
+   "latencyMs": 0,
+   "uploadBytesPerSecond": 12500000
+  },
+  "region": "GB",
+  "viewport": {
+   "height": 768,
+   "width": 1365
+  }
+ },
+ "iterations": 15,
+ "warmups": 3,
+ "seed": 42
+}

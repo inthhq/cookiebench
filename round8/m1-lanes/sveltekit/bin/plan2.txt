@@ -1,0 +1,8 @@
+c15t-mobile-reject c15t-canary-mobile.json reject 10 3
+c15t-mobile-save c15t-canary-mobile.json save 10 3
+c15t-mobile-preferences c15t-canary-mobile.json preferences 10 3
+c15t-mobile-returning-accepted c15t-canary-mobile.json returning-accepted 10 3
+cy-mobile-reject cy-mobile.json reject 10 3
+cy-mobile-save cy-mobile.json save 10 3
+c15t-desktop-load c15t-canary-desktop.json load 15 3
+cy-desktop-load cy-desktop.json load 15 3
