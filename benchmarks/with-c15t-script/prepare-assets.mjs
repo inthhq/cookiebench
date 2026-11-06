@@ -5,7 +5,7 @@ import { copyFile, mkdir } from "node:fs/promises";
 // c15t.records.js from the same folder, so copy whichever of them the installed
 // @c15t/browser exports. On canary the extra files are not in the package's
 // exports map, so import.meta.resolve itself throws; keep it inside the try.
-const files = ["c15t.js", "c15t.hosted.js", "c15t.commit.js", "c15t.records.js"];
+const files = ["c15t.js", "c15t.hosted.js", "c15t.commit.js", "c15t.records.js", "c15t.dialog.js"];
 
 await mkdir(new URL("public/vendor", import.meta.url), { recursive: true });
 for (const file of files) {
