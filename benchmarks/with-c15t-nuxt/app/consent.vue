@@ -9,6 +9,11 @@ import { pageHTML, pageCSS } from "@cookiebench/fixture-support/page";
 import { onMounted, onUnmounted, watch } from "vue";
 
 import { useConsentKernel, useConsentSnapshot } from "#c15t/composables";
+import { useHead } from "#imports";
+
+// Server-rendered verbatim in <head>, like the other fixtures; a text child
+// would be HTML-escaped and break selectors such as `.site-header>a`.
+useHead({ style: [{ innerHTML: pageCSS }] });
 
 const kernel = useConsentKernel();
 const snapshot = useConsentSnapshot();
@@ -26,7 +31,6 @@ watch(snapshot, (value) => {
 onUnmounted(() => loader?.dispose());
 </script>
 <template>
-  <component is="style">{{ pageCSS }}</component>
   <div v-html="pageHTML"></div>
   <button
     id="reopen-preferences"

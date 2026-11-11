@@ -20,7 +20,7 @@
         "withdraw": "[data-testid=\"consent-widget-footer-reject-button\"], [data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": true,
-      "configurationHash": "8d40ae9358f6da5d87a768f2cd90d51ba88b05637b6a1c578ac2b40a13a46f94",
+      "configurationHash": "65d7806f03ab86e8897906c69b9911b951045d94b903157eb092d4a7c4d62401",
       "deployment": {
         "assets": "local",
         "backend": "none"
@@ -36,7 +36,7 @@
         "lockfileHash": "b88c320b796eb3cdb271e3696e4a817d98738c05ad207098c87022b55b06c678",
         "sourceUrl": "https://registry.npmjs.org/nuxt/-/nuxt-4.5.2.tgz"
       },
-      "revision": "3.3.1-article-v1-inth-build-manifest",
+      "revision": "3.3.1-article-v1-inth-build-manifest-head-style",
       "schemaVersion": 3,
       "server": {
         "build": {
@@ -74,7 +74,7 @@
         "withdraw": "[data-testid=\"consent-widget-footer-reject-button\"], [data-testid=\"consent-widget-reject-button\"]"
       },
       "baseline": false,
-      "configurationHash": "342195e34fe5e5536faeb606137077cd3315a4fb53051fffa27b2da49d44a7e2",
+      "configurationHash": "f88b34a3c57f68fbf7cf3bdaf449c93d81ae525b07fb04dcaede67d138420002",
       "deployment": {
         "assets": "local",
         "backend": "remote-service"
@@ -90,7 +90,7 @@
         "lockfileHash": "b88c320b796eb3cdb271e3696e4a817d98738c05ad207098c87022b55b06c678",
         "sourceUrl": "https://registry.npmjs.org/@c15t/vue/-/vue-3.0.0.tgz"
       },
-      "revision": "3.3.1-article-v1-inth-build-manifest",
+      "revision": "3.3.1-article-v1-inth-build-manifest-head-style",
       "schemaVersion": 3,
       "server": {
         "build": {
