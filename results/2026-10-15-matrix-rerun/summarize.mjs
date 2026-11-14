@@ -42,6 +42,27 @@ const loadKeys = [
   "page.ttfb",
 ];
 const p75 = (metric) => metric?.p75 ?? null;
+// A timing the browser reported but the analysis left out, such as one from a
+// failed or incomplete check.
+const excluded = (metric) => (metric?.excluded ?? 0) > 0;
+
+/** Visits per LCP element role: content, banner, other, or no attribution */
+function lcpRoles(attribution) {
+  const roles = {
+    banner: 0,
+    content: 0,
+    missing: attribution?.missing ?? 0,
+    other: 0,
+  };
+  for (const element of attribution?.elements ?? []) {
+    const role =
+      element.role === "banner" || element.role === "content"
+        ? element.role
+        : "other";
+    roles[role] += element.samples;
+  }
+  return roles;
+}
 const compared = [
   "page.lcp",
   "initial.transfer",
@@ -88,7 +109,13 @@ function flowCells(report) {
         followupInputToNextPaint: median(
           group.metrics["action.followup-input-to-next-paint"]
         ),
+        followupInputToNextPaintExcluded: excluded(
+          group.metrics["action.followup-input-to-next-paint"]
+        ),
         inputToNextPaint: median(group.metrics["action.input-to-next-paint"]),
+        inputToNextPaintExcluded: excluded(
+          group.metrics["action.input-to-next-paint"]
+        ),
         reasons: group.correctness.reasons,
         status: flowStatus(group.correctness),
       },
@@ -134,6 +161,7 @@ function profileRows(profile) {
             ])
           ),
           correctness: group.correctness,
+          lcpRoles: lcpRoles(group.lcpAttribution),
           medians: Object.fromEntries(
             loadKeys.map((key) => [key, median(group.metrics[key])])
           ),
