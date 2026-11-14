@@ -29,13 +29,26 @@ const framework = (entry) =>
 
 const loadKeys = [
   "banner.visible",
+  "consent.resolution",
+  "initial.decoded-body",
   "initial.long-task-blocking",
+  "initial.requests",
+  "initial.third-party-requests",
   "initial.transfer",
   "page.cls",
   "page.fcp",
   "page.lcp",
+  "page.primary-content-paint",
+  "page.ttfb",
 ];
-const compared = ["page.lcp", "initial.transfer", "page.primary-content-paint"];
+const p75 = (metric) => metric?.p75 ?? null;
+const compared = [
+  "page.lcp",
+  "initial.transfer",
+  "page.primary-content-paint",
+  "page.cls",
+  "initial.decoded-body",
+];
 
 function comparison(attempt, metric, fixture) {
   const file = path.join(attempt, `compare-${metric}`, "stdout.json");
@@ -72,6 +85,9 @@ function flowCells(report) {
     .map((group) => [
       group,
       {
+        followupInputToNextPaint: median(
+          group.metrics["action.followup-input-to-next-paint"]
+        ),
         inputToNextPaint: median(group.metrics["action.input-to-next-paint"]),
         reasons: group.correctness.reasons,
         status: flowStatus(group.correctness),
@@ -120,6 +136,9 @@ function profileRows(profile) {
           correctness: group.correctness,
           medians: Object.fromEntries(
             loadKeys.map((key) => [key, median(group.metrics[key])])
+          ),
+          p75: Object.fromEntries(
+            loadKeys.map((key) => [key, p75(group.metrics[key])])
           ),
         };
       }
